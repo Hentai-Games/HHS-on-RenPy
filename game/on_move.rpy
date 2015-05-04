@@ -83,13 +83,13 @@ init python:
 # Проверка одежды
     def checkClothes(location):
         location = getLoc(location)
-        if location.position != 'safe':
+        if location.position != 'safe' and location.position != 'self' and location.position != 'tech':
             if player.isCover('верх','низ') == False and player.stats.corruption < 80:
                 renpy.scene(layer='screens')
                 renpy.jump('naked')
             elif player.isCover('верх','низ') == False and player.stats.corruption >= 80 and location.id != 'loc_beach' and location.id != 'loc_pool':
                 renpy.scene(layer='screens')
                 renpy.jump('naked')
-            elif player.getCovPurpose('swim') and location.id != 'loc_beach' and location.id != 'loc_pool':
+            elif player.getClothPurpose('swim') and location.id != 'loc_beach' and location.id != 'loc_pool':
                 renpy.scene(layer='screens')
                 renpy.jump('naked')

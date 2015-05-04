@@ -135,10 +135,18 @@ init python:
             description += '\nНа ней сегодня '
         else:
             description += '\nНа нём сегодня '
-        if char.wear == []:
+            
+        if len(char.wear) == 0:
             description += 'ничего нет.'
         else:
-            description += ', '.join(char.wear)
+            counter = 0
+            for x in char.wear:
+                counter += 1
+                description += x.name
+                if counter < len(char.wear):
+                    description += ', '
+                else:
+                    description += '.'
         return description
 
 # self.inventory = inventory

@@ -77,6 +77,9 @@ init 10 python:
             elif x == 'loc_office': loc = Location(id = x, name = 'офис', base_prob = 0, position = 'school')
 
             elif x == 'loc_dreams': loc = Location(id = x, name = 'Сны', base_prob = 0, position = 'self')
+            elif x == 'loc_swim': loc = Location(id = x, name = 'Плавание', base_prob = 0, position = 'self')
+            elif x == 'loc_taxi': loc = Location(id = x, name = 'Такси', base_prob = 0, position = 'other')
+            
             elif x == 'loc_class1Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
             elif x == 'loc_class2Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
             elif x == 'loc_class3Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
@@ -84,7 +87,7 @@ init 10 python:
             elif x == 'loc_class5Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
             elif x == 'loc_gymLearn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
             elif x == 'loc_poolLearn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
-
+            
             else: loc = Location(id = x, name = 'UNKNOWN', base_prob = 0, position = 'other')
             locations.append(loc)
 
@@ -187,6 +190,7 @@ label test:
         player.addItems('Салфетка','Пиджак','Длинная юбка')
     show daytime
     hide screen stats_screen
+    $ showChars()
     player.say 'тест'
     screen empty:
         fixed:
@@ -235,10 +239,11 @@ label loc_home:
                 if player.hasItem('Сырая еда'):
                     $ temp = player.getItem('Сырая еда').durability
                     text 'Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, Вы прикидываете, что её хватит ещё на [temp] раз.' xalign 0.0 yalign 1.0 style style.description
-                    textbutton 'Поесть' xalign 0.4 yalign 0.6 action [
-                    Function(player.eat, player.getItem('Сырая еда')),
-                    Function(changetime, 15),
-                    Function(move, curloc)]
+                    if ptime - last_eat > 4:
+                        textbutton 'Поесть' xalign 0.4 yalign 0.6 action [
+                        Function(player.eat, player.getItem('Сырая еда')),
+                        Function(changetime, 15),
+                        Function(move, curloc)] 
                 else :
                     text 'Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, Вы понимаете, что её не осталось СОВСЕМ. Надо срочно сгонять в магазин.' xalign 0.0 yalign 1.0 style style.description
                 textbutton 'Гостинная' xalign 0.5 yalign 0.8 action Function(move, 'loc_home') style "navigation_button" text_style "navigation_button_text"
@@ -496,6 +501,7 @@ label loc_street:
                     text 'Пляж, просто пляж. На нём можно неплохо загореть, если уделить этому недельку времени, или же просто искупаться.' style style.description
                 textbutton 'К дому' xalign 0.5 yalign 0.8 action [Function(changetime, 30),Function(move, 'loc_street')] style "navigation_button" text_style "navigation_button_text"
                 textbutton 'Раздевалка' xalign 0.8 yalign 0.55 action Function(move, 'loc_beachChange') style "navigation_button" text_style "navigation_button_text"
+                textbutton 'Плавать' xalign 0.2 yalign 0.5 action Function(move, 'loc_swim')
         call screen beach
 
         label loc_beachChange:

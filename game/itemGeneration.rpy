@@ -36,7 +36,7 @@ init python:
     allItems = [napkin, sandwich, eDrink, rawFood]
 
     
-    # Ваша одежда
+    # Женские вещи
     jaket = Clothing(
     lust = 0,
     corr = 0,

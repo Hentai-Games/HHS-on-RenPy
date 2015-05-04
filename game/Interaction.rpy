@@ -19,14 +19,37 @@ init python:
         return textList
 
     dialogueList = dialogueParser()
-
+    
     def dialogueSelector(speaker):
         tempList = []
         for x in dialogueList:
             if speaker.stats.corruption >= x.corr and ((speaker in studs and x.type == 'stud') or (speaker in teachers and x.type == 'teacher')):
                 tempList.append(x)
         return tempList[rand(0,len(tempList) - 1)].id
+        
+    def showChars():
+        myImage = player.picto
+        if showHover.sex == 'male':
+            anotherImage = 'pic/showStud/m_1.png'
+        else:
+            anotherImage = 'pic/showStud/f_1.png'
 
+        if showHover.lname == 'Данокова':
+            anotherImage = 'pic/teachers/danokova_1.png'
+        if showHover.lname == 'Фригидовна':
+            anotherImage = 'pic/teachers/frigidovna_1.png'
+        if showHover.lname == 'Биссектрисовна':
+            anotherImage = 'pic/teachers/bissektrisovna_1.png'
+        if showHover.lname == 'Диковна':
+            anotherImage = 'pic/teachers/dikovna_1.png'
+        if showHover.lname == 'Купрувна':
+            anotherImage = 'pic/teachers/kupruvna_1.png'
+        if showHover.lname == 'Мустангович':
+            anotherImage = 'pic/teachers/mustangovich_1.png'
+            
+        renpy.show('temp1', what = Image(myImage, xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
+        renpy.show('temp2', what = Image(anotherImage, xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
+        
     dummy = Char()
     interactionObj = ''
     lastView = 'locationPeoplePicto'
@@ -38,22 +61,6 @@ label locationPeople:
     $ renpy.call_screen(lastView)
 
 
-# screen locationPeopleList:
-    # tag interface
-    # fixed xpos 0.01 ypos 0.01:
-        # $ yalig = 0
-        # $ xalig = 0.0
-        # for x in getLoc(curloc).people:
-            # $ yalig += 0.05
-            # textbutton '[x.name]' xalign xalig yalign yalig xminimum 280 action [SetVariable('interactionObj',x), Show('show_stat')]
-            # if yalig >= 0.8:
-                # $ yalig = 0
-                # $ xalig += 0.35
-        # hbox:
-            # textbutton 'Назад' action [Hide('charInfoLeft'), Show('stats_screen'), Function(move, curloc)]
-            # textbutton 'Картинки' action [SetVariable('lastView','locationPeoplePicto'), Show('locationPeoplePicto')]
-
-
 screen locationPeoplePicto:
     tag interface
     fixed xpos 0.01 ypos 0.01:
@@ -62,21 +69,18 @@ screen locationPeoplePicto:
         $ xalig = 0.2
         $ yalig = 0.05
         for x in getLoc(curloc).people:
-            imagebutton idle im.FactorScale(x.picto,0.5) hover im.FactorScale(x.picto,0.6) xalign xalig yalign yalig action [Hide('charInfoLeft'), SetVariable('interactionObj',x), Show('show_stat')] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
+            imagebutton idle im.FactorScale(x.picto,0.5) hover im.FactorScale(x.picto,0.6) xalign xalig yalign yalig action [Hide('charInfoLeft'), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
             # add im.FactorScale(x.picto,0.6) xalign xalig yalign yalig
             $ xalig += 0.09
             if xalig >= 0.99:
                 $ yalig += 0.15
                 $ xalig = 0.2
 
-screen show_stat():
+screen show_stat:
     tag interface
     fixed xpos 0.1 ypos 0.1:
         vbox:
-            if teachers.count(showHover) > 0:
-                add showHover.picto[:23] + '1.png'
-            else :
-                add showHover.picto
+            add showHover.picto
 
             $ x = interactionObj
             null height 10
@@ -102,7 +106,7 @@ screen show_stat():
     fixed xpos 0.3 ypos 0.1 :
         vbox xmaximum config.screen_width/2:
             text textgen(showHover) style style.my_text
-
+        
     fixed xpos 0.8 ypos 0.1:
         vbox:
             textbutton 'Поговорить' xminimum 200 action Jump('speak')
@@ -133,5 +137,4 @@ label flirt:
 
 label exitInteraction:
     showHover.say 'Простите, мне пора на урок!'
-
     $ move(curloc)

@@ -444,7 +444,7 @@ init -20 python:
                 return False
 
         # Проверка на определённый тип одежды
-        def getCovPurpose(self, purpose):
+        def getClothPurpose(self, purpose):
             for x in self.wear:
                 if x.purpose == purpose:
                     return True

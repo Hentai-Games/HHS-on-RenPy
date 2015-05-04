@@ -203,10 +203,53 @@ label loc_dreams:
     $ move('loc_bedroom')
 
 label naked:
-    if player.getCovPurpose('swim'):
+    if player.getClothPurpose('swim'):
         show expression ("pic/events/various/bikini.png") at top
     else:
         show expression ("pic/events/various/naked.jpg") at top
 
     player.say 'Я не могу выходить на улицу в таком виде!!!'
     $ move(prevloc)
+
+label loc_swim:
+    show beach
+    if player.stats.energy < 200:
+        player.say 'Я слишком устала, чтобы плавать... Пора возвращаться домой.'
+    elif player.getClothPurpose('swim') == False:
+        player.say 'Я не могу плавать в одежде!'
+    else:
+        hide screen show_stats
+        $ rands = rand(1,5)
+        show expression ("pic/events/beach/swim_norm%d.jpg" % rands) at top
+        'Вы поплавали часок, и немного устали. По крайней мере Ваша физическая форма улучшилась.'
+        $ changetime(60)
+        $ player.stats.energy -= rand(100,300)
+        $ player.stats.health += rand (10,20)
+        $ player.cleanAll()
+    $ move('loc_beach')
+    
+label loc_taxi:
+    show expression 'pic/locations/taxi.jpg'
+    $ money = player.money
+    menu:
+        'Куда поедем? Городочек маленький, проезд в любую сторону всего по 50.'
+        'Пляж' if curloc != 'loc_beach' and money >= 50:
+            $ player.money -= 50
+            $ changetime(10)
+            $ move('loc_beach')
+        'Домой' if curloc != 'loc_street' and money >= 50:
+            $ player.money -= 50
+            $ changetime(10)
+            $ move('loc_home')
+        'На торговую' if curloc != 'loc_shopStreet' and money >= 50:
+            $ player.money -= 50
+            $ changetime(10)
+            $ move('loc_shopStreet')
+        'К школе' if curloc != 'loc_entrance' and money >= 50:
+            $ player.money -= 50
+            $ changetime(10)
+            $ move('loc_entrance')
+        'Я передумала' if money >= 50:
+            $ move (curloc)
+        'Простите, но у меня нет денег' if money < 50:
+            $ move (curloc)

@@ -218,7 +218,7 @@ label skipall:
             money = _money
         )
         player.addItems('Салфетка', 'Сырая еда', jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name)
-        player.say = Character (player.fullName(), kind=adv, dynamic = False, color = player.color, show_side_image = Image(player.picto, xalign=0.0, yalign=1.0, yanchor="center"), window_left_padding = 170)
+        player.say = Character (player.fullName(), kind=adv, dynamic = False, color = player.color, show_side_image = Image(im.FactorScale(player.picto,.6, xalign=0.01, yalign= 2.0)), window_left_padding = 170)
 #####################################################
 #Генерация и создание студентов
 #####################################################
@@ -226,7 +226,7 @@ label skipall:
             #выбор пола
             _rand = rand(1, 10)
             sex = ''
-            if _rand < 5:
+            if _rand <= 5:
                 sex = 'female'
             elif _rand == 6:
                 sex = 'futa'
@@ -269,7 +269,7 @@ label skipall:
             inventory = [],
             wear = [],
             club = 'химия',
-            picto = 'pic/events/teachers/50/picto.png',
+            picto = 'pic/teachers/kupruvna_picto.png',
             location = curloc,
             money = 10000
         )
@@ -298,7 +298,7 @@ label skipall:
             inventory = [],
             wear = [],
             club = 'биология',
-            picto = 'pic/events/teachers/51/picto.png',
+            picto = 'pic/teachers/danokova_picto.png',
             location = curloc,
             money = 5000
         )
@@ -326,7 +326,7 @@ label skipall:
             inventory = [],
             wear = [],
             club = 'сексуальное просвящение',
-            picto = 'pic/events/teachers/52/picto.png',
+            picto = 'pic/teachers/frigidovna_picto.png',
             location = curloc,
             money = 5000
         )
@@ -355,7 +355,7 @@ label skipall:
             inventory = [],
             wear = [],
             club = 'математика',
-            picto = 'pic/events/teachers/53/picto.png',
+            picto = 'pic/teachers/bissektrisovna_picto.png',
             location = curloc,
             money = 5000
         )
@@ -387,7 +387,7 @@ label skipall:
             inventory = [],
             wear = [],
             club = 'английский язык',
-            picto = 'pic/events/teachers/54/picto.png',
+            picto = 'pic/teachers/dikovna_picto.png',
             location = curloc,
             money = 5000
         )
@@ -403,7 +403,7 @@ label skipall:
             ),
             stats = Stats(
                 will = 15,
-                education = 300,
+                education = 30,
                 intelligence = 40,
                 beauty = 40,
                 health = 1500,
@@ -415,7 +415,7 @@ label skipall:
             inventory = [],
             wear = [],
             club = 'физкультура',
-            picto = 'pic/events/teachers/55/picto.png',
+            picto = 'pic/teachers/mustangovich_picto.png',
             location = curloc,
             money = 200
         )

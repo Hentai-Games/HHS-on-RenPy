@@ -159,6 +159,8 @@ screen stats_screen:
         imagebutton auto "pic/actions/wait60_%s.png" action [Function(waiting,60)]
         imagebutton idle im.FactorScale('pic/actions/smartphone_idle.png', 0.5) hover im.FactorScale('pic/actions/smartphone.png', 0.5) action [Hide('stats_screen'), Jump('notebook')]
         imagebutton auto "pic/actions/inventory_%s.png" action [Hide('stats_screen'), Show('inventory')]
+        if curloc == 'loc_beach' or curloc == 'loc_street' or curloc == 'loc_shopStreet' or curloc == 'loc_entrance':
+            imagebutton auto "pic/actions/taxi_%s.png" action [Function(move, 'loc_taxi')]
         if getLoc(curloc) != False:
             if len(getLoc(curloc).people) > 0:
                 imagebutton auto "pic/actions/eye_%s.png" action [Hide('stats_screen'),Jump('locationPeople')]
