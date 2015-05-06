@@ -194,7 +194,7 @@ label skipall:
         playerBody.parts['вагина'].size = _vagina
 
         playerStats = Stats(
-            corruption = _corr,
+            corr = _corr,
             lust = _corr / 10,
             education  = _intel / 2,
             intelligence = _intel,
@@ -373,7 +373,7 @@ label skipall:
                 penisSize = 20
             ),
             stats = Stats(
-                corruption = 20,
+                corr = 20,
                 will = 30,
                 education = 50,
                 intelligence = 50,

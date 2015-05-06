@@ -111,7 +111,7 @@ init -20 python:
         def __init__(self, **stats):
             self.loyalty = stats['loyalty'] if 'loyalty' in stats else 0
             self.fun = stats['fun'] if 'fun' in stats else 0
-            self.corruption = stats['corruption'] if 'corruption' in stats else 0
+            self.corr = stats['corr'] if 'corr' in stats else 0
             self.lust = stats['lust'] if 'lust' in stats else 0
             self.will = stats['will'] if 'will' in stats else 0
             self.education = stats['education'] if 'education' in stats else 0
@@ -125,7 +125,7 @@ init -20 python:
         def normalize(self):
             self.loyalty = min(max(self.loyalty,0),100)
             self.fun = min(max(self.fun,0),100)
-            self.corruption = min(max(self.corruption,0),100)
+            self.corr = min(max(self.corr,0),100)
             self.lust = min(max(self.lust,0),100)
             self.will = min(max(self.will,0),100)
             self.education = min(max(self.education,0),150)
@@ -141,7 +141,7 @@ init -20 python:
             stats = cls()
             stats.loyalty = randf(0, 10)
             stats.fun = randf(10, 20)
-            stats.corruption = randf(0, 5)
+            stats.corr = randf(0, 5)
             stats.lust = randf(0, 5)
             stats.will = randf(0, 100)
             stats.intelligence = randf(0, 100)
@@ -162,7 +162,7 @@ init -20 python:
         # Фамилии
         lastNames = ['Смирнов', 'Иванов', 'Кузнецов', 'Попов', 'Соколов', 'Козлов', 'Новиков', 'Морозов', 'Петров', 'Волков', 'Соловьев', 'Васильев', 'Зайцев', 'Павлов', 'Семенов', 'Голубев', 'Виноградов', 'Богданов', 'Воробьев', 'Федоров', 'Михайлов', 'Беляев', 'Тарасов', 'Белов', 'Комаров', 'Орлов', 'Киселев', 'Макаров', 'Андреев', 'Ковалев', 'Ильин', 'Гусев', 'Титов', 'Кузьмин', 'Кудрявцев', 'Баранов', 'Куликов', 'Алексеев', 'Степанов', 'Яковлев']
 
-        def __init__(self, fname = '', lname = '', color = '#FFFFFF', age = 0, body = Body(), stats = Stats(), inventory = [], wear = [], club = '', picto = '', location = '', money = 0):
+        def __init__(self, fname = '', lname = '', color = '#FFFFFF', age = 0, body = Body(), stats = Stats(), inventory = [], sets =[], wear = [], club = '', picto = '', location = '', money = 0):
             self.fname = fname
             self.lname = lname
             self.name = fname + ' ' + lname
@@ -172,6 +172,9 @@ init -20 python:
             self.stats = stats
             self.color = color
             self.inventory = inventory
+            self.sets = []
+            for x in range(0,3):
+                self.sets.append(sets)
             self.wear = wear
             self.club = club
             self.picto = picto
@@ -215,7 +218,48 @@ init -20 python:
 
         def fullName(self):
             return self.fname + ' ' + self.lname
+            
+###################################################################
+#Setters
+###################################################################
 
+# Измнение loyalty
+        def setLoy(self,amount):
+            self.stats.loyalty += amount
+# Измнение fun
+        def setFun(self,amount):
+            self.stats.fun += amount
+# Измнение развратности
+        def setCorr(self,amount):
+            self.stats.corr += amount
+# Измнение lust
+        def setLust(self,amount):
+            self.stats.lust += amount
+# Измнение will
+        def setWill(self,amount):
+            self.stats.will += amount
+# Измнение education
+        def setEdu(self,amount):
+            self.stats.education += amount
+# Измнение health
+        def setHealth(self,amount):
+            self.stats.health += amount
+# Измнение intelligence
+        def setIntel(self,amount):
+            self.stats.intelligence += amount
+# Измнение beauty
+        def setBeauty(self,amount):
+            self.stats.beauty += amount
+# Измнение reputation
+        def setRep(self,amount):
+            self.stats.reputation += amount
+# Измнение energy
+        def setEnergy(self,amount):
+            self.stats.energy += amount
+# Измнение dirty
+        def setDirty(self,amount):
+            self.stats.dirty += amount
+            
 ###################################################################
 #инвентарь
 ###################################################################
@@ -251,7 +295,19 @@ init -20 python:
             if self.wear.count(item) > 0:
                 self.wear.remove(item)
 
-
+        # Создание сета:
+        def createSet(self, number):
+            self.sets[number] = []
+            for x in self.wear:
+                self.sets[number].append(x.name)
+                
+        # Применение сета
+        def applySet(self,number):
+            for x in self.sets[number]:
+                if self.getItem(x) != False :
+                    player.wearing(self.getItem(x))
+                
+                
         # Удаление айтемов !!! Сносит ВСЕ с данным названием!!!
         def removeItems(self,*args):
             flag = 0
@@ -382,20 +438,16 @@ init -20 python:
             for x in self.wear:
                 if x.name == name:
                     return x
+            return False
 
         #Сброс переменных
         def reset(self):
             self.normalize()
 
-        # Увеличение развратности
-        def setCorr(self,amount):
-            self.stats.corruption += amount
-
         # Функция одевания
         def wearing(self, cloth):
-            if cloth.corr > self.stats.corruption or cloth.sex != self.body.sex():
+            if cloth.corr > self.stats.corr or cloth.sex != self.body.sex():
                 return False
-
             for x in cloth.cover:
                 for y in self.wear:
                     for z in y.cover:

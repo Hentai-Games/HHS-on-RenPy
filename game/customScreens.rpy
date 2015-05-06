@@ -231,7 +231,7 @@ screen showItem:
             if myItem.type == 'food':
                 text _('Насыщение [myItem.energy]') style style.my_text
             if myItem.type == 'clothing':
-                if myItem.corr > player.stats.corruption:
+                if myItem.corr > player.stats.corr:
                     text _('Требует развратности [myItem.corr]') style style.warning
                 else :
                     text _('Требует развратности [myItem.corr]') style style.my_text
@@ -281,7 +281,7 @@ screen showSellItem:
                 text 'Насыщение [myItem.energy]' style style.my_text
 
             if myItem.type == 'clothing':
-                if myItem.corr > player.stats.corruption:
+                if myItem.corr > player.stats.corr:
                     text _('Требует развратности [myItem.corr]') style style.warning
                 else :
                     text _('Требует развратности [myItem.corr]') style style.my_text
@@ -330,3 +330,20 @@ screen wardrobe:
                     for x in player.wear:
                         textbutton x.name action [Function( player.dewearing, x ), Show ('wardrobe')] hovered [SetVariable('myItem', x), Show('showItem')]
                     textbutton _('Раздеться') action [Function( player.undress ), Show ('wardrobe')]
+                    
+    fixed xpos 0.01 ypos 0.7:
+        frame :
+            vbox :
+                text 'Сеты'
+                hbox :
+                    textbutton 'Сет 0' action [Function(player.createSet, 0), Show('wardrobe')]
+                    if len(player.sets[0]) > 0:
+                        textbutton 'Надеть' action [Function(player.applySet, 0), Show('wardrobe')]
+                hbox :
+                    textbutton 'Сет 1' action [Function(player.createSet, 1), Show('wardrobe')]
+                    if len(player.sets[1]) > 0:
+                        textbutton 'Надеть' action [Function(player.applySet, 1), Show('wardrobe')]
+                hbox :
+                    textbutton 'Сет 2' action [Function(player.createSet, 2), Show('wardrobe')]
+                    if len(player.sets[2]) > 0:
+                        textbutton 'Надеть' action [Function(player.applySet, 2), Show('wardrobe')]

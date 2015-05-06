@@ -23,7 +23,7 @@ init python:
     def dialogueSelector(speaker):
         tempList = []
         for x in dialogueList:
-            if speaker.stats.corruption >= x.corr and ((speaker in studs and x.type == 'stud') or (speaker in teachers and x.type == 'teacher')):
+            if speaker.stats.corr >= x.corr and ((speaker in studs and x.type == 'stud') or (speaker in teachers and x.type == 'teacher')):
                 tempList.append(x)
         return tempList[rand(0,len(tempList) - 1)].id
         
@@ -97,7 +97,7 @@ screen show_stat:
             text 'Счастье [temp]' style style.my_text
             $ temp = round(showHover.stats.loyalty, 1)
             text 'Лояльность [temp]' style style.my_text
-            $ temp = round(showHover.stats.corruption, 1)
+            $ temp = round(showHover.stats.corr, 1)
             text 'Развратность [temp]' style style.my_text
             $ temp = round(showHover.stats.beauty, 1)
             text 'Красота [temp]' style style.my_text

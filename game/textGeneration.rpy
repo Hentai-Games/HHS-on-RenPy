@@ -8,7 +8,7 @@ init python:
         loyalty = char.stats.loyalty
         edu = char.stats.education
         lust = char.stats.lust
-        corr = char.stats.corruption
+        corr = char.stats.corr
         fun = char.stats.fun
 
         description += 'Перед вами ' + char.fullName() + '\n'

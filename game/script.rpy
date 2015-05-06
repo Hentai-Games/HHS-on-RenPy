@@ -1,4 +1,5 @@
 ﻿init -3 python:
+    development = 1
     i = 500
     curloc = 'loc_home'
     is_library = 0

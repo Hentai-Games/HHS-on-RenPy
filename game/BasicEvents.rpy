@@ -57,10 +57,10 @@ label cleanMouth:
         'Выплюнуть':
             $ player.clean('рот')
             'Вы незаметно сплевываете в сторонку. Теперь у Вас чистый ротик'
-        'Проглотить' if player.stats.corruption > 20:
+        'Проглотить' if player.stats.corr > 20:
             'Вы проглатываете тягучую сперму, и ощущаете как Ваш желудок наполняется соками Вашего последнего любовника. Вы чувствуете небольшое возбуждения и развратность этого действия.'
             $ player.stats.lust += 10
-            $ player.stats.corruption += 1
+            $ player.stats.corr += 1
             $ player.clean('рот')
         'Ммм Ффф ммм ууу!':
             pass
@@ -98,10 +98,10 @@ label cleanHands:
             'Вы вытерли салфетками руки.'
             $ player.apply('Салфетка')
             $ player.clean('руки')
-        'Облизать' if player.stats.corruption > 40:
+        'Облизать' if player.stats.corr > 40:
             'Вы облизали свои руки от спермы. Это было одновременно приятно и возбуждающе.'
             $ player.stats.lust += 10
-            $ player.stats.corruption += 2
+            $ player.stats.corr += 2
             $ player.clean('руки')
         'Само высохнет и отвалится!':
             pass
@@ -139,14 +139,14 @@ label cleanPussy:
             'Отойдя в сторонку и немного присев, Вы выдавили из своей киски всю сперму прямо на салфетку. Еще раз протерев всё начисто, Вы удовлетворились результатом.'
             $ player.apply('Салфетка')
             $ player.clean('вагина')
-        'Попытаться достать её руками' if player.stats.corruption > 50:
+        'Попытаться достать её руками' if player.stats.corr > 50:
             $changetime(10)
             'Отойдя в сторонку, вы запустили свои шаловливые пальчики, и принялись доставать из вашей киски сгустки спермы и стряхивать их на пол. Ритмичные движения пальцев в вашей щёлки не добавляют спокойствия.'
             'Через 10 минут работа была закончена, но руки оказались перемазаны в ваших соках и чужой сперме.'
             $ player.clean('вагина')
             $ player.coverSperm('руки')
             $ player.stats.lust += 10
-            $ player.stats.corruption += 2
+            $ player.stats.corr += 2
         'Это может и подождать.':
             pass
     $ move(curloc)
@@ -161,7 +161,7 @@ label cleanAss:
             'Отойдя в сторонку Вы аккуратно протёрли салфетками попу. Теперь все чисто.'
             $ player.apply('Салфетка')
             $ player.clean('анус')
-        'Попытаться достать её руками' if player.stats.corruption > 60:
+        'Попытаться достать её руками' if player.stats.corr > 60:
             $changetime(10)
             'Отойдя в сторонку, вы присели на корточки и запустили свой палец в вашу заднюю дырочку. Неожиданный спазм заставил выделиться из попки не только сперму.'
             if player.hasItem('Салфетка') == True:
@@ -253,3 +253,26 @@ label loc_taxi:
             $ move (curloc)
         'Простите, но у меня нет денег' if money < 50:
             $ move (curloc)
+
+label unconsciousSchool:
+    show expression 'pic/events/uncon/1.jpg'
+    'Вы упали без сознания от переутомления. Вы пролежали пару часов, пока Вас не нашли случайные ученики.'
+    'Проснувшись, Вы обнаружили, что Вас обыскивали, верхняя одежда снята, на теле синяки.'
+    if player.money > 200:
+        $ player.money -= rand(100,200)
+    $ setRep(2,-2)
+    $ player.setEnergy(200)
+    $ changetime(rand(100,200))
+    $ move(curloc)
+    
+label unconsciousOther:
+    show expression 'pic/events/uncon/2.jpg'
+    'Вы упали без сознания от переутомления прямо на улице. Вы пролежали пару часов, пока Вас не нашли случайные люди.'
+    'Проснувшись, Вы обнаружили свежее пятно спермы на одежде.'
+    $ player.body.parts['грудь'].sperm = True
+    if player.money > 200:
+        $ player.money -= rand(100,200)
+    $ setRep(10,-2)
+    $ player.setEnergy(200)
+    $ changetime(rand(100,200))
+    $ move(curloc)

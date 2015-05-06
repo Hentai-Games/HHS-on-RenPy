@@ -30,7 +30,7 @@ init -5 python:
 
         if args[0] == 'corr':
             for x in list:
-                temp = temp + x.stats.corruption
+                temp = temp + x.stats.corr
             return round(temp/len(list),2)
 
         if args[0] == 'lust':
@@ -102,9 +102,9 @@ init -5 python:
             if args[1] == 'edumin':
                 return min(temp, key = lambda x: x.stats.education)
             if args[1] == 'corrmax':
-                return max(temp, key = lambda x: x.stats.corruption)
+                return max(temp, key = lambda x: x.stats.corr)
             if args[1] == 'corrmin':
-                return min(temp, key = lambda x: x.stats.corruption)
+                return min(temp, key = lambda x: x.stats.corr)
             if args[1] == 'lustmax':
                 return max(temp, key = lambda x: x.stats.lust)
             if args[1] == 'lustmin':
@@ -115,3 +115,8 @@ init -5 python:
 
     def skipEvent():
         tryEvent(curloc)
+
+    def setRep(count,amount):
+        for x in range(0, count):
+            studs[rand(0,len(studs)-1)].setRep(amount)
+            

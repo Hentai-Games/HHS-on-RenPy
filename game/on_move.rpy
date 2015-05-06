@@ -31,7 +31,8 @@ init python:
                 else:
                     same_loc = 1
                 checkClothes(curloc) # проверка одетости
-
+                checkUnconscious(getLoc(where)) # потеря сознания
+                checkSperm(getLoc(where)) # снятие репутации за сперму.
             if rand(0,99) < 10 + (ptime - lastEventTime)*10 and where[:4] == 'loc_': tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Чем больше прошло времени с последнего, тем выше шанс.
 
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
@@ -58,7 +59,7 @@ init python:
             if x.id == location:
                 for event in x.events:
                     if x.position == 'self':
-                        if event.corr <= player.corr:
+                        if event.corr <= player.stats.corr:
                             tempEv.append(event)
                     else :
                         if event.corr <= getPar(studs, 'corr'):
@@ -84,12 +85,30 @@ init python:
     def checkClothes(location):
         location = getLoc(location)
         if location.position != 'safe' and location.position != 'self' and location.position != 'tech':
-            if player.isCover('верх','низ') == False and player.stats.corruption < 80:
+            if player.isCover('верх','низ') == False and player.stats.corr < 80:
                 renpy.scene(layer='screens')
                 renpy.jump('naked')
-            elif player.isCover('верх','низ') == False and player.stats.corruption >= 80 and location.id != 'loc_beach' and location.id != 'loc_pool':
+            elif player.isCover('верх','низ') == False and player.stats.corr >= 80 and location.id != 'loc_beach' and location.id != 'loc_pool':
                 renpy.scene(layer='screens')
                 renpy.jump('naked')
             elif player.getClothPurpose('swim') and location.id != 'loc_beach' and location.id != 'loc_pool':
                 renpy.scene(layer='screens')
                 renpy.jump('naked')
+                
+# бессознательное состояние
+    def checkUnconscious(location):
+        if player.stats.energy < 100 and rand(1,3) == 1:
+            if location.position == 'safe':
+                renpy.jump('sleep')
+            if location.position == 'school' or location.position == 'classrom':
+                renpy.jump('unconsciousSchool')
+            else :
+                renpy.jump('unconsciousOther')
+                
+# снятие репутации за сперму    
+    def checkSperm(location):
+        if player.isSperm() == 2 and rand(1,3) == 1:
+            for x in location.people:
+                x.setRep(-2)
+                x.setCorr(.5)
+            
