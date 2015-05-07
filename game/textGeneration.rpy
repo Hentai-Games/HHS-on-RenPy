@@ -150,7 +150,6 @@ init python:
         return description
 
 # self.inventory = inventory
-# self.wear = wear
 # self.will = will
 # self.club = club
 # self.energy = energy

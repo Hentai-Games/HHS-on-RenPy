@@ -162,7 +162,7 @@ init -20 python:
         # Фамилии
         lastNames = ['Смирнов', 'Иванов', 'Кузнецов', 'Попов', 'Соколов', 'Козлов', 'Новиков', 'Морозов', 'Петров', 'Волков', 'Соловьев', 'Васильев', 'Зайцев', 'Павлов', 'Семенов', 'Голубев', 'Виноградов', 'Богданов', 'Воробьев', 'Федоров', 'Михайлов', 'Беляев', 'Тарасов', 'Белов', 'Комаров', 'Орлов', 'Киселев', 'Макаров', 'Андреев', 'Ковалев', 'Ильин', 'Гусев', 'Титов', 'Кузьмин', 'Кудрявцев', 'Баранов', 'Куликов', 'Алексеев', 'Степанов', 'Яковлев']
 
-        def __init__(self, fname = '', lname = '', color = '#FFFFFF', age = 0, body = Body(), stats = Stats(), inventory = [], sets =[], wear = [], club = '', picto = '', location = '', money = 0):
+        def __init__(self, fname = '', lname = '', color = '#FFFFFF', age = 0, body = Body(), stats = Stats(), inventory = [], sets = 5, wear = [], club = '', picto = '', location = '', money = 0):
             self.fname = fname
             self.lname = lname
             self.name = fname + ' ' + lname
@@ -173,8 +173,8 @@ init -20 python:
             self.color = color
             self.inventory = inventory
             self.sets = []
-            for x in range(0,3):
-                self.sets.append(sets)
+            for x in range(0,sets):
+                self.sets.append([])
             self.wear = wear
             self.club = club
             self.picto = picto
@@ -303,6 +303,7 @@ init -20 python:
                 
         # Применение сета
         def applySet(self,number):
+            self.undress()
             for x in self.sets[number]:
                 if self.getItem(x) != False :
                     player.wearing(self.getItem(x))
@@ -351,7 +352,13 @@ init -20 python:
                     x.durability -= 1
                     self.checkDur()
                     return
-
+                    
+            for x in self.wear:
+                if x.name == name:
+                    x.durability -= 1
+                    self.checkDur()
+                    return
+                    
         # Удаление всех использованных айтемов
         def checkDur(self):
             for x in self.inventory:

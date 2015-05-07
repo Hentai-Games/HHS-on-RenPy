@@ -89,7 +89,9 @@ screen personalInfo:
             text 'Развратность [temp]' style style.my_text
             $ temp = round(player.stats.beauty, 1)
             text 'Красота [temp]' style style.my_text
-
+            $ temp = player.money
+            text 'Денег [temp]' style style.my_text
+            
     fixed xpos 0.3 ypos 0.1 :
         vbox xmaximum config.screen_width/2:
             text textgen(player) style style.my_text
