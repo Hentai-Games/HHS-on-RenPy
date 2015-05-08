@@ -23,7 +23,7 @@ init -2 python:
         picto_f.append('pic/events/students/picto/female/%d.jpg' % x)
 
 #####################################################
-#Генерация директора
+# codeBlc Генерация директора 
 #####################################################
 
 init -1 python:
@@ -178,7 +178,7 @@ label history:
         "Сбросить историю":
             $ answer = [0,0,0,0,0]
             jump history
-
+# endBlc
 label selchar:
     show white
     call screen char_select
@@ -243,7 +243,7 @@ label skipall:
             _studs.append(Char.random(sex, picto))
 
 #######################################################
-#Создание учителей
+# codeBlc Создание учителей
 #######################################################
 
         kupruvna = Char(
@@ -396,7 +396,7 @@ label skipall:
         mustangovich = Char(
             fname = 'Ахмед',
             lname = 'Мустангович',
-            age = 22,
+            age = 30,
             body = MaleBody(
                 190,
                 penisSize = 30
@@ -420,6 +420,7 @@ label skipall:
             money = 200
         )
         _teachers.append(mustangovich)
+# endBlc
 #######################################################
 #Пересохранение этого добра для того, чтобы сохранялось.
 #######################################################

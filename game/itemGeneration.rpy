@@ -367,9 +367,9 @@ init python:
     char = 'teacher',
     sex = 'female',
     purpose = 'usual')
-    blueForm.cover = ['верх']
+    blueForm.cover = ['верх','низ']
     blueForm.durability = 10000
-    blueForm.name = _('верх','низ')
+    blueForm.name = _('Спортивный костюм')
     blueForm.cost = 1500
     blueForm.picto = 'pic/items/jaket.png'
     blueForm.type = 'clothing'

@@ -72,7 +72,7 @@ init -20 python:
     class FemaleBody(Body):
         def __init__(self, height, bodyparts = {}, anusSize = 0, vaginaSize = 0, breastSize = 0):
             super(FemaleBody, self).__init__(height, bodyparts)
-            self.parts['вагина'] = BodyPart('вагина', minSize = 0, maxSize = 25, size = vaginaSize)
+            self.parts['вагина'] = BodyPart('вагина', minSize = 0, maxSize = 40, size = vaginaSize)
             self.parts['анус'].size = anusSize
             self.parts['грудь'].size = breastSize
 
@@ -90,7 +90,7 @@ init -20 python:
     class FutaBody(Body):
         def __init__(self, height, bodyparts = {}, anusSize = 0, vaginaSize = 0, penisSize = 0, breastSize = 0):
             super(FutaBody, self).__init__(height, bodyparts)
-            self.parts['вагина'] = BodyPart('вагина', minSize = 0, maxSize = 25, size = vaginaSize)
+            self.parts['вагина'] = BodyPart('вагина', minSize = 0, maxSize = 40, size = vaginaSize)
             self.parts['пенис'] = BodyPart('пенис', minSize = 0, maxSize = 30, size = penisSize)
             self.parts['анус'].size = anusSize
             self.parts['грудь'].size = breastSize
@@ -259,7 +259,47 @@ init -20 python:
 # Измнение dirty
         def setDirty(self,amount):
             self.stats.dirty += amount
-            
+
+###################################################################
+# Getters
+###################################################################
+
+# Получение loyalty
+        def getLoy(self):
+            return self.stats.loyalty
+# Получение fun
+        def getFun(self):
+            return self.stats.fun
+# Получение развратности
+        def getCorr(self):
+            return self.stats.corr
+# Получение lust
+        def getLust(self):
+            return self.stats.lust
+# Получение will
+        def getWill(self):
+            return self.stats.will
+# Получение education
+        def getEdu(self):
+            return self.stats.education
+# Получение health
+        def getHealth(self):
+            return self.stats.health
+# Получение intelligence
+        def getIntel(self):
+            return self.stats.intelligence
+# Получение beauty
+        def getBeauty(self):
+            return self.stats.beauty - self.getDirty()*5
+# Получение reputation
+        def getRep(self):
+            return self.stats.reputation
+# Получение energy
+        def getEnergy(self):
+            return self.stats.energy
+# Получение dirty
+        def getDirty(self):
+            return self.stats.dirty
 ###################################################################
 #инвентарь
 ###################################################################
@@ -378,10 +418,6 @@ init -20 python:
             self.stats.energy += food.energy
             food.durability -= 1
             self.checkDur()
-
-        #Вычисленная красота
-        def getBeauty(self):
-            return self.stats.beauty - self.stats.dirty*5
 
         #Есть ли сперма вообще
         def isSperm(self):
