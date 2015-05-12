@@ -78,8 +78,8 @@ init 10 python:
 
             elif x == 'loc_dreams': loc = Location(id = x, name = 'Сны', base_prob = 0, position = 'self')
             elif x == 'loc_swim': loc = Location(id = x, name = 'Плавание', base_prob = 0, position = 'self')
-            elif x == 'loc_taxi': loc = Location(id = x, name = 'Такси', base_prob = 0, position = 'other')
-            
+            elif x == 'loc_taxi': loc = Location(id = x, name = 'Такси', base_prob = 0, position = 'self')
+
             elif x == 'loc_class1Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
             elif x == 'loc_class2Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
             elif x == 'loc_class3Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
@@ -384,6 +384,7 @@ label loc_entrance:
                         text 'Ваш офис. Большой дубовый стол, компьютер, сразу видно что Вы здесь уважаемы.' style style.description
                     textbutton 'Первый этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Воспользоваться\nокном' xalign 0.2 yalign 0.3 action Function(move, 'loc_entrance') style "navigation_button" text_style "navigation_button_text"
+                    textbutton 'Компьютер' xalign 0.9 yalign 0.5 action Show('compScreen')
             call screen office
 
         label loc_class1:

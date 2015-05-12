@@ -136,7 +136,7 @@ screen stats_screen:
                     global stat_rep
                     stat_rep = temp
 
-            grid 2 2:
+            grid 2 3:
                 $ temp = round(player.stats.energy, 0)
                 if temp > player.stats.health/10:
                     text _('Ваша энергия ') style style.my_text
@@ -156,6 +156,10 @@ screen stats_screen:
                 python:
                     global stat_plust
                     stat_plust = temp
+                
+                $ temp = player.money
+                text _('Денег') style style.my_text
+                text ' [temp]' style style.my_text
 
     vbox xalign 0.99 yalign 0.01:
         imagebutton auto 'pic/actions/wait15_%s.png' action [Function(waiting,15)]
@@ -364,4 +368,37 @@ screen showSet:
             vbox:
                 for x in mySet:
                     text x
-        
+
+init:
+    image computer = im.FactorScale('pic/events/office/computer/work1.jpg', 1.3)
+    
+screen compScreen:
+    zorder 1 
+    modal True
+    add 'pic/bg.png'
+    add 'computer' at right
+    
+    fixed xpos 0.01 ypos 0.01:
+        textbutton _('Назад') action Function(move, curloc)
+    
+    fixed xpos 0.01 ypos 0.1:
+        vbox:
+            
+            if ptime - lastWork > 24:
+                textbutton _('Работать') action Show('working')
+            textbutton _('Почта') action NullAction()
+            textbutton _('Клубы') action NullAction()
+            textbutton _('Школьные правила') action NullAction()
+            textbutton _('Работа с учениками') action NullAction()
+            textbutton _('Проверка камер') action NullAction()
+
+screen working:
+    zorder 1
+    tag compScreens
+    fixed xpos 0.3 ypos 0.1:
+        vbox:
+            textbutton _('Заполнять ежедневные бумаги') action [SetVariable('lastWork',ptime), Function(school.working), Hide('working'), Show('compScreen')]
+            textbutton _('Выбивать повышение') action [SetVariable('lastWork', ptime), Function(move,'increaseIncome')]
+            textbutton _('Вывести часть бюджета') action [SetVariable('lastWork',ptime), Function(school.steal,player)]
+            if school.caughtChance > 0:
+                textbutton _('Замести следы') action [SetVariable('lastWork',ptime), Function(move,'cover')]

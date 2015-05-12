@@ -45,12 +45,14 @@ init -3 python:
     def changetime(change):
         global minute, check_minute, hour, ptime, weekday, number, year, month, ptime
         minute += change
-        # check_minute += change
+        flagIncome = 0
         
         while minute >= 60:
             minute -= 60
             hour += 1
             ptime += 1
+            if hour == 8 and weekday == 1:
+                flagIncome = 1
             if hour >= 24:
                 hour -= 24
                 dailyRecount(allChars)
@@ -63,6 +65,10 @@ init -3 python:
                     if month == 13:
                         month -=12
                         year += 1
+                        
+        if flagIncome == 1:
+            flagIncome = 0
+            move('income')
     
     def lt():
         #время первого урока

@@ -13,20 +13,24 @@ init python:
         fun = char.getFun()
         health = char.getHealth()
         
-        vsize = char.body.parts['вагина'].size
+        
         asize = char.body.parts['анус'].size
         
         if sex == 'male':
-            psize = str(char.body.parts['пенис'].size)
+            psize = char.body.parts['пенис'].size
+        elif sex == 'female':
+            vsize = char.body.parts['вагина'].size
+        else:
+            psize = char.body.parts['пенис'].size
+            vsize = char.body.parts['вагина'].size
         
         if char != player:
-        # codeBlc others
             description += 'Перед вами ' + char.fullName() + '\n'
             description += 'Это '
 
             if char.body.height < 150: description += 'маленького роста '
             elif char.body.height < 175: description += 'среднего роста '
-            else :
+            else:
                 if sex == 'male':
                     description += 'высокий '
                 else :
@@ -157,9 +161,7 @@ init python:
                         description += ', '
                     else:
                         description += '.'
-        # endBlc
         else:
-        # codeBlc player 
             description += 'Меня зовут ' + name + ', мне '+ age +' лет.\n'
             if beauty < 20:
                 description += 'Я очень плохо выгляжу. Совершенно не по годам. И это было преувеличение. Я отвратительно выгляжу! До сих пор удивляюсь как люди ещё неначали забрасывать камнями это чудовище.\n'
@@ -239,7 +241,15 @@ init python:
                         description += ', '
                     else:
                         description += '.'
-        # endBlc
+                        
+            description += '\n'
+            description += '\n'
+            temp = school.myIncome()
+            description += 'Я отработала '+ getDays(school.daysWorked) +' на этой неделе. На данный момент мой заработок составит '+ str(temp) +' монет.'
+            if complains != '':
+                description += '\n'
+                description += '\n'
+                description += 'Родители следующих учеников жаловались на меня: ' + complains
         return description
 
 

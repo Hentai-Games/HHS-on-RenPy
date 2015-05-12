@@ -6,6 +6,7 @@ init:
     image cleanFeet = "pic/events/bodyclean/feet1.jpg"
     image cleanPussy = "pic/events/bodyclean/pussy1.jpg"
     image cleanAss = "pic/events/bodyclean/ass1.jpg"
+    $ complains = ''
 
 label shower:
     hide screen stats_screen
@@ -184,7 +185,12 @@ label sleep:
                 player.checkDur()
                 
         global hour, ptime, last_sleeped
-        hour_up = 7
+        
+        if weekday != 5 and weekday != 6:
+            hour_up = 7
+        else:
+            hour_up = 12
+            
         if hour >= 0:
             start_hour = hour - 24
         else:
@@ -192,11 +198,11 @@ label sleep:
         sleeped = 0
         while player.stats.energy < player.stats.health and start_hour < hour_up and sleeped < 12:
             changetime(60)
+            last_sleeped = ptime
             start_hour += 1
-            player.stats.energy += rand(100,125)
+            player.stats.energy += player.getHealth()/10
             sleeped += 1
         player.reset()
-        last_sleeped = ptime
         if rand(1,3) > 2:
             tryEvent('loc_dreams')
         renpy.jump('loc_dreams')
@@ -281,4 +287,81 @@ label unconsciousOther:
     $ setRep(10,-2)
     $ player.setEnergy(200)
     $ changetime(rand(100,200))
+    $ move(curloc)
+
+label stolen:
+    show office
+    show computer at top
+    $ temp = school.baseIncome*rand(1,5)
+    $ player.money += temp
+    'Проведя пару фиктивных сделок, вы смогли вывести [temp] монет со счёта школы.'
+    'Надо быть осторожней, и чаще подчищать следы, чтобы меня не поймали.'
+    $ changetime(120)
+    $ move(curloc)
+    
+label catched:
+    show office
+    show computer at top
+    'У вас не получилось безопасно вывести деньги, и ваши махинации засекли.'
+    'Проследив всю цепочку, инспекторы выписали вам штраф в 5 МРОТ за каждый обнаруженный инцидент, и сделали в вашем личном деле внеочередную пометку о неблагонадёжности.'
+    python:
+        setRep(50,-school.caughtChance)
+        player.money -= school.caughtChance*school.baseIncome*5
+        school.caughtChance = 0
+        changetime(120)
+        move(curloc)
+        
+label cover:
+    show office
+    show computer at top
+    if player.getEdu() < school.caughtChance*10 and school.caughtChance > 1:
+        'У вас не получилось полностью скрыть следы. Надо пробовать ещё.'
+        $ school.caughtChance -= 1
+    else:
+        'Вы скрыли следы своего преступления'
+        $ school.caughtChance = 0
+    $ changetime(120)
+    $ move (curloc)
+
+label increaseIncome:
+    show office
+    show computer at top
+    if stat_edu*100 > school.baseIncome:
+        $ temp = stat_edu*100 - school.baseIncome
+        $ school.baseIncome += temp
+        'Вы успешно выбили себе повышение на [temp] монет за каждый рабочий день.'
+    else:
+        'Вам не удалось достаточно замотивировать Министерсто Образования.'
+        'Они отклонили вашу просьбу о повышении, мотивируя это недостаточно высоким уровнем образования в школе.'
+    $ changetime(120)
+    $ move(curloc)
+    
+label working:
+    show office
+    show computer at top
+    'Вы поработали, заполняя различные документы, подписывая акты и выполняя прочую бумажную работу. На сегодня работа закончена.'
+    if rand(1,3) == 1:
+        'В одном из документов Вы натолкнулись на интересную тему для изучения, и слегка повысили свой уровень образования.'
+        $ player.setEdu(1)
+    $ changetime(120)
+    $ move(curloc)
+    
+label income:
+    show expression im.FactorScale('pic/events/income/1.gif',2) at top
+    python:
+        global complains
+        temp = school.myIncome()
+        player.money += temp
+        complains = ''
+        school.workedDays = 0
+        for x in studs:
+            if x.getRep()<10:
+                complains += x.name
+                complains += ', '
+        if complains != '':
+            complains = complains[:-2] + '.'
+    'Вам позвонили из бухгалтерии министерства образования.'
+    'Зарплата в размере [temp] была зачислена на ваш счёт.'
+    if complains != '':
+        'Вас так же уведомили, что вами недовольны родители следующих учеников:\n[complains]'
     $ move(curloc)

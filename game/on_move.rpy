@@ -24,20 +24,22 @@ init python:
 
             if where[:4] == 'loc_' and getLoc(where).position != 'tech': #Если локация - локация и если она не техническая
                 addPeopleLocation(where) #Добавление людей на локацию
-                if where != curloc:
+                if where != curloc and getLoc(where).position != 'self':
                     prevloc = curloc
                     curloc = where
                     same_loc = 0
                 else:
                     same_loc = 1
-                checkClothes(curloc) # проверка одетости
+                if getLoc(where).position != 'self':
+                    renpy.show_screen('stats_screen') #При перемещении всегда появляется интерфейс
+                checkClothes(where) # проверка одетости
                 checkUnconscious(getLoc(where)) # потеря сознания
                 checkSperm(getLoc(where)) # снятие репутации за сперму.
+                
+                
             if rand(0,99) < 10 + (ptime - lastEventTime)*10 and where[:4] == 'loc_': tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Чем больше прошло времени с последнего, тем выше шанс.
 
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
-
-            renpy.show_screen('stats_screen') #При перемещении всегда появляется интерфейс
 
             renpy.jump(where) #Переход на локу
         else:

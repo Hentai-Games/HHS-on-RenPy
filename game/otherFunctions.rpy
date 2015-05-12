@@ -120,3 +120,11 @@ init -5 python:
         for x in range(0, count):
             studs[rand(0,len(studs)-1)].setRep(amount)
             
+    def getDays(number):
+        if number == 0 or number >= 5:
+            return str(number) + ' дней'
+        elif number == 1:
+            return str(number) + ' день'
+        else:
+            return str(number) + ' дня'
+            

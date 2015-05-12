@@ -15,6 +15,7 @@
     stat_rep = 0
     stat_penergy = 0
     stat_plust = 0
+    lastWork = -30
 
 init:
     image white = "#FFFFFF"
@@ -41,3 +42,4 @@ label after_load:
     $ allChars = _allChars
     $ studs = _studs
     return
+    

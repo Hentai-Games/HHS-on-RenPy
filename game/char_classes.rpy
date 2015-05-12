@@ -148,6 +148,7 @@ init -20 python:
             stats.education = stats.intelligence / 4
             stats.health = randf(800, 1200)
             stats.energy = stats.health
+            stats.beauty = randf(20, 90)
             stats.reputation = 50
             return stats
 
@@ -300,6 +301,7 @@ init -20 python:
 # Получение dirty
         def getDirty(self):
             return self.stats.dirty
+            
 ###################################################################
 #инвентарь
 ###################################################################
@@ -335,6 +337,11 @@ init -20 python:
             if self.wear.count(item) > 0:
                 self.wear.remove(item)
 
+        def initSet(self,number,list):
+            self.sets[number] = []
+            for x in list:
+                self.sets[number].append(x)
+                
         # Создание сета:
         def createSet(self, number):
             self.sets[number] = []

@@ -218,6 +218,9 @@ label skipall:
             money = _money
         )
         player.addItems('Салфетка', 'Сырая еда', jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name, pantalons.name, oldShirt.name)
+        player.initSet(0,[jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name])
+        player.initSet(1,[pantalons.name, oldShirt.name])
+        player.applySet(0)
         player.say = Character (player.fullName(), kind=adv, dynamic = False, color = player.color, show_side_image = Image(im.FactorScale(player.picto,.6, xalign=0.01, yalign= 2.0)), window_left_padding = 170)
 #####################################################
 #Генерация и создание студентов
@@ -429,4 +432,5 @@ label skipall:
     $ allChars = _allChars
     $ studs = _studs
     $ teachers = _teachers
+    $ school = School()
     $ move("loc_home")
