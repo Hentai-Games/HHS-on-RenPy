@@ -181,28 +181,17 @@ init:
         )
     image wcm =  im.Scale('pic/locations/school/secondFloor/wcm.jpg', config.screen_width, config.screen_height)
     image wcf =  im.Scale('pic/locations/school/secondFloor/wcf.jpg', config.screen_width, config.screen_height)
-
+    
+    image movie = Movie(size=(800, 600), xpos=0, ypos=0, xanchor=0, yanchor=0)
+    
 #Для теста
 label test:
-    python:
-        player.stats.dirty += 1
-        player.coverSperm('ноги','лицо','рот','грудь','руки', 'вагина', 'анус')
-        player.addItems('Салфетка','Пиджак','Длинная юбка')
     show daytime
-    hide screen stats_screen
-    $ showChars()
-    player.say 'тест'
-    screen empty:
-        fixed:
-            vbox:
-                for x in range (0,10):
-                    $ temp = getChar('male')
-                    text temp.fullName()
-                    $ temp = getChar('female')
-                    text temp.fullName()
-                textbutton 'Назад' action Function(move, 'loc_home')
-    call screen empty
-
+    show movie
+    play movie "pic/locations/school/class1/lo7.ogv" loop
+    'тест'
+    stop movie
+    hide movie
 
 ##############################################################
 # Home
@@ -216,7 +205,8 @@ label loc_home:
             textbutton 'Спальня' xalign 0.05 yalign 0.7 action Function(move, 'loc_bedroom') style "navigation_button" text_style "navigation_button_text"
             textbutton 'Ванная' xalign 0.48 yalign 0.4 action Function(move, 'loc_bathroom') style "navigation_button" text_style "navigation_button_text"
             textbutton 'Улица' xalign 0.7 yalign 0.85 action Function(move, 'loc_street') style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Test' xalign 0.0 yalign 0.2 action Function(move,'test') style "navigation_button" text_style "navigation_button_text"
+            if development == 1:
+                textbutton 'Test' xalign 0.0 yalign 0.2 action Function(move,'test') style "navigation_button" text_style "navigation_button_text"
     call screen home
 
     label loc_bedroom:

@@ -120,6 +120,24 @@ init -5 python:
     def setRep(count,amount):
         for x in range(0, count):
             studs[rand(0,len(studs)-1)].setRep(amount)
+
+    def setLoy(count,amount):
+        for x in range(0, count):
+            studs[rand(0,len(studs)-1)].setLoy(amount)
+            
+    def setCorr(count,amount):
+        for x in range(0, count):
+            studs[rand(0,len(studs)-1)].setCorr(amount) 
+            
+    def setLust(count,amount):
+        for x in range(0, count):
+            studs[rand(0,len(studs)-1)].setLust(amount)
+            
+            
+    def addDetention(*args):
+        for char in args:
+            if char in detentions == False:
+                detentions.append(char)
             
     def getDays(number):
         if number == 0 or number >= 5:

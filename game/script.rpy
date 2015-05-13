@@ -16,7 +16,14 @@
     stat_penergy = 0
     stat_plust = 0
     lastWork = -30
+    
+    mile_qwest_2_stage = 0
+    
+    detentions = []
 
+init 10 python:
+    teacher_son = dummy
+    
 init:
     image white = "#FFFFFF"
     
