@@ -23,6 +23,7 @@ init python:
             changetime(rand(1, 3)) #изменение времени
 
             if where[:4] == 'loc_' and getLoc(where).position != 'tech': #Если локация - локация и если она не техническая
+                checkDeath() # проверка на смерть
                 clearLocations() # Очищаем все локации
                 addPeopleLocation(where) #Добавление людей на локацию
                 if where != curloc and getLoc(where).position != 'self':
@@ -118,4 +119,7 @@ init python:
             for x in location.people:
                 x.setRep(-2)
                 x.setCorr(.5)
-            
+
+    def checkDeath():
+        if player.getHealth() < 200 and rand(1,50) == 1:
+            move('death')

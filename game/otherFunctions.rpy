@@ -181,3 +181,8 @@ init -5 python:
     def clearLocations():
         for x in locations:
             x.people = []
+            
+    def checkJail():
+        for x in studs:
+            if x.getRep() < 5 and x.name in complains:
+                move('jail')

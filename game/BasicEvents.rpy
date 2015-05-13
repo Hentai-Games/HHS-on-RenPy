@@ -347,11 +347,12 @@ label working:
     $ move(curloc)
     
 label income:
-    show expression 'pic/events/income/income.png' at top
+    show expression 'pic/events/income/income.png' at top as tempPic
     python:
         global complains
         temp = school.myIncome()
         player.money += temp
+        checkJail()
         complains = ''
         school.workedDays = 0
         for x in studs:
@@ -365,3 +366,58 @@ label income:
     if complains != '':
         'Вас так же уведомили, что вами недовольны родители следующих учеников:\n[complains]'
     $ move(curloc)
+    
+label jail:
+    show expression 'pic/events/various/jail1.png' at top as tempPic
+    'Ваc уволили. Репутация как минимум у родителей одного ученика упала почти до нуля. Было инициировано расследование, по результатам которого всплыли все Ваши грязные методы образования и закрытие глаз на вертеп, творящейся в вашей школе.'
+    'Суд был непреклонен и Вас отправили в самую грязную тюрьму в стране.'
+    'Там Вас заставляли есть собачий корм и ходить под себя. Спустя месяц это сломало вас.'
+    show expression 'pic/events/various/jail2.png' at top as tempPic
+    show text 'Спустя пол года' at truecenter 
+    with dissolve
+    pause 1
+    hide text
+    with dissolve
+    'Свою первую нормальную еду Вы получили только после того, как переспали с одним их посетителей.'
+    'Оказывается начальница зарабатывала тем, что сдавала сломавшихся девушек в прокат на пару часов. По сути обычный бордель.'
+    'Обещание еды, заставило сокращаться вашу киску гораздо сильнее, чем когда либо, и довльный клиент потребовал продолжения, и её, и снова...'
+    'До тех пор пока Вы в полубессознательном состоянии наконец то не закричали от оргазма.'
+    show expression 'pic/events/various/jail3.png' at top as tempPic
+    show text 'Спустя год' at truecenter 
+    with dissolve
+    pause 1
+    hide text
+    with dissolve
+    'Вскоре многие клиенты подпольного борделя захотели испробовать вашу задницу. И начальница лично занялась этим вопросом, планомерно расширяя Ваш анал до тех пор, пока в него не смог поместиться её кулак.'
+    'Вам было всё равно, Вы хотели жрать, потому что на время тренировки клиентов к Вам не подпускали.'
+    show expression 'pic/events/various/jail4.png' at top as tempPic
+    show text 'Спустя ещё месяц' at truecenter
+    with dissolve
+    pause 1
+    hide text
+    with dissolve
+    'Вы с радостью трахали всех, кого Вам поставляли. Один, два, трое, без разницы! Чем больше чем лучше! Ваши отверстия привыкли принимать в себя любое количество и любой размер, пока хватало сил.'
+    'А когда силы кончались, Вас просто трахали как игрушку.'
+    show expression 'pic/events/various/jail5.png' at top as tempPic
+    show text 'Спустя 5 лет' at truecenter 
+    with dissolve
+    pause 1
+    hide text
+    with dissolve
+    '[player.fname], сегодня день твоего освобождения, ты готова уйти? - спросила Вас в одну утро начальница.'
+    player.say 'Устройте мне праздник, госпожа! Найдите самый большой член в городе! - неожиданно попросили Вы.'
+    'Конечно, как пожелаешь! - улыбнулась начальница и спустя пол часа, Вас уже яростно таранил огромный член незнакомца, раздвигая стенки вашего раздолбанного влагалища.'
+    player.say 'Еби меня! Еби! - кричали Вы в экстазе, понимая, что никуда Вы больше не уйдёте отсюда, всё что Вам надо это жрать, спать и трахаться. Трахаться так, как никогда в жизни. И так всю оставшуюся жизнь.'
+    centered 'Конец Игры'
+    $ renpy.quit(relaunch = True)
+    return
+    
+label death:
+    show expression 'pic/events/various/death.jpg' at top as tempPic
+    'Вы умерли от истощения. Иногда, кто нибудь из учеников приходит на вашу могилу, и тихо вспоминает вас.'
+    show text 'Конец Игры' at truecenter
+    with dissolve
+    pause 5
+    hide text
+    with dissolve
+    $ renpy.quit(relaunch = True)
