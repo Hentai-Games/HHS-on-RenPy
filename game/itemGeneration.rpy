@@ -36,10 +36,11 @@ init python:
     allItems = [napkin, sandwich, eDrink, rawFood]
 
     
-# codeBlc Женские вещи
+#  Женские вещи
 
 #######################################################################
-# codeBlc Верхняя одежда
+#  Верхняя одежда
+#######################################################################   
     jaket = Clothing(
     lust = 0,
     corr = 0,
@@ -86,10 +87,11 @@ init python:
     skimpyjacket.picto = 'pic/items/skimpyjacket.png'
     skimpyjacket.type = 'sexy'
     clothing.append(skimpyjacket)
-# endBlc 
+ 
     
 #######################################################################
-# codeBlc Нижняя одежда    
+#  Нижняя одежда  
+#######################################################################     
     longSkirt = Clothing(
     lust = 0,
     corr = 0,
@@ -137,10 +139,11 @@ init python:
     skimpySkirt.type = 'clothing'
     clothing.append(skimpySkirt)
     
-# endBlc 
+ 
 
 #######################################################################
-# codeBlc Колготки       
+#  Колготки     
+#######################################################################     
     browntights = Clothing(
     lust = 5,
     corr = 0,
@@ -187,10 +190,11 @@ init python:
     nettights.picto = 'pic/items/nettights.png'
     nettights.type = 'clothing'
     clothing.append(nettights)
-# endBlc 
+ 
 
 #######################################################################   
-# codeBlc Нижнее бельё    
+#  Нижнее бельё    
+#######################################################################   
     simpleUnderwear = Clothing(
     lust = 0,
     corr = 0,
@@ -270,10 +274,12 @@ init python:
     oldShirt.type = 'clothing'
     clothing.append(oldShirt)
     
-# endBlc 
+ 
 
 #######################################################################
-# codeBlc Купальники 
+#  Купальники 
+#######################################################################   
+
     swimsuit = Clothing(
     lust = 0,
     corr = 0,
@@ -334,10 +340,12 @@ init python:
     minibikini.type = 'clothing'
     clothing.append(minibikini)
     
-# endBlc 
+ 
     
 #######################################################################
-# codeBlc Сеты
+#  Сеты
+#######################################################################   
+
 # спортивная форма
     sportUniform = Clothing(
     lust = 5,
@@ -355,11 +363,7 @@ init python:
     sportUniform.type = 'clothing'
     clothing.append(sportUniform)
     
-# endBlc   
-    
-# endBlc
-
-# codeBlc Мужские вещи
+#  Мужские вещи
     blueForm = Clothing(
     lust = 0,
     corr = 0,
@@ -375,7 +379,7 @@ init python:
     blueForm.type = 'clothing'
     clothing.append(blueForm)
 
-# endBlc
+
     
     allItems.extend(clothing)
     

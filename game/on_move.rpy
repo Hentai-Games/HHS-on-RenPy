@@ -20,9 +20,10 @@ init python:
             player.stats.energy -= randf(2,5) #расход энергии
             resetStats(allChars) #Сброс статов
             player.checkDur() # Удаление использованных предметов
-            changetime(rand(2, 5)) #изменение времени
+            changetime(rand(1, 3)) #изменение времени
 
             if where[:4] == 'loc_' and getLoc(where).position != 'tech': #Если локация - локация и если она не техническая
+                clearLocations() # Очищаем все локации
                 addPeopleLocation(where) #Добавление людей на локацию
                 if where != curloc and getLoc(where).position != 'self':
                     prevloc = curloc
@@ -77,11 +78,15 @@ init python:
 #Добавление людей на локации
     def addPeopleLocation(location):
         location = getLoc(location) #Получение объекта локации
+        if lt() > 0: # заполняем классы, если уроки
+            fillClasses()
+            return
         for x in allChars:
             if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
                 temp = getChar()
                 if location.people.count(temp) == 0:
                     location.people.append(temp)
+                
 
 # Проверка одежды
     def checkClothes(location):

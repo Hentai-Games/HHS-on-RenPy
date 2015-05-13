@@ -347,7 +347,7 @@ label working:
     $ move(curloc)
     
 label income:
-    show expression im.FactorScale('pic/events/income/1.gif',2) at top
+    show expression 'pic/events/income/income.png' at top
     python:
         global complains
         temp = school.myIncome()

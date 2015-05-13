@@ -177,6 +177,7 @@ init -20 python:
             for x in range(0,sets):
                 self.sets.append([])
             self.wear = wear
+            self.inClass = 0
             self.club = club
             self.picto = picto
             self.location = location
@@ -209,7 +210,7 @@ init -20 python:
                 color = '#269AFF'
             elif body.sex() == 'futa':
                 color = '#FC3A3A'
-
+            
             character = cls(firstName, lastName, color = color, age = rand(12, 16), body = body, stats = stats, picto = picto)
             return character
 

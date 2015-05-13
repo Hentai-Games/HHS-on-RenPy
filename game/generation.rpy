@@ -244,7 +244,10 @@ label skipall:
                 picto_f.remove(picto)
             
             _studs.append(Char.random(sex, picto))
-
+            
+        for x in _studs:
+            x.inClass = rand(1,5)
+            
 #######################################################
 # codeBlc Создание учителей
 #######################################################

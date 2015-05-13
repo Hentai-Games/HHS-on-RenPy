@@ -12,7 +12,7 @@ init python:
         corr = char.getCorr()
         fun = char.getFun()
         health = char.getHealth()
-        
+        inClass = char.inClass
         
         asize = char.body.parts['анус'].size
         
@@ -23,7 +23,8 @@ init python:
         else:
             psize = char.body.parts['пенис'].size
             vsize = char.body.parts['вагина'].size
-        
+
+# Студенты и учителя
         if char != player:
             description += 'Перед вами ' + char.fullName() + '\n'
             description += 'Это '
@@ -52,6 +53,15 @@ init python:
                     description += 'футанари'
 
             description += ' '+ str(age) + ' лет. '
+            
+            if inClass > 0:
+                if sex == 'male':
+                    description += 'Он '
+                else:
+                    description += 'Она '
+            
+                description += 'учится в %d классе. ' % inClass
+            
             bsize = char.body.parts['грудь'].size
             if bsize > 0:
                 if bsize < 1: description += 'У неё почти нет грудей, что не удивительно для такой молодой девочки. '
@@ -144,7 +154,8 @@ init python:
 
             if sex != 'female' and corr > 50:
                 description += '\n[name] прозрачно намекает вам, что под одеждой от вас скрывается '+ psize +' сантиметровый змий!'
-
+            
+            description += '\n'
             if sex == 'female':
                 description += '\nНа ней сегодня '
             else:
@@ -161,6 +172,16 @@ init python:
                         description += ', '
                     else:
                         description += '.'
+            description += '\n'
+            description += '\n'
+            
+            if name in complains:
+                description += 'Родители этого ученика недовольны вами.'
+
+#########################################
+# Игрок
+#########################################
+
         else:
             description += 'Меня зовут ' + name + ', мне '+ age +' лет.\n'
             if beauty < 20:

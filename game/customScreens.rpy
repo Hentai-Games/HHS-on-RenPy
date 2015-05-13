@@ -370,13 +370,13 @@ screen showSet:
                     text x
 
 init:
-    image computer = im.FactorScale('pic/events/office/computer/work1.jpg', 1.3)
+    image computer = im.FactorScale('pic/events/office/computer/work1.jpg', 1.1)
     
 screen compScreen:
     zorder 1 
     modal True
+    add 'computer' at top
     add 'pic/bg.png'
-    add 'computer' at right
     
     fixed xpos 0.01 ypos 0.01:
         textbutton _('Назад') action Function(move, curloc)
