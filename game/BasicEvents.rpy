@@ -421,3 +421,13 @@ label death:
     hide text
     with dissolve
     $ renpy.quit(relaunch = True)
+    
+label scoldAll:
+    show expression 'pic/locations/school/class1/lo1b.jpg' at top as tempPic
+    'Яростным свистом в свой директорский свисток, Вы прервали разворачивающиеся перед вашими глазами непотребство, и приказали всем участникам остаться после уроков. Раздасованные ученики понурив головы, пообещали Вам придти.'
+    python:
+        for x in scoldWho:
+            x.setLoy(-1)
+            x.setRep(1)
+            addDetention(x)
+        move(curloc)

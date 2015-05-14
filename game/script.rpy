@@ -20,6 +20,7 @@
     mile_qwest_2_stage = 0
     
     detentions = []
+    scoldWho = []
 
 init 10 python:
     teacher_son = dummy

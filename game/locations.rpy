@@ -182,7 +182,7 @@ init:
     image wcm =  im.Scale('pic/locations/school/secondFloor/wcm.jpg', config.screen_width, config.screen_height)
     image wcf =  im.Scale('pic/locations/school/secondFloor/wcf.jpg', config.screen_width, config.screen_height)
     
-    image movie = Movie(size=(800, 600), xpos=0, ypos=0, xanchor=0, yanchor=0)
+    image movie = Movie(size=(800, 600), xpos=0.5, ypos=0, xanchor=0.5, yanchor=0)
     
 #Для теста
 label test:

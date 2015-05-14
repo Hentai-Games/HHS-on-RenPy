@@ -20,7 +20,9 @@ screen stats_screen:
                 text _('Сейчас перемена') style style.my_text
             if vlt < 0:
                 text _('Сейчас нет уроков') style style.my_text
-
+            if development > 0:    
+                textbutton ('Список эвентов') action Show('pomogator') style "small_button" text_style "small_button_text"
+            
             #Warnings
             if ptime - last_eat > 24:
                 text _('Вы голодаете') style style.warning
@@ -402,3 +404,31 @@ screen working:
             textbutton _('Вывести часть бюджета') action [SetVariable('lastWork',ptime), Function(school.steal,player)]
             if school.caughtChance > 0:
                 textbutton _('Замести следы') action [SetVariable('lastWork',ptime), Function(move,'cover')]
+                
+                
+screen pomogator:
+    fixed xpos 0.01 ypos 0.1:
+        vbox:
+            $ x = getLoc(curloc)
+            $ counter = 0
+            for event in x.events:
+                $ counter += 1
+                textbutton _(str(counter)+ '. ' +event.id) action Function(move, event.id) style "small_button" text_style "small_button_text"
+                
+    fixed xpos 0.2 ypos 0.1:
+        vbox:
+            $ x = getLoc(curloc+'Learn')
+            $ counter = 0
+            if x != False:
+                for event in x.events:
+                    $ counter += 1
+                    textbutton _(str(counter)+ '. ' +event.id) action Function(move, event.id) style "small_button" text_style "small_button_text"
+                    
+    fixed xpos 0.4 ypos 0.1:
+        vbox:
+            $ x = getLoc(curloc+'Night')
+            $ counter = 0
+            if x != False:
+                for event in x.events:
+                    $ counter += 1
+                    textbutton _(str(counter)+ '. ' +event.id) action Function(move, event.id) style "small_button" text_style "small_button_text"

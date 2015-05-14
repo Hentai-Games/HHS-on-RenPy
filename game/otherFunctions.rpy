@@ -133,6 +133,14 @@ init -5 python:
         for x in range(0, count):
             studs[rand(0,len(studs)-1)].setLust(amount)
             
+
+    def hadSex(*args):
+        for x in args:
+            if x.body.sex() != 'male':
+                x.body.parts['вагина'].size += randf(0.0,0.1)
+            x.setCorr(randf(0.0,len(args)))
+            x.setLust(randf(-50,50))
+            
             
     def addDetention(*args):
         for char in args:

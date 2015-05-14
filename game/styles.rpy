@@ -12,6 +12,16 @@ init python:
     style.navigation_button_text.outlines = [(1, "#000000", 0, 0)]
     style.navigation_button_text.hover_color = "#0000FF"
     style.navigation_button_text.selected_color = "#00FF00"
+    
+    style.small_button = Style(style.button_text)
+    style.small_button.background = Frame("pic/bg.png", 25, 25)
+    # style.navigation_button.hover_background = Frame("pic/bg.png", 25, 25)
+    # style.navigation_button.selected_background = Frame("images/interface/music_library_button_selected.png", 25, 25)
+    style.small_button_text.color = "#FFFFFF"
+    style.small_button_text.outlines = [(1, "#000000", 0, 0)]
+    style.small_button_text.hover_color = "#0000FF"
+    style.small_button_text.selected_color = "#00FF00"
+    style.small_button_text.size = 14
      
 style my_text is text:
     size 15
