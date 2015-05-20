@@ -292,9 +292,9 @@ label unconsciousOther:
 label stolen:
     show office
     show computer at top
-    $ temp = school.baseIncome*rand(1,5)
-    $ player.money += temp
-    'Проведя пару фиктивных сделок, вы смогли вывести [temp] монет со счёта школы.'
+    $ school.budget -= stolenMoney
+    $ player.money += stolenMoney
+    'Проведя пару фиктивных сделок, вы смогли вывести [stolenMoney] монет со счёта школы.'
     'Надо быть осторожней, и чаще подчищать следы, чтобы меня не поймали.'
     $ changetime(120)
     $ move(curloc)
@@ -346,12 +346,29 @@ label working:
     $ changetime(120)
     $ move(curloc)
     
+label invest:
+    show office
+    show computer at top
+    python:
+        investment = renpy.input('Вы решили инвестировать в школу часть своих средств.\nВведите сумму, которую вы собираетесь инвестировать.', default= player.money, allow='{1234567890}')
+        investment = int(investment)
+    if investment > player.money:
+        player.say 'Я не могу инвестировать больше средств, чем имею!'
+        jump invest
+    else:
+        python:
+            player.money -= investment
+            school.budget += investment
+            changetime(120)
+            move(curloc)
+    
 label income:
     show expression 'pic/events/income/income.png' at top as tempPic
     python:
         global complains
         temp = school.myIncome()
         player.money += temp
+        school.budget -= temp
         checkJail()
         complains = ''
         school.workedDays = 0
@@ -363,6 +380,8 @@ label income:
             complains = complains[:-2] + '.'
     'Вам позвонили из бухгалтерии министерства образования.'
     'Зарплата в размере [temp] была зачислена на ваш счёт.'
+    if school.budget < 0:
+        'Несмотря на то, что в результате на счету школы образовалась задолженность.'
     if complains != '':
         'Вас так же уведомили, что вами недовольны родители следующих учеников:\n[complains]'
     $ move(curloc)

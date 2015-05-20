@@ -283,4 +283,3 @@ init python:
 # self.body = body
 # self.beauty = beauty
 # self.dirty = dirty
-# self.rep = rep

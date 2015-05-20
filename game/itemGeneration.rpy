@@ -379,7 +379,5 @@ init python:
     blueForm.type = 'clothing'
     clothing.append(blueForm)
 
-
-    
     allItems.extend(clothing)
     

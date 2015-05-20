@@ -751,7 +751,7 @@ label event_loc_class1_40_9:
     'И, судя по блестящей капельке на члене, закончится скоро.'
     menu:
         'Продолжать смотреть':
-            show expression 'pic/locations/school/class1/mid9.jpg' at top as tempPic
+            show expression 'pic/locations/school/class1/mid9a.jpg' at top as tempPic
             'Парень вдруг застонал, и из его небольшого члена, брызнул довольно мощный поток, заливающий парту и девушку.'
             st1.say 'Ой, чего же ты не предупредил? - ойкнула ученица, и начала вытираться.'
             'Парень тяжело дышал, привалившись на парту. Вы подумали о том, что лучше бы Вас не заметили, и тихонько скрылись из класса.'
@@ -963,9 +963,9 @@ label event_loc_class1_65_10:
     show class1
     python:
         st1 = getChar('female')
-        st1 = getChar('female')
-        st1 = getChar('female')
-        st1 = getChar('female')
+        st2 = getChar('female')
+        st3 = getChar('female')
+        st4 = getChar('female')
         player.setLust(10)
     show expression 'pic/locations/school/class1/hi10.jpg' at top as tempPic
     '[st1.fname], [st2.fname], [st3.fname] и [st4.fname] примеряют свои новые игрушки. Все мило приветвуют Вас, и продолжают обсуждать достоинства и недостатки своих вибраторов.'

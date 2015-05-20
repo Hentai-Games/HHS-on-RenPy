@@ -42,7 +42,6 @@ init python:
             if rand(1,100) < 10 and where[:4] == 'loc_' and same_loc == 0: tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
 
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
-
             renpy.jump(where) #Переход на локу
         else:
             renpy.jump('loc_home')

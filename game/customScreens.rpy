@@ -4,6 +4,7 @@
 init python:
     myItem = 0
     mySet = []
+    voteDecision = False
 ##############################################################################
 # Основной скрин статистики
 ##############################################################################
@@ -371,51 +372,25 @@ screen showSet:
                 for x in mySet:
                     text x
 
-init:
-    image computer = im.FactorScale('pic/events/office/computer/work1.jpg', 1.1)
-    
-screen compScreen:
-    zorder 1 
-    modal True
-    add 'computer' at top
-    add 'pic/bg.png'
-    
-    fixed xpos 0.01 ypos 0.01:
-        textbutton _('Назад') action Function(move, curloc)
-    
-    fixed xpos 0.01 ypos 0.1:
-        vbox:
-            
-            if ptime - lastWork > 24:
-                textbutton _('Работать') action Show('working')
-            textbutton _('Почта') action NullAction()
-            textbutton _('Клубы') action NullAction()
-            textbutton _('Школьные правила') action NullAction()
-            textbutton _('Работа с учениками') action NullAction()
-            textbutton _('Проверка камер') action NullAction()
-
-screen working:
-    zorder 1
-    tag compScreens
-    fixed xpos 0.3 ypos 0.1:
-        vbox:
-            textbutton _('Заполнять ежедневные бумаги') action [SetVariable('lastWork',ptime), Function(school.working), Hide('working'), Show('compScreen')]
-            textbutton _('Выбивать повышение') action [SetVariable('lastWork', ptime), Function(move,'increaseIncome')]
-            textbutton _('Вывести часть бюджета') action [SetVariable('lastWork',ptime), Function(school.steal,player)]
-            if school.caughtChance > 0:
-                textbutton _('Замести следы') action [SetVariable('lastWork',ptime), Function(move,'cover')]
-                
-                
+##############################################################################
+# Помогатор для теста
+############################################################################## 
 screen pomogator:
     fixed xpos 0.01 ypos 0.1:
-        vbox:
-            $ x = getLoc(curloc)
-            $ counter = 0
-            for event in x.events:
-                $ counter += 1
-                textbutton _(str(counter)+ '. ' +event.id) action Function(move, event.id) style "small_button" text_style "small_button_text"
+        $ x = getLoc(curloc)
+        $ xalig = 0.01
+        $ yalig = 0.1
+        $ counter = 0
+        for event in x.events:
+            $ counter += 1
+            textbutton _(str(counter)+ '. ' +event.id) xalign xalig yalign yalig action Function(move, event.id) style "small_button" text_style "small_button_text"
+            $ xalig += 0.3
+            if xalig >= 0.99:
+                $ yalig += 0.02
+                $ xalig = 0.01
                 
-    fixed xpos 0.2 ypos 0.1:
+                
+    fixed xpos 0.01 ypos 0.3:
         vbox:
             $ x = getLoc(curloc+'Learn')
             $ counter = 0
@@ -424,7 +399,7 @@ screen pomogator:
                     $ counter += 1
                     textbutton _(str(counter)+ '. ' +event.id) action Function(move, event.id) style "small_button" text_style "small_button_text"
                     
-    fixed xpos 0.4 ypos 0.1:
+    fixed xpos 0.01 ypos 0.5:
         vbox:
             $ x = getLoc(curloc+'Night')
             $ counter = 0
