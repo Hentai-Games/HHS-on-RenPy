@@ -9,14 +9,14 @@ init python:
     # style.navigation_button.hover_background = Frame("pic/bg.png", 25, 25)
     # style.navigation_button.selected_background = Frame("images/interface/music_library_button_selected.png", 25, 25)
     style.navigation_button_text.color = "#FFFFFF"
+    style.navigation_button_text.size = 24
     style.navigation_button_text.font = "segoeuib.ttf"
-    # style.navigation_button_text.font = "palab.ttf"
     style.navigation_button_text.outlines = [(2, "#494949", 1, 0)]
     style.navigation_button_text.hover_color = "#00FF80"
     style.navigation_button_text.selected_color = "#00FF00"
     
     style.small_button = Style(style.button_text)
-    style.small_button.background = Frame("pic/bg.png", 25, 25)
+    # style.small_button.background = Frame("pic/bg.png", 25, 25)
     # style.navigation_button.hover_background = Frame("pic/bg.png", 25, 25)
     # style.navigation_button.selected_background = Frame("images/interface/music_library_button_selected.png", 25, 25)
     style.small_button_text.color = "#FFFFFF"

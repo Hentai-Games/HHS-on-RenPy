@@ -5,9 +5,9 @@ init -20 python:
     ###################################################################
 
     class School():
-        def __init__(self, uniform = 'normal', clubs = [], buildings = [], furniture = [], eduMats = 'standart', detention = 'education', baseIncome = 1000, daysWorked = 0):
+        def __init__(self, uniform = 'uniform', clubs = [], buildings = [], furniture = [], eduMats = 'standart', detention = 'education', baseIncome = 1000, daysWorked = 0):
             self.uniform = uniform
-            self.unlockedUniforms = ['normal','strict']
+            self.unlockedUniforms = ['uniform','strict']
             self.clubs = clubs
             self.buildings = buildings
             self.furniture = furniture
@@ -55,7 +55,7 @@ init -20 python:
                 return 'Обычная одежда'
             elif self.uniform == 'scrict':
                 return 'Строгая форма'
-            elif self.uniform == 'normal':
+            elif self.uniform == 'uniform':
                 return 'Стандартная форма'
             elif self.uniform == 'sexy':
                 return 'Сексуальная форма'
@@ -84,7 +84,7 @@ init -20 python:
                     voteVeto += 1
                     
         if voteYes > voteNo and voteVeto == 0:
-            if what in ['usual','scrict','normal','sexy','skimpy','naked']:
+            if what in ['usual','scrict','uniform','sexy','skimpy','naked']:
                 school.unlockedUniforms.append(what)
                 school.uniform = what
             if what in ['streetCleaning','upskirt','no']:

@@ -21,7 +21,11 @@ screen stats_screen:
             if lt() < 0:
                 text _('Сейчас нет уроков') style style.my_text
             if development > 0:    
-                textbutton ('Список эвентов') action Show('pomogator') style "small_button" text_style "small_button_text"
+                textbutton ('Список эвентов') action Show('pomogator') style "small_button" text_style "small_button_text" xalign 0.0
+            if show_peopleTextList == 0:
+                textbutton ('Показать людей') action [SetVariable('show_peopleTextList',1), Show('peopleTextList')] style "small_button" text_style "small_button_text" xalign 0.0
+            else:
+                textbutton ('Скрыть людей') action [SetVariable('show_peopleTextList',0), Hide('peopleTextList')] style "small_button" text_style "small_button_text" xalign 0.0
             
             #Warnings
             if ptime - last_eat > 24:
@@ -173,6 +177,13 @@ screen stats_screen:
         if getLoc(curloc) != False:
             if len(getLoc(curloc).people) > 0:
                 imagebutton auto 'pic/actions/eye_%s.png' action [Function(clrscr),Jump('locationPeople')]
+    
+screen peopleTextList:
+    fixed xpos 0.01 ypos 0.12:
+        vbox:
+            for x in getLoc(curloc).people:
+                textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "small_button" text_style "small_button_text" xalign 0.0
+                
 
 ##############################################################################
 # Стартовый скрин выбора персонажа
@@ -398,9 +409,9 @@ screen pomogator:
         $ counter = 0
         for event in x.events:
             $ counter += 1
-            textbutton _(str(counter)+ '. ' +event.id) xalign xalig yalign yalig action Function(move, event.id) style "small_button" text_style "small_button_text"
-            $ xalig += 0.3
-            if xalig >= 0.99:
+            textbutton _(str(counter)+ '. ' +event.id) xpos xalig ypos yalig action Function(move, event.id) style "small_button" text_style "small_button_text" xalign 0.0
+            $ xalig += 0.25
+            if xalig >= 0.8:
                 $ yalig += 0.02
                 $ xalig = 0.01
                 

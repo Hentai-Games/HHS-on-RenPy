@@ -1,6 +1,7 @@
 init python:
     def dailyRecount(chars):
-        global lastWork
+    
+        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat
         
         if (ptime - last_eat)/24 > 1:
             temp = (ptime - last_eat)/2
@@ -8,6 +9,17 @@ init python:
         
         lastWork = -30
         
-        for x in chars:
-            x.setCorr((getPar(teachers, 'corr') - x.stats.corr)/10)
-            x.setRep((getPar(studs, 'rep') - x.stats.reputation)/100)
+        if him_zavivka > 0:
+            him_zavivka -= 1
+        if depilation > 0:
+            depilation -= 1
+        if skin_care > 0:
+            skin_care -= 1
+        if manicure > 0:
+            manicure -= 1
+        if pedicure > 0:
+            pedicure -= 1
+        
+        for char in chars:
+            char.setCorr((getPar(teachers, 'corr') - char.stats.corr)/10)
+            char.setRep((getPar(studs, 'rep') - char.stats.reputation)/100)

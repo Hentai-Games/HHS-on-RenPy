@@ -129,7 +129,7 @@ screen show_stat:
             text 'Лояльность [temp]' style style.my_text
             $ temp = round(showHover.stats.corr, 1)
             text 'Развратность [temp]' style style.my_text
-            $ temp = round(showHover.stats.beauty, 1)
+            $ temp = round(showHover.getBeauty(), 1)
             text 'Красота [temp]' style style.my_text
             null height 10
 

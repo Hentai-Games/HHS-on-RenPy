@@ -16,8 +16,6 @@ init python:
             renpy.scene(layer='master') # Сброс картинок
             renpy.scene(layer='screens') # Сброс скринов
             renpy.show('daytime') # Базовый фон
-            if getLoc(curloc) != False: getLoc(curloc).people = [] #Сброс людей с предыдущей локации
-
             player.stats.energy -= randf(2,5) #расход энергии
             resetStats(allChars) #Сброс статов
             player.checkDur() # Удаление использованных предметов
@@ -36,6 +34,7 @@ init python:
                     same_loc = 1
                 if 'self' not in getLoc(where).position:
                     renpy.show_screen('stats_screen') #При перемещении всегда появляется интерфейс
+                    if show_peopleTextList == 1: renpy.show_screen('peopleTextList')
                 checkClothes(where) # проверка одетости
                 checkUnconscious(getLoc(where)) # потеря сознания
                 checkSperm(getLoc(where)) # снятие репутации за сперму.
@@ -93,20 +92,25 @@ init python:
     def dressPeople(location):
         location = getLoc(location)
         for char in location.people:
-            char.wearingByPurpose('usual')
-            if 'school' in location.position:
-                if school.uniform == 'scrict':
-                    char.wearingByPurpose('scrict')
-                elif school.uniform == 'normal':
-                    char.wearingByPurpose('uniform')
-                elif school.uniform == 'sexy':
+            if len(char.wear) == 0 or (char.getClothPurpose('swim') == True and 'swim' not in location.position):
+                char.wearingByPurpose('usual')
+                if rand(1,4) == 1 and char in studs:
+                    char.wearingByPurpose(school.uniform)
+            if 'school' in location.position and char in studs:
+                char.wearingByPurpose(school.uniform)
+            if char in teachers:
+                if char.getCorr() < 10:
+                    char.wearingByPurpose('strict')
+                elif char.getCorr() < 25:
+                    char.wearingByPurpose('usual')
+                elif char.getCorr() < 50:
                     char.wearingByPurpose('sexy')
-                elif school.uniform == 'skimpy':
+                elif char.getCorr() < 75:
                     char.wearingByPurpose('skimpy')
-                elif school.uniform == 'naked':
-                    char.undress()
             if 'swim' in location.position:
                 char.wearingByPurpose('swim')
+                if 'school' in location.position and school.uniform == 'naked':
+                    char.undress()
                         
 # Проверка одежды
     def checkClothes(location):

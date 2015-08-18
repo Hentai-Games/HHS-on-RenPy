@@ -16,8 +16,16 @@
     inhibLow = 0
     inhibLowTime = 0
     is_beach_event = 0
-    
+    is_glory_found = 0
     mile_qwest_2_stage = 0
+    is_beauty_visited = 0
+    
+    him_zavivka = 0
+    depilation = 0
+    skin_care = 0
+    manicure = 0
+    pedicure = 0
+    show_peopleTextList = 0
     
     detentions = []
     scoldWho = []
@@ -28,13 +36,14 @@ init 10 python:
     
 init:
     image white = "#FFFFFF"
+    define med = Character("Медсестра", who_color="#c8ffc8", show_side_image = Image(im.FactorScale('pic/locations/shopBeauty/2.png',0.6, xalign=0.01, yalign= 1.2)), window_left_padding = 170)
     
 label start:
     show white
     python:
         for x in locations:
             if x.name == 'UNKNOWN':
-                renpy.say('','WRONG LOCATION! ADD TO LOCATIONS LIST! LABEL = [x.id]')
+                renpy.say('CREATOR','WRONG LOCATION! ADD TO LOCATIONS LIST! LABEL = [x.id]')
     menu:
         'selchar':
             jump selchar

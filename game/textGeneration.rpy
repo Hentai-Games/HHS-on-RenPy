@@ -264,6 +264,21 @@ init python:
                         description += '.'
                         
             description += '\n'
+            if him_zavivka > 0:
+                description += 'Дней до разрушения причёски: '+str(him_zavivka)
+                description += '\n'
+            if depilation > 0:
+                description += 'Дней до того, как станут заметны отросшие волоски: '+str(depilation)
+                description += '\n'
+            if skin_care > 0:
+                description += 'Дней до того, как кожа придёт в прежнее состояние: '+str(skin_care)
+                description += '\n'
+            if manicure > 0:
+                description += 'Дней до того, как отрастут ногти и маникюр испортится: '+str(manicure)
+                description += '\n'
+            if pedicure > 0:
+                description += 'Дней до того, как педикюр испортится: '+str(pedicure)
+                description += '\n'
             description += '\n'
             temp = school.myIncome()
             description += 'Я отработала '+ getDays(school.daysWorked) +' на этой неделе. На данный момент мой заработок составит '+ str(temp) +' монет.'

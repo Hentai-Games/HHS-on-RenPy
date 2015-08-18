@@ -203,9 +203,7 @@ label test:
     # 'тест'
     # stop movie
     # hide movie
-    $ player.setLust(100)
-    
-    $ move('loc_home')
+    jump jail
 
 ##############################################################
 # Home
@@ -217,7 +215,7 @@ label loc_home:
     show home
     screen home:
         fixed:
-            text 'Гостинная в вашей квартире. Маленькая, зато аккуратная. На стеклянном столе лежит пачка салфеток для ежедневного ухода за кожей. Напротив диванчика стоит телевизор. Вы не помните, чтобы по нему хоть раз показывали что то хорошее. Возможно потому, что потеряли пульт сразу после перезда.' xalign 0.0 yalign 1.0 style style.description
+            text 'Гостинная в вашей квартире. Маленькая, зато аккуратная. На стеклянном столе лежит пачка салфеток для ежедневного ухода за кожей. Напротив диванчика стоит телевизор. Вы не помните, чтобы по нему хоть раз показывали что то хорошее. Возможно потому, что потеряли пульт сразу после переезда.' xalign 0.0 yalign 1.0 style style.description
             textbutton 'Кухня' xalign 0.05 yalign 0.8 action Function(move, 'loc_kitchen') style "navigation_button" text_style "navigation_button_text"
             textbutton 'Спальня' xalign 0.5 yalign 0.8 action Function(move, 'loc_bedroom') style "navigation_button" text_style "navigation_button_text"
             textbutton 'Ванная' xalign 0.9 yalign 0.8 action Function(move, 'loc_bathroom') style "navigation_button" text_style "navigation_button_text"
@@ -530,6 +528,8 @@ label loc_street:
                     textbutton 'Переодеться' xalign 0.15 yalign 0.3 action Show('wardrobe')
                     if is_beach_event == 1 and rand(1,10) == 1:
                         textbutton 'Проверить\nдырочку' xalign 0.795 yalign 0.55 action Function(tryEvent, 'loc_gloryHole')
+                    if is_glory_found == 1:
+                        textbutton 'Засунуть\nпальцы' xalign 0.795 yalign 0.65 action Jump('loc_gloryHole')
                             
             if is_beach_event == 0 and rand(1,10) == 1:
                 $clrscr()
@@ -571,11 +571,103 @@ label loc_street:
 
         label loc_shopBeauty:
             show shopBeauty at left
+            screen beauty_description(what):
+                fixed xpos 0.01 ypos 0.6 xmaximum 800:
+                    hbox:
+                        add im.FactorScale('pic/locations/shopBeauty/2.png',0.8)
+                        frame:
+                            if what == 'him_zavivka':
+                                vbox:
+                                    text _('Химическая завивка. Стоимость - 500. Длительность - 7 дней.')
+                                    if him_zavivka > 0:
+                                        text _('Дней до разрушения причёски: '+str(him_zavivka))
+                            elif what == 'depilation':
+                                vbox:
+                                    text _('Депиляция тела. Стоимость - 1000. Длительность - 14 дней.')
+                                    if depilation > 0:
+                                        text _('Дней до того, как станут заметны отросшие волоски: '+str(depilation))
+                            elif what == 'skin_care':
+                                vbox:
+                                    text _('Уход за кожей. Стоимость - 5000. Длительность - 30 дней.')
+                                    if skin_care > 0:
+                                        text _('Дней до того, как кожа придёт в прежнее состояние: '+str(skin_care))
+                            elif what == 'manicure':
+                                vbox:
+                                    text _('Маникюр. Стоимость - 100. Длительность - 3 дня.')
+                                    if manicure > 0:
+                                        text _('Дней до того, как отрастут ногти и маникюр испортится: '+str(manicure))
+                            elif what == 'pedicure':
+                                vbox:
+                                    text _('Педикюр. Стоимость - 200. Длительность - 6 дней.')
+                                    if pedicure > 0:
+                                        text _('Дней до того, как педикюр испортится: '+str(pedicure))
+                            elif what == 'beauty_operation':
+                                text _('Пластическая операция. Навсегда улучшает естественную красоту, вплоть до максимума. Стоимость - 50000.')
+                            else:
+                                text _('Нет описания для [what]')
             screen shopBeauty:
                 fixed:
+                    vbox xalign 0.9 yalign 0.3 xminimum 200:
+                        textbutton _('Депиляция') action [
+                            SelectedIf(depilation > 0),
+                            SensitiveIf(player.money > 1000),
+                            Jump('beauty_depilation')
+                            ] hovered [
+                            Show('beauty_description', None, 'depilation') # При наведении показывается описание
+                            ] unhovered [
+                            Hide('beauty_description') # При потере фокуса - скрывается
+                            ]
+                        textbutton _('Химическая завивка') action [
+                            SelectedIf(him_zavivka > 0),
+                            SensitiveIf(player.money > 500),
+                            Jump('beauty_him_zavivka')
+                            ] hovered [
+                            Show('beauty_description', None, 'him_zavivka') # При наведении показывается описание
+                            ] unhovered [
+                            Hide('beauty_description') # При потере фокуса - скрывается
+                            ]
+                        textbutton _('Чистка кожи') action [
+                            SelectedIf(skin_care > 0),
+                            SensitiveIf(player.money > 5000),
+                            Jump('beauty_skin_care')
+                            ] hovered [
+                            Show('beauty_description', None, 'skin_care') # При наведении показывается описание
+                            ] unhovered [
+                            Hide('beauty_description') # При потере фокуса - скрывается
+                            ]
+                        textbutton _('Маникюр') action [
+                            SelectedIf(manicure > 0),
+                            SensitiveIf(player.money > 100),
+                            Jump('beauty_manicure')
+                            ] hovered [
+                            Show('beauty_description', None, 'manicure') # При наведении показывается описание
+                            ] unhovered [
+                            Hide('beauty_description') # При потере фокуса - скрывается
+                            ]
+                        textbutton _('Педикюр') action [
+                            SelectedIf(pedicure > 0),
+                            SensitiveIf(player.money > 200),
+                            Jump('beauty_pedicure')
+                            ] hovered [
+                            Show('beauty_description', None, 'pedicure') # При наведении показывается описание
+                            ] unhovered [
+                            Hide('beauty_description') # При потере фокуса - скрывается
+                            ]
+                        textbutton _('Пластическая операция') action [
+                            SensitiveIf(player.stats.beauty < 100 and player.money > 50000),
+                            Jump('beauty_operation')
+                            ] hovered [
+                            Show('beauty_description', None, 'beauty_operation') # При наведении показывается описание
+                            ] unhovered [
+                            Hide('beauty_description') # При потере фокуса - скрывается
+                            ]
                     vbox xalign 0.0 yalign 1.0:
                         text 'Салон красоты приветствует Вас чистым полом и ярким рецепшеном. Наверняка тут предлагают великолепные по качеству услуги для улучшения внешности, если природа Вас обделила. Хотя и прирождённым красавицам они безусловно тоже помогут стать ещё красивее. Вот только цена, не отпугнёт ли она случайного клиента?' style style.description
                     textbutton 'Назад' xalign 0.5 yalign 0.8 action [Function(move, 'loc_shopStreet')] style "navigation_button" text_style "navigation_button_text"
+            if is_beauty_visited == 0:
+                $clrscr()
+                $ is_beauty_visited = 1
+                jump beauty_intro
             call screen shopBeauty
 
 

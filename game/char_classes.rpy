@@ -293,7 +293,18 @@ init -20 python:
             return self.stats.intelligence
 # Получение beauty
         def getBeauty(self):
-            return self.stats.beauty - self.getDirty()*5
+            beauty = self.stats.beauty - self.getDirty()*5
+            if him_zavivka > 0:
+                beauty += 10
+            if depilation > 0:
+                beauty += 20
+            if skin_care > 0:
+                beauty += 40
+            if manicure > 0:
+                beauty += 5
+            if pedicure > 0:
+                beauty += 5
+            return beauty
 # Получение reputation
         def getRep(self):
             return self.stats.reputation
@@ -517,17 +528,12 @@ init -20 python:
             else:
                 return False
         
-        # Функция одевания по назначению
+        # Функция одевания по назначению. НЕ ДЛЯ ИГРОКА!
         def wearingByPurpose(self, purpose):
-            # itemsToRemove = []
-            # for item in self.inventory:
-                # if item.type == 'clothing':
-                    # if item.purpose == purpose:
-                        # itemsToRemove.append(item)
-                        # self.wear.append(item)
-            # for x in itemsToRemove:
-                # self.inventory.remove(x)
             nameInventory = []
+            if purpose == 'naked':
+                self.undress()
+                return True
             for x in self.inventory:
                 nameInventory.append(x.name)
             for name in nameInventory:
@@ -535,6 +541,8 @@ init -20 python:
                 if currItem.type == 'clothing':
                     if currItem.purpose == purpose:
                         self.wearing(currItem)
+                        if 'попа' in currItem.cover and self.getCorr() > 50 and rand(1,3) == 1:
+                            self.dewearing(currItem)
             
             
         # Функция частичного раздевания
