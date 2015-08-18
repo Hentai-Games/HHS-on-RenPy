@@ -44,51 +44,52 @@ init 10 python:
 
     for x in _locs:
         if x[:4] == 'loc_':
-            if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = 100, position = 'safe')
-            elif x == 'loc_bedroom': loc = Location(id = x, name = 'спальня', base_prob = 0, position = 'safe')
-            elif x == 'loc_bathroom': loc = Location(id = x, name = 'ванная', base_prob = 0, position = 'safe')
-            elif x == 'loc_kitchen': loc = Location(id = x, name = 'кухня', base_prob = 0, position = 'safe')
+            if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = 100, position = ['home','safe'])
+            elif x == 'loc_bedroom': loc = Location(id = x, name = 'спальня', base_prob = 0, position = ['home','safe'])
+            elif x == 'loc_bathroom': loc = Location(id = x, name = 'ванная', base_prob = 0, position = ['home','safe'])
+            elif x == 'loc_kitchen': loc = Location(id = x, name = 'кухня', base_prob = 0, position = ['home','safe'])
 
-            elif x == 'loc_street': loc = Location(id = x, name = 'улица', base_prob = 15, position = 'other')
-            elif x == 'loc_beach': loc = Location(id = x, name = 'пляж', base_prob = 35, position = 'other')
-            elif x == 'loc_beachChange': loc = Location(id = x, name = 'раздевалка', base_prob = 0, position = 'safe')
-            elif x == 'loc_shopStreet': loc = Location(id = x, name = 'торговая улица', base_prob = 25, position = 'other')
-            elif x == 'loc_shop': loc = Location(id = x, name = 'магазин', base_prob = 10, position = 'other')
-            elif x == 'loc_shopBeauty': loc = Location(id = x, name = 'салон красоты', base_prob = 5, position = 'other')
-            elif x == 'loc_sexShop': loc = Location(id = x, name = 'сексшоп', base_prob = 5, position = 'other')
+            elif x == 'loc_street': loc = Location(id = x, name = 'улица', base_prob = 15, position = ['other'])
+            elif x == 'loc_beach': loc = Location(id = x, name = 'пляж', base_prob = 35, position = ['other','swim'])
+            elif x == 'loc_beachChange': loc = Location(id = x, name = 'раздевалка', base_prob = 0, position = ['safe','other','change'])
+            elif x == 'loc_shopStreet': loc = Location(id = x, name = 'торговая улица', base_prob = 25, position = ['other'])
+            elif x == 'loc_shop': loc = Location(id = x, name = 'магазин', base_prob = 10, position = ['other'])
+            elif x == 'loc_shopBeauty': loc = Location(id = x, name = 'салон красоты', base_prob = 5, position = ['other'])
+            elif x == 'loc_sexShop': loc = Location(id = x, name = 'сексшоп', base_prob = 5, position = ['other'])
 
-            elif x == 'loc_hall': loc = Location(id = x, name = 'холл', base_prob = 15, position = 'school')
-            elif x == 'loc_entrance': loc = Location(id = x, name = 'вход', base_prob = 15, position = 'school')
-            elif x == 'loc_library': loc = Location(id = x, name = 'библиотека', base_prob = 10, position = 'school')
-            elif x == 'loc_changeRoom': loc = Location(id = x, name = 'школьная раздевалка', base_prob = 5, position = 'safe')
-            elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 25, position = 'classroom')
-            elif x == 'loc_pool': loc = Location(id = x, name = 'бассейн', base_prob = 15, position = 'classroom')
-            elif x == 'loc_firstFloor': loc = Location(id = x, name = 'первый этаж', base_prob = 20, position = 'school')
-            elif x == 'loc_secondFloor': loc = Location(id = x, name = 'второй этаж', base_prob = 20, position = 'school')
-            elif x == 'loc_class1': loc = Location(id = x, name = 'Класс 1', base_prob = 10, position = 'classroom')
-            elif x == 'loc_class2': loc = Location(id = x, name = 'Класс 2', base_prob = 10, position = 'classroom')
-            elif x == 'loc_class3': loc = Location(id = x, name = 'Класс 3', base_prob = 10, position = 'classroom')
-            elif x == 'loc_class4': loc = Location(id = x, name = 'Класс 4', base_prob = 10, position = 'classroom')
-            elif x == 'loc_class5': loc = Location(id = x, name = 'Класс 5', base_prob = 10, position = 'classroom')
-            elif x == 'loc_teacherRoom': loc = Location(id = x, name = 'учительская', base_prob = 0, position = 'school')
-            elif x == 'loc_wcm': loc = Location(id = x, name = 'Туалет для мальчиков', base_prob = 5, position = 'school')
-            elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 5, position = 'school')
-            elif x == 'loc_storage': loc = Location(id = x, name = 'кладовка', base_prob = 5, position = 'school')
-            elif x == 'loc_office': loc = Location(id = x, name = 'офис', base_prob = 0, position = 'school')
+            elif x == 'loc_hall': loc = Location(id = x, name = 'холл', base_prob = 15, position = ['school'])
+            elif x == 'loc_entrance': loc = Location(id = x, name = 'вход', base_prob = 15, position = ['school'])
+            elif x == 'loc_library': loc = Location(id = x, name = 'библиотека', base_prob = 10, position = ['school'])
+            elif x == 'loc_changeRoom': loc = Location(id = x, name = 'школьная раздевалка', base_prob = 5, position = ['school','safe','change'])
+            elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 25, position = ['school','classroom','sport'])
+            elif x == 'loc_pool': loc = Location(id = x, name = 'бассейн', base_prob = 15, position = ['school','classroom','swim'])
+            elif x == 'loc_firstFloor': loc = Location(id = x, name = 'первый этаж', base_prob = 20, position = ['school'])
+            elif x == 'loc_secondFloor': loc = Location(id = x, name = 'второй этаж', base_prob = 20, position = ['school'])
+            elif x == 'loc_class1': loc = Location(id = x, name = 'Класс 1', base_prob = 10, position = ['school','classroom'])
+            elif x == 'loc_class2': loc = Location(id = x, name = 'Класс 2', base_prob = 10, position = ['school','classroom'])
+            elif x == 'loc_class3': loc = Location(id = x, name = 'Класс 3', base_prob = 10, position = ['school','classroom'])
+            elif x == 'loc_class4': loc = Location(id = x, name = 'Класс 4', base_prob = 10, position = ['school','classroom'])
+            elif x == 'loc_class5': loc = Location(id = x, name = 'Класс 5', base_prob = 10, position = ['school','classroom'])
+            elif x == 'loc_teacherRoom': loc = Location(id = x, name = 'учительская', base_prob = 0, position = ['school'])
+            elif x == 'loc_wcm': loc = Location(id = x, name = 'Туалет для мальчиков', base_prob = 5, position = ['school'])
+            elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 5, position = ['school'])
+            elif x == 'loc_storage': loc = Location(id = x, name = 'кладовка', base_prob = 5, position = ['school'])
+            elif x == 'loc_office': loc = Location(id = x, name = 'офис', base_prob = 0, position = ['safe','school'])
 
-            elif x == 'loc_dreams': loc = Location(id = x, name = 'Сны', base_prob = 0, position = 'self')
-            elif x == 'loc_swim': loc = Location(id = x, name = 'Плавание', base_prob = 0, position = 'self')
-            elif x == 'loc_taxi': loc = Location(id = x, name = 'Такси', base_prob = 0, position = 'self')
+            elif x == 'loc_dreams': loc = Location(id = x, name = 'Сны', base_prob = 0, position = ['self'])
+            elif x == 'loc_swim': loc = Location(id = x, name = 'Плавание', base_prob = 0, position = ['self'])
+            elif x == 'loc_taxi': loc = Location(id = x, name = 'Такси', base_prob = 0, position = ['self'])
+            elif x == 'loc_gloryHole': loc = Location(id = x, name = 'Глорихол', base_prob = 0, position = ['self'])
 
-            elif x == 'loc_class1Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
-            elif x == 'loc_class2Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
-            elif x == 'loc_class3Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
-            elif x == 'loc_class4Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
-            elif x == 'loc_class5Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
-            elif x == 'loc_gymLearn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
-            elif x == 'loc_poolLearn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = 'tech')
+            elif x == 'loc_class1Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = ['tech'])
+            elif x == 'loc_class2Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = ['tech'])
+            elif x == 'loc_class3Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = ['tech'])
+            elif x == 'loc_class4Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = ['tech'])
+            elif x == 'loc_class5Learn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = ['tech'])
+            elif x == 'loc_gymLearn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = ['tech'])
+            elif x == 'loc_poolLearn': loc = Location(id = x, name = 'Учёба', base_prob = 0, position = ['tech'])
             
-            else: loc = Location(id = x, name = 'UNKNOWN', base_prob = 0, position = 'other')
+            else: loc = Location(id = x, name = 'UNKNOWN', base_prob = 0, position = ['other'])
             locations.append(loc)
 
     getEvents() #добавляю всем эвенты
@@ -96,13 +97,21 @@ init 10 python:
 ######################################################
 #Объявление всех картинок
 init:
-    image home = im.Scale('pic/locations/home/1.jpg', config.screen_width, config.screen_height)
-    image bedroom = im.Scale('pic/locations/home/2.jpg', config.screen_width, config.screen_height)
+    image home = ConditionSwitch(
+        "hour >= 5 and hour <= 20", 'pic/locations/home/2.png',
+        "hour > 20 or hour < 5", 'pic/locations/home/1.png',
+        )
+    image bedroom = ConditionSwitch(
+        "hour >= 5 and hour <= 20", 'pic/locations/home/3.png',
+        "hour > 20 or hour < 5", 'pic/locations/home/4.png',
+        )
     image bathroom = im.Scale('pic/locations/home/3.jpg', config.screen_width, config.screen_height)
     image kitchen = im.Scale('pic/locations/home/4.jpg', config.screen_width, config.screen_height)
     image street = ConditionSwitch(
-        "hour >= 5 and hour <= 20", im.Scale("pic/locations/street/1.jpg",config.screen_width, config.screen_height),
-        "hour > 20 or hour < 5", im.Scale("pic/locations/street/2.jpg",config.screen_width, config.screen_height),
+        "hour >= 5 and hour < 9", im.Scale("pic/locations/street/bg19.png",config.screen_width, config.screen_height),
+        "hour >= 9 and hour < 17", im.Scale("pic/locations/street/bg18.png",config.screen_width, config.screen_height),
+        "hour >= 17 and hour < 22", im.Scale("pic/locations/street/bg19.png",config.screen_width, config.screen_height),
+        "hour >= 22 or hour < 5", im.Scale("pic/locations/street/bg20.png",config.screen_width, config.screen_height),
         )
     image beach = ConditionSwitch(
         "hour >= 5 and hour <= 20", im.Scale("pic/locations/beach/1.jpg",config.screen_width, config.screen_height),
@@ -113,8 +122,10 @@ init:
         "hour > 20 or hour < 5", im.Scale("pic/locations/beach/changeRoom/2.jpg",config.screen_width, config.screen_height),
         )
     image shopStreet = ConditionSwitch(
-        "hour >= 5 and hour <= 20", im.Scale("pic/locations/shopStreet/1.jpg",config.screen_width, config.screen_height),
-        "hour > 20 or hour < 5", im.Scale("pic/locations/shopStreet/2.jpg",config.screen_width, config.screen_height),
+        "hour >= 5 and hour < 9", im.Scale("pic/locations/shopStreet/bg22.png",config.screen_width, config.screen_height),
+        "hour >= 9 and hour < 17", im.Scale("pic/locations/shopStreet/bg40.png",config.screen_width, config.screen_height),
+        "hour >= 17 and hour < 22", im.Scale("pic/locations/shopStreet/bg22.png",config.screen_width, config.screen_height),
+        "hour >= 22 or hour < 5", im.Scale("pic/locations/shopStreet/bg23.png",config.screen_width, config.screen_height),
         )
     image shop = im.Scale('pic/locations/shop/1.jpg', config.screen_width, config.screen_height)
     image shopBeauty = im.Scale('pic/locations/shopBeauty/1.jpg', config.screen_width, config.screen_height)
@@ -176,49 +187,57 @@ init:
         "hour > 20 or hour < 5", im.Scale("pic/locations/school/secondFloor/3.jpg",config.screen_width, config.screen_height),
         )
     image teacherRoom = ConditionSwitch(
-        "hour >= 5 and hour <= 20", im.Scale("pic/locations/school/teacherRoom/1.jpg",config.screen_width, config.screen_height),
-        "hour > 20 or hour < 5", im.Scale("pic/locations/school/teacherRoom/2.jpg",config.screen_width, config.screen_height),
+        "hour >= 5 and hour <= 20", "pic/locations/school/teacherRoom/bg51.png",
+        "hour > 20 or hour < 5", "pic/locations/school/teacherRoom/bg52.png",
         )
     image wcm =  im.Scale('pic/locations/school/secondFloor/wcm.jpg', config.screen_width, config.screen_height)
     image wcf =  im.Scale('pic/locations/school/secondFloor/wcf.jpg', config.screen_width, config.screen_height)
     
-    image movie = Movie(size=(800, 600), xpos=0.5, ypos=0, xanchor=0.5, yanchor=0)
+    image movie = Movie(size=(1200, 800), xpos=0.5, ypos=0, xanchor=0.5, yanchor=0)
     
 #Для теста
 label test:
     show daytime
-    show movie
-    play movie "pic/locations/school/class1/lo7.ogv" loop
-    'тест'
-    stop movie
-    hide movie
+    # show movie
+    # play movie "pic/locations/school/class1/lo7.ogv" loop
+    # 'тест'
+    # stop movie
+    # hide movie
+    $ player.setLust(100)
+    
+    $ move('loc_home')
 
 ##############################################################
 # Home
 ##############################################################
 label loc_home:
-    show expression im.Scale('pic/locations/home/1.jpg', config.screen_width, config.screen_height) at left as home
+    if ptime == 0:
+        $ ptime += 1
+        $ move ('intro')
+    show home
     screen home:
         fixed:
-            text 'Ваша маленькая квартира в этом миленьком городке. В центре комнаты стоит небольшой стеклянный столик, у стены вольготно расположилась полка с любимыми игрушками, которые Вы коллекционировали всю жизнь. Отсюда можно пойти в спальню или, если есть необходимость, в ванную. Слева выход в небольшую кухню.' xalign 0.0 yalign 1.0 style style.description
-            textbutton 'Кухня' xalign 0.05 yalign 0.5 action Function(move, 'loc_kitchen') style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Спальня' xalign 0.05 yalign 0.7 action Function(move, 'loc_bedroom') style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Ванная' xalign 0.48 yalign 0.4 action Function(move, 'loc_bathroom') style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Улица' xalign 0.7 yalign 0.85 action Function(move, 'loc_street') style "navigation_button" text_style "navigation_button_text"
+            text 'Гостинная в вашей квартире. Маленькая, зато аккуратная. На стеклянном столе лежит пачка салфеток для ежедневного ухода за кожей. Напротив диванчика стоит телевизор. Вы не помните, чтобы по нему хоть раз показывали что то хорошее. Возможно потому, что потеряли пульт сразу после перезда.' xalign 0.0 yalign 1.0 style style.description
+            textbutton 'Кухня' xalign 0.05 yalign 0.8 action Function(move, 'loc_kitchen') style "navigation_button" text_style "navigation_button_text"
+            textbutton 'Спальня' xalign 0.5 yalign 0.8 action Function(move, 'loc_bedroom') style "navigation_button" text_style "navigation_button_text"
+            textbutton 'Ванная' xalign 0.9 yalign 0.8 action Function(move, 'loc_bathroom') style "navigation_button" text_style "navigation_button_text"
+            textbutton 'Улица' xalign 0.5 yalign 0.5 action Function(move, 'loc_street') style "navigation_button" text_style "navigation_button_text"
             if development == 1:
                 textbutton 'Test' xalign 0.0 yalign 0.2 action Function(move,'test') style "navigation_button" text_style "navigation_button_text"
     call screen home
 
     label loc_bedroom:
+        $ endurance = player.getCorr()+player.getFun()
         show bedroom at left
         screen bedroom:
             fixed:
                 text 'Уютненькая маленькая спальня. Слева находится небольшой шкаф, в котором висит ваша повседневная одежда. Справа кровать, довольно удобная. Тут ещё есть телевизор, но он не работает, так что совсем не будет мешать Вам отходить ко сну.' xalign 0.0 yalign 1.0 style style.description
                 textbutton 'Гостинная' xalign 0.5 yalign 0.8 action Function(move, 'loc_home') style "navigation_button" text_style "navigation_button_text"
                 if (ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4):
-                    textbutton 'Спать' xalign 0.85 yalign 0.76 action Jump('sleep')
-                textbutton 'Шкаф' xalign 0.12 yalign 0.7 action Show('wardrobe')
-
+                    textbutton 'Спать' xalign 0.2 yalign 0.76 action Jump('sleep')
+                if player.getLust() > 0:
+                    textbutton 'Маструбировать' xalign 0.156 yalign 0.8 action Jump('startMastur')
+                textbutton 'Шкафчик\nс вещами' xalign 0.9 yalign 0.8 action Show('wardrobe')
         call screen bedroom
 
 
@@ -228,14 +247,14 @@ label loc_home:
             fixed:
                 if player.hasItem('Сырая еда'):
                     $ temp = player.getItem('Сырая еда').durability
-                    text 'Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, Вы прикидываете, что её хватит ещё на [temp] раз.' xalign 0.0 yalign 1.0 style style.description
+                    text 'Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, вы прикидываете, что её хватит ещё на [temp] раз.' xalign 0.0 yalign 1.0 style style.description
                     if ptime - last_eat > 4:
                         textbutton 'Поесть' xalign 0.4 yalign 0.6 action [
                         Function(player.eat, player.getItem('Сырая еда')),
                         Function(changetime, 15),
                         Function(move, curloc)] 
                 else :
-                    text 'Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, Вы понимаете, что её не осталось СОВСЕМ. Надо срочно сгонять в магазин.' xalign 0.0 yalign 1.0 style style.description
+                    text 'Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, вы понимаете, что её не осталось СОВСЕМ. Надо срочно сгонять в магазин.' xalign 0.0 yalign 1.0 style style.description
                 textbutton 'Гостинная' xalign 0.5 yalign 0.8 action Function(move, 'loc_home') style "navigation_button" text_style "navigation_button_text"
                 if player.hasItem('Сэндвич') == False and player.hasItem('Сырая еда') == True:
                     textbutton 'Сделать\nсэндвич' xalign 0.8 yalign 0.65 action [
@@ -253,7 +272,7 @@ label loc_home:
             fixed:
                 text 'Ванная комната. Совмещённая. В лучших традициях далёкой страны. Тут можно искупаться, чтобы смыть с себя грязь и прочие человеческие нечистоты. А можно просто постоять под душем и отдохнуть.' xalign 0.0 yalign 1.0 style style.description
                 textbutton 'Гостинная' xalign 0.5 yalign 0.8 action Function(move, 'loc_home') style "navigation_button" text_style "navigation_button_text"
-                textbutton 'Душ' xalign 0.4 yalign 0.3 action Jump('shower') style "navigation_button" text_style "navigation_button_text"
+                textbutton 'Душ' xalign 0.4 yalign 0.3 action Jump('shower') # style "navigation_button" text_style "navigation_button_text"
 
         call screen bathroom
 
@@ -268,11 +287,11 @@ label loc_entrance:
         fixed:
             vbox xalign 0.0 yalign 1.0:
                 text 'Вход в Вашу новую школу. Ворота, крыльцо, всё как у всех, ничего необычного. Разве что кусты не особо пострижены, и дети там периодически играют, ну да ладно.' style style.description
-                if is_library == 0:
+                if 'library' in school.furniture:
                     text 'Слева от школы полно места. Вроде как там раньше стоял сарай, но он давным давно рухнул, и теперь земля пустует. Библиотеку чтоли там построить? ' style style.description
                 else:
                     text 'Справа от школы виден вход в школьную библиотеку. В самом деле, замечательное приобретение! ' style style.description
-                if is_wall == 0:
+                if 'wall' in school.furniture:
                     text 'Окидывая взглядом свои владения, вы видите прекрасный вид на окна школы. Выглядит конечно красиво, но как то всё напоказ. ' style style.description
                 else:
                     text 'Довольно высокая стена окружает школу. С улицы вообще непонятно, толи это школа, толи режимный объект. ' style style.description
@@ -281,7 +300,7 @@ label loc_entrance:
             textbutton 'Второй этаж' xalign 0.456 yalign 0.44 action [Function(move, 'loc_secondFloor')] style "navigation_button" text_style "navigation_button_text"
             textbutton 'Ваш офис' xalign 0.6 yalign 0.6 action [Function(move, 'loc_office')] style "navigation_button" text_style "navigation_button_text"
             textbutton 'Домой' xalign 0.1 yalign 0.7 action [Function(changetime, 30),Function(move, 'loc_street')] style "navigation_button" text_style "navigation_button_text"
-            if is_library == 1:
+            if 'library' in school.furniture:
                 textbutton 'Библиотека' xalign 0.8 yalign 0.7 action [Function(move, 'loc_library')] style "navigation_button" text_style "navigation_button_text"
     call screen entrance
 
@@ -326,7 +345,7 @@ label loc_entrance:
             screen changeRoom:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
-                        text 'Раздевалка. Она разделена на 2 отделения для мальчиков и девочек. Как ни странно, Вы тоже можете тут переодеваться. В отделении для девочек разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
+                        text 'Раздевалка. Она разделена на 2 отделения для мальчиков и девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
                     textbutton 'Бассейн' xalign 0.2 yalign 0.8 action [Function(move, 'loc_pool')] style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Спортзал' xalign 0.8 yalign 0.8 action [Function(move, 'loc_gym')] style "navigation_button" text_style "navigation_button_text"
             call screen changeRoom
@@ -337,7 +356,7 @@ label loc_entrance:
             screen gym:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
-                        text 'Раздевалка. Она разделена на 2 отделения для мальчиков и девочек. Как ни странно, Вы тоже можете тут переодеваться. В отделении для девочек разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
+                        text 'Раздевалка. Она разделена на 2 отделения для мальчиков и девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
                     textbutton 'Кладовка' xalign 0.35 yalign 0.4 action [Function(move, 'loc_storage')] style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Раздевалка' xalign 0.8 yalign 0.8 action [Function(move, 'loc_changeRoom')] style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Холл' xalign 0.5 yalign 0.8 action [Function(move, 'loc_hall')] style "navigation_button" text_style "navigation_button_text"
@@ -375,6 +394,12 @@ label loc_entrance:
                     textbutton 'Первый этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Воспользоваться\nокном' xalign 0.2 yalign 0.3 action Function(move, 'loc_entrance') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Компьютер' xalign 0.9 yalign 0.5 action Show('compScreen')
+                    if callup != dummy:
+                        if callup.getSex() == 'male':
+                            imagebutton idle im.MatrixColor('pic/showStud/m_1.png', im.matrix.opacity(0.5)) hover im.MatrixColor('pic/showStud/m_1.png', im.matrix.opacity(1.0)) action [Function(clrscr), SetVariable('interactionObj',callup), Show('show_stat'), Function(showChars)] xalign 0.5 yalign -10.0
+                        else:
+                            imagebutton idle im.MatrixColor('pic/showStud/f_1.png', im.matrix.opacity(0.5)) hover im.MatrixColor('pic/showStud/f_1.png', im.matrix.opacity(1.0)) action [Function(clrscr), SetVariable('interactionObj',callup), Show('show_stat'), Function(showChars)] xalign 0.5 yalign 2.5
+                        
             call screen office
 
         label loc_class1:
@@ -409,7 +434,7 @@ label loc_entrance:
             screen class4:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
-                        text 'Кабинет Математики. Тут обычно преподаёт Валентина Биссектрисовна. У доски стоит здоровенная учительская тумба, в которой хранятся разные мелки, тряпки и прочая дребедень. Прикинув, Вы понимаете, что такая тумба вместит даже небольшого человека. Только зачем бы там кому то прятаться?' style style.description
+                        text 'Кабинет Математики. Тут обычно преподаёт Валентина Биссектрисовна. У доски стоит здоровенная учительская тумба, в которой хранятся разные мелки, тряпки и прочая дребедень. Прикинув, вы понимаете, что такая тумба вместит даже небольшого человека. Только зачем бы там кому то прятаться?' style style.description
                     textbutton 'Второй этаж' xalign 0.2 yalign 0.8 action Function(move, 'loc_secondFloor') style "navigation_button" text_style "navigation_button_text"
             call screen class4
 
@@ -475,13 +500,13 @@ label loc_street:
                 text 'Простая улица на которой стоит Ваш дом. Вдоль улицы стоят другие дома ваших соседей. Кто знает, может быть где то по соседству живёт кто то из вашей школы?".' style style.description
                 text 'Улица пересекает почти весь небольшой городок, и в конце упирается в улицу "Торговая".' style style.description
                 if hour >= 5 and hour <= 20:
-                     text 'Посмотрев вдоль, Вы видите пару бегущих людей. Действительно, улица чрезвычайно удобна для пробежек.' style style.description
+                     text 'Посмотрев вдоль, вы видите пару бегущих людей. Действительно, улица чрезвычайно удобна для пробежек.' style style.description
                 else:
-                     text 'Посмотрев вдоль, Вы больше не видите бегущих людей. Наверное убежали. Или же просто ночь наступила?' style style.description
-            textbutton 'Домой' xalign 0.2 yalign 0.4 action Function(move, 'loc_home') style "navigation_button" text_style "navigation_button_text"
-            textbutton 'На пляж' xalign 0.1 yalign 0.8 action [Function(changetime, 30),Function(move, 'loc_beach')] style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Торговая\nулица' xalign 0.4 yalign 0.4 action [Function(changetime, 15),Function(move, 'loc_shopStreet')] style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Школа' xalign 0.5 yalign 0.8 action [Function(changetime, 30),Function(move, 'loc_entrance')] style "navigation_button" text_style "navigation_button_text"
+                     text 'Посмотрев вдоль, вы больше не видите бегущих людей. Наверное убежали. Или же просто ночь наступила?' style style.description
+            textbutton 'Домой' xalign 0.8 yalign 0.4 action Function(move, 'loc_home') style "navigation_button" text_style "navigation_button_text"
+            textbutton 'На пляж' xalign 0.3 yalign 0.77 action [Function(changetime, 30),Function(move, 'loc_beach')] style "navigation_button" text_style "navigation_button_text"
+            textbutton 'Торговая\nулица' xalign 0.6 yalign 0.5 action [Function(changetime, 15),Function(move, 'loc_shopStreet')] style "navigation_button" text_style "navigation_button_text"
+            textbutton 'К школе' xalign 0.7 yalign 0.8 action [Function(changetime, 30),Function(move, 'loc_entrance')] style "navigation_button" text_style "navigation_button_text"
     call screen street
 
     label loc_beach:
@@ -503,8 +528,18 @@ label loc_street:
                         text 'Специально обустроенные комнатки для переодеваний. Внутри небольшая полочка для вещей, умывальник и полотенце. Очень удобно, хотя и необычно.' style style.description
                     textbutton 'Пляж' xalign 0.5 yalign 0.8 action Function(move, 'loc_beach') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Переодеться' xalign 0.15 yalign 0.3 action Show('wardrobe')
+                    if is_beach_event == 1 and rand(1,10) == 1:
+                        textbutton 'Проверить\nдырочку' xalign 0.795 yalign 0.55 action Function(tryEvent, 'loc_gloryHole')
+                            
+            if is_beach_event == 0 and rand(1,10) == 1:
+                $clrscr()
+                jump beach_qwest
+            if player.getLust() > 90:
+                player.say 'Я слишком возбуждена, чтобы терпеть, мне срочно необходимо сбросить напряжение!'
+                $ endurance = player.getFun() + player.getCorr()
+                jump startMastur
+                
             call screen beachChange
-
 
 
     label loc_shopStreet:
@@ -516,10 +551,10 @@ label loc_street:
                     text 'Мини маркет работает круглосуточно.' style style.description
                     text 'Салон красоты работает с 8 до 19 ежедневно.' style style.description
                 textbutton 'К дому' xalign 0.5 yalign 0.8 action [Function(changetime, 15),Function(move, 'loc_street')] style "navigation_button" text_style "navigation_button_text"
-                textbutton 'Магазин' xalign 0.4 yalign 0.5 action [Function(move, 'loc_shop')] style "navigation_button" text_style "navigation_button_text"
+                textbutton 'Магазин' xalign 0.7 yalign 0.5 action [Function(move, 'loc_shop')] style "navigation_button" text_style "navigation_button_text"
                 if hour >=8 and hour <= 19:
-                    textbutton 'Салон\nКрасоты' xalign 0.1 yalign 0.55 action [Function(move, 'loc_shopBeauty')] style "navigation_button" text_style "navigation_button_text"
-                    textbutton 'Сексшоп' xalign 0.7 yalign 0.5 action [Function(move, 'loc_sexShop')] style "navigation_button" text_style "navigation_button_text"
+                    textbutton 'Салон\nКрасоты' xalign 0.01 yalign 0.55 action [Function(move, 'loc_shopBeauty')] style "navigation_button" text_style "navigation_button_text"
+                    textbutton 'Сексшоп' xalign 0.85 yalign 0.5 action [Function(move, 'loc_sexShop')] style "navigation_button" text_style "navigation_button_text"
         call screen shopStreet
 
 
@@ -528,7 +563,7 @@ label loc_street:
             screen shop:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
-                        text 'Круглосуточный магазин, единственный в Вашем районе. После прогулки в нем Вы сможете без промедления набрать еды на кухню, выбрать себе напитки напитки и некоторые иные вещи.' style style.description
+                        text 'Круглосуточный магазин, единственный в Вашем районе. После прогулки в нем Вы сможете без промедления набрать еды на кухню, выбрать себе напитки и некоторые иные вещи.' style style.description
                     textbutton 'Назад' xalign 0.5 yalign 0.8 action [Function(move, 'loc_shopStreet')] style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Закупиться' xalign 0.3 yalign 0.5 action [Hide('stats_screen'),Show('shopping')]
             call screen shop

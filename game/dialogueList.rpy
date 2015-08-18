@@ -118,7 +118,7 @@ label dialog_stud_0_15:
     call screen show_stat
     
 label dialog_stud_0_15:
-    if is_wall == 0:
+    if 'wall' in school.furniture:
         user.say '[user.name] спрашивает, не слишком ли ни острая ограда у школы? Кто нибудь может и пораниться?'
         player.say 'Вы обещаете подумать над тем, как её лучшить. Хех, улучшить ограду? Стену чтоли вместо неё отгрохать? Просто заложить всё кирпичём и готово...'
     else:

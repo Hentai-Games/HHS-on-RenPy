@@ -1,6 +1,7 @@
 init -20 python:
     import copy
     from random import choice
+    from operator import itemgetter, attrgetter, methodcaller
 
     ###################################################################
     #Класс частей тела
@@ -163,7 +164,7 @@ init -20 python:
         # Фамилии
         lastNames = ['Смирнов', 'Иванов', 'Кузнецов', 'Попов', 'Соколов', 'Козлов', 'Новиков', 'Морозов', 'Петров', 'Волков', 'Соловьев', 'Васильев', 'Зайцев', 'Павлов', 'Семенов', 'Голубев', 'Виноградов', 'Богданов', 'Воробьев', 'Федоров', 'Михайлов', 'Беляев', 'Тарасов', 'Белов', 'Комаров', 'Орлов', 'Киселев', 'Макаров', 'Андреев', 'Ковалев', 'Ильин', 'Гусев', 'Титов', 'Кузьмин', 'Кудрявцев', 'Баранов', 'Куликов', 'Алексеев', 'Степанов', 'Яковлев']
 
-        def __init__(self, fname = '', lname = '', color = '#FFFFFF', age = 0, body = Body(), stats = Stats(), inventory = [], sets = 5, wear = [], club = '', picto = '', location = '', money = 0):
+        def __init__(self, fname = '', lname = '', color = '#FFFFFF', age = 0, body = Body(), stats = Stats(), inventory = 0, sets = 5, wear = [], club = '', picto = '', location = '', money = 0):
             self.fname = fname
             self.lname = lname
             self.name = fname + ' ' + lname
@@ -211,7 +212,7 @@ init -20 python:
             elif body.sex() == 'futa':
                 color = '#FC3A3A'
             
-            character = cls(firstName, lastName, color = color, age = rand(12, 16), body = body, stats = stats, picto = picto)
+            character = cls(firstName, lastName, color = color, age = rand(12, 16), body = body, stats = stats, picto = picto, inventory = [], wear = [])
             return character
 
         def normalize(self):
@@ -303,6 +304,9 @@ init -20 python:
         def getDirty(self):
             return self.stats.dirty
             
+        def getSex(self):
+            return self.body.sex()
+            
 ###################################################################
 #инвентарь
 ###################################################################
@@ -322,14 +326,9 @@ init -20 python:
                 return False
 
         #Добавлние одного предмета (можно использовать и addItems) просто на всякий пожарный.
-        def addItem(self,name):
-            flag = False
-            for x in allItems:
-                if name == x.name:
-                    temp = copy.copy(x)
-                    self.inventory.append(temp)
-                    flag = True
-            return flag
+        def addItem(self,item):
+            temp = copy.copy(item)
+            self.inventory.append(temp)
 
         # Удаление айтемов
         def removeItem(self,item):
@@ -497,21 +496,47 @@ init -20 python:
 
         # Функция одевания
         def wearing(self, cloth):
-            if cloth.corr > self.stats.corr or cloth.sex != self.body.sex():
+            if cloth.type == 'clothing':
+                tempSex = self.getSex()
+                if tempSex == 'futa':
+                    tempSex = 'female'
+                if cloth.corr > self.getCorr() or cloth.sex != tempSex:
+                    return False
+                for x in cloth.cover:
+                    for y in self.wear:
+                        for z in y.cover:
+                            if x == z:
+                                self.wear.remove(y)
+                                self.inventory.append(y)
+                                break
+                if rand(1,100) > 90:
+                    cloth.durability -= 1
+                self.inventory.remove(cloth)
+                self.wear.append(cloth)
+                self.checkDur()
+            else:
                 return False
-            for x in cloth.cover:
-                for y in self.wear:
-                    for z in y.cover:
-                        if x == z:
-                            self.wear.remove(y)
-                            self.inventory.append(y)
-                            break
-            if rand(1,100) > 90:
-                cloth.durability -= 1
-            self.inventory.remove(cloth)
-            self.wear.append(cloth)
-            self.checkDur()
-
+        
+        # Функция одевания по назначению
+        def wearingByPurpose(self, purpose):
+            # itemsToRemove = []
+            # for item in self.inventory:
+                # if item.type == 'clothing':
+                    # if item.purpose == purpose:
+                        # itemsToRemove.append(item)
+                        # self.wear.append(item)
+            # for x in itemsToRemove:
+                # self.inventory.remove(x)
+            nameInventory = []
+            for x in self.inventory:
+                nameInventory.append(x.name)
+            for name in nameInventory:
+                currItem = self.getItem(name)
+                if currItem.type == 'clothing':
+                    if currItem.purpose == purpose:
+                        self.wearing(currItem)
+            
+            
         # Функция частичного раздевания
         def dewearing(self,cloth):
             if self.wear.count(cloth) > 0:

@@ -25,7 +25,7 @@ screen compScreen:
             textbutton _('Система наказаний') action Show ('detentions')
             textbutton _('Учебники') action Show ('eduMats')
             textbutton _('Мебель и Строения') action Show ('furniture')
-            textbutton _('Работа с учениками') action NullAction()
+            textbutton _('Ночные действия') action [SensitiveIf(lt() <= -3 and ptime - inhibLowTime > 8), Show ('studCorruption')]
             textbutton _('Проверка камер') action NullAction()
                 
 screen description(what):
@@ -53,7 +53,7 @@ screen description(what):
             elif what == 'no':
                 text _('Студенты не будут никак наказываться, что уменьшит их послушность и увеличит счастье. Нужно одобрение педсовета.')
             elif what == 'upskirt':
-                text _('Ученицы в наказание будут вынуждены после уроков показывать своё нижнее бельё перед классом. Это сподвигнет их стать более скромными и трудолюбивыми. Или наоборот. Кстати, Ваша репутация может пострадать от этого наказания.')
+                text _('Ученицы в наказание будут вынуждены после уроков показывать своё нижнее бельё перед классом. Это сподвигнет их стать более скромными и трудолюбивыми. Или наоборот. Кстати, ваша репутация может пострадать от этого наказания.')
             elif what == 'eduPoor':
                 text _('Б/у материалы - это старые учебники, книги купленные у старьёвщиков и на распродаже, самый низкокачественный и плохой продукт, который можно найти. Это сэкономит Вам 1000 монет в неделю.')
             elif what == 'eduStandart':
@@ -62,6 +62,14 @@ screen description(what):
                 text _('Высококлассная литература - это качественная, написанная по последнему слову педагогики, литература рассчитанная на все виды образовательной деятельности. Это прекрасные учебники, по которым приятно, и полезно учиться. Лучший выбор педагога будет стоит Вам 1000 монет в неделю.')
             elif what == 'eduSexy':
                 text _('Лучшие сочинения непризнанного педагога Луки Мудищева, окажуться на школьных партах ваших подопечных. Не то, чтобы это было особо дорого, просто как посмотрят на вас родители, если их дети начнут цитировать отрывки из бессмертных произведений автора?')
+            elif what == 'inhib1':
+                text _('Данное действие повысит желание учеников на следующий день.')
+            elif what == 'inhib2':
+                text _('Данное действие повысит желание учеников на следующий день ещё сильнее.')
+            elif what == 'inhib3':
+                text _('Данное действие слегка повысит развратность учеников на следующий день.')
+            elif what == 'inhib4':
+                text _('Данное действие сильно повысит желание учеников мужского пола на следующий день.')
             else:
                 text _('Описания пока нет для [what].')
 
@@ -280,7 +288,48 @@ screen eduMats:
                 ] unhovered [
                 Hide('description')
                 ]
-                
+
+screen studCorruption:
+    zorder 1
+    tag compScreens
+    fixed xpos 0.3 ypos 0.1:
+        vbox:
+            textbutton _('Разложить по классам эротические фотографии') action [
+                Function(clrscr),
+                Jump('inhib1'),
+                ] hovered [
+                Show('description', None, 'inhib1')
+                ] unhovered [
+                Hide('description')
+                ]
+            textbutton _('Разложить по классам порнографические фотографии') action [
+                Function(clrscr),
+                Jump('inhib2'),
+                SensitiveIf(player.getCorr() > 20)
+                ] hovered [
+                Show('description', None, 'inhib2')
+                ] unhovered [
+                Hide('description')
+                ]
+            textbutton _('Разложить по классам фотки со скрытой камеры') action [
+                Function(clrscr),
+                Jump('inhib3'),
+                SensitiveIf(player.getCorr() > 50)
+                ] hovered [
+                Show('description', None, 'inhib3')
+                ] unhovered [
+                Hide('description')
+                ]
+            textbutton _('Распространить свой запах') action [
+                Function(clrscr),
+                Jump('inhib4'),
+                SensitiveIf(player.getCorr() > 70)
+                ] hovered [
+                Show('description', None, 'inhib4')
+                ] unhovered [
+                Hide('description')
+                ]
+              
 screen preVoting(type,amount,what):
     zorder 2
     modal True

@@ -8,7 +8,7 @@ init -5 python:
     classrooms = []
     
     def rand(a, b):
-        if b == 0:
+        if a - b == 0 or b == 0:
             return b
         else :
             return random.randint(a,b)
@@ -179,31 +179,32 @@ init -5 python:
             classrooms.append(getLoc('loc_gym'))
 
         for x in studs:
-            if x.inClass == 1: # первый класс
-                tempIndex = lt() - 1 + 0
-                if tempIndex > 5: tempIndex -= 6
-                classrooms[tempIndex].people.append(x)
-                
-            elif x.inClass == 2: # Второй класс
-                tempIndex = lt() - 1 + 1
-                if tempIndex > 5: tempIndex -= 6
-                classrooms[tempIndex].people.append(x)
-                
-            elif x.inClass == 3: # Третий класс
-                tempIndex = lt() - 1 + 2
-                if tempIndex > 5: tempIndex -= 6
-                classrooms[tempIndex].people.append(x)
-                
-            elif x.inClass == 4: # Четвёртый класс
-                tempIndex = lt() - 1 + 3
-                if tempIndex > 5: tempIndex -= 6
-                classrooms[tempIndex].people.append(x)
-                
-            else: # Пятый класс
-                tempIndex = lt() - 1 + 4
-                if tempIndex > 5: tempIndex -= 6
-                classrooms[tempIndex].people.append(x)
-                
+            if x != callup:
+                if x.inClass == 1: # первый класс
+                    tempIndex = lt() - 1 + 0
+                    if tempIndex > 5: tempIndex -= 6
+                    classrooms[tempIndex].people.append(x)
+                    
+                elif x.inClass == 2: # Второй класс
+                    tempIndex = lt() - 1 + 1
+                    if tempIndex > 5: tempIndex -= 6
+                    classrooms[tempIndex].people.append(x)
+                    
+                elif x.inClass == 3: # Третий класс
+                    tempIndex = lt() - 1 + 2
+                    if tempIndex > 5: tempIndex -= 6
+                    classrooms[tempIndex].people.append(x)
+                    
+                elif x.inClass == 4: # Четвёртый класс
+                    tempIndex = lt() - 1 + 3
+                    if tempIndex > 5: tempIndex -= 6
+                    classrooms[tempIndex].people.append(x)
+                    
+                else: # Пятый класс
+                    tempIndex = lt() - 1 + 4
+                    if tempIndex > 5: tempIndex -= 6
+                    classrooms[tempIndex].people.append(x)
+                    
     def clearLocations():
         for x in locations:
             x.people = []

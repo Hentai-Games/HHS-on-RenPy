@@ -2,11 +2,8 @@
     development = 1
     i = 500
     curloc = 'loc_home'
-    is_library = 0
-    is_wall = 0
     students = 50
     last_eat = 0
-    
     stat_loy = 0
     stat_fun = 0
     stat_lust = 0
@@ -16,6 +13,9 @@
     stat_penergy = 0
     stat_plust = 0
     lastWork = -30
+    inhibLow = 0
+    inhibLowTime = 0
+    is_beach_event = 0
     
     mile_qwest_2_stage = 0
     
@@ -24,6 +24,7 @@
 
 init 10 python:
     teacher_son = dummy
+    callup = dummy
     
 init:
     image white = "#FFFFFF"
@@ -50,4 +51,7 @@ label after_load:
     $ allChars = _allChars
     $ studs = _studs
     return
+    
+#Useful arts:
+#yamada_(gotyui)
     

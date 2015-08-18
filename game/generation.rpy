@@ -217,7 +217,7 @@ label skipall:
             location = curloc,
             money = _money
         )
-        player.addItems('Салфетка', 'Сырая еда', jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name, pantalons.name, oldShirt.name)
+        player.addItems('Салфетка', 'Сырая еда', jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name, minibikini.name, pantalons.name, oldShirt.name)
         player.initSet(0,[jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name])
         player.initSet(1,[pantalons.name, oldShirt.name])
         player.applySet(0)
@@ -247,7 +247,13 @@ label skipall:
             
         for x in _studs:
             x.inClass = rand(1,5)
-            
+            tempSex = x.getSex()
+            if x.getSex() == 'futa':
+                tempSex = 'female'
+            for y in clothing:
+                if y.sex == tempSex and y.char == 'stud':
+                    x.addItem(y)
+        
 #######################################################
 # codeBlc Создание учителей
 #######################################################
@@ -425,6 +431,15 @@ label skipall:
             location = curloc,
             money = 200
         )
+        
+        for char in _teachers:
+            tempSex = char.getSex()
+            if tempSex == 'futa':
+                tempSex = 'female'
+            for cloth in clothing:
+                if cloth.sex == tempSex and cloth.char == 'teacher':
+                    char.addItem(cloth)
+                
         _teachers.append(mustangovich)
 # endBlc
 #######################################################

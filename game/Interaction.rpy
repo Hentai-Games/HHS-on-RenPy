@@ -5,7 +5,13 @@ init python:
             self.id = id
             self.corr = corr
             self.type = type
-
+            
+    class Flirt():
+        def __init__(self, id, corr, sex):
+            self.id = id
+            self.corr = corr
+            self.sex = sex
+            
     def dialogueParser():
         _locs = renpy.get_all_labels()
         textList = []
@@ -26,7 +32,31 @@ init python:
             if speaker.stats.corr >= x.corr and ((speaker in studs and x.type == 'stud') or (speaker in teachers and x.type == 'teacher')):
                 tempList.append(x)
         return tempList[rand(0,len(tempList) - 1)].id
+
+    def flirtParser():
+        _locs = renpy.get_all_labels()
+        textList = []
+        for textLable in _locs: # перебираем все лейблы
+            if textLable[:6] == 'flirt_': #находим тот, что с флиртом
+                corr = textLable.split("_")
+                sex = corr[1]
+                corr = corr[2]
+                tempText = Flirt(id = textLable, corr = int(corr), sex = sex)
+                textList.append(tempText)
+        return textList
+
+    flirtList = flirtParser()
+    
+    def flirtSelector(speaker):
+        tempList = []
+        for x in flirtList:
+            if speaker.body.sex() == 'futa' and x.sex == 'female':
+                x.sex = 'futa'
+            if speaker.body.sex() == x.sex and speaker.getCorr() >= x.corr and player.getCorr() >= x.corr:
+                tempList.append(x)
+        return tempList[rand(0,len(tempList) - 1)].id
         
+
     def showChars():
         myImage = player.picto
         if showHover.sex == 'male':
@@ -47,6 +77,7 @@ init python:
         if showHover.lname == 'Мустангович':
             anotherImage = 'pic/teachers/mustangovich_1.png'
             
+        renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
         renpy.show('temp1', what = Image(myImage, xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
         renpy.show('temp2', what = Image(anotherImage, xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
         
@@ -57,7 +88,6 @@ init python:
 
 
 label locationPeople:
-    show expression "pic/bg.png"
     $ renpy.call_screen(lastView)
 
 
@@ -104,37 +134,74 @@ screen show_stat:
             null height 10
 
     fixed xpos 0.3 ypos 0.1 :
+        # add 'pic/bg2.png'
         vbox xmaximum config.screen_width/2:
             text textgen(showHover) style style.my_text
         
     fixed xpos 0.8 ypos 0.1:
         vbox:
-            textbutton 'Поговорить' xminimum 200 action Jump('speak')
-            textbutton 'Флирт' xminimum 200 action Jump('flirt')
+            if lt() <= 0 or 'safe' in getLoc(curloc).position:
+                textbutton 'Поговорить' xminimum 200 action Jump('speak')
+                textbutton 'Флирт' xminimum 200 action Jump('flirt')
+            if 'school' in getLoc(curloc).position and curloc != 'loc_office':
+                textbutton 'Вызвать к себе' xminimum 200 action Jump('callup')
+            if curloc == 'loc_office':
+                textbutton 'Выгнать' xminimum 200 action Jump('callout')
+            textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
             textbutton 'Назад' xminimum 200 action Function(move,curloc)
+            
+screen inventory_clothing_char:
+    zorder 1
+    modal True
+    fixed :
+        add 'pic/bg.png'
+    fixed xpos 0.01 ypos 0.01:
+        hbox :
+            textbutton _('Назад') action Function(move, curloc)
 
+            $ xalig = 0.2
+        $ yalig = 0.05
+        for x in showHover.inventory:
+            if x.type == 'clothing':
+                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+            else :
+                $ xalig -= 0.09
+            $ xalig += 0.09
+            if xalig >= 0.99:
+                $ yalig += 0.15
+                $ xalig = 0.2
+                
 label speak:
-    if lt() > 0 or lt() == -2:
-        $ renpy.jump('exitInteraction')
+    $ clrscr()
     $ user = showHover
     $ changetime(10)
     $ player.stats.energy -= rand(5,10)
-    $ user.stats.loyalty += 0.5
+    $ user.setLoy(0.5)
     $ renpy.jump(dialogueSelector(user))
 
     call screen show_stat
 
 label flirt:
-    if lt() > 0 or lt() == -2:
-        $ renpy.jump('exitInteraction')
-
+    $ clrscr()
     $ user = showHover
-
-    player.say 'Ого какие сиськи!'
-    user.say 'Ага!'
+    $ changetime(10)
+    $ player.stats.energy -= rand(5,10)
+    $ renpy.jump(flirtSelector(user))
 
     call screen show_stat
 
-label exitInteraction:
-    showHover.say 'Простите, мне пора на урок!'
+label callup:
+    $ clrscr()
+    python:
+        getLoc(curloc).people.remove(showHover)
+        callup = showHover
+    player.say 'Нам необходимо поговорить наедине.'
+    callup.say 'Хорошо, я сейчас же отправлюсь к вам в кабинет.'
+    $ move(curloc)
+    
+label callout:
+    $ clrscr()
+    player.say 'Я думаю, мы закончили, [callup.fname].'
+    callup.say 'Хорошо, до свидания, [player.name].'
+    $ callup = dummy
     $ move(curloc)

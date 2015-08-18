@@ -3,7 +3,7 @@ init python:
         description = ''
 
         name = char.fullName()
-        age = str(char.age)
+        age = char.age
         sex = char.body.sex()
         beauty = char.getBeauty()
         loyalty = char.getLoy()
@@ -94,16 +94,16 @@ init python:
                     description += 'Она '
                 else :
                     description += 'Он '
-                if edu < 20: description += 'имеет слабое образование. Настолько слабое, что Вы удивлены, что этот человек работает учителем'
+                if edu < 20: description += 'имеет слабое образование. Настолько слабое, что вы удивлены, что этот человек работает учителем'
                 elif edu < 50: description += 'имеет неплохое образование, но всё же её знания оставляют желать лучшего'
                 elif edu < 80: description += 'имеет хорошее представление о своём предмете преподавания'
                 else : description += 'имеет прекрасные знания не только о своём предмете, но и в смежных науках'
 
             description += '\n'
             description += char.fname + ' '
-            if loyalty < 20: description += 'совсем не знает Вас.'
-            elif loyalty < 50: description += 'не против иногда перекинуться с Вами парой словечек.'
-            elif loyalty < 80: description += 'весьма хорошего о Вас мнения.'
+            if loyalty < 20: description += 'совсем не знает вас.'
+            elif loyalty < 50: description += 'не против иногда перекинуться с вами парой словечек.'
+            elif loyalty < 80: description += 'весьма хорошего о вас мнения.'
             else : description += 'просто обожает вас.'
 
             if loyalty >= 50 and sex == 'futa': description += ' Девочка недавно призналась, что она не совсем девочка и прячет член под юбкой.'
@@ -113,16 +113,16 @@ init python:
             if sex == 'female':
                 if lust < 20: description += ''
                 elif lust < 50: description += 'Вы замечаете у неё немного покрасневшие щёчки. '
-                elif lust < 80: description += 'Вы замечаете, что она сильно краснеет, когда встречается с Вами взглядом. '
-                else : description += 'Вы замечаете, что она сильно краснеет, когда встречается с Вами взглядом. '
+                elif lust < 80: description += 'Вы замечаете, что она сильно краснеет, когда встречается с вами взглядом. '
+                else : description += 'Вы замечаете, что она сильно краснеет, когда встречается с вами взглядом. '
             else :
                 if lust < 20: description += ''
                 elif lust < 50: description += 'Вы замечаете у него немного покрасневшие щёки. '
-                elif lust < 80: description += 'Вы замечаете, что он сильно краснеет, когда встречается с Вами взглядом. '
-                else : description += 'Вы замечаете, что ученик переминается с ноги на ногу, и Вы замечаете видимый бугорок на его штанах. '
+                elif lust < 80: description += 'Вы замечаете, что он сильно краснеет, когда встречается с вами взглядом. '
+                else : description += 'Вы замечаете, что ученик переминается с ноги на ногу, и вы замечаете видимый бугорок на его штанах. '
 
             if corr < 20: description += 'По слухам, ' + char.fname + ' не знает о сексе ничего.'
-            elif corr < 50: description += 'По слухам, ' + char.fname + ' мастурбирет и подглядывает за парочками.'
+            elif corr < 50: description += 'По слухам, ' + char.fname + ' мастурбирует и подглядывает за парочками.'
             elif corr < 80: description += 'По слухам, ' + char.fname + ' знает как, и любит заниматься сексом.'
             else : description += 'По слухам, ' + char.fname + ' любит любой секс во всех его проявлениях и извращениях.'
 
@@ -148,15 +148,15 @@ init python:
                 else :
                     description += 'Не секрет, что её '
                 if rep < 20: description += 'родители просто в ярости от вас.'
-                elif rep < 50: description += 'родители не очень высокого о Вас мнения.'
-                elif rep < 80: description += 'родители ставят Вас в пример своим детям.'
+                elif rep < 50: description += 'родители не очень высокого о вас мнения.'
+                elif rep < 80: description += 'родители ставят вас в пример своим детям.'
                 else : description += 'родители в восторге от вас.'
 
             if sex != 'female' and corr > 50:
                 description += '\n[name] прозрачно намекает вам, что под одеждой от вас скрывается '+ psize +' сантиметровый змий!'
             
             description += '\n'
-            if sex == 'female':
+            if sex != 'male':
                 description += '\nНа ней сегодня '
             else:
                 description += '\nНа нём сегодня '
@@ -183,7 +183,7 @@ init python:
 #########################################
 
         else:
-            description += 'Меня зовут ' + name + ', мне '+ age +' лет.\n'
+            description += 'Меня зовут ' + name + ', мне '+ str(age) +' лет.\n'
             if beauty < 20:
                 description += 'Я очень плохо выгляжу. Совершенно не по годам. И это было преувеличение. Я отвратительно выгляжу! До сих пор удивляюсь как люди ещё неначали забрасывать камнями это чудовище.\n'
             elif beauty < 50:

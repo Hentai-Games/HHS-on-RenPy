@@ -9,12 +9,13 @@ init:
 
 init python:
 #базовая функция перемещения. Использовать всегда и всюду
+    from random import shuffle
     def move(where):
         global curloc, hour, prevloc, same_loc #объявление глобальных переменных
         if renpy.has_label(where) == True: #Проверка на то, что локация существует. Если нет, прыгаем домой.
             renpy.scene(layer='master') # Сброс картинок
             renpy.scene(layer='screens') # Сброс скринов
-            renpy.show('daytime')
+            renpy.show('daytime') # Базовый фон
             if getLoc(curloc) != False: getLoc(curloc).people = [] #Сброс людей с предыдущей локации
 
             player.stats.energy -= randf(2,5) #расход энергии
@@ -22,22 +23,23 @@ init python:
             player.checkDur() # Удаление использованных предметов
             changetime(rand(1, 3)) #изменение времени
 
-            if where[:4] == 'loc_' and getLoc(where).position != 'tech': #Если локация - локация и если она не техническая
+            if where[:4] == 'loc_' and 'tech' not in getLoc(where).position: #Если локация - локация и если она не техническая
                 checkDeath() # проверка на смерть
                 clearLocations() # Очищаем все локации
-                addPeopleLocation(where) #Добавление людей на локацию
-                if where != curloc and getLoc(where).position != 'self':
+                addPeopleLocation(where) # Добавление людей на локацию
+                dressPeople(where) # Одеваем людей на локации
+                if where != curloc and 'self' not in getLoc(where).position:
                     prevloc = curloc
                     curloc = where
                     same_loc = 0
                 else:
                     same_loc = 1
-                if getLoc(where).position != 'self':
+                if 'self' not in getLoc(where).position:
                     renpy.show_screen('stats_screen') #При перемещении всегда появляется интерфейс
                 checkClothes(where) # проверка одетости
                 checkUnconscious(getLoc(where)) # потеря сознания
                 checkSperm(getLoc(where)) # снятие репутации за сперму.
-                
+                checkOrgasm(getLoc(where)) # проверка на перевозбуждение
                 
             if rand(1,100) < 10 and where[:4] == 'loc_' and same_loc == 0: tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
 
@@ -55,13 +57,13 @@ init python:
 
 #Вызов эвента
     def tryEvent(location):
-        if getLoc(location).position == 'classroom' and lt() > 0: location += 'Learn' #Если сейчас уроки, то добавляем к поиску локаций Learn
+        if 'classroom' in getLoc(location).position and lt() > 0: location += 'Learn' #Если сейчас уроки, то добавляем к поиску локаций Learn
         if lt() == -4: location += 'Night'
         tempEv = []
         for x in locations: #перебираем локи и ищем подходящие эвенты
             if x.id == location:
                 for event in x.events:
-                    if x.position == 'self':
+                    if 'self' in x.position:
                         if event.corr <= player.stats.corr:
                             tempEv.append(event)
                     else :
@@ -82,16 +84,34 @@ init python:
             fillClasses()
             return
         for x in allChars:
-            if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
-                temp = getChar()
-                if location.people.count(temp) == 0:
-                    location.people.append(temp)
-                
-
+            if x != callup:
+                if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
+                    temp = getChar()
+                    if location.people.count(temp) == 0:
+                        location.people.append(temp)
+# Функция одевания людей
+    def dressPeople(location):
+        location = getLoc(location)
+        for char in location.people:
+            char.wearingByPurpose('usual')
+            if 'school' in location.position:
+                if school.uniform == 'scrict':
+                    char.wearingByPurpose('scrict')
+                elif school.uniform == 'normal':
+                    char.wearingByPurpose('uniform')
+                elif school.uniform == 'sexy':
+                    char.wearingByPurpose('sexy')
+                elif school.uniform == 'skimpy':
+                    char.wearingByPurpose('skimpy')
+                elif school.uniform == 'naked':
+                    char.undress()
+            if 'swim' in location.position:
+                char.wearingByPurpose('swim')
+                        
 # Проверка одежды
     def checkClothes(location):
         location = getLoc(location)
-        if location.position != 'safe' and location.position != 'self' and location.position != 'tech':
+        if 'safe' not in location.position and 'self' not in location.position and 'tech' not in location.position:
             if player.isCover('верх','низ') == False and player.stats.corr < 80:
                 renpy.scene(layer='screens')
                 renpy.jump('naked')
@@ -105,9 +125,9 @@ init python:
 # бессознательное состояние
     def checkUnconscious(location):
         if player.stats.energy < 100 and rand(1,3) == 1:
-            if location.position == 'safe':
+            if 'safe' in location.position:
                 renpy.jump('sleep')
-            if location.position == 'school' or location.position == 'classrom':
+            if 'school' in location.position:
                 renpy.jump('unconsciousSchool')
             else :
                 renpy.jump('unconsciousOther')
@@ -122,3 +142,10 @@ init python:
     def checkDeath():
         if player.getHealth() < 200 and rand(1,50) == 1:
             move('death')
+            
+    def checkOrgasm(location):
+        if player.getLust() >= 100:
+            if 'home' in location.position:
+                renpy.jump('madness_home')
+            if 'school' in location.position and 'safe' not in location.position:
+                renpy.jump('madness_school')

@@ -14,12 +14,11 @@ screen stats_screen:
         vbox xmaximum config.screen_width/2:
             $ currtime = gettime()
             text '[currtime]' style style.my_text
-            $ vlt = lt()
-            if vlt > 0:
-                text _('Сейчас идёт [vlt] урок') style style.my_text
-            if vlt == 0:
+            if lt() > 0:
+                text _('Сейчас идёт '+ str(lt()) +' урок') style style.my_text
+            if lt() == 0:
                 text _('Сейчас перемена') style style.my_text
-            if vlt < 0:
+            if lt() < 0:
                 text _('Сейчас нет уроков') style style.my_text
             if development > 0:    
                 textbutton ('Список эвентов') action Show('pomogator') style "small_button" text_style "small_button_text"
@@ -168,12 +167,12 @@ screen stats_screen:
         imagebutton auto 'pic/actions/wait15_%s.png' action [Function(waiting,15)]
         imagebutton auto 'pic/actions/wait60_%s.png' action [Function(waiting,60)]
         imagebutton idle im.FactorScale('pic/actions/smartphone_idle.png', 0.5) hover im.FactorScale('pic/actions/smartphone.png', 0.5) action [Hide('stats_screen'), Jump('notebook')]
-        imagebutton auto 'pic/actions/inventory_%s.png' action [Hide('stats_screen'), Show('inventory')]
+        imagebutton auto 'pic/actions/inventory_%s.png' action [Function(clrscr), Show('inventory')]
         if curloc == 'loc_beach' or curloc == 'loc_street' or curloc == 'loc_shopStreet' or curloc == 'loc_entrance':
             imagebutton auto 'pic/actions/taxi_%s.png' action [Function(move, 'loc_taxi')]
         if getLoc(curloc) != False:
             if len(getLoc(curloc).people) > 0:
-                imagebutton auto 'pic/actions/eye_%s.png' action [Hide('stats_screen'),Jump('locationPeople')]
+                imagebutton auto 'pic/actions/eye_%s.png' action [Function(clrscr),Jump('locationPeople')]
 
 ##############################################################################
 # Стартовый скрин выбора персонажа
@@ -213,6 +212,7 @@ screen inventory:
                 $ yalig += 0.15
                 $ xalig = 0.2
 
+# показ шмоток
 screen inventory_clothing:
     zorder 1
     modal True
@@ -221,7 +221,7 @@ screen inventory_clothing:
     fixed xpos 0.01 ypos 0.01:
         hbox :
             textbutton _('Назад') action Function(move, curloc)
-            textbutton _('Разное') action [Hide('inventory_clothing'),Hide('showItem'),Show('inventory')]
+            textbutton _('Разное') action [Function(clrscr),Show('inventory')]
 
         $ xalig = 0.2
         $ yalig = 0.05
@@ -234,7 +234,7 @@ screen inventory_clothing:
             if xalig >= 0.99:
                 $ yalig += 0.15
                 $ xalig = 0.2
-
+# менюшка с описанием предмета слева
 screen showItem:
     zorder 1
     vbox xpos 0.01 ypos 0.1:
@@ -252,6 +252,9 @@ screen showItem:
                     text _('Требует развратности [myItem.corr]') style style.my_text
                 text _('Сексуальность [myItem.lust]') style style.my_text
                 text _('Репутация [myItem.reputation]') style style.my_text
+                if development > 0:
+                    text _('Чей [myItem.sex]') style style.my_text
+                    text _('Назначение [myItem.purpose]') style style.my_text
             if player.hasItem(myItem.name):
                 textbutton _('Выбросить') action [Function(player.removeItem, myItem), Hide ('showItem')]
 
@@ -278,6 +281,7 @@ screen shopping:
                     textbutton rawFood.name action [Function(player.buy, rawFood), Show('showSellItem')] hovered [SetVariable('myItem', rawFood), Show('showSellItem')]
             frame :
                 vbox :
+                    #Список предметов на продажу
                     text _('Одежда')
                     textbutton jaket.name action [Function(player.buy, jaket, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', jaket), Show('showSellItem')]
                     textbutton longSkirt.name action [Function(player.buy, longSkirt, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', longSkirt), Show('showSellItem')]
@@ -285,6 +289,17 @@ screen shopping:
                     textbutton swimsuit.name action [Function(player.buy, swimsuit, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', swimsuit), Show('showSellItem')]
                     textbutton bikini_top.name action [Function(player.buy, bikini_top, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', bikini_top), Show('showSellItem')]
                     textbutton bikini_bottom.name action [Function(player.buy, bikini_bottom, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', bikini_bottom), Show('showSellItem')]
+                    textbutton minibikini.name action [Function(player.buy, minibikini, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', minibikini), Show('showSellItem')]
+                    textbutton freejaket.name action [Function(player.buy, freejaket, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', freejaket), Show('showSellItem')]
+                    textbutton skimpyjacket.name action [Function(player.buy, skimpyjacket, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', skimpyjacket), Show('showSellItem')]
+                    textbutton shortSkirt.name action [Function(player.buy, shortSkirt, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', shortSkirt), Show('showSellItem')]
+                    textbutton skimpySkirt.name action [Function(player.buy, skimpySkirt, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', skimpySkirt), Show('showSellItem')]
+                    textbutton blacktights.name action [Function(player.buy, blacktights, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', blacktights), Show('showSellItem')]
+                    textbutton nettights.name action [Function(player.buy, nettights, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', nettights), Show('showSellItem')]
+                    textbutton simpleUnderwear.name action [Function(player.buy, simpleUnderwear, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', simpleUnderwear), Show('showSellItem')]
+                    textbutton sexyUnderwear.name action [Function(player.buy, sexyUnderwear, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', sexyUnderwear), Show('showSellItem')]
+                    textbutton skimpyUnderwear.name action [Function(player.buy, skimpyUnderwear, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', skimpyUnderwear), Show('showSellItem')]
+                    textbutton sportUniform.name action [Function(player.buy, sportUniform, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', sportUniform), Show('showSellItem')]
 
 
 screen showSellItem:
