@@ -149,7 +149,10 @@ init python:
             
     def checkOrgasm(location):
         if player.getLust() >= 100:
-            if 'home' in location.position:
-                renpy.jump('madness_home')
-            if 'school' in location.position and 'safe' not in location.position:
-                renpy.jump('madness_school')
+            if player.getCorr() < 50:
+                renpy.jump('madness_low')
+            else:
+                if 'home' in location.position:
+                    renpy.jump('madness_home')
+                if 'school' in location.position and 'safe' not in location.position:
+                    renpy.jump('madness_school')

@@ -60,7 +60,8 @@ init -3 python:
                 if weekday >=8: weekday -=7
                 number += 1
                 if number >= 31:
-                    number = 30
+                    school.manageBudget()
+                    number -= 30
                     month += 1
                     if month == 13:
                         month -=12

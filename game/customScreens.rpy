@@ -37,13 +37,13 @@ screen stats_screen:
                 $ temp = player.printSperm()
                 text _('В сперме [temp]') style style.warning
 
-            if player.stats.dirty == 1:
+            if player.getDirty() == 1:
                 text _('Вы слегка вспотели') style style.my_text
-            if player.stats.dirty == 2:
+            if player.getDirty() == 2:
                 text _('Вы вспотели') style style.my_text
-            if player.stats.dirty == 3:
+            if player.getDirty() == 3:
                 text _('От Вас воняет') style style.my_text
-            if player.stats.dirty >= 4:
+            if player.getDirty() >= 4:
                 text _('От вас воняет, как от последнего бомжа') style style.warning
 
             #Buttons

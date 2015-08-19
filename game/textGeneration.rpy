@@ -280,7 +280,7 @@ init python:
                 description += 'Дней до того, как педикюр испортится: '+str(pedicure)
                 description += '\n'
             description += '\n'
-            temp = school.myIncome()
+            temp = school.myIncome(player)
             description += 'Я отработала '+ getDays(school.daysWorked) +' на этой неделе. На данный момент мой заработок составит '+ str(temp) +' монет.'
             if complains != '':
                 description += '\n'

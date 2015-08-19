@@ -203,7 +203,7 @@ label test:
     # 'тест'
     # stop movie
     # hide movie
-    jump jail
+    jump myintro
 
 ##############################################################
 # Home

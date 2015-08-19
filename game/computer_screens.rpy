@@ -257,32 +257,36 @@ screen eduMats:
     fixed xpos 0.3 ypos 0.1:
         vbox:
             textbutton _('Б/У материалы') action [
-                SetField(school,'eduMats','poor'),
-                SelectedIf(school.eduMats == 'poor')
+                SelectedIf(school.eduMats == 'poor'),
+                SetField(school,'eduMats','poor')
                 ] hovered [
                 Show('description', None, 'eduPoor')
                 ] unhovered [
                 Hide('description')
                 ]
-            textbutton _('Стантартные') action [
+            textbutton _('Стантартные (Бюджет - 10 000)') action [
+                SelectedIf(school.eduMats == 'standart'),
+                If('standart' in school.unlockedEduMats, false=[SetField(school,'budget',school.budget - 10000),Function(school.addEduMat,'standart')]),
                 SetField(school,'eduMats','standart'),
-                SelectedIf(school.eduMats == 'standart')
+                SensitiveIf('standart' in school.unlockedEduMats or school.budget >= 10000)
                 ] hovered [
                 Show('description', None, 'eduStandart')
                 ] unhovered [
                 Hide('description')
                 ]
-            textbutton _('Хорошие') action [
+            textbutton _('Хорошие (Бюджет - 50 000)') action [
+                SelectedIf(school.eduMats == 'good'),
+                If('good' in school.unlockedEduMats, false=[SetField(school,'budget',school.budget - 50000),Function(school.addEduMat,'good')]),
                 SetField(school,'eduMats','good'),
-                SelectedIf(school.eduMats == 'good')
+                SensitiveIf('good' in school.unlockedEduMats or school.budget >= 50000)
                 ] hovered [
                 Show('description', None, 'eduGood')
                 ] unhovered [
                 Hide('description')
                 ]
-            textbutton _('"Нестандартные"') action [
-                If('eduSexy' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 50, 'eduSexy'), true=SetField(school,'detention','eduSexy')),
-                SelectedIf(school.eduMats == 'eduSexy')
+            textbutton _('"Нестандартные" (Бюджет - 100 000)') action [
+                If('eduSexy' in school.unlockedEduMats, false=Show('preVoting', None, 'corr', 50, 'eduSexy'), true=SetField(school,'eduMats','eduSexy')),
+                SensitiveIf('eduSexy' in school.unlockedEduMats or school.budget >= 50000)
                 ] hovered [
                 Show('description', None, 'eduSexy')
                 ] unhovered [

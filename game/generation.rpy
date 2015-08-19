@@ -451,4 +451,5 @@ label skipall:
     $ studs = _studs
     $ teachers = _teachers
     $ school = School()
-    $ move("loc_home")
+    $ school.manageBudget()
+    $ move("myintro")

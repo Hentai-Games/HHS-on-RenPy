@@ -115,9 +115,15 @@ screen schoolStats:
     fixed xpos 0.01 ypos 0.1:
         vbox:
             hbox:
-                text _('Бюджет:') style style.description
+                text _('Текущие фонды школы:') style style.description
                 text '[school.budget]' style style.description
-                
+            hbox:
+                text _('Ежемесячный предполагаемый доход:') style style.description
+                text str(school.expectedBudget()) style style.description
+            hbox:
+                text _('Ожидаемый расход:') style style.description
+                text str(school.expectedLoss()) style style.description
+            
             hbox:
                 text _('Образовательные материалы:') style style.description
                 text school.getEduMats() style style.description

@@ -5,20 +5,20 @@ init -20 python:
     ###################################################################
 
     class School():
-        def __init__(self, uniform = 'uniform', clubs = [], buildings = [], furniture = [], eduMats = 'standart', detention = 'education', baseIncome = 1000, daysWorked = 0):
+        def __init__(self, uniform = 'uniform', clubs = [], buildings = [], furniture = [], eduMats = 'poor', detention = 'education', baseIncome = 1000, daysWorked = 0):
             self.uniform = uniform
             self.unlockedUniforms = ['uniform','strict']
             self.clubs = clubs
             self.buildings = buildings
             self.furniture = furniture
             self.eduMats = eduMats
-            self.unlockedEduMats = ['standart','poor','good']
+            self.unlockedEduMats = ['poor']
             self.detention = detention
             self.unlockedDetentions = ['education','cleaning']
             self.baseIncome = baseIncome
             self.caughtChance = 0
             self.daysWorked = daysWorked
-            self.budget = 25000
+            self.budget = 0
             self.income = 0
             
         def working(self):
@@ -34,8 +34,48 @@ init -20 python:
             else:
                 move('stolen')
         
-        def myIncome(self):
-            temp = max(self.baseIncome, self.daysWorked*self.baseIncome)
+        def myIncome(self,char):
+            if char == player:
+                temp = self.baseIncome + self.daysWorked*char.getEdu()*20
+            else:
+                temp = 1000 + 5*char.getEdu()*20
+            return temp
+        
+        def getIncome(self,char):
+            if self.myIncome(char) <=  self.budget:
+                self.budget -= self.myIncome(char)
+                char.money += self.myIncome(char)
+                return True
+            else:
+                return False
+        
+        def manageBudget(self):
+            temp = 0
+            for char in teachers:
+                temp += self.myIncome(char)
+            temp += self.baseIncome + 5*char.getEdu()*20
+            temp = temp*4.3
+            temp += 100*getPar(studs,'edu')
+            self.budget += temp
+
+        def expectedBudget(self):
+            temp = 0
+            for char in teachers:
+                temp += self.myIncome(char)
+            temp += self.baseIncome + 5*char.getEdu()*20
+            temp = temp*4.3
+            temp += 100*getPar(studs,'edu')
+            return temp
+            
+        def expectedLoss(self):
+            global number
+            temp = 0
+            remainDays = 30 - number
+            calculated = remainDays/7
+            for char in teachers:
+                temp += self.myIncome(char)
+            temp += self.baseIncome + 5*char.getEdu()*20
+            temp = temp*calculated
             return temp
             
         def getEduMats(self):
@@ -50,6 +90,12 @@ init -20 python:
             else:
                 return 'WTF???'
                 
+        def addEduMat(self,eduMat):
+            if eduMat in ['standart','poor','good','eduSexy']:
+                self.unlockedEduMats.append(eduMat)
+                return True
+            else:
+                return False
         def getUniform(self):
             if self.uniform == 'usual':
                 return 'Обычная одежда'
@@ -91,6 +137,7 @@ init -20 python:
                 school.unlockedDetentions.append(what)
                 school.detention = what
             if what in ['eduSexy']:
+                school.budget -= 100000
                 school.unlockedEduMats.append(what)
                 school.eduMats = what
             if what in ['manec','video','bed']:

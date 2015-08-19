@@ -10,7 +10,7 @@ screen beach_qwest:
 label loc_gloryHole:
     $ clrscr()
     'Вы засунули пальчики в дырочку для привлечения внимания и стали ждать, откликнется ли кто нибудь на ваш призыв или нет.'
-    if rand(1,3) == 1:
+    if rand(1,5) == 1:
         show expression 'pic/locations/beach/changeRoom/glory.gif' at top as tempPic
         'Почти сразу вы услышали удивлённый возлас с другой стороны.'
         $ gloryEvent = rand(1,3) # Чёт эвенты на глорихол тут оказались
