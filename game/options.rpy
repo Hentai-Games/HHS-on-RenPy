@@ -227,10 +227,10 @@ init -1 python hide:
     config.end_game_transition = None
 
     ## Используется при загрузке игры.
-    config.after_load_transition = None
+    config.after_load_transition = dissolve
 
     ## Используется при отображении окна.
-    config.window_show_transition = None
+    config.window_show_transition = dissolve
 
     ## Используется при скрытии окна.
     config.window_hide_transition = None
@@ -276,7 +276,7 @@ init -1 python hide:
 
     ## Скорость текста по умолчанию, в знаках в секунду. 0 - бесконечность.
 
-    config.default_text_cps = 0
+    config.default_text_cps = 5
 
     ## Время авто-режима по умолчанию.
 

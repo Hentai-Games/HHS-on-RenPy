@@ -201,6 +201,7 @@ label skipall:
             health = _health,
             energy = _health,
             beauty = _beauty,
+            fun = 50
         )
 
         player = Char(
@@ -432,6 +433,7 @@ label skipall:
             money = 200
         )
         
+        _teachers.append(mustangovich)
         for char in _teachers:
             tempSex = char.getSex()
             if tempSex == 'futa':
@@ -440,7 +442,7 @@ label skipall:
                 if cloth.sex == tempSex and cloth.char == 'teacher':
                     char.addItem(cloth)
                 
-        _teachers.append(mustangovich)
+
 # endBlc
 #######################################################
 #Пересохранение этого добра для того, чтобы сохранялось.

@@ -153,7 +153,7 @@ init python:
                 else : description += 'родители в восторге от вас.'
 
             if sex != 'female' and corr > 50:
-                description += '\n[name] прозрачно намекает вам, что под одеждой от вас скрывается '+ psize +' сантиметровый змий!'
+                description += '\n[name] прозрачно намекает вам, что под одеждой от вас скрывается '+ str(psize) +' сантиметровый змий!'
             
             description += '\n'
             if sex != 'male':

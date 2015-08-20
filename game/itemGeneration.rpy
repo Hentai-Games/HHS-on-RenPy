@@ -65,7 +65,6 @@ init python:
     freejaket.durability = 100
     freejaket.name = _('Пиджак с вырезом')
     freejaket.cost = 2500
-    #picto
     freejaket.picto = 'pic/items/freejaket.png'
     freejaket.type = 'sexy'
     clothing.append(freejaket)
@@ -81,7 +80,6 @@ init python:
     skimpyjacket.durability = 50
     skimpyjacket.name = _('Полоски ткани')
     skimpyjacket.cost = 5500
-    #picto
     skimpyjacket.picto = 'pic/items/skimpyjacket.png'
     skimpyjacket.type = 'sexy'
     clothing.append(skimpyjacket)
@@ -254,7 +252,6 @@ init python:
     shortSkirt.durability = 75
     shortSkirt.name = _('Короткая юбка')
     shortSkirt.cost = 1000
-    #picto
     shortSkirt.picto = 'pic/items/shortSkirt.png'
     shortSkirt.type = 'clothing'
     clothing.append(shortSkirt)
@@ -265,12 +262,11 @@ init python:
     reputation = -1,
     char = 'teacher',
     sex = 'female',
-    purpose = 'sexy')
+    purpose = 'skimpy')
     skimpySkirt.cover = ['низ']
     skimpySkirt.durability = 50
     skimpySkirt.name = _('Широкий пояс')
     skimpySkirt.cost = 1000
-    #picto
     skimpySkirt.picto = 'pic/items/skimpySkirt.png'
     skimpySkirt.type = 'clothing'
     clothing.append(skimpySkirt)
@@ -396,7 +392,6 @@ init python:
     blacktights.durability = 10
     blacktights.name = _('Чёрные колготки')
     blacktights.cost = 150
-    #picto
     blacktights.picto = 'pic/items/blacktights.png'
     blacktights.type = 'clothing'
     clothing.append(blacktights)
@@ -412,7 +407,6 @@ init python:
     nettights.durability = 10
     nettights.name = _('Колготки в сетку')
     nettights.cost = 450
-    #picto
     nettights.picto = 'pic/items/nettights.png'
     nettights.type = 'clothing'
     clothing.append(nettights)
@@ -444,7 +438,6 @@ init python:
     whitesocks.durability = 10000
     whitesocks.name = _('Белые носочки')
     whitesocks.cost = 150
-    #picto
     whitesocks.picto = 'pic/noimage.gif'
     whitesocks.type = 'clothing'
     clothing.append(whitesocks)
@@ -460,7 +453,6 @@ init python:
     whitetights.durability = 10000
     whitetights.name = _('Белые чулки')
     whitetights.cost = 450
-    #picto
     whitetights.picto = 'pic/noimage.gif'
     whitetights.type = 'clothing'
     clothing.append(whitetights)
@@ -494,7 +486,6 @@ init python:
     sexyUnderwear.durability = 20
     sexyUnderwear.name = _('Красивое нижнее бельё')
     sexyUnderwear.cost = 800
-    #picto
     sexyUnderwear.picto = 'pic/items/sexyUnderwear.png'
     sexyUnderwear.type = 'clothing'
     clothing.append(sexyUnderwear)
@@ -505,12 +496,11 @@ init python:
     reputation = 0,
     char = 'teacher',
     sex = 'female',
-    purpose = 'usual')
+    purpose = 'skimpy')
     skimpyUnderwear.cover = ['грудь','попа']
     skimpyUnderwear.durability = 20
     skimpyUnderwear.name = _('Сексуальное нижнее бельё')
     skimpyUnderwear.cost = 1500
-    #picto
     skimpyUnderwear.picto = 'pic/items/skimpyUnderwear.png'
     skimpyUnderwear.type = 'clothing'
     clothing.append(skimpyUnderwear)
@@ -524,9 +514,8 @@ init python:
     purpose = 'sleep')
     pantalons.cover = ['попа','низ']
     pantalons.durability = 2000
-    pantalons.name = _('Домашние трусы')
+    pantalons.name = _('Старые шорты')
     pantalons.cost = 10
-    #picto
     pantalons.picto = 'pic/items/pantaloons.png'
     pantalons.type = 'clothing'
     clothing.append(pantalons)
@@ -542,7 +531,6 @@ init python:
     oldShirt.durability = 2000
     oldShirt.name = _('Домашняя футболка')
     oldShirt.cost = 10
-    #picto
     oldShirt.picto = 'pic/items/oldShirt.png'
     oldShirt.type = 'clothing'
     clothing.append(oldShirt)
@@ -614,7 +602,7 @@ init python:
     
     bikini_top = Clothing(
     lust = 5,
-    corr = 30,
+    corr = 15,
     reputation = 0,
     char = 'teacher',
     sex = 'female',
@@ -629,7 +617,7 @@ init python:
 
     bikini_bottom = Clothing(
     lust = 15,
-    corr = 30,
+    corr = 15,
     reputation = 0,
     char = 'teacher',
     sex = 'female',
@@ -653,7 +641,7 @@ init python:
     minibikini.durability = 40
     minibikini.name = _('Минибикини')
     minibikini.cost = 2500
-    minibikini.picto = 'pic/items/swimsuit.png'
+    minibikini.picto = 'pic/items/minibikini.png'
     minibikini.type = 'clothing'
     clothing.append(minibikini)
     

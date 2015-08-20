@@ -269,10 +269,25 @@ label loc_swim:
         show expression ("pic/events/beach/swim_norm%d.jpg" % rand(1,5)) at top
         'Вы поплавали часок, и немного устали. По крайней мере ваша физическая форма улучшилась.'
         $ changetime(60)
-        $ player.stats.energy -= rand(100,300)
+        $ player.stats.energy -= rand(100,200)
         $ player.stats.health += rand (10,20)
         $ player.cleanAll()
-    $ move('loc_beach')
+    $ move(curloc)
+    
+label loc_run:
+    show street
+    if player.stats.energy < 200:
+        player.say 'Я слишком устала, чтобы бегать.'
+    elif player.getClothPurpose('sport') == False:
+        player.say 'На каблуках я далеко не убегу. Надо переодеться.'
+    else:
+        $ clrscr()
+        show expression ("pic/events/various/run%d.jpg" % rand(1,8)) at top
+        'Вы побегали часок, и немного устали. По крайней мере, Ваша физическая форма несколько улучшилась.'
+        $ changetime(60)
+        $ player.stats.energy -= rand(100,200)
+        $ player.stats.health += rand (10,20)
+    $ move(curloc)
     
 label loc_taxi:
     show expression 'pic/locations/taxi.jpg'

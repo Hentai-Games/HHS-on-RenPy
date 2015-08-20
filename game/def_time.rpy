@@ -21,7 +21,6 @@ init -3 python:
         if weekday == 6: _weekday = 'Суббота'
         if weekday == 7: _weekday = 'Воскресенье'
 
-
         #Месяца
         if month == 1: _month = 'Января'
         if month == 2: _month = 'Февраля'
@@ -48,6 +47,7 @@ init -3 python:
         flagIncome = 0
         
         while minute >= 60:
+            hourlyReset()
             minute -= 60
             hour += 1
             ptime += 1

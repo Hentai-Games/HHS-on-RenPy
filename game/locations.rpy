@@ -78,6 +78,7 @@ init 10 python:
 
             elif x == 'loc_dreams': loc = Location(id = x, name = 'Сны', base_prob = 0, position = ['self'])
             elif x == 'loc_swim': loc = Location(id = x, name = 'Плавание', base_prob = 0, position = ['self'])
+            elif x == 'loc_run': loc = Location(id = x, name = 'Бег', base_prob = 0, position = ['self'])
             elif x == 'loc_taxi': loc = Location(id = x, name = 'Такси', base_prob = 0, position = ['self'])
             elif x == 'loc_gloryHole': loc = Location(id = x, name = 'Глорихол', base_prob = 0, position = ['self'])
 
@@ -203,7 +204,9 @@ label test:
     # 'тест'
     # stop movie
     # hide movie
-    jump myintro
+    #jump myintro
+    $changetime(60*24)
+    $move('loc_home')
 
 ##############################################################
 # Home
@@ -392,12 +395,10 @@ label loc_entrance:
                     textbutton 'Первый этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Воспользоваться\nокном' xalign 0.2 yalign 0.3 action Function(move, 'loc_entrance') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Компьютер' xalign 0.9 yalign 0.5 action Show('compScreen')
+                    if 'bed' in school.furniture and ((ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4)):
+                         textbutton 'Спать' xalign 0.2 yalign 0.76 action Jump('sleep')
                     if callup != dummy:
-                        if callup.getSex() == 'male':
-                            imagebutton idle im.MatrixColor('pic/showStud/m_1.png', im.matrix.opacity(0.5)) hover im.MatrixColor('pic/showStud/m_1.png', im.matrix.opacity(1.0)) action [Function(clrscr), SetVariable('interactionObj',callup), Show('show_stat'), Function(showChars)] xalign 0.5 yalign -10.0
-                        else:
-                            imagebutton idle im.MatrixColor('pic/showStud/f_1.png', im.matrix.opacity(0.5)) hover im.MatrixColor('pic/showStud/f_1.png', im.matrix.opacity(1.0)) action [Function(clrscr), SetVariable('interactionObj',callup), Show('show_stat'), Function(showChars)] xalign 0.5 yalign 2.5
-                        
+                        imagebutton idle im.MatrixColor(getCharImage(callup), im.matrix.opacity(0.5)) hover im.MatrixColor(getCharImage(callup), im.matrix.opacity(1.0)) action [Function(clrscr), SetVariable('interactionObj',callup), Show('show_stat'), Function(showChars)] xalign 0.5 yalign -10.0
             call screen office
 
         label loc_class1:
@@ -415,6 +416,8 @@ label loc_entrance:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
                         text 'Кабинет Биологии. Тут обычно преподаёт Полина Данокова.' style style.description
+                        if 'manec' in school.furniture:
+                            text 'В углу стоят обнажённые человекоподобные манекены. Пугающе похожие на человека.' style style.description
                     textbutton 'Первый этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
             call screen class2
 
@@ -424,6 +427,8 @@ label loc_entrance:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
                         text 'Кабинет Секспросвета. Тут обычно преподаёт Ангелина Фригидовна. Студентов заставляют заниматься в этом классе в случае провинности.' style style.description
+                        if 'dildo' in school.furniture:
+                            text 'На столе у учительницы лежит подборка из всевозможных дилдо и искуственных вагин.'
                     textbutton 'Первый этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
             call screen class3
 
@@ -442,6 +447,8 @@ label loc_entrance:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
                         text 'Кабинет Английского языка. Тут обычно преподаёт Анжела Диковна.' style style.description
+                        if 'video' in school.furniture:
+                            text 'К потолку прикручен кинопроектор для показа материалов по применению английского языка. Хотя если задуматься, в певую очередь это материалы по применению языка, и только во вторую по применению английского.'
                     textbutton 'Второй этаж' xalign 0.2 yalign 0.8 action Function(move, 'loc_secondFloor') style "navigation_button" text_style "navigation_button_text"
             call screen class5
 
@@ -505,6 +512,7 @@ label loc_street:
             textbutton 'На пляж' xalign 0.3 yalign 0.77 action [Function(changetime, 30),Function(move, 'loc_beach')] style "navigation_button" text_style "navigation_button_text"
             textbutton 'Торговая\nулица' xalign 0.6 yalign 0.5 action [Function(changetime, 15),Function(move, 'loc_shopStreet')] style "navigation_button" text_style "navigation_button_text"
             textbutton 'К школе' xalign 0.7 yalign 0.8 action [Function(changetime, 30),Function(move, 'loc_entrance')] style "navigation_button" text_style "navigation_button_text"
+            textbutton 'Пробежка' xalign 0.3 yalign 0.5 action Function(move, 'loc_run')
     call screen street
 
     label loc_beach:

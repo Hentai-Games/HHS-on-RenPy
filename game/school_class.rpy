@@ -55,7 +55,7 @@ init -20 python:
                 temp += self.myIncome(char)
             temp += self.baseIncome + 5*char.getEdu()*20
             temp = temp*4.3
-            temp += 100*getPar(studs,'edu')
+            temp += 500*getPar(studs,'edu')
             self.budget += temp
 
         def expectedBudget(self):
@@ -96,6 +96,21 @@ init -20 python:
                 return True
             else:
                 return False
+                
+        def addClub(self,club):
+            if club in ['cherleader','cosplay','sport','paint','medic']:
+                self.clubs.append(club)
+                return True
+            else:
+                return False
+                
+        def removeClub(self,club):
+            if club in self.clubs:
+                self.clubs.remove(club)
+                return True
+            else:
+                return False
+                
         def getUniform(self):
             if self.uniform == 'usual':
                 return 'Обычная одежда'
@@ -122,9 +137,9 @@ init -20 python:
                     voteVeto += 1
                     
             if type == 'corr':
-                if teacher.getCorr() >= amount:
+                if (teacher.getCorr() + teacher.getLoy()) >= amount*2:
                     voteYes += 1
-                elif teacher.getCorr()*2 >= amount:
+                elif (teacher.getCorr() + teacher.getLoy()) >= amount:
                     voteNo += 1
                 else:
                     voteVeto += 1
@@ -137,14 +152,16 @@ init -20 python:
                 school.unlockedDetentions.append(what)
                 school.detention = what
             if what in ['eduSexy']:
-                school.budget -= 100000
+                school.budget -= 50000
                 school.unlockedEduMats.append(what)
                 school.eduMats = what
-            if what in ['manec','video','bed']:
+            if what in ['manec','video','bed','dildo']:
                 if what == 'manec':
                     school.budget -= 20000
                 if what == 'video':
                     school.budget -= 10000
+                if what == 'dildo':
+                    school.budget -= 15000
                 school.furniture.append(what)
             if what in ['wall','library']:
                 if what == 'wall':

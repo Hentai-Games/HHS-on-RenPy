@@ -23,9 +23,9 @@ screen stats_screen:
             if development > 0:    
                 textbutton ('Список эвентов') action Show('pomogator') style "small_button" text_style "small_button_text" xalign 0.0
             if show_peopleTextList == 0:
-                textbutton ('Показать людей') action [SetVariable('show_peopleTextList',1), Show('peopleTextList')] style "small_button" text_style "small_button_text" xalign 0.0
+                textbutton ('Показать людей') action SetVariable('show_peopleTextList',1) style "small_button" text_style "small_button_text" xalign 0.0
             else:
-                textbutton ('Скрыть людей') action [SetVariable('show_peopleTextList',0), Hide('peopleTextList')] style "small_button" text_style "small_button_text" xalign 0.0
+                textbutton ('Скрыть людей') action SetVariable('show_peopleTextList',0) style "small_button" text_style "small_button_text" xalign 0.0
             
             #Warnings
             if ptime - last_eat > 24:
@@ -62,6 +62,9 @@ screen stats_screen:
                     imagebutton auto 'pic/actions/pussy_%s.png' action Jump('cleanPussy')
                 if player.getSperm('анус') == True:
                     imagebutton auto 'pic/actions/ass_%s.png' action Jump('cleanAss')
+                    
+            if show_peopleTextList == 1:
+                use peopleTextList
 
 
     fixed xpos 0.3 ypos 0.01:
@@ -151,7 +154,7 @@ screen stats_screen:
                     text _('Ваша энергия ') style style.warning
                     text ' [temp]' style style.warning
 
-                $ temp = round(player.stats.lust,0)
+                $ temp = round(player.getLust(),0)
                 text _('Ваше желание ') style style.my_text
                 if temp > stat_plust:
                     text ' [temp]' style style.green
@@ -177,11 +180,15 @@ screen stats_screen:
         if getLoc(curloc) != False:
             if len(getLoc(curloc).people) > 0:
                 imagebutton auto 'pic/actions/eye_%s.png' action [Function(clrscr),Jump('locationPeople')]
-    
+                
+                
+   
 screen peopleTextList:
-    fixed xpos 0.01 ypos 0.12:
-        vbox:
-            for x in getLoc(curloc).people:
+    vbox:
+        for x in getLoc(curloc).people:
+            if x in teachers:
+                 textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "bluesmall_button" text_style "bluesmall_button" xalign 0.0
+            else:
                 textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "small_button" text_style "small_button_text" xalign 0.0
                 
 

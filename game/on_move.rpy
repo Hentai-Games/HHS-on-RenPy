@@ -34,7 +34,7 @@ init python:
                     same_loc = 1
                 if 'self' not in getLoc(where).position:
                     renpy.show_screen('stats_screen') #При перемещении всегда появляется интерфейс
-                    if show_peopleTextList == 1: renpy.show_screen('peopleTextList')
+                    # if show_peopleTextList == 1: renpy.show_screen('peopleTextList')
                 checkClothes(where) # проверка одетости
                 checkUnconscious(getLoc(where)) # потеря сознания
                 checkSperm(getLoc(where)) # снятие репутации за сперму.
@@ -101,11 +101,11 @@ init python:
             if char in teachers:
                 if char.getCorr() < 10:
                     char.wearingByPurpose('strict')
-                elif char.getCorr() < 25:
-                    char.wearingByPurpose('usual')
                 elif char.getCorr() < 50:
-                    char.wearingByPurpose('sexy')
+                    char.wearingByPurpose('usual')
                 elif char.getCorr() < 75:
+                    char.wearingByPurpose('sexy')
+                else:
                     char.wearingByPurpose('skimpy')
             if 'swim' in location.position:
                 char.wearingByPurpose('swim')

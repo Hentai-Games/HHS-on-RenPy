@@ -39,7 +39,9 @@ init 10 python:
     
 init:
     image white = "#FFFFFF"
+    
     define med = Character("Медсестра", who_color="#c8ffc8", show_side_image = Image(im.FactorScale('pic/locations/shopBeauty/2.png',0.6, xalign=0.01, yalign= 1.2)), window_left_padding = 170)
+    
     define me = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_norm.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     define meSad = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_sad.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     define meSceptic = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_sceptic.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)

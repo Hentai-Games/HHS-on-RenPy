@@ -58,12 +58,20 @@ init python:
         
 
     def showChars():
-        myImage = player.picto
-        if showHover.sex == 'male':
+        renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
+        renpy.show('temp1', what = Image(getCharImage(player), xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
+        renpy.show('temp2', what = Image(getCharImage(showHover), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
+        
+    def getCharImage(char):
+        if char == player:
+            anotherImage = player.picto
+            return anotherImage
+            
+        if char.getSex() == 'male':
             anotherImage = 'pic/showStud/m_1.png'
         else:
             anotherImage = 'pic/showStud/f_1.png'
-
+            
         if showHover.lname == 'Данокова':
             anotherImage = 'pic/teachers/danokova_1.png'
         if showHover.lname == 'Фригидовна':
@@ -77,9 +85,7 @@ init python:
         if showHover.lname == 'Мустангович':
             anotherImage = 'pic/teachers/mustangovich_1.png'
             
-        renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
-        renpy.show('temp1', what = Image(myImage, xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
-        renpy.show('temp2', what = Image(anotherImage, xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
+        return anotherImage
         
     dummy = Char()
     interactionObj = ''

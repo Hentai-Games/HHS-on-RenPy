@@ -243,7 +243,15 @@ init -20 python:
             self.stats.will += amount
 # Измнение education
         def setEdu(self,amount):
-            self.stats.education += amount
+            if self.getFun() < 25:
+                funMod = 4
+            elif self.getFun() < 50:
+                funMod = 3
+            elif self.getFun() < 75:
+                funMod = 2
+            else:
+                funMod = 1
+            self.stats.education += (amount*(self.getIntel()/100))/funMod
 # Измнение health
         def setHealth(self,amount):
             self.stats.health += amount
@@ -584,8 +592,7 @@ init -20 python:
             for x in self.wear:
                 if x.purpose == purpose:
                     return True
-                else:
-                    return False
+            return False
 
     def getCharByName(name):
         global allChars
