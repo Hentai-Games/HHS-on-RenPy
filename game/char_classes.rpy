@@ -164,7 +164,7 @@ init -20 python:
         # Фамилии
         lastNames = ['Смирнов', 'Иванов', 'Кузнецов', 'Попов', 'Соколов', 'Козлов', 'Новиков', 'Морозов', 'Петров', 'Волков', 'Соловьев', 'Васильев', 'Зайцев', 'Павлов', 'Семенов', 'Голубев', 'Виноградов', 'Богданов', 'Воробьев', 'Федоров', 'Михайлов', 'Беляев', 'Тарасов', 'Белов', 'Комаров', 'Орлов', 'Киселев', 'Макаров', 'Андреев', 'Ковалев', 'Ильин', 'Гусев', 'Титов', 'Кузьмин', 'Кудрявцев', 'Баранов', 'Куликов', 'Алексеев', 'Степанов', 'Яковлев']
 
-        def __init__(self, fname = '', lname = '', color = '#FFFFFF', age = 0, body = Body(), stats = Stats(), inventory = 0, sets = 5, wear = [], club = '', picto = '', location = '', money = 0):
+        def __init__(self, fname = '', lname = '', color = '#FFFFFF', age = 0, body = Body(), stats = Stats(), inventory = 0, sets = 5, wear = [], club = '', picto = '', location = '', sayCount = 0, money = 0):
             self.fname = fname
             self.lname = lname
             self.name = fname + ' ' + lname
@@ -183,6 +183,7 @@ init -20 python:
             self.picto = picto
             self.location = location
             self.money = money
+            self.sayCount = sayCount
             self.say = Character (self.fullName(), kind=adv, dynamic = False, color = self.color, show_side_image = Image(self.picto, xalign=0.0, yalign=1.0), window_left_padding = 170)
             config.side_image_tag = self.picto
         
@@ -572,7 +573,18 @@ init -20 python:
             for x in self.wear:
                 temp.extend(x.cover)
             return temp
+            
+        def getOutfitLust(self):
+            if len(self.wear) == 0:
+                return self.getBeauty()
+            else:
+                temp = 0
+                for cloth in self.wear:
+                    temp += cloth.lust
+                return temp
 
+                
+                
         # Проверка на прикрытость
         def isCover(self, *args):
             temp = self.getCover()

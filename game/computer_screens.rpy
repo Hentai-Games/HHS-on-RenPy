@@ -122,23 +122,25 @@ screen clubs:
     tag compScreens
     fixed xpos 0.3 ypos 0.1:
         vbox:
-            textbutton _('Клуб черлидеров') action [
-                If('cherleader' in school.clubs, false=[Function(school.addClub,'cherleader')],true = Function(school.removeClub,'cherleader')),
-                SelectedIf('cherleader' in school.clubs),
-                SensitiveIf('sport' in school.clubs)
-                ] hovered [
-                Show('description', None, 'cherleader') # При наведении показывается описание
-                ] unhovered [
-                Hide('description') # При потере фокуса - скрывается
-                ]
-            textbutton _('Косплей клуб') action [
-                If('cosplay' in school.clubs, false=[Function(school.addClub,'cosplay')],true = Function(school.removeClub,'cosplay')),
-                SelectedIf('cosplay' in school.clubs)
-                ] hovered [
-                Show('description', None, 'cosplay') # При наведении показывается описание
-                ] unhovered [
-                Hide('description') # При потере фокуса - скрывается
-                ]
+            if is_cherleaderClub == 1:
+                textbutton _('Клуб черлидеров') action [
+                    If('cherleader' in school.clubs, false=[Function(school.addClub,'cherleader')],true = Function(school.removeClub,'cherleader')),
+                    SelectedIf('cherleader' in school.clubs),
+                    SensitiveIf('sport' in school.clubs)
+                    ] hovered [
+                    Show('description', None, 'cherleader') # При наведении показывается описание
+                    ] unhovered [
+                    Hide('description') # При потере фокуса - скрывается
+                    ]
+            if is_cosplayClub == 1:
+                textbutton _('Косплей клуб') action [
+                    If('cosplay' in school.clubs, false=[Function(school.addClub,'cosplay')],true = Function(school.removeClub,'cosplay')),
+                    SelectedIf('cosplay' in school.clubs)
+                    ] hovered [
+                    Show('description', None, 'cosplay') # При наведении показывается описание
+                    ] unhovered [
+                    Hide('description') # При потере фокуса - скрывается
+                    ]
             textbutton _('Спортивный клуб') action [
                 If('sport' in school.clubs, false=[Function(school.addClub,'sport')],true = [Function(school.removeClub,'sport'),Function(school.removeClub,'cherleader')]),
                 SelectedIf('sport' in school.clubs)
@@ -155,14 +157,15 @@ screen clubs:
                 ] unhovered [
                 Hide('description') # При потере фокуса - скрывается
                 ]
-            textbutton _('Клуб грязных трусиков') action [
-                If('pants' in school.clubs, false=[Function(school.addClub,'pants')],true = Function(school.removeClub,'pants')),
-                SelectedIf('pants' in school.clubs)
-                ] hovered [
-                Show('description', None, 'pants') # При наведении показывается описание
-                ] unhovered [
-                Hide('description') # При потере фокуса - скрывается
-                ]
+            if is_pantiesClub == 1:
+                textbutton _('Клуб грязных трусиков') action [
+                    If('pants' in school.clubs, false=[Function(school.addClub,'pants')],true = Function(school.removeClub,'pants')),
+                    SelectedIf('pants' in school.clubs)
+                    ] hovered [
+                    Show('description', None, 'pants') # При наведении показывается описание
+                    ] unhovered [
+                    Hide('description') # При потере фокуса - скрывается
+                    ]
                 
 screen furniture:
     zorder 1

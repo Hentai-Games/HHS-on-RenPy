@@ -453,5 +453,6 @@ label skipall:
     $ studs = _studs
     $ teachers = _teachers
     $ school = School()
-    $ school.manageBudget()
+    $ school.getBudget()
+    $ hourlyReset()
     $ move("myintro")

@@ -693,7 +693,7 @@ init python:
     sportUniform.name = _('Спортформа')
     sportUniform.cost = 1500
     # picto
-    sportUniform.picto = 'pic/noimage.gif'
+    sportUniform.picto = 'pic/items/sportUniform.png'
     sportUniform.type = 'clothing'
     clothing.append(sportUniform)
     

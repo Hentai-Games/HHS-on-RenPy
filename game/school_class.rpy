@@ -42,40 +42,16 @@ init -20 python:
             return temp
         
         def getIncome(self,char):
-            if self.myIncome(char) <=  self.budget:
-                self.budget -= self.myIncome(char)
-                char.money += self.myIncome(char)
-                return True
-            else:
-                return False
+            char.money += self.myIncome(char)
         
-        def manageBudget(self):
+        def getBudget(self):
             temp = 0
-            for char in teachers:
-                temp += self.myIncome(char)
-            temp += self.baseIncome + 5*char.getEdu()*20
-            temp = temp*4.3
             temp += 500*getPar(studs,'edu')
             self.budget += temp
-
+        
         def expectedBudget(self):
             temp = 0
-            for char in teachers:
-                temp += self.myIncome(char)
-            temp += self.baseIncome + 5*char.getEdu()*20
-            temp = temp*4.3
-            temp += 100*getPar(studs,'edu')
-            return temp
-            
-        def expectedLoss(self):
-            global number
-            temp = 0
-            remainDays = 30 - number
-            calculated = remainDays/7
-            for char in teachers:
-                temp += self.myIncome(char)
-            temp += self.baseIncome + 5*char.getEdu()*20
-            temp = temp*calculated
+            temp += 500*getPar(studs,'edu')
             return temp
             
         def getEduMats(self):

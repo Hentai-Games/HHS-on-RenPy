@@ -419,13 +419,6 @@ label income:
         temp = school.myIncome(player)
         school.getIncome(player) # Сами получаем зарплату
         school.workedDays = 0 # Сбрасываем переменную раоты
-        shuffle(teachers)
-        for char in teachers:
-            if school.getIncome(char) == False: # Если не получили зарплату
-                char.setLoy(-20)
-                debt += char.name + ', '
-        if debt != '':
-            debt = debt[:-2] + '.'
         checkJail() # Проверяем, не нулевой ли complains там.
         complains = ''
         school.workedDays = 0
@@ -441,8 +434,6 @@ label income:
         'Несмотря на то, что в результате на счету школы образовалась задолженность.'
     if complains != '':
         'Вас так же уведомили, что вами недовольны родители следующих учеников:\n[complains]'
-    if debt != '':
-        'Следующие учителя не получили свою зарплату из за недостатка средств в школе:\n[debt]\nИх лояльность по отношению к вам уменьшилась.'
     $ move(curloc)
     
 label jail:

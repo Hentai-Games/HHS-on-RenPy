@@ -15,13 +15,20 @@
     
     lastWork = -30
     lastWashed = 0
-    
+    is_moneta = 0
     inhibLow = 0
     inhibLowTime = 0
     is_beach_event = 0
     is_glory_found = 0
     mile_qwest_2_stage = 0
     is_beauty_visited = 0
+    reputation_intro = []
+    
+    is_cosplayClub = 0
+    is_cherleaderClub = 0
+    is_pantiesClub = 0
+    
+    
     
     him_zavivka = 0
     depilation = 0

@@ -56,7 +56,7 @@ init python:
                     if char.getCorr() < 25: char.setCorr(0.5)
                     if char.getFun() < 40: char.setFun(1)
                     char.setEdu((getPar(teachers, 'edu') - char.getEdu())/50/eduMod)
-                elif school.uniform == 'skimpy': # Шлюхования форма
+                elif school.uniform == 'skimpy': # Шлюховатая форма
                     if char.getCorr() < 50: char.setCorr(0.8)
                     if char.getFun() < 60: char.setFun(1)
                     char.setEdu((getPar(teachers, 'edu') - char.getEdu())/100/eduMod)
@@ -86,6 +86,16 @@ init python:
                     
     def hourlyReset():
         global hour, weekday
+        
+        for char in allChars:
+            char.sayCount = int(char.getLoy()/10 + (player.getBeauty()/20))
+            
+        if school.budget < 0: 
+            school.removeClub('cherleader')
+            school.removeClub('sport')
+            school.removeClub('cosplay')
+            school.removeClub('paint')
+            
         if hour == 15 and weekday < 6:
             if 'cherleader' in school.clubs and weekday in [1,3,5]:
                 school.budget -= 200
@@ -95,3 +105,6 @@ init python:
                 school.budget -= 500
             if 'paint' in school.clubs:
                 school.budget -= 300
+                
+
+        

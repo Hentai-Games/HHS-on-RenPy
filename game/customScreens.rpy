@@ -252,6 +252,7 @@ screen inventory_clothing:
             if xalig >= 0.99:
                 $ yalig += 0.15
                 $ xalig = 0.2
+                
 # менюшка с описанием предмета слева
 screen showItem:
     zorder 1
@@ -358,7 +359,8 @@ screen wardrobe:
     modal True
     fixed :
         add 'pic/bg.png'
-        # add 'pic/events/various/undress.png' at Move((0.8, 2.0), (0.8, 0.8), 0.5, xanchor='center', yanchor='center')
+        if development == 0:
+            add 'pic/events/various/undress.png' at Move((0.8, 2.0), (0.8, 0.8), 0.5, xanchor='center', yanchor='center')
 
     fixed xpos 0.01 ypos 0.01:
         textbutton _('Назад') action Function(move, curloc)
@@ -373,8 +375,11 @@ screen wardrobe:
             if xalig >= 0.7 :
                 $ yalig += 0.15
                 $ xalig = 0.2
-
-    fixed xpos 0.7 ypos 0.01 :
+    
+    frame ypos 0.01 xalign 1.0:
+        text 'Текущая сексуальность: ' + str(player.getOutfitLust())
+    
+    fixed xpos 0.7 ypos 0.1 :
         frame :
             vbox :
                 text _('На вас надето:')

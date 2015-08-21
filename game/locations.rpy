@@ -205,8 +205,15 @@ label test:
     # stop movie
     # hide movie
     #jump myintro
-    $changetime(60*24)
-    $move('loc_home')
+    
+    # $changetime(60*24)
+    # $move('loc_home')
+    
+    python:
+        callup = studs[0]
+        callup.setCorr(30)
+        player.setCorr(60)
+    jump reputation
 
 ##############################################################
 # Home
