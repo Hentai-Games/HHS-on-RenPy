@@ -606,6 +606,18 @@ init -20 python:
                     return True
             return False
 
+        def moveToLocation(self, loc):
+            """Перемещает персонажа в заданную локацию"""
+
+            if not isinstance(loc, Location):
+                raise Exception('The location in moveToLocation() function '
+                                'should be object!')
+
+            self.location = loc
+
+        def getLocation(self):
+            return self.location
+
         def __repr__(self):
             return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
 

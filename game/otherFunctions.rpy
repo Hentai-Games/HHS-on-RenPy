@@ -68,8 +68,8 @@ init -5 python:
             return choice(allChars)
 
         if len(args) == 1:
-            if len(getLoc(curloc).people) > 0:
-                for char in getLoc(curloc).people:
+            if len(getLoc(curloc).getPeople()) > 0:
+                for char in getLoc(curloc).getPeople():
                     if char.body.sex() == args[0] and teachers.count(char) == 0 and dublicationChar.count(char) == 0:
                         temp.append(char)
                 if len(temp) > 0:
@@ -165,17 +165,17 @@ init -5 python:
         classrooms.append(getLoc('loc_class4'))
         classrooms.append(getLoc('loc_class5'))
         
-        getLoc('loc_class1').people.append(kupruvna)
-        getLoc('loc_class2').people.append(danokova)
-        getLoc('loc_class3').people.append(frigidovna)
-        getLoc('loc_class4').people.append(bissektrisovna)
-        getLoc('loc_class5').people.append(dikovna)
+        kupruvna.moveToLocation(getLoc('loc_class1'))
+        danokova.moveToLocation(getLoc('loc_class2'))
+        frigidovna.moveToLocation(getLoc('loc_class3'))
+        bissektrisovna.moveToLocation(getLoc('loc_class4'))
+        dikovna.moveToLocation(getLoc('loc_class5'))
         
         if weekday == 2 or weekday == 4:
-            getLoc('loc_pool').people.append(mustangovich)
+            mustangovich.moveToLocation(getLoc('loc_pool'))
             classrooms.append(getLoc('loc_pool'))
         else:
-            getLoc('loc_gym').people.append(mustangovich)
+            mustangovich.moveToLocation(getLoc('loc_gym'))
             classrooms.append(getLoc('loc_gym'))
 
         for x in studs:
@@ -183,31 +183,31 @@ init -5 python:
                 if x.inClass == 1: # первый класс
                     tempIndex = lt() - 1 + 0
                     if tempIndex > 5: tempIndex -= 6
-                    classrooms[tempIndex].people.append(x)
+                    x.moveToLocation(classrooms[tempIndex])
                     
                 elif x.inClass == 2: # Второй класс
                     tempIndex = lt() - 1 + 1
                     if tempIndex > 5: tempIndex -= 6
-                    classrooms[tempIndex].people.append(x)
+                    x.moveToLocation(classrooms[tempIndex])
                     
                 elif x.inClass == 3: # Третий класс
                     tempIndex = lt() - 1 + 2
                     if tempIndex > 5: tempIndex -= 6
-                    classrooms[tempIndex].people.append(x)
+                    x.moveToLocation(classrooms[tempIndex])
                     
                 elif x.inClass == 4: # Четвёртый класс
                     tempIndex = lt() - 1 + 3
                     if tempIndex > 5: tempIndex -= 6
-                    classrooms[tempIndex].people.append(x)
+                    x.moveToLocation(classrooms[tempIndex])
                     
                 else: # Пятый класс
                     tempIndex = lt() - 1 + 4
                     if tempIndex > 5: tempIndex -= 6
-                    classrooms[tempIndex].people.append(x)
+                    x.moveToLocation(classrooms[tempIndex])
                     
     def clearLocations():
         for x in locations:
-            x.people = []
+            x.removePeoples([])
             
     def checkJail():
         for x in studs:

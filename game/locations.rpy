@@ -7,7 +7,6 @@ init 10 python:
             self.base_prob = base_prob
             self.events = []
             self.position = position
-            self.people = []
 
         def getprob(self):
             if lt() > 0 or lt() == -4: return -1 #Если ночь, то на улице никого нет
@@ -16,6 +15,18 @@ init 10 python:
 
         def __repr__(self):
             return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
+
+        def getPeople(self):
+            rez = []
+            for x in allChars:
+                try:
+                    if x.getLocation().id==self.id:
+                        rez.append(x)
+
+                except AttributeError:
+                    pass
+
+            return rez
 
     class Event:
         def __init__(self,id,corr):
