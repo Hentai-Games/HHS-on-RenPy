@@ -12,6 +12,7 @@ init python:
     from random import shuffle
     def move(where):
         global curloc, hour, prevloc, same_loc #объявление глобальных переменных
+
         if renpy.has_label(where) == True: #Проверка на то, что локация существует. Если нет, прыгаем домой.
             renpy.scene(layer='master') # Сброс картинок
             renpy.scene(layer='screens') # Сброс скринов
@@ -19,7 +20,13 @@ init python:
             player.stats.energy -= randf(2,5) #расход энергии
             resetStats(allChars) #Сброс статов
             player.checkDur() # Удаление использованных предметов
-            changetime(rand(1, 3)) #изменение времени
+
+            # Переходы с технических локаций и на технические локации не занимают времени
+            if (curloc.startswith('loc_') and 'tech' not in getLoc(curloc).position)\
+                    and (where.startswith('loc') and 'tech' not in getLoc(where).position)\
+                    and curloc != where:
+
+                changetime(rand(1, 3)) #изменение времени
 
             if where[:4] == 'loc_' and 'tech' not in getLoc(where).position: #Если локация - локация и если она не техническая
                 checkDeath() # проверка на смерть
