@@ -71,20 +71,6 @@ init -3 python:
             flagIncome = 0
             move('income')
     
-    # Определим константы для времени
-    class Time(object):
-        change = 0
-        lesson_1 = 1
-        lesson_2 = 2
-        lesson_3 = 3
-        lesson_4 = 4
-        lesson_5 = 5
-        lesson_6 = 6
-
-        after_hours = -1
-        weekend = -3
-        night = -4
-        
     def lt():
         #время первого урока
         if hour == 8 and minute <=40: result = 1
