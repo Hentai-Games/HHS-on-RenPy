@@ -609,26 +609,6 @@ init -20 python:
         def __repr__(self):
             return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
 
-        def setSchedule(self, schedule):
-            """Устанавливает расписание для персонажа. Если расписание уже
-            есть - перезаписывает его. Подробнее о расписаниях
-            см. class Schedule
-            """
-            if not isinstance(schedule, Schedule):
-                raise Exception('Wrong schedule type was submitted to {}: {}'
-                                .format(self, type(schedule)))
-
-            self.schedule = schedule
-
-        def getSchedule(self):
-            try:
-                return self.schedule
-
-            except AttributeError:
-                self.schedule = Schedule()
-
-                return self.schedule
-
 
         #############################
         # End class Char definition #
@@ -645,128 +625,14 @@ init -20 python:
     # а данные - список tuple'ов
     # tuple'ы - (Локация, вероятность нахождение в данной локации в данное
     #                     время суток)
+    # Пример:
+    # {
+    #     Time.change: [('loc_hall', 0.7), ('loc_library', 0.1),
+    #                   ('loc_class1', 0.1), ('loc_wcf', 0.1)],
+    #     Time.lesson1: [('loc_class1', 1)],
+    #     .....
+    # }
     class Schedule(object):
         def __init__(self, schedule):
-            """Инициализация расписания
+            pass
 
-            schedule - dict, в котором задается расписание. См. пример ниже.
-
-            Неделя начинается с дня №1 - понедельника.
-
-            Время можно задать в значениях функции lt().
-
-            Локация задается именем локации (loc_class1, loc_gym, ...) или
-            специальное значение None - "скрытая локация". None применяется 
-            для того чтобы скрыть персонажей на ночь, см. пример ниже
-
-            вероятность - число от 0.0 до 1.0
-
-            Каждое утро персонажи будут генерировать себе расписание и 
-            следовать ему в течении дня.
-
-            {
-                Time.change: {
-                    (1, 2, 3, 4, 5): [('loc_hall', 0.7), ('loc_library', 0.1),
-                                      ('loc_class1', 0.1), ('loc_wcf', 0.1)]
-                },
-                Time.lesson1: {
-                    (1, 3,  5): [('loc_class1': 1.0)], # В Пн, Ср и Пт
-                                                       # во время 1-го урока 
-                                                       # со 100% вероятностью 
-                                                       # персонаж будет в 
-                                                       # 1-м классе
-                    ...
-                    (2, 4): [('loc_pool': 1.0)] # В Вт и Чт
-                                                # во время 1-го урока со 100%
-                                                # вероятностью персонаж будет 
-                                                # в бассейне
-                },
-                ....
-                Time.after_hours: {
-                    None: [('loc_street': 0.4), # После уроков в любой день персонаж будет на улице с 40% вероятностью, в магазине с 30% и т.д.
-                           ...
-                           ('loc_shop': 0.3)]
-                },
-                Time.weekend: {
-                    (6, 7)
-                },
-                Time.night: {
-                    None: [(None, 1.0)] # Ночью в любой день 
-                                        # персонаж не будет 
-                                        # ни на одной локации
-                }
-            }
-
-            Пример:
-            {
-                (1, 2, 3, 4): # расписание на Пн, Вт, Ср, Чт
-                {
-                    Time.change: [('loc_hall', 0.7), ('loc_library', 0.1),
-                                  ('loc_class1', 0.1), ('loc_wcf', 0.1)],
-                    Time.lesson1: [('loc_class1', 1.0)], # Во время первого
-                                                       # урока с вероятностью
-                                                       # 100% персонаж будет
-                                                       # в классе 1
-                    ...
-                    Time.after_hours: [('loc_beach', 0.5),
-                                       ('loc_shopStreet', 0.25),
-                                       ('loc_street', 0.25)],
-
-                    Time.night: [(None, 1.0)] # Ночью с вероятностью 100%
-                                              # персонаж не будет ни на 
-                                              # одной локации
-                },
-                (5, ): # расписание на Пт, обратите внимание на запятую!
-                {
-                    Time.change: [('loc_hall', 0.7), ('loc_library', 0.1),
-                                  ('loc_class1', 0.1), ('loc_wcf', 0.1)],
-                    Time.lesson1: [('loc_class1', 1)],
-                    ...
-                },
-                (6, 7): # расписание на Cб и Вск
-                {
-                    Time.weekend: [('loc_beach', 0.5), # Обратите внимание на
-                                                       # Time.weekend - именно
-                                                       # так обозначаются 
-                                                       # выходные в терминах 
-                                                       # функции lt()
-                                   ('loc_street', 0.5)],
-                    ...
-                }
-            }
-            """
-
-            self.schedule = {}
-            for t, loc_l in schedule.items():
-                self.schedule[t] = {}
-                for loc, prob in loc_l:
-                    self.schedule[t][loc] = prob
-
-        def getPresenceProb(self, loc, time=None):
-            """Возвращает вероятность нахождения в заданной локации в заданное
-            время. Если в расписании персонажа нет заданного времени или
-            локации - вернется 0
-
-            loc - имя локации (loc_class1, loc_pool, ...)
-            time - время. Если аргумент не задан - используется текущее время
-            """
-
-            if time is None:
-                time = lt()
-
-            if loc not in self.schedule:
-                return 0.0
-
-            return self.schedule[time][loc]
-
-        def setPresenceProb(self, loc, time, prob):
-            """Изменяет расписание персонажа. Если в расписании уже есть такая
-            запись - она будет заменена. Если нет - будет создана новая
-
-            loc - имя локации
-            time - время в расписании
-            """
-            if time not in self.schedule:
-                self.schedule[time] = {}
-
-            self.schedule[time][loc] = prob
