@@ -610,10 +610,29 @@ init -20 python:
             return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
 
 
-# End class Char definition
+        #############################
+        # End class Char definition #
+        #############################
 
     def getCharByName(name):
         global allChars
         for x in allChars:
             if x.fullName() == name:
                 return x
+
+    # Класс для представление расписания Char'ов
+    # Расписание задается в виде dict'а в котором ключ это время суток,
+    # а данные - список tuple'ов
+    # tuple'ы - (Локация, вероятность нахождение в данной локации в данное
+    #                     время суток)
+    # Пример:
+    # {
+    #     Time.change: [('loc_hall', 0.7), ('loc_library', 0.1),
+    #                   ('loc_class1', 0.1), ('loc_wcf', 0.1)],
+    #     Time.lesson1: [('loc_class1', 1)],
+    #     .....
+    # }
+    class Schedule(object):
+        def __init__(self, schedule):
+            pass
+
