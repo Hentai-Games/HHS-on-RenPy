@@ -606,6 +606,12 @@ init -20 python:
                     return True
             return False
 
+        def __repr__(self):
+            return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
+
+
+# End class Char definition
+
     def getCharByName(name):
         global allChars
         for x in allChars:

@@ -88,6 +88,7 @@ init python:
                     temp = getChar()
                     if location.people.count(temp) == 0:
                         location.people.append(temp)
+
 # Функция одевания людей
     def dressPeople(location):
         location = getLoc(location)

@@ -1,7 +1,7 @@
 init 10 python:
     locations = []
     class Location:
-        def __init__(self,id,name,base_prob, position):
+        def __init__(self, id, name, base_prob, position):
             self.id = id
             self.name = name
             self.base_prob = base_prob
@@ -14,6 +14,9 @@ init 10 python:
             elif self.position in ['classroom', 'school'] and lt() == -1: return self.base_prob/4 #Если внеурочное время, то в школе шансов встретить меньше
             else : return self.base_prob #Иначе настоящая вероятность.
 
+        def __repr__(self):
+            return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
+
     class Event:
         def __init__(self,id,corr):
             self.id = id
@@ -24,6 +27,7 @@ init 10 python:
             if x.id == id:
                 return x
         return False
+
 
 #Функция добавления эвентов в локации
     def getEvents():
