@@ -432,8 +432,15 @@ label skipall:
             location = curloc,
             money = 200
         )
-        
+
+        # Schedule testing
+        mustangovich.setSchedule(Schedule({
+            Time.change: [('loc_hall', 0.7), ('loc_library', 0.1),
+                          ('loc_class1', 0.1), ('loc_wcf', 0.1)],
+            Time.lesson_1: [('loc_class1', 1)],
+            Time.lesson_2: [('loc_pool', 1)]}))
         _teachers.append(mustangovich)
+
         for char in _teachers:
             tempSex = char.getSex()
             if tempSex == 'futa':
