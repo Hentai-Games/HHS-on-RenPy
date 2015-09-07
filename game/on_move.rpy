@@ -95,8 +95,16 @@ init python:
                                 temp.moveToLocation(location)
                                 break
 
+        if lt() == -4:
+            # Сейчас ночь, нужно убрать всех с локаций
+            clearLocations()
+
         for loc in locations:
             dressPeople(loc.id) # Одеваем людей на локации
+
+    def clearLocations():
+        for x in allChars:
+            x.moveToLocation(None)
 
 # Функция одевания людей
     def dressPeople(location):

@@ -607,8 +607,16 @@ init -20 python:
             return False
 
         def moveToLocation(self, loc):
-            """Перемещает персонажа в заданную локацию"""
+            """Перемещает персонажа в заданную локацию
 
+            loc - объект класса Location или None. Если задан None - персонаж
+                  убирается с локации (на ночь)
+            """
+
+            if loc is None:
+                self.location = None
+                return
+                
             if not isinstance(loc, Location):
                 raise Exception('The location in moveToLocation() function '
                                 'should be object!')
