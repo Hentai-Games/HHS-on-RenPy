@@ -12,6 +12,7 @@ init python:
     from random import shuffle
     def move(where):
         global curloc, hour, prevloc, same_loc #объявление глобальных переменных
+
         if renpy.has_label(where) == True: #Проверка на то, что локация существует. Если нет, прыгаем домой.
             renpy.scene(layer='master') # Сброс картинок
             renpy.scene(layer='screens') # Сброс скринов
@@ -19,13 +20,16 @@ init python:
             player.stats.energy -= randf(2,5) #расход энергии
             resetStats(allChars) #Сброс статов
             player.checkDur() # Удаление использованных предметов
-            changetime(rand(1, 3)) #изменение времени
+
+            # Переходы с технических локаций и на технические локации не занимают времени
+            if (curloc.startswith('loc_') and 'tech' not in getLoc(curloc).position)\
+                    and (where.startswith('loc') and 'tech' not in getLoc(where).position)\
+                    and curloc != where:
+
+                changetime(rand(1, 3)) #изменение времени
 
             if where[:4] == 'loc_' and 'tech' not in getLoc(where).position: #Если локация - локация и если она не техническая
                 checkDeath() # проверка на смерть
-                clearLocations() # Очищаем все локации
-                addPeopleLocation(where) # Добавление людей на локацию
-                dressPeople(where) # Одеваем людей на локации
                 if where != curloc and 'self' not in getLoc(where).position:
                     prevloc = curloc
                     curloc = where
@@ -76,22 +80,36 @@ init python:
             lastEventTime = ptime #запоминаем время
             renpy.jump(callEvent) #эвент
 
-#Добавление людей на локации
-    def addPeopleLocation(location):
-        location = getLoc(location) #Получение объекта локации
+    #Добавление людей на локации
+    def addPeopleLocations():
         if lt() > 0: # заполняем классы, если уроки
             fillClasses()
-            return
+
+        else:
+            for x in allChars:
+                if x != callup:
+                    for location in locations:
+                        if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
+                            temp = getChar()
+                            if temp.getLocation() != location:
+                                temp.moveToLocation(location)
+                                break
+
+        if lt() == -4:
+            # Сейчас ночь, нужно убрать всех с локаций
+            clearLocations()
+
+        for loc in locations:
+            dressPeople(loc.id) # Одеваем людей на локации
+
+    def clearLocations():
         for x in allChars:
-            if x != callup:
-                if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
-                    temp = getChar()
-                    if location.people.count(temp) == 0:
-                        location.people.append(temp)
+            x.moveToLocation(None)
+
 # Функция одевания людей
     def dressPeople(location):
         location = getLoc(location)
-        for char in location.people:
+        for char in location.getPeople():
             if len(char.wear) == 0 or (char.getClothPurpose('swim') == True and 'swim' not in location.position):
                 char.wearingByPurpose('usual')
                 if rand(1,4) == 1 and char in studs:
@@ -139,7 +157,7 @@ init python:
 # снятие репутации за сперму    
     def checkSperm(location):
         if player.isSperm() == 2 and rand(1,3) == 1:
-            for x in location.people:
+            for x in location.getPeople():
                 x.setRep(-2)
                 x.setCorr(.5)
 
