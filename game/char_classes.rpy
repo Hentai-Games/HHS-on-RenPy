@@ -610,6 +610,36 @@ init -20 python:
                     return True
             return False
 
+        def moveToLocation(self, loc):
+            """Перемещает персонажа в заданную локацию
+
+            loc - объект класса Location, имя локации или None.
+                  Если задан None - персонаж убирается с локации (на ночь)
+            """
+
+            if loc is None:
+                self.location = None
+                return
+                
+            if isinstance(loc, basestring):
+                loc = getLoc(loc)
+
+            else:
+                if not isinstance(loc, Location):
+                    raise Exception('Argument for the moveToLocation method '
+                                    'should be location name or location object')
+
+            self.location = loc
+
+        def getLocation(self):
+            return self.location
+
+        def __repr__(self):
+            return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
+
+
+# End class Char definition
+
     def getCharByName(name):
         global allChars
         for x in allChars:

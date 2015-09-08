@@ -104,11 +104,11 @@ screen locationPeoplePicto:
 
         $ xalig = 0.2
         $ yalig = 0.05
-        for x in getLoc(curloc).people:
+        for x in getLoc(curloc).getPeople():
             $ pictoSize = 0.5
             if x in highlightP:
                 $ pictoSize += 0.1
-            imagebutton idle im.FactorScale(x.picto,pictoSize) hover im.FactorScale(x.picto,pictoSize + 0.1) xalign xalig yalign yalig action [Hide('charInfoLeft'), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
+            imagebutton idle im.FactorScale(x.picto,pictoSize) hover im.FactorScale(x.picto,pictoSize) xalign xalig yalign yalig action [Hide('charInfoLeft'), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
             # add im.FactorScale(x.picto,0.6) xalign xalig yalign yalig
             $ xalig += 0.09
             if xalig >= 0.99:
@@ -222,7 +222,7 @@ label flirt:
 label callup:
     $ clrscr()
     python:
-        getLoc(curloc).people.remove(showHover)
+        showHover.moveToLocation('loc_office')
         callup = showHover
     player.say 'Нам необходимо поговорить наедине.'
     callup.say 'Хорошо, я сейчас же отправлюсь к вам в кабинет.'

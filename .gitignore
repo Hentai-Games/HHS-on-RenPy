@@ -57,3 +57,11 @@ log.txt
 *.crdownload
 *.bak
 log.txt
+
+
+# Irvin Zamora
+.venv/
+*.swp
+game/pic
+renpy-*-sdk/
+

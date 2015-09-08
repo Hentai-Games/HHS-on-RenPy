@@ -70,6 +70,8 @@ init -3 python:
         if flagIncome == 1:
             flagIncome = 0
             move('income')
+
+        addPeopleLocations()
     
     def lt():
         #время первого урока
