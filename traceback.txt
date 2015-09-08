@@ -1,64 +1,40 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/locations.rpy", line 508, in script
-    call screen street
-  File "renpy/common/000statements.rpy", line 457, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "renpy/common/00keymap.rpy", line 329, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 343, in <module>
-    renpy.save("_reload-1", "reload save game")
-PicklingError: Can't pickle <type 'code'>: attribute lookup __builtin__.code failed
+  File "game/locations.rpy", line 402, in script call
+    call screen office
+  File "renpy/common/00console.rpy", line 604, in script call
+    python in _console:
+  File "game/locations.rpy", line 402, in script call
+    call screen office
+  File "renpy/common/00console.rpy", line 604, in script call
+    python in _console:
+  File "game/BasicEvents.rpy", line 705, in script
+    python:
+  File "game/BasicEvents.rpy", line 706, in <module>
+    calrscr()
+NameError: name 'calrscr' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\bootstrap.py", line 287, in bootstrap
-    renpy.main.main()
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\main.py", line 375, in main
-    run(restart)
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\main.py", line 77, in run
-    renpy.execution.run_context(True)
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\execution.py", line 684, in run_context
-    context.run()
-  File "game/locations.rpy", line 508, in script
-    call screen street
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\ast.py", line 1641, in execute
-    self.call("execute")
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\ast.py", line 1659, in call
-    renpy.statements.call(method, parsed, *args, **kwargs)
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\statements.py", line 144, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 457, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\exports.py", line 2344, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\ui.py", line 247, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\display\core.py", line 2243, in interact
-    repeat, rv = self.interact_core(preloads=preloads, **kwargs)
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\display\core.py", line 2549, in interact_core
-    renpy.exports.reload_script()
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\exports.py", line 1411, in reload_script
-    renpy.game.call_in_new_context("_save_reload_game")
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\game.py", line 306, in call_in_new_context
-    return renpy.execution.run_context(False)
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\execution.py", line 684, in run_context
-    context.run()
-  File "renpy/common/00keymap.rpy", line 329, in script
-    python hide:
+  File "game/locations.rpy", line 402, in script call
+    call screen office
+  File "renpy/common/00console.rpy", line 604, in script call
+    python in _console:
+  File "game/locations.rpy", line 402, in script call
+    call screen office
+  File "renpy/common/00console.rpy", line 604, in script call
+    python in _console:
+  File "game/BasicEvents.rpy", line 705, in script
+    python:
   File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\ast.py", line 785, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\python.py", line 1432, in py_exec_bytecode
     exec bytecode in globals, locals
-  File "renpy/common/00keymap.rpy", line 343, in <module>
-    renpy.save("_reload-1", "reload save game")
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\loadsave.py", line 275, in save
-    dump((roots, renpy.game.log), logf)
-  File "D:\Downloads\repy\renpy-6.99.1-sdk\renpy\loadsave.py", line 43, in dump
-    cPickle.dump(o, f, cPickle.HIGHEST_PROTOCOL)
-PicklingError: Can't pickle <type 'code'>: attribute lookup __builtin__.code failed
+  File "game/BasicEvents.rpy", line 706, in <module>
+    calrscr()
+NameError: name 'calrscr' is not defined
 
 Windows-7-6.1.7601-SP1
 Ren'Py 6.99.1.329
