@@ -38,10 +38,21 @@ init python:
         elif school.eduMats == 'eduSexy':
             eduMod = 0.1
 
+            
         for char in chars:
             char.setCorr((getPar(teachers, 'corr') - char.getCorr())/10)
             char.setRep((getPar(studs, 'rep') - char.getRep())/100)
             if char in studs:
+                # inhibLow
+                if inhibLow == 1:
+                    char.setLust(10)
+                elif inhibLow == 2:
+                    char.setLust(15)
+                elif inhibLow == 3:
+                    char.setCorr(0.5)
+                elif inhibLow == 4 and char.getSex() == 'male':
+                    char.setLust(30)
+                    
                 if school.uniform == 'strict': # Строгая школьная форма
                     char.setRep(1)
                     char.setFun(-5)
@@ -77,9 +88,11 @@ init python:
                 if 'manec' in school.furniture: # Манекен
                     if char.getFun() < 25: char.setFun(1)
                     if char.getCorr() < 15: char.setCorr(0.5)
+                    
                 if 'video' in school.furniture: # Видео
                     if char.getFun() < 55: char.setFun(1)
                     if char.getCorr() < 25: char.setCorr(0.5)
+                    
                 if 'dildo' in school.furniture: # Дилды
                     if char.getFun() < 35: char.setFun(1)
                     if char.getCorr() < 30: char.setCorr(0.5)

@@ -21,7 +21,10 @@ screen studList:
         $ xalig = 0.17
         $ yalig = 0.01
         for x in studs:
-            imagebutton idle im.FactorScale(x.picto,0.5) hover im.FactorScale(x.picto,0.6) xalign xalig yalign yalig action NullAction() hovered [SetVariable('showHover',x),Show('charInfoLeft')] unhovered Hide('charInfoLeft')
+            $ pictoSize = 0.5
+            if x in highlightP:
+                $ pictoSize += 0.1
+            imagebutton idle im.FactorScale(x.picto,pictoSize) hover im.FactorScale(x.picto,pictoSize + 0.1) xalign xalig yalign yalig action [Function(addHighlight,x), Show('charInfoLeft')] hovered [SetVariable('showHover',x),Show('charInfoLeft')] unhovered Hide('charInfoLeft')
             $ xalig += 0.09
             if xalig >= 0.99:
                 $ yalig += 0.15
@@ -68,6 +71,10 @@ screen charInfoLeft:
                 text _('Развратность [temp]') style style.my_text
                 $ temp = round(showHover.stats.beauty,1)
                 text _('Красота [temp]') style style.my_text
+                if showHover in highlightP:
+                    text _('Подсвечивается') style style.green
+                else:
+                    text _('Не подсвечивается') style style.warning
 
 screen personalInfo:
     tag notebookList
@@ -77,19 +84,19 @@ screen personalInfo:
                 name = player.fullName()
                 age = str(player.age)
                 sex = player.body.sex()
-                beauty = player.getBeauty()
-                loyalty = player.getLoy()
-                edu = player.getEdu()
-                lust = player.getLust()
-                corr = player.getCorr()
-                fun = player.getFun()
-                health = player.getHealth()
+                beauty = round(player.getBeauty(),1)
+                loyalty = round(player.getLoy(),1)
+                edu = round(player.getEdu(),1)
+                lust = round(player.getLust(),1)
+                corr = round(player.getCorr(),1)
+                fun = round(player.getFun(),1)
+                health = round(player.getHealth(),1)
                 height = round(showHover.body.height,1)
-                money = player.money
+                money = round(player.money,1)
                 
                 bsize = round(player.body.parts['грудь'].size, 1)
-                vsize = round(player.body.parts['вагина'].size)
-                asize = round(player.body.parts['анус'].size)
+                vsize = round(player.body.parts['вагина'].size,1)
+                asize = round(player.body.parts['анус'].size,1)
                 
             add im.FactorScale(player.picto,.5)
             null height 10
@@ -101,8 +108,8 @@ screen personalInfo:
             text _('Развратность [corr]') style style.my_text
             text _('Красота [beauty]') style style.my_text
             text ''
-            text _('Размер вагины [vsize]') style style.my_text
-            text _('Размер ануса [asize]') style style.my_text
+            text _('Диаметр вагины [vsize]см') style style.my_text
+            text _('Диаметр ануса [asize]см') style style.my_text
             text ''
             text _('Денег [money]') style style.my_text
             

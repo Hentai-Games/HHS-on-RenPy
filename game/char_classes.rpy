@@ -229,13 +229,17 @@ init -20 python:
 
 # Измнение loyalty
         def setLoy(self,amount):
-            self.stats.loyalty += amount
+            self.stats.loyalty += amount*max(0.1, (100 - self.getWill())/100)
 # Измнение fun
         def setFun(self,amount):
             self.stats.fun += amount
 # Измнение развратности
         def setCorr(self,amount):
-            self.stats.corr += amount
+            if self != player:
+                self.stats.corr += amount*max(0.1, (100 - self.getWill())/100)
+            else:
+                self.stats.corr += amount
+                
 # Измнение lust
         def setLust(self,amount):
             self.stats.lust += amount

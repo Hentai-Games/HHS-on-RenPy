@@ -135,12 +135,55 @@ init -5 python:
             
 
     def hadSex(*args):
+        maleArr = []
+        femaleArr = []
         for x in args:
-            if x.body.sex() != 'male':
-                x.body.parts['вагина'].size += randf(0.0,0.1)
-            x.setCorr(randf(0.0,len(args)))
-            x.setLust(randf(-50,50))
+            x.setCorr(randf(0.0,1.0))
+        
+        # мастурбация
+        if len(args) == 1:
+            if args[0].getSex() != 'male':
+                if args[0].body.parts['вагина'].size < 4:
+                    args[0].body.parts['вагина'].size += randf(0.0,0.1)
+                if args[0].body.parts['анус'].size < 4:
+                    args[0].body.parts['анус'].size += randf(0.0,0.1)
+            args[0].setFun(1)
             
+        else:
+            for x in args:
+                if x.getSex() != 'female':
+                    maleArr.append(x)
+                else:
+                    femaleArr.append(x)
+            # Одни футы/мужики
+            if len(maleArr) == 0:
+                for x in femaleArr:
+                    x.body.parts['вагина'].size += randf(0.0,0.1)
+                    x.body.parts['анус'].size += randf(0.0,0.05)
+                    x.setFun(1)
+            # Лесбийская
+            elif len(femaleArr) == 0:
+                for x in maleArr:
+                    if x.getSex() == 'futa':
+                        x.body.parts['вагина'].size += randf(0.0,0.1)
+                    x.body.parts['анус'].size += randf(0.0,0.05)
+                    x.setFun(1)
+                    
+            else:
+                # норма
+                for male in maleArr:
+                    male.setFun(1)
+                    diameter = male.parts['пенис']/3.14
+                    for female in femaleArr:
+                        if female.parts['вагина'].size < diameter/2:
+                            female.parts['вагина'].size += diameter/5
+                            female.setFun(-1)
+                        elif female.parts['вагина'].size < diameter:
+                            female.setFun(1)
+                            female.parts['вагина'].size += diameter/15
+                            if rand(1,3) == 1:
+                                female.parts['анус'].size += diameter/10
+                            break
             
     def addDetention(*args):
         for char in args:
@@ -213,3 +256,9 @@ init -5 python:
         for x in studs:
             if x.getRep() < 5 and x.name in complains:
                 move('jail')
+                
+    def addHighlight(char):
+        if char in highlightP:
+            highlightP.remove(char)
+        else:
+            highlightP.append(char)

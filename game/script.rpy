@@ -23,6 +23,7 @@
     mile_qwest_2_stage = 0
     is_beauty_visited = 0
     reputation_intro = []
+    inhibLow = 0
     
     is_cosplayClub = 0
     is_cherleaderClub = 0
@@ -39,6 +40,7 @@
     
     detentions = []
     scoldWho = []
+    highlightP = []
 
 init 10 python:
     teacher_son = dummy

@@ -146,7 +146,7 @@ screen stats_screen:
                     stat_rep = temp
 
             grid 2 3:
-                $ temp = round(player.stats.energy, 0)
+                $ temp = int(player.stats.energy)
                 if temp > player.stats.health/10:
                     text _('Ваша энергия ') style style.my_text
                     text ' [temp]' style style.my_text
@@ -154,7 +154,7 @@ screen stats_screen:
                     text _('Ваша энергия ') style style.warning
                     text ' [temp]' style style.warning
 
-                $ temp = round(player.getLust(),0)
+                $ temp = round(player.getLust(),1)
                 text _('Ваше желание ') style style.my_text
                 if temp > stat_plust:
                     text ' [temp]' style style.green
@@ -166,7 +166,7 @@ screen stats_screen:
                     global stat_plust
                     stat_plust = temp
                 
-                $ temp = player.money
+                $ temp = int(player.money)
                 text _('Денег') style style.my_text
                 text ' [temp]' style style.my_text
 
@@ -189,7 +189,10 @@ screen peopleTextList:
             if x in teachers:
                  textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "bluesmall_button" text_style "bluesmall_button" xalign 0.0
             else:
-                textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "small_button" text_style "small_button_text" xalign 0.0
+                if x not in highlightP:
+                    textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "small_button" text_style "small_button_text" xalign 0.0
+                else:
+                    textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "small_button" text_style "warning" xalign 0.0
                 
 
 ##############################################################################

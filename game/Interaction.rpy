@@ -105,7 +105,10 @@ screen locationPeoplePicto:
         $ xalig = 0.2
         $ yalig = 0.05
         for x in getLoc(curloc).people:
-            imagebutton idle im.FactorScale(x.picto,0.5) hover im.FactorScale(x.picto,0.6) xalign xalig yalign yalig action [Hide('charInfoLeft'), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
+            $ pictoSize = 0.5
+            if x in highlightP:
+                $ pictoSize += 0.1
+            imagebutton idle im.FactorScale(x.picto,pictoSize) hover im.FactorScale(x.picto,pictoSize + 0.1) xalign xalig yalign yalig action [Hide('charInfoLeft'), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
             # add im.FactorScale(x.picto,0.6) xalign xalig yalign yalig
             $ xalig += 0.09
             if xalig >= 0.99:
@@ -146,6 +149,11 @@ screen show_stat:
         
     fixed xpos 0.8 ypos 0.1:
         vbox:
+            if showHover in studs:
+                if showHover not in highlightP:
+                    textbutton 'Замечать' xminimum 200 action [Function(addHighlight,showHover), Show('show_stat')]
+                else:
+                    textbutton 'Не замечать' xminimum 200 action [Function(addHighlight,showHover), Show('show_stat')]
             if lt() <= 0 or 'safe' in getLoc(curloc).position:
                 if showHover.sayCount > 0: 
                     textbutton 'Поговорить' xminimum 200 action Jump('speak')
@@ -159,7 +167,7 @@ screen show_stat:
                     textbutton 'О родителях' xminimum 200 action Jump('reputation')
                 textbutton 'Выгнать' xminimum 200 action Jump('callout')
                 
-            textbutton 'Назад' xminimum 200 action Function(move,curloc)
+            textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
             if development == 1:
                 textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
             
@@ -209,7 +217,6 @@ label flirt:
         changetime(5)
         player.stats.energy -= rand(5,10)
         renpy.jump(flirtSelector(user))
-
     call screen show_stat
 ###########################################################################################################################
 label callup:
@@ -316,11 +323,11 @@ label reputation:
                     callup = dummy
                     move(curloc)
             else:
-                player.say 'Так, либо ты идёшь к родителям и говоришь им, что у нас прекрасная школа, либо я'
+                player.say 'Так, либо ты идёшь к родителям и говоришь им, что у нас прекрасная школа, либо я...'
                 callup.say 'Либо вы что, [player.name]? - прерывает вас [callup.fname].'
                 callup.say 'Вы ничего не можете сделать со своим учеником. Если только попробуете, вас не просто уволят с волчьим билетом, так ещё и на кичу посадят, там таких под шконкой весьма любят. Или вы уже в курсе?'
                 player.say '???????'
-                '[callup.name], скорчив презрительную гримасу удаляется из кабинета, не спрашивая вашего разрешения.'
+                '[callup.fname], скорчив презрительную гримасу удаляется из кабинета, не спрашивая вашего разрешения.'
                 'Похоже что то пошло не так.'
                 python:
                     callup = dummy
