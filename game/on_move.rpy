@@ -23,9 +23,8 @@ init python:
 
             # Переходы с технических локаций и на технические локации не занимают времени
             if (curloc.startswith('loc_') and 'tech' not in getLoc(curloc).position)\
-                    and (where.startswith('loc') and 'tech' not in getLoc(where).position)\
-                    and curloc != where:
-
+                and (where.startswith('loc') and 'tech' not in getLoc(where).position)\
+                and curloc != where:
                 changetime(rand(1, 3)) #изменение времени
 
             if where[:4] == 'loc_' and 'tech' not in getLoc(where).position: #Если локация - локация и если она не техническая
@@ -82,9 +81,10 @@ init python:
 
     #Добавление людей на локации
     def addPeopleLocations():
+        mystring = ''
+        counter = 0
         if lt() > 0: # заполняем классы, если уроки
             fillClasses()
-
         else:
             for x in allChars:
                 if x != callup:
@@ -93,19 +93,25 @@ init python:
                             temp = getChar()
                             if temp.getLocation() != location:
                                 temp.moveToLocation(location)
+                                counter += 1
+                                mystring += str(counter) + ' ' + location.id + '\n'
                                 break
-
         if lt() == -4:
             # Сейчас ночь, нужно убрать всех с локаций
             clearLocations()
 
         for loc in locations:
             dressPeople(loc.id) # Одеваем людей на локации
-
+        
+        
+        
     def clearLocations():
         for x in allChars:
             x.moveToLocation(None)
 
+    def APL():
+        return addPeopleLocations()
+        
 # Функция одевания людей
     def dressPeople(location):
         location = getLoc(location)
