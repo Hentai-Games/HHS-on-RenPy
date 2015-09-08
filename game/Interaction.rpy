@@ -108,7 +108,7 @@ screen locationPeoplePicto:
             $ pictoSize = 0.5
             if x in highlightP:
                 $ pictoSize += 0.1
-            imagebutton idle im.FactorScale(x.picto,pictoSize) hover im.FactorScale(x.picto,pictoSize) xalign xalig yalign yalig action [Hide('charInfoLeft'), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
+            imagebutton idle im.FactorScale(x.picto,pictoSize) hover im.FactorScale(x.picto,pictoSize + 0.1) xalign xalig yalign yalig action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
             # add im.FactorScale(x.picto,0.6) xalign xalig yalign yalig
             $ xalig += 0.09
             if xalig >= 0.99:
@@ -120,7 +120,6 @@ screen show_stat:
     fixed xpos 0.1 ypos 0.1:
         vbox:
             add showHover.picto
-
             $ x = interactionObj
             null height 10
             $ name = showHover.fullName()

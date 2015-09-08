@@ -315,6 +315,7 @@ label loc_taxi:
             $ move (curloc)
 
 label unconsciousSchool:
+    $ clrscr()
     show expression 'pic/events/uncon/1.jpg' at top
     'Вы упали без сознания от переутомления. Вы пролежали пару часов, пока вас не нашли случайные ученики.'
     'Проснувшись, вы обнаружили, что вас обыскивали, верхняя одежда снята, на теле синяки.'
@@ -326,6 +327,7 @@ label unconsciousSchool:
     $ move(curloc)
     
 label unconsciousOther:
+    $ clrscr()
     show expression 'pic/events/uncon/2.jpg' at top
     'Вы упали без сознания от переутомления прямо на улице. Вы пролежали пару часов, пока вас не нашли случайные люди.'
     'Проснувшись, вы обнаружили свежее пятно спермы на одежде.'
@@ -338,6 +340,7 @@ label unconsciousOther:
     $ move(curloc)
 
 label stolen:
+    $ clrscr()
     show office
     show computer at top
     $ school.budget -= stolenMoney
@@ -348,6 +351,7 @@ label stolen:
     $ move(curloc)
     
 label catched:
+    $ clrscr()
     show office
     show computer at top
     'У вас не получилось безопасно вывести деньги, и ваши махинации засекли.'

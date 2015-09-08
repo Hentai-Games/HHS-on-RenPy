@@ -22,10 +22,6 @@ screen stats_screen:
                 text _('Сейчас нет уроков') style style.my_text
             if development > 0:    
                 textbutton ('Список эвентов') action Show('pomogator') style "small_button" text_style "small_button_text" xalign 0.0
-            if show_peopleTextList == 0:
-                textbutton ('Показать людей') action SetVariable('show_peopleTextList',1) style "small_button" text_style "small_button_text" xalign 0.0
-            else:
-                textbutton ('Скрыть людей') action SetVariable('show_peopleTextList',0) style "small_button" text_style "small_button_text" xalign 0.0
             
             #Warnings
             if ptime - last_eat > 24:
@@ -63,6 +59,11 @@ screen stats_screen:
                 if player.getSperm('анус') == True:
                     imagebutton auto 'pic/actions/ass_%s.png' action Jump('cleanAss')
                     
+            if show_peopleTextList == 0:
+                textbutton ('Показать людей') action SetVariable('show_peopleTextList',1) style "small_button" text_style "small_button_text" xalign 0.0
+            else:
+                textbutton ('Скрыть людей') action SetVariable('show_peopleTextList',0) style "small_button" text_style "small_button_text" xalign 0.0
+                
             if show_peopleTextList == 1:
                 use peopleTextList
 
@@ -181,19 +182,15 @@ screen stats_screen:
             if len(getLoc(curloc).getPeople()) > 0:
                 imagebutton auto 'pic/actions/eye_%s.png' action [Function(clrscr),Jump('locationPeople')]
                 
-                
-   
 screen peopleTextList:
     vbox:
-        for x in allChars:
-            if x.getLocation() == curloc:
-                if x in teachers:
-                    textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "bluesmall_button" text_style "bluesmall_button" xalign 0.0
-                else:
-                    if x not in highlightP:
-                        textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "small_button" text_style "small_button_text" xalign 0.0
-                    else:
-                        textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "small_button" text_style "warning" xalign 0.0
+        for x in getLoc(curloc).getPeople():
+            python:
+                mystyle = 'small_button_text'
+                if x in teachers: mystyle = 'bluesmall_button'
+                if x in highlightP: mystyle = 'warning'
+            textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)] hovered [SetVariable('showHover',x)] style "bluesmall_button" text_style mystyle xalign 0.0
+                  
                 
 
 ##############################################################################
