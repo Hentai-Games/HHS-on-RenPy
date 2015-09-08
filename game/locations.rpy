@@ -1,18 +1,32 @@
 init 10 python:
     locations = []
     class Location:
-        def __init__(self,id,name,base_prob, position):
+        def __init__(self, id, name, base_prob, position):
             self.id = id
             self.name = name
             self.base_prob = base_prob
             self.events = []
             self.position = position
-            self.people = []
 
         def getprob(self):
             if lt() > 0 or lt() == -4: return -1 #Если ночь, то на улице никого нет
             elif self.position in ['classroom', 'school'] and lt() == -1: return self.base_prob/4 #Если внеурочное время, то в школе шансов встретить меньше
             else : return self.base_prob #Иначе настоящая вероятность.
+
+        def __repr__(self):
+            return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
+
+        def getPeople(self):
+            rez = []
+            for x in allChars:
+                try:
+                    if x.getLocation().id==self.id:
+                        rez.append(x)
+
+                except AttributeError:
+                    pass
+
+            return rez
 
     class Event:
         def __init__(self,id,corr):
@@ -24,6 +38,7 @@ init 10 python:
             if x.id == id:
                 return x
         return False
+
 
 #Функция добавления эвентов в локации
     def getEvents():

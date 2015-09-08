@@ -178,18 +178,19 @@ screen stats_screen:
         if curloc == 'loc_beach' or curloc == 'loc_street' or curloc == 'loc_shopStreet' or curloc == 'loc_entrance':
             imagebutton auto 'pic/actions/taxi_%s.png' action [Function(move, 'loc_taxi')]
         if getLoc(curloc) != False:
-            if len(getLoc(curloc).people) > 0:
+            if len(getLoc(curloc).getPeople()) > 0:
                 imagebutton auto 'pic/actions/eye_%s.png' action [Function(clrscr),Jump('locationPeople')]
                 
                 
    
 screen peopleTextList:
     vbox:
-        for x in getLoc(curloc).people:
-            if x in teachers:
-                 textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "bluesmall_button" text_style "bluesmall_button" xalign 0.0
-            else:
-                textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "small_button" text_style "small_button_text" xalign 0.0
+        for x in allChars:
+            if x.getLocation() == curloc:
+                if x in teachers:
+                    textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "bluesmall_button" text_style "bluesmall_button" xalign 0.0
+                else:
+                    textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars)] hovered [SetVariable('showHover',x)] style "small_button" text_style "small_button_text" xalign 0.0
                 
 
 ##############################################################################
