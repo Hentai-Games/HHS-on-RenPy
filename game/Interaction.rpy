@@ -215,7 +215,7 @@ label flirt:
 label callup:
     $ clrscr()
     python:
-        showHover.moveToLocation(getLoc('loc_office'))
+        showHover.moveToLocation('loc_office')
         callup = showHover
     player.say 'Нам необходимо поговорить наедине.'
     callup.say 'Хорошо, я сейчас же отправлюсь к вам в кабинет.'

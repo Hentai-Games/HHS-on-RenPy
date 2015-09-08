@@ -165,17 +165,17 @@ init -5 python:
         classrooms.append(getLoc('loc_class4'))
         classrooms.append(getLoc('loc_class5'))
         
-        kupruvna.moveToLocation(getLoc('loc_class1'))
-        danokova.moveToLocation(getLoc('loc_class2'))
-        frigidovna.moveToLocation(getLoc('loc_class3'))
-        bissektrisovna.moveToLocation(getLoc('loc_class4'))
-        dikovna.moveToLocation(getLoc('loc_class5'))
+        kupruvna.moveToLocation('loc_class1')
+        danokova.moveToLocation('loc_class2')
+        frigidovna.moveToLocation('loc_class3')
+        bissektrisovna.moveToLocation('loc_class4')
+        dikovna.moveToLocation('loc_class5')
         
         if weekday == 2 or weekday == 4:
-            mustangovich.moveToLocation(getLoc('loc_pool'))
-            classrooms.append(getLoc('loc_pool'))
+            mustangovich.moveToLocation('loc_pool')
+            classrooms.append('loc_pool')
         else:
-            mustangovich.moveToLocation(getLoc('loc_gym'))
+            mustangovich.moveToLocation('loc_gym')
             classrooms.append(getLoc('loc_gym'))
 
         for x in studs:
