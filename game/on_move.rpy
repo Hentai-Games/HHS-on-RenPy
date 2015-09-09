@@ -22,11 +22,11 @@ init python:
             player.checkDur() # Удаление использованных предметов
 
             # Переходы с технических локаций и на технические локации не занимают времени
-            if (curloc.startswith('loc_') and 'tech' not in getLoc(curloc).position)\
-                and (where.startswith('loc') and 'tech' not in getLoc(where).position)\
-                and curloc != where:
-                changetime(rand(1, 3)) #изменение времени
-
+            # if (curloc.startswith('loc_') and 'tech' not in getLoc(curloc).position)\
+                # and (where.startswith('loc') and 'tech' not in getLoc(where).position)\
+                # and curloc != where:
+                
+            changetime(rand(1, 3)) #изменение времени
             if where[:4] == 'loc_' and 'tech' not in getLoc(where).position: #Если локация - локация и если она не техническая
                 checkDeath() # проверка на смерть
                 if where != curloc and 'self' not in getLoc(where).position:
@@ -37,7 +37,6 @@ init python:
                     same_loc = 1
                 if 'self' not in getLoc(where).position:
                     renpy.show_screen('stats_screen') #При перемещении всегда появляется интерфейс
-                    # if show_peopleTextList == 1: renpy.show_screen('peopleTextList')
                 checkClothes(where) # проверка одетости
                 checkUnconscious(getLoc(where)) # потеря сознания
                 checkSperm(getLoc(where)) # снятие репутации за сперму.
@@ -81,6 +80,7 @@ init python:
 
     #Добавление людей на локации
     def addPeopleLocations():
+        global hour
         mystring = ''
         counter = 0
         if lt() > 0: # заполняем классы, если уроки
@@ -88,13 +88,37 @@ init python:
         else:
             for x in allChars:
                 if x != callup:
+                    if x in teachers and lt() == 0 and rand(1,3) == 1: # учителя будут тусоваться в учительской
+                        x.moveToLocation('loc_teacherRoom')
+                        continue
+                        
+                    if x in detentions and hour >= 15 and school.detention != 'no': # если наказан, то после уроков
+                        if school.detention in ['education','upskirt']: # будет в 3-ем классе
+                            x.moveToLocation('loc_class3')
+                            
+                        elif school.detention == 'cleaning': # если уборка в школе,то скорее всего будет где то в школе
+                            for loc in locations:
+                                if 'school' in loc.position and rand(1,5) == 1:
+                                     x.moveToLocation(loc)
+                                     
+                        elif school.detention == 'streetCleaning':
+                            choise = ['loc_street','loc_entrance','loc_shopStreet']
+                            x.moveToLocation(choise[rand(0,len(choise)-1)])
+                        continue
+
                     for location in locations:
                         if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
                             temp = getChar()
                             if temp.getLocation() != location:
+                                if location.id in ['loc_wcf','loc_wcm']: # В сортир по полу пихаем
+                                    if temp.getSex() == 'male':
+                                        location = getLoc('loc_wcm')
+                                    else:
+                                        location = getLoc('loc_wcf')
+                                        
                                 temp.moveToLocation(location)
-                                counter += 1
-                                mystring += str(counter) + ' ' + location.id + '\n'
+                                # counter += 1
+                                # mystring += str(counter) + ' ' + location.id + '\n'
                                 break
         if lt() == -4:
             # Сейчас ночь, нужно убрать всех с локаций
@@ -109,9 +133,6 @@ init python:
         for x in allChars:
             x.moveToLocation(None)
 
-    def APL():
-        return addPeopleLocations()
-        
 # Функция одевания людей
     def dressPeople(location):
         location = getLoc(location)

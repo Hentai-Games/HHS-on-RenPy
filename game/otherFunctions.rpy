@@ -155,13 +155,15 @@ init -5 python:
                     maleArr.append(x)
                 else:
                     femaleArr.append(x)
-            # Одни футы/мужики
+                    
+            # Лесбийская
             if len(maleArr) == 0:
                 for x in femaleArr:
                     x.body.parts['вагина'].size += randf(0.0,0.1)
                     x.body.parts['анус'].size += randf(0.0,0.05)
                     x.setFun(1)
-            # Лесбийская
+                    
+            # Футы и не только?
             elif len(femaleArr) == 0:
                 for x in maleArr:
                     if x.getSex() == 'futa':
@@ -171,18 +173,27 @@ init -5 python:
                     
             else:
                 # норма
-                for male in maleArr:
-                    male.setFun(1)
-                    diameter = male.parts['пенис']/3.14
-                    for female in femaleArr:
-                        if female.parts['вагина'].size < diameter/2:
-                            female.parts['вагина'].size += diameter/5
-                            female.setFun(-1)
-                        elif female.parts['вагина'].size < diameter:
-                            female.setFun(1)
-                            female.parts['вагина'].size += diameter/15
-                            if rand(1,3) == 1:
-                                female.parts['анус'].size += diameter/10
+                fucked = []
+                for male in maleArr: # перебираем всех male/futa
+                    male.setFun(1) 
+                    diameter = male.body.parts['пенис']/3.14
+                    for female in femaleArr: # перебираем всех female
+                        if female not in fucked: # если ещё не была в соитии
+                        
+                            if female.body.parts['вагина'].size < diameter/2: # Если диаметр сликшом большой
+                                female.body.parts['вагина'].size += diameter/5
+                                female.setFun(-1)
+                                fucked.append(female)
+                                
+                            elif female.body.parts['вагина'].size < diameter: # Если немного меньше
+                                female.setFun(1)
+                                female.body.parts['вагина'].size += diameter/15
+                                if rand(1,3) == 1:
+                                    female.body.parts['анус'].size += diameter/10
+                                fucked.append(female)
+                                
+                            if len(fucked) == len(femaleArr): # Если бабы кончились, продолжаем начиная с первой
+                                fucked = []
                             break
             
     def addDetention(*args):

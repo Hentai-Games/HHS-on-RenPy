@@ -16,8 +16,8 @@ screen compScreen:
         
     frame ypos 0.01 xalign 1.0 style style.myFrame:
         vbox:
-            text _('Текущий бюджет: ' + str(school.budget))
-            text _('Ваш счёт: ' + str(player.money))
+            text _('Текущий бюджет: ' + str(int(school.budget)))
+            text _('Ваш счёт: ' + str(int(player.money)))
         
     fixed xpos 0.01 ypos 0.1:
         vbox:

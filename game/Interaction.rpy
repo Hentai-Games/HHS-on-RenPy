@@ -60,7 +60,7 @@ init python:
     def showChars():
         renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
         renpy.show('temp1', what = Image(getCharImage(player), xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
-        renpy.show('temp2', what = Image(getCharImage(showHover), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
+        renpy.show('temp2', what = Image(getCharImage(interactionObj), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
         
     def getCharImage(char):
         if char == player:
@@ -72,23 +72,23 @@ init python:
         else:
             anotherImage = 'pic/showStud/f_1.png'
             
-        if showHover.lname == 'Данокова':
+        if interactionObj.lname == 'Данокова':
             anotherImage = 'pic/teachers/danokova_1.png'
-        if showHover.lname == 'Фригидовна':
+        if interactionObj.lname == 'Фригидовна':
             anotherImage = 'pic/teachers/frigidovna_1.png'
-        if showHover.lname == 'Биссектрисовна':
+        if interactionObj.lname == 'Биссектрисовна':
             anotherImage = 'pic/teachers/bissektrisovna_1.png'
-        if showHover.lname == 'Диковна':
+        if interactionObj.lname == 'Диковна':
             anotherImage = 'pic/teachers/dikovna_1.png'
-        if showHover.lname == 'Купрувна':
+        if interactionObj.lname == 'Купрувна':
             anotherImage = 'pic/teachers/kupruvna_1.png'
-        if showHover.lname == 'Мустангович':
+        if interactionObj.lname == 'Мустангович':
             anotherImage = 'pic/teachers/mustangovich_1.png'
             
         return anotherImage
         
     dummy = Char()
-    interactionObj = ''
+    interactionObj = dummy
     lastView = 'locationPeoplePicto'
     showHover = dummy
 
@@ -119,50 +119,49 @@ screen show_stat:
     tag interface
     fixed xpos 0.1 ypos 0.1:
         vbox:
-            add showHover.picto
-            $ x = interactionObj
+            add interactionObj.picto
             null height 10
-            $ name = showHover.fullName()
+            $ name = interactionObj.fullName()
             text '[name]' style style.my_text
-            if showHover.body.parts['грудь'].size > 0:
-                $ temp = round(showHover.body.parts['грудь'].size, 1)
+            if interactionObj.body.parts['грудь'].size > 0:
+                $ temp = round(interactionObj.body.parts['грудь'].size, 1)
                 text 'Размер груди [temp]' style style.my_text
-            $ temp = round(showHover.body.height, 1)
+            $ temp = round(interactionObj.body.height, 1)
             text 'Рост [temp]' style style.my_text
-            $ temp = round(showHover.stats.education, 1)
+            $ temp = round(interactionObj.stats.education, 1)
             text 'Образование [temp]' style style.my_text
-            $ temp = round(showHover.stats.fun, 1)
+            $ temp = round(interactionObj.stats.fun, 1)
             text 'Счастье [temp]' style style.my_text
-            $ temp = round(showHover.stats.loyalty, 1)
+            $ temp = round(interactionObj.stats.loyalty, 1)
             text 'Лояльность [temp]' style style.my_text
-            $ temp = round(showHover.stats.corr, 1)
+            $ temp = round(interactionObj.stats.corr, 1)
             text 'Развратность [temp]' style style.my_text
-            $ temp = round(showHover.getBeauty(), 1)
+            $ temp = round(interactionObj.getBeauty(), 1)
             text 'Красота [temp]' style style.my_text
             null height 10
 
     fixed xpos 0.3 ypos 0.1 :
         # add 'pic/bg2.png'
         vbox xmaximum config.screen_width/2:
-            text textgen(showHover) style style.my_text
+            text textgen(interactionObj) style style.my_text
         
     fixed xpos 0.8 ypos 0.1:
         vbox:
-            if showHover in studs:
-                if showHover not in highlightP:
-                    textbutton 'Замечать' xminimum 200 action [Function(addHighlight,showHover), Show('show_stat')]
+            if interactionObj in studs:
+                if interactionObj not in highlightP:
+                    textbutton 'Замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
                 else:
-                    textbutton 'Не замечать' xminimum 200 action [Function(addHighlight,showHover), Show('show_stat')]
+                    textbutton 'Не замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
             if lt() <= 0 or 'safe' in getLoc(curloc).position:
-                if showHover.sayCount > 0: 
+                if interactionObj.sayCount > 0: 
                     textbutton 'Поговорить' xminimum 200 action Jump('speak')
-                if showHover.sayCount >= 3: 
+                if interactionObj.sayCount >= 3: 
                     textbutton 'Флирт' xminimum 200 action Jump('flirt')
-            if 'school' in getLoc(curloc).position and curloc != 'loc_office' and showHover in studs:
+            if 'school' in getLoc(curloc).position and curloc != 'loc_office' and interactionObj in studs:
                 textbutton 'Вызвать к себе' xminimum 200 action Jump('callup')
                 
             if curloc == 'loc_office':
-                if showHover.getRep() < 10:
+                if interactionObj.getRep() < 10:
                     textbutton 'О родителях' xminimum 200 action Jump('reputation')
                 textbutton 'Выгнать' xminimum 200 action Jump('callout')
                 
@@ -171,7 +170,7 @@ screen show_stat:
                 textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
             
     frame ypos 0.01 xalign 1.0:
-        text 'Очков общения: ' + str(showHover.sayCount)
+        text 'Очков общения: ' + str(interactionObj.sayCount)
         
 ###########################################################################################################################            
 screen inventory_clothing_char:
@@ -185,7 +184,7 @@ screen inventory_clothing_char:
 
             $ xalig = 0.2
         $ yalig = 0.05
-        for x in showHover.inventory:
+        for x in interactionObj.inventory:
             if x.type == 'clothing':
                 imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
             else :
@@ -199,7 +198,7 @@ screen inventory_clothing_char:
 label speak:
     python:
         clrscr()
-        user = showHover
+        user = interactionObj
         user.sayCount -= 1
         changetime(5)
         player.stats.energy -= rand(5,10)
@@ -211,7 +210,7 @@ label speak:
 label flirt:
     python:
         clrscr()
-        user = showHover
+        user = interactionObj
         user.sayCount -= 3
         changetime(5)
         player.stats.energy -= rand(5,10)
@@ -221,8 +220,8 @@ label flirt:
 label callup:
     $ clrscr()
     python:
-        showHover.moveToLocation('loc_office')
-        callup = showHover
+        interactionObj.moveToLocation('loc_office')
+        callup = interactionObj
     player.say 'Нам необходимо поговорить наедине.'
     callup.say 'Хорошо, я сейчас же отправлюсь к вам в кабинет.'
     $ move(curloc)

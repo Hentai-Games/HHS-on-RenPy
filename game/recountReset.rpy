@@ -100,9 +100,13 @@ init python:
     def hourlyReset():
         global hour, weekday
         
-        for char in allChars:
-            char.sayCount = int(char.getLoy()/10 + (player.getBeauty()/20))
-            
+        if hour % 4 == 0:
+            for char in allChars:
+                char.sayCount = int(1 + char.getLoy()/10 + (player.getBeauty()/20))
+        
+        if hour >= 17:
+            detentions[:] = []
+        
         if school.budget < 0: 
             school.removeClub('cherleader')
             school.removeClub('sport')

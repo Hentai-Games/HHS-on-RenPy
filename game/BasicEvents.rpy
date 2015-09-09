@@ -12,6 +12,7 @@ init:
     $ complains = ''
 
 label myintro:
+    $ changetime(15)
     show home
     me 'Привет, дорогой Игрок! Я - разработчик этой игры.\nНа этом месте должна быть сценка, как Главная Героиня попадает в школу и как всё началось, но я слишком ленив, чтобы её делать.'
     player.say 'Началось! "Акабур стайл" уже и в твоей игре. Наверное через пару релизов ограничишься одной локацией и начнёшь меня тренировать как шлюшку, да?'
@@ -275,7 +276,7 @@ label loc_swim:
     
 label loc_run:
     show street
-    if player.stats.energy < 200:
+    if player.stats.energy < 300:
         player.say 'Я слишком устала, чтобы бегать.'
     elif player.getClothPurpose('sport') == False:
         player.say 'На каблуках я далеко не убегу. Надо переодеться.'
@@ -284,6 +285,7 @@ label loc_run:
         show expression ("pic/events/various/run%d.jpg" % rand(1,8)) at top
         'Вы побегали часок, и немного устали. По крайней мере, Ваша физическая форма несколько улучшилась.'
         $ changetime(60)
+        $ player.setDirty(1)
         $ player.stats.energy -= rand(100,200)
         $ player.stats.health += rand (10,20)
     $ move(curloc)

@@ -218,7 +218,7 @@ label skipall:
             location = curloc,
             money = _money
         )
-        player.addItems('Салфетка', 'Сырая еда', jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name, minibikini.name, pantalons.name, oldShirt.name)
+        player.addItems('Салфетка', 'Сырая еда', jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name, pantalons.name, oldShirt.name)
         player.initSet(0,[jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name])
         player.initSet(1,[pantalons.name, oldShirt.name])
         player.applySet(0)
@@ -455,4 +455,4 @@ label skipall:
     $ school = School()
     $ school.getBudget()
     $ hourlyReset()
-    $ move("myintro")
+    $ move('myintro')
