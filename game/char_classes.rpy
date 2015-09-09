@@ -603,12 +603,19 @@ init -20 python:
             else :
                 return False
 
-        # Проверка на определённый тип одежды
+        # Проверка на определённый тип одежды. Провреяется только верхняя одежда! Купальники тоже верхняя одежда!
         def getClothPurpose(self, purpose):
+            covered = 0
             for x in self.wear:
-                if x.purpose == purpose:
-                    return True
-            return False
+                if x.purpose == purpose and ('верх' in x.cover or 'низ' in x.cover):
+                    if 'верх' in x.cover and 'низ' in x.cover:
+                        covered += 2
+                    else:
+                        covered += 1
+            if covered == 2:
+                return True
+            else:
+                return False
 
         def moveToLocation(self, loc):
             """Перемещает персонажа в заданную локацию
