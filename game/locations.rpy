@@ -9,13 +9,16 @@ init 10 python:
             self.position = position
 
         def getprob(self):
-            if lt() > 0 or lt() == -4: return -1 #Если ночь, то на улице никого нет
+            if lt() > 0 or lt() == -4: rez = -1 #Если ночь, то на улице никого нет
             
-            elif 'school' in self.position and lt() == -1: return self.base_prob/4 #Если внеурочное время, то в школе шансов встретить меньше
+            elif 'school' in self.position and lt() == -1: rez = self.base_prob/4 #Если внеурочное время, то в школе шансов встретить меньше
+            elif 'school' in self.position and lt() == 0: rez = self.base_prob*2 #Если перемена, то в школе шансов встретить гораздо больше
+            elif 'other' in self.position and lt() == 0: rez = -1 # во время перемен никого не будет в городе
             
-            elif 'other' in self.position and lt() == 0: return -1 # во время перемен никого не будет в городе
-            
-            else : return self.base_prob #Иначе настоящая вероятность.
+            else : 
+                rez = self.base_prob #Иначе настоящая вероятность.
+                
+            return rez
 
         def __repr__(self):
             return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
@@ -77,11 +80,11 @@ init 10 python:
             elif x == 'loc_sexShop': loc = Location(id = x, name = 'сексшоп', base_prob = 5, position = ['other'])
 
             elif x == 'loc_hall': loc = Location(id = x, name = 'холл', base_prob = 15, position = ['school'])
-            elif x == 'loc_entrance': loc = Location(id = x, name = 'вход', base_prob = 15, position = ['school'])
+            elif x == 'loc_entrance': loc = Location(id = x, name = 'вход', base_prob = 20, position = ['school'])
             elif x == 'loc_library': loc = Location(id = x, name = 'библиотека', base_prob = 10, position = ['school'])
             elif x == 'loc_changeRoom': loc = Location(id = x, name = 'школьная раздевалка', base_prob = 5, position = ['school','safe','change'])
-            elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 25, position = ['school','classroom','sport'])
-            elif x == 'loc_pool': loc = Location(id = x, name = 'бассейн', base_prob = 25, position = ['school','classroom','swim'])
+            elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 15, position = ['school','classroom','sport'])
+            elif x == 'loc_pool': loc = Location(id = x, name = 'бассейн', base_prob = 20, position = ['school','classroom','swim'])
             elif x == 'loc_firstFloor': loc = Location(id = x, name = 'первый этаж', base_prob = 20, position = ['school'])
             elif x == 'loc_secondFloor': loc = Location(id = x, name = 'второй этаж', base_prob = 20, position = ['school'])
             elif x == 'loc_class1': loc = Location(id = x, name = 'Класс 1', base_prob = 5, position = ['school','classroom'])
@@ -427,7 +430,7 @@ label loc_entrance:
                     if 'bed' in school.furniture and ((ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4)):
                          textbutton 'Спать' xalign 0.2 yalign 0.76 action Jump('sleep')
                     if callup != dummy:
-                        imagebutton idle im.MatrixColor(getCharImage(callup), im.matrix.opacity(0.5)) hover im.MatrixColor(getCharImage(callup), im.matrix.opacity(1.0)) action [Function(clrscr), SetVariable('interactionObj',callup), Show('show_stat'), Function(showChars)] xalign 0.5 yalign -10.0
+                        imagebutton idle im.MatrixColor(getCharImage(callup), im.matrix.opacity(0.5)) hover im.MatrixColor(getCharImage(callup), im.matrix.opacity(1.0)) action [Function(clrscr), Show('show_stat'), Function(showChars)] hovered SetVariable('interactionObj',callup) xalign 0.5 yoffset 400
             call screen office
 
         label loc_class1:

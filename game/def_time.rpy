@@ -4,6 +4,9 @@ init -3 python:
     check_minute = 0
     hour = 6
     ptime = 0
+    mtime = 0
+    timeMoved = 0
+    ltMoved = 0
     weekday = 1
     month = 5
     number = 1
@@ -42,8 +45,10 @@ init -3 python:
         return output
         
     def changetime(change):
-        global minute, check_minute, hour, ptime, weekday, number, year, month, ptime
+        global minute, check_minute, hour, ptime, weekday, number, year, month, mtime, ltMoved, timeMoved
         minute += change
+        mtime += change
+        counter = 0
         flagIncome = 0
         
         while minute >= 60:
@@ -67,11 +72,18 @@ init -3 python:
                         month -=12
                         year += 1
                         
+        if timeMoved + 10 < mtime or ltMoved != lt():
+            counter = max(1, int((mtime - timeMoved)/10))
+            for x in range(counter): # Если прошло больше 10 минут, двигаем несколько раз за всё прошедшее время.
+                addPeopleLocations() # двигаем людей
+            timeMoved = mtime
+            ltMoved = lt()
+            
         if flagIncome == 1:
             flagIncome = 0
             move('income')
-
-        addPeopleLocations()
+            
+        return counter
     
     def lt():
         #время первого урока
