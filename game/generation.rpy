@@ -235,28 +235,107 @@ label skipall:
 #####################################################
 #Генерация и создание студентов
 #####################################################
-        for x in range(1,students+1):
-            #выбор пола
-            _rand = rand(1, 10)
-            sex = ''
-            if _rand <= 5:
-                sex = 'female'
-            elif _rand == 6:
-                sex = 'futa'
-            else:
-                sex = 'male'
+
+        # Rules:
+        # мальчиков должно быть 40%, фут - 10%, но минимум по 1 в каждый
+        #     класс, девочек - 50%.
+        # В каждом классе распределение мальчиков и девочек должно быть
+        #     равномерно. Т.е. не должно быть только мальчаковых или только 
+        #     девчковых классов.
+        # Интеллект - с вероятностью 10% он может быть меньше 20 или больше
+        #     80. Иначе от 30 до 70.
+        # То же самое с волей. волевых и безвольных - мало. Остальные 
+        #     болтаются посередине.
+        # Мальчиков не может быть больше 30, девочек - 40. Больше нету
+        #     пиктограмм. Дублировать пиктограммы не надо.
+        # Количество людей в классах должно быть одинаковым
+        # Равномерного распределения не надо, но минимум по 2 человека 
+        #     разного пола должны быть в одном классе.
+        def generate_students_number(students_number, classes_number):
+            """Генерирует количество мальчиков, девочек и фут"""
+            futas = rand(classes_number, round(students_number*0.1)+3)
+            girls = min(rand(round(students_number*0.45),
+                             round(students_number*0.55)),
+                        len(picto_f))
+            boys = min(len(picto_m), students_number-futas-girls)
+
+            return futas, boys, girls
+
+        def eat_picto(picto_list):
+            """Выбирает случайную картинку из списка и удаляет ее"""
+            picto = choice(picto_list)
+            picto_list.remove(picto)
+
+            return picto
+
+        def generate_students(students_number, classes_number):
+            """Генерирует объекты учеников согласно заданному количеству"""
+
+            # Количество учеников
+            futas, boys, girls = generate_students_number(students_number,
+                                                          classes_number)
+            print_students_statistics(futas, boys, girls)
+
+            # Списки с учениками
+            futas_l = [Char.random('futa', eat_picto(picto_f))\
+                       for x in xrange(futas)]
+            boys_l = [Char.random('male', eat_picto(picto_m))\
+                      for x in xrange(boys)]
+            girls_l = [Char.random('female', eat_picto(picto_f))\
+                       for x in xrange(girls)]
+
+            all_students = futas_l + boys_l + girls_l
+
+            # Распределение по классам
+            # Как минимум по одной футе в класс
+            for i in xrange(classes_number):
+                futas_l[i].inClass = i+1
             
-            if sex == 'male':
-                picto = choice(picto_m) 
-                picto_m.remove(picto)
-            else :
-                picto = choice(picto_f)
-                picto_f.remove(picto)
-            
-            _studs.append(Char.random(sex, picto))
-            
+            # Если фут больше пяти - в случайные классы
+            for x in futas_l[classes_number:]:
+                x.inClass = choice(range(1, classes_number+1))
+
+            # Минимум по два мальчика и девочки в классе
+            for i in xrange(1, classes_number+1):
+                boys_l.pop(rand(0, len(boys_l)-1)).inClass = i
+                boys_l.pop(rand(0, len(boys_l)-1)).inClass = i
+                girls_l.pop(rand(0, len(boys_l)-1)).inClass = i
+                girls_l.pop(rand(0, len(boys_l)-1)).inClass = i
+
+            # Пулл учеников
+            students_pool = boys_l + girls_l
+
+            # Количетсво учеников в классах должно быть одинаковым
+            students_in_class = int(students_number / classes_number)
+            for class_n in xrange(1, classes_number+1):
+                in_class = len([x for x in all_students if x.inClass==class_n])
+                for i in xrange(students_in_class - in_class):
+                    s = students_pool.pop(rand(0, len(students_pool)-1))
+                    s.inClass=class_n
+
+            # На случай если количество учеников не делится на количество
+            # классов поровну
+            for x in students_pool:
+                x.inClass = rand(1, classes_number)
+
+            for i in xrange(1, classes_number+1):
+                s = [x for x in all_students if x.inClass==i]
+                print 'Class: {}, total: {}'.format(i, len(s))
+                for x in s:
+                    print '\t{}'.format(x)
+
+            return all_students
+
+        def print_students_statistics(futas, boys, girls):
+            print 'Total:', futas + boys + girls
+            print 'Futa:', futas
+            print 'Boys:', boys
+            print 'Girls:', girls
+
+        # Генерируем учеников, 50 человек, 5 классов
+        _studs = generate_students(50, 5)
+
         for x in _studs:
-            x.inClass = rand(1,5)
             tempSex = x.getSex()
             if x.getSex() == 'futa':
                 tempSex = 'female'
