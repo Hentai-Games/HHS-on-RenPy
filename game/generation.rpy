@@ -261,6 +261,12 @@ label skipall:
 
             return futas, boys, girls
 
+        def print_students_statistics(futas, boys, girls):
+            print 'Total:', futas + boys + girls
+            print 'Futa:', futas
+            print 'Boys:', boys
+            print 'Girls:', girls
+
         def eat_picto(picto_list):
             """Выбирает случайную картинку из списка и удаляет ее"""
             picto = choice(picto_list)
@@ -318,6 +324,7 @@ label skipall:
             for x in students_pool:
                 x.inClass = rand(1, classes_number)
 
+            # Debug информация
             for i in xrange(1, classes_number+1):
                 s = [x for x in all_students if x.inClass==i]
                 print 'Class: {}, total: {}'.format(i, len(s))
@@ -326,14 +333,77 @@ label skipall:
 
             return all_students
 
-        def print_students_statistics(futas, boys, girls):
-            print 'Total:', futas + boys + girls
-            print 'Futa:', futas
-            print 'Boys:', boys
-            print 'Girls:', girls
+        def set_students_intelligence(students):
+            """Выставляет интелект ученикам
+
+            С вероятностью 10% он может быть меньше 20 или больше 80.
+            Иначе от 30 до 70.
+            """
+            for x in students:
+                if rand(1, 10) == 1:
+                    if rand(1, 2) == 1:
+                        x.setIntel(randf(80, 100))
+
+                    else:
+                        x.setIntel(randf(1, 20))
+
+                else:
+                    x.setIntel(randf(30, 70))
+
+        def set_students_will(students):
+            """Выставляет волю ученикам
+
+            С вероятностью 10% она может быть меньше 20 или больше 80.
+            Иначе от 30 до 70.
+            """
+            for x in students:
+                if rand(1, 10) == 1:
+                    if rand(1, 2) == 1:
+                        x.setWill(randf(80, 100))
+
+                    else:
+                        x.setWill(randf(1, 20))
+
+                else:
+                    x.setWill(randf(30, 70))
+
+        def print_debug_will_and_int(students):
+            """debug информация о выставленных воле и интеллекте"""
+            int_rez = {'<20': 0, '>80': 0, '30-70': 0}
+            will_rez = {'<20': 0, '>80': 0, '30-70': 0}
+            for s in students:
+                intel = s.getIntel()
+                if 30 <= intel <= 70:
+                    int_rez['30-70'] += 1
+                elif intel <= 20:
+                    int_rez['<20'] += 1
+                else:
+                    int_rez['>80'] += 1
+
+                will = s.getWill()
+                if 30 <= will <= 70:
+                    will_rez['30-70'] += 1
+                elif will <= 20:
+                    will_rez['<20'] += 1
+                else:
+                    will_rez['>80'] += 1
+                
+            total_s = float(len(students))
+            print 'Intelligence:'
+            print '\t<20: {} ({}%)'.format(int_rez['<20'], int_rez['<20']/total_s*100)
+            print '\t>80: {} ({}%)'.format(int_rez['>80'], int_rez['>80']/total_s*100)
+            print '\t30-70: {} ({}%)'.format(int_rez['30-70'], int_rez['30-70']/total_s*100)
+
+            print 'Will:'
+            print '\t<20: {} ({}%)'.format(will_rez['<20'], will_rez['<20']/total_s*100)
+            print '\t>80: {} ({}%)'.format(will_rez['>80'], will_rez['>80']/total_s*100)
+            print '\t30-70: {} ({}%)'.format(will_rez['30-70'], will_rez['30-70']/total_s*100)
 
         # Генерируем учеников, 50 человек, 5 классов
         _studs = generate_students(50, 5)
+        set_students_intelligence(_studs)
+        set_students_will(_studs)
+        print_debug_will_and_int(_studs)
 
         for x in _studs:
             tempSex = x.getSex()
