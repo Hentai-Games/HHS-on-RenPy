@@ -11,16 +11,25 @@ init -2 python:
     picto_m = []
     picto_f = []
     _studs = []
+
+    #будущий массив студентов
     _allStuds = []
     _allChars = []
     _teachers = []
-    #будущий массив студентов
-    #Массив картинок
-    for x in range (1,31):
-        picto_m.append('pic/events/students/picto/male/%d.jpg' % x)
 
-    for x in range (1,41):
-        picto_f.append('pic/events/students/picto/female/%d.jpg' % x)
+    # Загружаем все имеющиеся картинки
+    import os
+    for path in config.searchpath:
+        # Ищем каталоги с картинками во всех возможных RenPy каталогах ресурсов
+        try:
+            for x in os.listdir(os.path.join(path, 'pic/events/students/picto/male/')):
+                picto_m.append(os.path.join('pic/events/students/picto/male/', x))
+
+            for x in os.listdir(os.path.join(path, 'pic/events/students/picto/female/')):
+                picto_f.append(os.path.join('pic/events/students/picto/female/', x))
+
+        except OSError:
+            pass
 
 #####################################################
 # codeBlc Генерация директора 
