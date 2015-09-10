@@ -237,7 +237,7 @@ label test:
         # player.setCorr(60)
     # jump reputation
     
-    $ mystring = addPeopleLocations()
+    $ mystring = reactionGen(studs[0])
     player.say '[mystring]'
 
 ##############################################################
