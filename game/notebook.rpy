@@ -86,7 +86,7 @@ screen personalInfo:
                 sex = player.body.sex()
                 beauty = round(player.getBeauty(),1)
                 loyalty = round(player.getLoy(),1)
-                edu = round(player.getEdu(),1)
+                intel = round(player.getIntel(),1)*2
                 lust = round(player.getLust(),1)
                 corr = round(player.getCorr(),1)
                 fun = round(player.getFun(),1)
@@ -103,7 +103,7 @@ screen personalInfo:
             text _('[name]') style style.my_text
             text _('Размер груди [bsize]') style style.my_text
             text _('Рост [height]') style style.my_text
-            text _('Образование [edu]') style style.my_text
+            text _('IQ [intel]') style style.my_text
             text _('Счастье [fun]') style style.my_text
             text _('Развратность [corr]') style style.my_text
             text _('Красота [beauty]') style style.my_text
