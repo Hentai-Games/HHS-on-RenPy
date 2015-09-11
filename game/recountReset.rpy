@@ -57,20 +57,25 @@ init python:
                     char.setRep(1)
                     char.setFun(-5)
                     char.setEdu((getPar(teachers, 'edu') - char.getEdu())/10/eduMod)
+                    
                 elif school.uniform == 'uniform': # Обычная школьная форма
                     if char.getFun() > 10: char.setFun(-2)
                     char.setEdu((getPar(teachers, 'edu') - char.getEdu())/20/eduMod)
+                    
                 elif school.uniform == 'usual': # Обычная одежда
                     if char.getFun() < 20: char.setFun(1)
                     char.setEdu((getPar(teachers, 'edu') - char.getEdu())/30/eduMod)
+                    
                 elif school.uniform == 'sexy': # Сексуальная форма
                     if char.getCorr() < 25: char.setCorr(0.5)
                     if char.getFun() < 40: char.setFun(1)
                     char.setEdu((getPar(teachers, 'edu') - char.getEdu())/50/eduMod)
+                    
                 elif school.uniform == 'skimpy': # Шлюховатая форма
                     if char.getCorr() < 50: char.setCorr(0.8)
                     if char.getFun() < 60: char.setFun(1)
                     char.setEdu((getPar(teachers, 'edu') - char.getEdu())/100/eduMod)
+                    
                 else: # Голая форма
                     char.setEdu((getPar(teachers, 'edu') - char.getEdu())/500/eduMod)
                     if char.getCorr() > 50:
