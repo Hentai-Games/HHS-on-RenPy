@@ -9,12 +9,14 @@ init 10 python:
             self.position = position
 
         def getprob(self):
+            global hour
             if lt() > 0 or lt() == -4: rez = -1 #Если ночь, то на улице никого нет
             
             elif 'school' in self.position and lt() == -1: rez = self.base_prob/4 #Если внеурочное время, то в школе шансов встретить меньше
             elif 'school' in self.position and lt() == 0: rez = self.base_prob*2 #Если перемена, то в школе шансов встретить гораздо больше
             elif 'other' in self.position and lt() == 0: rez = -1 # во время перемен никого не будет в городе
-            
+            elif self.id in ['loc_street','loc_shopStreet'] and hour < 8: rez = self.base_prob*2 # перед уроками на улице чаще
+            elif self.id in ['loc_beach'] and hour < 8: rez = self.base_prob/2 # перед уроками на пляже реже
             else : 
                 rez = self.base_prob #Иначе настоящая вероятность.
                 
@@ -72,9 +74,9 @@ init 10 python:
             elif x == 'loc_kitchen': loc = Location(id = x, name = 'кухня', base_prob = -1, position = ['home','safe'])
 
             elif x == 'loc_street': loc = Location(id = x, name = 'улица', base_prob = 20, position = ['other'])
-            elif x == 'loc_beach': loc = Location(id = x, name = 'пляж', base_prob = 35, position = ['other','swim'])
+            elif x == 'loc_beach': loc = Location(id = x, name = 'пляж', base_prob = 30, position = ['other','swim'])
             elif x == 'loc_beachChange': loc = Location(id = x, name = 'раздевалка', base_prob = -1, position = ['safe','other','change'])
-            elif x == 'loc_shopStreet': loc = Location(id = x, name = 'торговая улица', base_prob = 30, position = ['other'])
+            elif x == 'loc_shopStreet': loc = Location(id = x, name = 'торговая улица', base_prob = 20, position = ['other'])
             elif x == 'loc_shop': loc = Location(id = x, name = 'магазин', base_prob = 10, position = ['other'])
             elif x == 'loc_shopBeauty': loc = Location(id = x, name = 'салон красоты', base_prob = 10, position = ['other'])
             elif x == 'loc_sexShop': loc = Location(id = x, name = 'сексшоп', base_prob = 5, position = ['other'])
@@ -83,7 +85,7 @@ init 10 python:
             elif x == 'loc_entrance': loc = Location(id = x, name = 'вход', base_prob = 20, position = ['school'])
             elif x == 'loc_library': loc = Location(id = x, name = 'библиотека', base_prob = 10, position = ['school'])
             elif x == 'loc_changeRoom': loc = Location(id = x, name = 'школьная раздевалка', base_prob = 5, position = ['school','safe','change'])
-            elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 15, position = ['school','classroom','sport'])
+            elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 20, position = ['school','classroom','sport'])
             elif x == 'loc_pool': loc = Location(id = x, name = 'бассейн', base_prob = 20, position = ['school','classroom','swim'])
             elif x == 'loc_firstFloor': loc = Location(id = x, name = 'первый этаж', base_prob = 20, position = ['school'])
             elif x == 'loc_secondFloor': loc = Location(id = x, name = 'второй этаж', base_prob = 20, position = ['school'])
@@ -237,8 +239,12 @@ label test:
         # player.setCorr(60)
     # jump reputation
     
-    $ mystring = reactionGen(studs[0])
-    player.say '[mystring]'
+    # $ mystring = reactionGen(studs[0])
+    # player.say '[mystring]'
+    python:
+        player.coverSperm('лицо')
+        player.setDirty(5)
+        move('loc_home')
 
 ##############################################################
 # Home

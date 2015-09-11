@@ -144,7 +144,9 @@ screen show_stat:
         # add 'pic/bg2.png'
         vbox xmaximum config.screen_width/2:
             text textgen(interactionObj) style style.my_text
-            text reactionGen(interactionObj) style style.my_text
+            $ reaction = reactionGen(interactionObj)
+            for x in reaction:
+                text x style style.my_text
         
     fixed xpos 0.8 ypos 0.1:
         vbox:
