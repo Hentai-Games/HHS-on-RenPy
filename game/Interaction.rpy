@@ -117,7 +117,7 @@ screen locationPeoplePicto:
 
 screen show_stat:
     tag interface
-    fixed xpos 0.1 ypos 0.1:
+    fixed xpos 0.01 ypos 0.01:
         vbox:
             add interactionObj.picto
             null height 10
@@ -140,9 +140,9 @@ screen show_stat:
             text 'Красота [temp]' style style.my_text
             null height 10
 
-    fixed xpos 0.3 ypos 0.1 :
+    fixed xpos 0.18 ypos 0.01 :
         # add 'pic/bg2.png'
-        vbox xmaximum config.screen_width/2:
+        vbox xmaximum 750:
             text textgen(interactionObj) style style.my_text
             $ reaction = reactionGen(interactionObj)
             for x in reaction:
