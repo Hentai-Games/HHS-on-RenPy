@@ -280,6 +280,22 @@ label loc_run:
         player.say 'Я слишком устала, чтобы бегать.'
     elif player.getClothPurpose('sport') == False:
         player.say 'На каблуках я далеко не убегу. Надо переодеться.'
+        python:
+            flag = False
+            for x in player.inventory:
+                if x.type == 'clothing':
+                    if x.purpose == 'sport':
+                        flag = True
+                        break
+        if flag == True:
+            menu:
+                'Сходить и переодеться?'
+                'Да':
+                    $ player.wearingByPurpose('sport')
+                    $ changetime(20)
+                    jump loc_run
+                'Нет':
+                    pass
     else:
         $ clrscr()
         show expression ("pic/events/various/run%d.jpg" % rand(1,8)) at top
@@ -325,6 +341,7 @@ label unconsciousSchool:
         $ player.money -= rand(100,200)
     $ setRep(2,-2)
     $ player.setEnergy(200)
+    $ player.setHealth(-10)
     $ changetime(rand(100,200))
     $ move(curloc)
     
