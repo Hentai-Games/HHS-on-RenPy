@@ -642,8 +642,10 @@ init -20 python:
             return self.location
 
         def __repr__(self):
-            return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
-            # return self.name
+            return ('<{} name: "{}", sex: "{}">'
+                    .format(self.__class__.__name__,
+                            self.name.encode('utf-8'),
+                            self.sex))
 
 # End class Char definition
 
