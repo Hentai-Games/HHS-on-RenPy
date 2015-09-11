@@ -340,15 +340,15 @@ label skipall:
             Иначе от 30 до 70.
             """
             for x in students:
-                if rand(1, 10) == 1:
-                    if rand(1, 2) == 1:
-                        x.setIntel(randf(80, 100))
+                r = rand(1, 10)
+                if r == 1:
+                    x.stats.intelligence = randf(80, 100)
 
-                    else:
-                        x.setIntel(randf(1, 20))
+                elif r == 2:
+                    x.stats.intelligence = randf(1, 20)
 
                 else:
-                    x.setIntel(randf(30, 70))
+                    x.stats.intelligence = randf(30, 70)
 
         def set_students_will(students):
             """Выставляет волю ученикам
@@ -357,15 +357,15 @@ label skipall:
             Иначе от 30 до 70.
             """
             for x in students:
-                if rand(1, 10) == 1:
-                    if rand(1, 2) == 1:
-                        x.setWill(randf(80, 100))
+                r = rand(1, 10)
+                if r == 1:
+                    x.stats.will = randf(80, 100)
 
-                    else:
-                        x.setWill(randf(1, 20))
+                elif r == 2:
+                    x.stats.will = randf(1, 20)
 
                 else:
-                    x.setWill(randf(30, 70))
+                    x.stats.will = randf(30, 70)
 
         def print_debug_will_and_int(students):
             """debug информация о выставленных воле и интеллекте"""
