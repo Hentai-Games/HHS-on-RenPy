@@ -98,8 +98,10 @@ init -20 python:
                 return 'Сексуальная форма'
             elif self.uniform == 'skimpy':
                 return 'Шлюховатая форма'
-            else:
+            elif self.uniform == 'naked':
                 return 'Обнажённая форма'
+            elif self.uniform == 'bdsm':
+                return 'БДСМ форма'
                 
     def votingFunc(type,amount, what):
         voteYes = voteNo = voteVeto = 0
@@ -121,29 +123,36 @@ init -20 python:
                     voteVeto += 1
                     
         if voteYes > voteNo and voteVeto == 0:
-            if what in ['usual','scrict','uniform','sexy','skimpy','naked']:
+            if what in ['usual','scrict','uniform','sexy','skimpy','naked','bdsm']:
                 school.unlockedUniforms.append(what)
                 school.uniform = what
-            if what in ['streetCleaning','upskirt','no']:
+            if what in ['streetCleaning','upskirt','no','lock','tortue']:
                 school.unlockedDetentions.append(what)
                 school.detention = what
             if what in ['eduSexy']:
                 school.budget -= 50000
                 school.unlockedEduMats.append(what)
                 school.eduMats = what
-            if what in ['manec','video','bed','dildo']:
+            if what in ['manec','video','bed','dildo','sportgirls']:
                 if what == 'manec':
                     school.budget -= 20000
                 if what == 'video':
                     school.budget -= 10000
                 if what == 'dildo':
                     school.budget -= 15000
+                if what == 'sportgirls':
+                    school.budget -= 50000
+                    
                 school.furniture.append(what)
-            if what in ['wall','library']:
+            if what in ['wall','library','dungeon','chemlab']:
                 if what == 'wall':
                     school.budget -= 100000
                 if what == 'library':
                     school.budget -= 150000
+                if what == 'dungeon':
+                    school.budget -= 100000
+                if what == 'chemlab':
+                    school.budget -= 75000
                 school.furniture.append(what)
             return True
         else:

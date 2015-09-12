@@ -157,6 +157,7 @@ screen clubs:
                 ] unhovered [
                 Hide('description') # При потере фокуса - скрывается
                 ]
+                
             if is_pantiesClub == 1:
                 textbutton _('Клуб грязных трусиков') action [
                     If('pants' in school.clubs, false=[Function(school.addClub,'pants')],true = Function(school.removeClub,'pants')),
@@ -194,7 +195,7 @@ screen furniture:
                 ]
                 
             textbutton _('Наглядные пособия (Бюджет - 15000)') action [
-                If('video' in school.furniture, false=Show('preVoting', None, 'corr', 25, 'dildo')),
+                If('dildo' in school.furniture, false=Show('preVoting', None, 'corr', 25, 'dildo')),
                 SelectedIf('dildo' in school.furniture),
                 SensitiveIf(school.budget > 15000 or 'dildo' in school.furniture)
                 ] hovered [
@@ -202,6 +203,8 @@ screen furniture:
                 ] unhovered [
                 Hide('description') # При потере фокуса - скрывается
                 ]
+                
+                
             text _('\nСтроения и мебель')
             textbutton _('Кровать в офис (Стоимость - 2000)') action [
                 If('bed' in school.furniture, false=Show('preVoting', None, 'loy', 15, 'bed')),
@@ -209,6 +212,16 @@ screen furniture:
                 SensitiveIf(player.money > 2000 or 'bed' in school.furniture)
                 ] hovered [
                 Show('description', None, 'bed') # При наведении показывается описание
+                ] unhovered [
+                Hide('description') # При потере фокуса - скрывается
+                ]
+                
+            textbutton _('Хим лаборатория (Бюджет - 75000)') action [
+                If('chemlab' in school.furniture, false=Show('preVoting', None, 'loy', 50, 'chemlab')),
+                SelectedIf('chemlab' in school.furniture),
+                SensitiveIf(player.money > 75000 or 'chemlab' in school.furniture)
+                ] hovered [
+                Show('description', None, 'chemlab') # При наведении показывается описание
                 ] unhovered [
                 Hide('description') # При потере фокуса - скрывается
                 ]
@@ -229,6 +242,16 @@ screen furniture:
                 SensitiveIf(school.budget > 150000 or 'library' in school.buildings)
                 ] hovered [
                 Show('description', None, 'library') # При наведении показывается описание
+                ] unhovered [
+                Hide('description') # При потере фокуса - скрывается
+                ]
+                
+            textbutton _('Подвал (Бюджет - 100000)') action [
+                If('dungeon' in school.buildings, false=Show('preVoting', None, 'corr', 50, 'dungeon')),
+                SelectedIf('dungeon' in school.buildings),
+                SensitiveIf(school.budget > 100000 or 'dungeon' in school.buildings)
+                ] hovered [
+                Show('description', None, 'dungeon') # При наведении показывается описание
                 ] unhovered [
                 Hide('description') # При потере фокуса - скрывается
                 ]
@@ -266,7 +289,7 @@ screen schoolUniform:
                 ]
                 
             textbutton _('Сексуальная форма') action [
-                If('sexy' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 20, 'sexy'), true=SetField(school,'uniform','sexy')),
+                If('sexy' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 30, 'sexy'), true=SetField(school,'uniform','sexy')),
                 SelectedIf(school.uniform == 'sexy')
                 ] hovered [
                 Show('description', None, 'sexy')
@@ -275,7 +298,7 @@ screen schoolUniform:
                 ]
                 
             textbutton _('Шлюховатая форма') action [
-                If('skimpy' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 50, 'skimpy'), true=SetField(school,'uniform','skimpy')),
+                If('skimpy' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 60, 'skimpy'), true=SetField(school,'uniform','skimpy')),
                 SelectedIf(school.uniform == 'skimpy'),
                 SensitiveIf('sexy' in school.unlockedUniforms)
                 ] hovered [
@@ -285,11 +308,21 @@ screen schoolUniform:
                 ]
                 
             textbutton _('Голая форма') action [
-                If('naked' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 80, 'naked'), true=SetField(school,'uniform','naked')),
+                If('naked' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 75, 'naked'), true=SetField(school,'uniform','naked')),
                 SelectedIf(school.uniform == 'naked'),
                 SensitiveIf('skimpy' in school.unlockedUniforms)
                 ] hovered [
                 Show('description', None, 'naked')
+                ] unhovered [
+                Hide('description')
+                ]
+                
+            textbutton _('БДСМ форма') action [
+                If('bdsm' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 80, 'bdsm'), true=SetField(school,'uniform','bdsm')),
+                SelectedIf(school.uniform == 'bdsm'),
+                SensitiveIf('naked' in school.unlockedUniforms)
+                ] hovered [
+                Show('description', None, 'bdsm')
                 ] unhovered [
                 Hide('description')
                 ]
@@ -356,6 +389,25 @@ screen detentions:
                 Hide('description')
                 ]
                 
+            if 'dungeon' in school.furniture:
+                textbutton _('Заключение в подвале') action [
+                    If('upskirt' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 50, 'lock'), true=SetField(school,'detention','lock')),
+                    SelectedIf(school.detention == 'lock')
+                    ] hovered [
+                    Show('description', None, 'lock')
+                    ] unhovered [
+                    Hide('description')
+                    ]
+                    
+                textbutton _('Пытки') action [
+                    If('upskirt' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 80, 'torue'), true=SetField(school,'detention','torue')),
+                    SelectedIf(school.detention == 'torue')
+                    ] hovered [
+                    Show('description', None, 'torue')
+                    ] unhovered [
+                    Hide('description')
+                    ]
+                
 screen eduMats:
     zorder 1
     tag compScreens
@@ -390,7 +442,7 @@ screen eduMats:
                 Hide('description')
                 ]
             textbutton _('"Нестандартные" (Бюджет - 50 000)') action [
-                If('eduSexy' in school.unlockedEduMats, false=Show('preVoting', None, 'corr', 50, 'eduSexy'), true=SetField(school,'eduMats','eduSexy')),
+                If('eduSexy' in school.unlockedEduMats, false=Show('preVoting', None, 'corr', 25, 'eduSexy'), true=SetField(school,'eduMats','eduSexy')),
                 SensitiveIf('eduSexy' in school.unlockedEduMats or school.budget >= 50000)
                 ] hovered [
                 Show('description', None, 'eduSexy')
