@@ -117,18 +117,15 @@ init python:
                                         location = getLoc('loc_wcf')
                                         
                                 temp.moveToLocation(location)
-                                # counter += 1
-                                # mystring += str(counter) + ' ' + location.id + '\n'
                                 break
         if lt() == -4:
             # Сейчас ночь, нужно убрать всех с локаций
             clearLocations()
 
         for loc in locations:
-            dressPeople(loc.id) # Одеваем людей на локации
+            dressPeople(loc.id) # Одеваем людей на локациях
         
-        
-        
+       
     def clearLocations():
         for x in allChars:
             x.moveToLocation(None)
@@ -152,6 +149,7 @@ init python:
                     char.wearingByPurpose('sexy')
                 else:
                     char.wearingByPurpose('skimpy')
+                    
             if 'swim' in location.position:
                 char.wearingByPurpose('swim')
                 if 'school' in location.position and school.uniform == 'naked':
@@ -161,10 +159,10 @@ init python:
     def checkClothes(location):
         location = getLoc(location)
         if 'safe' not in location.position and 'self' not in location.position and 'tech' not in location.position:
-            if player.isCover('верх','низ') == False and player.stats.corr < 80:
+            if player.isCover('верх','низ') == False and player.getCorr() < 80:
                 renpy.scene(layer='screens')
                 renpy.jump('naked')
-            elif player.isCover('верх','низ') == False and player.stats.corr >= 80 and location.id != 'loc_beach' and location.id != 'loc_pool':
+            elif player.isCover('верх','низ') == False and player.getCorr() >= 80 and location.id != 'loc_beach' and location.id != 'loc_pool':
                 renpy.scene(layer='screens')
                 renpy.jump('naked')
             elif player.getClothPurpose('swim') and location.id != 'loc_beach' and location.id != 'loc_pool':
@@ -185,16 +183,17 @@ init python:
     def checkSperm(location):
         if player.isSperm() == 2 and rand(1,3) == 1:
             for x in location.getPeople():
-                x.setRep(-2)
-                x.setCorr(.5)
+                if x.getCorr() < 50 and x.getLoy() < 50:
+                    x.setRep(-1)
+                    x.setCorr(.5)
 
     def checkDeath():
-        if player.getHealth() < 200 and rand(1,50) == 1:
+        if player.getHealth() < 200 and rand(1,20) == 1:
             move('death')
             
     def checkOrgasm(location):
         if player.getLust() >= 100:
-            if player.getCorr() < 50:
+            if player.getCorr() < 35 or 'other' in location.position:
                 renpy.jump('madness_low')
             else:
                 if 'home' in location.position:

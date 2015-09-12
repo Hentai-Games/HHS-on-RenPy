@@ -161,6 +161,21 @@ init python:
     studDress.type = 'clothing'
     clothing.append(studDress)
     
+    studHarness = Clothing(
+    lust = 0,
+    corr = 0,
+    reputation = 1,
+    char = 'stud',
+    sex = 'female',
+    purpose = 'bdsm')
+    studHarness.cover = ['верх','низ']
+    studHarness.durability = 10000
+    studHarness.name = _('Кожанная сбруя')
+    studHarness.cost = 1500
+    studHarness.picto = 'pic/noimage.gif'
+    studHarness.type = 'clothing'
+    clothing.append(studHarness)
+    
     studJaketM = Clothing(
     lust = 0,
     corr = 0,
@@ -220,6 +235,21 @@ init python:
     tShirt.picto = 'pic/noimage.gif'
     tShirt.type = 'clothing'
     clothing.append(tShirt)
+    
+    studLeather = Clothing(
+    lust = 0,
+    corr = 0,
+    reputation = 0,
+    char = 'stud',
+    sex = 'male',
+    purpose = 'bdsm')
+    studLeather.cover = ['верх','низ']
+    studLeather.durability = 10000
+    studLeather.name = _('Кожанная сбруя')
+    studLeather.cost = 1500
+    studLeather.picto = 'pic/noimage.gif'
+    studLeather.type = 'clothing'
+    clothing.append(studLeather)
     
 #############################################################
     
