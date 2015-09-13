@@ -41,6 +41,8 @@ init python:
                 checkUnconscious(getLoc(where)) # потеря сознания
                 checkSperm(getLoc(where)) # снятие репутации за сперму.
                 checkOrgasm(getLoc(where)) # проверка на перевозбуждение
+                if 'school' in getLoc(curloc).position and lt() == 0 and 'pants' in school.clubs and len(getClubChars('pants')) > 0 and rand(1,3) == 1: # В школе на перемену, если есть кто то в клубе струсиков и он открыт, вам их отдадут
+                    renpy.jump('getPanties')
                 
             if rand(1,100) < 10 and where[:4] == 'loc_' and same_loc == 0: tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
 

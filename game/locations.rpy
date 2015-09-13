@@ -98,6 +98,7 @@ init 10 python:
             elif x == 'loc_wcm': loc = Location(id = x, name = 'Туалет для мальчиков', base_prob = 5, position = ['school'])
             elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 5, position = ['school'])
             elif x == 'loc_storage': loc = Location(id = x, name = 'кладовка', base_prob = 5, position = ['school'])
+            elif x == 'loc_chemlab': loc = Location(id = x, name = 'Лаборатория', base_prob = -1, position = ['school'])
             elif x == 'loc_office': loc = Location(id = x, name = 'офис', base_prob = 0, position = ['safe','school'])
 
             elif x == 'loc_dreams': loc = Location(id = x, name = 'Сны', base_prob = -1, position = ['self'])
@@ -217,6 +218,7 @@ init:
         )
     image wcm =  im.Scale('pic/locations/school/secondFloor/wcm.jpg', config.screen_width, config.screen_height)
     image wcf =  im.Scale('pic/locations/school/secondFloor/wcf.jpg', config.screen_width, config.screen_height)
+    image chemlab = 'pic/locations/school/chemlab.png'
     
     image movie = Movie(size=(1200, 800), xpos=0.5, ypos=0, xanchor=0.5, yanchor=0)
     
@@ -242,9 +244,13 @@ label test:
     # $ mystring = reactionGen(studs[0])
     # player.say '[mystring]'
     python:
-        player.coverSperm('лицо')
-        player.setDirty(5)
-        move('loc_home')
+        # player.coverSperm('лицо')
+        # player.setDirty(5)
+        # move('loc_home')
+        for x in studs:
+            if x.getSex() != 'male':
+                x.club = 'pants'
+        renpy.jump('getPanties')
 
 ##############################################################
 # Home
@@ -326,11 +332,11 @@ label loc_entrance:
         fixed:
             vbox xalign 0.0 yalign 1.0:
                 text 'Вход в Вашу новую школу. Ворота, крыльцо, всё как у всех, ничего необычного. Разве что кусты не особо пострижены, и дети там периодически играют, ну да ладно.' style style.description
-                if 'library' in school.furniture:
+                if 'library' in school.buildings:
                     text 'Слева от школы полно места. Вроде как там раньше стоял сарай, но он давным давно рухнул, и теперь земля пустует. Библиотеку чтоли там построить? ' style style.description
                 else:
                     text 'Справа от школы виден вход в школьную библиотеку. В самом деле, замечательное приобретение! ' style style.description
-                if 'wall' in school.furniture:
+                if 'wall' in school.buildings:
                     text 'Окидывая взглядом свои владения, вы видите прекрасный вид на окна школы. Выглядит конечно красиво, но как то всё напоказ. ' style style.description
                 else:
                     text 'Довольно высокая стена окружает школу. С улицы вообще непонятно, толи это школа, толи режимный объект. ' style style.description
@@ -339,7 +345,7 @@ label loc_entrance:
             textbutton 'Второй этаж' xalign 0.456 yalign 0.44 action [Function(move, 'loc_secondFloor')] style "navigation_button" text_style "navigation_button_text"
             textbutton 'Ваш офис' xalign 0.6 yalign 0.6 action [Function(move, 'loc_office')] style "navigation_button" text_style "navigation_button_text"
             textbutton 'Домой' xalign 0.1 yalign 0.7 action [Function(changetime, 30),Function(move, 'loc_street')] style "navigation_button" text_style "navigation_button_text"
-            if 'library' in school.furniture:
+            if 'library' in school.buildings:
                 textbutton 'Библиотека' xalign 0.8 yalign 0.7 action [Function(move, 'loc_library')] style "navigation_button" text_style "navigation_button_text"
     call screen entrance
 
@@ -446,8 +452,20 @@ label loc_entrance:
                     vbox xalign 0.0 yalign 1.0:
                         text 'Кабинет Химии. Тут обычно преподаёт Валентина Купрувна. Весь учительский стол завален всякими колбами и ретортами. В стороне даже приютилась пара баночек для анализов.' style style.description
                     textbutton 'Первый этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
+                    if 'chemlab' in school.buildings or development == 1:
+                        textbutton 'Лаборатория' xalign 0.2 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
             call screen class1
 
+        label loc_chemlab:
+            show chemlab at left
+            screen chemlab:
+                fixed:
+                    vbox xalign 0.0 yalign 1.0:
+                        text 'Химическая лаборатория купленная за весьма немалые деньги. Будем надеяться, что вы сможете осуществить химический прорыв с её помощью!' style style.description
+                        text 'Ну или по крайней мере не взорвать всё к чёртовой матери...' style style.description
+                    textbutton 'Назад' xalign 0.8 yalign 0.8 action Function(move, 'loc_class1') style "navigation_button" text_style "navigation_button_text"
+            call screen chemlab
+            
         label loc_class2:
             show class2 at left
             screen class2:

@@ -273,3 +273,10 @@ init -5 python:
             highlightP.remove(char)
         else:
             highlightP.append(char)
+
+    def getClubChars(club):
+        tempArr = []
+        for x in allChars:
+            if x.club == club:
+                tempArr.append(x)
+        return tempArr

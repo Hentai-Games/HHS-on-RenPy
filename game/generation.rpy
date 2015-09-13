@@ -31,6 +31,153 @@ init -2 python:
         except OSError:
             pass
 
+    def generate_students_number(students_number, classes_number):
+        """Генерирует количество мальчиков, девочек и фут"""
+        futas = rand(classes_number, round(students_number*0.1)+3)
+        girls = min(rand(round(students_number*0.45),
+                         round(students_number*0.55)),
+                    len(picto_f))
+        boys = min(len(picto_m), students_number-futas-girls)
+
+        return futas, boys, girls
+
+    def print_students_statistics(futas, boys, girls):
+        print 'Total:', futas + boys + girls
+        print 'Futa:', futas
+        print 'Boys:', boys
+        print 'Girls:', girls
+
+    def eat_picto(picto_list):
+        """Выбирает случайную картинку из списка и удаляет ее"""
+        picto = choice(picto_list)
+        picto_list.remove(picto)
+
+        return picto
+
+    def generate_students(students_number, classes_number):
+        """Генерирует объекты учеников согласно заданному количеству"""
+
+        # Количество учеников
+        futas, boys, girls = generate_students_number(students_number,
+                                                      classes_number)
+        print_students_statistics(futas, boys, girls)
+
+        # Списки с учениками
+        futas_l = [Char.random('futa', eat_picto(picto_f))\
+                   for x in xrange(futas)]
+        boys_l = [Char.random('male', eat_picto(picto_m))\
+                  for x in xrange(boys)]
+        girls_l = [Char.random('female', eat_picto(picto_f))\
+                   for x in xrange(girls)]
+
+        all_students = futas_l + boys_l + girls_l
+
+        # Распределение по классам
+        # Как минимум по одной футе в класс
+        for i in xrange(classes_number):
+            futas_l[i].inClass = i+1
+        
+        # Если фут больше пяти - в случайные классы
+        for x in futas_l[classes_number:]:
+            x.inClass = choice(range(1, classes_number+1))
+
+        # Минимум по два мальчика и девочки в классе
+        for i in xrange(1, classes_number+1):
+            boys_l.pop(rand(0, len(boys_l)-1)).inClass = i
+            boys_l.pop(rand(0, len(boys_l)-1)).inClass = i
+            girls_l.pop(rand(0, len(boys_l)-1)).inClass = i
+            girls_l.pop(rand(0, len(boys_l)-1)).inClass = i
+
+        # Пулл учеников
+        students_pool = boys_l + girls_l
+
+        # Количетсво учеников в классах должно быть одинаковым
+        students_in_class = int(students_number / classes_number)
+        for class_n in xrange(1, classes_number+1):
+            in_class = len([x for x in all_students if x.inClass==class_n])
+            for i in xrange(students_in_class - in_class):
+                s = students_pool.pop(rand(0, len(students_pool)-1))
+                s.inClass=class_n
+
+        # На случай если количество учеников не делится на количество
+        # классов поровну
+        for x in students_pool:
+            x.inClass = rand(1, classes_number)
+
+        # Debug информация
+        for i in xrange(1, classes_number+1):
+            s = [x for x in all_students if x.inClass==i]
+            print 'Class: {}, total: {}'.format(i, len(s))
+            for x in s:
+                print '\t{}'.format(x)
+
+        return all_students
+
+    def set_students_intelligence(students):
+        """Выставляет интелект ученикам
+
+        С вероятностью 10% он может быть меньше 20 или больше 80.
+        Иначе от 30 до 70.
+        """
+        for x in students:
+            r = rand(1, 10)
+            if r == 1:
+                x.stats.intelligence = randf(80, 100)
+
+            elif r == 2:
+                x.stats.intelligence = randf(1, 20)
+
+            else:
+                x.stats.intelligence = randf(30, 70)
+
+    def set_students_will(students):
+        """Выставляет волю ученикам
+
+        С вероятностью 10% она может быть меньше 20 или больше 80.
+        Иначе от 30 до 70.
+        """
+        for x in students:
+            r = rand(1, 10)
+            if r == 1:
+                x.stats.will = randf(80, 100)
+
+            elif r == 2:
+                x.stats.will = randf(1, 20)
+
+            else:
+                x.stats.will = randf(30, 70)
+
+    def print_debug_will_and_int(students):
+        """debug информация о выставленных воле и интеллекте"""
+        int_rez = {'<20': 0, '>80': 0, '30-70': 0}
+        will_rez = {'<20': 0, '>80': 0, '30-70': 0}
+        for s in students:
+            intel = s.getIntel()
+            if 30 <= intel <= 70:
+                int_rez['30-70'] += 1
+            elif intel <= 20:
+                int_rez['<20'] += 1
+            else:
+                int_rez['>80'] += 1
+
+            will = s.getWill()
+            if 30 <= will <= 70:
+                will_rez['30-70'] += 1
+            elif will <= 20:
+                will_rez['<20'] += 1
+            else:
+                will_rez['>80'] += 1
+            
+        total_s = float(len(students))
+        print 'Intelligence:'
+        print '\t<20: {} ({}%)'.format(int_rez['<20'], int_rez['<20']/total_s*100)
+        print '\t>80: {} ({}%)'.format(int_rez['>80'], int_rez['>80']/total_s*100)
+        print '\t30-70: {} ({}%)'.format(int_rez['30-70'], int_rez['30-70']/total_s*100)
+
+        print 'Will:'
+        print '\t<20: {} ({}%)'.format(will_rez['<20'], will_rez['<20']/total_s*100)
+        print '\t>80: {} ({}%)'.format(will_rez['>80'], will_rez['>80']/total_s*100)
+        print '\t30-70: {} ({}%)'.format(will_rez['30-70'], will_rez['30-70']/total_s*100)
 #####################################################
 # codeBlc Генерация директора 
 #####################################################
@@ -251,153 +398,7 @@ label skipall:
         # Количество людей в классах должно быть одинаковым
         # Равномерного распределения не надо, но минимум по 2 человека 
         #     разного пола должны быть в одном классе.
-        def generate_students_number(students_number, classes_number):
-            """Генерирует количество мальчиков, девочек и фут"""
-            futas = rand(classes_number, round(students_number*0.1)+3)
-            girls = min(rand(round(students_number*0.45),
-                             round(students_number*0.55)),
-                        len(picto_f))
-            boys = min(len(picto_m), students_number-futas-girls)
-
-            return futas, boys, girls
-
-        def print_students_statistics(futas, boys, girls):
-            print 'Total:', futas + boys + girls
-            print 'Futa:', futas
-            print 'Boys:', boys
-            print 'Girls:', girls
-
-        def eat_picto(picto_list):
-            """Выбирает случайную картинку из списка и удаляет ее"""
-            picto = choice(picto_list)
-            picto_list.remove(picto)
-
-            return picto
-
-        def generate_students(students_number, classes_number):
-            """Генерирует объекты учеников согласно заданному количеству"""
-
-            # Количество учеников
-            futas, boys, girls = generate_students_number(students_number,
-                                                          classes_number)
-            print_students_statistics(futas, boys, girls)
-
-            # Списки с учениками
-            futas_l = [Char.random('futa', eat_picto(picto_f))\
-                       for x in xrange(futas)]
-            boys_l = [Char.random('male', eat_picto(picto_m))\
-                      for x in xrange(boys)]
-            girls_l = [Char.random('female', eat_picto(picto_f))\
-                       for x in xrange(girls)]
-
-            all_students = futas_l + boys_l + girls_l
-
-            # Распределение по классам
-            # Как минимум по одной футе в класс
-            for i in xrange(classes_number):
-                futas_l[i].inClass = i+1
-            
-            # Если фут больше пяти - в случайные классы
-            for x in futas_l[classes_number:]:
-                x.inClass = choice(range(1, classes_number+1))
-
-            # Минимум по два мальчика и девочки в классе
-            for i in xrange(1, classes_number+1):
-                boys_l.pop(rand(0, len(boys_l)-1)).inClass = i
-                boys_l.pop(rand(0, len(boys_l)-1)).inClass = i
-                girls_l.pop(rand(0, len(boys_l)-1)).inClass = i
-                girls_l.pop(rand(0, len(boys_l)-1)).inClass = i
-
-            # Пулл учеников
-            students_pool = boys_l + girls_l
-
-            # Количетсво учеников в классах должно быть одинаковым
-            students_in_class = int(students_number / classes_number)
-            for class_n in xrange(1, classes_number+1):
-                in_class = len([x for x in all_students if x.inClass==class_n])
-                for i in xrange(students_in_class - in_class):
-                    s = students_pool.pop(rand(0, len(students_pool)-1))
-                    s.inClass=class_n
-
-            # На случай если количество учеников не делится на количество
-            # классов поровну
-            for x in students_pool:
-                x.inClass = rand(1, classes_number)
-
-            # Debug информация
-            for i in xrange(1, classes_number+1):
-                s = [x for x in all_students if x.inClass==i]
-                print 'Class: {}, total: {}'.format(i, len(s))
-                for x in s:
-                    print '\t{}'.format(x)
-
-            return all_students
-
-        def set_students_intelligence(students):
-            """Выставляет интелект ученикам
-
-            С вероятностью 10% он может быть меньше 20 или больше 80.
-            Иначе от 30 до 70.
-            """
-            for x in students:
-                r = rand(1, 10)
-                if r == 1:
-                    x.stats.intelligence = randf(80, 100)
-
-                elif r == 2:
-                    x.stats.intelligence = randf(1, 20)
-
-                else:
-                    x.stats.intelligence = randf(30, 70)
-
-        def set_students_will(students):
-            """Выставляет волю ученикам
-
-            С вероятностью 10% она может быть меньше 20 или больше 80.
-            Иначе от 30 до 70.
-            """
-            for x in students:
-                r = rand(1, 10)
-                if r == 1:
-                    x.stats.will = randf(80, 100)
-
-                elif r == 2:
-                    x.stats.will = randf(1, 20)
-
-                else:
-                    x.stats.will = randf(30, 70)
-
-        def print_debug_will_and_int(students):
-            """debug информация о выставленных воле и интеллекте"""
-            int_rez = {'<20': 0, '>80': 0, '30-70': 0}
-            will_rez = {'<20': 0, '>80': 0, '30-70': 0}
-            for s in students:
-                intel = s.getIntel()
-                if 30 <= intel <= 70:
-                    int_rez['30-70'] += 1
-                elif intel <= 20:
-                    int_rez['<20'] += 1
-                else:
-                    int_rez['>80'] += 1
-
-                will = s.getWill()
-                if 30 <= will <= 70:
-                    will_rez['30-70'] += 1
-                elif will <= 20:
-                    will_rez['<20'] += 1
-                else:
-                    will_rez['>80'] += 1
-                
-            total_s = float(len(students))
-            print 'Intelligence:'
-            print '\t<20: {} ({}%)'.format(int_rez['<20'], int_rez['<20']/total_s*100)
-            print '\t>80: {} ({}%)'.format(int_rez['>80'], int_rez['>80']/total_s*100)
-            print '\t30-70: {} ({}%)'.format(int_rez['30-70'], int_rez['30-70']/total_s*100)
-
-            print 'Will:'
-            print '\t<20: {} ({}%)'.format(will_rez['<20'], will_rez['<20']/total_s*100)
-            print '\t>80: {} ({}%)'.format(will_rez['>80'], will_rez['>80']/total_s*100)
-            print '\t30-70: {} ({}%)'.format(will_rez['30-70'], will_rez['30-70']/total_s*100)
+        
 
         # Генерируем учеников, 50 человек, 5 классов
         _studs = generate_students(50, 5)

@@ -1,4 +1,5 @@
 init python:
+    import random
     from random import shuffle
 init:
     image cleanFace = "pic/events/bodyclean/face1.jpg"
@@ -722,3 +723,23 @@ label beauty_operation:
             player.say 'Нет, я пока не готова.'
             med 'Ну как хотите, если что, обращайтесь!'
     $ move(curloc) 
+    
+label getPanties:
+    python:
+        clrscr()
+        counter = 0
+        tempArr = getClubChars('pants')
+        for x in tempArr:
+            player.addItem(clubPanties)
+            x.removeItems(studpantiesF.name)
+            counter += 1
+        st1 = choice(tempArr)
+    show expression 'pic/events/various/pullPanties.jpg' at top as tempPic
+    st1.say 'Фух! Я еле вас нашла! - сказала [st1.name] и принялась снимать трусики.'
+    'Согласно вашему договору, вы должны реализовать все трусики секретного клуба грязных трусиков.'
+    $ temp = counter - 1
+    st1.say 'Вот, пересчитайте! Ровно [temp]! Ну и мои в придачу!'
+    'Пританцовывая на одной ноге, [st1.fname] всё таки смогла снять свои и вручить их вам.'
+    player.say 'Спасибо, я в скором времени их продам!'
+    $ move(curloc)
+    

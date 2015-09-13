@@ -43,6 +43,10 @@ init python:
             char.setCorr((getPar(teachers, 'corr') - char.getCorr())/10)
             char.setRep((getPar(studs, 'rep') - char.getRep())/100)
             if char in studs:
+                # Добавление трусов, если их нет у чара.
+                if char.getSex != 'male' and char.getItem(studPantiesF.name) == False:
+                    char.addItem(studPantiesF)
+                    
                 # inhibLow
                 if inhibLow == 1:
                     char.setLust(10)

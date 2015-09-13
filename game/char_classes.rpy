@@ -354,12 +354,15 @@ init -20 python:
             temp = copy.copy(item)
             self.inventory.append(temp)
 
-        # Удаление айтемов
+        # Удаление айтема
         def removeItem(self,item):
             if self.inventory.count(item) > 0:
                 self.inventory.remove(item)
+                return True
             if self.wear.count(item) > 0:
                 self.wear.remove(item)
+                return True
+            return False
 
         def initSet(self,number,list):
             self.sets[number] = []
@@ -513,6 +516,20 @@ init -20 python:
                 if x.name == name:
                     return x
             return False
+            
+        def sellItem(self,name):
+            for x in self.inventory:
+                if x.name == name:
+                    self.money += x.cost
+                    self.inventory.remove(x)
+                    return True
+            return False
+            
+        def sellItems(self,name):
+            counter = 0
+            while self.sellItem(name):
+                counter += 1
+            return counter
 
         #Сброс переменных
         def reset(self):
@@ -654,3 +671,4 @@ init -20 python:
         for x in allChars:
             if x.fullName() == name:
                 return x
+        return False
