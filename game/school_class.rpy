@@ -74,7 +74,7 @@ init -20 python:
                 return False
                 
         def addClub(self,club):
-            if club in ['cherleader','cosplay','sport','paint','medic']:
+            if club in ['cherleader','cosplay','sport','paint','medic','pants']:
                 self.clubs.append(club)
                 return True
             else:
@@ -153,7 +153,7 @@ init -20 python:
                     school.budget -= 100000
                 if what == 'chemlab':
                     school.budget -= 75000
-                school.furniture.append(what)
+                school.buildings.append(what)
             return True
         else:
             return False

@@ -12,6 +12,13 @@ init python:
     napkin.durability = 10
     napkin.type = 'tool'
     
+    clubPanties = Tool(purpose = 'sell')
+    clubPanties.name = _('Поношенные трусики')
+    clubPanties.cost = 250
+    clubPanties.picto = 'pic/items/clubPanties.jpg'
+    clubPanties.durability = 10
+    clubPanties.type = 'tool'
+    
     sandwich = Food( energy = 250 )
     sandwich.name = _('Сэндвич')
     sandwich.cost = 0
@@ -33,7 +40,7 @@ init python:
     rawFood.durability = 10
     rawFood.type = 'hidden'
     
-    allItems = [napkin, sandwich, eDrink, rawFood]
+    allItems = [napkin, sandwich, eDrink, rawFood,clubPanties]
 
     
 #######################################################################

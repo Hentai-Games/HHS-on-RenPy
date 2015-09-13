@@ -338,6 +338,8 @@ screen working:
             if school.caughtChance > 0:
                 textbutton _('Замести следы выведения средств') action [SetVariable('lastWork',ptime), Function(move,'cover')]
             textbutton _('Инвестировать в школу') action [SetVariable('lastWork',ptime), Function(move,'invest')]
+            if player.getItem(clubPanties.name) != False:
+                textbutton _('Продать трусики в интернете') action [Function(player.sellItems,clubPanties.name),Show('compScreen')]
             
 screen detentions:
     zorder 1
@@ -543,7 +545,7 @@ screen voting(type,amount): # Просто скрин для нагляднос�
                         else:
                             text 'Вето' 
                             $ voteVeto += 1
-                            
+
     fixed xpos 0.3 ypos 0.3:
         if voteYes > voteNo and voteVeto == 0:
             text 'Предложение поддержано' style style.description

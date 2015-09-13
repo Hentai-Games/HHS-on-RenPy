@@ -24,7 +24,7 @@ init -50 python:
     class Toy(Item):
         def __init__ (self, cover, size, corr, lust):
             self.cover = cover
-            self.soze = size
+            self.size = size
             self.corr = corr
             self.lust = lust          
 
