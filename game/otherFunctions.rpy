@@ -176,7 +176,7 @@ init -5 python:
                 fucked = []
                 for male in maleArr: # перебираем всех male/futa
                     male.setFun(1) 
-                    diameter = male.body.parts['пенис']/3.14
+                    diameter = male.body.parts['пенис'].size/3.14
                     for female in femaleArr: # перебираем всех female
                         if female not in fucked: # если ещё не была в соитии
                         

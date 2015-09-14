@@ -217,11 +217,21 @@ screen furniture:
                 ]
                 
             textbutton _('Хим лаборатория (Бюджет - 75000)') action [
-                If('chemlab' in school.furniture, false=Show('preVoting', None, 'loy', 50, 'chemlab')),
+                If('chemlab' in school.buildings, false=Show('preVoting', None, 'loy', 50, 'chemlab')),
                 SelectedIf('chemlab' in school.furniture),
                 SensitiveIf(school.budget > 75000 or 'chemlab' in school.furniture)
                 ] hovered [
                 Show('description', None, 'chemlab') # При наведении показывается описание
+                ] unhovered [
+                Hide('description') # При потере фокуса - скрывается
+                ]
+                
+            textbutton _('Медицинский кабинет (Бюджет - 25000)') action [
+                If('doctor' in school.buildings, false=Show('preVoting', None, 'loy', 25, 'doctor')),
+                SelectedIf('doctor' in school.furniture),
+                SensitiveIf(school.budget > 25000 or 'doctor' in school.furniture)
+                ] hovered [
+                Show('description', None, 'doctor') # При наведении показывается описание
                 ] unhovered [
                 Hide('description') # При потере фокуса - скрывается
                 ]

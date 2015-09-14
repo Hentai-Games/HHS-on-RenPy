@@ -102,6 +102,22 @@ init python:
                         x.moveToLocation('loc_teacherRoom')
                         continue
                         
+                    if x == dante:
+                        if 'library' not in school.buildings: # Если не построили библиотеку, то данте вообще не появится.
+                            x.moveToLocation(None)
+                            continue
+                        elif lt() >= 0: # библиотекарша всегда в библиотеке
+                            x.moveToLocation('loc_library')
+                            continue
+                        
+                    if x == gonoreevna:
+                        if 'doctor' not in school.buildings:
+                            x.moveToLocation(None)
+                            continue
+                        elif lt() >= 0: # Доктор должен быть в мед кабинете
+                            x.moveToLocation('loc_doctor')
+                            continue
+                        
                     if x in detentions and hour >= 15 and school.detention != 'no': # если наказан, то после уроков
                         if school.detention in ['education','upskirt']: # будет в 3-ем классе
                             x.moveToLocation('loc_class3')
@@ -112,7 +128,6 @@ init python:
                                      x.moveToLocation(loc)
                                      
                         elif school.detention == 'streetCleaning':
-                            choise = ['loc_street','loc_entrance','loc_shopStreet']
                             x.moveToLocation(choice(['loc_street','loc_entrance','loc_shopStreet']))
                         continue
                     

@@ -153,7 +153,7 @@ init -20 python:
                     school.budget -= 50000
                     
                 school.furniture.append(what)
-            if what in ['wall','library','dungeon','chemlab']:
+            if what in ['wall','library','dungeon','chemlab','doctor']:
                 if what == 'wall':
                     school.budget -= 100000
                 if what == 'library':
@@ -162,6 +162,8 @@ init -20 python:
                     school.budget -= 100000
                 if what == 'chemlab':
                     school.budget -= 75000
+                if what == 'doctor':
+                    school.budget -= 25000
                 school.buildings.append(what)
             return True
         else:

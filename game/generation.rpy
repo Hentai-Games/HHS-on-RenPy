@@ -591,8 +591,67 @@ label skipall:
             location = curloc,
             money = 200
         )
-        
         _teachers.append(mustangovich)
+        
+        dante = Char(
+            fname = 'Ева',
+            lname = 'Данте',
+            age = 35,
+            body = FemaleBody(
+                120,
+                breastSize = 0.5,
+                vaginaSize = 2
+            ),
+            stats = Stats(
+                will = 80,
+                education = 60,
+                intelligence = 60,
+                beauty = 85,
+                health = 1000,
+                energy = 1000,
+                loyalty = randf(0, 10),
+                fun = randf(0, 50)
+            ),
+            color = '#FF85F1',
+            inventory = [],
+            wear = [],
+            club = 'литература',
+            picto = 'pic/teachers/dante_picto.png',
+            location = curloc,
+            money = 5000
+        )
+        _teachers.append(dante)
+                
+        gonoreevna = Char(
+            fname = 'Венера',
+            lname = 'Гонореевна',
+            age = 21,
+            body = FemaleBody(
+                180,
+                breastSize = 4,
+                vaginaSize = 16
+            ),
+            stats = Stats(
+                will = 20,
+                education = 30,
+                intelligence = 20,
+                beauty = 90,
+                health = 1000,
+                energy = 1000,
+                loyalty = randf(20, 30),
+                fun = randf(0, 50)
+            ),
+            color = '#FF85F1',
+            inventory = [],
+            wear = [],
+            club = 'медицина',
+            picto = 'pic/teachers/gonoreevna_picto.png',
+            location = curloc,
+            money = 5000
+        )
+        _teachers.append(gonoreevna)
+        
+
         for char in _teachers:
             tempSex = char.getSex()
             if tempSex == 'futa':
@@ -600,8 +659,7 @@ label skipall:
             for cloth in clothing:
                 if cloth.sex == tempSex and cloth.char == 'teacher':
                     char.addItem(cloth)
-                
-
+                    
 # endBlc
 #######################################################
 #Пересохранение этого добра для того, чтобы сохранялось.

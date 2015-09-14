@@ -99,6 +99,7 @@ init 10 python:
             elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 5, position = ['school'])
             elif x == 'loc_storage': loc = Location(id = x, name = 'кладовка', base_prob = 5, position = ['school'])
             elif x == 'loc_chemlab': loc = Location(id = x, name = 'Лаборатория', base_prob = -1, position = ['school'])
+            elif x == 'loc_doctor': loc = Location(id = x, name = 'Медицинский кабинет', base_prob = 2, position = ['school'])
             elif x == 'loc_office': loc = Location(id = x, name = 'офис', base_prob = 0, position = ['safe','school'])
 
             elif x == 'loc_dreams': loc = Location(id = x, name = 'Сны', base_prob = -1, position = ['self'])
@@ -219,8 +220,11 @@ init:
     image wcm =  im.Scale('pic/locations/school/secondFloor/wcm.jpg', config.screen_width, config.screen_height)
     image wcf =  im.Scale('pic/locations/school/secondFloor/wcf.jpg', config.screen_width, config.screen_height)
     image chemlab = 'pic/locations/school/chemlab.png'
-    
-    image movie = Movie(size=(1200, 800), xpos=0.5, ypos=0, xanchor=0.5, yanchor=0)
+    image doctor = ConditionSwitch(
+        "hour >= 5 and hour <= 20", 'pic/locations/school/doctor/1.png',
+        "hour > 20 or hour < 5", 'pic/locations/school/doctor/2.png',
+        )
+    image movie = Movie(size=(1200, 768), xpos=0.5, ypos=0, xanchor=0.5, yanchor=0)
     
 #Для теста
 label test:
@@ -371,6 +375,8 @@ label loc_entrance:
                 textbutton 'Бассейн' xalign 0.8 yalign 0.7 action [Function(move, 'loc_pool')] style "navigation_button" text_style "navigation_button_text"
                 textbutton 'Спортзал' xalign 0.8 yalign 0.6 action [Function(move, 'loc_gym')] style "navigation_button" text_style "navigation_button_text"
                 textbutton 'Выход' xalign 0.5 yalign 0.5 action [Function(move, 'loc_entrance')] style "navigation_button" text_style "navigation_button_text"
+                if getPar(studs,'corr') >= 20 and lt() == 0 and hour < 9 or development == 1:
+                    imagebutton idle im.MatrixColor('pic/events/mile_1/start.png', im.matrix.opacity(0.5)) hover im.MatrixColor('pic/events/mile_1/start.png', im.matrix.opacity(1.0)) action [Jump('mileQwest1')] xalign 1.0 yalign 0.8
         call screen hall
 
         label loc_pool:
@@ -522,6 +528,8 @@ label loc_entrance:
                     textbutton 'Дверь с М' xalign 0.2 yalign 0.27 action Function(move, 'loc_wcm') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Дверь с Ж' xalign 0.2 yalign 0.32 action Function(move, 'loc_wcf') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Первый этаж' xalign 0.6 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
+                    if 'doctor' in school.buildings or development == 1:
+                        textbutton 'Мед\nКабинет' xalign 0.1 yalign 0.27 action Function(move, 'loc_doctor') style "navigation_button" text_style "navigation_button_text"
             call screen secondFloor
 
         label loc_teacherRoom:
@@ -533,6 +541,15 @@ label loc_entrance:
                     textbutton 'Второй этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_secondFloor') style "navigation_button" text_style "navigation_button_text"
             call screen teacherRoom
 
+        label loc_doctor:
+            show doctor at left
+            screen doctor:
+                fixed:
+                    vbox xalign 0.0 yalign 1.0:
+                        text 'Медкабинет принадлежащий вашей школе. В случае приступа острой хитрости, ученики обращаются именно сюда, непосредственно к медсестре Гонореевне.' style style.description
+                    textbutton 'Второй этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_secondFloor') style "navigation_button" text_style "navigation_button_text"
+            call screen doctor
+            
         label loc_wcm:
             show wcm at left
             screen wcm:
