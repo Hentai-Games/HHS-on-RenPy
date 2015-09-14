@@ -24,11 +24,12 @@
     is_beauty_visited = 0
     reputation_intro = []
     inhibLow = 0
+    timeGetPanties = 0
+    showed = []
     
     is_cosplayClub = 0
     is_cherleaderClub = 0
     is_pantiesClub = 0
-    
     
     
     him_zavivka = 0
@@ -37,6 +38,15 @@
     manicure = 0
     pedicure = 0
     show_peopleTextList = 0
+    
+    defaultSymbol = 'O'
+    temp1 = defaultSymbol
+    temp2 = defaultSymbol
+    temp3 = defaultSymbol
+    temp4 = defaultSymbol
+    temp5 = defaultSymbol
+    temp6 = defaultSymbol
+    
     
     detentions = []
     scoldWho = []

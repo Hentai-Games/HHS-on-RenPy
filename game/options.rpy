@@ -276,7 +276,7 @@ init -1 python hide:
 
     ## Скорость текста по умолчанию, в знаках в секунду. 0 - бесконечность.
 
-    config.default_text_cps = 5
+    config.default_text_cps = 100
 
     ## Время авто-режима по умолчанию.
 

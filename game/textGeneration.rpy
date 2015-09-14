@@ -3,6 +3,8 @@ init python:
         description = ''
 
         name = char.fullName()
+        fname = char.fname
+        lname = char.lname
         age = char.age
         sex = char.body.sex()
         beauty = char.getBeauty()
@@ -13,7 +15,23 @@ init python:
         fun = char.getFun()
         health = char.getHealth()
         inClass = char.inClass
-        
+        rep = char.getRep()
+        club = char.club
+        if club == 'pants':
+            club = 'клубе грязных трусиков'
+        elif club == 'cherleader':
+            club = 'клубе черлидеров'
+        elif club == 'cosplay':
+            club = 'косплей клубе'
+        elif club == 'sport':
+            club = 'спортивном клубе'
+        elif club == 'paint':
+            club = 'клубе рисования'
+        elif club == 'medic':
+            club = 'медицинском клубе'
+        elif club == 'medic':
+            club = 'медицинском клубе'
+
         asize = char.body.parts['анус'].size
         
         if sex == 'male':
@@ -140,7 +158,7 @@ init python:
 
             description += '\n'
 
-            rep = char.stats.reputation
+            rep = char.getRep()
 
             if age < 20:
                 if sex  == 'male':
@@ -151,9 +169,16 @@ init python:
                 elif rep < 50: description += 'родители не очень высокого о вас мнения.'
                 elif rep < 80: description += 'родители ставят вас в пример своим детям.'
                 else : description += 'родители в восторге от вас.'
-
+            
+            if len(club) > 0:
+                if age < 20:
+                    description += '\n'
+                    description += fname + ' состоит в ' + club
+                else:
+                    description += fname + ' преподаватель по предмету ' + club
+            
             if sex != 'female' and corr > 50:
-                description += '\n[name] прозрачно намекает вам, что под одеждой от вас скрывается '+ str(psize) +' сантиметровый змий!'
+                description += '\n'+ name +' прозрачно намекает вам, что под одеждой от вас скрывается '+ str(psize) +' сантиметровый змий!'
             
             if sex != 'male':
                 description += '\nНа ней сегодня '
@@ -242,7 +267,7 @@ init python:
             if asize < 7:
                 description += 'Ещё у меня практически девственный анус. Работает только на выход!'
             elif asize < 14:
-                description += 'Ещё у меня маленькая, аккуратная дырочка сзади. Видно эта дырочка может не только из себя выпускать что то, но и наоборот!'
+                description += 'Ещё у меня маленькая, аккуратная дырочка сзади. Видно эта дырочка может не только из себя выпускать что-то, но и наоборот!'
             elif asize < 25:
                 description += 'Ещё у меня довольно растянутый анус. Ну как довольно, так как будто я пыталась промышлять контрабандой водки, пронося её в известном месте.'
             else:
@@ -346,7 +371,7 @@ init python:
             if char.getCorr() > 80:
                 if char.getWill() < 80:
                     if char.getSex() == 'male':
-                        reaction.append('Разглядывая вашу обычную одежду '+name+' явно скучает. Наверняка он надеялся увидеть что то более сексуальное и обтягивающее. ')
+                        reaction.append('Разглядывая вашу обычную одежду '+name+' явно скучает. Наверняка он надеялся увидеть что-то более сексуальное и обтягивающее. ')
                     else:
                         reaction.append(name + ' явно не одобряет ваш слишком строгий наряд. Она то сама уже без стеснения носит мини-юбки. ')
                     char.sayCount = int(char.sayCount/2)
@@ -403,7 +428,7 @@ init python:
                     
                 elif char.getWill() > 20:
                     if char.getSex() == 'male':
-                        reaction.append(fname + ' буквально пожирает Ваше тело глазами, невооружённым взглядом видно, как что то напрягается у него чуть ниже пояса. Наверняка он захочет пообщаться с Вами подольше.')
+                        reaction.append(fname + ' буквально пожирает Ваше тело глазами, невооружённым взглядом видно, как что-то напрягается у него чуть ниже пояса. Наверняка он захочет пообщаться с Вами подольше.')
                     else:
                         reaction.append(fname + 'без стеснения разглядывает Вас, и ваши, ничем не прикрытые изгибы заводят её всё сильнее. Наверняка она захочет пообщаться с вами подольше.')
                     char.sayCount = int(char.sayCount*1.5)

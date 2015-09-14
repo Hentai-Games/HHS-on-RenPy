@@ -74,11 +74,20 @@ init -20 python:
                 return False
                 
         def addClub(self,club):
-            if club in ['cherleader','cosplay','sport','paint','medic','pants']:
+            if club in self.getAllClubs():
                 self.clubs.append(club)
                 return True
             else:
                 return False
+                
+        def getAllClubs(self,*args):
+            if len(args) > 0:
+                tempArr = []
+                for x in self.clubs:
+                    tempArr.append(x)
+                return tempArr
+            else:
+                return ['cherleader','cosplay','sport','paint','medic','pants']
                 
         def removeClub(self,club):
             if club in self.clubs:

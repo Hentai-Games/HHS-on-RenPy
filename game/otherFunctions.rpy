@@ -274,9 +274,22 @@ init -5 python:
         else:
             highlightP.append(char)
 
-    def getClubChars(club):
+    def getClubChars(club,*args):
         tempArr = []
-        for x in allChars:
-            if x.club == club:
-                tempArr.append(x)
-        return tempArr
+        if len(args) > 0:
+            if args[0] in ['male','female','futa']:
+                for x in allChars:
+                    if x.club == club and x.getSex() == args[0]:
+                        tempArr.append(x)
+                        
+                if len(tempArr) == 0 and args[1] == 'please': # Если ОЧЕНЬ нужен человек с нужным полом для эвента, но его нет, тогда создаём его.
+                    tempChar = getChar(args[0])
+                    tempChar.club = club
+                    tempArr.append(tempChar)
+                    
+                return tempArr
+        else:
+            for x in allChars:
+                if x.club == club:
+                    tempArr.append(x)
+            return tempArr

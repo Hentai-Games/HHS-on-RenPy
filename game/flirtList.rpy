@@ -126,7 +126,7 @@ label flirt_female_0_3:
     
 label flirt_female_20_4:
     show expression 'pic/events/flirt/f2.jpg' at top zorder 1 as tempPic
-    'Вы доверительно рассказываете, что есть у вас фетиш, как будто к вам пристаёт другая женщина. Не то, чтобы бы на что то намекаете...'
+    'Вы доверительно рассказываете, что есть у вас фетиш, как будто к вам пристаёт другая женщина. Не то, чтобы бы на что-то намекаете...'
     $ answer = getFlirtReaction(user)
     '[answer]'
     hide tempPic

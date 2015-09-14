@@ -14,7 +14,7 @@ init python:
     
     clubPanties = Tool(purpose = 'sell')
     clubPanties.name = _('Поношенные трусики')
-    clubPanties.cost = 250
+    clubPanties.cost = 100
     clubPanties.picto = 'pic/items/clubPanties.jpg'
     clubPanties.durability = 10
     clubPanties.type = 'tool'
@@ -40,7 +40,7 @@ init python:
     rawFood.durability = 10
     rawFood.type = 'hidden'
     
-    allItems = [napkin, sandwich, eDrink, rawFood,clubPanties]
+    allItems = [napkin, sandwich, eDrink, rawFood, clubPanties]
 
     
 #######################################################################
@@ -147,7 +147,7 @@ init python:
     purpose = 'skimpy')
     studskimpyjaket.cover = ['верх','грудь']
     studskimpyjaket.durability = 10000
-    studskimpyjaket.name = _('Что то невесомое')
+    studskimpyjaket.name = _('что-то невесомое')
     studskimpyjaket.cost = 1500
     studskimpyjaket.picto = 'pic/noimage.gif'
     studskimpyjaket.type = 'clothing'
