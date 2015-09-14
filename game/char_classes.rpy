@@ -531,6 +531,13 @@ init -20 python:
                 counter += 1
             return counter
 
+        def countItems(self,name):
+            counter = 0
+            for x in self.inventory:
+                if x.name == myItem.name:
+                    counter += 1
+            return counter
+            
         #Сброс переменных
         def reset(self):
             self.normalize()

@@ -11,9 +11,17 @@ init python:
 #базовая функция перемещения. Использовать всегда и всюду
     from random import shuffle
     def move(where):
-        global curloc, hour, prevloc, same_loc #объявление глобальных переменных
+        global curloc, hour, prevloc, same_loc, defaultSymbol, temp1, temp2, temp3, temp4, temp5, temp6  #объявление глобальных переменных
 
         if renpy.has_label(where) == True: #Проверка на то, что локация существует. Если нет, прыгаем домой.
+        
+            temp1 = defaultSymbol
+            temp2 = defaultSymbol
+            temp3 = defaultSymbol
+            temp4 = defaultSymbol
+            temp5 = defaultSymbol
+            temp6 = defaultSymbol
+            
             renpy.scene(layer='master') # Сброс картинок
             renpy.scene(layer='screens') # Сброс скринов
             renpy.show('daytime') # Базовый фон
@@ -41,7 +49,7 @@ init python:
                 checkUnconscious(getLoc(where)) # потеря сознания
                 checkSperm(getLoc(where)) # снятие репутации за сперму.
                 checkOrgasm(getLoc(where)) # проверка на перевозбуждение
-                if 'school' in getLoc(curloc).position and lt() == 0 and 'pants' in school.clubs and len(getClubChars('pants')) > 0 and rand(1,3) == 1: # В школе на перемену, если есть кто то в клубе струсиков и он открыт, вам их отдадут
+                if 'school' in getLoc(curloc).position and lt() == 0 and 'pants' in school.clubs and len(getClubChars('pants')) > 0 and ptime - timeGetPanties > 24 and rand(1,3) == 1: # В школе на перемену, если есть кто то в клубе трусиков и он открыт, вам их отдадут
                     renpy.jump('getPanties')
                 
             if rand(1,100) < 10 and where[:4] == 'loc_' and same_loc == 0: tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
@@ -82,7 +90,7 @@ init python:
 
     #Добавление людей на локации
     def addPeopleLocations():
-        global hour
+        global hour, weekday
         mystring = ''
         counter = 0
         if lt() > 0: # заполняем классы, если уроки
@@ -105,13 +113,27 @@ init python:
                                      
                         elif school.detention == 'streetCleaning':
                             choise = ['loc_street','loc_entrance','loc_shopStreet']
-                            x.moveToLocation(choise[rand(0,len(choise)-1)])
+                            x.moveToLocation(choice(['loc_street','loc_entrance','loc_shopStreet']))
                         continue
+                    
+                    if x.club != '' and hour >= 15 and hour < 18 and x in studs: # Распределение клубов
+                        if x.club == 'cherleader' and weekday in [1,3,5]:
+                            x.moveToLocation('loc_gym')
+                            
+                        elif x.club == 'cosplay' and lt() == -1:
+                            x.moveToLocation('loc_class1')
+                            
+                        elif x.club == 'sport' and weekday in [2,4]:
+                            x.moveToLocation('loc_gym')
+                            
+                        elif x.club == 'paint' and lt() == -1:
+                            x.moveToLocation('loc_class2')
 
                     for location in locations:
                         if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
                             temp = getChar()
                             if temp.getLocation() != location:
+                            
                                 if location.id in ['loc_wcf','loc_wcm']: # В сортир по полу пихаем
                                     if temp.getSex() == 'male':
                                         location = getLoc('loc_wcm')

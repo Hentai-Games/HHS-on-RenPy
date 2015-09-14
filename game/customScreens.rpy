@@ -213,17 +213,19 @@ screen inventory:
     fixed :
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
+        $ showed[:] = []
         hbox :
             textbutton _('Назад') action Function(move, curloc)
             textbutton _('Одежда') action [Hide('inventory'),Hide('showItem'),Show('inventory_clothing')]
-
         $ xalig = 0.2
         $ yalig = 0.05
         for x in player.inventory:
             if x.type == 'food':
                 imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action [Function(player.eat, x), Function(move,curloc)] hovered [SetVariable('myItem', x), Show('showItem')]
-            elif x.type == 'tool':
+            elif x.type == 'tool' and x.name not in showed:
                 imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                python:
+                    showed.append(x.name)
             else:
                 $ xalig -= 0.09
             $ xalig += 0.09
@@ -262,6 +264,8 @@ screen showItem:
             add myItem.picto
             null height 10
             text '[myItem.name]' style style.my_text
+            $ temp = player.countItems(myItem.name)
+            text _('Количество [temp]') style style.my_text
             text _('Использований [myItem.durability]') style style.my_text
             if myItem.type == 'food':
                 text _('Насыщение [myItem.energy]') style style.my_text

@@ -1,7 +1,9 @@
 init python:
     def dailyRecount(chars):
     
-        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat
+        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties
+        
+        timeGetPanties = 0 # сброс времени выдачи трусов
         
         if development == 0:
             # Голод
@@ -38,15 +40,55 @@ init python:
         elif school.eduMats == 'eduSexy':
             eduMod = 0.1
 
-            
+        
+        # Если есть клуб, забиваем в него как минимум 4 человек
+        if 'cherleader' in school.clubs and len(getClubChars('cherleader')) < 4:
+            while len(getClubChars('cherleader')) < 4:
+                choice(getClubChars('','female')).club = 'cherleader'
+                
+        if 'cosplay' in school.clubs and len(getClubChars('cosplay')) < 4:
+            while len(getClubChars('cosplay')) < 4:
+                choice(getClubChars('')).club = 'cosplay'
+
+        if 'sport' in school.clubs and len(getClubChars('sport')) < 4:
+            while len(getClubChars('sport')) < 4:
+                choice(getClubChars('')).club = 'sport'
+                
+        if 'medic' in school.clubs and len(getClubChars('medic')) < 4:
+            while len(getClubChars('medic')) < 4:
+                choice(getClubChars('')).club = 'medic'
+                
+        if 'pants' in school.clubs and len(getClubChars('pants')) < 4:
+            while len(getClubChars('pants')) < 4:
+                choice(getClubChars('','female')).club = 'pants'
+
+                
         for char in chars:
             char.setCorr((getPar(teachers, 'corr') - char.getCorr())/10)
             char.setRep((getPar(studs, 'rep') - char.getRep())/100)
             if char in studs:
                 # Добавление трусов, если их нет у чара.
-                if char.getSex != 'male' and char.getItem(studPantiesF.name) == False:
-                    char.addItem(studPantiesF)
+                if char.getSex != 'male' and char.getItem(studpantiesF.name) == False:
+                    char.addItem(studpantiesF)
                     
+                # Убираем клуб, если его удалили или ученик не в том клубе
+                if char.club not in school.clubs or (char.getSex() == 'male' and char.club in ['cherleader','pants']):
+                    char.club = ''
+                
+                # Добавляем клуб (предварительная версия)
+                if char.club == '' and rand(1,10) == 1 and len(school.getAllClubs('available')) > 0:
+                    if char.getSex() != 'male':
+                        char.club = choice(school.getAllClubs('available'))
+                    else:
+                        available = school.getAllClubs('available')
+                        tempArr = []
+                        for club in available:
+                            if club not in ['pants','cherleader']:
+                                tempArr.append(club)
+                        if len(tempArr) > 0:
+                            char.club = choice(tempArr)
+                    
+                
                 # inhibLow
                 if inhibLow == 1:
                     char.setLust(10)
@@ -132,5 +174,4 @@ init python:
             if 'paint' in school.clubs:
                 school.budget -= 300
                 
-
         

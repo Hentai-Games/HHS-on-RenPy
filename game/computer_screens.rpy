@@ -113,7 +113,7 @@ screen description(what):
             elif what == 'pants':
                 vbox:
                     text _('Клуб грязных трусиков.')
-                    text _('Секретный клуб, участники которого используют вас в качестве посредника для перепродажи свих грязных трусиков всяким извращенцам. Приносит по 100 монет в день за каждого участника. Что особо приятно - приносит эти деньги лично вам.')
+                    text _('Секретный клуб, участники которого используют вас в качестве посредника для перепродажи свих грязных трусиков всяким извращенцам. Приносит одно нижнее бельё в день за каждого участника. Пострайтесь быть в школе на переменах, вас найдут.')
             else:
                 text _('Описания пока нет для [what].')
 
@@ -124,7 +124,7 @@ screen clubs:
         vbox:
             if is_cherleaderClub == 1:
                 textbutton _('Клуб черлидеров') action [
-                    If('cherleader' in school.clubs, false=[Function(school.addClub,'cherleader')],true = Function(school.removeClub,'cherleader')),
+                    If('cherleader' in school.clubs, false=[Function(school.addClub,'cherleader'),Show('clubs')],true = [Function(school.removeClub,'cherleader'),Show('clubs')]),
                     SelectedIf('cherleader' in school.clubs),
                     SensitiveIf('sport' in school.clubs)
                     ] hovered [
@@ -134,7 +134,7 @@ screen clubs:
                     ]
             if is_cosplayClub == 1:
                 textbutton _('Косплей клуб') action [
-                    If('cosplay' in school.clubs, false=[Function(school.addClub,'cosplay')],true = Function(school.removeClub,'cosplay')),
+                    If('cosplay' in school.clubs, false=[Function(school.addClub,'cosplay'),Show('clubs')],true = [Function(school.removeClub,'cosplay'),Show('clubs')]),
                     SelectedIf('cosplay' in school.clubs)
                     ] hovered [
                     Show('description', None, 'cosplay') # При наведении показывается описание
@@ -142,7 +142,7 @@ screen clubs:
                     Hide('description') # При потере фокуса - скрывается
                     ]
             textbutton _('Спортивный клуб') action [
-                If('sport' in school.clubs, false=[Function(school.addClub,'sport')],true = [Function(school.removeClub,'sport'),Function(school.removeClub,'cherleader')]),
+                If('sport' in school.clubs, false=[Function(school.addClub,'sport'),Show('clubs')],true = [Function(school.removeClub,'sport'),Function(school.removeClub,'cherleader'),Show('clubs')]),
                 SelectedIf('sport' in school.clubs)
                 ] hovered [
                 Show('description', None, 'sport') # При наведении показывается описание
@@ -150,7 +150,7 @@ screen clubs:
                 Hide('description') # При потере фокуса - скрывается
                 ]
             textbutton _('Кружок рисования') action [
-                If('paint' in school.clubs, false=[Function(school.addClub,'paint')],true = Function(school.removeClub,'paint')),
+                If('paint' in school.clubs, false=[Function(school.addClub,'paint'),Show('clubs')],true = [Function(school.removeClub,'paint'),Show('clubs')]),
                 SelectedIf('paint' in school.clubs)
                 ] hovered [
                 Show('description', None, 'paint') # При наведении показывается описание
@@ -160,7 +160,7 @@ screen clubs:
                 
             if is_pantiesClub == 1:
                 textbutton _('Клуб грязных трусиков') action [
-                    If('pants' in school.clubs, false=[Function(school.addClub,'pants')],true = Function(school.removeClub,'pants')),
+                    If('pants' in school.clubs, false=[Function(school.addClub,'pants'),Show('clubs')],true = [Function(school.removeClub,'pants'),Show('clubs')]),
                     SelectedIf('pants' in school.clubs)
                     ] hovered [
                     Show('description', None, 'pants') # При наведении показывается описание
@@ -219,7 +219,7 @@ screen furniture:
             textbutton _('Хим лаборатория (Бюджет - 75000)') action [
                 If('chemlab' in school.furniture, false=Show('preVoting', None, 'loy', 50, 'chemlab')),
                 SelectedIf('chemlab' in school.furniture),
-                SensitiveIf(player.money > 75000 or 'chemlab' in school.furniture)
+                SensitiveIf(school.budget > 75000 or 'chemlab' in school.furniture)
                 ] hovered [
                 Show('description', None, 'chemlab') # При наведении показывается описание
                 ] unhovered [
@@ -391,7 +391,7 @@ screen detentions:
                 Hide('description')
                 ]
                 
-            if 'dungeon' in school.furniture:
+            if 'dungeon' in school.buildings:
                 textbutton _('Заключение в подвале') action [
                     If('upskirt' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 50, 'lock'), true=SetField(school,'detention','lock')),
                     SelectedIf(school.detention == 'lock')
