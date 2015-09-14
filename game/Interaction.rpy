@@ -74,17 +74,20 @@ init python:
             
         if interactionObj.lname == 'Данокова':
             anotherImage = 'pic/teachers/danokova_1.png'
-        if interactionObj.lname == 'Фригидовна':
+        elif interactionObj.lname == 'Фригидовна':
             anotherImage = 'pic/teachers/frigidovna_1.png'
-        if interactionObj.lname == 'Биссектрисовна':
+        elif interactionObj.lname == 'Биссектрисовна':
             anotherImage = 'pic/teachers/bissektrisovna_1.png'
-        if interactionObj.lname == 'Диковна':
+        elif interactionObj.lname == 'Диковна':
             anotherImage = 'pic/teachers/dikovna_1.png'
-        if interactionObj.lname == 'Купрувна':
+        elif interactionObj.lname == 'Купрувна':
             anotherImage = 'pic/teachers/kupruvna_1.png'
-        if interactionObj.lname == 'Мустангович':
+        elif interactionObj.lname == 'Мустангович':
             anotherImage = 'pic/teachers/mustangovich_1.png'
-            
+        elif interactionObj.lname == 'Данте':
+            anotherImage = 'pic/teachers/dante_1.png'
+        elif interactionObj.lname == 'Гонореевна':
+            anotherImage = 'pic/teachers/gonoreevna_1.png'
         return anotherImage
         
     dummy = Char()
