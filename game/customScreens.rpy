@@ -305,6 +305,10 @@ screen shopping:
                     textbutton rawFood.name action [Function(player.buy, rawFood), Show('showSellItem')] hovered [SetVariable('myItem', rawFood), Show('showSellItem')]
             frame :
                 vbox :
+                    text _('Подарки')
+                    textbutton test_p.name action [Function(player.buy, test_p, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', test_p), Show('showSellItem')]
+            frame :
+                vbox :
                     #Список предметов на продажу
                     text _('Одежда')
                     textbutton jaket.name action [Function(player.buy, jaket, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', jaket), Show('showSellItem')]
