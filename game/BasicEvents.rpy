@@ -40,6 +40,7 @@ label myintro:
     player.say 'Разработчик...'
     me 'Что?'
     player.say 'Не перебивай меня!\nТак вот, разработчик сделал меня небольшой тамагочей. Меня надо хоть раз в день кормить, вовремя укладывать спать и следить за одеждой. И да, не выкидывай одежду! Я могу оказаться запертой голой в доме и умереть от голода!'
+    player.say 'Интерфейс скрывается кнопкой H, проматывать диалоги кнопокй Ctrl, включить автоматическое проматывание - Tab, ну а сохрится можно в меню по Esc.'
     player.say 'Фух. Вроде всё.'
     meSceptic 'Точно всё?'
     player.say 'Ну мне добавить больше нечего пока.'
@@ -386,7 +387,7 @@ label catched:
 label cover:
     show office
     show computer at top
-    if player.getEdu() < school.caughtChance*10 and school.caughtChance > 1:
+    if player.getIntel() < school.caughtChance*10 and school.caughtChance > 1:
         'У вас не получилось полностью скрыть следы. Надо пробовать ещё.'
         $ school.caughtChance -= 1
     else:
@@ -411,10 +412,13 @@ label increaseIncome:
 label working:
     show office
     show computer at top
-    'Вы поработали, заполняя различные документы, подписывая акты и выполняя прочую бумажную работу. На сегодня работа закончена.'
+    'Вы поработали, заполняя различные документы, подписывая акты и выполняя прочую бумажную работу.'
+    if rand(0,99) < player.getIntel() - 40:
+        'В документах вы обнаружили неправильную смету, и смогли перераспределить разницу в пользу своей школы!'
+        $ school.budget += rand(1000,2000)
     if rand(1,3) == 1:
         'В одном из документов вы натолкнулись на интересную тему для изучения, и слегка повысили свой уровень образования.'
-        $ player.setEdu(1)
+        $ player.setIntel(1)
     $ changetime(120)
     $ move(curloc)
     
@@ -428,10 +432,11 @@ label invest:
         player.say 'Я не могу инвестировать больше средств, чем имею!'
         jump invest
     else:
+        'Вы удачно перевели свои средства на счёт школы. Не забывайте, что они прошли как пожертвование, и выведение их обратно - нелегально!'
         python:
             player.money -= investment
             school.budget += investment
-            changetime(120)
+            changetime(30)
             move(curloc)
     
 label income:
