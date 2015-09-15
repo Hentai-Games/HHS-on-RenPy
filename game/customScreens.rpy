@@ -217,6 +217,7 @@ screen inventory:
         hbox :
             textbutton _('Назад') action Function(move, curloc)
             textbutton _('Одежда') action [Hide('inventory'),Hide('showItem'),Show('inventory_clothing')]
+            textbutton _('Подарки') action [Hide('inventory'), Hide('showItem'), Show('inventory_presents')]
         $ xalig = 0.2
         $ yalig = 0.05
         for x in player.inventory:
@@ -248,6 +249,29 @@ screen inventory_clothing:
         $ yalig = 0.05
         for x in player.inventory:
             if x.type == 'clothing':
+                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+            else :
+                $ xalig -= 0.09
+            $ xalig += 0.09
+            if xalig >= 0.99:
+                $ yalig += 0.15
+                $ xalig = 0.2
+                
+# Показ подарков
+screen inventory_presents:
+    zorder 1
+    modal True
+    fixed :
+        add 'pic/bg.png'
+    fixed xpos 0.01 ypos 0.01:
+        hbox :
+            textbutton _('Назад') action Function(move, curloc)
+            textbutton _('Разное') action [Function(clrscr), Show('inventory')]
+
+        $ xalig = 0.2
+        $ yalig = 0.05
+        for x in player.inventory:
+            if x.type == 'present':
                 imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
             else :
                 $ xalig -= 0.09
