@@ -162,6 +162,7 @@ init python:
             school.removeClub('cherleader')
             school.removeClub('sport')
             school.removeClub('cosplay')
+            school.removeClub('medic')
             school.removeClub('paint')
             
         if hour == 15 and weekday < 6:
@@ -173,5 +174,7 @@ init python:
                 school.budget -= 500
             if 'paint' in school.clubs:
                 school.budget -= 300
+            if 'medic' in school.clubs:
+                school.budget -= 250
                 
         

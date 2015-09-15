@@ -114,8 +114,14 @@ screen description(what):
                 vbox:
                     text _('Клуб грязных трусиков.')
                     text _('Секретный клуб, участники которого используют вас в качестве посредника для перепродажи свих грязных трусиков всяким извращенцам. Приносит одно нижнее бельё в день за каждого участника. Пострайтесь быть в школе на переменах, вас найдут.')
+            elif what == 'medic':
+                vbox:
+                    text _('Медицинский клуб.')
+                    text _('Ученики в этом клубе учатся основам врачебного искусства.')
+                    text _('Стоимость клуба - 250 монет в день')
+                    text _('Занятия клуба проводятся в медицинском кабинете, с 15 до 18 ежедневно.')
             else:
-                text _('Описания пока нет для [what].')
+                text _('Описания пока нет для [what]. Напишите на форум, если видите это, я постраюсь добавить описание.')
 
 screen clubs:
     zorder 1
@@ -132,6 +138,7 @@ screen clubs:
                     ] unhovered [
                     Hide('description') # При потере фокуса - скрывается
                     ]
+                    
             if is_cosplayClub == 1:
                 textbutton _('Косплей клуб') action [
                     If('cosplay' in school.clubs, false=[Function(school.addClub,'cosplay'),Show('clubs')],true = [Function(school.removeClub,'cosplay'),Show('clubs')]),
@@ -141,6 +148,7 @@ screen clubs:
                     ] unhovered [
                     Hide('description') # При потере фокуса - скрывается
                     ]
+                    
             textbutton _('Спортивный клуб') action [
                 If('sport' in school.clubs, false=[Function(school.addClub,'sport'),Show('clubs')],true = [Function(school.removeClub,'sport'),Function(school.removeClub,'cherleader'),Show('clubs')]),
                 SelectedIf('sport' in school.clubs)
@@ -149,6 +157,7 @@ screen clubs:
                 ] unhovered [
                 Hide('description') # При потере фокуса - скрывается
                 ]
+                
             textbutton _('Кружок рисования') action [
                 If('paint' in school.clubs, false=[Function(school.addClub,'paint'),Show('clubs')],true = [Function(school.removeClub,'paint'),Show('clubs')]),
                 SelectedIf('paint' in school.clubs)
@@ -157,6 +166,16 @@ screen clubs:
                 ] unhovered [
                 Hide('description') # При потере фокуса - скрывается
                 ]
+            
+            if 'doctor' in school.buildings:
+                textbutton _('Медицинский клуб') action [
+                    If('medic' in school.clubs, false=[Function(school.addClub,'medic'),Show('clubs')],true = [Function(school.removeClub,'medic'),Show('clubs')]),
+                    SelectedIf('medic' in school.clubs)
+                    ] hovered [
+                    Show('description', None, 'medic') # При наведении показывается описание
+                    ] unhovered [
+                    Hide('description') # При потере фокуса - скрывается
+                    ]
                 
             if is_pantiesClub == 1:
                 textbutton _('Клуб грязных трусиков') action [
@@ -347,7 +366,7 @@ screen working:
             textbutton _('Вывести часть бюджета') action [SetVariable('lastWork',ptime), Function(school.steal,player)]
             if school.caughtChance > 0:
                 textbutton _('Замести следы выведения средств') action [SetVariable('lastWork',ptime), Function(move,'cover')]
-            textbutton _('Инвестировать в школу') action [SetVariable('lastWork',ptime), Function(move,'invest')]
+            textbutton _('Инвестировать в школу') action [Function(move,'invest')]
             if player.getItem(clubPanties.name) != False:
                 textbutton _('Продать трусики в интернете') action [Function(player.sellItems,clubPanties.name),Show('compScreen')]
             

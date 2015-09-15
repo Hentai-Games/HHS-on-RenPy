@@ -375,10 +375,12 @@ label skipall:
             money = _money
         )
         player.addItems('Салфетка', 'Сырая еда', jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name, pantalons.name, oldShirt.name)
+        
         player.initSet(0,[jaket.name, longSkirt.name, browntights.name, simpleUnderwear.name])
         player.initSet(1,[pantalons.name, oldShirt.name])
         player.applySet(0)
         player.say = Character (player.fullName(), kind=adv, dynamic = False, color = player.color, show_side_image = Image(im.FactorScale(player.picto,.6, xalign=0.01, yalign= 2.0)), window_left_padding = 170)
+        
 #####################################################
 #Генерация и создание студентов
 #####################################################
@@ -398,10 +400,9 @@ label skipall:
         # Количество людей в классах должно быть одинаковым
         # Равномерного распределения не надо, но минимум по 2 человека 
         #     разного пола должны быть в одном классе.
-        
-
         # Генерируем учеников, 50 человек, 5 классов
-        _studs = generate_students(50, 5)
+        
+        _studs = generate_students(students, 5)
         set_students_intelligence(_studs)
         set_students_will(_studs)
         print_debug_will_and_int(_studs)

@@ -62,33 +62,39 @@ init python:
         renpy.show('temp1', what = Image(getCharImage(player), xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
         renpy.show('temp2', what = Image(getCharImage(interactionObj), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
         
-    def getCharImage(char):
+    def getCharImage(char,*args):
         if char == player:
             anotherImage = player.picto
-            return anotherImage
             
-        if char.getSex() == 'male':
+        elif char.getSex() == 'male':
             anotherImage = 'pic/showStud/m_1.png'
         else:
             anotherImage = 'pic/showStud/f_1.png'
             
-        if interactionObj.lname == 'Данокова':
+        if char.lname == 'Данокова':
             anotherImage = 'pic/teachers/danokova_1.png'
-        elif interactionObj.lname == 'Фригидовна':
+        elif char.lname == 'Фригидовна':
             anotherImage = 'pic/teachers/frigidovna_1.png'
-        elif interactionObj.lname == 'Биссектрисовна':
+        elif char.lname == 'Биссектрисовна':
             anotherImage = 'pic/teachers/bissektrisovna_1.png'
-        elif interactionObj.lname == 'Диковна':
+        elif char.lname == 'Диковна':
             anotherImage = 'pic/teachers/dikovna_1.png'
-        elif interactionObj.lname == 'Купрувна':
+        elif char.lname == 'Купрувна':
             anotherImage = 'pic/teachers/kupruvna_1.png'
-        elif interactionObj.lname == 'Мустангович':
+        elif char.lname == 'Мустангович':
             anotherImage = 'pic/teachers/mustangovich_1.png'
-        elif interactionObj.lname == 'Данте':
+        elif char.lname == 'Данте':
             anotherImage = 'pic/teachers/dante_1.png'
-        elif interactionObj.lname == 'Гонореевна':
+        elif char.lname == 'Гонореевна':
             anotherImage = 'pic/teachers/gonoreevna_1.png'
-        return anotherImage
+        if len(args) == 0:
+            return anotherImage
+            
+        elif args[0] == 'dialog':
+            if char.name == player.name:
+                return Image(anotherImage, xalign=0.2, yalign= 1.0, yanchor = 'center')
+            else:
+                return Image(anotherImage, xalign=0.8, yalign= 1.0, yanchor = 'center')
         
     dummy = Char()
     interactionObj = dummy

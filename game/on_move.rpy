@@ -143,6 +143,9 @@ init python:
                             
                         elif x.club == 'paint' and lt() == -1:
                             x.moveToLocation('loc_class2')
+                            
+                        elif x.club == 'medic' and lt() == -1:
+                            x.moveToLocation('loc_doctor')
 
                     for location in locations:
                         if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
