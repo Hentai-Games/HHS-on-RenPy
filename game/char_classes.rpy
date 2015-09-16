@@ -665,6 +665,15 @@ init -20 python:
         def getLocation(self):
             return self.location
 
+        def takeGift(self, gift):
+            if gift.sex != 'any' and self.sex != gift.sex:
+                raise Exception('Wrong sex of the {} gift was present to {}'
+                                .format(gift, self))
+
+            self.setCorr(gift.corr)
+            self.setLoy(gift.loy)
+            self.setRep(gift.reputation)
+
         def __repr__(self):
             return ('<{} name: "{}", sex: "{}">'
                     .format(self.__class__.__name__,

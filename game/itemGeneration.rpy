@@ -2,6 +2,18 @@
 #Создание айтемов
 #############################################################
 init python:
+
+    # Presents
+    test_p = Present(
+        name='Колготки',
+        sex='female',
+        cost=100,
+        corr=10,
+        picto = 'pic/items/nettights.png'
+    )
+
+    print test_p
+
     clothing = []
     #Cоздание предметов
     
@@ -767,4 +779,3 @@ init python:
     
     
     allItems.extend(clothing)
-    
