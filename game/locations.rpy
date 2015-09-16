@@ -586,6 +586,8 @@ label loc_entrance:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
                         text 'Кабинет Химии. Тут обычно преподаёт Валентина Купрувна. Весь учительский стол завален всякими колбами и ретортами. В стороне даже приютилась пара баночек для анализов.' style style.description
+                        if 'chemlab' in school.buildings:
+                            text 'Вы построили пристройку, и из этого кабинета теперь можно попать в лабораторию.' style style.description
                     textbutton 'Первый этаж':
                         xalign 0.8 yalign 0.8 
                         action Function(move, 'loc_firstFloor') 

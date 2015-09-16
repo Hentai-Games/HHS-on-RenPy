@@ -24,7 +24,13 @@ screen studList:
             $ pictoSize = 0.5
             if x in highlightP:
                 $ pictoSize += 0.1
-            imagebutton idle im.FactorScale(x.picto,pictoSize) hover im.FactorScale(x.picto,pictoSize + 0.1) xalign xalig yalign yalig action [Function(addHighlight,x), Show('charInfoLeft')] hovered [SetVariable('showHover',x),Show('charInfoLeft')] unhovered Hide('charInfoLeft')
+            imagebutton:
+                idle im.FactorScale(x.picto,pictoSize) 
+                hover im.FactorScale(x.picto,pictoSize + 0.1) 
+                xalign xalig yalign yalig 
+                action [Function(addHighlight,x), Show('charInfoLeft')] 
+                hovered [SetVariable('showHover',x),Show('charInfoLeft')] 
+                unhovered Hide('charInfoLeft')
             $ xalig += 0.09
             if xalig >= 0.99:
                 $ yalig += 0.15
@@ -36,7 +42,12 @@ screen teacherList:
         $ xalig = 0.17
         $ yalig = 0.01
         for x in teachers:
-            imagebutton idle im.FactorScale(x.picto,0.5) hover im.FactorScale(x.picto,0.6) xalign xalig yalign yalig action NullAction() hovered [SetVariable('showHover',x),Show('charInfoLeft')] unhovered Hide('charInfoLeft')
+            imagebutton:
+                idle im.FactorScale(x.picto,0.5) 
+                hover im.FactorScale(x.picto,0.6) 
+                xalign xalig yalign yalig action NullAction() 
+                hovered [SetVariable('showHover',x),Show('charInfoLeft')] 
+                unhovered Hide('charInfoLeft')
             $ xalig += 0.15
             if xalig >= 0.99:
                 $ yalig += 0.15
