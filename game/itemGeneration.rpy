@@ -2,21 +2,7 @@
 #Создание айтемов
 #############################################################
 init python:
-
-    # Presents
-    test_p = Present(
-        name='Колготки',
-        sex='female',
-        cost=100,
-        corr=10,
-        picto = 'pic/items/nettights.png'
-    )
-
-    print test_p
-
-    clothing = []
     #Cоздание предметов
-    
     napkin = Tool(purpose = 'clean')
     napkin.name = _('Салфетка')
     napkin.cost = 100
@@ -54,10 +40,63 @@ init python:
     
     allItems = [napkin, sandwich, eDrink, rawFood, clubPanties]
 
+    # Создание подарков
+    textBook = Present(
+        name = 'Набор учебников',
+        sex = 'any',
+        cost = 1000,
+        reputation = 10,
+        picto = 'pic/items/textBook.jpg',
+        durability = 90
+    )
+    allItems.append(textBook)
+    
+    helicopter = Present(
+        name = 'Вертолётик',
+        sex = 'male',
+        cost = 2000,
+        loy = 10,
+        picto = 'pic/items/helicopter.jpg',
+        durability = 30
+    )
+    allItems.append(helicopter)
+    
+    pneumatics = Present(
+        name = 'Пневматика',
+        sex = 'male',
+        cost = 5000,
+        loy = 25,
+        picto = 'pic/items/pneumatics.jpg',
+        durability = 90
+    )
+    allItems.append(pneumatics)
+    
+    ring = Present(
+        name = 'Золотое кольцо',
+        sex = 'female',
+        cost = 2000,
+        loy = 10,
+        picto = 'pic/items/ring.jpg',
+        durability = 30
+    )
+    allItems.append(ring)
+    
+    perfume = Present(
+        name = 'Элитные духи',
+        sex = 'female',
+        cost = 5000,
+        loy = 25,
+        picto = 'pic/items/perfume.jpg',
+        durability = 90
+    )
+    allItems.append(perfume)
+    
     
 #######################################################################
 #  Верхняя одежда
-#######################################################################   
+#######################################################################
+    clothing = []
+    
     jaket = Clothing(
     lust = 0,
     corr = 0,

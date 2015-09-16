@@ -19,7 +19,6 @@ init -20 python:
         def normalize(self):
             self.size = max(self.minSize, min(self.size, self.maxSize))
 
-
     # Общий класс тела с частями, общими для всех
     class Body(object):
         def __init__(self, height = 140, bodyparts = {}):
@@ -328,8 +327,15 @@ init -20 python:
         def getDirty(self):
             return self.stats.dirty
             
-        def getSex(self):
-            return self.body.sex()
+        def getSex(self,*args):
+            if len(args) == 0:
+                return self.body.sex()
+            else:
+                if args[0] == 'mf':
+                    if self.body.sex() == 'male':
+                        return self.body.sex()
+                    else:
+                        return 'female'
             
 ###################################################################
 #инвентарь
@@ -666,10 +672,11 @@ init -20 python:
             return self.location
 
         def takeGift(self, gift):
-            if gift.sex != 'any' and self.sex != gift.sex:
+            if gift.sex != 'any' and self.getSex('mf') != gift.sex:
                 raise Exception('Wrong sex of the {} gift was present to {}'
                                 .format(gift, self))
-
+                                
+            self.inventory.append(gift)
             self.setCorr(gift.corr)
             self.setLoy(gift.loy)
             self.setRep(gift.reputation)

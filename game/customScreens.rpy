@@ -189,7 +189,10 @@ screen peopleTextList:
                 mystyle = 'small_button_text'
                 if x in teachers: mystyle = 'bluesmall_button'
                 if x in highlightP: mystyle = 'warning'
-            textbutton x.name action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)] hovered [SetVariable('showHover',x)] style "bluesmall_button" text_style mystyle xalign 0.0
+            textbutton x.name:
+                action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)]
+                hovered [SetVariable('showHover',x)]
+                style "bluesmall_button" text_style mystyle xalign 0.0
                   
                 
 
@@ -216,8 +219,9 @@ screen inventory:
         $ showed[:] = []
         hbox :
             textbutton _('Назад') action Function(move, curloc)
-            textbutton _('Одежда') action [Hide('inventory'),Hide('showItem'),Show('inventory_clothing')]
-            textbutton _('Подарки') action [Hide('inventory'), Hide('showItem'), Show('inventory_presents')]
+            textbutton _('Одежда') action [Function(clrscr),Show('inventory_clothing')]
+            textbutton _('Подарки') action [Function(clrscr), Show('inventory_presents')]
+            textbutton _('Разное') action NullAction()
         $ xalig = 0.2
         $ yalig = 0.05
         for x in player.inventory:
@@ -243,8 +247,10 @@ screen inventory_clothing:
     fixed xpos 0.01 ypos 0.01:
         hbox :
             textbutton _('Назад') action Function(move, curloc)
+            textbutton _('Одежда') action NullAction()
+            textbutton _('Подарки') action [Function(clrscr), Show('inventory_presents')]
             textbutton _('Разное') action [Function(clrscr),Show('inventory')]
-
+            
         $ xalig = 0.2
         $ yalig = 0.05
         for x in player.inventory:
@@ -266,7 +272,9 @@ screen inventory_presents:
     fixed xpos 0.01 ypos 0.01:
         hbox :
             textbutton _('Назад') action Function(move, curloc)
-            textbutton _('Разное') action [Function(clrscr), Show('inventory')]
+            textbutton _('Одежда') action [Function(clrscr),Show('inventory_clothing')]
+            textbutton _('Подарки') action NullAction()
+            textbutton _('Разное') action [Function(clrscr),Show('inventory')]
 
         $ xalig = 0.2
         $ yalig = 0.05
@@ -329,10 +337,6 @@ screen shopping:
                     textbutton rawFood.name action [Function(player.buy, rawFood), Show('showSellItem')] hovered [SetVariable('myItem', rawFood), Show('showSellItem')]
             frame :
                 vbox :
-                    text _('Подарки')
-                    textbutton test_p.name action [Function(player.buy, test_p, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', test_p), Show('showSellItem')]
-            frame :
-                vbox :
                     #Список предметов на продажу
                     text _('Одежда')
                     textbutton jaket.name action [Function(player.buy, jaket, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', jaket), Show('showSellItem')]
@@ -352,6 +356,13 @@ screen shopping:
                     textbutton sexyUnderwear.name action [Function(player.buy, sexyUnderwear, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', sexyUnderwear), Show('showSellItem')]
                     textbutton skimpyUnderwear.name action [Function(player.buy, skimpyUnderwear, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', skimpyUnderwear), Show('showSellItem')]
                     textbutton sportUniform.name action [Function(player.buy, sportUniform, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', sportUniform), Show('showSellItem')]
+            frame :
+                vbox :
+                    #Список подарков на продажу
+                    text _('Подарки')
+                    for x in allItems:
+                        if x.type == 'present':
+                            textbutton x.name action [Function(player.buy, x, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', x), Show('showSellItem')]
 
 
 screen showSellItem:
@@ -364,7 +375,15 @@ screen showSellItem:
             text _('Использований [myItem.durability]') style style.my_text
             if myItem.type == 'food':
                 text _('Насыщение [myItem.energy]') style style.my_text
-
+            
+            if myItem.type == 'present':
+                if myItem.reputation > 0: 
+                    text _('Репутация + [myItem.reputation]') style style.my_text
+                if myItem.loy > 0: 
+                    text _('Лояльность + [myItem.loy]') style style.my_text
+                if myItem.corr > 0: 
+                    text _('Развратность + [myItem.corr]') style style.my_text
+            
             if myItem.type == 'clothing':
                 if myItem.corr > player.stats.corr:
                     text _('Требует развратности [myItem.corr]') style style.warning

@@ -60,28 +60,41 @@ screen charInfoLeft:
             if showHover.age > 0:
                 add showHover.picto
                 null height 10
+                
                 $ playerName = player.fullName()
                 text _('[showHover.name]') style style.my_text
+                
                 $ temp = showHover.age
                 text _('Возраст [temp]') style style.my_text
+                
+                $ temp = round(showHover.stats.beauty,1)
+                text _('Красота [temp]') style style.my_text
+                
                 $ bsize = showHover.body.parts['грудь'].size
                 if bsize > 0:
                     $ temp = round(bsize, 1)
                     text _('Размер груди [temp]') style style.my_text
                 else:
                     text '' style style.my_text
+                    
                 $ temp = round(showHover.body.height,1)
                 text _('Рост [temp]') style style.my_text
-                $ temp = round(showHover.stats.education,1)
+                
+                $ temp = round(showHover.getEdu(),1)
                 text _('Образование [temp]') style style.my_text
-                $ temp = round(showHover.stats.fun,1)
+                
+                $ temp = round(showHover.getFun(),1)
                 text _('Счастье [temp]') style style.my_text
-                $ temp = round(showHover.stats.loyalty,1)
+                
+                $ temp = round(showHover.getLoy(),1)
                 text _('Лояльность [temp]') style style.my_text
-                $ temp = round(showHover.stats.corr,1)
+                
+                $ temp = round(showHover.getCorr(),1)
                 text _('Развратность [temp]') style style.my_text
-                $ temp = round(showHover.stats.beauty,1)
-                text _('Красота [temp]') style style.my_text
+                
+                if showHover not in teachers:
+                    $ temp = round(showHover.getRep(),1)
+                    text _('Репутация [temp]') style style.my_text
                 if showHover in highlightP:
                     text _('Подсвечивается') style style.green
                 else:
