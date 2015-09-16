@@ -110,15 +110,17 @@ screen locationPeoplePicto:
     tag interface
     fixed xpos 0.01 ypos 0.01:
         textbutton 'Назад' action Function(move, curloc)
-
         $ xalig = 0.2
         $ yalig = 0.05
         for x in getLoc(curloc).getPeople():
             $ pictoSize = 0.5
             if x in highlightP:
                 $ pictoSize += 0.1
-            imagebutton idle im.FactorScale(x.picto,pictoSize) hover im.FactorScale(x.picto,pictoSize + 0.1) xalign xalig yalign yalig action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
-            # add im.FactorScale(x.picto,0.6) xalign xalig yalign yalig
+            imagebutton:
+                idle im.FactorScale(x.picto,pictoSize) 
+                hover im.FactorScale(x.picto,pictoSize + 0.1) 
+                xalign xalig yalign yalig 
+                action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
             $ xalig += 0.09
             if xalig >= 0.99:
                 $ yalig += 0.15

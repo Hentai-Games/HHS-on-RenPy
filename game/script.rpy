@@ -98,3 +98,4 @@ label after_load:
 #speh
 #tama (monster1553)
 #mishima_toshihiro
+#happoubi_jin
