@@ -1,6 +1,6 @@
 init -50 python:
     class Item:
-        def __init__ (self, name, cost, durability, picto):
+        def __init__ (self, name, cost, durability, picto, type):
             self.durability = durability
             self.name = name
             self.cost = cost
@@ -31,3 +31,42 @@ init -50 python:
     class Food(Item):
         def __init__ (self, energy):
             self.energy = energy
+
+    class Present(Item):
+        def __init__(self, sex, loy=0, corr=0, reputation=0, *args, **kwargs):
+            """Создает новый подарок
+
+            sex - пол для подарка
+            loy - как подарок повлияет на лояльность - может быть 
+                  положительным или отрицательным
+            corr - как подарок повлияет на коррапшн - может быть положительным
+                   или отрицательным
+            reputation - как подарок повлияет на репутацию - может быть
+                         положительным или отрицательным
+            """
+
+            self.__check_sex(sex)
+
+            self.sex = sex
+            self.loy = loy
+            self.corr = corr
+            self.reputation = reputation
+
+            if 'type' not in kwargs:
+                kwargs['type'] = 'present'
+            if 'durability' not in kwargs:
+                kwargs['durability'] = 100
+
+            Item.__init__(self, **kwargs)
+
+        def __check_sex(self, sex):
+            avaialble = ['male', 'female', 'any']
+            if sex.lower() not in avaialble:
+                raise Exception('Wrong "sex" parameter: "{}". Available: {}'
+                                .format(sex, avaialble))
+
+        def __repr__(self):
+            return ('<{}: "{}", sex: {}, loy: {}, corr: {}, rep: {}>'
+                    .format(self.__class__.__name__,
+                            self.name.encode('utf-8'),
+                            self.sex, self.loy, self.corr, self.reputation))
