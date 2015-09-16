@@ -179,6 +179,7 @@ screen show_stat:
                     textbutton 'О родителях' xminimum 200 action Jump('reputation')
                 textbutton 'Выгнать' xminimum 200 action Jump('callout')
                 
+            textbutton 'Подарить' xminimum 200 action Show('make_gift_char')
             textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
             if development == 1:
                 textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
@@ -186,6 +187,29 @@ screen show_stat:
     frame ypos 0.01 xalign 1.0:
         text 'Очков общения: ' + str(interactionObj.sayCount)
         
+###########################################################################################################################            
+screen make_gift_char:
+    zorder 1
+    modal True
+    fixed :
+        add 'pic/bg.png'
+    fixed xpos 0.01 ypos 0.01:
+        hbox :
+            textbutton _('Назад') action Function(move, curloc)
+
+            $ xalig = 0.2
+
+        $ yalig = 0.05
+        for x in player.inventory:
+            if x.type == 'present' and (x.sex=='any' or x.sex==interactionObj.sex):
+                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig action [Function(interactionObj.takeGift, x), Function(player.removeItem, x), Function(move, curloc)]
+            else :
+                $ xalig -= 0.09
+            $ xalig += 0.09
+            if xalig >= 0.99:
+                $ yalig += 0.15
+                $ xalig = 0.2
+                
 ###########################################################################################################################            
 screen inventory_clothing_char:
     zorder 1
