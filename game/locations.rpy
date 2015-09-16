@@ -272,29 +272,21 @@ label loc_home:
     screen home:
         fixed:
             text 'Гостинная в вашей квартире. Маленькая, зато аккуратная. На стеклянном столе лежит пачка салфеток для ежедневного ухода за кожей. Напротив диванчика стоит телевизор. Вы не помните, чтобы по нему хоть раз показывали что-то хорошее. Возможно потому, что потеряли пульт сразу после переезда.' xalign 0.0 yalign 1.0 style style.description
-            textbutton temp1:
+            textbutton 'Кухня':
                 xalign 0.05 yalign 0.8 
                 action Function(move, 'loc_kitchen') 
-                hovered [SetVariable('temp1','Кухня'),Show('home')] 
-                unhovered SetVariable('temp1',defaultSymbol) 
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton temp2:
+            textbutton 'Спальня':
                 xalign 0.5 yalign 0.8 
                 action Function(move, 'loc_bedroom')  
-                hovered [SetVariable('temp2','Спальня'),Show('home')] 
-                unhovered SetVariable('temp2',defaultSymbol) 
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton temp3: 
+            textbutton 'Ванная': 
                 xalign 0.9 yalign 0.8 
                 action Function(move, 'loc_bathroom') 
-                hovered [SetVariable('temp3','Ванная'),Show('home')] 
-                unhovered SetVariable('temp3',defaultSymbol) 
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton temp4: 
+            textbutton 'Улица': 
                 xalign 0.5 yalign 0.5 
                 action Function(move, 'loc_street') 
-                hovered [SetVariable('temp4','Улица'),Show('home')] 
-                unhovered SetVariable('temp4',defaultSymbol) 
                 style "navigation_button" text_style "navigation_button_text"
             if development == 1:
                 textbutton 'Test':
@@ -308,11 +300,9 @@ label loc_home:
         screen bedroom:
             fixed:
                 text 'Уютненькая маленькая спальня. Слева находится небольшой шкаф, в котором висит ваша повседневная одежда. Справа кровать, довольно удобная. Тут ещё есть телевизор, но он не работает, так что совсем не будет мешать Вам отходить ко сну.' xalign 0.0 yalign 1.0 style style.description
-                textbutton temp1:
+                textbutton 'Гостинная':
                     xalign 0.5 yalign 0.8 
                     action Function(move, 'loc_home') 
-                    hovered [SetVariable('temp1','Гостинная'),Show('bedroom')] 
-                    unhovered SetVariable('temp1',defaultSymbol) 
                     style "navigation_button" text_style "navigation_button_text"
                 if (ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4):
                     textbutton 'Спать' xalign 0.2 yalign 0.76 action Jump('sleep')
@@ -336,11 +326,9 @@ label loc_home:
                         Function(move, curloc)] 
                 else :
                     text 'Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, вы понимаете, что её не осталось СОВСЕМ. Надо срочно сгонять в магазин.' xalign 0.0 yalign 1.0 style style.description
-                textbutton temp1:
+                textbutton 'Гостинная':
                     xalign 0.5 yalign 0.8 
                     action Function(move, 'loc_home') 
-                    hovered [SetVariable('temp1','Гостинная'),Show('kitchen')] 
-                    unhovered SetVariable('temp1',defaultSymbol) 
                     style "navigation_button" text_style "navigation_button_text"
                 if player.hasItem('Сэндвич') == False and player.hasItem('Сырая еда') == True:
                     textbutton 'Сделать\nсэндвич' xalign 0.8 yalign 0.65 action [
@@ -357,11 +345,9 @@ label loc_home:
         screen bathroom:
             fixed:
                 text 'Ванная комната. Совмещённая. В лучших традициях далёкой страны. Тут можно искупаться, чтобы смыть с себя грязь и прочие человеческие нечистоты. А можно просто постоять под душем и отдохнуть.' xalign 0.0 yalign 1.0 style style.description
-                textbutton temp1:
+                textbutton 'Гостинная':
                     xalign 0.5 yalign 0.8 
                     action Function(move, 'loc_home') 
-                    hovered [SetVariable('temp1','Гостинная'),Show('bathroom')] 
-                    unhovered SetVariable('temp1',defaultSymbol) 
                     style "navigation_button" text_style "navigation_button_text"
                 textbutton 'Душ' xalign 0.4 yalign 0.3 action Jump('shower') # style "navigation_button" text_style "navigation_button_text"
 

@@ -1,5 +1,4 @@
 init python:
-
     class Dialogue():
         def __init__(self, id, corr, type):
             self.id = id
@@ -100,6 +99,7 @@ init python:
     interactionObj = dummy
     lastView = 'locationPeoplePicto'
     showHover = dummy
+    gift = ''
 
 
 label locationPeople:
@@ -134,21 +134,24 @@ screen show_stat:
             null height 10
             $ name = interactionObj.fullName()
             text '[name]' style style.my_text
+            $ temp = round(interactionObj.getBeauty(), 1)
+            text 'Красота [temp]' style style.my_text
             if interactionObj.body.parts['грудь'].size > 0:
                 $ temp = round(interactionObj.body.parts['грудь'].size, 1)
                 text 'Размер груди [temp]' style style.my_text
             $ temp = round(interactionObj.body.height, 1)
             text 'Рост [temp]' style style.my_text
-            $ temp = round(interactionObj.stats.education, 1)
+            $ temp = round(interactionObj.getEdu(), 1)
             text 'Образование [temp]' style style.my_text
-            $ temp = round(interactionObj.stats.fun, 1)
+            $ temp = round(interactionObj.getFun(), 1)
             text 'Счастье [temp]' style style.my_text
-            $ temp = round(interactionObj.stats.loyalty, 1)
+            $ temp = round(interactionObj.getLoy(), 1)
             text 'Лояльность [temp]' style style.my_text
-            $ temp = round(interactionObj.stats.corr, 1)
+            $ temp = round(interactionObj.getCorr(), 1)
             text 'Развратность [temp]' style style.my_text
-            $ temp = round(interactionObj.getBeauty(), 1)
-            text 'Красота [temp]' style style.my_text
+            if interactionObj not in teachers:
+                $ temp = round(interactionObj.getRep(), 1)
+                text 'Репутация [temp]' style style.my_text
             null height 10
 
     fixed xpos 0.18 ypos 0.01 :
@@ -195,14 +198,21 @@ screen make_gift_char:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
-            textbutton _('Назад') action Function(move, curloc)
+            textbutton _('Назад') action [Function(clrscr),Show('show_stat')]
 
             $ xalig = 0.2
 
         $ yalig = 0.05
         for x in player.inventory:
-            if x.type == 'present' and (x.sex=='any' or x.sex==interactionObj.sex):
-                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig action [Function(interactionObj.takeGift, x), Function(player.removeItem, x), Function(move, curloc)]
+            if x.type == 'present' and (x.sex=='any' or x.sex==interactionObj.getSex('mf')):
+                imagebutton:
+                    idle im.FactorScale(x.picto,0.4) 
+                    hover im.FactorScale(x.picto,0.45)
+                    xalign xalig yalign yalig 
+                    # action [Function(interactionObj.takeGift, x), Function(player.removeItem, x), Function(move, curloc)]
+                    action [SetVariable('gift',x),Jump('takeGift')]
+                    hovered [SetVariable('myItem', x), Show('showItem')]
+                    unhovered Hide('showItem')
             else :
                 $ xalig -= 0.09
             $ xalig += 0.09
@@ -219,14 +229,16 @@ screen inventory_clothing_char:
     fixed xpos 0.01 ypos 0.01:
         hbox :
             textbutton _('Назад') action Function(move, curloc)
-
             $ xalig = 0.2
         $ yalig = 0.05
         for x in interactionObj.inventory:
-            if x.type == 'clothing':
-                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
-            else :
-                $ xalig -= 0.09
+            imagebutton:
+                idle im.FactorScale(x.picto,0.4) 
+                hover im.FactorScale(x.picto,0.45) 
+                xalign xalig yalign yalig  
+                action NullAction()
+                hovered [SetVariable('myItem', x), Show('showItem')]
+                unhovered Hide('showItem')
             $ xalig += 0.09
             if xalig >= 0.99:
                 $ yalig += 0.15
@@ -253,6 +265,17 @@ label flirt:
         changetime(5)
         player.stats.energy -= rand(5,10)
         renpy.jump(flirtSelector(user))
+    call screen show_stat
+###########################################################################################################################
+label takeGift:
+    $ clrscr()
+    $ giftName = gift.name.lower()
+    if interactionObj.getItem(gift.name) == False:
+        $ interactionObj.takeGift(gift)
+        $ player.removeItem(gift)
+        interactionObj.say 'Спасибо за [giftName]!'
+    else:
+        'Э-э-э, спасибо, конечно, но у меня уже есть [giftName] от вас.'
     call screen show_stat
 ###########################################################################################################################
 label callup:
