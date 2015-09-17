@@ -8,3 +8,5 @@ Link to last ImagePack (if obsolete, please create issue): https://yadi.sk/d/OoL
 Mustangovich update: https://yadi.sk/d/gBV-awQTj7kx3
 
 Items update: https://yadi.sk/d/Hzzuk4p6j8jW7
+
+Shop Update: https://yadi.sk/d/rpzSPMPVj9xgd
