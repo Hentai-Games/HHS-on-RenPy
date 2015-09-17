@@ -217,6 +217,12 @@ label cleanAss:
             pass
     $ move(curloc)
 
+label cleanWCF:
+    $ clrscr()
+    'Вы быстро сполоснули руки и лицо.'
+    $ player.clean('лицо','руки')
+    $ move(curloc)
+    
 label sleep:
     hide screen stats_screen
     python:
@@ -754,3 +760,20 @@ label getPanties:
     'Пританцовывая на одной ноге, [st1.fname] всё таки смогла снять свои и вручить их вам.'
     player.say 'Спасибо, я в скором времени их продам!'
     $ move(curloc)
+    
+label checkCam:
+    show computer at top
+    player.say 'Так так, что там у нас на камерах?'
+    python:
+        clrscr()
+        camSold = ptime
+        returnArr = getCamArr()
+        temp = rand(50,150)*len(returnArr)
+        player.money += temp
+        for x in returnArr:
+            st1 = getChar('female')
+            renpy.show('temp0', what = Image(x, xalign=0.5, yalign= 0.0))
+            renpy.say('','Камера сняла, как [st1.name] писает.')
+    hide temp0
+    'Вы продали фотографии в интернете и выручили за них [temp] монет.'
+    call screen compScreen

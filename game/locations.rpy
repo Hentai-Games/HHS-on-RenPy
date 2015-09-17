@@ -6,7 +6,9 @@ init 10 python:
             self.name = name
             self.base_prob = base_prob
             self.events = []
+            self.qwests = []
             self.position = position
+            self.items = []
 
         def getprob(self):
             global hour
@@ -36,11 +38,22 @@ init 10 python:
                     pass
 
             return rez
+            
+        def getItems(self):
+            rez = []
+            for x in self.items:
+                rez.append(x)
+            return rez
 
     class Event:
         def __init__(self,id,corr):
             self.id = id
             self.corr = corr
+            
+    class Qwest:
+        def __init__(self,id):
+            self.id = id
+            self.done = False
 
     def getLoc(id):
         for x in locations:
@@ -61,6 +74,19 @@ init 10 python:
                         corr = int(temp[2]) #находим развратность
                         event = Event(id = eventLabel, corr = corr) # создаём эвент
                         location.events.append(event) #добавляем его в массив эвентов локации
+        return 0
+        
+    def getQwests():
+        for eventLabel in _locs: # перебираем все лейблы
+            if eventLabel[:6] == 'qwest_': #находим тот, что с квестом
+                for location in locations: #начинаем перебирать локации
+                    if eventLabel.find(location.id) > 0: #Если имя локации содержится в имени эвента
+                        qwest = Qwest(id = eventLabel) # создаём эвент
+                        qwests = []
+                        for q in location.qwests:
+                            qwests.append(q.id)
+                        if qwest.id not in qwests:
+                            location.qwests.append(qwest) #добавляем его в массив эвентов локации
         return 0
 
 #Создание массива всех локаций
@@ -120,7 +146,7 @@ init 10 python:
             locations.append(loc)
 
     getEvents() #добавляю всем эвенты
-
+    getQwests() #добавляю квесты
 ######################################################
 #Объявление всех картинок
 init:
@@ -255,9 +281,15 @@ label test:
             # if x.getSex() != 'male':
                 # x.club = 'pants'
         # renpy.jump('getPanties')
-    $ t = mustangovich
-    show expression getCharImage(t,'dialog') as tempPic
-    'тест'
+    # $ t = mustangovich
+    # show expression getCharImage(t,'dialog') as tempPic
+    python:
+        # myString = ''
+        # tempList = [tempList for tempList in range(1,20)]
+        # for x in tempList:
+            # myString += str(x) + ', '
+        temp = getLoc('loc_shop').qwests[0].done
+    '[temp]'
     $move(curloc)
 
 ##############################################################
@@ -731,11 +763,20 @@ label loc_entrance:
             screen wcf:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
-                        text 'Женский туалет. Очень миленький. Справа есть умывальник. С зеркалом.' style style.description
+                        text 'Женский туалет. Очень миленький. Слева есть умывальник. С зеркалом.' style style.description
+                        if camera.name in getLoc('loc_wcf').getItems():
+                            text 'Камера установлена.' style style.description
+                    if camera.name not in getLoc('loc_wcf').getItems() and player.hasItem(camera.name):
+                        textbutton 'Установить камеру':
+                            xalign 0.5 yalign 0.1
+                            action [Function(player.removeItem, player.getItem(camera.name)),AddToSet(getLoc('loc_wcf').items, camera.name),Jump(curloc)]
                     textbutton 'Второй этаж':
                         xalign 0.8 yalign 0.8 
                         action Function(move, 'loc_secondFloor') 
                         style "navigation_button" text_style "navigation_button_text"
+                    textbutton 'Умывальник':
+                        xalign 0.1 yalign 0.6
+                        action Jump('cleanWCF')
             call screen wcf
 
 ##############################################################
@@ -968,7 +1009,6 @@ label loc_street:
                 $ is_beauty_visited = 1
                 jump beauty_intro
             call screen shopBeauty
-
 
         label loc_sexShop:
                 show sexShop at left

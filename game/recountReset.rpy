@@ -64,6 +64,14 @@ init python:
 
                 
         for char in chars:
+            
+            # Поломка подарков
+            for item in char.inventory:
+                if item.type == 'present':
+                    item.durability -= rand(1,2)
+                    if item.durability <= 0:
+                        char.removeItem(item)
+                        
             char.setCorr((getPar(teachers, 'corr') - char.getCorr())/10)
             char.setRep((getPar(studs, 'rep') - char.getRep())/100)
             if char in studs:
