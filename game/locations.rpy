@@ -23,7 +23,7 @@ init 10 python:
             return rez
 
         def __repr__(self):
-            return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
+            return '<{} name: "{}">'.format(self.__class__.__name__, self.name.encode('utf-8'))
 
         def getPeople(self):
             rez = []
@@ -41,6 +41,88 @@ init 10 python:
         def __init__(self,id,corr):
             self.id = id
             self.corr = corr
+
+    # Location statuses
+    class LocationStatus(object):
+        def __init__(self, name, pic, sex='any', events=None,
+                     requirements=None, stats_actions=None):
+            """Создает новый статус для локации.
+
+            name - имя для статуса
+            pic - изображение для отображения статуса
+            sex - пол для статуса: male, female, any
+            events - список меток ивентов, либо None - если статус не
+                     пораждает ивентов
+            requirements - dict необходимых параметров
+                           (key - corr, fun, ...;
+                            value - минимально-необходимое значение параметра),
+                           либо None если статус не имеет никаких требований
+            stats_actions - как статус повлияет на взявшего его персонажа.
+                            Задается как dict, где key - corr, fun, ...;
+                            value - задает на сколько изменится параметр,
+                            но финально параметр не вырастит больше
+                            N(заиграться до 100 fun не получится).
+                            Пример: stats_actions={'fun': (1, 20)} - fun
+                            увеличится на 1, но в итоге будет не больше 20
+            """
+            self.name = name
+            self.pic = pic
+            sex = sex.lower().strip()
+            if sex not in set(['male', 'female', 'any']):
+                raise Exception('Unknown sex submitted: {}'.format(sex))
+
+            self.sex = sex
+
+            # Events
+            if events is None:
+                events = []
+
+            # Check that something iterable was submitted, but not string.
+            # We need something like list
+            if not hasattr(events, '__iter__')\
+                                        or isinstance(events, basestring):
+                    raise Exception('events arguments shoud be submitted as list')
+            self.events = events
+
+            # Requirements
+            self.requirements = {key: (val if val is not None else 0)\
+                                 for key, val in self.__check_stats(requirements)
+                                                     .items()}
+
+            # Stats actions
+            self.stats_actions = {key: (val if val is not None else (0, 100))\
+                                  for key, val in self.__check_stats(stats_actions)
+                                                      .items()}
+            # Check for tuples
+            for a in self.stats_actions.values():
+                if not hasattr(a, '__len__') or len(a) != 2:
+                    raise Exception('Stats actions should be tuples length 2')
+
+        def __check_stats(self, in_stats):
+            if in_stats and (not hasattr(in_stats, 'items')\
+                             or not hasattr(in_stats, 'keys')):
+                    raise Exception('requirements should be submitted as dict')
+
+            if in_stats is None:
+                in_stats = {}
+            rez = {}
+            stats = ['loyalty', 'fun', 'corr', 'lust', 'will',
+                     'education', 'health', 'intelligence', 'beauty',
+                     'reputation', 'energy', 'dirty']
+            for stat in stats:
+                rez[stat] = in_stats.get(stat, None)
+
+            # Check that there is no typo stats
+            if set(in_stats.keys()) - set(stats):
+                raise Exception('Extra stats was submitted in requirements: {}'
+                                .format(', '.join(set(in_stats.keys())
+                                                  -set(stats))))
+
+            return rez
+
+        def __repr__(self):
+            return '<{} name: "{}">'.format(self.__class__.__name__, self.name.encode('utf-8'))
+
 
     def getLoc(id):
         for x in locations:
