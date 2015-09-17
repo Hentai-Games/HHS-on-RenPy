@@ -50,7 +50,8 @@ init 10 python:
 
             name - имя для статуса
             pic - изображение для отображения статуса
-            sex - пол для статуса: male, female, any
+            sex - пол для статуса, либо строка: male, female, futa, any,
+                  либо список с комбинацией этих значений
             events - список меток ивентов, либо None - если статус не
                      пораждает ивентов
             requirements - dict необходимых параметров
@@ -66,12 +67,19 @@ init 10 python:
                             увеличится на 1, но в итоге будет не больше 20
             """
             self.name = name
-            self.pic = pic
-            sex = sex.lower().strip()
-            if sex not in set(['male', 'female', 'any']):
-                raise Exception('Unknown sex submitted: {}'.format(sex))
 
-            self.sex = sex
+            # Sex
+            if isinstance(sex, basestring):
+                self.sex = [sex]
+            elif hasattr(sex, '__iter__'):
+                self.sex = sex
+            else:
+                raise Exception('Sex should be submitted as string ot list of strings')
+            for s in self.sex:
+                if s not in ['male', 'female', 'futa', 'any']:
+                    raise Exception('Unknown sex submitted: {}'.format(s))
+
+            self.pic = pic
 
             # Events
             if events is None:
@@ -93,6 +101,7 @@ init 10 python:
             self.stats_actions = {key: (val if val is not None else (0, 100))\
                                   for key, val in self.__check_stats(stats_actions)
                                                       .items()}
+
             # Check for tuples
             for a in self.stats_actions.values():
                 if not hasattr(a, '__len__') or len(a) != 2:
@@ -105,6 +114,7 @@ init 10 python:
 
             if in_stats is None:
                 in_stats = {}
+
             rez = {}
             stats = ['loyalty', 'fun', 'corr', 'lust', 'will',
                      'education', 'health', 'intelligence', 'beauty',
@@ -120,6 +130,21 @@ init 10 python:
 
             return rez
 
+        def checkApplicable(self, char):
+            """Проверяет, что статус применим к данному персонажу"""
+
+            if not isinstance(char, Char):
+                raise Exception('Submitted char should be Char object')
+
+            if 'any' not in self.sex and char.getSex() not in self.sex:
+                return False
+
+            for key, val in self.requirements.items():
+                if getattr(char.stats, key) < val:
+                    return False
+
+            return True
+
         def __repr__(self):
             return '<{} name: "{}">'.format(self.__class__.__name__, self.name.encode('utf-8'))
 
@@ -129,7 +154,6 @@ init 10 python:
             if x.id == id:
                 return x
         return False
-
 
 #Функция добавления эвентов в локации
     def getEvents():
