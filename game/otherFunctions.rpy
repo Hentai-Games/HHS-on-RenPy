@@ -293,3 +293,24 @@ init -5 python:
                 if x.club == club:
                     tempArr.append(x)
             return tempArr
+            
+    def getCamArr():
+        photoArr = []
+        returnArr = []
+        for path in config.searchpath:
+            # Ищем каталоги с картинками во всех возможных RenPy каталогах ресурсов
+            try:
+                for x in os.listdir(os.path.join(path, 'pic/events/camera/wcf/')):
+                    photoArr.append('pic/events/camera/wcf/' + x)
+            except OSError:
+                pass
+                
+        for x in range(1,4):
+            returnArr.append(choice(photoArr))
+        return returnArr
+        
+    def hasLocationsItem(item):
+        for x in locations:
+            if item in x.items:
+                return True
+        return False

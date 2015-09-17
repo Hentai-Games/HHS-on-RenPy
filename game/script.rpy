@@ -5,6 +5,7 @@
     curloc = 'loc_home' # Инициализация curloc
     students = 50 # количество студентов
     last_eat = 0 # Инициализация времени с последнего обеда
+    
     stat_loy = 0 # Инициализация переменных интерфейса
     stat_fun = 0
     stat_lust = 0
@@ -18,6 +19,7 @@
     lastWashed = 0 # Инициализация душа
     lastMastur = 0 # Инициализация мастурбации
     is_moneta = 0 # Инициализация объяснения валюты
+    camSold = -30 # Инициализация камеры в туалете
     inhibLow = 0 # Инициализация послешкольных эвентов увеличения разврата
     inhibLowTime = 0 # Время с последнего разврата
     is_beach_event = 0 # Инициализация триггера эвента дырки в душе
@@ -26,7 +28,8 @@
     mile_qwest_2_stage = 0 # Статус квеста купрувны
     is_beauty_visited = 0 # Триггер первого посещения салона красоты
     timeGetPanties = 0 # Время последнего получения трусов
-    
+    is_camera = 1 # триггер квеста камеры
+
     is_cosplayClub = 0 # триггер эвента косплей клуба
     is_cherleaderClub = 0 # Триггер эвента клуба чирлидеров
     is_pantiesClub = 0 # Триггер эвента секретного клуба
@@ -39,16 +42,8 @@
     pedicure = 0
     show_peopleTextList = 0
     
-    defaultSymbol = 'O' # херня для перехода по локациям дома.
-    temp1 = defaultSymbol
-    temp2 = defaultSymbol
-    temp3 = defaultSymbol
-    temp4 = defaultSymbol
-    temp5 = defaultSymbol
-    temp6 = defaultSymbol
-    
     reputation_intro = [] # Интро эвента для поднятия репутации
-    showed = [] # Стак предметов в отображении
+    showed = [] # Стак предметов в отображении инвентаря
     detentions = [] # Лист провинившихся
     scoldWho = [] # Лист тех, кого будем наказывать в эвенте
     highlightP = [] # лист подсвечивающихся на локации
@@ -63,6 +58,8 @@ init:
     # Прочие персонажи
     
     define med = Character("Медсестра", who_color="#c8ffc8", show_side_image = Image(im.FactorScale('pic/locations/shopBeauty/2.png',0.6, xalign=0.01, yalign= 1.2)), window_left_padding = 170)
+    
+    define seller = Character("Продавец", who_color="#0553FA", show_side_image = im.Scale("pic/otherChars/seller_picto.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     
     define me = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_norm.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     define meSad = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_sad.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)

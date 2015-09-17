@@ -17,6 +17,13 @@ init python:
     clubPanties.durability = 10
     clubPanties.type = 'tool'
     
+    camera = Tool(purpose = 'camera')
+    camera.name = _('Камера')
+    camera.cost = 2000
+    camera.picto = 'pic/items/camera.png'
+    camera.durability = 100
+    camera.type = 'tool'
+    
     sandwich = Food( energy = 250 )
     sandwich.name = _('Сэндвич')
     sandwich.cost = 0
