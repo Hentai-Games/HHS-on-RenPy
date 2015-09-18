@@ -228,7 +228,15 @@ screen inventory:
             if x.type == 'food':
                 imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action [Function(player.eat, x), Function(move,curloc)] hovered [SetVariable('myItem', x), Show('showItem')]
             elif x.type == 'tool' and x.name not in showed:
-                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                if x.purpose == 'camera':
+                    imagebutton:
+                        idle im.FactorScale(x.picto,0.4) 
+                        hover im.FactorScale(x.picto,0.45) 
+                        xalign xalig yalign yalig  
+                        action Jump('installCam')
+                        hovered [SetVariable('myItem', x), Show('showItem')]
+                else:
+                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
                 python:
                     showed.append(x.name)
             else:

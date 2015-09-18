@@ -83,9 +83,13 @@ init python:
             renpy.jump(callEvent) #эвент
 
     def trySpecialEvent(location):
-        if location == 'loc_shop':
-            if is_camera in [1,2]:
-                renpy.jump('qwest_loc_shop_cameraQwest')
+        if len(getLoc(location).qwests) > 0:
+            qArr = []
+            for q in getLoc(location).qwests:
+                if q.done == False:
+                    qArr.append(q)
+            if len(qArr) > 0:
+                renpy.jump(choice(qArr).id)
                 
             
     #Добавление людей на локации
