@@ -119,8 +119,8 @@ init 10 python:
             stats = ['loyalty', 'fun', 'corr', 'lust', 'will',
                      'education', 'health', 'intelligence', 'beauty',
                      'reputation', 'energy', 'dirty']
-            for stat in stats:
-                rez[stat] = in_stats.get(stat, None)
+            for stat, val in in_stats.items():
+                rez[stat] = val
 
             # Check that there is no typo stats
             if set(in_stats.keys()) - set(stats):
@@ -145,8 +145,20 @@ init 10 python:
 
             return True
 
+        def applyStatus(self, char):
+            """Применяет статус на персонажа"""
+            if not self.checkApplicable(char):
+                raise Exception('Status {} could not be applied to character <>'
+                                .format(self, char))
+
+            for stat, (mod, max_val) in self.stats_actions.items():
+                char_stat = getattr(char.stats, stat)
+                char_stat = min(max_val, char_stat+mod)
+                setattr(char.stats, stat, char_stat)
+
         def __repr__(self):
-            return '<{} name: "{}">'.format(self.__class__.__name__, self.name.encode('utf-8'))
+            return '<{} name: "{}">'.format(self.__class__.__name__,
+                                            self.name.encode('utf-8'))
 
 
     def getLoc(id):
