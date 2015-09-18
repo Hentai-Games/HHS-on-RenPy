@@ -33,10 +33,8 @@ init 10 python:
                 try:
                     if x.getLocation().id==self.id:
                         rez.append(x)
-
                 except AttributeError:
                     pass
-
             return rez
             
         def getItems(self):
@@ -59,6 +57,13 @@ init 10 python:
         for x in locations:
             if x.id == id:
                 return x
+        return False
+        
+    def getQwest(id):
+        for loc in locations:
+            for qwest in loc.qwests:
+                if qwest.id == id:
+                    return qwest
         return False
 
 
@@ -141,7 +146,7 @@ init 10 python:
             elif x == 'loc_class5Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
             elif x == 'loc_gymLearn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
             elif x == 'loc_poolLearn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
-            
+            elif x == 'loc_cabbage': loc = Location(id = x, name = 'Капуста', base_prob = -1, position = ['tech'])
             else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
             locations.append(loc)
 
@@ -288,7 +293,7 @@ label test:
         # tempList = [tempList for tempList in range(1,20)]
         # for x in tempList:
             # myString += str(x) + ', '
-        temp = getLoc('loc_shop').qwests[0].done
+        temp = getQwest('qwest_loc_shop_cameraQwest').done
     '[temp]'
     $move(curloc)
 
@@ -396,14 +401,16 @@ label loc_entrance:
         fixed:
             vbox xalign 0.0 yalign 1.0:
                 text 'Вход в Вашу новую школу. Ворота, крыльцо, всё как у всех, ничего необычного. Разве что кусты не особо пострижены, и дети там периодически играют, ну да ладно.' style style.description
-                if 'library' in school.buildings:
+                if 'library' not in school.buildings:
                     text 'Слева от школы полно места. Вроде как там раньше стоял сарай, но он давным давно рухнул, и теперь земля пустует. Библиотеку чтоли там построить? ' style style.description
                 else:
                     text 'Справа от школы виден вход в школьную библиотеку. В самом деле, замечательное приобретение! ' style style.description
-                if 'wall' in school.buildings:
+                if 'wall' not in school.buildings:
                     text 'Окидывая взглядом свои владения, вы видите прекрасный вид на окна школы. Выглядит конечно красиво, но как то всё напоказ. ' style style.description
                 else:
                     text 'Довольно высокая стена окружает школу. С улицы вообще непонятно, толи это школа, толи режимный объект. ' style style.description
+                if is_cabbage == 1 and hour == 7 and weekday < 6:
+                    text 'Сегодня день уборки урожая! Автобус ожидает вас и ваших учеников.' style style.description
             textbutton 'Холл':
                 xalign 0.456 yalign 0.73 
                 action [Function(move, 'loc_hall')] 
@@ -429,6 +436,12 @@ label loc_entrance:
                     xalign 0.8 yalign 0.7 
                     action [Function(move, 'loc_library')] 
                     style "navigation_button" text_style "navigation_button_text"
+            if is_cabbage == 1 and hour == 7 and weekday < 6:
+                imagebutton:
+                    idle im.MatrixColor('pic/events/cabbage/bus.png', im.matrix.opacity(0.5)) 
+                    hover im.MatrixColor('pic/events/cabbage/bus.png', im.matrix.opacity(1.0))
+                    xalign 4.8 yalign 1.2
+                    action [Jump('cabbageStart')]
     call screen entrance
 
     label loc_library:
@@ -583,6 +596,8 @@ label loc_entrance:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
                         text 'Ваш офис. Большой дубовый стол, компьютер, сразу видно что Вы здесь уважаемы.' style style.description
+                        if lt() >= 0 and is_cabbage == 0 and mile_qwest_2_stage > 0:
+                            text 'Вы видите молодого, хорошо одетого мужчину в вашем кабинете.'
                     textbutton 'Первый этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Воспользоваться\nокном' xalign 0.2 yalign 0.3 action Function(move, 'loc_entrance') style "navigation_button" text_style "navigation_button_text"
                     textbutton 'Компьютер' xalign 0.9 yalign 0.5 action Show('compScreen')
@@ -596,6 +611,13 @@ label loc_entrance:
                             hover im.MatrixColor(getCharImage(callup), im.matrix.opacity(1.0)) 
                             action [Function(clrscr), Show('show_stat'), Function(showChars)] 
                             hovered SetVariable('interactionObj',callup) xalign 0.5 yoffset 400
+                            
+                    if lt() >= 0 and is_cabbage == 0 and mile_qwest_2_stage > 0 or development > 0:
+                        imagebutton:
+                            idle im.MatrixColor('pic/events/cabbage/secretary.png', im.matrix.opacity(0.5)) 
+                            hover im.MatrixColor('pic/events/cabbage/secretary.png', im.matrix.opacity(1.0))
+                            xalign 0.1 yalign 1.0
+                            action [Jump('cabbageInit')]
             call screen office
 
         label loc_class1:
@@ -764,12 +786,10 @@ label loc_entrance:
                 fixed:
                     vbox xalign 0.0 yalign 1.0:
                         text 'Женский туалет. Очень миленький. Слева есть умывальник. С зеркалом.' style style.description
-                        if camera.name in getLoc('loc_wcf').getItems():
+                        if camera.name in getLoc(curloc).getItems():
                             text 'Камера установлена.' style style.description
-                    if camera.name not in getLoc('loc_wcf').getItems() and player.hasItem(camera.name):
-                        textbutton 'Установить камеру':
-                            xalign 0.5 yalign 0.1
-                            action [Function(player.removeItem, player.getItem(camera.name)),AddToSet(getLoc('loc_wcf').items, camera.name),Jump(curloc)]
+                        else:
+                            text 'Хорошее место для того, чтобы установить скрытую камеру.' style style.description
                     textbutton 'Второй этаж':
                         xalign 0.8 yalign 0.8 
                         action Function(move, 'loc_secondFloor') 

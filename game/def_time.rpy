@@ -7,7 +7,7 @@ init -3 python:
     mtime = 0
     timeMoved = 0
     ltMoved = 0
-    weekday = 1
+    weekday = 2
     month = 5
     number = 1
     year = 2010

@@ -119,20 +119,23 @@ init -5 python:
 
     def setRep(count,amount):
         for x in range(0, count):
-            studs[rand(0,len(studs)-1)].setRep(amount)
+            getChar().setRep(amount)
 
     def setLoy(count,amount):
         for x in range(0, count):
-            studs[rand(0,len(studs)-1)].setLoy(amount)
+            getChar().setLoy(amount)
             
     def setCorr(count,amount):
         for x in range(0, count):
-            studs[rand(0,len(studs)-1)].setCorr(amount) 
+            getChar().setCorr(amount) 
             
     def setLust(count,amount):
         for x in range(0, count):
-            studs[rand(0,len(studs)-1)].setLust(amount)
+            getChar().setLust(amount)
             
+    def setFun(count,amount):
+        for x in range(0, count):
+            getChar().setLust(amount)    
 
     def hadSex(*args):
         maleArr = []

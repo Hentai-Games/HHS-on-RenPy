@@ -317,23 +317,6 @@ label event_loc_class1_0_10:
             $ setCorr(10,0.5)
     $ move(curloc)
     
-label event_loc_class1_10_StartKupruvnaQuest:
-    show class1
-    python:
-        global teacher_son, mile_qwest_2_stage
-        if mile_qwest_2_stage > 0:
-            skipEvent()
-        mile_qwest_2_stage = 1
-        teacher_son = getChar('male')
-        
-    show expression 'pic/locations/school/class1/no11.jpg' at top as tempPic
-    kupruvna.say '[teacher_son.fname], это ты? -  расположившись на столе в очень интересной позе спросила вас учительница.'
-    'Ваш взгляд мгновенно переместился под юбку учительницы. Белье было очень влажное, вы буквально чувствовали это.'
-    kupruvna.say 'Ой, простите, - видя ваш ОЧЕНЬ удивлённый взгляд, смущенно сказала Валентина Купрувна, - просто я тут стол протирала, и [teacher_son.fname] должен был мне тряпку принести.'
-    player.say 'Эмм, ладно, хорошо... - сказали вы, пятясь к двери.'
-    'Интересно, что она и [teacher_son.fname] собиралась делать вместе? Надо бы исследовать этот вопрос поподробней. Только как нибудь незаметней.'
-    $ move(curloc)
-    
 label event_loc_class1_60_1:
     show class1
     python:
@@ -1015,30 +998,4 @@ label event_loc_entrance_20_StartClubPanties:
             st1.removeItems(studpantiesF.name)
             st1.club = 'pants'
             is_cosplayClub = 1
-    $ move(curloc)
-
-label event_loc_class4_5_StartCameraQwest:
-    show class4
-    python:
-        if is_camera != 0:
-            skipEvent()
-        p = player
-        st1 = getChar('female')
-    'Вы слышите шуршание под учительской тумбой.'
-    p.say 'Хмм, неужели действительно там мышь послелилась?'
-    show expression 'pic/locations/school/class4/no4.jpg' at top as tempPic
-    'Вы с удивлением обнаруживаете, что под тумбой поселилась [st1.fname] с миниатюрной камерой.'
-    p.say 'Ты что там делаешь?'
-    'Ваши глаза превращаются в узкие щёлочки, в которых начинает бушевать пламя гнева.'
-    st1.say 'Я? Я просто в журналисткий поступать собираюсь, вот и собираю материал для личного расследования...'
-    'Видя ваш взгляд, девочка пытается отодвинуться от него поглубже в тумбу.'
-    p.say 'И что же это за личное расследование? "У кого в классе самые красивые трусы"? А ну пошла быстро отсюда!'
-    $ st1.setLoy(-5)
-    if p.getCorr() > 20:
-        'Хотя немного подумав, вы решили всё таки оставить девочку под трибуной. Вдруг чего интересного нароет? Да ещё и распросили её, не продаются ли где камеры скрытого наблюдения. [st1.fname] рассказала вам, что их можно купить в круглосуточном магазине, если спросить у продавца.'
-        python:
-            is_camera = 1
-            p.setCorr(1)
-            st1.setCorr(2)
-            st1.setLoy(15)
     $ move(curloc)

@@ -1,4 +1,4 @@
-﻿init -3 python:
+﻿init -3 python: 
     development = 1 #Режим разработчика
     
     i = 500
@@ -25,11 +25,13 @@
     is_beach_event = 0 # Инициализация триггера эвента дырки в душе
     is_glory_found = 0 # Инициализация триггера глорихола
     mile_quest_1 = 0 # Статус квеста физрука
-    mile_qwest_2_stage = 0 # Статус квеста купрувны
     is_beauty_visited = 0 # Триггер первого посещения салона красоты
     timeGetPanties = 0 # Время последнего получения трусов
-    is_camera = 1 # триггер квеста камеры
-
+    
+    mile_qwest_2_stage = 0 # Статус квеста купрувны    
+    is_cabbage = 0 # Триггер квеста капусты
+    mile_qwest_2_Ahmed = 0 # триггер нахождения беседки
+    
     is_cosplayClub = 0 # триггер эвента косплей клуба
     is_cherleaderClub = 0 # Триггер эвента клуба чирлидеров
     is_pantiesClub = 0 # Триггер эвента секретного клуба
@@ -60,6 +62,10 @@ init:
     define med = Character("Медсестра", who_color="#c8ffc8", show_side_image = Image(im.FactorScale('pic/locations/shopBeauty/2.png',0.6, xalign=0.01, yalign= 1.2)), window_left_padding = 170)
     
     define seller = Character("Продавец", who_color="#0553FA", show_side_image = im.Scale("pic/otherChars/seller_picto.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
+    
+    define secretary = Character("Александр", who_color="#0553FA", show_side_image = im.Scale("pic/otherChars/secretary_picto.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
+    
+    define farmer = Character("Сидор Тяпкович", who_color="#0553FA", show_side_image = im.Scale("pic/otherChars/farmer_picto.jpg",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     
     define me = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_norm.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     define meSad = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_sad.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
