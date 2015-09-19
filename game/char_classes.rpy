@@ -185,6 +185,7 @@ init -20 python:
             self.sayCount = sayCount
             self.say = Character (self.fullName(), kind=adv, dynamic = False, color = self.color, show_side_image = Image(self.picto, xalign=0.0, yalign=1.0), window_left_padding = 170)
             config.side_image_tag = self.picto
+            self.locationStatus = None
         
         # Создание случайного персонажа с полом sex ('male', 'female' или 'futa') и картинкой picto
         @classmethod
@@ -667,6 +668,34 @@ init -20 python:
                                     'should be location name or location object')
 
             self.location = loc
+
+            # Choose location status
+            statuses = loc.getStatuses()
+
+            # Filter statuses that fit to our stats
+            statuses = [x for x in statuses if x.checkApplicable(self)]
+            if statuses:
+                self.applyStatus(choice(statuses))
+
+            else:
+                self.applyStatus(None)
+
+        def applyStatus(self, status):
+            """Применяет LocationStatus на персонажа"""
+            if status is None:
+                self.locationStatus = None
+
+            else:
+                if not status.checkApplicable(self):
+                    raise Exception('Status {} could not be applied to character <>'
+                                    .format(status, self))
+
+                for stat, (mod, max_val) in status.stats_actions.items():
+                    char_stat = getattr(self.stats, stat)
+                    char_stat = min(max_val, char_stat+mod)
+                    setattr(self.stats, stat, char_stat)
+
+                self.locationStatus = status
 
         def getLocation(self):
             return self.location
