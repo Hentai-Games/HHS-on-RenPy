@@ -356,7 +356,7 @@ init python:
                 reaction.append('Вы замечаете, что '+fname+' как-то странно поглядывает на Вас. Похоже эти эти белые пятна привлекают лишнее внимание. ')
                 if char.getLoy() < 50:
                     reaction.append('И так как лояльность ученика не очень высока, он наверняка проговориться своим родителям.')
-                    char.setRep(-0.5)
+                    char.incRep(-0.5)
             else:
                 reaction.append('Вы замечаете, что '+fname+' c какой-то странной улыбкой поглядывает на вас. Похоже эти белые пятна привлекают лишнее внимание. Хотя не видно, чтобы это хоть как то смущало собеседника.')
         
@@ -365,7 +365,7 @@ init python:
                 reaction.append(fname + ' ужасно кривится от вашего запаха. Похоже кого то сейчас стошнит.')
             else:
                 reaction.append(fname + ' кривится от вашего запаха.')
-            char.setLoy(-1*player.getDirty())
+            char.incLoy(-1*player.getDirty())
 
         if player.getClothPurpose('usual'): # Если обычная одежда
             if char.getCorr() > 80:
@@ -380,7 +380,7 @@ init python:
                         reaction.append(name + ' вежливо кивает головой, разглядывая вашу строгую одежду. Он стал лучше к вам относиться из за того, что Вы не идёте на поводу у толпы и не снимаете с себя шмотки, улюлюкая при этом.')
                     else:
                         reaction.append(name + ' мило улыбается и поправляет свою одежду, разглядывая вашу. Она стала лучше к вам относиться из за того, что вы плевать хотели на последние тренды. ')
-                    char.setLoy(1)
+                    char.incLoy(1)
             else:
                 if char.getSex() == 'male':
                     reaction.append(name +' вежливо здоровается с вами и настраивается на серьёзный разговор, к которому располагает ваша, довольно строгая одежда. ')
@@ -395,7 +395,7 @@ init python:
                 char.sayCount = int(char.sayCount/2)
             if char.getCorr() > 60:
                 reaction.append(fname + ' нервно облизывает губы, глядя на вас')
-                if char.getLust < 30: char.setLust(5)
+                if char.getLust < 30: char.incLust(5)
                 
         if player.getClothPurpose('skimpy'): # Если шлюховатая одежда
             if char.getCorr() < 20:
@@ -403,7 +403,7 @@ init python:
                 char.sayCount = 0
             if char.getCorr() > 80:
                 reaction.append(fname + ' пожирает ваш наряд глазами.')
-                if char.getLust < 50: char.setLust(5)
+                if char.getLust < 50: char.incLust(5)
                 
         if len(player.getCover()) > 1 and ('верх' not in player.getCover() or 'низ' not in player.getCover()) and 'naked' != school.uniform: # если не полностью одеты
             if char.getCorr < 50:
@@ -441,12 +441,12 @@ init python:
                 reaction.append(fname + ' закрывает глаза руками и просит вас одеться.')
                 if char.getLoy() < 50:
                     reaction.append('И так как лояльность ученика не очень высока, он наверняка проговориться своим родителям.')
-                    char.setRep(-0.5)
+                    char.incRep(-0.5)
                 char.sayCount = 0
                 
         if player.getBeauty() > 100 and player.getBeauty() > char.getBeauty() and char.getSex() == 'male' and char.getWill() < 50: # если очень красивая
             reaction.append('Парень радостно улыбается и становится чуть-чуть уверенней в себе, когда его видят рядом с такой красоткой, как вы.')
-            char.setWill(0.1)
+            char.incWill(0.1)
             
         if player.getLust() > 80 and rand(1,3) == 1: # если возбуждена
             reaction.append(fname + ' интересуется, всё ли c вами в порядке и нет ли температуры? Просто у вас такие покрасневшие щёки. Вы отнекиваетесь тем, что просто запыхались. "Надо где нибудь сбросить напряжение, пока я на учеников кидаться не начала!" - с трудом концентрируете вы свои мысли.')

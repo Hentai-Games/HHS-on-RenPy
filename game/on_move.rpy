@@ -18,7 +18,7 @@ init python:
             renpy.scene(layer='master') # Сброс картинок
             renpy.scene(layer='screens') # Сброс скринов
             renpy.show('daytime') # Базовый фон
-            player.setEnergy(-randf(2,5)) #расход энергии
+            player.incEnergy(-randf(2,5)) #расход энергии
             resetStats(allChars) #Сброс статов
             player.checkDur() # Удаление использованных предметов
 
@@ -131,8 +131,12 @@ init python:
                                 if 'school' in loc.position and rand(1,5) == 1:
                                      x.moveToLocation(loc)
                                      
-                        elif school.detention == 'streetCleaning':
+                        elif school.detention == 'streetCleaning': # Если уборка улиц, тогда на улицу
                             x.moveToLocation(choice(['loc_street','loc_entrance','loc_shopStreet']))
+                            
+                        elif school.detention in ['lock','tortue']: # Если закрыть или пытки - в подвал.
+                            x.moveToLocation('loc_dungeon')
+                            
                         continue
                     
                     if x.club != '' and hour >= 15 and hour < 18 and x in studs: # Распределение клубов
@@ -230,8 +234,8 @@ init python:
         if player.isSperm() == 2 and rand(1,3) == 1:
             for x in location.getPeople():
                 if x.getCorr() < 50 and x.getLoy() < 50:
-                    x.setRep(-1)
-                    x.setCorr(0.5)
+                    x.incRep(-1)
+                    x.incCorr(0.5)
 
     def checkDeath():
         if player.getHealth() < 200 and rand(1,20) == 1:

@@ -19,6 +19,8 @@ screen warning:
         hover 'pic/warning.png'
 
         hotspot (156, 226, 111, 31) clicked Return("confirm")
+        hotspot (131, 560, 150, 48) clicked Return("dummy")
+        hotspot (817, 561, 182, 44) clicked Return("quit")
     
 label warning:
     call screen warning
@@ -32,6 +34,12 @@ label warning:
                     jump skipall
         else:
             jump selchar
+    elif result == 'dummy':
+        meAngry 'Я для кого писал "Внимание" и всё там бла-бла-бла? Обычно люди, когда видят крупный шрифт, на котором написано "Внимание", всё таки обращают внимание на то, что написано ниже, прежде чем соглашаться!'
+        me 'Попробуй в следующий раз всё таки прочитать внимательнее.'
+        $ renpy.quit()
+    elif result == 'quit':
+        $ renpy.quit()
     
 label myintro:
     $ changetime(15)
@@ -335,7 +343,7 @@ label loc_run:
         show expression ("pic/events/various/run%d.jpg" % rand(1,8)) at top
         'Вы побегали часок, и немного устали. По крайней мере, Ваша физическая форма несколько улучшилась.'
         $ changetime(60)
-        $ player.setDirty(1)
+        $ player.incDirty(1)
         $ player.stats.energy -= rand(100,200)
         $ player.stats.health += rand (10,20)
     $ move(curloc)
@@ -374,8 +382,8 @@ label unconsciousSchool:
     if player.money > 200:
         $ player.money -= rand(100,200)
     $ setRep(2,-2)
-    $ player.setEnergy(200)
-    $ player.setHealth(-10)
+    $ player.incEnergy(200)
+    $ player.incHealth(-10)
     $ changetime(rand(100,200))
     $ move(curloc)
     
@@ -388,7 +396,7 @@ label unconsciousOther:
     if player.money > 200:
         $ player.money -= rand(100,200)
     $ setRep(10,-2)
-    $ player.setEnergy(200)
+    $ player.incEnergy(200)
     $ changetime(rand(100,200))
     $ move(curloc)
 
@@ -450,7 +458,7 @@ label working:
         $ school.budget += rand(1000,2000)
     if rand(1,3) == 1:
         'В одном из документов вы натолкнулись на интересную тему для изучения, и слегка повысили свой уровень образования.'
-        $ player.setIntel(1)
+        $ player.incIntel(1)
     $ changetime(120)
     $ move(curloc)
     
@@ -559,8 +567,8 @@ label scoldAll:
     'Яростным свистом в свой директорский свисток, вы прервали разворачивающиеся перед вашими глазами непотребство, и приказали всем участникам остаться после уроков. Раздосадованные ученики, понурив головы, пообещали вам прийти.'
     python:
         for x in scoldWho:
-            x.setLoy(-1)
-            x.setRep(1)
+            x.incLoy(-1)
+            x.incRep(1)
             addDetention(x)
         move(curloc)
         
@@ -572,7 +580,7 @@ label inhib1:
     python:
         inhibLowTime = ptime
         inhibLow = 1
-        player.setEnergy(-100)
+        player.incEnergy(-100)
         changetime(60)
         move('loc_entrance')
         
@@ -583,7 +591,7 @@ label inhib2:
     python:
         inhibLowTime = ptime
         inhibLow = 2
-        player.setEnergy(-100)
+        player.incEnergy(-100)
         changetime(60)
         move('loc_entrance')
         
@@ -594,7 +602,7 @@ label inhib3:
     python:
         inhibLowTime = ptime
         inhibLow = 3
-        player.setEnergy(-100)
+        player.incEnergy(-100)
         changetime(60)
         move('loc_entrance')
         
@@ -607,7 +615,7 @@ label inhib4:
     python:
         inhibLowTime = ptime
         inhibLow = 4
-        player.setEnergy(-300)
+        player.incEnergy(-300)
         changetime(120)
         move('loc_entrance')
 
@@ -621,9 +629,9 @@ label madness_low:
     show expression 'pic/events/madness/miniorgasm2.png' at left as tempPic
     'Ваши ноги мелко трясутся, что создаёт дополнительное трение в промежности, и наконец вас накрывает наслаждение. Коленки подкашиваются, лицо искажается в сладострастной муке, и вы ощущаете как киска исторгает крохотный фонтанчик влаги, мгновенно промочивший трусики насквозь.'
     'Вы едва сдерживаетесь, чтобы не прижать свою руку к истекающему соком влагалищу и закусываете губу, шумно дыша носом. Спустя мгновение всё было кончено.'
-    $ player.setLust(-50)
-    $ player.setCorr(0.1)
-    $ player.setEnergy(-50)
+    $ player.incLust(-50)
+    $ player.incCorr(0.1)
+    $ player.incEnergy(-50)
     $ move(curloc)
 
     
@@ -640,9 +648,9 @@ label madness_home:
     show expression 'pic/events/madness/3.png' at top as tempPic
     'Вы уплываете в горизонт на парусах оргазма. Ваш разум уже не с вами. Киска и попка безумно сокращаются, из них льются соки похоти. С трудом очнувшись, вы поднимаетесь, и нехотя, на подрагивающих ногах, идёте в ванную.'
     'Несмотря на такую концовку, по вашему лицу блуждает развратная улыбка, и вы с нетерпением ждёте повторения опыта'
-    $ player.setLust(-100)
-    $ player.setCorr(0.5)
-    $ player.setEnergy(-100)
+    $ player.incLust(-100)
+    $ player.incCorr(0.5)
+    $ player.incEnergy(-100)
     $ move('loc_home')
     
 label madness_school:
@@ -658,18 +666,18 @@ label madness_school:
         'Одевшись, вы обнаружили несколько пятен на одежде, да и, судя по всему, ваш крик тоже наверняка не останется незамеченным.'
         python:
             setRep(10,-2)
-            player.setEnergy(-100)
-            player.setLust(-100)
-            player.setCorr(1)
-            player.setDirty(1)
+            player.incEnergy(-100)
+            player.incLust(-100)
+            player.incCorr(1)
+            player.incDirty(1)
     else:
         'Ваше тело сотрясалось в оргазме, вы пытались стиснуть зубы, и сдержать крик, но ничего не получается, и по коридорам школы разнёсся  громкий, полный страсти, стон. Пережив сладостные мгновения и опомнившись, вы стали собирать одежду с пола.'
         'Одевшись, вы обнаружили несколько пятен на одежде, хорошо, что сейчас не учебное время, и никто ничего не заметит!'
         python:
-            player.setEnergy(-100)
-            player.setLust(-100)
-            player.setCorr(0.5)
-            player.setDirty(1)
+            player.incEnergy(-100)
+            player.incLust(-100)
+            player.incCorr(0.5)
+            player.incDirty(1)
     $ move('loc_wcf')
     
 label beauty_intro:
@@ -750,11 +758,11 @@ label beauty_operation:
         'Да!':
             python:
                 player.money -= 50000
-                player.setBeauty(30)
+                player.incBeauty(30)
                 if player.stats.beauty > 100:
                     player.stats.beauty = 100
                 changetime(24*60)
-                player.setHealth(-100)
+                player.incHealth(-100)
             'На следующий день, Вас уже выписали. Посмотревшись в зеркало, Вы цокнули языком от удивления, вроде бы стало немного лучше, чем было. правда после наркоза всё побаливает, и сердечко заходится в неровном ритме.'
         'Нет, не сейчас':
             player.say 'Нет, я пока не готова.'

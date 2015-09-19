@@ -34,14 +34,14 @@ label event_loc_class4_5_StartCameraQwest: # евент под тумбой
     st1.say 'Я? Я просто в журналисткий поступать собираюсь, вот и собираю материал для личного расследования...'
     'Видя ваш взгляд, девочка пытается отодвинуться от него поглубже в тумбу.'
     p.say 'И что же это за личное расследование? "У кого в классе самые красивые трусы"? А ну пошла быстро отсюда!'
-    $ st1.setLoy(-5)
+    $ st1.incLoy(-5)
     if p.getCorr() > 20:
         'Хотя немного подумав, вы решили всё таки оставить девочку под трибуной. Вдруг чего интересного нароет? Да ещё и распросили её, не продаются ли где камеры скрытого наблюдения. [st1.fname] рассказала вам, что их можно купить в круглосуточном магазине, если спросить у продавца.'
         python:
             is_camera = 1
-            p.setCorr(1)
-            st1.setCorr(2)
-            st1.setLoy(15)
+            p.incCorr(1)
+            st1.incCorr(2)
+            st1.incLoy(15)
     $ move(curloc)
     
 label getCam: # Сам эвент
@@ -91,8 +91,8 @@ label getCam: # Сам эвент
             python:
                 is_camera = 3
                 setRep(rand(1,10),-10)
-                p.setCorr(2)
-                p.setLust(-100)
+                p.incCorr(2)
+                p.incLust(-100)
                 getQwest('qwest_loc_shop_cameraQwest').done = True
                 changetime(15)
         'Предложить отсосать ему':
@@ -120,7 +120,7 @@ label getCam: # Сам эвент
             'Вам вдруг становится противно от того, что вы сделали, но по крайней мере теперь чёртовы камеры доступны к покупке.'
             python:
                 is_camera = 3
-                p.setCorr(5)
+                p.incCorr(5)
                 p.coverSperm('лицо','рот','грудь')
                 getQwest('qwest_loc_shop_cameraQwest').done = True
                 changetime(15)
@@ -180,8 +180,8 @@ label getCam: # Сам эвент
                 camera.cost = camera.cost/2
                 getQwest('qwest_loc_shop_cameraQwest').done = True
                 is_camera = 3
-                p.setCorr(5)
-                p.setLust(25)
+                p.incCorr(5)
+                p.incLust(25)
                 p.coverSperm('ноги')
                 changetime(15)
         'Уйти':

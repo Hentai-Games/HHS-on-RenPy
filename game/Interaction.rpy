@@ -252,7 +252,7 @@ label speak:
         user.sayCount -= 1
         changetime(5)
         player.stats.energy -= rand(5,10)
-        user.setLoy(1)
+        user.incLoy(1)
         renpy.jump(dialogueSelector(user))
 
     call screen show_stat
@@ -316,7 +316,7 @@ label reputation:
         callup.say 'Хорошо, [player.name], я постараюсь утрясти этот вопрос с родителями. Мне можно идти?'
         player.say 'Конечно, [callup.fname], иди.'
         python:
-            callup.setRep(15)
+            callup.incRep(15)
             callup = dummy
             move(curloc)
     callup.say 'А, вы об этом! Нет проблем, что я получу взамен?'
@@ -338,9 +338,9 @@ label reputation:
                     show expression 'pic/events/office/3.jpg' at top as tempPic
                     'С готовностью опустившись на колени, вы задрали юбку ученицы, попутно удивившись отсутствию трусиков, и принялись вылизывать её киску помогая себе пальчиками. Вскоре ваш рот оросился её пахучими соками и довольная ученица пообещала замолвить о вас словечко перед родителями.'
                 python:
-                    callup.setRep(15)
+                    callup.incRep(15)
                     callup = dummy
-                    player.setIntel(-0.5)
+                    player.incIntel(-0.5)
                     move(curloc)
             else:
                 callup.say 'Не не не не! К такому меня жизнь ещё не готовила! - подняв перед собой руки, отступает назад ученик.'
@@ -365,11 +365,11 @@ label reputation:
                 player.say 'Вот, держи. Надеюсь эта сумма исправит ситуацию?'
                 callup.say 'А как же! - довольно восклицает ученик пересчитывая банкноты.'
                 $ player.money -= bribe
-                $ callup.setRep(15)
+                $ callup.incRep(15)
                 $ move(curloc)
         'Попробовать надавить':
-            $ callup.setLoy(-10)
-            $ callup.setFun(-20)
+            $ callup.incLoy(-10)
+            $ callup.incFun(-20)
             if player.getIntel() > callup.getWill():
                 if callup.getSex() == 'male':
                     player.say 'Ты пойдёшь к родителям и скажешь, что в восторге от нового директора, иначе ты у меня оставшиеся до последнего звонка годы будешь сортиры после уроков драить, усёк?'
@@ -378,7 +378,7 @@ label reputation:
                 callup.say 'К-к-к-конечно, - заикаясь отвечает [callup.fname] и убегает из вашего кабинета.'
                 'Чтож, по крайней мере ситуация с репутацией немного исправилась!'
                 python:
-                    callup.setRep(10)
+                    callup.incRep(10)
                     callup = dummy
                     move(curloc)
             else:
