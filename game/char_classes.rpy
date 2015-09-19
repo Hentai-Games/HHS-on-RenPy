@@ -669,18 +669,15 @@ init -20 python:
 
             self.location = loc
 
-            # Choose location status
-            statuses = loc.getStatuses()
-
             # Filter statuses that fit to our stats
-            statuses = [x for x in statuses if x.checkApplicable(self)]
+            statuses = [x for x in loc.getStatuses() if x.checkApplicable(self)]
             if statuses:
-                self.applyStatus(choice(statuses))
+                self.applyLocationStatus(choice(statuses))
 
             else:
-                self.applyStatus(None)
+                self.applyLocationStatus(None)
 
-        def applyStatus(self, status):
+        def applyLocationStatus(self, status):
             """Применяет LocationStatus на персонажа"""
             if status is None:
                 self.locationStatus = None
@@ -696,6 +693,9 @@ init -20 python:
                     setattr(self.stats, stat, char_stat)
 
                 self.locationStatus = status
+
+        def getLocationStatus(self):
+            return self.locationStatus
 
         def getLocation(self):
             return self.location
