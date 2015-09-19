@@ -47,7 +47,7 @@ label cabbageIn:
                 $ changetime(120)
             jump cabbageIn
         'Надзирать за работой' if player.getEnergy() >= 300:
-            show expression 'pic/events/cabbage/angry.png' at left as tempPic
+            show expression getCharImage(player,'dialog') as tempPic
             'Вы 2 часа гоняли учеников в хвост и гриву, заставляя их работать. Это безусловно скажется на их эффективности положительно, но вот на лояльности к вам - отрицательно. К тому же постоянный надзор - жутко утомительное занятие.'
             python:
                 cabbage_eff += 1
@@ -103,7 +103,7 @@ label event_loc_cabbage_1:
     
 label event_loc_cabbage_2:
     $st1 = getChar('male')
-    show expression 'pic/events/cabbage/2.jpg' at top as tempPic
+    show expression 'pic/events/cabbage/2.png' at top as tempPic
     'Идя по дороге, Вы встретили селянку о чём то разговаривающую с вашим учеником. Вас довольно сильно удивило то, что через 5 минут разговора, она неожиданно подняла своё платье, и принялась активно поглаживать свою текущую киску перед оторопевшим парнем.'
     p.say '[st1.name]! - окликнули вы парня, и выразительно показали пальцем в сторону капустного поля.'
     'Вам не особо хочется, чтобы по городу начали распространятся слухи о том, что вы тут какой то секс туризм в глубинку устроили.'
