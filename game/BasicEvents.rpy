@@ -1,6 +1,7 @@
 init python:
     import random
     from random import shuffle
+    
 init:
     image cleanFace = "pic/events/bodyclean/face1.jpg"
     image cleanMouth = "pic/events/bodyclean/mouth1.jpg"
@@ -12,10 +13,30 @@ init:
     image centeredText = ParameterizedText(xalign=0.5, yalign=0.5, style = 'navigation_button_text')
     $ complains = ''
 
+screen warning:
+    imagemap:
+        ground 'pic/warning.png'
+        hover 'pic/warning.png'
+
+        hotspot (156, 226, 111, 31) clicked Return("confirm")
+    
+label warning:
+    call screen warning
+    $ result = _return
+    if result == "confirm":
+        if development == 1:
+            menu:
+                'selchar':
+                    jump selchar
+                'skipall':
+                    jump skipall
+        else:
+            jump selchar
+    
 label myintro:
     $ changetime(15)
     show home
-    me 'Привет, дорогой Игрок! Я - разработчик этой игры.\n И первое, что я хочу тебе сказать. Если ты купил эту игру, то поздравляю, тебя обманули, она бесплатна. '
+    me 'Привет, дорогой Игрок! Я - разработчик этой игры.\n'
     me 'Вообще то на этом месте должна быть сценка, как Главная Героиня попадает в школу и как всё началось, но я слишком ленив, чтобы её делать.'
     player.say 'Началось! "Акабур стайл" уже и в твоей игре. Наверное, через пару релизов ограничишься одной локацией и начнёшь меня тренировать как шлюшку, да?'
     meSceptic 'Я тут вообще то хотел объяснить базовые вещи в игре. Не могла ли ты мне не мешать, как тебя там сегодня, [player.fname]?'
@@ -777,6 +798,10 @@ label checkCam:
             renpy.say('','Камера сняла, как [st1.name] писает.')
     hide temp0
     'Вы продали фотографии в интернете и выручили за них [temp] монет.'
+    if mile_qwest_2_stage == 2 and camera.name in getLoc('loc_class1').items and rand(1,3) == 1:
+        jump kupruvnaGotIt1
+    if mile_qwest_2_stage == 3 and camera.name in getLoc('loc_class1').items  or development == 1:
+        jump kupruvnaGotIt2
     call screen compScreen
     
 label installCam:

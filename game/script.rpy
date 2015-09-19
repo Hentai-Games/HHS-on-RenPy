@@ -78,11 +78,7 @@ label start:
         for x in locations:
             if x.name == 'UNKNOWN':
                 renpy.say('CREATOR','WRONG LOCATION! ADD TO LOCATIONS LIST! LABEL = [x.id]. LOOK IN locations.rpy AT TOP!')
-    menu:
-        'selchar':
-            jump selchar
-        'skipall':
-            jump skipall
+    jump warning
     return
 
 

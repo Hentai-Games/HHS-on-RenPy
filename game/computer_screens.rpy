@@ -30,7 +30,7 @@ screen compScreen:
             textbutton _('Учебники') action Show ('eduMats') xminimum 300
             textbutton _('Мебель и Строения') action Show ('furniture') xminimum 300
             textbutton _('Ночные действия') action [SensitiveIf(lt() <= -3 and ptime - inhibLowTime > 8), Show ('studCorruption')] xminimum 300
-            if hasLocationsItem(camera.name):
+            if hasLocationsItem(camera.name) or development == 1:
                 textbutton _('Проверка камер') action [SensitiveIf(ptime - camSold > 24 and weekday not in [1,7]), Function(clrscr),Jump('checkCam')] xminimum 300
                 
 screen description(what):
