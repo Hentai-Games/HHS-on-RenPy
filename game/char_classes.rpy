@@ -223,30 +223,30 @@ init -20 python:
             return self.fname + ' ' + self.lname
             
 ###################################################################
-#Setters
+#Incrementers
 ###################################################################
 
 # Измнение loyalty
-        def setLoy(self,amount):
+        def incLoy(self,amount):
             self.stats.loyalty += amount*max(0.1, (100 - self.getWill())/100)
 # Измнение fun
-        def setFun(self,amount):
+        def incFun(self,amount):
             self.stats.fun += amount
 # Измнение развратности
-        def setCorr(self,amount):
+        def incCorr(self,amount):
             if self != player:
                 self.stats.corr += amount*max(0.1, (100 - self.getWill())/100)
             else:
                 self.stats.corr += amount
                 
 # Измнение lust
-        def setLust(self,amount):
+        def incLust(self,amount):
             self.stats.lust += amount
 # Измнение will
-        def setWill(self,amount):
+        def incWill(self,amount):
             self.stats.will += amount
 # Измнение education
-        def setEdu(self,amount):
+        def incEdu(self,amount):
             if self.getFun() < 25:
                 funMod = 4
             elif self.getFun() < 50:
@@ -257,24 +257,66 @@ init -20 python:
                 funMod = 1
             self.stats.education += (amount*(self.getIntel()/100))/funMod
 # Измнение health
-        def setHealth(self,amount):
+        def incHealth(self,amount):
             self.stats.health += amount
 # Измнение intelligence
-        def setIntel(self,amount):
+        def incIntel(self,amount):
             self.stats.intelligence += amount
 # Измнение beauty
-        def setBeauty(self,amount):
+        def incBeauty(self,amount):
             self.stats.beauty += amount
 # Измнение reputation
-        def setRep(self,amount):
+        def incRep(self,amount):
             self.stats.reputation += amount
 # Измнение energy
-        def setEnergy(self,amount):
+        def incEnergy(self,amount):
             self.stats.energy += amount
 # Измнение dirty
-        def setDirty(self,amount):
+        def incDirty(self,amount):
             self.stats.dirty += amount
+            
+###################################################################
+#Setters
+###################################################################
 
+# Измнение loyalty
+        def setLoy(self,amount):
+            self.stats.loyalty = amount
+# Измнение fun
+        def setFun(self,amount):
+            self.stats.fun = amount
+# Измнение развратности
+        def setCorr(self,amount):
+            self.stats.corr = amount
+                
+# Измнение lust
+        def setLust(self,amount):
+            self.stats.lust = amount
+# Измнение will
+        def setWill(self,amount):
+            self.stats.will = amount
+# Измнение education
+        def setEdu(self,amount):
+            self.stats.education = amount
+# Измнение health
+        def setHealth(self,amount):
+            self.stats.health = amount
+# Измнение intelligence
+        def setIntel(self,amount):
+            self.stats.intelligence = amount
+# Измнение beauty
+        def setBeauty(self,amount):
+            self.stats.beauty = amount
+# Измнение reputation
+        def setRep(self,amount):
+            self.stats.reputation = amount
+# Измнение energy
+        def setEnergy(self,amount):
+            self.stats.energy = amount
+# Измнение dirty
+        def setDirty(self,amount):
+            self.stats.dirty = amount
+            
 ###################################################################
 # Getters
 ###################################################################
@@ -677,9 +719,9 @@ init -20 python:
                                 .format(gift, self))
                                 
             self.inventory.append(gift)
-            self.setCorr(gift.corr)
-            self.setLoy(gift.loy)
-            self.setRep(gift.reputation)
+            self.incCorr(gift.corr)
+            self.incLoy(gift.loy)
+            self.incRep(gift.reputation)
 
         def __repr__(self):
             return ('<{} name: "{}", sex: "{}">'
