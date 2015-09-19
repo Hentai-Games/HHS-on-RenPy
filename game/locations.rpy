@@ -6,6 +6,7 @@ init 10 python:
             self.name = name
             self.base_prob = base_prob
             self.events = []
+            self.statuses = []
             self.position = position
 
         def getprob(self):
@@ -36,6 +37,21 @@ init 10 python:
                     pass
 
             return rez
+
+        def addStatus(self, status):
+            """Добавляет статус к локации"""
+            if not isinstance(status, LocationStatus):
+                raise Exception('Status should be LocationStatus object')
+
+            self.statuses.append(status)
+
+        def addStatuses(self, statuses):
+            """Добавляет список статусов к локации"""
+            for status in statuses:
+                self.addStatus(status)
+
+        def getStatuses(self):
+            return self.statuses
 
     class Event:
         def __init__(self,id,corr):
@@ -145,17 +161,6 @@ init 10 python:
 
             return True
 
-        def applyStatus(self, char):
-            """Применяет статус на персонажа"""
-            if not self.checkApplicable(char):
-                raise Exception('Status {} could not be applied to character <>'
-                                .format(self, char))
-
-            for stat, (mod, max_val) in self.stats_actions.items():
-                char_stat = getattr(char.stats, stat)
-                char_stat = min(max_val, char_stat+mod)
-                setattr(char.stats, stat, char_stat)
-
         def __repr__(self):
             return '<{} name: "{}">'.format(self.__class__.__name__,
                                             self.name.encode('utf-8'))
@@ -184,6 +189,11 @@ init 10 python:
 #Создание массива всех локаций
     _locs = renpy.get_all_labels()
 
+    # TEST
+    test_stat = LocationStatus('Игра', 'pic123', 'any',
+                               requirements={'fun': 0.1},
+                               stats_actions={'fun': (1, 10)})
+        
     for x in _locs:
         if x[:4] == 'loc_':
             if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = -1, position = ['home','safe'])
@@ -236,6 +246,10 @@ init 10 python:
             
             else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
             locations.append(loc)
+
+            # TEST
+            if loc.name == 'улица':
+                loc.addStatus(test_stat)
 
     getEvents() #добавляю всем эвенты
 
