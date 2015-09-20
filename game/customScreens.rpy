@@ -189,7 +189,7 @@ screen peopleTextList:
                 mystyle = 'small_button_text'
                 if x in teachers: mystyle = 'bluesmall_button'
                 if x in highlightP: mystyle = 'warning'
-            textbutton x.name:
+            textbutton x.name + ((' ('+x.getLocationStatus().name+')' if x.getLocationStatus() else '') if x==showHover else ''):
                 action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)]
                 hovered [SetVariable('showHover',x)]
                 style "bluesmall_button" text_style mystyle xalign 0.0

@@ -96,10 +96,6 @@ screen charInfoLeft:
                     $ temp = round(showHover.getRep(),1)
                     text _('Репутация [temp]') style style.my_text
 
-                if showHover.getLocationStatus():
-                    $ locationStatus = showHover.getLocationStatus().name
-                    text _('Статус "[locationStatus]"') style style.my_text
-
                 if showHover in highlightP:
                     text _('Подсвечивается') style style.green
                 else:
