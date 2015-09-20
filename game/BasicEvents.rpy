@@ -1,6 +1,7 @@
 init python:
     import random
     from random import shuffle
+    
 init:
     image cleanFace = "pic/events/bodyclean/face1.jpg"
     image cleanMouth = "pic/events/bodyclean/mouth1.jpg"
@@ -12,10 +13,39 @@ init:
     image centeredText = ParameterizedText(xalign=0.5, yalign=0.5, style = 'navigation_button_text')
     $ complains = ''
 
+screen warning:
+    imagemap:
+        ground 'pic/warning.png'
+        hover 'pic/warning.png'
+
+        hotspot (156, 226, 111, 31) clicked Return("confirm")
+        hotspot (131, 560, 150, 48) clicked Return("dummy")
+        hotspot (817, 561, 182, 44) clicked Return("quit")
+    
+label warning:
+    call screen warning
+    $ result = _return
+    if result == "confirm":
+        if development == 1:
+            menu:
+                'selchar':
+                    jump selchar
+                'skipall':
+                    jump skipall
+        else:
+            jump selchar
+    elif result == 'dummy':
+        meAngry 'Я для кого писал "Внимание" и всё там бла-бла-бла? Обычно люди, когда видят крупный шрифт, на котором написано "Внимание", всё таки обращают внимание на то, что написано ниже, прежде чем соглашаться!'
+        me 'Попробуй в следующий раз всё таки прочитать внимательнее.'
+        $ renpy.quit()
+    elif result == 'quit':
+        $ renpy.quit()
+    
 label myintro:
     $ changetime(15)
     show home
-    me 'Привет, дорогой Игрок! Я - разработчик этой игры.\nНа этом месте должна быть сценка, как Главная Героиня попадает в школу и как всё началось, но я слишком ленив, чтобы её делать.'
+    me 'Привет, дорогой Игрок! Я - разработчик этой игры.\n'
+    me 'Вообще то на этом месте должна быть сценка, как Главная Героиня попадает в школу и как всё началось, но я слишком ленив, чтобы её делать.'
     player.say 'Началось! "Акабур стайл" уже и в твоей игре. Наверное, через пару релизов ограничишься одной локацией и начнёшь меня тренировать как шлюшку, да?'
     meSceptic 'Я тут вообще то хотел объяснить базовые вещи в игре. Не могла ли ты мне не мешать, как тебя там сегодня, [player.fname]?'
     me 'Хех, [player.fname]! [player.name]!!! Получше ничего не придумалось, да?'
@@ -217,6 +247,12 @@ label cleanAss:
             pass
     $ move(curloc)
 
+label cleanWCF:
+    $ clrscr()
+    'Вы быстро сполоснули руки и лицо.'
+    $ player.clean('лицо','руки')
+    $ move(curloc)
+    
 label sleep:
     hide screen stats_screen
     python:
@@ -307,7 +343,7 @@ label loc_run:
         show expression ("pic/events/various/run%d.jpg" % rand(1,8)) at top
         'Вы побегали часок, и немного устали. По крайней мере, Ваша физическая форма несколько улучшилась.'
         $ changetime(60)
-        $ player.setDirty(1)
+        $ player.incDirty(1)
         $ player.stats.energy -= rand(100,200)
         $ player.stats.health += rand (10,20)
     $ move(curloc)
@@ -346,8 +382,8 @@ label unconsciousSchool:
     if player.money > 200:
         $ player.money -= rand(100,200)
     $ setRep(2,-2)
-    $ player.setEnergy(200)
-    $ player.setHealth(-10)
+    $ player.incEnergy(200)
+    $ player.incHealth(-10)
     $ changetime(rand(100,200))
     $ move(curloc)
     
@@ -360,7 +396,7 @@ label unconsciousOther:
     if player.money > 200:
         $ player.money -= rand(100,200)
     $ setRep(10,-2)
-    $ player.setEnergy(200)
+    $ player.incEnergy(200)
     $ changetime(rand(100,200))
     $ move(curloc)
 
@@ -422,7 +458,7 @@ label working:
         $ school.budget += rand(1000,2000)
     if rand(1,3) == 1:
         'В одном из документов вы натолкнулись на интересную тему для изучения, и слегка повысили свой уровень образования.'
-        $ player.setIntel(1)
+        $ player.incIntel(1)
     $ changetime(120)
     $ move(curloc)
     
@@ -531,8 +567,8 @@ label scoldAll:
     'Яростным свистом в свой директорский свисток, вы прервали разворачивающиеся перед вашими глазами непотребство, и приказали всем участникам остаться после уроков. Раздосадованные ученики, понурив головы, пообещали вам прийти.'
     python:
         for x in scoldWho:
-            x.setLoy(-1)
-            x.setRep(1)
+            x.incLoy(-1)
+            x.incRep(1)
             addDetention(x)
         move(curloc)
         
@@ -544,7 +580,7 @@ label inhib1:
     python:
         inhibLowTime = ptime
         inhibLow = 1
-        player.setEnergy(-100)
+        player.incEnergy(-100)
         changetime(60)
         move('loc_entrance')
         
@@ -555,7 +591,7 @@ label inhib2:
     python:
         inhibLowTime = ptime
         inhibLow = 2
-        player.setEnergy(-100)
+        player.incEnergy(-100)
         changetime(60)
         move('loc_entrance')
         
@@ -566,7 +602,7 @@ label inhib3:
     python:
         inhibLowTime = ptime
         inhibLow = 3
-        player.setEnergy(-100)
+        player.incEnergy(-100)
         changetime(60)
         move('loc_entrance')
         
@@ -579,7 +615,7 @@ label inhib4:
     python:
         inhibLowTime = ptime
         inhibLow = 4
-        player.setEnergy(-300)
+        player.incEnergy(-300)
         changetime(120)
         move('loc_entrance')
 
@@ -593,9 +629,9 @@ label madness_low:
     show expression 'pic/events/madness/miniorgasm2.png' at left as tempPic
     'Ваши ноги мелко трясутся, что создаёт дополнительное трение в промежности, и наконец вас накрывает наслаждение. Коленки подкашиваются, лицо искажается в сладострастной муке, и вы ощущаете как киска исторгает крохотный фонтанчик влаги, мгновенно промочивший трусики насквозь.'
     'Вы едва сдерживаетесь, чтобы не прижать свою руку к истекающему соком влагалищу и закусываете губу, шумно дыша носом. Спустя мгновение всё было кончено.'
-    $ player.setLust(-50)
-    $ player.setCorr(0.1)
-    $ player.setEnergy(-50)
+    $ player.incLust(-50)
+    $ player.incCorr(0.1)
+    $ player.incEnergy(-50)
     $ move(curloc)
 
     
@@ -612,9 +648,9 @@ label madness_home:
     show expression 'pic/events/madness/3.png' at top as tempPic
     'Вы уплываете в горизонт на парусах оргазма. Ваш разум уже не с вами. Киска и попка безумно сокращаются, из них льются соки похоти. С трудом очнувшись, вы поднимаетесь, и нехотя, на подрагивающих ногах, идёте в ванную.'
     'Несмотря на такую концовку, по вашему лицу блуждает развратная улыбка, и вы с нетерпением ждёте повторения опыта'
-    $ player.setLust(-100)
-    $ player.setCorr(0.5)
-    $ player.setEnergy(-100)
+    $ player.incLust(-100)
+    $ player.incCorr(0.5)
+    $ player.incEnergy(-100)
     $ move('loc_home')
     
 label madness_school:
@@ -630,18 +666,18 @@ label madness_school:
         'Одевшись, вы обнаружили несколько пятен на одежде, да и, судя по всему, ваш крик тоже наверняка не останется незамеченным.'
         python:
             setRep(10,-2)
-            player.setEnergy(-100)
-            player.setLust(-100)
-            player.setCorr(1)
-            player.setDirty(1)
+            player.incEnergy(-100)
+            player.incLust(-100)
+            player.incCorr(1)
+            player.incDirty(1)
     else:
         'Ваше тело сотрясалось в оргазме, вы пытались стиснуть зубы, и сдержать крик, но ничего не получается, и по коридорам школы разнёсся  громкий, полный страсти, стон. Пережив сладостные мгновения и опомнившись, вы стали собирать одежду с пола.'
         'Одевшись, вы обнаружили несколько пятен на одежде, хорошо, что сейчас не учебное время, и никто ничего не заметит!'
         python:
-            player.setEnergy(-100)
-            player.setLust(-100)
-            player.setCorr(0.5)
-            player.setDirty(1)
+            player.incEnergy(-100)
+            player.incLust(-100)
+            player.incCorr(0.5)
+            player.incDirty(1)
     $ move('loc_wcf')
     
 label beauty_intro:
@@ -722,11 +758,11 @@ label beauty_operation:
         'Да!':
             python:
                 player.money -= 50000
-                player.setBeauty(30)
+                player.incBeauty(30)
                 if player.stats.beauty > 100:
                     player.stats.beauty = 100
                 changetime(24*60)
-                player.setHealth(-100)
+                player.incHealth(-100)
             'На следующий день, Вас уже выписали. Посмотревшись в зеркало, Вы цокнули языком от удивления, вроде бы стало немного лучше, чем было. правда после наркоза всё побаливает, и сердечко заходится в неровном ритме.'
         'Нет, не сейчас':
             player.say 'Нет, я пока не готова.'
@@ -751,6 +787,45 @@ label getPanties:
     'Согласно вашему договору, вы должны реализовать все трусики секретного клуба грязных трусиков.'
     $ temp = counter - 1
     st1.say 'Вот, пересчитайте! Ровно [temp]! Ну и мои в придачу!'
-    'Пританцовывая на одной ноге, [st1.fname] всё таки смогла снять свои и вручить их вам.'
+    'Пританцовывая на одной ноге, [st1.fname] всё таки смогла снять свои трусы и вручить их вам.'
     player.say 'Спасибо, я в скором времени их продам!'
+    $ move(curloc)
+    
+label checkCam:
+    show computer at top
+    player.say 'Так так, что там у нас на камерах?'
+    python:
+        clrscr()
+        camSold = ptime
+        returnArr = getCamArr()
+        temp = rand(50,150)*len(returnArr)
+        player.money += temp
+        for x in returnArr:
+            st1 = getChar('female')
+            renpy.show('temp0', what = Image(x, xalign=0.5, yalign= 0.0))
+            renpy.say('','Камера сняла, как [st1.name] писает.')
+    hide temp0
+    'Вы продали фотографии в интернете и выручили за них [temp] монет.'
+    if mile_qwest_2_stage == 2 and camera.name in getLoc('loc_class1').items and rand(1,3) == 1:
+        jump kupruvnaGotIt1
+    if mile_qwest_2_stage == 3 and camera.name in getLoc('loc_class1').items  or development == 1:
+        jump kupruvnaGotIt2
+    call screen compScreen
+    
+label installCam:
+    $ clrscr()
+    if camera.name not in getLoc(curloc).getItems():
+        if curloc not in ['loc_wcf','loc_class1']:
+            player.say 'Я не вижу смысла ставить здесь камеру.'
+        elif len(getLoc(curloc).getPeople()) > 0:
+            player.say 'Сейчас не лучшее время для этого, я не одна и кто то может меня увидеть.'
+        else:
+            'Встав на цыпочки, вы прилаживаете скрытую камеру в укромном месте.'
+            python:
+                player.removeItem(player.getItem(camera.name))
+                getLoc(curloc).items.append(camera.name)
+    elif camera.name in getLoc(curloc).getItems():
+        player.say 'Зачем здесь вторая камера? Не нужна она тут.'
+    else:
+        me 'И как ты здесь оказался? Напиши мне пожалуйста.'
     $ move(curloc)

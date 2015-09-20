@@ -119,26 +119,29 @@ init -5 python:
 
     def setRep(count,amount):
         for x in range(0, count):
-            studs[rand(0,len(studs)-1)].setRep(amount)
+            getChar().incRep(amount)
 
     def setLoy(count,amount):
         for x in range(0, count):
-            studs[rand(0,len(studs)-1)].setLoy(amount)
+            getChar().incLoy(amount)
             
     def setCorr(count,amount):
         for x in range(0, count):
-            studs[rand(0,len(studs)-1)].setCorr(amount) 
+            getChar().incCorr(amount) 
             
     def setLust(count,amount):
         for x in range(0, count):
-            studs[rand(0,len(studs)-1)].setLust(amount)
+            getChar().incLust(amount)
             
+    def setFun(count,amount):
+        for x in range(0, count):
+            getChar().incLust(amount)    
 
     def hadSex(*args):
         maleArr = []
         femaleArr = []
         for x in args:
-            x.setCorr(randf(0.0,1.0))
+            x.incCorr(randf(0.0,1.0))
         
         # мастурбация
         if len(args) == 1:
@@ -147,7 +150,7 @@ init -5 python:
                     args[0].body.parts['вагина'].size += randf(0.0,0.1)
                 if args[0].body.parts['анус'].size < 4:
                     args[0].body.parts['анус'].size += randf(0.0,0.1)
-            args[0].setFun(1)
+            args[0].incFun(1)
             
         else:
             for x in args:
@@ -161,7 +164,7 @@ init -5 python:
                 for x in femaleArr:
                     x.body.parts['вагина'].size += randf(0.0,0.1)
                     x.body.parts['анус'].size += randf(0.0,0.05)
-                    x.setFun(1)
+                    x.incFun(1)
                     
             # Футы и не только?
             elif len(femaleArr) == 0:
@@ -169,24 +172,24 @@ init -5 python:
                     if x.getSex() == 'futa':
                         x.body.parts['вагина'].size += randf(0.0,0.1)
                     x.body.parts['анус'].size += randf(0.0,0.05)
-                    x.setFun(1)
+                    x.incFun(1)
                     
             else:
                 # норма
                 fucked = []
                 for male in maleArr: # перебираем всех male/futa
-                    male.setFun(1) 
+                    male.incFun(1) 
                     diameter = male.body.parts['пенис'].size/3.14
                     for female in femaleArr: # перебираем всех female
                         if female not in fucked: # если ещё не была в соитии
                         
                             if female.body.parts['вагина'].size < diameter/2: # Если диаметр сликшом большой
                                 female.body.parts['вагина'].size += diameter/5
-                                female.setFun(-1)
+                                female.incFun(-1)
                                 fucked.append(female)
                                 
                             elif female.body.parts['вагина'].size < diameter: # Если немного меньше
-                                female.setFun(1)
+                                female.incFun(1)
                                 female.body.parts['вагина'].size += diameter/15
                                 if rand(1,3) == 1:
                                     female.body.parts['анус'].size += diameter/10
@@ -293,3 +296,24 @@ init -5 python:
                 if x.club == club:
                     tempArr.append(x)
             return tempArr
+            
+    def getCamArr():
+        photoArr = []
+        returnArr = []
+        for path in config.searchpath:
+            # Ищем каталоги с картинками во всех возможных RenPy каталогах ресурсов
+            try:
+                for x in os.listdir(os.path.join(path, 'pic/events/camera/wcf/')):
+                    photoArr.append('pic/events/camera/wcf/' + x)
+            except OSError:
+                pass
+                
+        for x in range(1,4):
+            returnArr.append(choice(photoArr))
+        return returnArr
+        
+    def hasLocationsItem(item):
+        for x in locations:
+            if item in x.items:
+                return True
+        return False

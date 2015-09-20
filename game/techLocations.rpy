@@ -18,3 +18,6 @@ label loc_gymLearn:
 
 label loc_poolLearn:
     jump loc_pool
+    
+label loc_cabbage:
+    jump cabbageIn
