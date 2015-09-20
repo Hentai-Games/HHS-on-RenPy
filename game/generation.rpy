@@ -420,7 +420,7 @@ label skipall:
 # codeBlc Создание учителей
 #######################################################
 
-        kupruvna = Char(
+        kupruvna = Teacher(
             fname = 'Валентина',
             lname = 'Купрувна',
             age = 37,
@@ -449,7 +449,7 @@ label skipall:
         )
         _teachers.append(kupruvna)
 
-        danokova = Char(
+        danokova = Teacher(
             fname = 'Полина',
             lname = 'Данокова',
             age = 25,
@@ -478,7 +478,7 @@ label skipall:
         )
         _teachers.append(danokova)
 
-        frigidovna = Char(
+        frigidovna = Teacher(
             fname = 'Ангелина',
             lname = 'Фригидовна',
             age = 32,
@@ -506,7 +506,7 @@ label skipall:
         )
         _teachers.append(frigidovna)
 
-        bissektrisovna = Char(
+        bissektrisovna = Teacher(
             fname = 'Валентина',
             lname = 'Биссектрисовна',
             age = 35,
@@ -535,7 +535,7 @@ label skipall:
         )
         _teachers.append(bissektrisovna)
 
-        dikovna = Char(
+        dikovna = Teacher(
             fname = 'Анжела',
             lname = 'Диковна',
             age = 23,
@@ -567,7 +567,7 @@ label skipall:
         )
         _teachers.append(dikovna)
 
-        mustangovich = Char(
+        mustangovich = Teacher(
             fname = 'Ахмед',
             lname = 'Мустангович',
             age = 30,
@@ -595,7 +595,7 @@ label skipall:
         )
         _teachers.append(mustangovich)
         
-        dante = Char(
+        dante = Teacher(
             fname = 'Ева',
             lname = 'Данте',
             age = 35,
@@ -624,7 +624,7 @@ label skipall:
         )
         _teachers.append(dante)
                 
-        gonoreevna = Char(
+        gonoreevna = Teacher(
             fname = 'Венера',
             lname = 'Гонореевна',
             age = 21,

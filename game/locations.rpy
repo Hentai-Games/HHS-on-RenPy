@@ -99,6 +99,9 @@ init 10 python:
             """Возвращает список статусов, с учетом их вероятностей.
             Т.е. более вероятные статусы в этом списке будут дублироваться"""
 
+            if not self.__statuses:
+                return []
+
             min_prob = float(min([x[1] for x in self.__statuses]))
             rez = []
             for status, prob, _ in self.__statuses:
@@ -114,7 +117,7 @@ init 10 python:
 
     # Location statuses
     class LocationStatus(object):
-        def __init__(self, name, pic, sex='any', events=None,
+        def __init__(self, name, pic, sex='any', char_type='any', events=None,
                      requirements=None, stats_actions=None):
             """Создает новый статус для локации.
 
@@ -122,6 +125,7 @@ init 10 python:
             pic - изображение для отображения статуса
             sex - пол для статуса, либо строка: male, female, futa, any,
                   либо список с комбинацией этих значений
+            char_type - тип персонажа: any, student, teacher
             events - список меток ивентов, либо None - если статус не
                      пораждает ивентов
             requirements - dict необходимых параметров
@@ -137,6 +141,7 @@ init 10 python:
                             увеличится на 1, но в итоге будет не больше 20
             """
             self.name = name
+            self.pic = pic
 
             # Sex
             if isinstance(sex, basestring):
@@ -149,7 +154,12 @@ init 10 python:
                 if s not in ['male', 'female', 'futa', 'any']:
                     raise Exception('Unknown sex submitted: {}'.format(s))
 
-            self.pic = pic
+            # char_type
+            if char_type.lower() not in frozenset(['any', 'teacher',
+                                                   'student']):
+                raise Exception('char_type shoulb be any, teacher or student: {}'
+                                 .format(char_type))
+            self.char_type = char_type
 
             # Events
             if events is None:
@@ -208,6 +218,15 @@ init 10 python:
 
             if 'any' not in self.sex and char.getSex() not in self.sex:
                 return False
+
+            if self.char_type != 'any':
+                if self.char_type == 'teacher' and not isinstance(char,
+                                                                  Teacher):
+                    return False
+
+                elif self.char_type == 'student' and isinstance(char,
+                                                                Teacher):
+                    return False
 
             for key, val in self.requirements.items():
                 if getattr(char.stats, key) < val:
