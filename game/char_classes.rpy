@@ -718,11 +718,6 @@ init -20 python:
 
 # End class Char definition
 
-    class Teacher(Char):
-        """Функционально идентичен классу Char, используется чтобы отличать 
-        учителей от студентов"""
-        pass
-
     def getCharByName(name):
         global allChars
         for x in allChars:
