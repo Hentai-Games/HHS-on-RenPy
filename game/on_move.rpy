@@ -14,18 +14,11 @@ init python:
         global curloc, hour, prevloc, same_loc, defaultSymbol, temp1, temp2, temp3, temp4, temp5, temp6  #объявление глобальных переменных
 
         if renpy.has_label(where) == True: #Проверка на то, что локация существует. Если нет, прыгаем домой.
-        
-            temp1 = defaultSymbol
-            temp2 = defaultSymbol
-            temp3 = defaultSymbol
-            temp4 = defaultSymbol
-            temp5 = defaultSymbol
-            temp6 = defaultSymbol
             
             renpy.scene(layer='master') # Сброс картинок
             renpy.scene(layer='screens') # Сброс скринов
             renpy.show('daytime') # Базовый фон
-            player.stats.energy -= randf(2,5) #расход энергии
+            player.incEnergy(-randf(2,5)) #расход энергии
             resetStats(allChars) #Сброс статов
             player.checkDur() # Удаление использованных предметов
 
@@ -53,8 +46,9 @@ init python:
                     renpy.jump('getPanties')
                 
             if rand(1,100) < 10 and where[:4] == 'loc_' and same_loc == 0: tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
-
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
+            
+            if  where[:4] == 'loc_': trySpecialEvent(where) # спец эвент
             renpy.jump(where) #Переход на локу
         else:
             renpy.jump('loc_home')
@@ -69,7 +63,7 @@ init python:
 #Вызов эвента
     def tryEvent(location):
         if 'classroom' in getLoc(location).position and lt() > 0: location += 'Learn' #Если сейчас уроки, то добавляем к поиску локаций Learn
-        if lt() == -4: location += 'Night'
+        if lt() == -4: location += 'Night' # Если ночь, добавляем Night
         tempEv = []
         for x in locations: #перебираем локи и ищем подходящие эвенты
             if x.id == location:
@@ -88,6 +82,16 @@ init python:
             lastEventTime = ptime #запоминаем время
             renpy.jump(callEvent) #эвент
 
+    def trySpecialEvent(location):
+        if len(getLoc(location).qwests) > 0:
+            qArr = []
+            for q in getLoc(location).qwests:
+                if q.done == False:
+                    qArr.append(q)
+            if len(qArr) > 0:
+                renpy.jump(choice(qArr).id)
+                
+            
     #Добавление людей на локации
     def addPeopleLocations():
         global hour, weekday
@@ -111,7 +115,7 @@ init python:
                             continue
                         
                     if x == gonoreevna:
-                        if 'doctor' not in school.buildings:
+                        if 'doctor' not in school.buildings:  # Если нет медкабинета, то пропуск.
                             x.moveToLocation(None)
                             continue
                         elif lt() >= 0: # Доктор должен быть в мед кабинете
@@ -127,8 +131,12 @@ init python:
                                 if 'school' in loc.position and rand(1,5) == 1:
                                      x.moveToLocation(loc)
                                      
-                        elif school.detention == 'streetCleaning':
+                        elif school.detention == 'streetCleaning': # Если уборка улиц, тогда на улицу
                             x.moveToLocation(choice(['loc_street','loc_entrance','loc_shopStreet']))
+                            
+                        elif school.detention in ['lock','tortue']: # Если закрыть или пытки - в подвал.
+                            x.moveToLocation('loc_dungeon')
+                            
                         continue
                     
                     if x.club != '' and hour >= 15 and hour < 18 and x in studs: # Распределение клубов
@@ -226,8 +234,8 @@ init python:
         if player.isSperm() == 2 and rand(1,3) == 1:
             for x in location.getPeople():
                 if x.getCorr() < 50 and x.getLoy() < 50:
-                    x.setRep(-1)
-                    x.setCorr(.5)
+                    x.incRep(-1)
+                    x.incCorr(0.5)
 
     def checkDeath():
         if player.getHealth() < 200 and rand(1,20) == 1:

@@ -1,14 +1,14 @@
 init python:
     def getFlirtReaction(user):
         if user.getWill() > player.getCorr():
-            user.setLoy(-1)
+            user.incLoy(-1)
             if user.body.sex() == 'male':
                 return user.name +' скептически посмотрел на Вас, явно не одобряя вашего поведения. Его лояльность к вам серьёзно упала.'
             else:
                 return user.name +' скептически посмотрела на вас, явно не одобряя подобного поведения. Её лояльность к вам серьёзно упала.'
         else:
-            user.setLoy(1)
-            user.setCorr(0.2)
+            user.incLoy(1)
+            user.incCorr(0.2)
             return user.name + ' активно включается в ваш флирт, рассказывая какую то свою весьма нескромную историю. '
 
             

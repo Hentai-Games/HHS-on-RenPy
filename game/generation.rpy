@@ -336,8 +336,10 @@ label history:
             jump history
 # endBlc
 label selchar:
-    show white
-    call screen char_select
+    # show white
+    # call screen char_select
+    $ _picture = 'pic/Hero/2.png'
+    jump gendir
 
 label skipall:
     python:
