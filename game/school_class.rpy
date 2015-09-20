@@ -115,6 +115,13 @@ init -20 python:
     def votingFunc(type,amount, what):
         voteYes = voteNo = voteVeto = 0
         for teacher in teachers:
+            if teacher == dante and 'library' not in school.buildings:
+                continue
+            elif teacher == gonoreevna and 'doctor' not in school.buildings:
+                continue
+            if mile_qwest_2_stage in [10,11] and teacher == kupruvna:
+                amount = -1
+            
             if type == 'loy':
                 if teacher.getLoy() >= amount:
                     voteYes += 1

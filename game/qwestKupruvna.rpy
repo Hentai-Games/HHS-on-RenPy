@@ -47,7 +47,7 @@ label kupruvnaGotIt1:
                     p.say 'Не смею вас больше задерживать... - развели вы руками поражаясь чьей то хитропопости.'
                     'Валентина покинула Ваш кабинет. Скорее всего она больше не захочет с вами общаться в принципе.'
                     python:
-                        k.incLoy(-100)
+                        k.setLoy(0)
                         k.sayCount = 0
                         mile_qwest_2_stage = 3
                         mile_qwest_2_caught = 1
@@ -125,8 +125,8 @@ label kupruvnaGotIt2:
             'Вы вспоминаете, что школу приглашали на уборку капусты. Там можно и деньжат подзаработать и Купрувну подловить. Интересно, могут ли мне помочь препараты с секс шопа?'
             python:
                 k.incWill(-30)
-                k.incLoy(30)
-                k.incCorr(20)
+                k.setLoy(k.setLoy() + 30)
+                k.setCorr(k.setCorr() + 20)
                 mile_qwest_2_caught = 0
                 mile_qwest_2_stage = 5
     $ changetime(25)
