@@ -6,7 +6,7 @@ init 10 python:
             self.name = name
             self.base_prob = base_prob
             self.events = []
-            self.statuses = []
+            self.__statuses = []
             self.position = position
 
         def getprob(self):
@@ -24,7 +24,8 @@ init 10 python:
             return rez
 
         def __repr__(self):
-            return '<{} name: "{}">'.format(self.__class__.__name__, self.name.encode('utf-8'))
+            return '<{} name: "{}">'.format(self.__class__.__name__,
+                                            self.name.encode('utf-8'))
 
         def getPeople(self):
             rez = []
@@ -38,20 +39,73 @@ init 10 python:
 
             return rez
 
-        def addStatus(self, status):
-            """Добавляет статус к локации"""
+        def addStatus(self, status, prob=None):
+            """Добавляет статус к локации
+            
+            status - LocationStatus объект
+            prob - вероятность выбора статуса (от 0 до 100).
+                   Можно оставить None - тогда вероятность будет вычислена 
+                   автоматически, справедливо по отношению к остальным. Общая
+                   сумма вероятностей для статусов не должна быть больше 100!
+            """
             if not isinstance(status, LocationStatus):
                 raise Exception('Status should be LocationStatus object')
 
-            self.statuses.append(status)
+            if prob is not None:
+                int(prob)
+                if not 0 < prob < 100:
+                    raise Exception('Probability should be between 0 and 100: {}'
+                                    .format(prob))
+
+            # Statuses with automatic probabilities will have special flag
+            self.__statuses.append((status, prob, prob is None))
+            self.__recalc_statuses_prob()
+
+        def __recalc_statuses_prob(self):
+            """Пересчитывает вероятности статусов"""
+
+            auto_prob_statuses = [x for x in self.__statuses if x[2]]
+            given_prob = sum([x[1] for x in self.__statuses if not x[2]])
+
+            # Avoid division by zero and ensure that prob>=1
+            auto_prob = max(abs(100-given_prob)/max(1, len(auto_prob_statuses)),
+                            1)
+
+            for idx, (status, prob, auto_f) in enumerate(self.__statuses):
+                if not auto_f:
+                    continue
+
+                self.__statuses[idx] = (status, auto_prob, auto_f)
+                
+            # Make sure that whe have no >100 prob
+            if sum([x[1] for x in self.__statuses]) > 100:
+                raise Exception('Sum of LocationStatus probabilities should '
+                                'be less than 100: {}'.format(self.__statuses))
 
         def addStatuses(self, statuses):
-            """Добавляет список статусов к локации"""
-            for status in statuses:
-                self.addStatus(status)
+            """Добавляет список статусов к локации
+            statuses - список статусов, если нужно задать вероятности - то
+                       список tuple'ов (status, prob)
+            """
+
+            for x in statuses:
+                try:
+                    self.addStatus(x[0], x[1])
+
+                except TypeError:
+                    self.addStatus(x)
 
         def getStatuses(self):
-            return self.statuses
+            """Возвращает список статусов, с учетом их вероятностей.
+            Т.е. более вероятные статусы в этом списке будут дублироваться"""
+
+            min_prob = float(min([x[1] for x in self.__statuses]))
+            rez = []
+            for status, prob, _ in self.__statuses:
+                for _ in xrange(int(round(prob/min_prob))):
+                    rez.append(status)
+
+            return rez
 
     class Event:
         def __init__(self,id,corr):
@@ -189,11 +243,6 @@ init 10 python:
 #Создание массива всех локаций
     _locs = renpy.get_all_labels()
 
-    # TEST
-    test_stat = LocationStatus('Игра', 'pic123', 'any',
-                               requirements={'fun': 0.1},
-                               stats_actions={'fun': (1, 10)})
-        
     for x in _locs:
         if x[:4] == 'loc_':
             if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = -1, position = ['home','safe'])
@@ -249,7 +298,13 @@ init 10 python:
 
             # TEST
             if loc.name == 'улица':
-                loc.addStatus(test_stat)
+                loc.addStatuses([
+                LocationStatus('Идти', 'pic123', 'any'),
+                #LocationStatus('Мечта', 'pic123', 'any',
+                #               stats_actions={'corr': (1, 5)}),
+                (LocationStatus('Отдых', 'pic123', 'any',
+                               stats_actions={'fun': (1, 5)}), 15)])
+                print loc.getStatuses()
 
     getEvents() #добавляю всем эвенты
 
