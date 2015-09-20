@@ -220,12 +220,10 @@ init 10 python:
                 return False
 
             if self.char_type != 'any':
-                if self.char_type == 'teacher' and not isinstance(char,
-                                                                  Teacher):
+                if self.char_type == 'teacher' and char not in teachers:
                     return False
 
-                elif self.char_type == 'student' and isinstance(char,
-                                                                Teacher):
+                elif self.char_type == 'student' and char not in studs:
                     return False
 
             for key, val in self.requirements.items():
