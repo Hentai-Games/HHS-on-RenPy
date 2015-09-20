@@ -262,6 +262,7 @@ init 10 python:
 #Создание массива всех локаций
     _locs = renpy.get_all_labels()
 
+    go_status = LocationStatus('Идти', None, 'any')
     for x in _locs:
         if x[:4] == 'loc_':
             if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = -1, position = ['home','safe'])
@@ -315,15 +316,7 @@ init 10 python:
             else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
             locations.append(loc)
 
-            # TEST
-            if loc.name == 'улица':
-                loc.addStatuses([
-                LocationStatus('Идти', 'pic123', 'any'),
-                #LocationStatus('Мечта', 'pic123', 'any',
-                #               stats_actions={'corr': (1, 5)}),
-                (LocationStatus('Отдых', 'pic123', 'any',
-                               stats_actions={'fun': (1, 5)}), 15)])
-                print loc.getStatuses()
+            loc.addStatus(go_status)
 
     getEvents() #добавляю всем эвенты
 
