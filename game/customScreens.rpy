@@ -175,7 +175,7 @@ screen stats_screen:
         imagebutton auto 'pic/actions/wait15_%s.png' action [Function(waiting,15)]
         imagebutton auto 'pic/actions/wait60_%s.png' action [Function(waiting,60)]
         imagebutton idle im.FactorScale('pic/actions/smartphone_idle.png', 0.5) hover im.FactorScale('pic/actions/smartphone.png', 0.5) action [Hide('stats_screen'), Jump('notebook')]
-        imagebutton auto 'pic/actions/inventory_%s.png' action [Function(clrscr), Show('inventory')]
+        imagebutton auto 'pic/actions/inventory_%s.png' action [Function(clrscr), Show(last_inventory)]
         if curloc == 'loc_beach' or curloc == 'loc_street' or curloc == 'loc_shopStreet' or curloc == 'loc_entrance':
             imagebutton auto 'pic/actions/taxi_%s.png' action [Function(move, 'loc_taxi')]
         if getLoc(curloc) != False:
@@ -208,8 +208,55 @@ screen char_select:
         imagebutton idle 'pic/Hero/4.png' hover im.FactorScale('pic/Hero/4.png',1.1) xalign 0.8 yalign 0.5 action [SetVariable('_picture','pic/Hero/4.png'), Jump('gendir')]
         
 ##############################################################################
-# Инвентарь
+# Инвентарь весь
 ##############################################################################
+screen inventory_all:
+    zorder 1
+    modal True
+    fixed :
+        add 'pic/bg.png'
+    fixed xpos 0.01 ypos 0.01:
+        $ showed[:] = []
+        hbox :
+            textbutton _('Назад') action Function(move, curloc)
+            textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
+            textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
+            textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
+            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
+        $ xalig = 0.2
+        $ yalig = 0.05
+        for x in player.inventory:
+            if x.name not in showed:
+                if x.type == 'sexShop':
+                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                elif x.type == 'present':
+                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                elif x.type == 'clothing':
+                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                elif x.type == 'food':
+                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action [Function(player.eat, x), Function(move,curloc)] hovered [SetVariable('myItem', x), Show('showItem')]
+                elif x.type == 'tool':
+                    if x.purpose == 'camera':
+                        imagebutton:
+                            idle im.FactorScale(x.picto,0.4) 
+                            hover im.FactorScale(x.picto,0.45) 
+                            xalign xalig yalign yalig  
+                            action Jump('installCam')
+                            hovered [SetVariable('myItem', x), Show('showItem')]
+                    else:
+                        imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                else:
+                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                python:
+                    showed.append(x.name)
+            else:
+                $ xalig -= 0.09
+            $ xalig += 0.09
+            if xalig >= 0.99:
+                $ yalig += 0.15
+                $ xalig = 0.2
+                
 screen inventory:
     zorder 1
     modal True
@@ -219,9 +266,11 @@ screen inventory:
         $ showed[:] = []
         hbox :
             textbutton _('Назад') action Function(move, curloc)
-            textbutton _('Одежда') action [Function(clrscr),Show('inventory_clothing')]
-            textbutton _('Подарки') action [Function(clrscr), Show('inventory_presents')]
-            textbutton _('Разное') action NullAction()
+            textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
+            textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
+            textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
+            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
         $ xalig = 0.2
         $ yalig = 0.05
         for x in player.inventory:
@@ -255,9 +304,11 @@ screen inventory_clothing:
     fixed xpos 0.01 ypos 0.01:
         hbox :
             textbutton _('Назад') action Function(move, curloc)
-            textbutton _('Одежда') action NullAction()
-            textbutton _('Подарки') action [Function(clrscr), Show('inventory_presents')]
-            textbutton _('Разное') action [Function(clrscr),Show('inventory')]
+            textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
+            textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
+            textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
+            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
             
         $ xalig = 0.2
         $ yalig = 0.05
@@ -280,14 +331,43 @@ screen inventory_presents:
     fixed xpos 0.01 ypos 0.01:
         hbox :
             textbutton _('Назад') action Function(move, curloc)
-            textbutton _('Одежда') action [Function(clrscr),Show('inventory_clothing')]
-            textbutton _('Подарки') action NullAction()
-            textbutton _('Разное') action [Function(clrscr),Show('inventory')]
+            textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
+            textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
+            textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
+            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
 
         $ xalig = 0.2
         $ yalig = 0.05
         for x in player.inventory:
             if x.type == 'present':
+                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+            else :
+                $ xalig -= 0.09
+            $ xalig += 0.09
+            if xalig >= 0.99:
+                $ yalig += 0.15
+                $ xalig = 0.2
+                
+# Показ афродизиаков, дилдаков и прочее
+screen inventory_sexShop:
+    zorder 1
+    modal True
+    fixed :
+        add 'pic/bg.png'
+    fixed xpos 0.01 ypos 0.01:
+        hbox :
+            textbutton _('Назад') action Function(move, curloc)
+            textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
+            textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
+            textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
+            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
+
+        $ xalig = 0.2
+        $ yalig = 0.05
+        for x in player.inventory:
+            if x.type == 'sexShop':
                 imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
             else :
                 $ xalig -= 0.09

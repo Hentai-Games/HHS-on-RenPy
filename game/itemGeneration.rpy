@@ -98,6 +98,14 @@ init python:
     )
     allItems.append(perfume)
     
+# Создание айтемов сексшопа
+    aphrodisiac = Tool(purpose = 'aphrodisiac')
+    aphrodisiac.name = _('Лёгкий афродизиак')
+    aphrodisiac.cost = 200
+    aphrodisiac.picto = 'pic/items/aphrodisiac.jpg'
+    aphrodisiac.durability = 1
+    aphrodisiac.type = 'sexShop'
+    allItems.append(aphrodisiac)
     
 #######################################################################
 #  Верхняя одежда

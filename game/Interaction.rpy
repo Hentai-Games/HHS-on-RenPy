@@ -174,6 +174,8 @@ screen show_stat:
                     textbutton 'Поговорить' xminimum 200 action Jump('speak')
                 if interactionObj.sayCount >= 3: 
                     textbutton 'Флирт' xminimum 200 action Jump('flirt')
+            if player.hasItem(aphrodisiac.name) and interactionObj not in aphroUsedArr:
+                textbutton 'Использовать\nафродизиак' xminimum 200 action Show('use_aphrodisiac')
             if 'school' in getLoc(curloc).position and curloc != 'loc_office' and interactionObj in studs:
                 textbutton 'Вызвать к себе' xminimum 200 action Jump('callup')
                 
@@ -219,7 +221,35 @@ screen make_gift_char:
             if xalig >= 0.99:
                 $ yalig += 0.15
                 $ xalig = 0.2
-                
+###########################################################################################################################            
+screen use_aphrodisiac:
+    zorder 1
+    modal True
+    fixed :
+        add 'pic/bg.png'
+    fixed xpos 0.01 ypos 0.01:
+        hbox :
+            textbutton _('Назад') action [Function(clrscr),Show('show_stat')]
+
+            $ xalig = 0.2
+
+        $ yalig = 0.05
+        for x in player.inventory:
+            if x.type == 'sexShop':
+                if x.purpose == 'aphrodisiac':
+                    imagebutton:
+                        idle im.FactorScale(x.picto,0.4) 
+                        hover im.FactorScale(x.picto,0.45)
+                        xalign xalig yalign yalig 
+                        action [Jump('use_aphrodisiac')]
+                        hovered [SetVariable('myItem', x), Show('showItem')]
+                        unhovered Hide('showItem')
+            else :
+                $ xalig -= 0.09
+            $ xalig += 0.09
+            if xalig >= 0.99:
+                $ yalig += 0.15
+                $ xalig = 0.2
 ###########################################################################################################################            
 screen inventory_clothing_char:
     zorder 1
@@ -294,6 +324,18 @@ label callout:
     python:
         callup = dummy
         move(curloc)
+###########################################################################################################################    
+label use_aphrodisiac:
+    $ clrscr()
+    player.say 'Смотри, [interactionObj.fname], что это там?'
+    'Пока [interactionObj.name] отворачивается, чтобы поглазеть на воображаемый объект за спиной, вы распыляете немного афродизиака.'
+    interactionObj.say 'Что там? - по покрасневшим щекам, видно что препарат подействовал.'
+    player.say 'Да ничего, показалось наверное! - отмахиваетесь вы рукой.'
+    'Второй раз за день на это не купятся.'
+    python:
+        if myItem.name == aphrodisiac.name: interactionObj.incLust(25)
+        aphroUsedArr.append(interactionObj)
+    call screen show_stat
 ###########################################################################################################################
 label reputation:
     show office
@@ -397,3 +439,5 @@ label reputation:
             python:
                 callup = dummy
                 move(curloc)
+
+                

@@ -4,6 +4,7 @@ init python:
         global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties
         
         timeGetPanties = 0 # сброс времени выдачи трусов
+        aphroUsedArr[:] = [] # сброс людей под афродизиаком
         
         if development == 0:
             # Голод

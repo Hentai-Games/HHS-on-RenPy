@@ -5,6 +5,7 @@
     curloc = 'loc_home' # Инициализация curloc
     students = 50 # количество студентов
     last_eat = 0 # Инициализация времени с последнего обеда
+    last_inventory = 'inventory_all'
     
     stat_loy = 0 # Инициализация переменных интерфейса
     stat_fun = 0
@@ -49,6 +50,7 @@
     detentions = [] # Лист провинившихся
     scoldWho = [] # Лист тех, кого будем наказывать в эвенте
     highlightP = [] # лист подсвечивающихся на локации
+    aphroUsedArr = [] #лист тех, на ком юзался афродизиак
 
 init 10 python:
     teacher_son = dummy
@@ -66,6 +68,10 @@ init:
     define secretary = Character("Александр", who_color="#0553FA", show_side_image = im.Scale("pic/otherChars/secretary_picto.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     
     define farmer = Character("Сидор Тяпкович", who_color="#0553FA", show_side_image = im.Scale("pic/otherChars/farmer_picto.jpg",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
+    
+    define female = Character("Женщина", who_color="#c8ffc8")
+    
+    
     
     define me = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_norm.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     define meSad = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_sad.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
