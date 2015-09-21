@@ -290,13 +290,25 @@ label test:
         # renpy.jump('getPanties')
     # $ t = mustangovich
     # show expression getCharImage(t,'dialog') as tempPic
-    python:
         # myString = ''
         # tempList = [tempList for tempList in range(1,20)]
         # for x in tempList:
             # myString += str(x) + ', '
-        temp = getQwest('qwest_loc_shop_cameraQwest').done
-    '[temp]'
+        # temp = getQwest('qwest_loc_shop_cameraQwest').done
+    # '[temp]'
+    screen test_screen:
+        vbox:
+            textbutton 'Эвент 1':
+                action Jump('event_loc_class1_10_StartKupruvnaQuest')
+            textbutton 'Эвент 2':
+                action Jump('kupruvnaGotIt1')
+            textbutton 'Эвент 3':
+                action Jump('kupruvnaGotIt2')
+            textbutton 'Эвент 4':
+                action Jump('event_loc_cabbage_0_sexWithSon')
+            textbutton 'Эвент 5':
+                action Jump('kupruvnaGotIt3')
+    call screen test_screen
     $move(curloc)
 
 ##############################################################
@@ -636,6 +648,8 @@ label loc_office:
                     hover im.MatrixColor('pic/events/cabbage/secretary.png', im.matrix.opacity(1.0))
                     xalign 0.1 yalign 1.0
                     action [Jump('cabbageInit')]
+            if mile_qwest_2_stage == 7 and (lt() in [-1,0]) and call_up == dummy:
+                textbutton 'Вызвать Валентину Купрувну' xalign 0.5 yalign 0.5 action Jump('kupruvnaGotIt1')
     call screen office
 
 label loc_class1:
@@ -1056,6 +1070,9 @@ label loc_sexShop:
             fixed:
                 vbox xalign 0.0 yalign 1.0:
                     text 'Вы видите перед собой магазин для взрослых. Полки уставлены различными игрушками для взрослых. Дилдо, вибраторы, резиновые дырки для мальчиков, пони с уникальным седлом для девочек. Отдельная полка для афродизиаков и прочей медицины. Глаза прямо разбегаются от обилия выбора!' style style.description
+                textbutton 'Закупиться':
+                    xalign 0.3 yalign 0.5 
+                    action [Function(clrscr), Show('sexShopping')]
                 textbutton 'Назад':
                     xalign 0.5 yalign 0.8 
                     action [Function(move, 'loc_shopStreet')] 
