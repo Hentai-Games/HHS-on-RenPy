@@ -116,11 +116,23 @@ screen locationPeoplePicto:
             $ pictoSize = 0.5
             if x in highlightP:
                 $ pictoSize += 0.1
+            python:
+                actions_list = [Function(clrscr),
+                                SetVariable('interactionObj', x)]
+                if x.getLocationStatus() and x.getLocationStatus().events:
+                    actions_list.append(Jump(choice(x.getLocationStatus()
+                                                     .events)))
+
+                else:
+                    actions_list += [Show('show_stat'), Function(showChars),
+                                     Function(changetime, 1)]
+
             imagebutton:
-                idle im.FactorScale(x.picto,pictoSize) 
-                hover im.FactorScale(x.picto,pictoSize + 0.1) 
+                idle im.FactorScale(x.picto, pictoSize) 
+                hover im.FactorScale(x.picto, pictoSize + 0.1) 
                 xalign xalig yalign yalig 
-                action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
+                action actions_list
+                hovered [SetVariable('showHover', x), Show('charInfoLeft')]
             $ xalig += 0.09
             if xalig >= 0.99:
                 $ yalig += 0.15

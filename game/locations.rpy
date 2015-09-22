@@ -138,7 +138,7 @@ init 10 python:
                   либо список с комбинацией этих значений
             char_type - тип персонажа: any, student, teacher
             events - список меток ивентов, либо None - если статус не
-                     пораждает ивентов
+                     порождает ивентов
             requirements - dict необходимых параметров
                            (key - corr, fun, ...;
                             value - минимально-необходимое значение параметра),
@@ -347,6 +347,10 @@ init 10 python:
             locations.append(loc)
 
             loc.addStatus(go_status)
+
+            # For tests
+            #test_loc_status = LocationStatus('TEST', None, 'any', events=['cleanAss'])
+            #loc.addStatus(test_loc_status, 50)
 
     getEvents() #добавляю всем эвенты
     getQwests() #добавляю квесты
