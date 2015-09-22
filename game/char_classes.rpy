@@ -725,6 +725,7 @@ init -20 python:
                 self.locationStatus = None
 
             else:
+                self.locationStatus = status
                 if not status.checkApplicable(self):
                     raise Exception('Status {} could not be applied to character <>'
                                     .format(status, self))
@@ -734,7 +735,6 @@ init -20 python:
                     char_stat = min(max_val, char_stat+mod)
                     setattr(self.stats, stat, char_stat)
 
-                self.locationStatus = status
 
         def getLocationStatus(self):
             return self.locationStatus
