@@ -70,7 +70,7 @@ init python:
                 else:
                     description += 'футанари'
 
-            description += ' '+ str(age) + ' лет. '
+            description += ' Nнадцати лет. '
             
             if inClass > 0:
                 if sex == 'male':

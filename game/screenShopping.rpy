@@ -89,3 +89,29 @@ screen showSellItem:
                 $ temp_c = player.countItem(myItem.name)
                 text _('В наличии [temp_c] шт.') style style.my_text
                 text _('Использований - [temp_d]') style style.my_text
+
+screen sexShopping:
+    zorder 1
+    modal True
+    fixed :
+        add 'pic/bg.png'
+    frame :
+        xalign 1.0
+        text _('Денег - [player.money]')
+    fixed xpos 0.01 ypos 0.01:
+        textbutton _('Назад') action Function(move, curloc)
+        hbox xpos 0.2 ypos 0.1:
+            frame :
+                vbox :
+                    text _('Афродизиаки')
+                    textbutton aphrodisiac.name action [Function(player.buy, aphrodisiac, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', aphrodisiac), Show('showSellItem')]
+            frame :
+                vbox :
+                    #Список предметов на продажу
+                    text _('Игрушки')
+                   
+            frame :
+                vbox :
+                    #Список подарков на продажу
+                    text _('Подарки')
+                    

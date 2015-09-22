@@ -35,7 +35,7 @@ screen compScreen:
                 
 screen description(what):
     zorder 1
-    fixed xpos 0.01 ypos 0.5:
+    fixed xpos 0.01 ypos 0.7:
         vbox:
             if what == 'usual':
                 text _('Ученикам будет разрешено приходить в школу в обычной одежде, что позволит им быть более раскрепощёнными, а так же увеличит радость пребывания в "строгих" стенах вашего заведения. Требует пройти проверку на лояльность вам учителей.')
@@ -85,6 +85,12 @@ screen description(what):
                 text _('Постройка стены скроет школу от лишних глаз.')
             elif what == 'library':
                 text _('Библиотека. Что тут ещё можно сказать? Вы войдёте в историю школу этой постройкой!')
+            elif what == 'chemlab':
+                text _('Химическая лаборатория. Интересно, что там можно исследовать?')
+            elif what == 'dungeon':
+                text _('Подвал в котором можно заключать учеников.')
+            elif what == 'doctor':
+                text _('Медицинский кабинет. Медсестра прилагается.')
             elif what == 'dildo':
                 text _('Наглядные пособия будут закуплены для занятий cексуального просвящения. Очень наглядные. И практичные.')
             elif what == 'cherleader':
@@ -538,10 +544,10 @@ screen preVoting(type,amount,what):
                 textbutton 'Да' action [
                 Function(votingFunc, type, amount, what),
                 Hide('preVoting'),
-                Show('voting', None, type, amount)]
+                Show('voting', None, type, amount, what)]
                 textbutton 'Нет' action Hide('preVoting')
                 
-screen voting(type,amount): # Просто скрин для наглядности. На самом деле всё обсчитывается в votingFunc
+screen voting(type,amount,what): # Просто скрин для наглядности. На самом деле всё обсчитывается в votingFunc
     zorder 2
     tag compScreens
     fixed xpos 0.3 ypos 0.1:
@@ -550,31 +556,34 @@ screen voting(type,amount): # Просто скрин для нагляднос�
         hbox:
             spacing 20
             for teacher in teachers:
+                if mile_qwest_2_stage in [10,11] and teacher == kupruvna:
+                    $ amount = -1
                 vbox:
-                    spacing 10
-                    if type == 'loy':
-                        imagebutton idle im.FactorScale(teacher.picto,0.5) hover im.FactorScale(teacher.picto,0.5) action NullAction() hovered [SetVariable('showHover',teacher), Show('charInfoLeft')] unhovered [Hide('charInfoLeft')]
-                        if teacher.getLoy() >= amount:
-                            text 'За'
-                            $ voteYes += 1
-                        elif teacher.getLoy()*2 >= amount:
-                            text 'Против' 
-                            $ voteNo += 1
-                        else:
-                            text 'Вето' 
-                            $ voteVeto += 1
-                            
-                    if type == 'corr':
-                        imagebutton idle im.FactorScale(teacher.picto,0.5) hover im.FactorScale(teacher.picto,0.5) action NullAction() hovered [SetVariable('showHover',teacher), Show('charInfoLeft')] unhovered [Hide('charInfoLeft')]
-                        if (teacher.getCorr() + teacher.getLoy()) >= amount*2:
-                            text 'За'
-                            $ voteYes += 1
-                        elif (teacher.getCorr() + teacher.getLoy()) >= amount:
-                            text 'Против' 
-                            $ voteNo += 1
-                        else:
-                            text 'Вето' 
-                            $ voteVeto += 1
+                    if teacher not in [dante, gonoreevna] or (teacher == dante and 'library' in school.buildings and what != 'library') or (teacher == gonoreevna and 'doctor' in school.buildings and what != 'doctor'): # Ну тут только так, через жопу... Цикл не прервать.
+                        spacing 10
+                        if type == 'loy':
+                            imagebutton idle im.FactorScale(teacher.picto,0.5) hover im.FactorScale(teacher.picto,0.5) action NullAction() hovered [SetVariable('showHover',teacher), Show('charInfoLeft')] unhovered [Hide('charInfoLeft')]
+                            if teacher.getLoy() >= amount:
+                                text 'За'
+                                $ voteYes += 1
+                            elif teacher.getLoy()*2 >= amount:
+                                text 'Против' 
+                                $ voteNo += 1
+                            else:
+                                text 'Вето' 
+                                $ voteVeto += 1
+                                
+                        if type == 'corr':
+                            imagebutton idle im.FactorScale(teacher.picto,0.5) hover im.FactorScale(teacher.picto,0.5) action NullAction() hovered [SetVariable('showHover',teacher), Show('charInfoLeft')] unhovered [Hide('charInfoLeft')]
+                            if (teacher.getCorr() + teacher.getLoy()) >= amount*2:
+                                text 'За'
+                                $ voteYes += 1
+                            elif (teacher.getCorr() + teacher.getLoy()) >= amount:
+                                text 'Против' 
+                                $ voteNo += 1
+                            else:
+                                text 'Вето' 
+                                $ voteVeto += 1
 
     fixed xpos 0.3 ypos 0.3:
         if voteYes > voteNo and voteVeto == 0:

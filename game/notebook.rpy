@@ -65,7 +65,7 @@ screen charInfoLeft:
                 text _('[showHover.name]') style style.my_text
                 
                 $ temp = showHover.age
-                text _('Возраст [temp]') style style.my_text
+                text _('Возраст Nнадцать') style style.my_text
                 
                 $ temp = round(showHover.stats.beauty,1)
                 text _('Красота [temp]') style style.my_text
