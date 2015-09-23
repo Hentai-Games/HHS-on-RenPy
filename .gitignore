@@ -64,4 +64,4 @@ log.txt
 *.swp
 game/pic
 renpy-*-sdk/
-
+game/saves/persistent

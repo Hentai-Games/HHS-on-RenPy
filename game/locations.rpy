@@ -9,6 +9,7 @@ init 10 python:
             self.qwests = []
             self.position = position
             self.items = []
+            self.__statuses = []
 
         def getprob(self):
             global hour
@@ -25,7 +26,8 @@ init 10 python:
             return rez
 
         def __repr__(self):
-            return '<{} name: "{}>"'.format(self.__class__.__name__, self.name.encode('utf-8'))
+            return '<{} name: "{}">'.format(self.__class__.__name__,
+                                            self.name.encode('utf-8'))
 
         def getPeople(self):
             rez = []
@@ -43,6 +45,77 @@ init 10 python:
                 rez.append(x)
             return rez
 
+        def addStatus(self, status, prob=None):
+            """Добавляет статус к локации
+            
+            status - LocationStatus объект
+            prob - вероятность выбора статуса (от 0 до 100).
+                   Можно оставить None - тогда вероятность будет вычислена 
+                   автоматически, справедливо по отношению к остальным. Общая
+                   сумма вероятностей для статусов не должна быть больше 100!
+            """
+            if not isinstance(status, LocationStatus):
+                raise Exception('Status should be LocationStatus object')
+
+            if prob is not None:
+                int(prob)
+                if not 0 < prob < 100:
+                    raise Exception('Probability should be between 0 and 100: {}'
+                                    .format(prob))
+
+            # Statuses with automatic probabilities will have special flag
+            self.__statuses.append((status, prob, prob is None))
+            self.__recalc_statuses_prob()
+
+        def __recalc_statuses_prob(self):
+            """Пересчитывает вероятности статусов"""
+
+            auto_prob_statuses = [x for x in self.__statuses if x[2]]
+            given_prob = sum([x[1] for x in self.__statuses if not x[2]])
+
+            # Avoid division by zero and ensure that prob>=1
+            auto_prob = max(abs(100-given_prob)/max(1, len(auto_prob_statuses)),
+                            1)
+
+            for idx, (status, prob, auto_f) in enumerate(self.__statuses):
+                if not auto_f:
+                    continue
+
+                self.__statuses[idx] = (status, auto_prob, auto_f)
+                
+            # Make sure that whe have no >100 prob
+            if sum([x[1] for x in self.__statuses]) > 100:
+                raise Exception('Sum of LocationStatus probabilities should '
+                                'be less than 100: {}'.format(self.__statuses))
+
+        def addStatuses(self, statuses):
+            """Добавляет список статусов к локации
+            statuses - список статусов, если нужно задать вероятности - то
+                       список tuple'ов (status, prob)
+            """
+
+            for x in statuses:
+                try:
+                    self.addStatus(x[0], x[1])
+
+                except TypeError:
+                    self.addStatus(x)
+
+        def getStatuses(self):
+            """Возвращает список статусов, с учетом их вероятностей.
+            Т.е. более вероятные статусы в этом списке будут дублироваться"""
+
+            if not self.__statuses:
+                return []
+
+            min_prob = float(min([x[1] for x in self.__statuses]))
+            rez = []
+            for status, prob, _ in self.__statuses:
+                for _ in xrange(int(round(prob/min_prob))):
+                    rez.append(status)
+
+            return rez
+
     class Event:
         def __init__(self,id,corr):
             self.id = id
@@ -52,6 +125,128 @@ init 10 python:
         def __init__(self,id):
             self.id = id
             self.done = False
+
+    # Location statuses
+    class LocationStatus(object):
+        def __init__(self, name, pic, sex='any', char_type='any', events=None,
+                     requirements=None, stats_actions=None):
+            """Создает новый статус для локации.
+
+            name - имя для статуса
+            pic - изображение для отображения статуса
+            sex - пол для статуса, либо строка: male, female, futa, any,
+                  либо список с комбинацией этих значений
+            char_type - тип персонажа: any, student, teacher
+            events - список меток ивентов, либо None - если статус не
+                     порождает ивентов
+            requirements - dict необходимых параметров
+                           (key - corr, fun, ...;
+                            value - минимально-необходимое значение параметра),
+                           либо None если статус не имеет никаких требований
+            stats_actions - как статус повлияет на взявшего его персонажа.
+                            Задается как dict, где key - corr, fun, ...;
+                            value - задает на сколько изменится параметр,
+                            но финально параметр не вырастит больше
+                            N(заиграться до 100 fun не получится).
+                            Пример: stats_actions={'fun': (1, 20)} - fun
+                            увеличится на 1, но в итоге будет не больше 20
+            """
+            self.name = name
+            self.pic = pic
+
+            # Sex
+            if isinstance(sex, basestring):
+                self.sex = [sex]
+            elif hasattr(sex, '__iter__'):
+                self.sex = sex
+            else:
+                raise Exception('Sex should be submitted as string ot list of strings')
+            for s in self.sex:
+                if s not in ['male', 'female', 'futa', 'any']:
+                    raise Exception('Unknown sex submitted: {}'.format(s))
+
+            # char_type
+            if char_type.lower() not in frozenset(['any', 'teacher',
+                                                   'student']):
+                raise Exception('char_type shoulb be any, teacher or student: {}'
+                                 .format(char_type))
+            self.char_type = char_type
+
+            # Events
+            if events is None:
+                events = []
+
+            # Check that something iterable was submitted, but not string.
+            # We need something like list
+            if not hasattr(events, '__iter__')\
+                                        or isinstance(events, basestring):
+                    raise Exception('events arguments shoud be submitted as list')
+            self.events = events
+
+            # Requirements
+            self.requirements = {key: (val if val is not None else 0)\
+                                 for key, val in self.__check_stats(requirements)
+                                                     .items()}
+
+            # Stats actions
+            self.stats_actions = {key: (val if val is not None else (0, 100))\
+                                  for key, val in self.__check_stats(stats_actions)
+                                                      .items()}
+
+            # Check for tuples
+            for a in self.stats_actions.values():
+                if not hasattr(a, '__len__') or len(a) != 2:
+                    raise Exception('Stats actions should be tuples length 2')
+
+        def __check_stats(self, in_stats):
+            if in_stats and (not hasattr(in_stats, 'items')\
+                             or not hasattr(in_stats, 'keys')):
+                    raise Exception('requirements should be submitted as dict')
+
+            if in_stats is None:
+                in_stats = {}
+
+            rez = {}
+            stats = ['loyalty', 'fun', 'corr', 'lust', 'will',
+                     'education', 'health', 'intelligence', 'beauty',
+                     'reputation', 'energy', 'dirty']
+            for stat, val in in_stats.items():
+                rez[stat] = val
+
+            # Check that there is no typo stats
+            if set(in_stats.keys()) - set(stats):
+                raise Exception('Extra stats was submitted in requirements: {}'
+                                .format(', '.join(set(in_stats.keys())
+                                                  -set(stats))))
+
+            return rez
+
+        def checkApplicable(self, char):
+            """Проверяет, что статус применим к данному персонажу"""
+
+            if not isinstance(char, Char):
+                raise Exception('Submitted char should be Char object')
+
+            if 'any' not in self.sex and char.getSex() not in self.sex:
+                return False
+
+            if self.char_type != 'any':
+                if self.char_type == 'teacher' and char not in teachers:
+                    return False
+
+                elif self.char_type == 'student' and char not in studs:
+                    return False
+
+            for key, val in self.requirements.items():
+                if getattr(char.stats, key) < val:
+                    return False
+
+            return True
+
+        def __repr__(self):
+            return '<{} name: "{}">'.format(self.__class__.__name__,
+                                            self.name.encode('utf-8'))
+
 
     def getLoc(id):
         for x in locations:
@@ -65,7 +260,6 @@ init 10 python:
                 if qwest.id == id:
                     return qwest
         return False
-
 
 #Функция добавления эвентов в локации
     def getEvents():
@@ -97,6 +291,7 @@ init 10 python:
 #Создание массива всех локаций
     _locs = renpy.get_all_labels()
 
+    go_status = LocationStatus('Идти', None, 'any')
     for x in _locs:
         if x[:4] == 'loc_':
             if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = -1, position = ['home','safe'])
@@ -150,6 +345,12 @@ init 10 python:
             elif x == 'loc_cabbage': loc = Location(id = x, name = 'Капуста', base_prob = -1, position = ['tech'])
             else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
             locations.append(loc)
+
+            loc.addStatus(go_status)
+
+            # For tests
+            #test_loc_status = LocationStatus('TEST', None, 'any', events=['cleanAss'])
+            #loc.addStatus(test_loc_status, 50)
 
     getEvents() #добавляю всем эвенты
     getQwests() #добавляю квесты
