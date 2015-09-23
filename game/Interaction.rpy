@@ -105,7 +105,40 @@ init python:
 label locationPeople:
     $ renpy.call_screen(lastView)
 
+screen peopleTextList:
+    vbox:
+        for x in getLoc(curloc).getPeople():
+            python:
+                mystyle = 'small_button_text'
+                if x in teachers: mystyle = 'bluesmall_button'
+                if x in highlightP: mystyle = 'warning'
+                actions_list = [Function(clrscr),
+                                SetVariable('interactionObj', x)]
+                if x.getLocationStatus() and x.getLocationStatus().events:
+                    actions_list.append(Jump(choice(x.getLocationStatus()
+                                                     .events)))
 
+                else:
+                    if x in teachers and x not in teacher_intro:
+                        if x == kupruvna:
+                            actions_list += [Jump('intro_kupruvna')]
+                        elif x == danokova:
+                            actions_list += [Jump('intro_danokova')]
+                        elif x == frigidovna:
+                            actions_list += [Jump('intro_frigidovna')]
+                        elif x == bissektrisovna:
+                            actions_list += [Jump('intro_bissektrisovna')]
+                        elif x == dikovna:
+                            actions_list += [Jump('intro_dikovna')]
+                        else:
+                            actions_list += [Show('show_stat'), Function(showChars), Function(changetime, 1)]
+                    else:
+                        actions_list += [Show('show_stat'), Function(showChars), Function(changetime, 1)]
+            textbutton x.name + ((' ('+x.getLocationStatus().name+')' if x.getLocationStatus() else '') if x==showHover else ''):
+                action actions_list
+                hovered [SetVariable('showHover',x)]
+                style "bluesmall_button" text_style mystyle xalign 0.0
+                
 screen locationPeoplePicto:
     tag interface
     fixed xpos 0.01 ypos 0.01:
@@ -116,11 +149,23 @@ screen locationPeoplePicto:
             $ pictoSize = 0.5
             if x in highlightP:
                 $ pictoSize += 0.1
+            python:
+                actions_list = [Function(clrscr),
+                                SetVariable('interactionObj', x)]
+                if x.getLocationStatus() and x.getLocationStatus().events:
+                    actions_list.append(Jump(choice(x.getLocationStatus()
+                                                     .events)))
+
+                else:
+                    actions_list += [Show('show_stat'), Function(showChars),
+                                     Function(changetime, 1)]
+
             imagebutton:
-                idle im.FactorScale(x.picto,pictoSize) 
-                hover im.FactorScale(x.picto,pictoSize + 0.1) 
+                idle im.FactorScale(x.picto, pictoSize) 
+                hover im.FactorScale(x.picto, pictoSize + 0.1) 
                 xalign xalig yalign yalig 
-                action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)] hovered [SetVariable('showHover',x),Show('charInfoLeft')]
+                action actions_list
+                hovered [SetVariable('showHover', x), Show('charInfoLeft')]
             $ xalig += 0.09
             if xalig >= 0.99:
                 $ yalig += 0.15
@@ -149,6 +194,8 @@ screen show_stat:
             text 'Лояльность [temp]' style style.my_text
             $ temp = round(interactionObj.getCorr(), 1)
             text 'Развратность [temp]' style style.my_text
+            $ temp = round(interactionObj.getLust(), 1)
+            text 'Желание [temp]' style style.my_text
             if interactionObj not in teachers:
                 $ temp = round(interactionObj.getRep(), 1)
                 text 'Репутация [temp]' style style.my_text
