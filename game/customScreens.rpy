@@ -182,19 +182,7 @@ screen stats_screen:
             if len(getLoc(curloc).getPeople()) > 0:
                 imagebutton auto 'pic/actions/eye_%s.png' action [Function(clrscr),Jump('locationPeople')]
                 
-screen peopleTextList:
-    vbox:
-        for x in getLoc(curloc).getPeople():
-            python:
-                mystyle = 'small_button_text'
-                if x in teachers: mystyle = 'bluesmall_button'
-                if x in highlightP: mystyle = 'warning'
-            textbutton x.name:
-                action [Function(clrscr), SetVariable('interactionObj',x), Show('show_stat'), Function(showChars),Function(changetime,1)]
-                hovered [SetVariable('showHover',x)]
-                style "bluesmall_button" text_style mystyle xalign 0.0
-                  
-                
+              
 
 ##############################################################################
 # Стартовый скрин выбора персонажа

@@ -46,38 +46,40 @@ init -3 python:
         
     def changetime(change):
         global minute, check_minute, hour, ptime, weekday, number, year, month, mtime, ltMoved, timeMoved
-        minute += change
-        mtime += change
-        counter = 0
-        flagIncome = 0
-        
-        while minute >= 60:
-            hourlyReset()
-            minute -= 60
-            hour += 1
-            ptime += 1
-            if hour == 8 and weekday == 1:
-                flagIncome = 1
-            if hour >= 24:
-                hour -= 24
-                dailyRecount(allChars)
-                weekday += 1
-                if weekday >=8: weekday -=7
-                number += 1
-                if number >= 31:
-                    school.getBudget()
-                    number -= 30
-                    month += 1
-                    if month == 13:
-                        month -=12
-                        year += 1
-                        
-        if timeMoved + 10 < mtime or ltMoved != lt():
-            counter = max(1, int((mtime - timeMoved)/10))
-            for x in range(counter): # Если прошло больше 10 минут, двигаем несколько раз за всё прошедшее время.
-                addPeopleLocations() # двигаем людей
-            timeMoved = mtime
-            ltMoved = lt()
+        while change != 0:
+            tempChange = min(10,change)
+            change -= min(10,change)
+            minute += tempChange
+            mtime += tempChange
+            counter = 0
+            flagIncome = 0
+            if minute >= 60:
+                hourlyReset()
+                minute -= 60
+                hour += 1
+                ptime += 1
+                if hour == 8 and weekday == 1:
+                    flagIncome = 1
+                if hour >= 24:
+                    hour -= 24
+                    dailyRecount(allChars)
+                    weekday += 1
+                    if weekday >=8: weekday -=7
+                    number += 1
+                    if number >= 31:
+                        school.getBudget()
+                        number -= 30
+                        month += 1
+                        if month == 13:
+                            month -=12
+                            year += 1
+                            
+            if timeMoved + 10 < mtime or ltMoved != lt():
+                counter = max(1, int((mtime - timeMoved)/10))
+                for x in range(counter): # Если прошло больше 10 минут, двигаем несколько раз за всё прошедшее время.
+                    addPeopleLocations() # двигаем людей
+                timeMoved = mtime
+                ltMoved = lt()
             
         if flagIncome == 1:
             flagIncome = 0

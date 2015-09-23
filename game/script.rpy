@@ -51,6 +51,7 @@
     scoldWho = [] # Лист тех, кого будем наказывать в эвенте
     highlightP = [] # лист подсвечивающихся на локации
     aphroUsedArr = [] #лист тех, на ком юзался афродизиак
+    teacher_intro = [] #лист просмотренных интро
 
 init 10 python:
     teacher_son = dummy

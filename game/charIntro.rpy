@@ -1,5 +1,6 @@
 label intro_kupruvna:
     $ k= kupruvna
+    $ teacher_intro.append(k)
     show expression getCharImage(k,'dialog') as char1
     'Вы подходите к колоритной, но не очень красивой женщине, которой на вид около 35 лет.'
     k.say 'Здравствуйте, я - [k.name]. - представляется полногрудая мадам.'
@@ -19,6 +20,7 @@ label intro_kupruvna:
     
 label intro_danokova:
     $ d = danokova
+    $ teacher_intro.append(d)
     show expression getCharImage(d,'dialog') as char1
     'Вы замечаете любопытную молодую девушку в очках и отсутсвующим взглядом под ними. У неё небольшой размер груди, но она неплхо выглядит, хотя хуже, чем могла бы.'
     show expression getCharImage(player,'dialog') as char2
@@ -59,6 +61,7 @@ label intro_danokova:
     
 label intro_frigidovna:
     $ f = frigidovna
+    $ teacher_intro.append(f)
     show expression getCharImage(f,'dialog') as char2
     'Вы подходите к слегка полноватой в нужных местах женщине, в самом расцвете сил.'
     show expression getCharImage(player,'dialog') as char1
@@ -81,12 +84,14 @@ label intro_frigidovna:
     player.say 'За женщину? За существо, которое должно продолжать человеческий род во что бы то не стало?'
     f.say 'Для продолжения рода чудесно подойдёт искусственное оплодотворение! Но я, знаете ли, не спешу рожать ребёнка в мире, которым правит похоть!'
     f.say 'Простите, но у меня образовались срочные дела!'
+    hide char2
     'Преподавательница разворачивается и покидает вас.'
     player.say '"Нет, я, конечно, встречала в жизни феминисток, но чтобы вот так, да на всю голову... Не удивлюсь, если она ещё и девственница!"'
     $ move(curloc)
     
 label intro_bissektrisovna:
     $ b = bissektrisovna
+    $ teacher_intro.append(b)
     'Ваше внимание привлекает шикарная женщина в строгом костюме.'
     show expression getCharImage(b,'dialog') as char2
     b.say 'СИДЕТЬ! - резко кричит она, и у вас инстиктивно подгибаются ноги и резко хочется в туалет.'
@@ -122,6 +127,7 @@ label intro_bissektrisovna:
     
 label intro_dikovna:
     $ d= dikovna
+    $ teacher_intro.append(d)
     $ st = getChar('male')
     'Молодая женщина, даже скорее девушка, но уже с немалым размером груди, привлекает ваше внимание тем, что пытается разговаривать с учениками на английском.'
     show expression getCharImage(d,'dialog') as char2
@@ -150,6 +156,23 @@ label intro_dikovna:
     player.say '"Похоже с ней будет полегче, чем со всеми остальными..."'
     $ move(curloc)
     
+label intro_mustangovich:
+    $ m = mustangovich
+    $ teacher_intro.append(m)
+    'Тут будет интро'
+    $ move(curloc)
+    
+label intro_dante:
+    $ d = dante
+    $ teacher_intro.append(d)
+    'Тут будет интро'
+    $ move(curloc)
+    
+label intro_gonoreevna:
+    $ g = dikovna
+    $ teacher_intro.append(g)
+    'Тут будет интро'
+    $ move(curloc)
 
     
     

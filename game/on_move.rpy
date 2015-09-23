@@ -97,11 +97,16 @@ init python:
         global hour, weekday
         mystring = ''
         counter = 0
+        statusDistribution() # рпспределяем статусы по локациям
         if lt() > 0: # заполняем классы, если уроки
             fillClasses()
         else:
             for x in allChars:
                 if x != callup:
+                    if x.getLocationStatus() == stop_status:
+                        x.moveToLocation(x.location)
+                        continue
+                    
                     if x in teachers and lt() == 0 and rand(1,3) == 1: # учителя будут тусоваться в учительской
                         x.moveToLocation('loc_teacherRoom')
                         continue
