@@ -186,6 +186,7 @@ init -20 python:
             self.say = Character (self.fullName(), kind=adv, dynamic = False, color = self.color, show_side_image = Image(self.picto, xalign=0.0, yalign=1.0), window_left_padding = 170)
             config.side_image_tag = self.picto
             self.locationStatus = None
+            self.partner = None
         
         # Создание случайного персонажа с полом sex ('male', 'female' или 'futa') и картинкой picto
         @classmethod
@@ -714,8 +715,19 @@ init -20 python:
             # Filter statuses that fit to our stats
             statuses = [x for x in loc.getStatuses() if x.checkApplicable(self)]
             if statuses:
-                self.applyLocationStatus(choice(statuses))
-
+                applyStatus = choice(statuses)
+                
+                if applyStatus.name in ['Целуется']: # В случае поцелуев спавним партнёров вместе и заставляем целоваться.
+                    if self.partner == None:
+                        self.partner = getPartner(self)
+                    
+                    if self.partner == None:  # Если партнёров больше нет, тогда всё.
+                        self.moveToLocation(loc)
+                    self.applyLocationStatus(applyStatus)
+                    self.partner.location = self.location
+                    self.partner.forceLocationStatus(applyStatus)
+                else:
+                    self.applyLocationStatus(applyStatus)
             else:
                 self.applyLocationStatus(None)
 
@@ -772,10 +784,20 @@ init -20 python:
                             self.sex))
 
 # End class Char definition
-
     def getCharByName(name):
         global allChars
         for x in allChars:
             if x.fullName() == name:
                 return x
         return False
+        
+    def getPartner(char):
+        for x in studs: # Сначала пробуем гетеросексуальные отношения
+            if x.partner == None and x.getSex() != char.getSex():
+                x.partner = char
+                return x
+        for x in studs: # Потом гомосексуальные
+            if x.partner == None and x != char:
+                x.partner = char
+                return x
+        return None

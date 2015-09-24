@@ -13,8 +13,22 @@ screen notebook:
             textbutton _('Список учеников') action Show('studList')
             textbutton _('Список учителей') action Show('teacherList')
             textbutton _('Статистика школы') action Show('schoolStats')
+            if development > 0:
+                textbutton _('Список по партнёрам') action Show('partnerList')
 
-
+screen partnerList:
+    tag notebookList
+    fixed xpos 0.20 ypos 0.1:
+        vbox:
+            $ showed[:] = []
+            for x in studs:
+                if x.partner != None and x not in showed:
+                    $ sex1 = x.getSex()
+                    $ sex2 = x.partner.getSex()
+                    textbutton '[x.name] [sex1] === [x.partner.name] [sex2]' action NullAction() hovered [SetVariable('showHover',x),Show('charInfoLeft')] text_style "small_button_text"
+                    $ showed.append(x)
+                    $ showed.append(x.partner)
+                
 screen studList:
     tag notebookList
     fixed xpos 0.01 ypos 0.1:
@@ -61,9 +75,14 @@ screen charInfoLeft:
                 add showHover.picto
                 null height 10
                 
-                $ playerName = player.fullName()
                 text _('[showHover.name]') style style.my_text
                 
+                if development > 0:
+                    if showHover.partner != None:
+                        text _('Партнёр [showHover.partner.name]') style style.my_text
+                    else:
+                        text _('Одиночка') style style.my_text
+                    
                 $ temp = showHover.age
                 text _('Возраст Nнадцать') style style.my_text
                 

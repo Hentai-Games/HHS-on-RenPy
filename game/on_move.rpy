@@ -163,16 +163,14 @@ init python:
                     for location in locations:
                         if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
                             temp = getChar()
-                            if temp.getLocation() != location:
                             
-                                if location.id in ['loc_wcf','loc_wcm']: # В сортир по полу пихаем
-                                    if temp.getSex() == 'male':
-                                        location = getLoc('loc_wcm')
-                                    else:
-                                        location = getLoc('loc_wcf')
-                                        
-                                temp.moveToLocation(location)
-                                break
+                            if location.id in ['loc_wcf','loc_wcm']: # В сортир по полу пихаем
+                                if temp.getSex() == 'male':
+                                    location = getLoc('loc_wcm')
+                                else:
+                                    location = getLoc('loc_wcf')
+                                    
+                            temp.moveToLocation(location)
         if lt() == -4:
             # Сейчас ночь, нужно убрать всех с локаций
             clearLocations()

@@ -134,9 +134,10 @@ screen peopleTextList:
                             actions_list += [Show('show_stat'), Function(showChars), Function(changetime, 1)]
                     else:
                         actions_list += [Show('show_stat'), Function(showChars), Function(changetime, 1)]
-            textbutton x.name + ((' ('+x.getLocationStatus().name+')' if x.getLocationStatus() else '') if x==showHover else ''):
+            textbutton x.name +  ' ' + x.locationStatus.name.lower():
                 action actions_list
-                hovered [SetVariable('showHover',x)]
+                hovered [SetVariable('showHover',x),Show('showCharStatusText')]
+                unhovered [Hide('showCharStatusText')]
                 style "bluesmall_button" text_style mystyle xalign 0.0
                 
 screen locationPeoplePicto:
@@ -165,12 +166,21 @@ screen locationPeoplePicto:
                 hover im.FactorScale(x.picto, pictoSize + 0.1) 
                 xalign xalig yalign yalig 
                 action actions_list
-                hovered [SetVariable('showHover', x), Show('charInfoLeft')]
+                hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
+                unhovered [Hide('showCharStatusText')]
             $ xalig += 0.09
             if xalig >= 0.99:
                 $ yalig += 0.15
                 $ xalig = 0.2
 
+screen showCharStatusText:
+    frame:
+        xalign 0.01
+        yalign 1.0
+        text _('[showHover.locationStatus.name]')
+        
+        
+                
 screen show_stat:
     tag interface
     fixed xpos 0.01 ypos 0.01:
