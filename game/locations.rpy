@@ -120,7 +120,12 @@ init 10 python:
         def eraseStatuses(self):
             # сносит все статусы с локации
             self.__statuses[:] = []
-
+        
+        def removeStatus(self, status):
+            for x in self.__statuses:
+                if x == status:
+                    self.__statuses.remove(x)
+            
     class Event:
         def __init__(self,id,corr):
             self.id = id
@@ -183,9 +188,8 @@ init 10 python:
 
             # Check that something iterable was submitted, but not string.
             # We need something like list
-            if not hasattr(events, '__iter__')\
-                                        or isinstance(events, basestring):
-                    raise Exception('events arguments shoud be submitted as list')
+            if not hasattr(events, '__iter__') or isinstance(events, basestring):
+                raise Exception('events arguments shoud be submitted as list')
             self.events = events
 
             # Requirements

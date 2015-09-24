@@ -66,7 +66,8 @@ screen stats_screen:
                 
             if show_peopleTextList == 1:
                 use peopleTextList
-
+            if development > 0:
+                use showStatuses
 
     fixed xpos 0.3 ypos 0.01:
         hbox:
@@ -183,7 +184,13 @@ screen stats_screen:
                 imagebutton auto 'pic/actions/eye_%s.png' action [Function(clrscr),Jump('locationPeople')]
                 
               
-
+screen showStatuses:
+    fixed:
+        vbox:
+            for x in getLoc(curloc).getStatuses():
+                text x.name style style.my_text
+            
+              
 ##############################################################################
 # Стартовый скрин выбора персонажа
 ##############################################################################
