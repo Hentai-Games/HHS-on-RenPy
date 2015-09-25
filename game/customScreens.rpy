@@ -187,8 +187,11 @@ screen stats_screen:
 screen showStatuses:
     fixed:
         vbox:
+            $ showed[:] = []
             for x in getLoc(curloc).getStatuses():
-                text x.name style style.my_text
+                if x.name not in showed:
+                    text x.name style style.my_text
+                $ showed.append(x.name)
             
               
 ##############################################################################

@@ -158,7 +158,10 @@ init python:
                     if char.getCorr() < 30: char.incCorr(0.5)
                     
     def hourlyReset():
-        global hour, weekday
+        global hour, weekday, inhibLow
+        
+        if hour == 18:
+            inhibLow = 0
         
         if hour % 4 == 0:
             for char in allChars:

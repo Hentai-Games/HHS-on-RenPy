@@ -691,7 +691,7 @@ init -20 python:
             else:
                 return False
 
-        def moveToLocation(self, loc):
+        def moveToLocation(self, loc, *args):
             """Перемещает персонажа в заданную локацию
 
             loc - объект класса Location, имя локации или None.
@@ -713,23 +713,24 @@ init -20 python:
             self.location = loc
 
             # Filter statuses that fit to our stats
-            statuses = [x for x in loc.getStatuses() if x.checkApplicable(self)]
-            if statuses:
-                applyStatus = choice(statuses)
-                
-                if applyStatus.name in ['Целуется']: # В случае поцелуев спавним партнёров вместе и заставляем целоваться.
-                    if self.partner == None:
-                        self.partner = getPartner(self)
+            if len(args) == 0:
+                statuses = [x for x in loc.getStatuses() if x.checkApplicable(self)]
+                if statuses:
+                    applyStatus = choice(statuses)
                     
-                    if self.partner == None:  # Если партнёров больше нет, тогда всё.
-                        self.moveToLocation(loc)
-                    self.applyLocationStatus(applyStatus)
-                    self.partner.location = self.location
-                    self.partner.forceLocationStatus(applyStatus)
+                    if applyStatus.name in ['Целуется']: # В случае поцелуев спавним партнёров вместе и заставляем целоваться.
+                        if self.partner == None:
+                            self.partner = getPartner(self)
+                        
+                        if self.partner == None:  # Если партнёров больше нет, тогда всё.
+                            self.moveToLocation(loc,'noStatus')
+                        self.applyLocationStatus(applyStatus)
+                        self.partner.location = self.location
+                        self.partner.forceLocationStatus(applyStatus)
+                    else:
+                        self.applyLocationStatus(applyStatus)
                 else:
-                    self.applyLocationStatus(applyStatus)
-            else:
-                self.applyLocationStatus(None)
+                    self.applyLocationStatus(None)
 
         def applyLocationStatus(self, status):
             """Применяет LocationStatus на персонажа"""

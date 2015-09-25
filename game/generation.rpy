@@ -673,7 +673,6 @@ label skipall:
     $ allChars = _allChars
     $ studs = _studs
     $ teachers = _teachers
-    $ school = School()
     $ school.getBudget()
     $ hourlyReset()
     $ move('myintro')

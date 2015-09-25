@@ -29,77 +29,162 @@ init 11 python:
     pee_status = LocationStatus('Писает', None, 'any', events = ['status_wc'])
     play_status = LocationStatus('Играет', None, 'any', char_type = 'student', stats_actions = {'fun':(0.1,20)})
     shopping_status = LocationStatus('Шоппингует', None, ['female','futa'], stats_actions = {'fun':(0.3,30)})
-    football_status = LocationStatus('Играет в футбол', None, 'any', stats_actions = {'fun':(0.3,30)})
+    football_status = LocationStatus('Играет в футбол', None, 'any', events = ['status_football'], stats_actions = {'fun':(0.3,30)})
     undress_status = LocationStatus('Переодевается', None, 'any', events = ['status_undress'])
     
-    hidden_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_hidden_mastur'], requirements = {'lust':80}, stats_actions = {'lust':(-100,100),'corr':(1,20)})
-    mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_mastur'], requirements = {'lust':80, 'corr':50}, stats_actions = {'lust':(-100,100),'corr':(1,40)})
-    public_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_public_mastur'], requirements = {'lust':80, 'corr':80}, stats_actions = {'lust':(-100,100),'corr':(1,80),'reputation':(-1,100)})
+    hidden_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_hidden_mastur'], requirements = {'lust':60}, stats_actions = {'lust':(-100,100),'corr':(1,20),'fun':(1,30)})
+    mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_mastur'], requirements = {'lust':80, 'corr':50}, stats_actions = {'lust':(-100,100),'corr':(1,40),'fun':(1,30)})
+    public_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_public_mastur'], requirements = {'lust':80, 'corr':60}, stats_actions = {'lust':(-100,100),'corr':(1,80),'reputation':(-1,100),'fun':(1,30)})
     
+    # Зависит от формы
+    look_strict_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(-1,100)})
+    look_uniform_status = LocationStatus('Осматривается', None, 'any')
+    look_usual_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(0.5,50)})
+    look_sexy_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(1,50)})
+    look_skimpy_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(2,70)})
+    look_naked_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(4,100),'corr':(0.1,40)})
+    look_bdsm_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(4,100),'corr':(0.1,80)})
     
+    # Фурнитура
+    manec1_status = LocationStatus('Осматривает манекен', None, 'any', stats_actions = {'lust':(1,50)})
+    manec2_status = LocationStatus('Трогает манекен', None, 'any', requirements = {'corr': 10}, stats_actions = {'lust':(3,70), 'corr':(0.1,20)})
+    manec3_status = LocationStatus('Использует манекен', None, 'any', requirements = {'corr': 50, 'lust': 60}, events = ['status_useManec'],stats_actions = {'lust':(3,70), 'corr':(0.5,20)})
     
-    kiss_status = LocationStatus('Целуется', None, 'any', char_type = 'student', events = ['status_kiss'], requirements = {'lust':30}, stats_actions = {'lust':(5,90)})
-    kiss_public_status = LocationStatus('Целуется', None, 'any', char_type = 'student', events = ['status_kiss'], requirements = {'lust':30,'corr':25}, stats_actions = {'lust':(5,90)})
+    video_status = LocationStatus('Смотрит порно', None, 'any',  requirements = {'corr': 10}, stats_actions = {'lust':(5,80)})
     
-    swim_status = LocationStatus('Плавает', None, 'any', events = ['status_swim'], stats_actions = {'fun':(0.2,50),'lust':(1,30)})
-    tan_status = LocationStatus('Загорает', None, 'any', stats_actions = {'beauty':(0.1,60),'fun':(0.1,50),'lust':(1,60)})
+    dildo1_status = LocationStatus('Осматривает игрушки', None, 'any',  stats_actions = {'lust':(1,50)})
+    dildo2_status = LocationStatus('Трогает игрушки', None, 'any',  requirements = {'corr': 20}, stats_actions = {'lust':(1,50),'corr':(0.1,40)})
+    dildo3_status = LocationStatus('Использует игрушки', None, 'any', requirements = {'corr': 50, 'lust': 60}, events = ['status_useDildo'],stats_actions = {'lust':(3,70), 'corr':(0.5,20)})
+    
+    # Фотки
+    inhibLow_status = LocationStatus('Рассматривает фотографии', None, 'any', stats_actions = {'lust':(inhibLow/2,60)})
+    inhibLow_status = LocationStatus('Принюхивается', None, ['male','futa'], stats_actions = {'lust':(5,70)})
+    
+    flirt_status = LocationStatus('Флиртует', None, 'any', char_type = 'student', requirements = {'lust':30}, stats_actions = {'lust':(3,65)})
+    kiss_status = LocationStatus('Целуется', None, 'any', char_type = 'student', events = ['status_kiss'], requirements = {'lust':60}, stats_actions = {'lust':(5,90)})
+    kiss_public_status = LocationStatus('Целуется', None, 'any', char_type = 'student', events = ['status_kiss'], requirements = {'lust':60,'corr':25}, stats_actions = {'lust':(5,90)})
+    
+    # Наказания
+    clean_status = LocationStatus('Убирается', None, 'any', stats_actions = {'fun':(-0.2,100)})
+    learn_status = LocationStatus('Учится', None, 'any', stats_actions = {'fun':(-0.2,100)})
+    shame_status = LocationStatus('Стыдится', None, 'any', stats_actions = {'fun':(-0.2,100),'lust':(1,100)})
+    lock_status = LocationStatus('В заперти', None, 'any', stats_actions = {'fun':(-0.5,100)})
+    torture_status = LocationStatus('Висит в цепях', None, 'any', stats_actions = {'fun':(-1,100)})
+    
+    # Пляжные действия
+    swim_status = LocationStatus('Плавает', None, 'any', events = ['status_swim'], stats_actions = {'fun':(0.2,50),'lust':(0.5,30)})
+    tan_status = LocationStatus('Загорает', None, 'any', stats_actions = {'beauty':(0.1,60),'fun':(0.1,50),'lust':(0.5,40)})
     voleyball_status = LocationStatus('Играет в волейбол', None, 'any', char_type = 'student', events = ['status_voleyball'], stats_actions = {'fun':(0.2,40),'lust':(1,40)})
     
+    
+    # Во время уроков
     learn_low_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'fun':(-0.2,100),'education': (0.1, 25)})
     learn_mid_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'fun':(-0.1,100),'education': (0.1, 50)})
     learn_high_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'education': (0.1, 75)})
     learn_lust_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'fun':(0.1,30),'education': (0.1, 50), 'lust':(0.1,70)})
     
+    # Прочие локации и действия
+    medexam_status = LocationStatus('Проходит медосмотр', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'lust':(1,70)})
+    
+    #Клубы
+    sport_status = LocationStatus('Занимается спортом', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50)})
+    cheerleader_status = LocationStatus('Разучивает танцы', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'lust':(1,40)})
+    paint_status = LocationStatus('Рисует', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'edu':(0.1,40)})
+    cosplay_status = LocationStatus('Ходит в наряде', None, 'any', char_type = 'student', stats_actions = {'fun':(2,50),'lust':(1,70)})
+    
+    
+    # Учителя
     teach_status = LocationStatus('Преподаёт', None, 'any', char_type = 'teacher', stats_actions = {'fun':(0.1,30),'education':(0.01, 80)})
     
 init 11 python:
+
+    school = School()
+    
+    def lookSelector():
+        if 'strict' == school.uniform:
+            return look_strict_status
+        elif 'unifrom' == school.uniform:
+            return look_uniform_status
+        elif 'usual' == school.uniform:
+            return look_usual_status
+        elif 'sexy' == school.uniform:
+            return look_sexy_status
+        elif 'skimpy' == school.uniform:
+            return look_skimpy_status
+        elif 'naked' == school.uniform:
+            return look_naked_status
+        elif 'bdsm' == school.uniform:
+            return look_bdsm_status
+        else:
+            return look_uniform_status
+            
+    def learnSelector():
+        if 'poor' == school.eduMats:
+            return learn_low_status
+        elif 'standart' == school.eduMats:
+            return learn_mid_status
+        elif 'good' == school.eduMats:
+            return learn_high_status
+        elif 'eduSexy' == school.eduMats:
+            return learn_lust_status
+        else:
+            return learn_mid_status
+            
     def statusDistribution():
         for loc in locations:
             loc.eraseStatuses()
-            loc.addStatus(go_status)
-            loc.addStatus(stop_status)
-            loc.addStatus(play_status)
-            loc.addStatus(kiss_public_status)
+            loc.addStatus(go_status) # Всюду ходят
+            loc.addStatus(flirt_status) # Всюду флиртуют
+            loc.addStatus(stop_status, 1) # Стоят
+            loc.addStatus(play_status) # играют
+            loc.addStatus(kiss_public_status) # Публично целуются
             
             if 'school' not in loc.position:
-                loc.addStatus(public_mastur)
+                loc.addStatus(public_mastur) #Публичная мастурбация всюду, где не школа
             if 'school' in loc.position:
-                loc.addStatus(mastur)
+                loc.addStatus(mastur) # Мастурбация в школе
+                loc.addStatus(lookSelector(),20) # Реакция на одежду
             if loc.id in ['loc_wcf','loc_wcm']:
-                loc.removeStatus(play_status)
-                loc.addStatus(kiss_status)
-                loc.addStatus(pee_status)
-                loc.addStatus(hidden_mastur,40)
+                loc.removeStatus(play_status) # В сортире не играют
+                loc.addStatus(kiss_status) # Поцелуи в сортире
+                loc.addStatus(pee_status) # Писают
+                loc.addStatus(hidden_mastur,40) # Дрочат скрытно
             if loc.id in ['loc_shoppingStreet']:
-                loc.addStatus(shopping_status)
+                loc.addStatus(shopping_status) # Занимаются шоппингом
             if 'swim' in loc.position:
-                loc.addStatus(kiss_status)
-                loc.addStatus(swim_status)
+                loc.addStatus(kiss_status) # Целуются на пляжу и в бассейне
+                loc.addStatus(swim_status) # Плавают
             if loc.id in ['loc_beach']:
-                loc.addStatus(tan_status)
-                loc.addStatus(voleyball_status)
+                loc.addStatus(tan_status) # Загорают на пляжу
+                loc.addStatus(voleyball_status) # играют в волейбол на пляжу
             if loc.id in ['loc_gym']:
-                loc.addStatus(football_status)
-                
+                loc.addStatus(football_status) # Играют в футбол в спортзале
+            if loc.id in ['loc_changeRoom']:
+                loc.addStatus(undress_status) # Переодеваются в раздевалке
+            if loc.id in ['loc_doctor']:
+                loc.addStatus(medexam_status) # проходит мед осмотр
             if 'classroom' in loc.position:
                 if lt() > 0:
                     loc.eraseStatuses()
                     loc.addStatus(hidden_mastur)
-                    if 'poor' == school.eduMats:
-                        loc.addStatus(learn_low_status)
-                    elif 'standart' == school.eduMats:
-                        loc.addStatus(learn_mid_status)
-                    elif 'good' == school.eduMats:
-                        loc.addStatus(learn_high_status)
-                    elif 'eduSexy' == school.eduMats:
-                        loc.addStatus(learn_lust_status)
+                    loc.addStatus(learnSelector(),50)
                     loc.addStatus(teach_status)
                 else:
-                    loc.removeStatus(learn_low_status)
-                    loc.removeStatus(learn_mid_status)
-                    loc.removeStatus(learn_high_status)
-                    loc.removeStatus(learn_lust_status)
+                    loc.removeStatus(learnSelector())
                     loc.removeStatus(teach_status)
+                if loc.id in ['loc_class2']:
+                    if 'manec' in school.furniture:
+                        loc.addStatus(manec1_status)
+                        loc.addStatus(manec2_status)
+                        loc.addStatus(manec3_status)
+                if loc.id in ['loc_class3']:
+                    if 'dildo' in school.furniture:
+                        loc.addStatus(dildo1_status)
+                        loc.addStatus(dildo2_status)
+                        loc.addStatus(dildo3_status)
+                if loc.id in ['loc_class5']:
+                    if 'video' in school.furniture:
+                        loc.addStatus(video_status)
     statusDistribution()
             
    
@@ -178,7 +263,11 @@ label status_public_mastur:
     $ move(curloc)
     
 label status_voleyball:
-    '[interactionObj.name] играет с дургими ребятами в пляжный волейбол.'
+    '[interactionObj.name] играет с дургими ребятами в пляжный волейбол. Вы не хотите мешать.'
+    $ move(curloc)
+    
+label status_football:
+    '[interactionObj.name] играет с дургими ребятами в футбол. Вы не хотите мешать.'
     $ move(curloc)
     
 label status_kiss:
@@ -186,6 +275,12 @@ label status_kiss:
     $ interactionObj.moveToLocation(choice(locations).id)
     $ interactionObj.partner.moveToLocation(choice(locations).id)
     $ move(curloc)
-    
+
 label status_undress:
-    '[interactionObj.name] просит не мешать переодеваться.'
+    '[interactionObj.name] просит вас не мешать переодеваться.'
+    
+label status_useManec:
+    '[interactionObj.name] самозабвенно савокупляется с манекеном.'
+    
+label status_useDildo:
+    '[interactionObj.name] самозабвенно савокупляется с дилдо.'
