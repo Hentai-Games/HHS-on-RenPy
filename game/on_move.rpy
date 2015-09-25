@@ -97,7 +97,7 @@ init python:
         global hour, weekday
         mystring = ''
         counter = 0
-        statusDistribution() # рпспределяем статусы по локациям
+        statusDistribution() # распределяем статусы по локациям
         if lt() > 0: # заполняем классы, если уроки
             fillClasses()
         else:
@@ -129,19 +129,25 @@ init python:
                         
                     if x in detentions and hour >= 15 and school.detention != 'no': # если наказан, то после уроков
                         if school.detention in ['education','upskirt']: # будет в 3-ем классе
-                            x.moveToLocation('loc_class3')
+                            x.moveToLocation('loc_class3','noStatus')
+                            x.forceLocationStatus(learn_status)
                             
                         elif school.detention == 'cleaning': # если уборка в школе,то скорее всего будет где то в школе
                             for loc in locations:
                                 if 'school' in loc.position and rand(1,5) == 1:
-                                     x.moveToLocation(loc)
+                                     x.moveToLocation(loc,'noStatus')
+                                     x.forceLocationStatus(clean_status)
                                      
                         elif school.detention == 'streetCleaning': # Если уборка улиц, тогда на улицу
-                            x.moveToLocation(choice(['loc_street','loc_entrance','loc_shopStreet']))
+                            x.moveToLocation(choice(['loc_street','loc_entrance','loc_shopStreet']),'noStatus')
+                            x.forceLocationStatus(clean_status)
                             
                         elif school.detention in ['lock','tortue']: # Если закрыть или пытки - в подвал.
-                            x.moveToLocation('loc_dungeon')
-                            
+                            x.moveToLocation('loc_dungeon','noStatus')
+                            if school.detention == 'lock':
+                                x.forceLocationStatus(lock_status)
+                            else:
+                                x.forceLocationStatus(torture_status)
                         continue
                     
                     if x.club != '' and hour >= 15 and hour < 18 and x in studs: # Распределение клубов
