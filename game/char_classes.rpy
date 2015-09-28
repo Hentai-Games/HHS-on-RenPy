@@ -732,35 +732,34 @@ init -20 python:
                 else:
                     self.applyLocationStatus(None)
 
-        def applyLocationStatus(self, status):
+        def applyLocationStatus(self, status, force=False):
             """Применяет LocationStatus на персонажа"""
             if status is None:
                 self.locationStatus = None
 
             else:
                 self.locationStatus = status
-                if not status.checkApplicable(self):
-                    raise Exception('Status {} could not be applied to character <>'
-                                    .format(status, self))
+                if not force:
+                    if not status.checkApplicable(self):
+                        raise Exception('Status {} could not be applied to character {}'
+                                        .format(status, self))
 
                 for stat, (mod, max_val) in status.stats_actions.items():
                     char_stat = getattr(self.stats, stat)
-                    char_stat = min(max_val, char_stat+mod)
+                    
+                    # Stat will be limited by max_val, if modificator is #
+                    # negative - status will not go lower than max_val
+                    if mod > 0:
+                        char_stat = min(max_val, char_stat+mod)
+
+                    else:
+                        char_stat = max(max_val, char_stat+mod)
+
                     setattr(self.stats, stat, char_stat)
         
         def forceLocationStatus(self, status):
             """Форсирует LocationStatus на персонажа"""
-            if status is None:
-                self.locationStatus = None
-
-            else:
-                self.locationStatus = status
-
-                for stat, (mod, max_val) in status.stats_actions.items():
-                    char_stat = getattr(self.stats, stat)
-                    char_stat = min(max_val, char_stat+mod)
-                    setattr(self.stats, stat, char_stat)
-        
+            self.applyLocationStatus(status, force=True)
 
         def getLocationStatus(self):
             return self.locationStatus
