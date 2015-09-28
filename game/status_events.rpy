@@ -89,7 +89,7 @@ init 11 python:
     #Клубы
     sport_status = LocationStatus('Занимается спортом', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50)})
     cheerleader_status = LocationStatus('Разучивает танцы', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'lust':(1,40)})
-    paint_status = LocationStatus('Рисует', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'edu':(0.1,40)})
+    paint_status = LocationStatus('Рисует', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'education':(0.1,40)})
     cosplay_status = LocationStatus('Ходит в наряде', None, 'any', char_type = 'student', stats_actions = {'fun':(2,50),'lust':(1,70)})
     
     

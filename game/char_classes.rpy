@@ -755,7 +755,33 @@ init -20 python:
                     else:
                         char_stat = max(max_val, char_stat+mod)
 
-                    setattr(self.stats, stat, char_stat)
+                    if stat == 'loyalty':
+                        self.incLoy(char_stat)
+                    elif stat == 'fun':
+                        self.incFun(char_stat)
+                    elif stat == 'corr':
+                        self.incCorr(char_stat)
+                    elif stat == 'lust':
+                        self.incLust(char_stat)
+                    elif stat == 'will':
+                        self.incWill(char_stat)
+                    elif stat == 'education':
+                        self.incEdu(char_stat)
+                    elif stat == 'health':
+                        self.incHealth(char_stat)
+                    elif stat == 'intelligence':
+                        self.incIntel(char_stat)
+                    elif stat == 'beauty':
+                        self.incBeauty(char_stat)
+                    elif stat == 'reputation':
+                        self.incRep(char_stat)
+                    elif stat == 'energy':
+                        self.incEnergy(char_stat)
+                    elif stat == 'dirty':
+                        self.incDirty(char_stat)
+                    else:
+                        raise Exception('Can\'t find inc method for the stat: {}'
+                                        .format(stat))
         
         def forceLocationStatus(self, status):
             """Форсирует LocationStatus на персонажа"""
