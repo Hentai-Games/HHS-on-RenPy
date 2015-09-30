@@ -66,8 +66,9 @@ screen stats_screen:
                 
             if show_peopleTextList == 1:
                 use peopleTextList
-            if development > 0:
-                use showStatuses
+            # if development > 0:
+                # use showStatuses
+                # use showStatusEvents
 
     fixed xpos 0.3 ypos 0.01:
         hbox:
@@ -308,15 +309,20 @@ screen inventory_clothing:
             textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
             textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
             
-        $ xalig = 0.2
-        $ yalig = 0.05
-        for x in player.inventory:
-            if x.type == 'clothing':
-                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+        $ xalig = 0.2 # Starting x position
+        $ yalig = 0.05 # Starting y position
+        for x in player.inventory: # for all items in player inventory
+            if x.type == 'clothing': 
+                imagebutton: # imagebutton with item
+                    idle im.FactorScale(x.picto,0.4) 
+                    hover im.FactorScale(x.picto,0.45) 
+                    xalign xalig yalign yalig  
+                    action NullAction() 
+                    hovered [SetVariable('myItem', x), Show('showItem')]
             else :
                 $ xalig -= 0.09
-            $ xalig += 0.09
-            if xalig >= 0.99:
+            $ xalig += 0.09 # Every item xpos is a bit righter
+            if xalig >= 0.99: # if end of screen, "new line" of items
                 $ yalig += 0.15
                 $ xalig = 0.2
                 
@@ -495,3 +501,17 @@ screen pomogator:
                 for event in x.events:
                     $ counter += 1
                     textbutton _(str(counter)+ '. ' +event.id) action Function(move, event.id) style "small_button" text_style "small_button_text"
+    fixed xpos 0.01 ypos 0.3:
+        $ xalig = 0.01
+        $ yalig = 0.1
+        $ counter = 0
+        for status in _locs: # перебираем все лейблы
+            if status[:7] == 'status_': #находим тот, что со статусом
+                $ counter += 1
+                textbutton _(str(counter)+ '. ' +status) xpos xalig ypos yalig action [SetVariable('interactionObj', getChar()), Jump(status)] style "small_button" text_style "small_button_text" xalign 0.0
+                $ xalig += 0.25
+                if xalig >= 0.8:
+                    $ yalig += 0.02
+                    $ xalig = 0.01
+        
+            

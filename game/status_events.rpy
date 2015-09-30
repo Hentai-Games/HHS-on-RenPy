@@ -87,10 +87,10 @@ init 11 python:
     medexam_status = LocationStatus('Проходит медосмотр', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'lust':(1,70)})
     
     #Клубы
-    sport_status = LocationStatus('Занимается спортом', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50)})
-    cheerleader_status = LocationStatus('Разучивает танцы', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'lust':(1,40)})
-    paint_status = LocationStatus('Рисует', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'edu':(0.1,40)})
-    cosplay_status = LocationStatus('Ходит в наряде', None, 'any', char_type = 'student', stats_actions = {'fun':(2,50),'lust':(1,70)})
+    # sport_status = LocationStatus('Занимается спортом', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50)})
+    # cheerleader_status = LocationStatus('Разучивает танцы', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'lust':(1,40)})
+    # paint_status = LocationStatus('Рисует', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'edu':(0.1,40)})
+    # cosplay_status = LocationStatus('Ходит в наряде', None, 'any', char_type = 'student', stats_actions = {'fun':(2,50),'lust':(1,70)})
     
     
     # Учителя
@@ -245,42 +245,123 @@ label status_hidden_mastur:
                     'Вы прикрываете дверь, и из за неё слышутся приглушённые стоны, и судорожное шуршание ног по полу. Похоже, что у девочки всё получилось!'
                     $ interactionObj.moveToLocation(choice(locations).id)
         else:
-            show expression 'pic/status/male_toilet_mastur.jpg' as tempPic
+            show expression 'pic/status/male_toilet_mastur.png' as tempPic
             interactionObj.say 'О, да, [player.fname], пососи его вот так, детка!'
             'С этими словами и вашим именем на устах, парень выпускает из своего члена длинную струйку спермы прямо на пол.'
             'Вы поспешно уходите, прежде чем вас замечают.'
             $ interactionObj.moveToLocation(choice(locations).id)
+        $ move('loc_secondFloor')
     else:
-        pass
-    $ move('loc_secondFloor')
+        if interactionObj.getSex() == 'male':
+            show expression 'pic/status/male_class_mastur.jpeg' as tempPic
+            'Не обращая ни на кого внимания. Ну разве что на свою симпотичную соседку, [interactionObj.name] ласкает своего дружка прямо во время занятий!'
+            'Вы уже хотели сделать ему замечание, но лёгкий стук капель по полу известил вас, что всё уже кончено. Удовлетворённый мальчишка, сбросивший мучавшее его напряжение вновь вернулся к занятиям.'
+        elif interactionObj.getSex() == 'female':
+            show expression 'pic/status/female_class_mastur.jpg' as tempPic
+            '[interactionObj.fname] мелко взрагивает, кончая прямо на уроке, с её губ срывается лёгкий стон, который остаётся незамечанным всеми, кроме вас.'
+        else:
+            show expression 'pic/status/futa_class_mastur.jpg' as tempPic
+            'Вы только и успеваете заметить, как [interactionObj.fname] вздрагиает, и убирает руку от юбки, по которой расплывается влажное пятно спермы.'
+        $ interactionObj.moveToLocation(curloc)
+    $ move(curloc)
     
 label status_mastur:
-    '[interactionObj.name] дрочит.'
+    if interactionObj.getSex() == 'female':
+        'Со всех сторон слышны крики: "Давай, ты сможешь ещё один, давай же!"'
+        show expression 'pic/status/female_mastur.png' as tempPic
+        interactionObj.say 'Ах, нет, я больше не могу, о-о-о!!!'
+        'С громким стоном девушка начинает кончать, и из её вагины один за другим выталкиваются фломастеры и карандаши, которые она в пылу страсти запихала в себя.'
+        'Пол полу растекается пахучая жидкость женских выделений.'
+        $ interactionObj.moveToLocation(choice(locations))
+    elif interactionObj.getSex() == 'male':
+        show expression 'pic/status/male_mastur.png' as tempPic
+        '[interactionObj.name], мало кого стесняясь, начинает прибирать за собой после обильного семяизвержения.'
+        $ interactionObj.moveToLocation(curloc)
+    else:
+        '[interactionObj.name] дрочит в школе. (У меня нет пика)'
     $ move(curloc)
     
 label status_public_mastur:
-    '[interactionObj.name] публично дрочит.'
+    if interactionObj.getSex() == 'female':
+        show expression 'pic/status/female_public_mastur.jpg' as tempPic
+        '[interactionObj.fname] мастурбирует, сидя на лавочке. Она совершенно никого не стесняется и из её молодой киски капают соки, заливая злополучное место для для отдыха и асфальт.'
+        menu:
+            'Поставить её на место':
+                player.say '[interactionObj.name]! Чем это ты тут занимаешься???'
+                interactionObj.say 'Да так, то тем, то этим, - не отвлекаясь от своего занятия сообщает вам ученица.'
+                player.say 'А ну немедленно прекрати! Люди же смотрят!'
+                interactionObj.say 'Да я уже сейчас, ммм...'
+                'Ученица громко стонет, её тело напрягается, и из влагалища вырываются последние струйки влаги, возвещающие о только что пережитом оргазме. Немного посидев с закрытыми от удовольствия глазами, [interactionObj.fname] одевается и уходит, заканчивая представление.'
+                'Некоторые люди по достоинству оценили то, что вы хотя бы попытались остановить девушку. А вот она - нет.'
+                $ interactionObj.moveToLocation(choice(locations))
+                $ interactionObj.setLoy(-5)
+                $ interactionObj.setRep(5)
+            'Ничего не делать':
+                'Немного поглазев на развратную девушку, вы пожимаете плечами, как будто ничего не происходит, и идёте дальше по своим делам.'
+                'За вашей спиной раздаётся громкий стон и ругань мимо проходящих мамаш, которым это зрелище не очень то и нравится.'
+                $ interactionObj.moveToLocation(choice(locations))
+    else:
+        '[interactionObj.name] публично дрочит. (У меня нет пика на этот случай.)'
     $ move(curloc)
     
 label status_voleyball:
-    '[interactionObj.name] играет с дургими ребятами в пляжный волейбол. Вы не хотите мешать.'
+    show expression 'pic/status/volleyball.jpg' as tempPic
+    '[interactionObj.name] играет с другими ребятами в пляжный волейбол. Вы не хотите мешать.'
     $ move(curloc)
     
 label status_football:
-    '[interactionObj.name] играет с дургими ребятами в футбол. Вы не хотите мешать.'
+    show expression 'pic/status/football.jpg' as tempPic
+    '[interactionObj.name] играет с другими ребятами в футбол. Вы не хотите мешать.'
     $ move(curloc)
     
 label status_kiss:
+    if interactionObj.getSex('mf') != interactionObj.partner.getSex('mf'):
+        show expression 'pic/status/kiss_getero.jpg' as tempPic
+    else:
+        if curloc in ['loc_pool','loc_beach']:
+            show expression 'pic/status/kiss_yuri_pool.png' as tempPic
+        else:
+            show expression 'pic/status/kiss_yuri.png' as tempPic
     '[interactionObj.name] и [interactionObj.partner.name] целуются. Они замечают, что вы за ними наблюдали и уходят.'
     $ interactionObj.moveToLocation(choice(locations).id)
     $ interactionObj.partner.moveToLocation(choice(locations).id)
     $ move(curloc)
 
 label status_undress:
-    '[interactionObj.name] просит вас не мешать переодеваться.'
+    if interactionObj.getSex() == 'male':
+        show expression 'pic/status/boy_undress.png' as tempPic
+        '[interactionObj.name] просит вас не мешать переодеваться.'
+    elif interactionObj.getSex() == 'female':
+        show expression 'pic/status/girl_undress.png' as tempPic
+        '[interactionObj.name] просит вас не мешать переодеваться.'
+    else:
+        show expression 'pic/status/futa_undress.png' as tempPic
+        '[interactionObj.name] просит вас не мешать переодеваться.'
+        'Вы почему то никак не можете выбросить её эрегированный член из головы. Это ведь так естествнно. Или?'
+    $ move(curloc)
     
 label status_useManec:
-    '[interactionObj.name] самозабвенно савокупляется с манекеном.'
+    if interactionObj.getSex() == 'male':
+        show expression 'pic/status/male_manec.png' as tempPic
+        '[interactionObj.name] активнейшим образом изучает внутреннее устройство женского организма, путём введения своего щупа непосредственно в искусственное влагалище купленного вами манекена.'
+    elif interactionObj.getSex() == 'female':
+        show expression 'pic/status/female_manec.png' as tempPic
+        'Не сдержавшись, [interactionObj.name] всё таки решила испробовать столь подробно описанный на уроках биологии мужской орган. И сейчас, слегка напрягаясь от вхождения точной копии члена в свою киску, она слегка неумело двигает бёдрами, пытаясь доставить себе удовольствие.'
+        'Через минутку, движения становятся более естественными. Похоже, что смазанный членозаменитель перестал доставлять ученице дискомфорт.'
+        'По классу разносятся влажные хлюпания истекающей смазкой киски. [interactionObj.fname] прикрывает глаза полностью отдаваясь наслаждению.'
+        show expression 'pic/status/female_manec_cum.png' as tempPic
+        'Ого! Похоже анатомичность манекена просто зашкаливает!'
+        'Просто в момент, когда стенки влагалища девчушки начали сокращаться в оргазме, копия детородного органа незамедлительно выпустила из себя заменитель спермы, чем удивила и вас и учениицу.'
+        $ interactionObj.moveToLocation(choice(locations).id)
+    else:
+        '[interactionObj.name] трахает манекен членом. (У меня нет пика.)'
+    $ move(curloc)
     
 label status_useDildo:
-    '[interactionObj.name] самозабвенно савокупляется с дилдо.'
+    if interactionObj.getSex() == 'female':
+        show expression 'pic/status/female_toy.png' as tempPic
+        '[interactionObj.name] тестирует вибратор, про который столько долго рассказывали на уроках секс просвета.'
+        'Капельки пота, забавное жужжание и открытый в экстазе рот, доказывают, что на уроках не врали.'
+    else:
+        '[interactionObj.name] использует секс игрушки по назначению. (У меня нет нужного пика).'
+    $ move(curloc)
