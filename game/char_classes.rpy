@@ -751,34 +751,33 @@ init -20 python:
                     # negative - status will not go lower than max_val
                     if mod > 0:
                         char_stat = min(max_val, char_stat+mod)
-
                     else:
                         char_stat = max(max_val, char_stat+mod)
 
                     if stat == 'loyalty':
-                        self.incLoy(char_stat)
+                        self.incLoy(mod)
                     elif stat == 'fun':
-                        self.incFun(char_stat)
+                        self.incFun(mod)
                     elif stat == 'corr':
-                        self.incCorr(char_stat)
+                        self.incCorr(mod)
                     elif stat == 'lust':
-                        self.incLust(char_stat)
+                        self.incLust(mod)
                     elif stat == 'will':
-                        self.incWill(char_stat)
+                        self.incWill(mod)
                     elif stat == 'education':
-                        self.incEdu(char_stat)
+                        self.incEdu(mod)
                     elif stat == 'health':
-                        self.incHealth(char_stat)
+                        self.incHealth(mod)
                     elif stat == 'intelligence':
-                        self.incIntel(char_stat)
+                        self.incIntel(mod)
                     elif stat == 'beauty':
-                        self.incBeauty(char_stat)
+                        self.incBeauty(mod)
                     elif stat == 'reputation':
-                        self.incRep(char_stat)
+                        self.incRep(mod)
                     elif stat == 'energy':
-                        self.incEnergy(char_stat)
+                        self.incEnergy(mod)
                     elif stat == 'dirty':
-                        self.incDirty(char_stat)
+                        self.incDirty(mod)
                     else:
                         raise Exception('Can\'t find inc method for the stat: {}'
                                         .format(stat))
