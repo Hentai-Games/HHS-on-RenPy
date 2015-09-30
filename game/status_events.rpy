@@ -32,12 +32,12 @@ init 11 python:
     football_status = LocationStatus('Играет в футбол', None, 'any', events = ['status_football'], stats_actions = {'fun':(0.3,30)})
     undress_status = LocationStatus('Переодевается', None, 'any', events = ['status_undress'])
     
-    hidden_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_hidden_mastur'], requirements = {'lust':60}, stats_actions = {'lust':(-100,100),'corr':(1,20),'fun':(1,30)})
-    mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_mastur'], requirements = {'lust':80, 'corr':50}, stats_actions = {'lust':(-100,100),'corr':(1,40),'fun':(1,30)})
-    public_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_public_mastur'], requirements = {'lust':80, 'corr':60}, stats_actions = {'lust':(-100,100),'corr':(1,80),'reputation':(-1,100),'fun':(1,30)})
+    hidden_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_hidden_mastur'], requirements = {'lust':60}, stats_actions = {'lust':(-100,0),'corr':(1,20),'fun':(1,30)})
+    mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_mastur'], requirements = {'lust':80, 'corr':50}, stats_actions = {'lust':(-100,0),'corr':(1,40),'fun':(1,30)})
+    public_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_public_mastur'], requirements = {'lust':80, 'corr':60}, stats_actions = {'lust':(-100,0),'corr':(1,80),'reputation':(-1,0),'fun':(1,30)})
     
     # Зависит от формы
-    look_strict_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(-1,100)})
+    look_strict_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(-1,0)})
     look_uniform_status = LocationStatus('Осматривается', None, 'any')
     look_usual_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(0.5,50)})
     look_sexy_status = LocationStatus('Осматривается', None, 'any', stats_actions = {'lust':(1,50)})
@@ -65,11 +65,11 @@ init 11 python:
     kiss_public_status = LocationStatus('Целуется', None, 'any', char_type = 'student', events = ['status_kiss'], requirements = {'lust':60,'corr':25}, stats_actions = {'lust':(5,90)})
     
     # Наказания
-    clean_status = LocationStatus('Убирается', None, 'any', stats_actions = {'fun':(-0.2,100)})
-    learn_status = LocationStatus('Учится', None, 'any', stats_actions = {'fun':(-0.2,100)})
-    shame_status = LocationStatus('Стыдится', None, 'any', stats_actions = {'fun':(-0.2,100),'lust':(1,100)})
-    lock_status = LocationStatus('В заперти', None, 'any', stats_actions = {'fun':(-0.5,100)})
-    torture_status = LocationStatus('Висит в цепях', None, 'any', stats_actions = {'fun':(-1,100)})
+    clean_status = LocationStatus('Убирается', None, 'any', stats_actions = {'fun':(-0.2,0)})
+    learn_status = LocationStatus('Учится', None, 'any', stats_actions = {'fun':(-0.2,0)})
+    shame_status = LocationStatus('Стыдится', None, 'any', stats_actions = {'fun':(-0.2,0),'lust':(1,100)})
+    lock_status = LocationStatus('В заперти', None, 'any', stats_actions = {'fun':(-0.5,0)})
+    torture_status = LocationStatus('Висит в цепях', None, 'any', stats_actions = {'fun':(-1,0)})
     
     # Пляжные действия
     swim_status = LocationStatus('Плавает', None, 'any', events = ['status_swim'], stats_actions = {'fun':(0.2,50),'lust':(0.5,30)})
@@ -78,8 +78,8 @@ init 11 python:
     
     
     # Во время уроков
-    learn_low_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'fun':(-0.2,100),'education': (0.1, 25)})
-    learn_mid_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'fun':(-0.1,100),'education': (0.1, 50)})
+    learn_low_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'fun':(-0.2,5),'education': (0.1, 25)})
+    learn_mid_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'fun':(-0.1,5),'education': (0.1, 50)})
     learn_high_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'education': (0.1, 75)})
     learn_lust_status = LocationStatus('Занимается', None, 'any', char_type = 'student', stats_actions = {'fun':(0.1,30),'education': (0.1, 50), 'lust':(0.1,70)})
     
