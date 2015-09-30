@@ -1,7 +1,7 @@
 init python:
     def dailyRecount(chars):
     
-        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties
+        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday
         
         timeGetPanties = 0 # сброс времени выдачи трусов
         aphroUsedArr[:] = [] # сброс людей под афродизиаком
@@ -30,7 +30,7 @@ init python:
             manicure -= 1
         if pedicure > 0:
             pedicure -= 1
-
+        
         # Модификатор образования
         if school.eduMats == 'standart':
             eduMod = 1
@@ -40,7 +40,14 @@ init python:
             eduMod = 2
         elif school.eduMats == 'eduSexy':
             eduMod = 0.1
-
+        
+        # Олимпиада
+        if (rand(1,10) == 1 or development > 0) and olympiad.month != month and olympiad.active == False and weekday <= 5:
+            olympiad.month = month
+            olympiad.weekday = weekday + 2
+            if olympiad.weekday > 5:
+                olympiad.weekday -= 5
+            olympiad.active = True
         
         # Если есть клуб, забиваем в него как минимум 4 человек
         if 'cherleader' in school.clubs and len(getClubChars('cherleader')) < 4:
@@ -96,66 +103,6 @@ init python:
                                 tempArr.append(club)
                         if len(tempArr) > 0:
                             char.club = choice(tempArr)
-                    
-                
-                # inhibLow
-                if inhibLow == 1:
-                    char.incLust(10)
-                elif inhibLow == 2:
-                    char.incLust(15)
-                elif inhibLow == 3:
-                    char.incCorr(0.5)
-                elif inhibLow == 4 and char.getSex() == 'male':
-                    char.incLust(30)
-                    
-                if school.uniform == 'strict': # Строгая школьная форма
-                    char.incRep(1)
-                    char.incFun(-5)
-                    char.incEdu((getPar(teachers, 'edu') - char.getEdu())/10/eduMod)
-                    
-                elif school.uniform == 'uniform': # Обычная школьная форма
-                    if char.getFun() > 10: char.incFun(-2)
-                    char.incEdu((getPar(teachers, 'edu') - char.getEdu())/20/eduMod)
-                    
-                elif school.uniform == 'usual': # Обычная одежда
-                    if char.getFun() < 20: char.incFun(1)
-                    char.incEdu((getPar(teachers, 'edu') - char.getEdu())/30/eduMod)
-                    
-                elif school.uniform == 'sexy': # Сексуальная форма
-                    if char.getCorr() < 25: char.incCorr(0.5)
-                    if char.getFun() < 40: char.incFun(1)
-                    char.incEdu((getPar(teachers, 'edu') - char.getEdu())/50/eduMod)
-                    
-                elif school.uniform == 'skimpy': # Шлюховатая форма
-                    if char.getCorr() < 50: char.incCorr(0.8)
-                    if char.getFun() < 60: char.incFun(1)
-                    char.incEdu((getPar(teachers, 'edu') - char.getEdu())/100/eduMod)
-                    
-                else: # Голая форма
-                    char.incEdu((getPar(teachers, 'edu') - char.getEdu())/500/eduMod)
-                    if char.getCorr() > 50:
-                        if char.getCorr() < 80: char.incCorr(1)
-                        if char.getFun() < 80: char.incFun(1)
-                    else:
-                        if char.getCorr() > 25: char.incCorr(-1)
-                        char.incFun(-5)
-                        
-                if school.eduMats == 'good': # Хорошие образовательные материалы
-                    if char.getFun() < 15: char.incFun(1)
-                elif school.eduMats == 'eduSexy': # Лука Мудищев
-                    if char.getFun() < 35: char.incFun(1)
-                    
-                if 'manec' in school.furniture: # Манекен
-                    if char.getFun() < 25: char.incFun(1)
-                    if char.getCorr() < 15: char.incCorr(0.5)
-                    
-                if 'video' in school.furniture: # Видео
-                    if char.getFun() < 55: char.incFun(1)
-                    if char.getCorr() < 25: char.incCorr(0.5)
-                    
-                if 'dildo' in school.furniture: # Дилды
-                    if char.getFun() < 35: char.incFun(1)
-                    if char.getCorr() < 30: char.incCorr(0.5)
                     
     def hourlyReset():
         global hour, weekday, inhibLow

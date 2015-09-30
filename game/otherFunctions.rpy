@@ -65,7 +65,7 @@ init -5 python:
         temp = []
 
         if len(args) == 0:
-            return choice(allChars)
+            return choice(studs)
 
         if len(args) == 1:
             if len(getLoc(curloc).getPeople()) > 0:

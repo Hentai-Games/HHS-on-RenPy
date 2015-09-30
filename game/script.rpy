@@ -16,6 +16,7 @@
     stat_penergy = 0
     stat_plust = 0
     
+    flagIncome = 0 # флаг получки
     lastWork = -30 # Инициализация времени последней работы
     lastWashed = 0 # Инициализация душа
     lastMastur = 0 # Инициализация мастурбации

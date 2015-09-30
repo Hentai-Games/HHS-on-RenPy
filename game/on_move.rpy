@@ -38,10 +38,12 @@ init python:
                     same_loc = 1
                 if 'self' not in getLoc(where).position:
                     renpy.show_screen('stats_screen') #При перемещении всегда появляется интерфейс
+                tempLoc = getLoc(where)
                 checkClothes(where) # проверка одетости
-                checkUnconscious(getLoc(where)) # потеря сознания
-                checkSperm(getLoc(where)) # снятие репутации за сперму.
-                checkOrgasm(getLoc(where)) # проверка на перевозбуждение
+                checkUnconscious(tempLoc) # потеря сознания
+                checkSperm(tempLoc) # снятие репутации за сперму.
+                checkOrgasm(tempLoc) # проверка на перевозбуждение
+                checkMisc() # Прочие мелкие проверки
                 if 'school' in getLoc(curloc).position and lt() == 0 and 'pants' in school.clubs and len(getClubChars('pants')) > 0 and ptime - timeGetPanties > 24 and rand(1,3) == 1: # В школе на перемену, если есть кто то в клубе трусиков и он открыт, вам их отдадут
                     renpy.jump('getPanties')
                 
@@ -259,3 +261,15 @@ init python:
                     renpy.jump('madness_home')
                 if 'school' in location.position and 'safe' not in location.position:
                     renpy.jump('madness_school')
+# Прочие прооверки             
+    def checkMisc():
+        global flagIncome
+        if hour >= 8 and olympiad.confirm == False and olympiad.active == True:
+            olympiad.confirm = True
+            clrscr()
+            renpy.jump('olympiad_start')
+            
+        if hour >= 8 and weekday == 1 and flagIncome == 1:
+            flagIncome = 0
+            clrscr()
+            renpy.jump('income')

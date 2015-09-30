@@ -7,7 +7,7 @@ init -3 python:
     mtime = 0
     timeMoved = 0
     ltMoved = 0
-    weekday = 2
+    weekday = 1
     month = 5
     number = 1
     year = 2010
@@ -45,21 +45,20 @@ init -3 python:
         return output
         
     def changetime(change):
-        global minute, check_minute, hour, ptime, weekday, number, year, month, mtime, ltMoved, timeMoved
+        global minute, check_minute, hour, ptime, weekday, number, year, month, mtime, ltMoved, timeMoved, flagIncome
         while change != 0:
             tempChange = min(10,change)
             change -= min(10,change)
             minute += tempChange
             mtime += tempChange
             counter = 0
-            flagIncome = 0
             if minute >= 60:
                 hourlyReset()
                 minute -= 60
                 hour += 1
-                ptime += 1
                 if hour == 8 and weekday == 1:
                     flagIncome = 1
+                ptime += 1
                 if hour >= 24:
                     hour -= 24
                     dailyRecount(allChars)
@@ -80,12 +79,17 @@ init -3 python:
                     addPeopleLocations() # двигаем людей
                 timeMoved = mtime
                 ltMoved = lt()
-            
-        if flagIncome == 1:
-            flagIncome = 0
-            move('income')
-            
+         
         return counter
+    
+    def getWeekday(day):
+        if day == 1: return 'Понедельник'
+        if day == 2: return 'Вторник'
+        if day == 3: return 'Среду'
+        if day == 4: return 'Четверг'
+        if day == 5: return 'Пятницу'
+        if day == 6: return 'Субботу'
+        if day == 7: return 'Воскресенье'
     
     def lt():
         #время первого урока

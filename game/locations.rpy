@@ -1075,6 +1075,10 @@ label loc_street:
             textbutton 'Пробежка':
                 xalign 0.3 yalign 0.5 
                 action Function(move, 'loc_run')
+            textbutton 'В министерство':
+                xalign 0.5 yalign 0.8 
+                action Function(move, 'olympiad_bribe_start')
+                style "navigation_button" text_style "navigation_button_text"
     call screen street
 
 label loc_beach:
