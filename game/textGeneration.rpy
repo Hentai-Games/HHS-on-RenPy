@@ -17,6 +17,7 @@ init python:
         inClass = char.inClass
         rep = char.getRep()
         club = char.club
+        
         if club == 'pants':
             club = 'клубе грязных трусиков'
         elif club == 'cherleader':
@@ -27,8 +28,6 @@ init python:
             club = 'спортивном клубе'
         elif club == 'paint':
             club = 'клубе рисования'
-        elif club == 'medic':
-            club = 'медицинском клубе'
         elif club == 'medic':
             club = 'медицинском клубе'
 

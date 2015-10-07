@@ -73,7 +73,7 @@ init:
     
     define female = Character("Женщина", who_color="#c8ffc8")
     
-    
+    define minister = Character("Григорий Совдепович", who_color="#0553FA", show_side_image = im.Scale("pic/otherChars/minister_picto.jpg",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     
     define me = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_norm.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)
     define meSad = Character("Разработчик", who_color="#0553FA", show_side_image = im.Scale("pic/Hero/me/me_sad.png",160, 160, xalign=0.0, yalign= 1.0), window_left_padding = 170)

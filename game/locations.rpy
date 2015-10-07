@@ -859,6 +859,8 @@ label loc_office:
                     action [Jump('cabbageInit')]
             if mile_qwest_2_stage == 7 and (lt() in [-1,0]) and call_up == dummy:
                 textbutton 'Вызвать Валентину Купрувну' xalign 0.5 yalign 0.5 action Jump('kupruvnaGotIt1')
+            if olympiad.confirm == True:
+                textbutton 'Подготавливать учеников\nк олимпиаде' xalign 0.5 yalign 0.5 action Jump('olympiad_edu')
     call screen office
 
 label loc_class1:
@@ -1075,10 +1077,16 @@ label loc_street:
             textbutton 'Пробежка':
                 xalign 0.3 yalign 0.5 
                 action Function(move, 'loc_run')
-            textbutton 'В министерство':
-                xalign 0.5 yalign 0.8 
-                action Function(move, 'olympiad_bribe_start')
-                style "navigation_button" text_style "navigation_button_text"
+            if olympiad.confirm == 1 and olympiad.cheat != 0 and olympiad.qwest == 0:
+                textbutton 'В министерство':
+                    xalign 0.5 yalign 0.8 
+                    action Jump('olympiad_bribe_start')
+                    style "navigation_button" text_style "navigation_button_text"
+            if olympiad.qwest == 1 and hour in range(20,24) and olympiad.cheat == 0:
+                textbutton 'К министру':
+                    xalign 0.5 yalign 0.8 
+                    action Jump('olympiad_home_sex')
+                    style "navigation_button" text_style "navigation_button_text"
     call screen street
 
 label loc_beach:

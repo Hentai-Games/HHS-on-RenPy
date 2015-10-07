@@ -832,11 +832,3 @@ label installCam:
     else:
         me 'И как ты здесь оказался? Напиши мне пожалуйста.'
     $ move(curloc)
-    
-label olympiad_start:
-    show expression 'pic/events/various/call.jpg' at top as tempPic
-    $ day = getWeekday(olympiad.weekday).lower()
-    'Вам позвонили из министерства образования и сообщили, что в [day] пройдёт олимпиада по некольким предметам.'
-    player.say 'Мне надо начать подготавливать учеников, если я захочу её выиграть.'
-    player.say 'Ну или как минимум заглянуть в министерство образования. Чтобы "решить" вопрос иначе.'
-    $move(curloc)

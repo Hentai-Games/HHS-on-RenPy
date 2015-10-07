@@ -268,6 +268,9 @@ init python:
             olympiad.confirm = True
             clrscr()
             renpy.jump('olympiad_start')
+        if hour >= 8 and olympiad.active == True and olympiad.weekday == weekday:
+            clrscr()
+            renpy.jump('olympiad_go')
             
         if hour >= 8 and weekday == 1 and flagIncome == 1:
             flagIncome = 0
