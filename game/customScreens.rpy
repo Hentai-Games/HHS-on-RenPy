@@ -228,25 +228,55 @@ screen inventory_all:
         for x in player.inventory:
             if x.name not in showed:
                 if x.type == 'sexShop':
-                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                    imagebutton:
+                        idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                        hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                        xalign xalig yalign yalig  
+                        action NullAction() 
+                        hovered [SetVariable('myItem', x), Show('showItem')]
                 elif x.type == 'present':
-                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                    imagebutton:
+                        idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                        hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))   
+                        xalign xalig yalign yalig  
+                        action NullAction() 
+                        hovered [SetVariable('myItem', x), Show('showItem')]
                 elif x.type == 'clothing':
-                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                    imagebutton:
+                        idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                        hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))   
+                        xalign xalig yalign yalig  
+                        action NullAction() 
+                        hovered [SetVariable('myItem', x), Show('showItem')]
                 elif x.type == 'food':
-                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action [Function(player.eat, x), Function(move,curloc)] hovered [SetVariable('myItem', x), Show('showItem')]
+                    imagebutton:
+                        idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                        hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))   
+                        xalign xalig yalign yalig  
+                        action [Function(player.eat, x), Function(move,curloc)] 
+                        hovered [SetVariable('myItem', x), Show('showItem')]
                 elif x.type == 'tool':
                     if x.purpose == 'camera':
                         imagebutton:
-                            idle im.FactorScale(x.picto,0.4) 
-                            hover im.FactorScale(x.picto,0.45) 
+                            idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                            hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
                             xalign xalig yalign yalig  
                             action Jump('installCam')
                             hovered [SetVariable('myItem', x), Show('showItem')]
                     else:
-                        imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                        imagebutton:
+                            idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                            hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                            xalign xalig yalign yalig  
+                            action NullAction() 
+                            hovered [SetVariable('myItem', x), Show('showItem')]
                 else:
-                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                    imagebutton:
+                        idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                        hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))   
+                        xalign xalig yalign yalig  
+                        action NullAction() 
+                        hovered [SetVariable('myItem', x), Show('showItem')]
                 python:
                     showed.append(x.name)
             else:
@@ -274,17 +304,27 @@ screen inventory:
         $ yalig = 0.05
         for x in player.inventory:
             if x.type == 'food':
-                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action [Function(player.eat, x), Function(move,curloc)] hovered [SetVariable('myItem', x), Show('showItem')]
+                imagebutton:
+                    idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                    hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                    xalign xalig yalign yalig  
+                    action [Function(player.eat, x), Function(move,curloc)] 
+                    hovered [SetVariable('myItem', x), Show('showItem')]
             elif x.type == 'tool' and x.name not in showed:
                 if x.purpose == 'camera':
                     imagebutton:
-                        idle im.FactorScale(x.picto,0.4) 
-                        hover im.FactorScale(x.picto,0.45) 
+                        idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                        hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))   
                         xalign xalig yalign yalig  
                         action Jump('installCam')
                         hovered [SetVariable('myItem', x), Show('showItem')]
                 else:
-                    imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                    imagebutton:
+                        idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                        hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))   
+                        xalign xalig yalign yalig  
+                        action NullAction() 
+                        hovered [SetVariable('myItem', x), Show('showItem')]
                 python:
                     showed.append(x.name)
             else:
@@ -308,14 +348,17 @@ screen inventory_clothing:
             textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
             textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
             textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
-            
+    # viewport:
+        # scrollbars "vertical"
+        # mousewheel True
+        # child_size (0,768)
         $ xalig = 0.2 # Starting x position
         $ yalig = 0.05 # Starting y position
         for x in player.inventory: # for all items in player inventory
             if x.type == 'clothing': 
                 imagebutton: # imagebutton with item
-                    idle im.FactorScale(x.picto,0.4) 
-                    hover im.FactorScale(x.picto,0.45) 
+                    idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                    hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
                     xalign xalig yalign yalig  
                     action NullAction() 
                     hovered [SetVariable('myItem', x), Show('showItem')]
@@ -325,6 +368,23 @@ screen inventory_clothing:
             if xalig >= 0.99: # if end of screen, "new line" of items
                 $ yalig += 0.15
                 $ xalig = 0.2
+                
+    # viewport xpos 0.2 ypos 0.05:
+        # scrollbars "both"
+        # grid 10 10:
+            # spacing 10
+            # for x in player.inventory:
+                # imagebutton: # imagebutton with item
+                    # idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                    # hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                    # action NullAction() 
+                    # hovered [SetVariable('myItem', x), Show('showItem')]
+            # for x in range(100 - len(player.inventory)):
+                 # imagebutton: # imagebutton with item
+                    # idle im.MatrixColor(im.FactorScale('pic/noimage.gif',0.4), im.matrix.opacity(0.3))
+                    # hover im.MatrixColor(im.FactorScale('pic/noimage.gif',0.4), im.matrix.opacity(0.0))
+                    # action NullAction() 
+        
                 
 # Показ подарков
 screen inventory_presents:
@@ -345,7 +405,12 @@ screen inventory_presents:
         $ yalig = 0.05
         for x in player.inventory:
             if x.type == 'present':
-                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                imagebutton:
+                    idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                    hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                    xalign xalig yalign yalig  
+                    action NullAction() 
+                    hovered [SetVariable('myItem', x), Show('showItem')]
             else :
                 $ xalig -= 0.09
             $ xalig += 0.09
@@ -372,7 +437,12 @@ screen inventory_sexShop:
         $ yalig = 0.05
         for x in player.inventory:
             if x.type == 'sexShop':
-                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action NullAction() hovered [SetVariable('myItem', x), Show('showItem')]
+                imagebutton:
+                    idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                    hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                    xalign xalig yalign yalig  
+                    action NullAction() 
+                    hovered [SetVariable('myItem', x), Show('showItem')]
             else :
                 $ xalig -= 0.09
             $ xalig += 0.09
@@ -424,7 +494,13 @@ screen wardrobe:
         $ yalig = 0.05
         for x in player.inventory:
             if x.type == 'clothing':
-                imagebutton idle im.FactorScale(x.picto,0.4) hover im.FactorScale(x.picto,0.45) xalign xalig yalign yalig  action [Function(player.wearing,x),Show('wardrobe')] hovered [SetVariable('myItem', x), Show('showItem')] unhovered Hide ('showItem')
+                imagebutton:
+                    idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                    hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                    xalign xalig yalign yalig  
+                    action [Function(player.wearing,x),Show('wardrobe')] 
+                    hovered [SetVariable('myItem', x), Show('showItem')] 
+                    unhovered Hide ('showItem')
             else :
                 $ xalig -= 0.09
             $ xalig += 0.09
