@@ -155,18 +155,26 @@ init python:
                     if x.club != '' and hour >= 15 and hour < 18 and x in studs: # Распределение клубов
                         if x.club == 'cherleader' and weekday in [1,3,5]:
                             x.moveToLocation('loc_gym')
+                            x.forceLocationStatus(cheerleader_status)
                             
                         elif x.club == 'cosplay' and lt() == -1:
                             x.moveToLocation('loc_class1')
+                            x.forceLocationStatus(cosplay_status)
                             
                         elif x.club == 'sport' and weekday in [2,4]:
                             x.moveToLocation('loc_gym')
+                            x.forceLocationStatus(sport_status)
                             
                         elif x.club == 'paint' and lt() == -1:
                             x.moveToLocation('loc_class2')
+                            x.forceLocationStatus(paint_status)
                             
                         elif x.club == 'medic' and lt() == -1:
                             x.moveToLocation('loc_doctor')
+                            if rand(1,3) == 1:
+                                x.forceLocationStatus(medic_status1)
+                            else:
+                                x.forceLocationStatus(medic_status2)
 
                     for location in locations:
                         if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
@@ -268,6 +276,7 @@ init python:
             olympiad.confirm = True
             clrscr()
             renpy.jump('olympiad_start')
+            
         if hour >= 8 and olympiad.active == True and olympiad.weekday == weekday:
             clrscr()
             renpy.jump('olympiad_go')

@@ -465,6 +465,13 @@ init:
         )
     image movie = Movie(size=(1200, 768), xpos=0.5, ypos=0, xanchor=0.5, yanchor=0)
     
+    python:
+        intro_img = ['pic/locations/school/secondFloor/1.jpg','pic/locations/school/secondFloor/2.jpg','pic/locations/school/secondFloor/3.jpg']
+        counter = 0
+        for x in intro_img:
+            counter += 1
+            x = renpy.image(str(counter), x)
+        
 #Для теста
 label test:
     show daytime
@@ -515,9 +522,10 @@ label test:
             # textbutton 'Эвент 5':
                 # action Jump('kupruvnaGotIt3')
     # call screen test_screen
-    $changetime(60*24)
-    $player.setHealth(10000)
-    $player.setEnergy(10000)
+    # $changetime(60*24)
+    # $player.setHealth(10000)
+    # $player.setEnergy(10000)
+    jump status_hidden_sex
     $move(curloc)
 
 ##############################################################

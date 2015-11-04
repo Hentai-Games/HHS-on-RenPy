@@ -718,7 +718,7 @@ init -20 python:
                 if statuses:
                     applyStatus = choice(statuses)
                     
-                    if applyStatus.name in ['Целуется']: # В случае поцелуев спавним партнёров вместе и заставляем целоваться.
+                    if applyStatus.name in ['Целуется', 'Скрытничает', 'Занимается сексом', 'Публично трахается']: # В случае дуальных статусов спавним партнёров вместе и заставляем целоваться.
                         if self.partner == None:
                             self.partner = getPartner(self)
                         
