@@ -391,6 +391,7 @@ label use_aphrodisiac:
     'Второй раз за день на это не купятся.'
     python:
         if myItem.name == aphrodisiac.name: interactionObj.incLust(25)
+        player.apply(myItem.name)
         aphroUsedArr.append(interactionObj)
     call screen show_stat
 ###########################################################################################################################

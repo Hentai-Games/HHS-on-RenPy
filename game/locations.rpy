@@ -525,7 +525,7 @@ label test:
     # $changetime(60*24)
     # $player.setHealth(10000)
     # $player.setEnergy(10000)
-    jump status_hidden_sex
+    jump status_sex
     $move(curloc)
 
 ##############################################################
