@@ -577,6 +577,7 @@ screen pomogator:
                 for event in x.events:
                     $ counter += 1
                     textbutton _(str(counter)+ '. ' +event.id) action Function(move, event.id) style "small_button" text_style "small_button_text"
+                    
     fixed xpos 0.01 ypos 0.3:
         $ xalig = 0.01
         $ yalig = 0.1

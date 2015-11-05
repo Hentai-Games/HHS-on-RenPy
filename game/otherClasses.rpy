@@ -8,5 +8,5 @@ init python:
             self.cheat = cheat
             self.qwest = qwest
             self.confirm = confirm
-            
+
     olympiad = Olympiad()
