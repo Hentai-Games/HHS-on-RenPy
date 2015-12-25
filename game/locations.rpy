@@ -840,6 +840,7 @@ label loc_firstFloor:
 
 label loc_office:
     show office at left
+    # Часть квеста даноковой
     if hour >= 15 and hour < 17 and (weekday == 2 or weekday == 4) and mile_qwest_3_stage == 50:
         'Дверь в кабинет закрыта и из за неё слышны тихие стоны. Вы вздыхаете и уходите. В конце концов вы добились чего хотели. Наверное.'
         $ move (prevloc)
@@ -851,7 +852,8 @@ label loc_office:
                 $ mile_qwest_3_hot = 0
                 jump danokova_working
         else:
-            jump danokova_selectAction
+            jump danokova_office_action
+            
     screen office:
         fixed:
             vbox xalign 0.0 yalign 1.0:
