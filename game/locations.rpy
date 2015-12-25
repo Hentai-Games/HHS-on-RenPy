@@ -525,7 +525,8 @@ label test:
     # $changetime(60*24)
     # $player.setHealth(10000)
     # $player.setEnergy(10000)
-    jump status_sex
+    show expression 'pic/status/male_toy.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+    ''
     $move(curloc)
 
 ##############################################################
@@ -839,6 +840,18 @@ label loc_firstFloor:
 
 label loc_office:
     show office at left
+    if hour >= 15 and hour < 17 and (weekday == 2 or weekday == 4) and mile_qwest_3_stage == 50:
+        'Дверь в кабинет закрыта и из за неё слышны тихие стоны. Вы вздыхаете и уходите. В конце концов вы добились чего хотели. Наверное.'
+        $ move (prevloc)
+    if ptime >= work51 and ptime < work51 + 2 and mile_qwest_3_stage > 0:
+        if callup == dummy:
+            if temperature > 30:
+                jump danokova_hot
+            else:
+                $ mile_qwest_3_hot = 0
+                jump danokova_working
+        else:
+            jump danokova_selectAction
     screen office:
         fixed:
             vbox xalign 0.0 yalign 1.0:
@@ -865,10 +878,19 @@ label loc_office:
                     hover im.MatrixColor('pic/events/cabbage/secretary.png', im.matrix.opacity(1.0))
                     xalign 0.1 yalign 1.0
                     action [Jump('cabbageInit')]
-            if mile_qwest_2_stage == 7 and (lt() in [-1,0]) and call_up == dummy:
+            if mile_qwest_2_stage == 7 and (lt() in [-1,0]) and callup == dummy:
                 textbutton 'Вызвать Валентину Купрувну' xalign 0.5 yalign 0.5 action Jump('kupruvnaGotIt1')
             if olympiad.confirm == True:
                 textbutton 'Подготавливать учеников\nк олимпиаде' xalign 0.5 yalign 0.5 action Jump('olympiad_edu')
+            if 'splitSystem' in school.furniture:
+                use splitSystem
+    screen splitSystem:
+        fixed:
+            vbox xalign 0.9 yalign 0.1:
+                text 'Выставить температуру ([temperature] C)' style style.description
+                hbox:
+                    textbutton '+5' action SetVariable('temperature', temperature + 5), Function(move, curloc)
+                    textbutton '-5' action SetVariable('temperature', temperature - 5), Function(move, curloc)
     call screen office
 
 label loc_class1:
@@ -1295,6 +1317,8 @@ label loc_shopBeauty:
 
 label loc_sexShop:
         show sexShop at left
+        if ptime > 366 and lt() == -1 and rand(1,3) = 1:
+            jump danokova_start
         screen sexShop:
             fixed:
                 vbox xalign 0.0 yalign 1.0:

@@ -340,8 +340,14 @@ label speak:
         changetime(5)
         player.stats.energy -= rand(5,10)
         user.incLoy(1)
+        
+        if user == danokova and 'school' in getLoc(curloc).position:
+            if mile_qwest_3_stage == 1 and ptime - mile_qwest_3_time > 12 and hour > 14:
+                renpy.jump('danokova_work')
+            elif mile_qwest_3_stage > 1 and hour > 14 and ptime - work51 > 10: 
+                renpy.jump('danokova_continue')
+            
         renpy.jump(dialogueSelector(user))
-
     call screen show_stat
 ###########################################################################################################################
 label flirt:

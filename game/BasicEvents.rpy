@@ -832,3 +832,20 @@ label installCam:
     else:
         me 'И как ты здесь оказался? Напиши мне пожалуйста.'
     $ move(curloc)
+    
+label splitSystem_cold:
+    $ clrscr()
+    show office as bg
+    show expression 'pic/events/various/cold.png' at left as tempPic
+    'Вы заходите в свой кабинет и от холода по вашей коже пробегают мурашки. Надо подкрутить кондиционер, так и заболеть недолго!'
+    $ player.incLust(-10)
+    $ move(curloc)
+    
+label splitSystem_hot:
+    $ clrscr()
+    show office
+    show expression 'pic/events/madness/miniorgasm1.png' at left as tempPic
+    'Вы заходите в свой кабинет и от жары ваше тело мгновенно прошибает пот! Перед вашими глазами сиюминутно мелькают горячие пляжи, курорты, услужливые официанты и прочие прелести отдыха. Надо подкрутить кондиционер, в таких условиях невозможно работать!'
+    if player.getLust() < 50: 
+        $ player.incLust(5)
+    $ move(curloc)

@@ -670,6 +670,7 @@ label skipall:
 #######################################################
     $ _allChars.extend(_studs)
     $ _allChars.extend(_teachers)
+    $ school = School()
     $ allChars = _allChars
     $ studs = _studs
     $ teachers = _teachers
