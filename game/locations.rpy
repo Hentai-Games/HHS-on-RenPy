@@ -525,9 +525,10 @@ label test:
     # $changetime(60*24)
     # $player.setHealth(10000)
     # $player.setEnergy(10000)
-    show expression 'pic/status/male_toy.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
-    ''
-    $move(curloc)
+    # show expression 'pic/status/male_toy.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+    # ''
+    # $move(curloc)
+    jump danokova_office_pencil
 
 ##############################################################
 # Home
