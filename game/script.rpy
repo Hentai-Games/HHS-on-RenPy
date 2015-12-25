@@ -16,6 +16,7 @@
     stat_penergy = 0
     stat_plust = 0
     
+    temperature = 25 # Температура в офисе
     flagIncome = 0 # флаг получки
     lastWork = -30 # Инициализация времени последней работы
     lastWashed = 0 # Инициализация душа
@@ -33,6 +34,8 @@
     mile_qwest_2_stage = 0 # Статус квеста купрувны    
     is_cabbage = 0 # Триггер квеста капусты
     mile_qwest_2_Ahmed = 0 # триггер нахождения беседки
+    mile_qwest_3_stage = 0 # Статус квеста Даноковой
+    work51 = 0 # Последний рабочий час даноковой
     
     is_cosplayClub = 0 # триггер эвента косплей клуба
     is_cherleaderClub = 0 # Триггер эвента клуба чирлидеров
@@ -97,6 +100,9 @@ label after_load:
     $ allChars = []
     $ allChars = _allChars
     $ studs = _studs
+    $ temp_furniture = school.furniture
+    $ school.furniture = []
+    $ school.furniture = temp_furniture
     return
     
 #Useful arts:

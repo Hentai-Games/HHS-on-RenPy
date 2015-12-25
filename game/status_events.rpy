@@ -35,7 +35,7 @@ init 11 python:
     # Мастурбация
     hidden_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_hidden_mastur'], requirements = {'lust':60}, stats_actions = {'lust':(-100,0),'corr':(0.5,20),'fun':(1,30)})
     mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_mastur'], requirements = {'lust':80, 'corr':30}, stats_actions = {'lust':(-100,0),'corr':(0.5,40),'fun':(1,30)})
-    public_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_public_mastur'], requirements = {'lust':80, 'corr':60}, stats_actions = {'lust':(-100,0),'corr':(1,80),'reputation':(-1,0),'fun':(1,30)})
+    public_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'student', events = ['status_public_mastur'], requirements = {'lust':80, 'corr':60}, stats_actions = {'lust':(-100,0),'corr':(0.5,80),'reputation':(-1,0),'fun':(1,50)})
     
     # Секс add name to char_classes from 715 string (function moveToLocation)
     hidden_sex = LocationStatus('Скрытничает', None, 'any', char_type = 'student', events = ['status_hidden_sex'], requirements = {'corr':30, 'lust':60}, stats_actions = {'lust':(-100,0),'corr':(1,50),'fun':(2,60)})
@@ -70,7 +70,7 @@ init 11 python:
     kiss_status = LocationStatus('Целуется', None, 'any', char_type = 'student', events = ['status_kiss'], requirements = {'lust':60}, stats_actions = {'lust':(5,90)})
     kiss_public_status = LocationStatus('Целуется', None, 'any', char_type = 'student', events = ['status_kiss'], requirements = {'lust':60,'corr':25}, stats_actions = {'lust':(5,90)})
     
-    # Наказания
+    # Наказания (распределяются в on_move)
     clean_status = LocationStatus('Убирается', None, 'any', stats_actions = {'fun':(-0.2,0)})
     learn_status = LocationStatus('Учится', None, 'any', stats_actions = {'fun':(-0.2,0)})
     shame_status = LocationStatus('Стыдится', None, 'any', stats_actions = {'fun':(-0.2,0),'lust':(1,100)})
@@ -106,9 +106,6 @@ init 11 python:
     
     
 init 11 python:
-
-    school = School()
-    
     def lookSelector():
         if 'strict' == school.uniform:
             return look_strict_status
@@ -207,9 +204,9 @@ init 11 python:
             if loc.id == 'loc_doctor':
                 loc.addStatus(medexam_status)
     statusDistribution()
-            
-   
-label status_wc:
+
+    
+label status_wc: #Complete
     if interactionObj.getSex() == 'female':
         show expression 'pic/status/pee_female.png'
     elif interactionObj.getSex() == 'male':
@@ -220,7 +217,7 @@ label status_wc:
     $ interactionObj.incLoy(-1)
     $ move(curloc)
     
-label status_swim:
+label status_swim: #Complete
     if interactionObj.getSex('mf') == 'female':
         show expression 'pic/status/swim_female.jpg'
         '[interactionObj.name] купается. Вам не докричаться до неё.'
@@ -229,7 +226,7 @@ label status_swim:
         '[interactionObj.name] плавает. Вам не докричаться до него.'
     $ move(curloc)
     
-label status_hidden_mastur:
+label status_hidden_mastur: #Complete
     if curloc in ['loc_wcf','loc_wcm']:
         if interactionObj.getSex() == 'futa':
             show expression 'pic/status/futa_toilet_mastur.jpg'
@@ -286,7 +283,7 @@ label status_hidden_mastur:
     $ changetime(10)
     $ move(curloc)
     
-label status_mastur:
+label status_mastur: #Complete
     if interactionObj.getSex() == 'female':
         'Со всех сторон слышны крики: "Давай, ты сможешь ещё один, давай же!"'
         show expression 'pic/status/female_mastur.png' as tempPic
@@ -308,7 +305,7 @@ label status_mastur:
         $ changetime(10)
     $ move(curloc)
     
-label status_public_mastur:
+label status_public_mastur: #Incomplete. Futa, male.
     if interactionObj.getSex() == 'female':
         show expression 'pic/status/female_public_mastur.jpg' as tempPic
         '[interactionObj.fname] мастурбирует, сидя на лавочке. Она совершенно никого не стесняется и из её молодой киски капают соки, заливая злополучное место для для отдыха и асфальт.'
@@ -332,17 +329,17 @@ label status_public_mastur:
     $ player.incLust(5)
     $ move(curloc)
     
-label status_voleyball:
+label status_voleyball: #Complete
     show expression 'pic/status/volleyball.jpg' as tempPic
     '[interactionObj.name] играет с другими ребятами в пляжный волейбол. Вы не хотите мешать.'
     $ move(curloc)
     
-label status_football:
+label status_football: #Complete
     show expression 'pic/status/football.jpg' as tempPic
     '[interactionObj.name] играет с другими ребятами в футбол. Вы не хотите мешать.'
     $ move(curloc)
     
-label status_kiss:
+label status_kiss: #Complete
     if interactionObj.getSex('mf') != interactionObj.partner.getSex('mf'):
         show expression 'pic/status/kiss_getero.jpg' as tempPic
     else:
@@ -355,7 +352,7 @@ label status_kiss:
     $ player.incLust(1)
     $ move(curloc)
 
-label status_undress:
+label status_undress: #Complete
     if interactionObj.getSex() == 'male':
         show expression 'pic/status/boy_undress.png' as tempPic
         '[interactionObj.name] просит вас не мешать переодеваться.'
@@ -369,7 +366,7 @@ label status_undress:
         $ player.incLust(5)
     $ move(curloc)
     
-label status_useManec:
+label status_useManec: #Complete
     if interactionObj.getSex() == 'male':
         show expression 'pic/status/male_manec.png' as tempPic
         '[interactionObj.name] активнейшим образом изучает внутреннее устройство женского организма, путём введения своего щупа непосредственно в искусственное влагалище купленного вами манекена.'
@@ -383,22 +380,44 @@ label status_useManec:
         'Просто в момент, когда стенки влагалища девчушки начали сокращаться в оргазме, копия детородного органа незамедлительно выпустила из себя заменитель спермы, чем удивила и вас и учениицу.'
         $ interactionObj.moveToLocation(choice(locations).id)
     else:
-        '[interactionObj.name] трахает манекен членом. (У меня нет пика.)'
+        show expression 'pic/status/futa_maneca.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+        'Вы видите, как [interactionObj.fname], отделив голову манекена плюёт ему в рот, и тут же вводит в открытый рот свой торчащий от возбуждения член.'
+        'Её рот приоткрывается в экстазе, а движения становятся всё глубже и учащённей. Взирая на это, вы всерьёз начинаете опасаться, не будет ли после этого у манекена вечно удивлённое выражение с незакрывающимся ртом в виде буквы О. Но, вспомнив, для каких целей вы их приобрели, вы успокаиваетесь.'
+        'Чего нельзя сказать о девушке. Она наоборот, возбуждается всё сильнее, двигая бёдрами с такой силой и скоростью, словно пытается пронзить манекен насквозь. Вы видите, что теперь он увлажнён не только первоначальным плевком, но и выделенной подрагивающим членом смазкой.'
+        'Между ног ученицы ритмично покачивается капелька с её женского начала. Немного сменив ракурс, вы замечаете блестящие половые губки и слегка сокращающуюся вагину. Вы готовы поставить 100 монет на то, что в билжайшие пару секунд, она кончит.'
+        show expression 'pic/status/futa_maneca.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+        interactionObj.say 'Да! Да! Да!'
+        'Спина девушки изгибается в оргазме, до упора засаживая член в рот несчастному предмету обстановки. Её язычок вываливается от экстаза, и по подбородку начинает стекать струйка слюны. Из губ манекена вырываются белые капли, разбрызгиваясь вокруг. Видимо он всё таки не совсем предназначен для подобных развлечений.'
+        'Вы строго наказываете девушке прибраться за собой, чтобы в очередной раз не шокировать уборщицу. Удовлетворённая учениица кивает.'
     $ player.incLust(5)
     $ changetime(10)
     $ move(curloc)
     
-label status_useDildo:
+label status_useDildo: #Complete.
     if interactionObj.getSex() == 'female':
         show expression 'pic/status/female_toy.png' as tempPic
         '[interactionObj.name] тестирует вибратор, про который столько долго рассказывали на уроках секс просвета.'
         'Капельки пота, забавное жужжание и открытый в экстазе рот, доказывают, что на уроках не врали.'
+    elif interactionObj.getSex() == 'futa':
+        show expression 'pic/status/futa_toya.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+        '[interactionObj.name] решила примерить несколько игрушек в обилии расбросанных по классу. Она запихала в кондом три небольших вибратора, и натянула получившуюся конструкцию на свой член. С виду получилась довольно неплохо, но [interactionObj.fname] сидит, так и не решаясь её включить.'
+        'Наконец девушка решается, и её пальцы тянуться к заветным регуляторам.'
+        show expression 'pic/status/futa_toyb.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+        'Класс наполняет тихое жужжание, а на лице девушки читается неподдельное удивление от интенсивности стимуляции её полового органа.'
+        'Член мгновенно подпрыгивает к парте, упираясь в неё головкой, и вы даже со своего места можете видеть как он напряжён.'
+        interactionObj.say 'М-м-м, - срывается тихий стон с губ футы.'
+        'Она неосознанно начинает совержать поступательные движения бёдрами, водя головкой по парте, но так и не касается его руками. Через пару минут стонов и закатывания глаз, девушка начинает регулярно вздрагивать, и с кончика её пениса срывается первая маленькая струйка спермы.'
+        show expression 'pic/status/futa_toyc.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+        'Вкоре к первой струйке присоединяется вторая, и вот уже член бешенно пульсирует, стукаясь головкой об парту и наполняя средство контрацепции бурными потоками спермы. [interactionObj.fname] чудом не вскрикивает на всю школу, закусывая нижнюю губу от сладострастия.'
+        'Вы довольно улыбаетесь, наслаждаясь увиденными моментами.'
     else:
-        '[interactionObj.name] использует секс игрушки по назначению. (У меня нет нужного пика).'
+        show expression 'pic/status/male_toy.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+        'Крепко сжав своё мужское достоинство через резиновую вагину, [interactionObj.name] применяет на практике теорию из уроков секспросвета. Вы дожидаетесь брызг спермы с одной из выходной дырочки вагины, и удовлетворённо киваете, словно подтверждая, что урок усвоен.'
+    $ changetime(10)
     $ player.incLust(5)
     $ move(curloc)
     
-label status_teacherHidden_mastur:
+label status_teacherHidden_mastur: #Complete
     if interactionObj.getSex() == 'male':
         show expression 'pic/status/ahmed_mastur.png' as tempPic
         'Заглянув в мужскую кабинку, вы увидели как Ахмед пытается снять накопившееся за день напряжение. Вы засматриваетесь на его мускулистое тело и плавные движения руки, в тайне мечтая присоединится к этому празднику сластолюбия.'
@@ -425,14 +444,14 @@ label status_teacherHidden_mastur:
     $ move(prevloc)
         
     
-label status_watchVideo:
+label status_watchVideo: #Incomplete. Add more Video.
     show expression 'pic/status/video_porn1.jpg' as tempPic
     '[interactionObj.name] смотрит порно с обилием больших членов, спермы и миловидных личиков.'
     'Вы ненадолго тоже задерживаете свой взгляд на экране. Действительно, все диалоги происходят на английском. Правда, их немного.'
     $ player.incLust(10)
     $ move(curloc)
     
-label status_hidden_sex:
+label status_hidden_sex: #Complete
     if (interactionObj.getSex() == 'male' and interactionObj.partner.getSex() == 'female') or (interactionObj.getSex() == 'female' and interactionObj.partner.getSex() == 'male'):
         python:
             if interactionObj.getSex() == 'male':
@@ -523,7 +542,7 @@ label status_hidden_sex:
     $ changetime(10)
     $ move(prevloc)
     
-label status_sex:
+label status_sex: #Complete
     if (interactionObj.getSex() == 'male' and interactionObj.partner.getSex() == 'female') or (interactionObj.getSex() == 'female' and interactionObj.partner.getSex() == 'male'):
         python:
             if interactionObj.getSex() == 'male':
@@ -627,9 +646,38 @@ label status_sex:
         'Бурный оргазм сотряс молодые тела и киски. Из них выплеснулась выталкиваемая пульсациями влагалища влага, заливая всё вокруг проказниц, и, тяжело дыша, девушки повалились друг на друга.'
     else:
         me 'Тут тип яой или ошибка. В любом случае в нормальной игре попасть сюда нельзя.'
+    $ player.incLust(15)
     $ changetime(10)
     $ move(curloc)
     
-label status_public_sex:
+label status_public_sex: #Incomplete. Male-futa. Female-futa. Futa-futa. Female-Female.
+    if (interactionObj.getSex() == 'male' and interactionObj.partner.getSex() == 'female') or (interactionObj.getSex() == 'female' and interactionObj.partner.getSex() == 'male'):
+        python:
+            if interactionObj.getSex() == 'male':
+                st2 = interactionObj
+                st1 = interactionObj.partner
+            else:
+                st1 = interactionObj
+                st2 = interactionObj.partner
+        show expression 'pic/status/public_getero_sex.png' as tempPic
+        st1.say 'Да, [st1.fname], да! Трахни мою развратную попку! Сделай хорошо своей шлюшке!'
+        'Вы немного шокированно смотрите на трахающуюся у всех на глазах парочку. Член парня упрямо вгрызался в поддатливое колечко ануса ученицы, издавая срамные звуки.'
+        '[st1.fname] призывно оттопыривала попку, немного двигаясь навстречу пенису, а её пальчики теребили истекающую соком киску. Вы не уверены, но вам кажется, что парень уже не первый раз собирается кончить. По крайней мере у вас нет другого объяснения тому, что ученица движениями своих пальцев выталкивает капли белесой жидкости прямо на асфальт.'
+        menu:
+            'Охладить их пыл':
+                player.say 'Эй вы, что это вы там делаете, а? - грозно сдвинув брови кричите вы савокупляющейся парочке.'
+                'Кончаееем!!!! - хором ответили ученики, и из попки девчушки брызнули белые капли, покрывая её ножки и живот парня.'
+                player.say 'А ну быстро прекратите! А не то я полицию вызову!'
+                st2.say 'Ладно, ладно, не кричите, - тяжело дыша бросил парень, - Уже уходим.'
+                'Некоторые люди по достоинству оценили то, что вы хотя бы попытались остановить парочку. А вот она - нет.'
+                $ interactionObj.setLoy(-15)
+                $ interactionObj.setRep(5)
+                $ interactionObj.partner.setLoy(-15)
+                $ interactionObj.partner.setRep(5)
+            'Ничего не делать':
+                'Хмыкнув, вы пошли дальше, чтобы окружающие не дай бог не связали вас с этими любвеобильными молодыми людьми.'
+    else:
+        'Вы наблюдаете, как [interactionObj.name] и [interactionObj.partner.name] неистово спариваются у всех на глазах.'
+    $ player.incLust(20)
     $ changetime(10)
     $ move(curloc)

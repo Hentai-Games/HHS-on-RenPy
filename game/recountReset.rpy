@@ -31,16 +31,6 @@ init python:
         if pedicure > 0:
             pedicure -= 1
         
-        # Модификатор образования
-        if school.eduMats == 'standart':
-            eduMod = 1
-        elif school.eduMats == 'poor':
-            eduMod = 0.5
-        elif school.eduMats == 'good':
-            eduMod = 2
-        elif school.eduMats == 'eduSexy':
-            eduMod = 0.1
-        
         # Олимпиада
         if (rand(1,10) == 1 or development > 0) and olympiad.month != month and olympiad.active == False and weekday <= 5:
             olympiad.month = month
@@ -72,16 +62,13 @@ init python:
 
                 
         for char in chars:
-            
             # Поломка подарков
             for item in char.inventory:
                 if item.type == 'present':
                     item.durability -= rand(1,2)
                     if item.durability <= 0:
                         char.removeItem(item)
-                        
-            char.incCorr((getPar(teachers, 'corr') - char.getCorr())/10)
-            char.incRep((getPar(studs, 'rep') - char.getRep())/100)
+
             if char in studs:
                 # Добавление трусов, если их нет у чара.
                 if char.getSex != 'male' and char.getItem(studpantiesF.name) == False:
@@ -103,6 +90,13 @@ init python:
                                 tempArr.append(club)
                         if len(tempArr) > 0:
                             char.club = choice(tempArr)
+                
+                # Мастурбация или секс c любовником
+                if char.getLust() > 70 and char.partner != None and rand(1,3) == 1 and char.getCorr() > 30:
+                    if char.partner.getLust() > 70:
+                        hadSex(char, char.partner)
+                elif char.getLust() > 70:
+                    hadSex(char)
                     
     def hourlyReset():
         global hour, weekday, inhibLow

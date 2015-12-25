@@ -112,6 +112,8 @@ init -20 python:
             elif self.uniform == 'bdsm':
                 return 'БДСМ форма'
                 
+    school = School()
+    
     def votingFunc(type,amount, what):
         voteYes = voteNo = voteVeto = 0
         for teacher in teachers:
@@ -149,7 +151,7 @@ init -20 python:
                 school.budget -= 50000
                 school.unlockedEduMats.append(what)
                 school.eduMats = what
-            if what in ['manec','video','bed','dildo','sportgirls']:
+            if what in ['manec','video','bed','dildo','sportgirls','splitSystem']:
                 if what == 'manec':
                     school.budget -= 20000
                 if what == 'video':
@@ -158,8 +160,10 @@ init -20 python:
                     school.budget -= 15000
                 if what == 'sportgirls':
                     school.budget -= 50000
-                    
+                if what == 'splitSystem':
+                    player.money -= 2000
                 school.furniture.append(what)
+                
             if what in ['wall','library','dungeon','chemlab','doctor']:
                 if what == 'wall':
                     school.budget -= 100000

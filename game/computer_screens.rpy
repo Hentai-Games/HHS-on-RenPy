@@ -127,6 +127,8 @@ screen description(what):
                     text _('Ученики в этом клубе учатся основам врачебного искусства.')
                     text _('Стоимость клуба - 250 монет в день')
                     text _('Занятия клуба проводятся в медицинском кабинете, с 15 до 18 ежедневно.')
+            elif what == 'splitSystem':
+                text _('Кондиционер в ваш офис.')
             else:
                 text _('Описания пока нет для [what]. Напишите на форум, если видите это, я постраюсь добавить описание.')
 
@@ -232,6 +234,16 @@ screen furniture:
                 
                 
             text _('\nСтроения и мебель')
+            textbutton _('Кондиционер в офис (Стоимость - 2000)') action [
+                If('splitSystem' in school.furniture, false=Show('preVoting', None, 'loy', 0, 'splitSystem')),
+                SelectedIf('splitSystem' in school.furniture),
+                SensitiveIf(player.money > 2000 or 'splitSystem' in school.furniture)
+                ] hovered [
+                Show('description', None, 'splitSystem') # При наведении показывается описание
+                ] unhovered [
+                Hide('description') # При потере фокуса - скрывается
+                ]
+                
             textbutton _('Кровать в офис (Стоимость - 2000)') action [
                 If('bed' in school.furniture, false=Show('preVoting', None, 'loy', 15, 'bed')),
                 SelectedIf('bed' in school.furniture),
@@ -241,7 +253,7 @@ screen furniture:
                 ] unhovered [
                 Hide('description') # При потере фокуса - скрывается
                 ]
-                
+            
             textbutton _('Хим лаборатория (Бюджет - 75000)') action [
                 If('chemlab' in school.buildings, false=Show('preVoting', None, 'loy', 50, 'chemlab')),
                 SelectedIf('chemlab' in school.furniture),
@@ -385,7 +397,7 @@ screen detentions:
             textbutton _('Обучение после уроков') action [
                 SetField(school,'detention','education'),
                 SelectedIf(school.detention == 'education')
-                ] hovered [
+                ] hovered [ 
                 Show('description', None, 'education')
                 ] unhovered [
                 Hide('description')

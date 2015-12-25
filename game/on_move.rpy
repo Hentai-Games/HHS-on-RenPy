@@ -11,8 +11,10 @@ init python:
 #базовая функция перемещения. Использовать всегда и всюду
     from random import shuffle
     def move(where):
-        global curloc, hour, prevloc, same_loc, defaultSymbol, temp1, temp2, temp3, temp4, temp5, temp6  #объявление глобальных переменных
-
+        global curloc, hour, prevloc, same_loc, defaultSymbol, school  #объявление глобальных переменных
+        temp = school
+        school = None
+        school = temp
         if renpy.has_label(where) == True: #Проверка на то, что локация существует. Если нет, прыгаем домой.
             
             renpy.scene(layer='master') # Сброс картинок
@@ -271,7 +273,7 @@ init python:
                     renpy.jump('madness_school')
 # Прочие прооверки             
     def checkMisc():
-        global flagIncome
+        global flagIncome, temperature
         if hour >= 8 and olympiad.confirm == False and olympiad.active == True:
             olympiad.confirm = True
             clrscr()
@@ -285,3 +287,10 @@ init python:
             flagIncome = 0
             clrscr()
             renpy.jump('income')
+            
+        temperature = min(max(temperature,15),40)
+        if ptime - work51 > 2 and curloc == 'loc_office':
+            if temperature < 20 and same_loc == 0:
+                renpy.jump('splitSystem_cold')
+            if temperature > 35 and same_loc == 0:
+                renpy.jump('splitSystem_hot')
