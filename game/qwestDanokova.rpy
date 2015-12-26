@@ -6,6 +6,10 @@
 # !mile_qwest_3_stage = 5 - Путь к нормальному сексу
 # !mile_qwest_3_stage = 6 - Путь к извращённому сексу
 
+# mile_qwest_3_stage == 10 (нормальный секс)
+# mile_qwest_3_stage == 11 анал в туалете
+
+
 # Тут походу смотрим та ли стадия квеста и тот ли вызванный ученик
 label danokova_office_action: 
     if mile_qwest_3_stage < 5:
@@ -30,9 +34,10 @@ label danokova_quest_choise:
     elif mile_qwest_3_stage == 6:
         jump danokova_office_pencil
     elif mile_qwest_3_stage == 11:
-        jump danokova_toilet_anal
+        jump danokova_find_toilet_anal
     else:
         'Ошибка!!! Не найден mile_qwest_3_stage = [mile_qwest_3_stage]'
+        $ move(prevloc)
     
 label danokova_start:
     $ clrscr()
@@ -637,8 +642,93 @@ label danokova_office_pencil:
 # mile_qwest_3_stage == 10 (нормальный секс)
 
 # mile_qwest_3_stage == 11 (Извращённый секс)
-label danokova_toilet_anal:
-
+label danokova_find_toilet_anal:
+    $clrscr()
+    $ d = danokova
+    $ m = mustangovich
+    $ st1 = bioBoy
+    $ st2 = getChar('female')
+    show office as bg
+    'Вы с надеждой заглядываете в кабинет, но никого там не наблюдаете. Похоже, что устав от ваших постоянных подглядываний за ней, [d.fname] решила уединиться с учеником в каком то другом месте.'
+    player.say 'Ну и где мне их теперь искать? Вряд ли они будут меня дожидаться!'
+    menu:
+        'Поискать в подсобке спортзала':
+            show storage as bg
+            show expression 'pic/events/mile_3/gym_find.jpg' as tempPic
+            player.say '"Мать перемать!"'
+            'Зайдя в подсобку, вы не нашли биологички, зато обнаружили, чем обычно занимается ваш физрук после уроков.'
+            'Немного шокированно вы наблюдаете, как [m.fname] "работает" над ученицей.'
+            m.say 'Фух, ух, тебе приятно? - пыхтит физрук на девушке.'
+            st2.say 'Ага, тип того, - девушка неотрывно смотрит на телефон.'
+            st2.say 'Вы, это, зачёт то мне поставите? - девушка приподнимает ноги, и пятками начинает слегка пришпоривать учителя.'
+            m.say 'А как же! Фух. Сейчас закончу, фух. И поставлю, ум-м-м.'
+            'Вы уже было собрались наорать на физрука и начать выяснение отношений, но вовремя вспоминаете, что пришли сюда не за этим.'
+            player.say 'В конце концов не первый и не последний раз. Ещё сделаю ему втык. Или не сделаю. Надо вернуться в офис и подумать, куда отправляться дальше.'
+            hide tempPic
+        'Пойти в туалет':
+            show wcf as bg
+            'Вы заходите в женский туалет, и слышите нехарактерные для этого места звуки доносящиеся из крайней кабинки.'
+            show expression ('pic/events/mile_3/toilet_mastur.png') at Move((0.0, 0.0), (0.0, -1.2), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+            player.say 'АГА!'
+            'Вашему взгляду предстаёт [st2.name], которая находится на пике возбужения. Её пальчик погружён во влажную киску, и именно оттуда шли эти странные чавкающие звуки.'
+            st2.say 'И-и-и-и-и! - пронзительно визжит девушка, - [player.name], немедленно уйдите!!!'
+            'От этого ультравизга у вас заложило уши и резко запульсировала боль в виске. Вы с грохотом захлопываете дверь судорожно глотая воздух.'
+            hide tempPic
+            player.say '"Мать перемать! Как тяжело оказываться в таких ситуациях... Надо вернуться и обдумать дальнейшие действия."'
+            $ st2.incLoy(-5)
+            $ st2.incCorr(5)
+        'Попробовать проверить камеры':
+            if camera.name in getLoc('loc_wcf').getItems():
+                jump danokova_toilet_anal
+            else:
+                show office as bg
+                show expression 'pic/events/mile_3/camera_search.jpg' as tempPic
+                'Вы бесцельно проводите время в поисках чего либо интересного на камерах. То ли парочки нет в школе, то ли у вас нет камеры в нужном месте. В конце концов вы решаете выйти и поискать их самостоятельно.'
+                hide tempPic
+                show gym as bg
+                'В спортзале их не было'
+                show pool as bg
+                'В бассейне тоже'
+                show secondFloor
+                'Устав от поисков, вы решили вернуться.'
+        'Поспрашивать учеников':
+            show firstFloor as bg
+            'Вы выцепляете парвую попавшуюся ученицу.'
+            show expression getCharImage(st2,'dialog') as temp1
+            show expression getCharImage(player,'dialog') as temp2
+            player.say 'Ты случайно не видел, куда пошла наша учительница по биологии?'
+            st2.say 'А, это такая с сиреневыми волосами?'
+            player.say 'Да'
+            st2.say 'Которая в очках?'
+            player.say 'Да, она.'
+            st2.say 'Она ещё странно разговаривает?'
+            player.say 'ДА. По моему очевидно, что мы говорим об одном и том же человеке.'
+            player.say '"Я её счас лично придушу, если она скажет, что не знает!!!"'
+            st2.say 'Она вроде как в учительскую пошла.'
+            player.say 'Спасибо деточка!'
+            hide temp1
+            hide temp2
+            'Вы срываетесь и твёрдым шагом направляетесь в учительскую.'
+            show teacherRoom as bg
+            show expression getCharImage(m,'dialog') as temp1
+            show expression getCharImage(player,'dialog') as temp2
+            m.say 'О, здравствуйте, [player.fname]'
+            player.say 'Я очень тороплюсь, ты не видел нашу биологичку?'
+            m.say 'А, это такая с сиреневыми волосами?'
+            player.say 'Да'
+            m.say 'Которая в очках?'
+            player.say 'Да. Да ну вас всех к чёрту! Вы сговорились что ли???'
+            show secondFloor as bg
+            hide temp1
+            hide temp2
+            'Вы в ярости выбегаете из учительской и решаете вернуться в офис, чтобы обдумать всё ещё раз.'
+    show expression 'pic/events/mile_3/work1.png' as bg
+    'Вы с надеждой возвращаетесь в офис. Но похоже, что вы безнадёжно опоздали с поиском парочки. [d.name] сидит одна в кабинете, и ученика вокруг не наблюдается.'
+    d.say 'Вы что то хотели, [player.name]?'
+    player.say 'У меня тут возник вопрос... [st1.fname], он, собственно, где?'
+    d.say 'Не знаю. У него при виде меня прихватило живот, и я проводила его в туалет. Наверное там и сидит.'
+    player.say 'Ясно, понятно...'
+    'Ну чтож. По крайней мере вы теперь знаете, где их можно будет найти.'
     $ changetime(120)
-    $ mile_qwest_3_stage = 13
     $ move(prevloc)
+    
