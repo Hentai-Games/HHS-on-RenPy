@@ -350,6 +350,7 @@ init 10 python:
             elif x == 'loc_gymLearn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
             elif x == 'loc_poolLearn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
             elif x == 'loc_cabbage': loc = Location(id = x, name = 'Капуста', base_prob = -1, position = ['tech'])
+            elif x == 'loc_shower': loc = Location(id = x, name = 'Душ', base_prob = -1, position = ['tech'])
             else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
             locations.append(loc)
 

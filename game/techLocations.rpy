@@ -21,3 +21,6 @@ label loc_poolLearn:
     
 label loc_cabbage:
     jump cabbageIn
+    
+label loc_shower:
+    jump loc_pool
