@@ -107,6 +107,14 @@ init python:
     aphrodisiac.type = 'sexShop'
     allItems.append(aphrodisiac)
     
+    rope = Tool(purpose = 'qwest')
+    rope.name = _('Грубая верёвка')
+    rope.cost = 100
+    rope.picto = 'pic/items/rope.png'
+    rope.durability = 1
+    rope.type = 'sexShop'
+    allItems.append(rope)
+    
 #######################################################################
 #  Верхняя одежда
 #######################################################################
@@ -799,6 +807,23 @@ init python:
     sportUniform.picto = 'pic/items/sportUniform.png'
     sportUniform.type = 'clothing'
     clothing.append(sportUniform)
+    
+# бдсм форма
+    bdsmUniform = Clothing(
+    lust = 25,
+    corr = 50,
+    reputation = -1,
+    char = 'teacher',
+    sex = 'female',
+    purpose = 'bdsm')
+    bdsmUniform.cover = ['верх','низ','ноги']
+    bdsmUniform.durability = 1000
+    bdsmUniform.name = _('БДСМ униформа')
+    bdsmUniform.cost = 5500
+    # picto
+    bdsmUniform.picto = 'pic/items/bdsmUniform.png'
+    bdsmUniform.type = 'clothing'
+    clothing.append(bdsmUniform)
     
 #  Форма Мустанговича
     blueForm = Clothing(

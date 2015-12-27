@@ -109,9 +109,14 @@ screen sexShopping:
                 vbox :
                     #Список предметов на продажу
                     text _('Игрушки')
-                   
+                    textbutton rope.name action [Function(player.buy, rope, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', rope), Show('showSellItem')]
             frame :
                 vbox :
                     #Список подарков на продажу
                     text _('Подарки')
+            frame :
+                vbox :
+                    #Список одежды на продажу
+                    text _('Одежда')
+                    textbutton bdsmUniform.name action [Function(player.buy, bdsmUniform, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', bdsmUniform), Show('showSellItem')]
                     
