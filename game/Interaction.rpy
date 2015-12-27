@@ -344,9 +344,11 @@ label speak:
         if user == danokova and 'school' in getLoc(curloc).position:
             if mile_qwest_3_stage == 1 and ptime - mile_qwest_3_time > 12 and hour > 14:
                 renpy.jump('danokova_work')
-            elif mile_qwest_3_stage > 1 and hour > 14 and ptime - work51 > 10: 
+            elif mile_qwest_3_stage == 13:
+                renpy.jump('danokova_bdsm_offer')
+            elif mile_qwest_3_stage > 1 and hour > 14 and ptime - work51 > 10 and mile_qwest_3_stage not in [13]: 
                 renpy.jump('danokova_continue')
-            
+                
         renpy.jump(dialogueSelector(user))
     call screen show_stat
 ###########################################################################################################################
