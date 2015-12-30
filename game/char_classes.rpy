@@ -406,12 +406,22 @@ init -20 python:
 
         # Удаление айтема
         def removeItem(self,item):
-            if self.inventory.count(item) > 0:
-                self.inventory.remove(item)
-                return True
-            if self.wear.count(item) > 0:
-                self.wear.remove(item)
-                return True
+            if type(item) is str:
+                for x in self.inventory:
+                    if x.name == item:
+                        self.inventory.remove(x)
+                        return True
+            else:
+                if self.inventory.count(item) > 0:
+                    self.inventory.remove(item)
+                    return True
+                if self.wear.count(item) > 0:
+                    self.wear.remove(item)
+                    return True
+                for x in self.inventory:
+                    if x.name == item.name:
+                        self.inventory.remove(x)
+                        return True
             return False
 
         def initSet(self,number,list):

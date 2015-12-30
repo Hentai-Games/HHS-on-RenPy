@@ -267,9 +267,16 @@ screen inventory_all:
                         imagebutton:
                             idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
                             hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
-                            xalign xalig yalign yalig  
+                            xalign xalig yalign yalig
                             action NullAction() 
                             hovered [SetVariable('myItem', x), Show('showItem')]
+                elif x.type == 'lust':
+                    imagebutton:
+                        idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                        hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                        xalign xalig yalign yalig  
+                        action Jump('use_tablet')
+                        hovered [SetVariable('myItem', x), Show('showItem')]
                 else:
                     imagebutton:
                         idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
@@ -442,6 +449,13 @@ screen inventory_sexShop:
                     hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
                     xalign xalig yalign yalig  
                     action NullAction() 
+                    hovered [SetVariable('myItem', x), Show('showItem')]
+            if x.type == 'lust':
+                imagebutton:
+                    idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                    hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                    xalign xalig yalign yalig  
+                    action Jump('use_tablet')
                     hovered [SetVariable('myItem', x), Show('showItem')]
             else :
                 $ xalig -= 0.09

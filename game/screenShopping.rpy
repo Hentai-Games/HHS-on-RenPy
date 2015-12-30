@@ -109,7 +109,8 @@ screen sexShopping:
                 vbox :
                     #Список предметов на продажу
                     text _('Игрушки')
-                    textbutton rope.name action [Function(player.buy, rope, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', rope), Show('showSellItem')]
+                    if player.hasItem(rope.name) == False:
+                        textbutton rope.name action [Function(player.buy, rope, 'add'), Show('showSellItem')] hovered [SetVariable('myItem', rope), Show('showSellItem')]
             frame :
                 vbox :
                     #Список подарков на продажу
