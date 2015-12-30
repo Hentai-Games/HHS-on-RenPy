@@ -27,7 +27,7 @@ label dialog_stud_0_4:
     $ teacher = teachers[rand(0,len(teachers)-1)]
     $ science = teacher.club.title()
     player.say '[science] мой любимый предмет! - заводите Вы разговор'
-    if user.sex == 'male':
+    if user.getSex() == 'male':
         user.say 'А мой - [science]! - как то невпопад отвечает ученик. Или [user.fname] просто подкалывает вас?'
     else:
         user.say 'А мой - [science]! - как то невпопад отвечает ученица. Или [user.fname] просто подкалывает вас?'
@@ -46,7 +46,7 @@ label dialog_stud_0_6:
     $ teacher = teachers[rand(0,len(teachers)-1)]
     $ science = teacher.club.title()
     player.say 'У тебя всё в порядке с учебой? - интересуетесь Вы'
-    if user.sex == 'male':
+    if user.getSex() == 'male':
         user.say 'Я просто забыл сделать домашнее задание, теперь [teacher.name] будет ругаться. - сокрушается старшеклассник'
     else:
         user.say 'Я просто забыл сделать домашнее задание, теперь [teacher.name] будет ругаться. - сокрушается старшеклассница'
@@ -70,14 +70,14 @@ label dialog_stud_0_9:
     call screen show_stat
 
 label dialog_stud_0_10:
-    if user.sex == 'male':
+    if user.getSex() == 'male':
         user.say '[user.name] подсказал вам, что неплохие вещи продаются на углу Торговой улицы, в небольшом минимаркете'
     else:
         user.say '[user.name] подсказала вам, что неплохие вещи продаются на углу Торговой улицы, в небольшом минимаркете.'
     call screen show_stat
     
 label dialog_stud_0_11:
-    if user.sex == 'male':
+    if user.getSex() == 'male':
         user.say '[user.name] рассказал, что однажды слышал стоны привидения в раздевалке на пляже. Он, конечно не трус, но от опрометчивых действий воздержался и быстренько сбежал оттуда.'
     else:
         user.say '[user.name] рассказала, что однажды слышала стоны привидения в раздевалке на пляже. Она страшно испугалась и убежала.'
@@ -85,7 +85,7 @@ label dialog_stud_0_11:
     call screen show_stat
     
 label dialog_stud_0_12:
-    if user.sex == 'male':
+    if user.getSex() == 'male':
         user.say '[user.name] поведал, что на пляже происходит больше всего событий в городе!'
     else:
         user.say '[user.name] поведала, что на пляже происходит больше всего событий в городе!'
@@ -93,7 +93,7 @@ label dialog_stud_0_12:
     call screen show_stat
     
 label dialog_stud_0_13:
-    if user.sex == 'male':
+    if user.getSex() == 'male':
         user.say '[user.name] рассказал, что одна его подруга не ела много дней, соблюдая диету, а потом заболела и умерла.'
     else:
         user.say '[user.name] рассказала, что одна её подруга cоблюдая диету, а потом заболела и умерла.'
@@ -101,7 +101,7 @@ label dialog_stud_0_13:
     call screen show_stat
     
 label dialog_stud_0_14:
-    if user.sex == 'male':
+    if user.getSex() == 'male':
         user.say '[user.name] рассказал, что в 4 классе за учительской тумбой живёт мышь, которая иногда скребётся после уроков!'
     else:
         user.say '[user.name] рассказала, что в 4 классе за учительской тумбой живёт мышь, которая иногда скребётся после уроков!'
@@ -125,6 +125,14 @@ label dialog_stud_0_15:
         user.say '[user.name] спрашивает, зачем мы построили стену вокруг школы?'
         player.say 'Вы объясняете, что это необходимая политика в виду усилившейся террористической угрозы. Старательно пытаясь не засмеяться, пока Вы несёте эту ахинею. Ну по крайней мере [user.fname] уверенно кивает, видимо полностью доверяя Вам!'
     call screen show_stat
+
+    
+    
+    
+    
+    
+    
+    
     
 label dialog_teacher_0_1:
     $ st = getChar('','edumin')
@@ -153,13 +161,13 @@ label dialog_teacher_0_3:
 label dialog_teacher_0_4:
     $ rep = getPar(studs, 'rep')
     if rep < 20:
-        user.say 'Вы поговорили о Вашей низкой репутации. Преподаватель посочувствовал Вам, пожелав удачи на новом месте работы.'
+        user.say 'Вы поговорили о Вашей низкой репутации. Преподаватель посочувствовал вам, пожелав удачи на новом месте работы.'
     elif rep < 50:
-        user.say 'Вы поговорили о Вашей невысокой репутации. Преподаватель посоветовал Вам уделять больше внимания личному общению с учениками.'
+        user.say 'Вы поговорили о Вашей невысокой репутации. Преподаватель посоветовал вам уделять больше внимания личному общению с учениками.'
     elif rep < 80:
         user.say 'Вы поговорили о Вашей высокой репутации. Преподаватель порадовался, что у них наконец-то такой уважаемый директор.'
     else:
-        user.say 'Вы поговорили о Вашей непревзойдённой репутации. Преподаватель искренне завидует Вашему всеобщему уважению.'
+        user.say 'Вы поговорили о Вашей непревзойдённой репутации. Преподаватель искренне завидует вашему всеобщему уважению.'
     call screen show_stat
         
 label dialog_teacher_0_5:
@@ -171,8 +179,34 @@ label dialog_teacher_0_5:
     call screen show_stat
         
 label dialog_teacher_0_6:
-    if user.sex == 'male':
+    if user.getSex() == 'male':
         user.say '[user.name] 5 минут распинался про то, что не нужно химичке такое количество пробирок, колбочек, баночек и прочей фигни! Не нужно и всё! А у него мячей не хватает в спортзале. И одежды походу тоже.'
     else :
         user.say '[user.name] хихикнув начала обсуждать нелёгкую жизнь Мустанговича. То ему мячей не хватает, то спортивной одежды...'
     call screen show_stat
+    
+label dialog_teacher_0_mustangovich1:
+    if mile_quest_1 >= 1 and user == mustangovich:
+        player.say 'Кстати насчёт твоих таблеточек... У тебя не найдётся одной для меня?'
+        user.say 'Для вас всё что угодно, [player.name]! Держите!'
+        '[user.fname] протягивает вам одну из своих таблеток. Учитывая что капсула наполнена маленькими сердечками, неудивительно, что он думал, что это таблетки от сердца.'
+        $ player.addItem(tablet)
+    else:
+        $ dialogueSelector(user)
+    call screen show_stat
+    
+label dialog_teacher_20_1:
+    $ st1 = getChar('female')
+    $ st2 = getChar('male')
+    if user.getSex() == 'male':
+        user.say 'А вы видели, как сегодня выглядит [st1.name]? Я бы её э-х-х...'
+        user.say 'Мы бы с ней о-о-о!'
+        player.say 'В общем всё как обычно, мыслите головкой, а не головой?'
+        user.say 'Да...'
+        player.say 'Это радостно, что в нашем бурном мире какие то вещи остаются неизменными.'
+    else:
+        user.say 'Я недвано видела мальчика на пляжу... По моему это был [st2.name]. Он такой, такой...'
+        player.say 'Соблазнительный?'
+        user.say 'Да! Именно это я и хотела сказать!'
+    call screen show_stat
+        

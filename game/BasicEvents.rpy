@@ -31,6 +31,8 @@ label warning:
                 'selchar':
                     jump selchar
                 'skipall':
+                    $_money = 10000000
+                    $_health = 10000
                     jump skipall
         else:
             jump selchar
@@ -635,6 +637,8 @@ label madness_low:
     $ player.incLust(-50)
     $ player.incCorr(0.1)
     $ player.incEnergy(-50)
+    if player.getDirty() < 2:
+        $ player.incDirty(1)
     $ move(curloc)
 
     
@@ -849,3 +853,13 @@ label splitSystem_hot:
     if player.getLust() < 50: 
         $ player.incLust(5)
     $ move(curloc)
+    
+label use_tablet:
+    $ clrscr()
+    show expression 'pic/events/madness/miniorgasm1.png' at left as tempPic
+    'Вы проглатываете таблетку и по вашему телу распространяется волна тепла.'
+    'По какой то причине волна концентрируется в области вашего паха, и никуда больше не двигается. Вы чувствуете себя более возбуждённой.'
+    $ player.incLust(25)
+    $ player.removeItem(tablet)
+    $ move(curloc)
+    

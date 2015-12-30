@@ -37,6 +37,13 @@ init python:
     eDrink.picto = 'pic/items/edrink.jpg'
     eDrink.durability = 1
     eDrink.type = 'food'
+    
+    tablet = Food(energy = -50)
+    tablet.name = _('Энергетик')
+    tablet.cost = 150
+    tablet.picto = 'pic/items/tablet.jpg'
+    tablet.durability = 1
+    tablet.type = 'lust'
 
     rawFood = Food(energy = 400)
     rawFood.name = _('Сырая еда')
@@ -44,6 +51,8 @@ init python:
     rawFood.picto = 'pic/items/food.jpg'
     rawFood.durability = 10
     rawFood.type = 'hidden'
+    
+    
     
     allItems = [napkin, sandwich, eDrink, rawFood, clubPanties]
 

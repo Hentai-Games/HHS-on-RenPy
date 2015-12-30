@@ -24,3 +24,12 @@ label loc_cabbage:
     
 label loc_shower:
     jump loc_pool
+    
+label loc_ahmedSex:
+    jump loc_teacherRoom
+    
+label loc_ahmedFootjob:
+    jump loc_teacherRoom
+    
+label loc_ahmedSuck:
+    jump loc_teacherRoom
