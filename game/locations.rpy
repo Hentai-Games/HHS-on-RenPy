@@ -14,15 +14,15 @@ init 10 python:
         def getprob(self):
             global hour
             if lt() > 0 or lt() == -4: rez = -1 #Если ночь, то на улице никого нет
-            
+
             elif 'school' in self.position and lt() == -1: rez = self.base_prob/4 #Если внеурочное время, то в школе шансов встретить меньше
             elif 'school' in self.position and lt() == 0: rez = self.base_prob*2 #Если перемена, то в школе шансов встретить гораздо больше
             elif 'other' in self.position and lt() == 0: rez = -1 # во время перемен никого не будет в городе
             elif self.id in ['loc_street','loc_shopStreet'] and hour < 8: rez = self.base_prob*2 # перед уроками на улице чаще
             elif self.id in ['loc_beach'] and hour < 8: rez = self.base_prob/2 # перед уроками на пляже реже
-            else : 
+            else :
                 rez = self.base_prob #Иначе настоящая вероятность.
-                
+
             return rez
 
         def __repr__(self):
@@ -38,7 +38,7 @@ init 10 python:
                 except AttributeError:
                     pass
             return rez
-            
+
         def getItems(self):
             rez = []
             for x in self.items:
@@ -47,10 +47,10 @@ init 10 python:
 
         def addStatus(self, status, prob=None):
             """Добавляет статус к локации
-            
+
             status - LocationStatus объект
             prob - вероятность выбора статуса (от 0 до 100).
-                   Можно оставить None - тогда вероятность будет вычислена 
+                   Можно оставить None - тогда вероятность будет вычислена
                    автоматически, справедливо по отношению к остальным. Общая
                    сумма вероятностей для статусов не должна быть больше 100!
             """
@@ -83,7 +83,7 @@ init 10 python:
                     continue
 
                 self.__statuses[idx] = (status, auto_prob, auto_f)
-                
+
             # Make sure that whe have no >100 prob
             if sum([x[1] for x in self.__statuses]) > 100:
                 raise Exception('Sum of LocationStatus probabilities should '
@@ -116,21 +116,21 @@ init 10 python:
                     rez.append(status)
 
             return rez
-            
+
         def eraseStatuses(self):
             # сносит все статусы с локации
             self.__statuses[:] = []
-        
+
         def removeStatus(self, status):
             for x in self.__statuses:
                 if x == status:
                     self.__statuses.remove(x)
-            
+
     class Event:
         def __init__(self,id,corr):
             self.id = id
             self.corr = corr
-            
+
     class Qwest:
         def __init__(self,id):
             self.id = id
@@ -262,7 +262,7 @@ init 10 python:
             if x.id == id:
                 return x
         return False
-        
+
     def getQwest(id):
         for loc in locations:
             for qwest in loc.qwests:
@@ -283,7 +283,7 @@ init 10 python:
                         event = Event(id = eventLabel, corr = corr) # создаём эвент
                         location.events.append(event) #добавляем его в массив эвентов локации
         return 0
-        
+
     def getQwests():
         for eventLabel in _locs: # перебираем все лейблы
             if eventLabel[:6] == 'qwest_': #находим тот, что с квестом
@@ -468,14 +468,14 @@ init:
         "hour > 20 or hour < 5", 'pic/locations/school/doctor/2.png',
         )
     image movie = Movie(size=(1200, 768), xpos=0.5, ypos=0, xanchor=0.5, yanchor=0)
-    
+
     python:
         intro_img = ['pic/locations/school/secondFloor/1.jpg','pic/locations/school/secondFloor/2.jpg','pic/locations/school/secondFloor/3.jpg']
         counter = 0
         for x in intro_img:
             counter += 1
             x = renpy.image(str(counter), x)
-        
+
 #Для теста
 label test:
     show daytime
@@ -485,16 +485,16 @@ label test:
     # stop movie
     # hide movie
     #jump myintro
-    
+
     # $changetime(60*24)
     # $move('loc_home')
-    
+
     # python:
         # callup = studs[0]
         # callup.incCorr(30)
         # player.incCorr(60)
     # jump reputation
-    
+
     # $ mystring = reactionGen(studs[0])
     # player.say '[mystring]'
     # python:
@@ -545,26 +545,26 @@ label loc_home:
 
     screen home:
         fixed:
-            text 'Гостинная в вашей квартире. Маленькая, зато аккуратная. На стеклянном столе лежит пачка салфеток для ежедневного ухода за кожей. Напротив диванчика стоит телевизор. Вы не помните, чтобы по нему хоть раз показывали что-то хорошее. Возможно потому, что потеряли пульт сразу после переезда.' xalign 0.0 yalign 1.0 style style.description
+            text 'Гостиная в вашей квартире. Маленькая, зато аккуратная. На стеклянном столе лежит пачка салфеток для ежедневного ухода за кожей. Напротив диванчика стоит телевизор. Вы не помните, чтобы по нему хоть раз показывали что-то хорошее. Возможно потому, что потеряли пульт сразу после переезда.' xalign 0.0 yalign 1.0 style style.description
             textbutton 'Кухня':
-                xalign 0.05 yalign 0.8 
-                action Function(move, 'loc_kitchen') 
+                xalign 0.05 yalign 0.8
+                action Function(move, 'loc_kitchen')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Спальня':
-                xalign 0.5 yalign 0.8 
-                action Function(move, 'loc_bedroom')  
+                xalign 0.5 yalign 0.8
+                action Function(move, 'loc_bedroom')
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Ванная': 
-                xalign 0.9 yalign 0.8 
-                action Function(move, 'loc_bathroom') 
+            textbutton 'Ванная':
+                xalign 0.9 yalign 0.8
+                action Function(move, 'loc_bathroom')
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Улица': 
-                xalign 0.5 yalign 0.5 
-                action Function(move, 'loc_street') 
+            textbutton 'Улица':
+                xalign 0.5 yalign 0.5
+                action Function(move, 'loc_street')
                 style "navigation_button" text_style "navigation_button_text"
             if development == 1:
                 textbutton 'Test':
-                    xalign 0.0 yalign 0.2 
+                    xalign 0.0 yalign 0.2
                     action Function(move,'test')
     call screen home
 
@@ -574,9 +574,9 @@ label loc_bedroom:
     screen bedroom:
         fixed:
             text 'Уютненькая маленькая спальня. Слева находится небольшой шкаф, в котором висит ваша повседневная одежда. Справа кровать, довольно удобная. Тут ещё есть телевизор, но он не работает, так что совсем не будет мешать Вам отходить ко сну.' xalign 0.0 yalign 1.0 style style.description
-            textbutton 'Гостинная':
-                xalign 0.5 yalign 0.8 
-                action Function(move, 'loc_home') 
+            textbutton 'Гостиная':
+                xalign 0.5 yalign 0.8
+                action Function(move, 'loc_home')
                 style "navigation_button" text_style "navigation_button_text"
             if (ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4):
                 textbutton 'Спать' xalign 0.2 yalign 0.76 action Jump('sleep')
@@ -597,12 +597,12 @@ label loc_kitchen:
                     textbutton 'Поесть' xalign 0.4 yalign 0.6 action [
                     Function(player.eat, player.getItem('Сырая еда')),
                     Function(changetime, 15),
-                    Function(move, curloc)] 
+                    Function(move, curloc)]
             else :
                 text 'Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, вы понимаете, что её не осталось СОВСЕМ. Надо срочно сгонять в магазин.' xalign 0.0 yalign 1.0 style style.description
-            textbutton 'Гостинная':
-                xalign 0.5 yalign 0.8 
-                action Function(move, 'loc_home') 
+            textbutton 'Гостиная':
+                xalign 0.5 yalign 0.8
+                action Function(move, 'loc_home')
                 style "navigation_button" text_style "navigation_button_text"
             if player.hasItem('Сэндвич') == False and player.hasItem('Сырая еда') == True:
                 textbutton 'Сделать\nсэндвич' xalign 0.8 yalign 0.65 action [
@@ -618,9 +618,9 @@ label loc_bathroom:
     screen bathroom:
         fixed:
             text 'Ванная комната. Совмещённая. В лучших традициях далёкой страны. Тут можно искупаться, чтобы смыть с себя грязь и прочие человеческие нечистоты. А можно просто постоять под душем и отдохнуть.' xalign 0.0 yalign 1.0 style style.description
-            textbutton 'Гостинная':
-                xalign 0.5 yalign 0.8 
-                action Function(move, 'loc_home') 
+            textbutton 'Гостиная':
+                xalign 0.5 yalign 0.8
+                action Function(move, 'loc_home')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Душ' xalign 0.4 yalign 0.3 action Jump('shower') # style "navigation_button" text_style "navigation_button_text"
 
@@ -648,33 +648,33 @@ label loc_entrance:
                 if is_cabbage == 1 and hour == 7 and weekday < 6:
                     text 'Сегодня день уборки урожая! Автобус ожидает вас и ваших учеников.' style style.description
             textbutton 'Холл':
-                xalign 0.456 yalign 0.73 
-                action [Function(move, 'loc_hall')] 
+                xalign 0.456 yalign 0.73
+                action [Function(move, 'loc_hall')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Первый этаж':
-                xalign 0.456 yalign 0.6 
-                action [Function(move, 'loc_firstFloor')] 
+                xalign 0.456 yalign 0.6
+                action [Function(move, 'loc_firstFloor')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Второй этаж':
-                xalign 0.456 yalign 0.44 
-                action [Function(move, 'loc_secondFloor')] 
+                xalign 0.456 yalign 0.44
+                action [Function(move, 'loc_secondFloor')]
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Ваш офис': 
-                xalign 0.6 yalign 0.6 
-                action [Function(move, 'loc_office')] 
+            textbutton 'Ваш офис':
+                xalign 0.6 yalign 0.6
+                action [Function(move, 'loc_office')]
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Домой': 
-                xalign 0.1 yalign 0.7 
-                action [Function(changetime, 30),Function(move, 'loc_street')] 
+            textbutton 'Домой':
+                xalign 0.1 yalign 0.7
+                action [Function(changetime, 30),Function(move, 'loc_street')]
                 style "navigation_button" text_style "navigation_button_text"
             if 'library' in school.buildings:
                 textbutton 'Библиотека':
-                    xalign 0.8 yalign 0.7 
-                    action [Function(move, 'loc_library')] 
+                    xalign 0.8 yalign 0.7
+                    action [Function(move, 'loc_library')]
                     style "navigation_button" text_style "navigation_button_text"
             if is_cabbage == 1 and hour == 7 and weekday < 6:
                 imagebutton:
-                    idle im.MatrixColor('pic/events/cabbage/bus.png', im.matrix.opacity(0.5)) 
+                    idle im.MatrixColor('pic/events/cabbage/bus.png', im.matrix.opacity(0.5))
                     hover im.MatrixColor('pic/events/cabbage/bus.png', im.matrix.opacity(1.0))
                     xalign 4.8 yalign 1.2
                     action [Jump('cabbageStart')]
@@ -689,7 +689,7 @@ label loc_library:
                 text 'В любом случае тут - прекрасное место для самообразования и не только!' style style.description
             textbutton 'Выход':
                 xalign 0.5 yalign 0.8
-                action [Function(move, 'loc_entrance')] 
+                action [Function(move, 'loc_entrance')]
                 style "navigation_button" text_style "navigation_button_text"
     call screen library
 
@@ -701,30 +701,30 @@ label loc_hall:
             vbox xalign 0.0 yalign 1.0:
                 text 'По всему холлу расставлены шкафчики для личных вещей. И еще лавочки, сидя на которых удобно переобуваться. В образующих шкафчиками коридорах легко потеряться с непривычки. По школе ходят ужасные истории, что из первого выпуска школы, ещё никто не вернулся домой. Так и бродят они до сих пор по коридорам, и воруют у новых учеников обувь, чтобы починить свои стоптанные за года блужданий ботинки. Глупая история, считаете Вы.' style style.description
             textbutton 'Первый этаж':
-                xalign 0.1 yalign 0.7 
-                action [Function(move, 'loc_firstFloor')] 
+                xalign 0.1 yalign 0.7
+                action [Function(move, 'loc_firstFloor')]
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Бассейн': 
-                xalign 0.8 yalign 0.7 
-                action [Function(move, 'loc_pool')] 
+            textbutton 'Бассейн':
+                xalign 0.8 yalign 0.7
+                action [Function(move, 'loc_pool')]
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Спортзал': 
-                xalign 0.8 yalign 0.6 
-                action [Function(move, 'loc_gym')] 
+            textbutton 'Спортзал':
+                xalign 0.8 yalign 0.6
+                action [Function(move, 'loc_gym')]
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Выход': 
-                xalign 0.5 yalign 0.5 
-                action [Function(move, 'loc_entrance')] 
+            textbutton 'Выход':
+                xalign 0.5 yalign 0.5
+                action [Function(move, 'loc_entrance')]
                 style "navigation_button" text_style "navigation_button_text"
             if getPar(studs,'corr') >= 20 and lt() == 0 and hour < 9 and mile_quest_1 == 0 or development == 1:
                 imagebutton:
                     idle im.MatrixColor('pic/events/mile_1/start.png', im.matrix.opacity(0.5))
-                    hover im.MatrixColor('pic/events/mile_1/start.png', im.matrix.opacity(1.0)) 
+                    hover im.MatrixColor('pic/events/mile_1/start.png', im.matrix.opacity(1.0))
                     action [Jump('mileQwest1')] xalign 1.0 yalign 0.8
             if 'dungeon' in school.buildings or development == 1:
                 textbutton 'Подвал':
                     xalign 0.5 yalign 0.8
-                    action [Function(move, 'loc_dungeon')] 
+                    action [Function(move, 'loc_dungeon')]
                     style "navigation_button" text_style "navigation_button_text"
     call screen hall
 
@@ -736,10 +736,10 @@ label loc_dungeon:
                 text 'Тёмный, мрачный подвал, больше напоминающий подземелье из какой то игры про рабынь, чем обычное подвальное помещение средней школы.' style style.description
             textbutton 'Выход':
                 xalign 0.5 yalign 0.8
-                action [Function(move, 'loc_hall')] 
+                action [Function(move, 'loc_hall')]
                 style "navigation_button" text_style "navigation_button_text"
     call screen dungeon
-    
+
 label loc_pool:
     show pool at left
     screen pool:
@@ -748,16 +748,16 @@ label loc_pool:
                 text 'Бассейн. Здесь проходят занятия по вторникам и четвергам. Хотя так же в перемены, и после уроков ученики могут придти сюда, чтобы поплавать или просто постоять глядя на воду. Вы так же можете немного потренировать своё здоровье, попытавшись проплыть стометровку пару раз.' style style.description
                 text 'Неподалеку от бассейна находится душ, где Вы в любой момент можете освежиться.' style style.description
             textbutton 'Раздевалка':
-                xalign 0.2 yalign 0.2 
-                action [Function(move, 'loc_changeRoom')] 
+                xalign 0.2 yalign 0.2
+                action [Function(move, 'loc_changeRoom')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'В душ':
-                xalign 0.05 yalign 0.7 
-                action Jump('shower') 
+                xalign 0.05 yalign 0.7
+                action Jump('shower')
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Холл': 
-                xalign 0.5 yalign 0.8 
-                action [Function(move, 'loc_hall')] 
+            textbutton 'Холл':
+                xalign 0.5 yalign 0.8
+                action [Function(move, 'loc_hall')]
                 style "navigation_button" text_style "navigation_button_text"
     call screen pool
 
@@ -769,12 +769,12 @@ label loc_changeRoom:
             vbox xalign 0.0 yalign 1.0:
                 text 'Раздевалка. Она разделена на 2 отделения для мальчиков и девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
             textbutton 'Бассейн':
-                xalign 0.2 yalign 0.8 
-                action [Function(move, 'loc_pool')] 
+                xalign 0.2 yalign 0.8
+                action [Function(move, 'loc_pool')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Спортзал':
-                xalign 0.8 yalign 0.8 
-                action [Function(move, 'loc_gym')] 
+                xalign 0.8 yalign 0.8
+                action [Function(move, 'loc_gym')]
                 style "navigation_button" text_style "navigation_button_text"
     call screen changeRoom
 
@@ -785,17 +785,17 @@ label loc_gym:
         fixed:
             vbox xalign 0.0 yalign 1.0:
                 text 'Раздевалка. Она разделена на 2 отделения для мальчиков и девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
-            textbutton 'Кладовка': 
-                xalign 0.35 yalign 0.4 
-                action [Function(move, 'loc_storage')] 
+            textbutton 'Кладовка':
+                xalign 0.35 yalign 0.4
+                action [Function(move, 'loc_storage')]
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Раздевалка': 
-                xalign 0.8 yalign 0.8 
-                action [Function(move, 'loc_changeRoom')] 
+            textbutton 'Раздевалка':
+                xalign 0.8 yalign 0.8
+                action [Function(move, 'loc_changeRoom')]
                 style "navigation_button" text_style "navigation_button_text"
-            textbutton 'Холл': 
-                xalign 0.5 yalign 0.8 
-                action [Function(move, 'loc_hall')] 
+            textbutton 'Холл':
+                xalign 0.5 yalign 0.8
+                action [Function(move, 'loc_hall')]
                 style "navigation_button" text_style "navigation_button_text"
     call screen gym
 
@@ -806,8 +806,8 @@ label loc_storage:
             vbox xalign 0.0 yalign 1.0:
                 text 'Кладовка спорт инвентаря. В ней находятся мячи, маты, козлы и прочий спортинвентарь. Многие ученики  ходят сюда, чтобы немного отдохнуть и уединиться ото всех.' style style.description
             textbutton 'Спортзал':
-                xalign 0.5 yalign 0.8 
-                action Function(move, 'loc_gym') 
+                xalign 0.5 yalign 0.8
+                action Function(move, 'loc_gym')
                 style "navigation_button" text_style "navigation_button_text"
     call screen storage
 
@@ -818,28 +818,28 @@ label loc_firstFloor:
             vbox xalign 0.0 yalign 1.0:
                 text 'Коридор первого этажа. Тут находится Ваш офис, а так же первые три классных кабинета: Кабинет химии, кабинет биологии и класс уроков Секспросвета. Вы видите лестницу на второй этаж и в холл.' style style.description
             textbutton 'Ваш офис':
-                xalign 0.2 yalign 0.8 
-                action Function(move, 'loc_office') 
+                xalign 0.2 yalign 0.8
+                action Function(move, 'loc_office')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Класс 1':
-                xalign 0.25 yalign 0.7 
-                action Function(move, 'loc_class1') 
+                xalign 0.25 yalign 0.7
+                action Function(move, 'loc_class1')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Класс 2':
-                xalign 0.3 yalign 0.6 
-                action Function(move, 'loc_class2') 
+                xalign 0.3 yalign 0.6
+                action Function(move, 'loc_class2')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Класс 3':
-                xalign 0.35 yalign 0.5 
-                action Function(move, 'loc_class3') 
+                xalign 0.35 yalign 0.5
+                action Function(move, 'loc_class3')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Второй\nэтаж':
-                xalign 0.4 yalign 0.4 
-                action Function(move, 'loc_secondFloor') 
+                xalign 0.4 yalign 0.4
+                action Function(move, 'loc_secondFloor')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Холл':
-                xalign 0.6 yalign 0.8 
-                action Function(move, 'loc_hall') 
+                xalign 0.6 yalign 0.8
+                action Function(move, 'loc_hall')
                 style "navigation_button" text_style "navigation_button_text"
     call screen firstFloor
 
@@ -858,7 +858,7 @@ label loc_office:
                 jump danokova_working
         else:
             jump danokova_office_action
-            
+
     screen office:
         fixed:
             vbox xalign 0.0 yalign 1.0:
@@ -870,18 +870,18 @@ label loc_office:
             textbutton 'Компьютер' xalign 0.9 yalign 0.5 action Show('compScreen')
             if 'bed' in school.furniture and ((ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4)):
                  textbutton 'Спать':
-                     xalign 0.2 yalign 0.76 
+                     xalign 0.2 yalign 0.76
                      action Jump('sleep')
             if callup != dummy:
                 imagebutton:
-                    idle im.MatrixColor(getCharImage(callup), im.matrix.opacity(0.5)) 
-                    hover im.MatrixColor(getCharImage(callup), im.matrix.opacity(1.0)) 
-                    action [Function(clrscr), Show('show_stat'), Function(showChars)] 
+                    idle im.MatrixColor(getCharImage(callup), im.matrix.opacity(0.5))
+                    hover im.MatrixColor(getCharImage(callup), im.matrix.opacity(1.0))
+                    action [Function(clrscr), Show('show_stat'), Function(showChars)]
                     hovered SetVariable('interactionObj',callup) xalign 0.5 yoffset 400
-                    
+
             if lt() >= 0 and is_cabbage == 0 and mile_qwest_2_stage > 0 or development > 0:
                 imagebutton:
-                    idle im.MatrixColor('pic/events/cabbage/secretary.png', im.matrix.opacity(0.5)) 
+                    idle im.MatrixColor('pic/events/cabbage/secretary.png', im.matrix.opacity(0.5))
                     hover im.MatrixColor('pic/events/cabbage/secretary.png', im.matrix.opacity(1.0))
                     xalign 0.1 yalign 1.0
                     action [Jump('cabbageInit')]
@@ -911,13 +911,13 @@ label loc_class1:
                 if camera.name in getLoc(curloc).getItems():
                     text 'Камера установлена.' style style.description
             textbutton 'Первый этаж':
-                xalign 0.8 yalign 0.8 
-                action Function(move, 'loc_firstFloor') 
+                xalign 0.8 yalign 0.8
+                action Function(move, 'loc_firstFloor')
                 style "navigation_button" text_style "navigation_button_text"
             if 'chemlab' in school.buildings or development == 1:
                 textbutton 'Лаборатория':
-                    xalign 0.2 yalign 0.8 
-                    action Function(move, 'loc_chemlab') 
+                    xalign 0.2 yalign 0.8
+                    action Function(move, 'loc_chemlab')
                     style "navigation_button" text_style "navigation_button_text"
     call screen class1
 
@@ -929,11 +929,11 @@ label loc_chemlab:
                 text 'Химическая лаборатория купленная за весьма немалые деньги. Будем надеяться, что вы сможете осуществить химический прорыв с её помощью!' style style.description
                 text 'Ну или по крайней мере не взорвать всё к чёртовой матери...' style style.description
             textbutton 'Назад':
-                xalign 0.8 yalign 0.8 
-                action Function(move, 'loc_class1') 
+                xalign 0.8 yalign 0.8
+                action Function(move, 'loc_class1')
                 style "navigation_button" text_style "navigation_button_text"
     call screen chemlab
-            
+
 label loc_class2:
     show class2 at left
     screen class2:
@@ -943,8 +943,8 @@ label loc_class2:
                 if 'manec' in school.furniture:
                     text 'В углу стоят обнажённые человекоподобные манекены. Пугающе похожие на человека.' style style.description
             textbutton 'Первый этаж':
-                xalign 0.8 yalign 0.8 
-                action Function(move, 'loc_firstFloor') 
+                xalign 0.8 yalign 0.8
+                action Function(move, 'loc_firstFloor')
                 style "navigation_button" text_style "navigation_button_text"
     call screen class2
 
@@ -957,8 +957,8 @@ label loc_class3:
                 if 'dildo' in school.furniture:
                     text 'На столе у учительницы лежит подборка из всевозможных дилдо и искуственных вагин.'
             textbutton 'Первый этаж':
-                xalign 0.8 yalign 0.8 
-                action Function(move, 'loc_firstFloor') 
+                xalign 0.8 yalign 0.8
+                action Function(move, 'loc_firstFloor')
                 style "navigation_button" text_style "navigation_button_text"
     call screen class3
 
@@ -969,8 +969,8 @@ label loc_class4:
             vbox xalign 0.0 yalign 1.0:
                 text 'Кабинет Математики. Тут обычно преподаёт Валентина Биссектрисовна. У доски стоит здоровенная учительская тумба, в которой хранятся разные мелки, тряпки и прочая дребедень. Прикинув, вы понимаете, что такая тумба вместит даже небольшого человека. Только зачем бы там кому то прятаться?' style style.description
             textbutton 'Второй этаж':
-                xalign 0.2 yalign 0.8 
-                action Function(move, 'loc_secondFloor') 
+                xalign 0.2 yalign 0.8
+                action Function(move, 'loc_secondFloor')
                 style "navigation_button" text_style "navigation_button_text"
     call screen class4
 
@@ -983,8 +983,8 @@ label loc_class5:
                 if 'video' in school.furniture:
                     text 'К потолку прикручен кинопроектор для показа материалов по применению английского языка. Хотя если задуматься, в певую очередь это материалы по применению языка, и только во вторую по применению английского.'
             textbutton 'Второй этаж':
-                xalign 0.2 yalign 0.8 
-                action Function(move, 'loc_secondFloor') 
+                xalign 0.2 yalign 0.8
+                action Function(move, 'loc_secondFloor')
                 style "navigation_button" text_style "navigation_button_text"
     call screen class5
 
@@ -996,33 +996,33 @@ label loc_secondFloor:
                 text 'Из этого коридора Вы видите оставшиеся два класса, класс математики и класс английского языка. А так же учительскую и лестницу на первый этаж.' style style.description
                 text 'В конце коридора расположены туалеты для мальчиков и девочек.' style style.description
             textbutton 'Класс 4':
-                xalign 0.7 yalign 0.6 
-                action Function(move, 'loc_class4') 
+                xalign 0.7 yalign 0.6
+                action Function(move, 'loc_class4')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Класс 5':
-                xalign 0.3 yalign 0.4 
-                action Function(move, 'loc_class5') 
+                xalign 0.3 yalign 0.4
+                action Function(move, 'loc_class5')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Учительская':
-                xalign 0.05 yalign 0.5 
-                action Function(move, 'loc_teacherRoom') 
+                xalign 0.05 yalign 0.5
+                action Function(move, 'loc_teacherRoom')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Дверь с М':
-                xalign 0.2 yalign 0.27 
+                xalign 0.2 yalign 0.27
                 action Function(move, 'loc_wcm')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Дверь с Ж':
-                xalign 0.2 yalign 0.32 
-                action Function(move, 'loc_wcf') 
+                xalign 0.2 yalign 0.32
+                action Function(move, 'loc_wcf')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Первый этаж':
-                xalign 0.6 yalign 0.8 
-                action Function(move, 'loc_firstFloor') 
+                xalign 0.6 yalign 0.8
+                action Function(move, 'loc_firstFloor')
                 style "navigation_button" text_style "navigation_button_text"
             if 'doctor' in school.buildings or development == 1:
                 textbutton 'Мед\nКабинет':
-                    xalign 0.1 yalign 0.27 
-                    action Function(move, 'loc_doctor') 
+                    xalign 0.1 yalign 0.27
+                    action Function(move, 'loc_doctor')
                     style "navigation_button" text_style "navigation_button_text"
     call screen secondFloor
 
@@ -1033,8 +1033,8 @@ label loc_teacherRoom:
             vbox xalign 0.0 yalign 1.0:
                 text 'Тут обычно проходят кофе-брейки учителей, а так же различные совещания. А ещё, у Вас тут частенько будут вымогать деньги на нужды школы.' style style.description
             textbutton 'Второй этаж':
-                xalign 0.8 yalign 0.8 
-                action Function(move, 'loc_secondFloor') 
+                xalign 0.8 yalign 0.8
+                action Function(move, 'loc_secondFloor')
                 style "navigation_button" text_style "navigation_button_text"
     call screen teacherRoom
 
@@ -1045,11 +1045,11 @@ label loc_doctor:
             vbox xalign 0.0 yalign 1.0:
                 text 'Медкабинет принадлежащий вашей школе. В случае приступа острой хитрости, ученики обращаются именно сюда, непосредственно к медсестре Гонореевне.' style style.description
             textbutton 'Второй этаж':
-                xalign 0.8 yalign 0.8 
-                action Function(move, 'loc_secondFloor') 
+                xalign 0.8 yalign 0.8
+                action Function(move, 'loc_secondFloor')
                 style "navigation_button" text_style "navigation_button_text"
     call screen doctor
-            
+
 label loc_wcm:
     show wcm at left
     screen wcm:
@@ -1057,8 +1057,8 @@ label loc_wcm:
             vbox xalign 0.0 yalign 1.0:
                 text 'Мужской туалет. Писсуары явно говорят об этом. Вам здесь нечего делать. Будет неприятно, если Вас здесь застукают.' style style.description
             textbutton 'Второй этаж':
-                xalign 0.8 yalign 0.8 
-                action Function(move, 'loc_secondFloor') 
+                xalign 0.8 yalign 0.8
+                action Function(move, 'loc_secondFloor')
                 style "navigation_button" text_style "navigation_button_text"
     call screen wcm
 
@@ -1073,8 +1073,8 @@ label loc_wcf:
                 else:
                     text 'Хорошее место для того, чтобы установить скрытую камеру.' style style.description
             textbutton 'Второй этаж':
-                xalign 0.8 yalign 0.8 
-                action Function(move, 'loc_secondFloor') 
+                xalign 0.8 yalign 0.8
+                action Function(move, 'loc_secondFloor')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Умывальник':
                 xalign 0.1 yalign 0.6
@@ -1096,32 +1096,32 @@ label loc_street:
                 else:
                      text 'Посмотрев вдоль, вы больше не видите бегущих людей. Наверное убежали. Или же просто ночь наступила?' style style.description
             textbutton 'Домой':
-                xalign 0.8 yalign 0.4 
-                action Function(move, 'loc_home') 
+                xalign 0.8 yalign 0.4
+                action Function(move, 'loc_home')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'На пляж':
-                xalign 0.3 yalign 0.77 
-                action [Function(changetime, 30),Function(move, 'loc_beach')] 
+                xalign 0.3 yalign 0.77
+                action [Function(changetime, 30),Function(move, 'loc_beach')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Торговая\nулица':
-                xalign 0.6 yalign 0.5 
-                action [Function(changetime, 15),Function(move, 'loc_shopStreet')] 
+                xalign 0.6 yalign 0.5
+                action [Function(changetime, 15),Function(move, 'loc_shopStreet')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'К школе':
-                xalign 0.7 yalign 0.8 
-                action [Function(changetime, 30),Function(move, 'loc_entrance')] 
+                xalign 0.7 yalign 0.8
+                action [Function(changetime, 30),Function(move, 'loc_entrance')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Пробежка':
-                xalign 0.3 yalign 0.5 
+                xalign 0.3 yalign 0.5
                 action Function(move, 'loc_run')
             if olympiad.confirm == 1 and olympiad.cheat != 0 and olympiad.qwest == 0:
                 textbutton 'В министерство':
-                    xalign 0.5 yalign 0.8 
+                    xalign 0.5 yalign 0.8
                     action Jump('olympiad_bribe_start')
                     style "navigation_button" text_style "navigation_button_text"
             if olympiad.qwest == 1 and hour in range(20,24) and olympiad.cheat == 0:
                 textbutton 'К министру':
-                    xalign 0.5 yalign 0.8 
+                    xalign 0.5 yalign 0.8
                     action Jump('olympiad_home_sex')
                     style "navigation_button" text_style "navigation_button_text"
     call screen street
@@ -1133,15 +1133,15 @@ label loc_beach:
             vbox xalign 0.0 yalign 1.0:
                 text 'Пляж, просто пляж. На нём можно неплохо загореть, если уделить этому недельку времени, или же просто искупаться.' style style.description
             textbutton 'К дому':
-                xalign 0.5 yalign 0.8 
-                action [Function(changetime, 30),Function(move, 'loc_street')] 
+                xalign 0.5 yalign 0.8
+                action [Function(changetime, 30),Function(move, 'loc_street')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Раздевалка':
-                xalign 0.8 yalign 0.55 
-                action Function(move, 'loc_beachChange') 
+                xalign 0.8 yalign 0.55
+                action Function(move, 'loc_beachChange')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Плавать':
-                xalign 0.2 yalign 0.5 
+                xalign 0.2 yalign 0.5
                 action Function(move, 'loc_swim')
     call screen beach
 
@@ -1152,21 +1152,21 @@ label loc_beachChange:
             vbox xalign 0.0 yalign 1.0:
                 text 'Специально обустроенные комнатки для переодеваний. Внутри небольшая полочка для вещей, умывальник и полотенце. Очень удобно, хотя и необычно.' style style.description
             textbutton 'Пляж':
-                xalign 0.5 yalign 0.8 
-                action Function(move, 'loc_beach') 
+                xalign 0.5 yalign 0.8
+                action Function(move, 'loc_beach')
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Переодеться':
-                xalign 0.15 yalign 0.3 
+                xalign 0.15 yalign 0.3
                 action Show('wardrobe')
             if is_beach_event == 1 and rand(1,10) == 1:
                 textbutton 'Проверить\nдырочку' :
-                    xalign 0.795 yalign 0.55 
+                    xalign 0.795 yalign 0.55
                     action Function(tryEvent, 'loc_gloryHole')
             if is_glory_found == 1:
                 textbutton 'Засунуть\nпальцы':
-                    xalign 0.795 yalign 0.65 
+                    xalign 0.795 yalign 0.65
                     action Jump('loc_gloryHole')
-                    
+
     if is_beach_event == 0 and rand(1,10) == 1:
         $clrscr()
         jump beach_qwest
@@ -1186,21 +1186,21 @@ label loc_shopStreet:
                 text 'Мини маркет работает круглосуточно.' style style.description
                 text 'Салон красоты работает с 8 до 19 ежедневно.' style style.description
             textbutton 'К дому':
-                xalign 0.5 yalign 0.8 
-                action [Function(changetime, 15),Function(move, 'loc_street')] 
+                xalign 0.5 yalign 0.8
+                action [Function(changetime, 15),Function(move, 'loc_street')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Магазин':
-                xalign 0.7 yalign 0.5 
-                action [Function(move, 'loc_shop')] 
+                xalign 0.7 yalign 0.5
+                action [Function(move, 'loc_shop')]
                 style "navigation_button" text_style "navigation_button_text"
             if hour >=8 and hour <= 19:
                 textbutton 'Салон\nКрасоты':
-                    xalign 0.01 yalign 0.55 
-                    action [Function(move, 'loc_shopBeauty')] 
+                    xalign 0.01 yalign 0.55
+                    action [Function(move, 'loc_shopBeauty')]
                     style "navigation_button" text_style "navigation_button_text"
                 textbutton 'Сексшоп':
-                    xalign 0.85 yalign 0.5 
-                    action [Function(move, 'loc_sexShop')] 
+                    xalign 0.85 yalign 0.5
+                    action [Function(move, 'loc_sexShop')]
                     style "navigation_button" text_style "navigation_button_text"
     call screen shopStreet
 
@@ -1212,11 +1212,11 @@ label loc_shop:
             vbox xalign 0.0 yalign 1.0:
                 text 'Круглосуточный магазин, единственный в Вашем районе. После прогулки в нем Вы сможете без промедления набрать еды на кухню, выбрать себе напитки и некоторые иные вещи.' style style.description
             textbutton 'Назад':
-                xalign 0.5 yalign 0.8 
-                action [Function(move, 'loc_shopStreet')] 
+                xalign 0.5 yalign 0.8
+                action [Function(move, 'loc_shopStreet')]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Закупиться':
-                xalign 0.3 yalign 0.5 
+                xalign 0.3 yalign 0.5
                 action [Hide('stats_screen'),Show('shopping')]
     call screen shop
 
@@ -1331,10 +1331,10 @@ label loc_sexShop:
                 vbox xalign 0.0 yalign 1.0:
                     text 'Вы видите перед собой магазин для взрослых. Полки уставлены различными игрушками для взрослых. Дилдо, вибраторы, резиновые дырки для мальчиков, пони с уникальным седлом для девочек. Отдельная полка для афродизиаков и прочей медицины. Глаза прямо разбегаются от обилия выбора!' style style.description
                 textbutton 'Закупиться':
-                    xalign 0.3 yalign 0.5 
+                    xalign 0.3 yalign 0.5
                     action [Function(clrscr), Show('sexShopping')]
                 textbutton 'Назад':
-                    xalign 0.5 yalign 0.8 
-                    action [Function(move, 'loc_shopStreet')] 
+                    xalign 0.5 yalign 0.8
+                    action [Function(move, 'loc_shopStreet')]
                     style "navigation_button" text_style "navigation_button_text"
         call screen sexShop

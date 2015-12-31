@@ -4,13 +4,13 @@ init python:
             self.id = id
             self.corr = corr
             self.type = type
-            
+
     class Flirt():
         def __init__(self, id, corr, sex):
             self.id = id
             self.corr = corr
             self.sex = sex
-            
+
     def dialogueParser():
         _locs = renpy.get_all_labels()
         textList = []
@@ -24,7 +24,7 @@ init python:
         return textList
 
     dialogueList = dialogueParser()
-    
+
     def dialogueSelector(speaker):
         tempList = []
         for x in dialogueList:
@@ -45,7 +45,7 @@ init python:
         return textList
 
     flirtList = flirtParser()
-    
+
     def flirtSelector(speaker):
         tempList = []
         for x in flirtList:
@@ -54,22 +54,22 @@ init python:
             if speaker.body.sex() == x.sex and speaker.getCorr() >= x.corr and player.getCorr() >= x.corr:
                 tempList.append(x)
         return tempList[rand(0,len(tempList) - 1)].id
-        
+
 
     def showChars():
         renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
         renpy.show('temp1', what = Image(getCharImage(player), xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
         renpy.show('temp2', what = Image(getCharImage(interactionObj), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
-        
+
     def getCharImage(char,*args):
         if char == player:
             anotherImage = player.picto
-            
+
         elif char.getSex() == 'male':
             anotherImage = 'pic/showStud/m_1.png'
         else:
             anotherImage = 'pic/showStud/f_1.png'
-            
+
         if char.lname == 'Данокова':
             anotherImage = 'pic/teachers/danokova_1.png'
         elif char.lname == 'Фригидовна':
@@ -88,13 +88,13 @@ init python:
             anotherImage = 'pic/teachers/gonoreevna_1.png'
         if len(args) == 0:
             return anotherImage
-            
+
         elif args[0] == 'dialog':
             if char.name == player.name:
                 return Image(anotherImage, xalign=0.2, yalign= 1.0, yanchor = 'center')
             else:
                 return Image(anotherImage, xalign=0.8, yalign= 1.0, yanchor = 'center')
-        
+
     dummy = Char()
     interactionObj = dummy
     lastView = 'locationPeoplePicto'
@@ -139,7 +139,7 @@ screen peopleTextList:
                 hovered [SetVariable('showHover',x),Show('showCharStatusText')]
                 unhovered [Hide('showCharStatusText')]
                 style "bluesmall_button" text_style mystyle xalign 0.0
-                
+
 screen locationPeoplePicto:
     tag interface
     fixed xpos 0.01 ypos 0.01:
@@ -162,9 +162,9 @@ screen locationPeoplePicto:
                                      Function(changetime, 1)]
 
             imagebutton:
-                idle im.FactorScale(x.picto, pictoSize) 
-                hover im.FactorScale(x.picto, pictoSize + 0.1) 
-                xalign xalig yalign yalig 
+                idle im.FactorScale(x.picto, pictoSize)
+                hover im.FactorScale(x.picto, pictoSize + 0.1)
+                xalign xalig yalign yalig
                 action actions_list
                 hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
                 unhovered [Hide('showCharStatusText')]
@@ -178,9 +178,9 @@ screen showCharStatusText:
         xalign 0.01
         yalign 1.0
         text _('[showHover.locationStatus.name]')
-        
-        
-                
+
+
+
 screen show_stat:
     tag interface
     fixed xpos 0.01 ypos 0.01:
@@ -218,7 +218,7 @@ screen show_stat:
             $ reaction = reactionGen(interactionObj)
             for x in reaction:
                 text x style style.my_text
-        
+
     fixed xpos 0.8 ypos 0.1:
         vbox:
             if interactionObj in studs:
@@ -227,9 +227,9 @@ screen show_stat:
                 else:
                     textbutton 'Не замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
             if lt() <= 0 or 'safe' in getLoc(curloc).position:
-                if interactionObj.sayCount > 0: 
+                if interactionObj.sayCount > 0:
                     textbutton 'Поговорить' xminimum 200 action Jump('speak')
-                if interactionObj.sayCount >= 3: 
+                if interactionObj.sayCount >= 3:
                     textbutton 'Флирт' xminimum 200 action Jump('flirt')
                 if interactionObj == mustangovich and mustangovich.getLust() > 70 and curloc == 'teacherRoom' and mile_quest_1 >= 1 and interactionObj.sayCount >= 5:
                     textbutton 'Заняться сексом' xminimum 200 action Jump('ahmed_sex_selector')
@@ -237,21 +237,21 @@ screen show_stat:
                 textbutton 'Использовать\nафродизиак' xminimum 200 action Show('use_aphrodisiac')
             if 'school' in getLoc(curloc).position and curloc != 'loc_office' and interactionObj in studs:
                 textbutton 'Вызвать к себе' xminimum 200 action Jump('callup')
-                
+
             if curloc == 'loc_office':
                 if interactionObj.getRep() < 10:
                     textbutton 'О родителях' xminimum 200 action Jump('reputation')
                 textbutton 'Выгнать' xminimum 200 action Jump('callout')
-                
+
             textbutton 'Подарить' xminimum 200 action Show('make_gift_char')
             textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
             if development == 1:
                 textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
-            
+
     frame ypos 0.01 xalign 1.0:
         text 'Очков общения: ' + str(interactionObj.sayCount)
-        
-###########################################################################################################################            
+
+###########################################################################################################################
 screen make_gift_char:
     zorder 1
     modal True
@@ -267,9 +267,9 @@ screen make_gift_char:
         for x in player.inventory:
             if x.type == 'present' and (x.sex=='any' or x.sex==interactionObj.getSex('mf')):
                 imagebutton:
-                    idle im.FactorScale(x.picto,0.4) 
+                    idle im.FactorScale(x.picto,0.4)
                     hover im.FactorScale(x.picto,0.45)
-                    xalign xalig yalign yalig 
+                    xalign xalig yalign yalig
                     # action [Function(interactionObj.takeGift, x), Function(player.removeItem, x), Function(move, curloc)]
                     action [SetVariable('gift',x),Jump('takeGift')]
                     hovered [SetVariable('myItem', x), Show('showItem')]
@@ -280,7 +280,7 @@ screen make_gift_char:
             if xalig >= 0.99:
                 $ yalig += 0.15
                 $ xalig = 0.2
-###########################################################################################################################            
+###########################################################################################################################
 screen use_aphrodisiac:
     zorder 1
     modal True
@@ -297,9 +297,9 @@ screen use_aphrodisiac:
             if x.type == 'sexShop':
                 if x.purpose == 'aphrodisiac':
                     imagebutton:
-                        idle im.FactorScale(x.picto,0.4) 
+                        idle im.FactorScale(x.picto,0.4)
                         hover im.FactorScale(x.picto,0.45)
-                        xalign xalig yalign yalig 
+                        xalign xalig yalign yalig
                         action [Jump('use_aphrodisiac')]
                         hovered [SetVariable('myItem', x), Show('showItem')]
                         unhovered Hide('showItem')
@@ -309,7 +309,7 @@ screen use_aphrodisiac:
             if xalig >= 0.99:
                 $ yalig += 0.15
                 $ xalig = 0.2
-###########################################################################################################################            
+###########################################################################################################################
 screen inventory_clothing_char:
     zorder 1
     modal True
@@ -322,9 +322,9 @@ screen inventory_clothing_char:
         $ yalig = 0.05
         for x in interactionObj.inventory:
             imagebutton:
-                idle im.FactorScale(x.picto,0.4) 
-                hover im.FactorScale(x.picto,0.45) 
-                xalign xalig yalign yalig  
+                idle im.FactorScale(x.picto,0.4)
+                hover im.FactorScale(x.picto,0.45)
+                xalign xalig yalign yalig
                 action NullAction()
                 hovered [SetVariable('myItem', x), Show('showItem')]
                 unhovered Hide('showItem')
@@ -332,8 +332,8 @@ screen inventory_clothing_char:
             if xalig >= 0.99:
                 $ yalig += 0.15
                 $ xalig = 0.2
-                
- ###########################################################################################################################               
+
+ ###########################################################################################################################
 label speak:
     python:
         clrscr()
@@ -342,15 +342,15 @@ label speak:
         changetime(5)
         player.stats.energy -= rand(5,10)
         user.incLoy(1)
-        
+
         if user == danokova and 'school' in getLoc(curloc).position:
             if mile_qwest_3_stage == 1 and ptime - mile_qwest_3_time > 12 and hour > 14:
                 renpy.jump('danokova_work')
             elif mile_qwest_3_stage == 13:
                 renpy.jump('danokova_bdsm_offer')
-            elif mile_qwest_3_stage > 1 and hour > 14 and ptime - work51 > 10 and mile_qwest_3_stage not in [13]: 
+            elif mile_qwest_3_stage > 1 and hour > 14 and ptime - work51 > 10 and mile_qwest_3_stage not in [13]:
                 renpy.jump('danokova_continue')
-                
+
         renpy.jump(dialogueSelector(user))
     call screen show_stat
 ###########################################################################################################################
@@ -383,7 +383,7 @@ label callup:
     player.say 'Нам необходимо поговорить наедине.'
     callup.say 'Хорошо, я сейчас же отправлюсь к вам в кабинет.'
     $ move(curloc)
-###########################################################################################################################    
+###########################################################################################################################
 label callout:
     $ clrscr()
     player.say 'Я думаю, мы закончили, [callup.fname].'
@@ -391,7 +391,7 @@ label callout:
     python:
         callup = dummy
         move(curloc)
-###########################################################################################################################    
+###########################################################################################################################
 label use_aphrodisiac:
     $ clrscr()
     player.say 'Смотри, [interactionObj.fname], что это там?'
@@ -461,7 +461,7 @@ label reputation:
             callup.say '[bribe] монет.'
             if is_moneta == 0:
                 $ is_moneta = 1
-                callup.say 'Кстати почему монет, ведь мы все бумажками расплачиваемся?'
+                callup.say 'Кстати, почему монет, ведь мы все бумажками расплачиваемся?'
                 player.say 'Потому что 200 лет назад, тут был пиратский остров. Очень неприятное место, и к заезжим путешественникам часто обращались фразой: "Гони money, ты!". Что спустя поколения выродилось до moneyты или монеты, монета. Какого чёрта я должна тебе объяснять? Чем занимается учитель истории?'
                 callup.say 'Кто?'
                 player.say 'Ах да, у нас нет истории...'
@@ -507,5 +507,3 @@ label reputation:
             python:
                 callup = dummy
                 move(curloc)
-
-                
