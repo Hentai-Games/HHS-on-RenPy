@@ -44,7 +44,7 @@ label mileQwest1:
             st3.say 'Поговаривают, что существуют препараты, которые делают девчёнок такими, но я родилась с членом.'
             'Школьница смущённо опускает глаза на свой приборчик.'
             st3.say 'Сначала родители хотели от меня отказаться, но колдунья сказала, что я принесу им счастье.'
-            player.say 'Не знаю как родителей, но меня ты сегодня осчастливила конечно... Кстати не подскажешь, где наш физрук?'
+            player.say 'Не знаю как родителей, но меня ты сегодня осчастливила конечно... Кстати, не подскажешь, где наш физрук?'
             st3.say '[t.name]? Он в кладовке, с моей подругой [st2.fname].'
             hide tempPic
             player.say '"Вся школа чтоли уже в курсе? Я директор в конце концов или нет?"'
@@ -52,7 +52,7 @@ label mileQwest1:
             jump mileQwest1_storage
         'Посмотреть в кладовке':
             jump mileQwest1_storage
-            
+
 label mileQwest1_storage:
     show gym as bg
     'Подходя к кладовке вы услышали как, тихие голоса разговаривают о чём то. Вы решили подсмотреть, что же там происходит? Вдруг [t.name] просто объясняет студентке как выполнить сложное упражнение? Хотя кого я обманываю?'
@@ -208,7 +208,7 @@ label mileQwest1_storageIn:
         changetime(8*60)
         player.coverSperm('лицо','рот','попа','вагина','ноги')
         move('loc_home')
-        
+
 label ahmed_sex_selector:
     menu:
         'Вы видите, как трусы Ахмеда призывно оттопыриваются, когда вы подходите ближе.'
@@ -218,7 +218,7 @@ label ahmed_sex_selector:
             $ tryEvent('loc_ahmedSex')
         'Отсососать':
             $ tryEvent('loc_ahmedSuck')
-            
+
 label event_loc_ahmedFootjob_0_1:
     $ mile_quest_1 = 2
     show expression 'pic/events/sex/ahmed/footjob1.jpg' at top as tempPic
@@ -243,7 +243,7 @@ label event_loc_ahmedFootjob_0_1:
         player.coverSperm('ноги')
         changetime(10)
         move(curloc)
-        
+
 label event_loc_ahmedFootjob_0_2:
     $ mile_quest_1 = 2
     show expression 'pic/events/sex/ahmed/footjob2.jpg' at top as tempPic
@@ -266,7 +266,7 @@ label event_loc_ahmedFootjob_0_2:
         player.coverSperm('ноги')
         changetime(10)
         move(curloc)
-        
+
 label event_loc_ahmedSex_0_1:
     $ player.incLust(30)
     player.say '"Чёрт, как же хочется повторить!"'
@@ -345,7 +345,7 @@ label event_loc_ahmedSex_0_2:
     $ changetime(15)
     $ hadSex(player, mustangovich)
     $ move(curloc)
-    
+
 label event_loc_ahmedSex_0_3:
     show expression getCharImage(mustangovich,'dialog') as temp1
     show expression getCharImage(player,'dialog') as temp2
@@ -373,7 +373,7 @@ label event_loc_ahmedSex_0_3:
     $ changetime(15)
     $ hadSex(player, mustangovich)
     $ move(curloc)
-    
+
 label event_loc_ahmedSex_0_4:
     show expression getCharImage(mustangovich,'dialog') as temp1
     show expression getCharImage(player,'dialog') as temp2
@@ -399,7 +399,7 @@ label event_loc_ahmedSex_0_4:
     $ changetime(15)
     $ hadSex(player, mustangovich)
     $ move(curloc)
-    
+
 label event_loc_ahmedSex_0_5:
     player.say '[mustangovich.fname], мне кажется я знаю, куда ты можешь пристроить эту штуку! - показали вы на оттопыренные трусы и отвернулись к стене, призывно выпятив попу.'
     show expression 'pic/events/sex/ahmed/sex5.png' at left as tempPic
@@ -420,7 +420,7 @@ label event_loc_ahmedSex_0_5:
     $ changetime(15)
     $ hadSex(player, mustangovich)
     $ move(curloc)
-    
+
 label event_loc_ahmedSuck_0_1:
     show movie
     play movie "pic/events/sex/ahmed/suck1.gif.webm" loop
@@ -438,7 +438,7 @@ label event_loc_ahmedSuck_0_1:
     'Воля физрука увеличилась.'
     $ changetime(15)
     $ move(curloc)
-    
+
 label event_loc_ahmedSuck_0_2:
     show expression 'pic/events/sex/ahmed/suck2.png' at top as tempPic
     'Покрывая поцелуями тело физрука, вы опускались всё ниже, пока наконец не дошли до самой интересной части тела молодого мужчины.'
@@ -456,7 +456,7 @@ label event_loc_ahmedSuck_0_2:
     'Воля физрука увеличилась.'
     $ changetime(15)
     $ move(curloc)
-    
+
 label event_loc_ahmedSuck_0_3:
     show expression 'pic/events/sex/ahmed/suck3.jpg' at left as tempPic
     'Вы опутились перед физруком на колени, и не объясняя ничего, достали толстый член из его плавок. Физрук было дёрнулся, чтобы немедля заправить его вам в рот, но вы цыкнули на него, и принялись медленно водить языком вдоль его ствола, то заигрывая с уздечкой, то посасывая волосатые яйца.'
@@ -472,26 +472,3 @@ label event_loc_ahmedSuck_0_3:
     'Воля физрука увеличилась.'
     $ changetime(15)
     $ move(curloc)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
