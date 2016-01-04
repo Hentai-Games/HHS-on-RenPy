@@ -1,7 +1,7 @@
 init python:
     import random
     from random import shuffle
-    
+
 init:
     image cleanFace = "pic/events/bodyclean/face1.jpg"
     image cleanMouth = "pic/events/bodyclean/mouth1.jpg"
@@ -21,7 +21,7 @@ screen warning:
         hotspot (156, 226, 111, 31) clicked Return("confirm")
         hotspot (131, 560, 150, 48) clicked Return("dummy")
         hotspot (817, 561, 182, 44) clicked Return("quit")
-    
+
 label warning:
     call screen warning
     $ result = _return
@@ -42,7 +42,7 @@ label warning:
         $ renpy.quit()
     elif result == 'quit':
         $ renpy.quit()
-    
+
 label myintro:
     $ changetime(15)
     show home
@@ -59,33 +59,33 @@ label myintro:
     meAngry 'Можно я уже начну, а?'
     player.say 'Ты только и делаешь, что начинаешь, хоть бы что-нибудь закончил в конце концов! Начинатель хренов! Я сама всё объясню!'
     meSad 'Да делай что хочешь.'
-    player.say 'В общем неделю назад мне позвонили из соседнего городка, с предложением занять место отсутствующего уже 3 месяца директора.'
+    player.say 'В общем, неделю назад мне позвонили из соседнего городка, с предложением занять место отсутствующего уже 3 месяца директора.'
     player.say 'Что странно, отсутствует он уже 3 месяца, а стали искать замену только неделю назад.\nИскали нового директора, а нашли меня.\nВот уж не думала, что директоров по объявлению набирают!'
-    player.say 'Короче теперь я - директор школы этого городка. Городок небольшой, 2 улицы и 3 перекрёстка, зато у моря.'
+    player.say 'Короче, теперь я - директор школы этого городка. Городок небольшой, 2 улицы и 3 перекрёстка, зато у моря.'
     meSceptic 'Ты к сути будешь переходить или нет?'
-    player.say 'Да перехожу уже, перехожу.\nПонимаешь, дорогой Игрок, это игра как бы не про то, какой я директор, а о том, как бы нам, кхм.'
+    player.say 'Да перехожу уже, перехожу.\nПонимаешь, дорогой Игрок, это игра, как бы, не про то, какой я директор, а о том, как бы нам, кхм.'
     me 'Развратить.'
     player.say 'Да, о том, как бы нам развратить эту школу, чтобы им и в голову не пришло больше набирать специалистов на ведущие должности всего лишь по резюме в интернете!'
     meSceptic 'Лихо выкрутилась... Может быть уже и о геймплее расскажешь?'
     player.say 'Уйди уже, а? Сказала же, со всем сама справлюсь!'
-    player.say 'Итак, начнём. Во-первых мне надо ходить на работу. За каждый день, который я заполняла бумаги, мне будет еженедельно начисляться зарплата.'
+    player.say 'Итак, начнём. Во-первых, мне надо ходить на работу. За каждый день, в который я заполняла бумаги, мне будет еженедельно начисляться зарплата.'
     player.say 'Чтобы взаимодействовать со школой, в моём офисе есть компьютер, там можно выставлять различные правила и закупать различные предметы обстановки.'
     player.say 'За какие-то вещи платится из бюджета одноразово. За какие-то вещи нужно заплатить из собственного кармана. Клубы, например, оплачиваются ежедневно. В случае если в бюджете будет недостаточно средств, они попросту закроются.'
     player.say 'Можно взаимодействовать с людьми напрямую через общение. Можно просто поговорить, это улучшает лояльность. Можно пофлиртовать, там будет проверка на волю собеседника и вашу развратность. Ещё что-то может быть можно будет.'
-    player.say 'Кстати у многих возникает вопрос. Какая разница между репутацией и лояльностью? Отвечаю. Репутация - это отношение к вам родителей ученика. А лояльность - отношение ученика лично. И да, у учителей репутация не учитывается.'
+    player.say 'Кстати, у многих возникает вопрос. Какая разница между репутацией и лояльностью? Отвечаю. Репутация - это отношение к вам родителей ученика. А лояльность - отношение ученика лично. И да, у учителей репутация не учитывается.'
     player.say 'И ещё про параметры. Многие параметры изменяются не напрямую, а через модификаторы. Например лояльность и развратность имеют модификатор воли. Чем больше воля персонажа, тем слабее они изменятся. Так что не удивляйтесь, если лояльность после подарка выросла не так сильно, как вам бы хотелось.'
     player.say 'Образование вообще имеет в модификаторах счастье ученика и его интеллект. Да, несчастные ученики учатся в 4 раза медленее, а тупые вообще необучаемы.'
     player.say 'Да, вы можете дарить подарки. Но не слишком часто. Редко, что уж там. Рано или поздно ваш подарок сломается, и вы сможете подарить новый на замену.'
     player.say 'Разработчик...'
     me 'Что?'
     player.say 'Не перебивай меня!\nТак вот, разработчик сделал меня небольшой тамагочей. Меня надо хоть раз в день кормить, вовремя укладывать спать и следить за одеждой. И да, не выкидывай одежду! Я могу оказаться запертой голой в доме и умереть от голода!'
-    player.say 'Интерфейс скрывается кнопкой H, проматывать диалоги кнопокй Ctrl, включить автоматическое проматывание - Tab, ну а сохрится можно в меню по Esc.'
+    player.say 'Интерфейс скрывается кнопкой H, проматывать диалоги кнопокй Ctrl, включить автоматическое проматывание - Tab, ну а сохранится можно в меню по Esc.'
     player.say 'Фух. Вроде всё.'
     meSceptic 'Точно всё?'
-    player.say 'Ну мне добавить больше нечего пока.'
-    me 'Ну тогда поехали! Приятного фап... Кхм, кхе, приятной игры!'
+    player.say 'Ну, мне добавить больше нечего пока.'
+    me 'Ну, тогда поехали! Приятного фап... Кхм, кхе, приятной игры!'
     $move('loc_home')
-    
+
 label shower:
     hide screen stats_screen
     show expression ('pic/events/bathroom/shower%d.png' %rand(1,2)) at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top")
@@ -257,7 +257,7 @@ label cleanWCF:
     'Вы быстро сполоснули руки и лицо.'
     $ player.clean('лицо','руки')
     $ move(curloc)
-    
+
 label sleep:
     hide screen stats_screen
     python:
@@ -266,14 +266,14 @@ label sleep:
             if rand(1,2) == 1:
                 x.durability -= 1
                 player.checkDur()
-                
+
         global hour, ptime, last_sleeped
-        
+
         if weekday != 5 and weekday != 6:
             hour_up = 7
         else:
             hour_up = 12
-            
+
         if hour >= 0:
             start_hour = hour - 24
         else:
@@ -320,7 +320,7 @@ label loc_swim:
         $ player.stats.health += rand (10,20)
         $ player.cleanAll()
     $ move(curloc)
-    
+
 label loc_run:
     show street
     if player.stats.energy < 300:
@@ -352,7 +352,7 @@ label loc_run:
         $ player.stats.energy -= rand(100,200)
         $ player.stats.health += rand (10,20)
     $ move(curloc)
-    
+
 label loc_taxi:
     show expression 'pic/locations/taxi.jpg'
     $ money = player.money
@@ -391,7 +391,7 @@ label unconsciousSchool:
     $ player.incHealth(-10)
     $ changetime(rand(100,200))
     $ move(curloc)
-    
+
 label unconsciousOther:
     $ clrscr()
     show expression 'pic/events/uncon/2.jpg' at top
@@ -415,7 +415,7 @@ label stolen:
     'Надо быть осторожней, и чаще подчищать следы, чтобы меня не поймали.'
     $ changetime(120)
     $ move(curloc)
-    
+
 label catched:
     $ clrscr()
     show office
@@ -428,7 +428,7 @@ label catched:
         school.caughtChance = 0
         changetime(120)
         move(curloc)
-        
+
 label cover:
     show office
     show computer at top
@@ -453,7 +453,7 @@ label increaseIncome:
         'Они отклонили вашу просьбу о повышении, мотивируя это недостаточно высоким уровнем образования в школе.'
     $ changetime(120)
     $ move(curloc)
-    
+
 label working:
     show office
     show computer at top
@@ -466,7 +466,7 @@ label working:
         $ player.incIntel(1)
     $ changetime(120)
     $ move(curloc)
-    
+
 label invest:
     show office
     show computer at top
@@ -483,7 +483,7 @@ label invest:
             school.budget += investment
             changetime(30)
             move(curloc)
-    
+
 label income:
     show expression 'pic/events/income/income.png' at top as tempPic
     python:
@@ -508,14 +508,14 @@ label income:
     if complains != '':
         'Вас так же уведомили, что вами недовольны родители следующих учеников:\n[complains]'
     $ move(curloc)
-    
+
 label jail:
     show expression 'pic/events/various/jail1.png' at top as tempPic
     'Ваc уволили. Репутация как минимум у родителей одного ученика упала почти до нуля. Было инициировано расследование, по результатам которого всплыли все ваши грязные методы образования и закрытие глаз на вертеп, творящейся в вашей школе.'
     'Суд был непреклонен и вас отправили в самую грязную тюрьму в стране.'
     'Там вас заставляли есть собачий корм и ходить под себя. Спустя месяц это сломало вас.'
     show expression 'pic/events/various/jail2.png' at top as tempPic
-    show centeredText 'Спустя пол года' at truecenter 
+    show centeredText 'Спустя пол года' at truecenter
     with dissolve
     pause 1
     hide centeredText
@@ -525,7 +525,7 @@ label jail:
     'Обещание еды, заставило сокращаться вашу киску гораздо сильнее, чем когда либо, и довольный клиент потребовал продолжения, и её, и снова...'
     'До тех пор, пока вы в полубессознательном состоянии наконец то не закричали от оргазма.'
     show expression 'pic/events/various/jail3.png' at top as tempPic
-    show centeredText 'Спустя год' at truecenter 
+    show centeredText 'Спустя год' at truecenter
     with dissolve
     pause 1
     hide centeredText
@@ -541,7 +541,7 @@ label jail:
     'Вы с радостью трахали всех, кого вам поставляли. Один, два, трое, без разницы! Чем больше чем лучше! Ваши отверстия привыкли принимать в себя любое количество и любой размер, пока хватало сил.'
     'А когда силы кончались, вас просто трахали как игрушку.'
     show expression 'pic/events/various/jail5.png' at top as tempPic
-    show centeredText 'Спустя 5 лет' at truecenter 
+    show centeredText 'Спустя 5 лет' at truecenter
     with dissolve
     pause 1
     hide centeredText
@@ -550,13 +550,13 @@ label jail:
     player.say 'Устройте мне праздник, госпожа! Найдите самый большой член в городе! - неожиданно попросили вы.'
     'Конечно, как пожелаешь! - улыбнулась начальница и спустя пол часа, вас уже яростно таранил огромный член незнакомца, раздвигая стенки вашего раздолбанного влагалища.'
     player.say 'Еби меня! Еби! - кричали вы в экстазе, понимая, что никуда вы больше не уйдёте отсюда, всё что вам надо это жрать, спать и трахаться. Трахаться так, как никогда в жизни. И так всю оставшуюся жизнь.'
-    show centeredText 'Конец Игры' at truecenter 
+    show centeredText 'Конец Игры' at truecenter
     with dissolve
     pause 5
     hide centeredText
     with dissolve
     $ renpy.quit(relaunch = True)
-    
+
 label death:
     show expression 'pic/events/various/death.jpg' at top as tempPic
     'Вы умерли от истощения. Иногда, кто-нибудь из учеников приходит на вашу могилу, и тихо вспоминает вас.'
@@ -566,7 +566,7 @@ label death:
     hide centeredText
     with dissolve
     $ renpy.quit(relaunch = True)
-    
+
 label scoldAll:
     show expression 'pic/locations/school/class1/lo1b.jpg' at top as tempPic
     'Яростным свистом в свой директорский свисток, вы прервали разворачивающиеся перед вашими глазами непотребство, и приказали всем участникам остаться после уроков. Раздосадованные ученики, понурив головы, пообещали вам прийти.'
@@ -576,8 +576,8 @@ label scoldAll:
             x.incRep(5)
             addDetention(x)
         move(curloc)
-        
-        
+
+
 label inhib1:
     show expression 'pic/events/inhibLow/arh.jpg' at top as tempPic
     'Покопавшись в интернете, вы довольно быстро нашли какой-то эрофотоархив, и быстренько распечатали фотографии. Пройдясь по всем классам, вы попрятали эти фотографии в разных неожиданных местах. Будем надеяться, что нежданные картинки порадуют учеников!'
@@ -588,7 +588,7 @@ label inhib1:
         player.incEnergy(-100)
         changetime(60)
         move('loc_entrance')
-        
+
 label inhib2:
     show expression 'pic/events/inhibLow/porn.jpg' at top as tempPic
     'Покопавшись в интернете, вы довольно быстро нашли порно сайт, и распечатали с него наиболее развратные фотки. Пройдясь по всем классам, вы попрятали эти фотографии в разных неожиданных местах. Наверняка ученики захотят обсудить друг с другом свои находки!'
@@ -599,7 +599,7 @@ label inhib2:
         player.incEnergy(-100)
         changetime(60)
         move('loc_entrance')
-        
+
 label inhib3:
     show expression 'pic/events/inhibLow/cam.jpg' at top as tempPic
     'Вы распечатываете сегодняшние фотографии на своём принтере, и раскладываете их по школе и по партам. Разумеется, вы предварительно замазали лица, чтобы не было понятно, где именно сняты эти фотографии. Будем надеяться, что неожиданные картинки порадуют школьников!'
@@ -610,7 +610,7 @@ label inhib3:
         player.incEnergy(-100)
         changetime(60)
         move('loc_entrance')
-        
+
 label inhib4:
     $ rands = renpy.random.randint(1, 8)
     show expression ('pic/events/inhibLow/mast%d.jpg' % rands) at top as tempPic
@@ -641,8 +641,8 @@ label madness_low:
         $ player.incDirty(1)
     $ move(curloc)
 
-    
-        
+
+
 label madness_home:
     $ clrscr()
     show expression 'pic/events/madness/1.png' at top as tempPic
@@ -659,7 +659,7 @@ label madness_home:
     $ player.incCorr(0.5)
     $ player.incEnergy(-100)
     $ move('loc_home')
-    
+
 label madness_school:
     $clrscr()
     show expression 'pic/events/madness/school.jpg' at top as tempPic
@@ -686,7 +686,7 @@ label madness_school:
             player.incCorr(0.5)
             player.incDirty(1)
     $ move('loc_wcf')
-    
+
 label beauty_intro:
     show expression im.FactorScale('pic/locations/shopBeauty/2.png',0.8) at right as tempPic
     show expression Image(player.picto, xalign=0.1, yalign= 1.0, yanchor = 'center')
@@ -703,10 +703,10 @@ label beauty_intro:
     player.say 'Спросить мож...'
     med 'Маникюр и педикюр делают безусловно лучшие мастера нашего города! Разнорабочий Ашот, и фрезеровщик 6-го разряда Валентин! Шутка конечно! Ха-ха-ха!'
     player.say 'Тьфу! - плюёте вы с досады то того, что на ваши потуги вставить хоть словечко, совсем не обращают внимания.'
-    med 'Кстати недавно у нас открылась новое направление - пластическая хирургия! Просто в наш город приехал дровосек из Нового Орлеана... Да не смотрите вы так! Это просто прозвище такое, потому что из любого бревна конфетку сделает! Правда и за услуги берёт недёшево...'
+    med 'Кстати, недавно у нас открылась новое направление - пластическая хирургия! Просто в наш город приехал дровосек из Нового Орлеана... Да не смотрите вы так! Это просто прозвище такое, потому что из любого бревна конфетку сделает! Правда и за услуги берёт недёшево...'
     'Медсестричка заразительно хихикает, заканчивает она свой бесконечный монолог, и убегает встречать следующую посетительницу.'
     $ move(curloc)
-    
+
 label beauty_depilation:
     $clrscr()
     med 'Отличный выбор! Вам давно следовало позаботиться о своей коже! - радостно говорит медсестричка, и провожает Вас в кабинет для депилляции.'
@@ -716,7 +716,7 @@ label beauty_depilation:
         changetime(30)
         depilation = 14
         move(curloc)
-        
+
 label beauty_him_zavivka:
     $clrscr()
     med 'Отличный выбор! Вам давно следовало позаботиться о своих волосах! - радостно говорит медсестричка, и провожает Вас в кабинет по завивке волос.'
@@ -726,7 +726,7 @@ label beauty_him_zavivka:
         changetime(30)
         him_zavivka = 7
         move(curloc)
-        
+
 label beauty_skin_care:
     $clrscr()
     med 'Отличный выбор! Вам давно следовало позаботиться о своём лице! - радостно говорит медсестричка, и провожает Вас в кабинет для чистки кожи.'
@@ -736,7 +736,7 @@ label beauty_skin_care:
         changetime(30)
         skin_care = 30
         move(curloc)
-        
+
 label beauty_manicure:
     $clrscr()
     med 'Отличный выбор! Вам давно следовало позаботиться о своих ногтях! - радостно говорит медсестричка, и провожает Вас в кабинет для маникюра.'
@@ -746,7 +746,7 @@ label beauty_manicure:
         changetime(30)
         manicure = 3
         move(curloc)
-        
+
 label beauty_pedicure:
     $clrscr()
     med 'Отличный выбор! Вам давно следовало позаботиться о своих ногтях! - радостно говорит медсестричка, и провожает Вас в кабинет для педикюра.'
@@ -756,7 +756,7 @@ label beauty_pedicure:
         changetime(30)
         pedicure = 6
         move(curloc)
-        
+
 label beauty_operation:
     $clrscr()
     med 'Великолепно! Прекрасно! Я Вас уже предупредила, что операция и краткий курс восстановления займёт примерно сутки? Вы согласны?'
@@ -774,8 +774,8 @@ label beauty_operation:
         'Нет, не сейчас':
             player.say 'Нет, я пока не готова.'
             med 'Ну как хотите, если что, обращайтесь!'
-    $ move(curloc) 
-    
+    $ move(curloc)
+
 label getPanties:
     python:
         global timeGetPanties, ptime
@@ -783,7 +783,7 @@ label getPanties:
         counter = 0
         tempArr = getClubChars('pants')
         timeGetPanties = ptime
-        
+
         for x in tempArr:
             player.addItem(clubPanties)
             x.removeItems(studpantiesF.name)
@@ -797,7 +797,7 @@ label getPanties:
     'Пританцовывая на одной ноге, [st1.fname] всё таки смогла снять свои трусы и вручить их вам.'
     player.say 'Спасибо, я в скором времени их продам!'
     $ move(curloc)
-    
+
 label checkCam:
     show computer at top
     player.say 'Так так, что там у нас на камерах?'
@@ -818,7 +818,7 @@ label checkCam:
     if mile_qwest_2_stage == 3 and camera.name in getLoc('loc_class1').items  or development == 1:
         jump kupruvnaGotIt2
     call screen compScreen
-    
+
 label installCam:
     $ clrscr()
     if camera.name not in getLoc(curloc).getItems():
@@ -836,7 +836,7 @@ label installCam:
     else:
         me 'И как ты здесь оказался? Напиши мне пожалуйста.'
     $ move(curloc)
-    
+
 label splitSystem_cold:
     $ clrscr()
     show office as bg
@@ -844,16 +844,16 @@ label splitSystem_cold:
     'Вы заходите в свой кабинет и от холода по вашей коже пробегают мурашки. Надо подкрутить кондиционер, так и заболеть недолго!'
     $ player.incLust(-10)
     $ move(curloc)
-    
+
 label splitSystem_hot:
     $ clrscr()
     show office
     show expression 'pic/events/madness/miniorgasm1.png' at left as tempPic
     'Вы заходите в свой кабинет и от жары ваше тело мгновенно прошибает пот! Перед вашими глазами сиюминутно мелькают горячие пляжи, курорты, услужливые официанты и прочие прелести отдыха. Надо подкрутить кондиционер, в таких условиях невозможно работать!'
-    if player.getLust() < 50: 
+    if player.getLust() < 50:
         $ player.incLust(5)
     $ move(curloc)
-    
+
 label use_tablet:
     $ clrscr()
     show expression 'pic/events/madness/miniorgasm1.png' at left as tempPic
@@ -862,4 +862,3 @@ label use_tablet:
     $ player.incLust(25)
     $ player.removeItem(tablet)
     $ move(curloc)
-    

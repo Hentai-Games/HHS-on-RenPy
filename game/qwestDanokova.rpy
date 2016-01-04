@@ -13,7 +13,7 @@
 # mile_qwest_3_stage == 15 ожидаение, пока ГГ достанет верёвку, снотворное и костюм.
 
 # Тут походу смотрим та ли стадия квеста и тот ли вызванный ученик
-label danokova_office_action: 
+label danokova_office_action:
     if mile_qwest_3_stage < 5:
         if callup!bioBoy or mile_qwest_3_hot == 0:
             jump danokova_angry
@@ -24,10 +24,10 @@ label danokova_office_action:
             jump danokova_angry
         else:
             jump danokova_quest_choise
-            
+
 # А вот тут выбираем квест, если прошли danokova_office_action
-label danokova_quest_choise: 
-    if mile_qwest_3_stage == 2: 
+label danokova_quest_choise:
+    if mile_qwest_3_stage == 2:
         jump danokova_return_pupil
     elif mile_qwest_3_stage == 4:
         jump danokova_office_sex_69
@@ -40,7 +40,7 @@ label danokova_quest_choise:
     else:
         'Ошибка!!! Не найден mile_qwest_3_stage = [mile_qwest_3_stage]'
         $ move(prevloc)
-    
+
 label danokova_start:
     $ clrscr()
     python:
@@ -55,7 +55,7 @@ label danokova_start:
     show expression 'pic/events/mile_3/shop1.png' as bg
     'Ваше внимание в этом нескромном магазинчике привлекает [d.name], которая беззастенчиво выцепляет парня из толпы и тянет его к полкам с хентайными играми. Вы прислушиваетесь к их разговору.'
     d.say 'Ты играл в эту игру? - не глядя на парня спрашивает биологичка, рассматривая что то в глянцевой обложке.'
-    st1.say '[d.name], а вы никому не скажете? - краснея спрашивает парень, на поверку оказывающийся учеником вашей школы. Надо бы кстати запомнить его, мало ли что.'
+    st1.say '[d.name], а вы никому не скажете? - краснея спрашивает парень, на поверку оказывающийся учеником вашей школы. Надо бы, кстати, запомнить его, мало ли что.'
     show expression 'pic/events/mile_3/shop2.png' as bg
     d.say 'Ах, [st1.fname], - Вы видите, как её лицо быстро наливается краской, - Нет, разумеется не скажу.'
     st1.say 'Ну тогда да, играл... - бледнея отвечает парень'
@@ -79,7 +79,7 @@ label danokova_start:
         'Ну её':
             player.say 'Погода, говорю, отличная! - киваете вы учительнице и пропускаете её к кассам. С таким уровнем неадекватности, как у неё, стоит повременить со стандартными методами.'
     $ move(curloc)
-    
+
 label danokova_work:
     $ d = danokova
     'Вы делаете хитрющие глаза, и пытаясь поддеть учительницу, спрашиваете:'
@@ -137,7 +137,7 @@ label danokova_work:
         work51 = ptime
         mile_qwest_3_stage = 2
         move(curloc)
-        
+
 label danokova_continue:
     $ d = danokova
     if mile_qwest_3_stage == 3:
@@ -221,7 +221,7 @@ label danokova_continue:
             work51 = ptime
             work51_count += 1
             move(curloc)
-        
+
 label danokova_working:
     $ clrscr()
     if rand(1,3) == 1:
@@ -242,7 +242,7 @@ label danokova_working:
                 'Ничего не трогать':
                     pass
     $ move(prevloc)
-    
+
 label danokova_hot:
     $ clrscr()
     show expression 'pic/events/mile_3/hot1.png'
@@ -267,7 +267,7 @@ label danokova_hot:
             'Ничего не трогать':
                 pass
     $ move(prevloc)
-           
+
 label danokova_angry:
     $clrscr()
     $ d = danokova
@@ -284,7 +284,7 @@ label danokova_angry:
     d.say 'Она должна быть закрыта тобой, с другой стороны, неужели сразу непонятно? - хмуря брови говорит учительница, и кивком указывает направление, куда стоит всем проследовать.  [st1.fname] быстро всё понимает, и сматывается, оставляя вас наедине с биологичкой.'
     $ callup = dummy
     $ move(prevloc)
-    
+
 
 # mile_qwest_3_stage == 2
 label danokova_return_pupil:
@@ -371,7 +371,7 @@ label danokova_office_sex:
     show expression 'pic/events/mile_3/office1_7.png' as bg
     d.say 'Ты меня не разочаровал! - сказала [d.fname], слизывая капельки спермы со своего лица и члена ученика, - На вкус ты такой же как и на вид!'
     st1.say 'Это хорошо, или плохо?'
-    d.say 'Это хорошо, - продолжая смаковать белые капли произносит биологичка, - Ты кстати уже справился со своей терморегуляцией? Тебе стало прохладней не так ли?'
+    d.say 'Это хорошо, - продолжая смаковать белые капли произносит биологичка, - Ты, кстати, уже справился со своей терморегуляцией? Тебе стало прохладней не так ли?'
     st1.say 'Пожалуй, да'
     d.say 'Опиши подробней, мне важно, - уже серьёзным тоном спрашивает биологичка.'
     st1.say 'Ну сначала мне было жарко, а потом очень жарко, а сейчас так хорошо стало, прохладно...'
@@ -385,7 +385,7 @@ label danokova_office_sex:
         mile_qwest_3_stage = 3
         changetime(120)
         move(prevloc)
-        
+
 # mile_qwest_3_stage == 4
 label danokova_office_sex_69:
     $clrscr()
@@ -647,7 +647,7 @@ label danokova_office_pencil:
     $ st1.incCorr(15)
     $ mile_qwest_3_stage = 11
     $ move(prevloc)
-    
+
 # mile_qwest_3_stage == 10 (нормальный секс)
 
 # mile_qwest_3_stage == 11 (Извращённый секс)
@@ -740,7 +740,7 @@ label danokova_find_toilet_anal:
     'Ну чтож. По крайней мере вы теперь знаете, где их можно будет найти.'
     $ changetime(120)
     $ move(prevloc)
-    
+
 # mile_qwest_3_stage == 11 (Извращённый секс)
 label danokova_toilet_anal:
     $clrscr()
@@ -808,7 +808,7 @@ label danokova_toilet_anal:
     $ changetime(120)
     $ mile_qwest_3_stage == 13
     $ move('loc_office')
-    
+
 label danokova_bdsm_offer:
     $ d = danokova
     player.say '[d.name]...'
