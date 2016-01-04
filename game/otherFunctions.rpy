@@ -21,32 +21,32 @@ init -5 python:
         temp = 0
         if args[0] == 'loy':
             for x in list:
-                temp = temp + x.stats.loyalty
+                temp = temp + x.getLoy()
             return round(temp/len(list),2)
 
         if args[0] == 'fun':
             for x in list:
-                temp = temp + x.stats.fun
+                temp = temp + x.getFun()
             return round(temp/len(list),2)
 
         if args[0] == 'corr':
             for x in list:
-                temp = temp + x.stats.corr
+                temp = temp + x.getCorr()
             return round(temp/len(list),2)
 
         if args[0] == 'lust':
             for x in list:
-                temp = temp + x.stats.lust
+                temp = temp + x.getLust()
             return round(temp/len(list),2)
 
         if args[0] == 'edu':
             for x in list:
-                temp = temp + x.stats.education
+                temp = temp + x.getEdu()
             return round(temp/len(list),2)
 
         if args[0] == 'rep':
             for x in list:
-                temp = temp + x.stats.reputation
+                temp = temp + x.getRep()
             return round(temp/len(list),2)
         return 'error'
 

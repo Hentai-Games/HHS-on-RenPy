@@ -969,7 +969,7 @@ label event_loc_entrance_20_StartClubPanties:
     player.say 'Хммм...'
     'Вы слышите странное кряхтение неподалёку.'
     st1.say 'Ну снимайся же, давай! Эх, надо было на размер больше брать!'
-    show expression 'pic/locations/school/entrance/pantiesClub.jpg' at top as tempPic
+    show expression 'pic/locations/school/entrance/pantiesClub.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
     'Вы заходите за школу и видите, как [st1.name] пытается снять свои трусики!'
     if player.getCorr() < 40:
         player.say 'Это что ещё за разврат на голом месте! А ну немедленно прекрати, пока никто не видит!'
@@ -998,4 +998,355 @@ label event_loc_entrance_20_StartClubPanties:
             st1.removeItems(studpantiesF.name)
             st1.club = 'pants'
             is_cosplayClub = 1
+    $ move(curloc)
+    
+label event_loc_entrance_0_1:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('male')
+        st3 = getChar('female')
+        st4 = getChar('female')
+    show expression 'pic/locations/school/entrance/no1.png' at top as tempPic
+    '[st2.name] подаёт подруге зонитик с отстранённым видом. Всем понятно, что делает он это не просто так, но вот 2 девчёнки, которые подглядывают за этим, явно завидут.'
+    if player.getCorr() > 50:
+        player.say '"Надёюсь ему перепадёт сегодня не только улыбка. У вас аж голова закружилась, от мыслей, чего [st1.fname] и [st2.fname] могут вытворять вместе!"'
+        $ player.incLust(5)
+    $ st1.incCorr(1)
+    $ st2.incCorr(1)
+    $ move(curloc)
+    
+label event_loc_entrance_0_2:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('male')
+    show expression 'pic/locations/school/entrance/no2.png' at top as tempPic
+    'Упс. Мимоветерок случайно поднял юбочку девчёнки! Как мило!'
+    if player.getCorr() > 50:
+        player.say '"И как развратно!"'
+        $ player.incLust(5)
+    $ setFun(10,5)
+    $ setLust(10,10)
+    $ move(curloc)
+    
+label event_loc_entrance_0_3:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+    show expression 'pic/locations/school/entrance/no3.png' at top as tempPic
+    '[st1.fname] и [st2.fname] похоже опаздывают в школу! Заметив вас, [st2.fname] делает испуганное лицо.'
+    if player.getCorr() > 50:
+        player.say 'Ну, ну, милая, я не кусаюсь!'
+        $ st2.incLoy(5)
+    $ st1.incFun(-5)
+    $ st2.incFun(-5)
+    $ move(curloc)
+    
+label event_loc_entrance_0_4:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+    show expression 'pic/locations/school/entrance/no4.png' at top as tempPic
+    '[st1.fname] и [st2.fname] радостно приветсвуют вас! Хотя вот [st2.fname] приветвует как то менее радостно...'
+    if player.getCorr() > 50:
+        player.say 'Солнышко, ну чего ты надулась? Иди сюда, я тебя обниму! - и вы нежно обнимаете ученицу.'
+        $ st2.incLoy(5)
+    $ st1.incFun(5)
+    $ st2.incFun(5)
+    $ move(curloc)
+    
+label event_loc_entrance_0_5:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st3 = getChar('female')
+    show expression 'pic/locations/school/entrance/no5.png' at top as tempPic
+    '[st1.fname] ещё смотрит на Вас с улыбкой, [st3.fname] уже спешит Вам на помощь, [st2.fname] сейчас случайно зарядит вам портфелем по лиц... БУМ... '
+    player.say '"Мда, жаль, это была многообещающий день, если бы не портфель." - подумали вы лёжа на земле'
+    $ player.incEnergy(-100)
+    $ move(curloc)
+    $ setFun(3,5)
+    $ move(curloc)
+    
+label event_loc_entrance_5_6:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('male')
+    show expression 'pic/locations/school/entrance/no6.png' at top as tempPic
+    '[st1.fname] и [st2.fname] похоже нашли друг друга. Какая милая картина, видеть их держащимися за руку!'
+    $ st1.incCorr(1)
+    $ st2.incCorr(1)
+    $ move(curloc)
+    
+label event_loc_entrance_0_7:
+    show entrance
+    python:
+        st1 = getChar('female')
+    show expression 'pic/locations/school/entrance/no7.png' at top as tempPic
+    'Вы с удовольствием отметили короткость юбки и белизну трусиков школьницы. Будем надеяться, что не только у вас глаз намётан!'
+    $ player.incLust(5)
+    $ setFun(10,5)
+    $ move(curloc)
+    
+label event_loc_entrance_0_8:
+    show entrance
+    python:
+        st1 = getChar('female')
+    show expression 'pic/locations/school/entrance/no8.png' at top as tempPic
+    'Поднимаясь по лестнице к школе, и бросив случайный взгляд наверх, у вас резко потеплело в трусиках. Да, такой симпатичный видок не каждый день открывается!'
+    $ player.incLust(5)
+    $ setFun(10,5)
+    $ move(curloc)
+    
+label event_loc_entrance_0_9:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+    show expression 'pic/locations/school/entrance/no9.png' at top as tempPic
+    'Вы видите, как [st1.fname] и [st2.fname] мило беседуют, кушая принесённую из дома еду.'
+    $ st1.incFun(10)
+    $ st2.incFun(10)
+    $ move(curloc)
+    
+label event_loc_entrance_30_1:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('male')
+        player.incLust(10)
+    'Проходя мимо входа, вы услышали часть разговора за углом школы.'
+    st2.say 'Конечно!, - всегда хотел это попробовать!'
+    show expression 'pic/locations/school/entrance/lo1.png' at top as tempPic
+    'Вам стало интересно кто и что хотел попробовать. Вы вышли из за угла и увидели что это [st1.fname] и [st2.fname].'
+    'Улыбнувшись, [st1.fname] положила член между грудей и сжала его ими. Его член попал в мягкий нежный плен из которого ему совсем не хотелось выбираться. Начав двигаться, она принялась трахать его своими сиськами.'
+    player.say '"Чёрт, и правда как в  порнофильмах, что я смотрела!"'
+    '[st1.fname] убыстряла свои движения, лаская головку языком когда она показывалась между сисек. [st2.fname] напрягся и мне показалось что он щас кончит.'
+    st2.say '[st1.fname]! Я сейчас кончу! Я хочу кончить тебе в сиськи!'
+    '[st1.fname] лишь сжала их сильней и, улыбаясь, смотрела на него.'
+    st1.say 'Давай, [st2.fname], кончи в мои большие сиськи!'
+    'И вот он разрядился несколькими мощными выбросами и его сперма показался между ложбинок ее грудей,когда ее стало много она потекла вниз. Некоторые особо густые капли ненадолго задерживались на ее соске.'
+    'Парень стоял над ней и смотрел на её сиськи покрытые его спермой. Ученица же принялась размазывать сперму по всей груди, как бы втирая её в кожу. Судя по его лицу он даже в самых своих смелых мечтах не мог представить подобного!'
+    menu:
+        'Оставить их':
+            'Аккуратно развернувшись, вы ушли, оставив молодых развлекаться.'
+            $ hadSex(st1,st2)
+        'Всех наказать':
+            $ scoldWho = [st1,st2]
+            jump scoldAll
+    $ move(curloc)
+    
+label event_loc_entrance_15_2:
+    show entrance
+    python:
+        st1 = getChar('male')
+        player.incLust(5)
+    'Проходя мимо входа, Вы услышали часть разговора за углом школы.'
+    show expression 'pic/locations/school/entrance/lo2.png' at top as tempPic
+    '[st1.fname] рассказывал своим друзьям, как он вчера "классно трахнул" свою младшую сестрёнку.'
+    player.say '"Врёт наверняка, но зараза, как реалистично рассказывает!"'
+    '"Текущая пиздёнка", "хлюпание", "стоны". У вас перед глазами промелькнула картина того, как это могло выглядеть. Весьма так возбуждающе!'
+    'Вы решили не наказывать ученика, так как всё равно не поверили ему.'
+    $ setLust(5,15)
+    $ move(curloc)
+    
+label event_loc_entrance_30_3:
+    show entrance
+    python:
+        st1 = getChar('male')
+        st2 = getChar('female')
+        player.incLust(10)
+    'Услышав странные звуки за углом школы, вы выглянули посмотреть, что же там происходит?'
+    show expression 'pic/locations/school/entrance/lo3a.png' at top as tempPic
+    'К вашему удивлению, вы увидели как [st2.fname] стоит на коленях, засунув себе в рот член своего одноклассника!'
+    st2.say 'Мффф, чафффф, мфффф, мы так не договаривались!'
+    st1.say 'Ты же сама сказала, что сделаешь всё что угодно, если я дам тебе списать? Вот и отрабатывай!'
+    'Парень вновь засунул свой член меж полных губ одноклассницы.'
+    menu:
+        'Смотреть дальше':
+            show expression 'pic/locations/school/entrance/lo3b.png' at top as tempPic
+            'Вы решили не вмешиваться. Дело то житейское, и с удовольствием продолжили наблюдать за любительским исполнением минета. Чавканье ненадолго прерывалось судорожным вздохом, и продолжалось снова.'
+            'Наконец парень подался вперёд, выдохнул, и в уголках рта девушки показались белые капли. [st1.fname] не отпускал её, пока не закончил кончать.'
+            st2.say 'Кхе, кхе!'
+            'Девушка закашлялась, пытаясь продышаться.'
+            st2.say 'Чтобы я ещё раз! Тьфу!'
+            'Отплёвываясь и глубоко дыша, [st2.fname] вытерлась и стала подниматься. Вы решили исчезнуть, пока ученики случайно не застукали своего директора.'
+            $ hadSex(st1,st2)
+        'Всех наказать':
+            $ scoldWho = [st1,st2]
+            jump scoldAll
+    $ move(curloc)
+    
+label event_loc_entrance_30_4:
+    show entrance
+    python:
+        st1 = getChar('male')
+        st2 = getChar('female')
+        player.incLust(10)
+    st2.say 'Не останавливайся, только не останавливайся!'
+    'Вы услышали тихий девичий голос неподалёку. Недоумённо оглянувшись, вы заметили какие то тени возле подсобки.'
+    show expression 'pic/locations/school/entrance/lo4.png' at top as tempPic
+    'Аккуратно приблизившись, вы увидели, как [st2.fname] буквально самоудовлетворяется рукой своего парня.'
+    st1.say 'Тихо, нас могут услышать!'
+    'Зашептал [st1.fname] на ушко девушке, поглядывая по сторонам. Благо вы неплохо замаскировались в кустах.'
+    st2.say 'Ах, ах, даааа!!!'
+    '[st2.fname] задрожала и обмякла в руках одноклассника.'
+    st1.say 'Пошли, я не хочу чтобы [player.name] нас застукала!'
+    '[st1.fname] одёрнул однокласснице юбку, и потащил девочку в школу.'
+    $ move(curloc)
+    
+label event_loc_entrance_20_6:
+    show entrance
+    python:
+        st1 = getChar('male')
+        st2 = getChar('female')
+        player.incLust(5)
+    show expression 'pic/locations/school/entrance/lo6a.png' at top as tempPic
+    'Вы видите, что двух учеников вдруг обуяла страсть на глазах у всех. [st1.fname] жадно целуется со своей подругой, и проходящие мимо ученики любопытно посматривают на них.'
+    menu:
+        'Смотреть дальше':
+            show expression 'pic/locations/school/entrance/lo6b.png' at top as tempPic
+            player.say 'Как мило наблюдать первые любовные порывы!'
+            'Начинаете вы было свою речь, как вдруг замечаете, что рука парня вдруг оказывается между ног школьницы, и начинает там незамысловатые движения. Бёдра девушки начинают подаваться навтречу, и до вас долетает тихий стон, сорвавшийся с её губ. Похоже простыми поцелуями они не ограничаться.'
+            menu:
+                'Всё таки наказать их':
+                    $ scoldWho = [st1,st2]
+                    jump scoldAll
+                'Заткнуться и смотреть' if getPar(studs, 'corr') > 40:
+                    show expression 'pic/locations/school/entrance/lo6c.png' at top as tempPic
+                    'Движения парня под юбкой всё ускорялись. Девушка уже не стесняясь во всю стонала. Ученики вокруг остановились как вкопанные и наблюдали за разворачивающимся перед ними действом.'
+                    st2.say 'Мммм, Аааах, ААААаааААААааа!!!'
+                    'Школьница задрожала, и в руку парня выплеснулась горячая влага женского оргазма.'
+                    'Не обращая ни на кого внимания, [st1.fname] и [st2.fname] поцеловались ещё раз, и взявшись за руки отправились в школу.'
+                    $ hadSex(st1,st2)
+                    $ setLust(10, 20)
+        'Всех наказать':
+            $ scoldWho = [st1,st2]
+            jump scoldAll
+    $ move(curloc)
+    
+label event_loc_entrance_15_7:
+    show entrance
+    python:
+        st1 = getChar('male')
+        st2 = getChar('female')
+        player.incLust(5)
+    show expression 'pic/locations/school/entrance/lo7.png' at top as tempPic
+    player.say '"Оппа. Какая попа! То есть, кхм, какого чёрта [st2.fname] показывает свои текущие прелести этому парню в окне?"'
+    menu:
+        'Не вмешиваться':
+            player.say '"Хотя показывает и показывает. Чем бы дитя не тешилось!"'
+            'Вот и [st1.fname] имеет весьма довольный, хотя и удивлённый вид. Хотя родителям это решение явно не будет по душе.'
+            python:
+                st2.incRep(-5)
+                st2.incCorr(5)
+                setLust(5,10)
+        'Наказать':
+            $ scoldWho = [st1,st2]
+            jump scoldAll
+    $ move(curloc)
+    
+label event_loc_entrance_13_8:
+    show entrance
+    python:
+        st1 = getChar('male')
+        st2 = getChar('female')
+        player.incLust(5)
+    show expression 'pic/locations/school/entrance/lo8.png' at top as tempPic
+    'Лёгкий ветерок приоткрыл перелести ученицы. Интересно, это повальная мода, или [st2.fname] одна такая? И стоит ли прилюдно наказать её, или фиг бы с ней?'
+    menu:
+        'Не вмешиваться':
+            player.say '"В конце концов погода тёплая, ничего себе не простудит. Может стоит вообще задуматься об обязательности ношении трусов?"'
+            python:
+                st2.incCorr(2)
+        'Наказать':
+            $ scoldWho = [st1,st2]
+            jump scoldAll
+    $ move(curloc)
+    
+label event_loc_entrance_25_9:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st3 = getChar('female')
+        setLust(20,15)
+        setCorr(20,1)
+        player.incLust(5)
+    show expression 'pic/locations/school/entrance/lo9.png' at top as tempPic
+    'Хмм. Какая любопытная униформа! Настолько оригинальная, что кажется как будто [st1.fname], [st2.fname] и [st3.fname] попросту забыли до конца одеться.. Да и остальные в вашем поле зрения одеты точно так же. Новый флэшмоб? Какой то протест? Сейчас я Вам устрою протест!'
+    menu:
+        'Не обращать внимания':
+            player.say '"А хотя если это такой способ самовыражения, то пусть."'
+            'В конце концов именно за это Вы и ратуете на школьном совете. Надо только ещё раз проверить, не пишут ли родители гневных писем на Ваш адрес.'
+            python:
+                st1.incRep(-5)
+                st2.incRep(-5)
+                st3.incRep(-5)
+        'Наказать':
+            $ scoldWho = [st1,st2]
+            jump scoldAll
+
+    
+label event_loc_entrance_15_11:
+    show entrance
+    python:
+        st1 = getChar('female')
+    menu:
+        'Вы слышите шевеление в кустах.'
+        'Проверить':
+            show expression 'pic/locations/school/entrance/lo11.png' at top as tempPic
+            'Увидев шевеление в кустах, вы застали там ученицу со спущенными трусиками. Похоже  [st1.fname] собиралась пописать, но Вы прервали её уединение. Мда, неудобно получилось.'
+            $ st1.incLoy(-10)
+        'Не проверять':
+            player.say '"Я слишком тороплюсь, чтобы проверять каждый куст с кошкой по пути!"'
+    $ move(curloc)
+    
+label event_loc_entrance_25_12:
+    show entrance
+    python:
+        st1 = getChar('female')
+        st2 = getChar('male')
+        hadSex(st1,st2)
+        st1.incLoy(-5)
+        st1.incRep(5)
+        addDetention(st1)
+    show expression 'pic/locations/school/entrance/lo12.png' at top as tempPic
+    player.say '[st1.fname]! - окликнули вы девушку и дождались, пока она подойдёт своей странной походкой, - Я даже не спрашиваю, [st1.fname], куда подевались твои трусики, но что, прости меня пожалуйста, стекает по твоей ляжке, можешь объяснить?'
+    'Ученица смотрит на вас, потом ниже на свои ноги, тихо ойкает, и краснеет.'
+    player.say 'В общем иди подмойся, и ты сегодня наказана!'
+    'Вы отсылаете ученицу и продолжаете наблюдать за учениками.'
+    $ move(curloc)
+    
+label event_loc_entrance_10_13:
+    show entrance
+    python:
+        st1 = getChar('female')
+        if school.uniform != 'usual':
+            skipEvent()
+    show expression 'pic/locations/school/entrance/lo13.png' at top as tempPic
+    'У школьного входа стоит [st1.fname]. Похоже, что ваш указ о свободной одежде она поняла немного по своему...'
+    'В принципе, если подумать, то длину ее рубашки можно принять за мини юбку , вернее за микро юбку...'
+    $ move(curloc)
+
+label event_loc_entrance_10_14:
+    show entrance
+    python:
+        st1 = getChar('male')
+    show expression 'pic/locations/school/entrance/lo14.png' at top as tempPic
+    '[st1.fname], буквально у вас на глазах, заглядывает под юбку задремавшей учительнице!'
+    menu:
+        'Не вмешиваться':
+            player.say '"Младший школьничек, мальчик молодой, все хотят потанце..."'
+            player.say '"Кхм, нет, в любом случае неважно, образование штука многогранная, никогда не знаешь, где убудет, а где прибудет."'
+            python:
+                st1.incCorr(2)
+        'Наказать':
+            $ scoldWho = [st1]
+            jump scoldAll
     $ move(curloc)

@@ -149,7 +149,7 @@ init -20 python:
             stats.health = randf(800, 1200)
             stats.energy = stats.health
             stats.beauty = randf(20, 90)
-            stats.reputation = 50
+            stats.reputation = randf(49, 51)
             return stats
 
     class Char(object):
