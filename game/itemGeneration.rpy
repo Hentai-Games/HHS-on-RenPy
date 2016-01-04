@@ -39,12 +39,12 @@ init python:
     eDrink.type = 'food'
     
     tablet = Food(energy = -50)
-    tablet.name = _('Энергетик')
+    tablet.name = _('Таблеточка')
     tablet.cost = 150
     tablet.picto = 'pic/items/tablet.jpg'
     tablet.durability = 1
     tablet.type = 'lust'
-
+    
     rawFood = Food(energy = 400)
     rawFood.name = _('Сырая еда')
     rawFood.cost = 500
@@ -123,6 +123,14 @@ init python:
     rope.durability = 1
     rope.type = 'sexShop'
     allItems.append(rope)
+
+    chloroform = Tool(purpose = 'qwest')
+    chloroform.name = _('Хлороформ')
+    chloroform.cost = 10000
+    chloroform.picto = 'pic/items/chloroform.png'
+    chloroform.durability = 1
+    chloroform.type = 'sexShop'
+    allItems.append(chloroform)
     
 #######################################################################
 #  Верхняя одежда

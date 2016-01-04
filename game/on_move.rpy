@@ -5,6 +5,7 @@ init:
         "hour > 8  and hour <= 18", "#FFFFFF",
         "hour > 18  and hour <= 20", "#EB9191",
         )
+    image black = '#000000'
     $ lastEventTime = 0
 
 init python:

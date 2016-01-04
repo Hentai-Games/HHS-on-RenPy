@@ -624,7 +624,6 @@ label skipall:
             location = curloc,
             money = 5000
         )
-        _teachers.append(dante)
                 
         gonoreevna = Char(
             fname = 'Венера',
@@ -653,7 +652,6 @@ label skipall:
             location = curloc,
             money = 5000
         )
-        _teachers.append(gonoreevna)
         
 
         for char in _teachers:

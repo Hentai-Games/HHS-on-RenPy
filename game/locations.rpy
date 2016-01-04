@@ -902,6 +902,8 @@ label loc_office:
 
 label loc_class1:
     show class1 at left
+    if mile_qwest_3_stage == 15:
+        jump get_chloroform
     screen class1:
         fixed:
             vbox xalign 0.0 yalign 1.0:
