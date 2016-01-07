@@ -12,7 +12,7 @@ init python:
 #базовая функция перемещения. Использовать всегда и всюду
     from random import shuffle
     def move(where):
-        global curloc, hour, prevloc, same_loc, defaultSymbol, school  #объявление глобальных переменных
+        global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime  #объявление глобальных переменных
         temp = school
         school = None
         school = temp
@@ -50,7 +50,8 @@ init python:
                 if 'school' in getLoc(curloc).position and lt() == 0 and 'pants' in school.clubs and len(getClubChars('pants')) > 0 and ptime - timeGetPanties > 24 and rand(1,3) == 1: # В школе на перемену, если есть кто то в клубе трусиков и он открыт, вам их отдадут
                     renpy.jump('getPanties')
                 
-            if rand(1,100) < 10 and where[:4] == 'loc_' and same_loc == 0: tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
+            if rand(1,100) < 10 + noEventTime and where[:4] == 'loc_' and same_loc == 0:
+                tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
             
             if  where[:4] == 'loc_': trySpecialEvent(where) # спец эвент
@@ -67,6 +68,7 @@ init python:
 
 #Вызов эвента
     def tryEvent(location):
+        global noEventTime
         if 'classroom' in getLoc(location).position and lt() > 0: location += 'Learn' #Если сейчас уроки, то добавляем к поиску локаций Learn
         if lt() == -4: location += 'Night' # Если ночь, добавляем Night
         tempEv = []
@@ -85,7 +87,9 @@ init python:
             rands = rand(0,len(tempEv)-1)
             callEvent = tempEv[rands].id
             lastEventTime = ptime #запоминаем время
+            noEventTime = 0 # Сбрасываем переменную "время без эвентов"
             renpy.jump(callEvent) #эвент
+        return False
 
     def trySpecialEvent(location):
         if len(getLoc(location).qwests) > 0:

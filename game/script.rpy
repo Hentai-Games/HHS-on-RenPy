@@ -6,6 +6,7 @@
     students = 50 # количество студентов
     last_eat = 0 # Инициализация времени с последнего обеда
     last_inventory = 'inventory_all'
+    noEventTime = 0 # Время без эвентов
     
     stat_loy = 0 # Инициализация переменных интерфейса
     stat_fun = 0
