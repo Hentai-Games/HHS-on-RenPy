@@ -45,7 +45,7 @@ init -3 python:
         return output
         
     def changetime(change):
-        global minute, check_minute, hour, ptime, weekday, number, year, month, mtime, ltMoved, timeMoved, flagIncome
+        global minute, check_minute, hour, ptime, weekday, number, year, month, mtime, ltMoved, timeMoved, flagIncome, noEventTime
         while change != 0:
             tempChange = min(10,change)
             change -= min(10,change)
@@ -56,6 +56,7 @@ init -3 python:
                 hourlyReset()
                 minute -= 60
                 hour += 1
+                noEventTime += 10
                 if hour == 8 and weekday == 1:
                     flagIncome = 1
                 ptime += 1

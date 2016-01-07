@@ -56,10 +56,12 @@ init -5 python:
         move(curloc)
 
 #Динамическая картинка
+
     def dynImage(st,at):
         return dynpicto, None
 
 #Работа с людьми
+
     def getChar(*args):
         global dublicationChar
         temp = []
