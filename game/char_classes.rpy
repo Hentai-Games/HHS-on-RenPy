@@ -547,7 +547,7 @@ init -20 python:
 
         #Помыться
         def cleanAll(self):
-            self.dirty = 0
+            self.stats.dirty = 0
             for _,x in self.body.parts.iteritems():
                 x.sperm = False
 
