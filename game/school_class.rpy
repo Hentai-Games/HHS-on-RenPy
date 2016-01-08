@@ -99,7 +99,7 @@ init -20 python:
         def getUniform(self):
             if self.uniform == 'usual':
                 return 'Обычная одежда'
-            elif self.uniform == 'scrict':
+            elif self.uniform == 'strict':
                 return 'Строгая форма'
             elif self.uniform == 'uniform':
                 return 'Стандартная форма'
@@ -141,7 +141,7 @@ init -20 python:
                     voteVeto += 1
                     
         if voteYes > voteNo and voteVeto == 0:
-            if what in ['usual','scrict','uniform','sexy','skimpy','naked','bdsm']:
+            if what in ['usual','strict','uniform','sexy','skimpy','naked','bdsm']:
                 school.unlockedUniforms.append(what)
                 school.uniform = what
             if what in ['streetCleaning','upskirt','no','lock','tortue']:
