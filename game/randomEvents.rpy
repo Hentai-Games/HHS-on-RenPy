@@ -203,6 +203,10 @@ label event_loc_dreams_10_24:
     $ player.stats.energy += 150
     $ move(curloc)
     
+######################################################################################################################################
+#
+######################################################################################################################################
+
 label event_loc_class1_10_1:
     show class1
     python:
@@ -965,6 +969,10 @@ label event_loc_class1_65_10:
     $ hadSex(st1,st2, st3, st4)
     $ move(curloc)
     
+######################################################################################################################################
+#
+######################################################################################################################################
+
 label event_loc_class2_0_1:
     show class2
     python:
@@ -1592,7 +1600,10 @@ label event_loc_class2_85_1:
         $ player.incCorr(5)
     $ move(curloc)
     
-    
+######################################################################################################################################
+#
+######################################################################################################################################
+
 label event_loc_class3_0_no1:
     show class3
     python:
@@ -1924,19 +1935,315 @@ label event_loc_class3_55_mid5:
             $ setLoy(3,10)
     $ move(curloc)
 
+######################################################################################################################################
+#
+######################################################################################################################################
+
+label event_loc_class4_0_no1:
+    show class4
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st3 = getChar('female')
+        st4 = getChar('female')
+        st5 = getChar('futa')
+        setFun(10,10)
+    show expression 'pic/locations/school/class4/no1.jpg' at top as tempPic
+    'Школьная рок группа репетирует песню "Это математично" из своего нового альбома "Время приключений". Казалось бы причём тут собака? Вы не стали мешать репетиции, и ушли.'
+    $ move(curloc)
+    
+label event_loc_class4_0_no10:
+    show class4
+    python:
+        st1 = bissektrisovna
+        st2 = getChar('female')
+        st3 = getChar('male')
+        st4 = getChar('male')
+        setFun(5,10)
+    show expression 'pic/locations/school/class4/no10.jpg' at top as tempPic
+    'Похоже [st3.fname] всё таки смог доказать теорему Пифагора. Правда [st1.name] немного шокирована формулировкой "Пифагоровы трусы".'
+    $ move(curloc)
+    
+label event_loc_class4_0_no2:
+    show class4
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st3 = getChar('male','lustmax')
+        st4 = getChar('male','corrmax')
+    show expression 'pic/locations/school/class4/no2.jpg' at top as tempPic
+    'Похоже назревает конфликт. [st1.fname] поставила ноги на стол однокласснице, и снисходительно смотрит на неё сидя на соседней парте. Если так пойдёт дальше, [st2.fname] тоже в долгу не останется.'
+    menu:
+        'Наказать их':
+            $ scoldWho = [st1,st2]
+            jump scoldAll
+        'Разнять их':
+            'Вы отчитали обеих учениц, за недостойное поведение, и пригрозили сообщить обо всём их родителям.'
+            $ st1.incLoy(10)
+            $ st2.incLoy(10)
+        'Не обращать внимания':
+            $ st1.incLoy(10)
+            $ st2.incLoy(-10)
+    $ move(curloc)
+    
+    
+label event_loc_class4_0_no3:
+    show class4
+    python:
+        st1 = getChar('female')
+        st1.incFun(10)
+    show expression 'pic/locations/school/class4/no3.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+    '[st1.name] проветривает ножки на перемене. Вы и сами не понимаете, почему обратили на это внимание.'
+    if player.getCorr() > 40:
+        show expression 'pic/locations/school/class4/no3a.jpg' at top as tempPic
+        player.say '"Наверное потому, что эта ножка гораздо лучше смотрелась бы на члене одноклассника..."'
+        $ player.incLust(5)
+    $ move(curloc)
+ 
+label event_loc_class4_0_no5:
+    show class4
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st3 = getChar('female')
+        st4 = getChar('male')
+        setFun(4,15)
+    show expression 'pic/locations/school/class4/no5.jpg' at top as tempPic
+    '[st1.fname], [st2.fname], [st3.fname] и [st4.fname] решили устроить соревнование по новой игре для дандендо - "Шмота 2". Ну чтож, время не учебное, пусть отдыхают.'
+    if st4.getCorr() > 40:
+        show expression 'pic/locations/school/class4/no5a.png' at top as tempPic
+        'Вы отвлеклись на свои дела на несколько минут, но когда обернулись, обнаружили, что [st4.fname] уболтал одноклассницу на лёгкий интим.'
+        'Как ни странно, соревнований по игре это не прекратило, хотя победитель определённо наметился.'
+        menu:
+            'Наказать их':
+                $ scoldWho = [st1,st4]
+                jump scoldAll
+            'Не обращать внимания':
+                $ hadSex(st1,st4)
+                $ setLust(4,20)
+                $ st1.incLoy(10)
+                $ st4.incLoy(10)
+    $ move(curloc)
+
+label event_loc_class4_0_no6:
+    show class4
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+    show expression 'pic/locations/school/class4/no6.jpg' at top as tempPic
+    '[st1.fname] и [st2.fname] решили обсудить достижения Перельмана в математике.'
+    if player.getIntel() > 50:
+        'Вы довольно обоснованно вспомнили про доказательство гипотезы Пуанкаре, а так же про дальнейший отказ от "Премии тысячелетия".'
+        'Ученики обязательно расскажут родителям, какой у них эредированный директор.'
+        $ setRep(2,10)
+    else:
+        'Откровенно говоря, слово "соснула" довольно чётко описывает вашу дальнейшую дискуссию. Это довольно плохо сказалось на вашей репутации.'
+        $ setRep(2,-10)
+    $ move(curloc)
+    
+label event_loc_class4_0_no7:
+    show class4
+    python:
+        st1 = getChar('female','corrmax')
+    show expression 'pic/locations/school/class4/no7.jpg' at top as tempPic
+    '[st1.fname] уселась на парты, и с интересом наблюдает за вами.'
+    if st1.getCorr() > 50:
+        'Потом встаёт, и направляется к выходу.'
+        show expression 'pic/locations/school/class4/no7a.png' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+        'Вы не удерживаетесь от любопытства, заглядываете ей под юбочку, чтобы узнать причину столь внимательного взгляда. И вашему взгляду предстают пара проводочков выходящих из под трусиков девочки.'
+        player.say '"Ну тут два варианта. Либо это бабаробот, либо [st1.name] - очень развратная девушка!"'
+        $ st1.incLust(25)
+    $ move(curloc)
+    
+    
+label event_loc_class4_0_no8:
+    show class4
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st1.incFun(10)
+        st2.incFun(10)
+    show expression 'pic/locations/school/class4/no8.jpg' at top as tempPic
+    '[st1.fname] уснула на коленях у своей подруги. Такое чувство, что у меня в школе ученики вообще не занимаются, а только дрыхнут! Стоило конечно разбудить девочку, но человек способный разбудить спящего, способен вообще на любую подлость!'
+    $ move(curloc)
+    
+label event_loc_class4_0_no9:
+    show class4
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st1.incFun(10)
+        st2.incFun(10)
+        setRep(2,10)
+    show expression 'pic/locations/school/class4/no9.jpg' at top as tempPic
+    '[st1.fname] и [st2.fname] высунулись в окно, и дышат свежим воздухом.'
+    'Вы делаете им замечание, чтобы они слишком далеко не высовывались.'
+    $ move(curloc)
+    
+######################################################################################################################################
+#
+######################################################################################################################################
+
+label event_loc_class5_0_no1:
+    show class5
+    python:
+        st1 = getChar('female')
+    show expression 'pic/locations/school/class5/no1.jpg' at top as tempPic
+    'Зайдя в кабинет, Вы видите что [st1.fname] решила сесть на диету, или просто тренирует свою силу воли. Хотя её лицо говорит о том, что от силы воли остались лишь мелкие крохи.'
+    if player.getEnergy() < 500:
+        'Не желая больше мучить ученицу, вы накинулись на сладости, и к вашему удивлению всё умяли. Ученица смотрит на Вас с благодарностью.'
+        $ player.incEnergy(200)
+    $ move(curloc)
+
+label event_loc_class5_0_no2:
+    show class5
+    python:
+        st1 = getChar('male')
+        st2 = getChar('female')
+        st3 = getChar('female')
+        setFun(10,5)
+    show expression 'pic/locations/school/class5/no2.jpg' at top as tempPic
+    'Кто то бегает, вот [st1.fname] спит,  [st2.fname] и [st3.fname] общаются о чём то в сторонке. Обычный день в школе.'
+    $ move(curloc)
+    
+label event_loc_class5_0_no3:
+    show class5
+    python:
+        st1 = getChar('female')
+        setFun(10,10)
+    show expression 'pic/locations/school/class5/no3.jpg' at top as tempPic
+    'Это вы удачно зашли! Похоже, что [st1.fname] справляет свой день родения! Вы говорите ей свои дежурные поздравления, и оставляете учеников праздновать дальше.'
+    $ move(curloc)
+    
+label event_loc_class5_5_no4:
+    show class5
+    python:
+        st1 = getChar('futa')
+        st2 = getChar('female')
+    show expression 'pic/locations/school/class5/no4.jpg' at top as tempPic
+    'Войдя в класс, вы заметили, что [st1.fname] одёргивает юбку так, словно секунду назад она была поднята.'
+    st1.say 'Это не то, о чём вы подумали, - со страхом говорит [st1.fname].'
+    player.say 'А о чём я подумала?'
+    st1.say 'Ну как будто я всем показывала свой, своего... - ученица замолкает.'
+    player.say 'Они тебе не верили, да? Не переживай, я знаю что такие иногда рождаются, - быстро всё поняв, утешаете вы ученицу.'
+    if player.getCorr() > 50:
+        player.say 'А вы не смейтесь! - окрикиваете вы расшалившихся учеников.'
+        show expression 'pic/locations/school/class5/no4a.jpg' at top as tempPic
+        player.say 'Настанет время, и может быть даже ты, [st2.fname], будешь с трепетом касаться её члена, направляя его в свою узенькую дырочку!'
+        player.say '"Да... Огромный член в её маленькой дырочке..."'
+        'Вы оставляете немного шокированных вашими словами учеников.'
+    $ move(curloc)
+    
+label event_loc_class5_0_no5:
+    show class5
+    python:
+        st1 = getChar('futa','lustmax')
+        st2 = getChar('female')
+    show expression 'pic/locations/school/class5/no5.jpg' at top as tempPic
+    '[st1.name] вцепилась в волосы своей одноклассницы, и куда то ведёт её.'
+    menu:
+        'Сделать замечание':
+            'Вы сделали замечание ученице, и [st1.fname] отпустила волосы. [st2.fname] смотрит на вас с благодарностью.'
+            $ st1.incLoy(-10)
+            $ st2.incLoy(15)
+        'Не обращать внимания':
+            $ st1.incLoy(10)
+            $ st2.incLoy(5)
+            'Вы решили не обращать внимания на эту странную парочку. Остаётся надеятся, что ничего страшного не случится.'
+        'Проследить за ними' if getPar(studs,'corr') > 25 or development == 1:
+            $ hadSex(st1,st2)
+            show expression 'pic/locations/school/class5/no5a.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = False, bounce = False, xanchor="left", yanchor="top") as tempPic
+            'Девушки уединяются в свободном кабинете, и вы замечаете, что [st1.name] не совсем девушка. Усевшись на парту, она приспускает трусики и из под юбки выпрыгивает крепкий член.'
+            st1.say 'Подрочи мне, как всегда, - требовательно произносит молодая фута.'
+            '[st2.fname] кладёт свои ручки на подрагивающий пенис и начинает медленно ласкать уздечку.'
+            show expression 'pic/locations/school/class5/no5b.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = False, bounce = False, xanchor="left", yanchor="top") as tempPic
+            st1.say 'Да... Вот так вот хорошо! Продолжай!'
+            'С кончика члена девушки начинает стекать небольшая струйка преэякулята, смазывая шаловливые пальчики подружки. Она берёт член покрепче, и продолжает ласкать уздечку своей влажной ладошкой.'
+            show expression 'pic/locations/school/class5/no5c.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = False, bounce = False, xanchor="left", yanchor="top") as tempPic
+            'Наконец [st1.fname] издаёт громкий стон и в потолок бьёт маленький фонтанчик спермы.'
+            st2.say 'Мне уже можно идти?'
+            '[st2.fname] с беспокойством разглядывает перемазанные в семени руки.'
+            st1.say 'Ага! Завтра я тебя снова найду!'
+            player.say '"Однако интересные отношения завязываются в моей школе..."'
+            $ player.incLust(10)
+    $ move(curloc)
+    
+label event_loc_class5_0_no6:
+    show class5
+    python:
+        st1 = getChar('male')
+        st2 = getChar('female')
+        st1.incFun(10)
+        st2.incFun(15)
+    show expression 'pic/locations/school/class5/no6.png' at top as tempPic
+    st1.say 'Ну, короче, выхожу я вчера на мид, а керри в лесу. Ну я ему кричу, мол какого хера, кто мид пушить будет, я саппорт!'
+    '[st1.fname] рассказывает подружке, как он вчера до 2 часов ночи рубал с друзьями в Шмоту. Вы бы не сказали, что [st2.name] в восторге от этих разговоров, но что в этом мальчике ей определённо нравится.'
+    if player.getCorr() > 60:
+        show expression 'pic/locations/school/class5/no6a.jpg' at top as tempPic
+        player.say '"А может быть ей нравится его упругий член, который каждый день, по ночам,терзает её хрупкий анус?"'
+        'Вы отчётливо представили, как [st1.fname], закончив свои ночные бои в Шмоте, заходит в спальню к подружке и, перевернув её попкой к верху, медленно вводит член в неподдатливое колечко сфинктера. У вас аж всё сжалось от реалистичности картинки предоставленной воображением.'
+        $ player.incLust(10)
+    $ move(curloc)
+    
+
+label event_loc_class5_10_no7:
+    show class5
+    python:
+        st1 = getChar('female')
+        st2 = getChar('male')
+    show expression 'pic/locations/school/class5/no7.jpg' at top as tempPic
+    player.say '"Ого, сколько учебников приходится таскать в школу нашим ученикам!"'
+    'Хотя не видно, чтобы [st1.fname] сильно напрягалась от переноски такой стопки. Вот он, скрытый спортивный потенциал! В любом случае неплохо было бы помочь донести их.'
+    menu:
+        'Помочь':
+            'Вы помогли донести учебники до парты. [st1.fname] благодарит вас.'
+            $ st1.incLoy(10)
+        'Подрядить ученика на это дело':
+            $ hadSex(st1,st2)
+            player.say 'Эй, [st2.fname]! Подойди пожалуйста, помоги девочке с тяжёлыми книжками!'
+            'Парень, постоянно подтягивая спадающие треники, кивает вам, и бросается на помощь однокласснице. Вы, с удовлетворённым видом отворачиваетесь, как внезапно слишите глухой удар и крик девушки за спиной.'
+            show expression 'pic/locations/school/class5/no7a.jpg' at top as tempPic
+            'Нет, вы конечно читали в объяснительные, мол шёл, упал на девушку, случайно изнасиловал, но вживую подобную ситуацию видите впервые. Стремительно бегущий парень в конце концов запутался в своих трениках, и врезался в школьницу. Со спущенными штанами. Со стоящим членом. Врезался так, что вдавил членом трусики глубоко ей во влагалище.'
+            show expression 'pic/locations/school/class5/no7b.jpg' at top as tempPic
+            st1.say 'В-в-выйди из меня, пожалуйста! - шепчет девушка, стоя на подрагивающих ногах и поддерживаемая в вертикальном положении глубоко сидящим в ней членом.'
+            st2.say 'Я ненаро... О боже, подожди, НЕ ДВИГАЙСЯ!!!'
+            'Девушка активно заёрзала, пытаясь выбраться из щекотливой ситуации. Парень же, в свою очередь, вовсю пытался минимизировать эти движения. В итоге все эти действия со стороны смотрелись как банальные фрикции.'
+            st2.say 'Ч-ч-чёрт! Прости!'
+            show expression 'pic/locations/school/class5/no7c.jpg' at top as tempPic
+            'Когда парень наконец то достал свой член из влажных трусиков, за ним протянулась густая белая капля спермы. [st1.fname] слегка застонала, видимо не совсем понимая, что сейчас произошло.'
+            player.say 'Эмм, давайте я лучше закрою глаза на то, что сейчас произошло. Боюсь, что даже если я расскажу, мне всё равно никто не поверит.'
+            'Школьники согласно закивали головами. Хотя [st1.name] ещё не в себе. Будем надеятся, что на тоже никому не расскажет.'
+            $ player.incLust(5)
+    $ move(curloc)
+
+label event_loc_class5_0_no8:
+    show class5
+    python:
+        st1 = getChar('female')
+        st1.incFun(-10)
+    show expression 'pic/locations/school/class5/no8.png' at Move((0.0, 0.0), (0.0, -1.0), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+    'Похоже, что [st1.fname] потеряла свою школьную обувь, и ищет её. Выражение её лица говорит вам о том, что ищет [st1.fname] уже давно.'
+    if player.getCorr() > 60:
+        show expression 'pic/locations/school/class5/no8a.jpg' at top as tempPic
+        player.say '"Такая задница! Да, эта попа прекрасно бы смотрелась залитой спермой из парочки членов!"'
+    $ move(curloc)
+    
+label event_loc_class5_0_no9:
+    show class5
+    python:
+        setFun(5,20)
+    show expression 'pic/locations/school/class5/no9.jpg' at top as tempPic
+    'Школьная рок группа репетирует песню "Стрела в колене" из своего нового альбома "Молодые сливки 5". Казалось бы причём тут драконы? Вы не стали мешать репетиции, и ушли.'
+    $ move(curloc)
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+######################################################################################################################################
+#
+###################################################################################################################################### 
+
+
+
 label event_loc_entrance_20_StartClubPanties:
     show entrance
     python:
@@ -2456,6 +2763,10 @@ label event_loc_entrance_60_6:
     player.say '"Вот ведь кобель!", - с негодованием смотрите вы, как очередная девушка пала жертвой его мускулистого торса и красных трусов.'
     $ move(curloc)
     
+######################################################################################################################################
+#
+######################################################################################################################################
+
 label event_loc_beach_0_1:
     show beach
     python:
@@ -3198,3 +3509,7 @@ label event_loc_beach_70_2:
     player.say '"Что то мне хочется, чтобы меня связали с этой парочкой. Надо поскорее сваливать!"'
     $ move(curloc)
     
+######################################################################################################################################
+#
+######################################################################################################################################
+

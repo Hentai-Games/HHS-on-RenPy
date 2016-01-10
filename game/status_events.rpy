@@ -235,7 +235,7 @@ label status_hidden_mastur: #Complete
             'Вы видите, как футу скручивают спазмы, и из её члена вырываются густые струи спермы, покрывая унитаз белыми каплями.'
             interactionObj.say 'Зачем вы так, ну зачем?'
             'Закрыв лицо, девочка убегает.'
-            $ interactionObj.setLoy(-5)
+            $ interactionObj.incLoy(-5)
             $ interactionObj.moveToLocation(choice(locations).id)
         elif interactionObj.getSex() == 'female':
             show expression 'pic/status/female_toilet_mastur.jpg' as tempPic
@@ -247,7 +247,7 @@ label status_hidden_mastur: #Complete
                     'Вы видите, как на трусиках расплывается крупное жёлтое пятно. Похоже, что вы зря напугали девочку в самый ответственный момент. По лицу ученицы начинают бежать слёзы.'
                     show expression 'pic/status/female_toilet_mastur_pull.jpg' as tempPic
                     'Она резко сдёргивает с себя грязные трусики, оставляя их на полу, и убегает.'
-                    $ interactionObj.setLoy(-5)
+                    $ interactionObj.incLoy(-5)
                     $ interactionObj.removeItems(studpantiesF.name)
                     $ interactionObj.moveToLocation(choice(locations).id)
                     menu:
@@ -317,8 +317,8 @@ label status_public_mastur: #Incomplete. Futa, male.
                 interactionObj.say 'Да я уже сейчас, ммм...'
                 'Ученица громко стонет, её тело напрягается, и из влагалища вырываются последние струйки влаги, возвещающие о только что пережитом оргазме. Немного посидев с закрытыми от удовольствия глазами, [interactionObj.fname] одевается и уходит, заканчивая представление.'
                 'Некоторые люди по достоинству оценили то, что вы хотя бы попытались остановить девушку. А вот она - нет.'
-                $ interactionObj.setLoy(-5)
-                $ interactionObj.setRep(5)
+                $ interactionObj.incLoy(-5)
+                $ interactionObj.incRep(5)
             'Ничего не делать':
                 'Немного поглазев на развратную девушку, вы пожимаете плечами, как будто ничего не происходит, и идёте дальше по своим делам.'
                 'За вашей спиной раздаётся громкий стон и ругань мимо проходящих мамаш, которым это зрелище не очень то и нравится.'
@@ -670,10 +670,10 @@ label status_public_sex: #Incomplete. Male-futa. Female-futa. Futa-futa. Female-
                 player.say 'А ну быстро прекратите! А не то я полицию вызову!'
                 st2.say 'Ладно, ладно, не кричите, - тяжело дыша бросил парень, - Уже уходим.'
                 'Некоторые люди по достоинству оценили то, что вы хотя бы попытались остановить парочку. А вот она - нет.'
-                $ interactionObj.setLoy(-15)
-                $ interactionObj.setRep(5)
-                $ interactionObj.partner.setLoy(-15)
-                $ interactionObj.partner.setRep(5)
+                $ interactionObj.incLoy(-15)
+                $ interactionObj.incRep(5)
+                $ interactionObj.partner.incLoy(-15)
+                $ interactionObj.partner.incRep(5)
             'Ничего не делать':
                 'Хмыкнув, вы пошли дальше, чтобы окружающие не дай бог не связали вас с этими любвеобильными молодыми людьми.'
     else:

@@ -137,7 +137,7 @@ init -5 python:
             
     def setFun(count,amount):
         for x in range(0, count):
-            getChar().incLust(amount)    
+            getChar().incFun(amount)    
 
     def hadSex(*args):
         maleArr = []
