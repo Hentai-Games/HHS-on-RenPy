@@ -185,7 +185,7 @@ init -5 python:
                     for female in femaleArr: # перебираем всех female
                         if female not in fucked: # если ещё не была в соитии
                         
-                            if female.body.parts['вагина'].size < diameter/2: # Если диаметр сликшом большой
+                            if female.body.parts['вагина'].size < diameter/2: # Если диаметр слишком большой
                                 female.body.parts['вагина'].size += diameter/5
                                 female.incFun(-1)
                                 fucked.append(female)
