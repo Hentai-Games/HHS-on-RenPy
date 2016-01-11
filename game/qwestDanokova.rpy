@@ -983,7 +983,10 @@ label sniff_chloroform:
             player.say 'Интересно, а вот это туда влезет?'
             st1.say 'Н-Е-Е-Е-Т!'
             'Спустя некоторое время.'
+            show office
+            show expression getCharImage(player,'dialog') as temp2
             player.say 'А теперь, если хоть звук услышу, всё это веселье окажется в сети, ясно?'
+            show expression getCharImage(st1,'dialog') as temp1
             'Всхлипывания.'
             st1.say 'Д-д-да...'
             player.say 'Пошёл отсюда!'
