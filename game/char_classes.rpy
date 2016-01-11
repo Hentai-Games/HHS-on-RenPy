@@ -240,7 +240,6 @@ init -20 python:
                 self.stats.corr += amount*max(0.1, (100 - self.getWill())/100)
             else:
                 self.stats.corr += amount
-                
 # Измнение lust
         def incLust(self,amount):
             self.stats.lust += amount
@@ -249,15 +248,7 @@ init -20 python:
             self.stats.will += amount
 # Измнение education
         def incEdu(self,amount):
-            if self.getFun() < 25:
-                funMod = 4
-            elif self.getFun() < 50:
-                funMod = 3
-            elif self.getFun() < 75:
-                funMod = 2
-            else:
-                funMod = 1
-            self.stats.education += (amount*(self.getIntel()/100))/funMod
+            self.stats.education += amount
 # Измнение health
         def incHealth(self,amount):
             self.stats.health += amount
@@ -290,7 +281,6 @@ init -20 python:
 # Измнение развратности
         def setCorr(self,amount):
             self.stats.corr = amount
-                
 # Измнение lust
         def setLust(self,amount):
             self.stats.lust = amount

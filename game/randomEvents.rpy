@@ -3247,10 +3247,10 @@ label event_loc_beach_20_13:
         st2 = getChar('female')
         st3 = getChar('female')
         st4 = getChar('female')
-        st1.incCorr(3)
-        st2.incCorr(3)
-        st3.incCorr(3)
-        st4.incCorr(3)
+        st1.incCorr(5)
+        st2.incCorr(5)
+        st3.incCorr(5)
+        st4.incCorr(5)
     show expression 'pic/locations/beach/lo13.jpg' at top as tempPic
     'Девчёнки примеряют свои новые бикини. Да, очевидно не всем ещё удобно ходить почти без одежды. Но по крайней мере нормы приличий соблюдены. Особенно стесняется [st1.fname], у неё наверное такое чувство, словно она оказалась голой посреди площади.'
     $ move(curloc)
