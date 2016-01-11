@@ -112,6 +112,11 @@ init -5 python:
                 return max(temp, key = lambda x: x.stats.lust)
             if args[1] == 'lustmin':
                 return min(temp, key = lambda x: x.stats.lust)
+            if args[1] == 'brustmax':
+                return max(temp, key = lambda x: x.body.parts['грудь'].size)
+            if args[1] == 'brustmin':
+                return min(temp, key = lambda x: x.body.parts['грудь'].size)
+                
 
     def clrscr():
         renpy.scene(layer='screens')
