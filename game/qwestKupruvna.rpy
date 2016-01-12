@@ -7,7 +7,11 @@ label event_loc_class1_10_StartKupruvnaQuest:
         mile_qwest_2_stage = 1
         teacher_son = getChar('male')
 
-    show expression 'pic/locations/school/class1/no11.jpg' at Move((0.0, 0.0), (0.0, -0.5), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+    show expression 'pic/locations/school/class1/no11.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     kupruvna.say '[teacher_son.fname], это ты? -  расположившись на столе в очень интересной позе спросила вас учительница.'
     'Ваш взгляд мгновенно переместился под юбку учительницы. Белье было очень влажное, вы буквально чувствовали это.'
     kupruvna.say 'Ой, простите, - видя ваш ОЧЕНЬ удивлённый взгляд, смущенно сказала Валентина Купрувна, - просто я тут стол протирала, и [teacher_son.fname] должен был мне тряпку принести.'

@@ -87,7 +87,11 @@ label myintro:
 
 label shower:
     hide screen stats_screen
-    show expression ('pic/events/bathroom/shower%d.png' %rand(1,2)) at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top")
+    show expression ('pic/events/bathroom/shower%d.png' %rand(1,2)):
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     if player.stats.dirty == 0:
         'Вы искупались, хотя и не были особо грязными. Как же вам нравится стоять под нежными струями воды или принимать ванну... Ох, это особое чувство чистоты!'
     else:
