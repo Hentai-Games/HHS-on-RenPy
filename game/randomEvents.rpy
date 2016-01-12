@@ -3127,15 +3127,23 @@ label event_loc_street_15_lo1:
         st1 = getChar('female','brustmax')
         st1.incCorr(2)
         player.incLust(5)
-    show expression 'pic/locations/street/lo1.jpg' at top as tempPic
+    show expression 'pic/locations/street/lo1.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Мимо проехала поливальная машина, а кто то забыл отскочить, а так же надеть лифчик! Хотя с другой стороны [st1.fname] не особо рада видеть ваше улыбающееся лицо.'
     $ move(curloc)
     
-label event_loc_street_10_lo2:
+label event_loc_street_5_lo2:
     show street
     python:
         st1 = getChar('female')
-    show expression 'pic/locations/street/lo2.jpg' at top as tempPic
+    show expression 'pic/locations/street/lo2.png':
+        xalign 0.5 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     if st1.getCorr() < 20:
         'Лёгкий ветерок слегка поднял юбочку у девочки. [st1.fname] испуганно оглядывается, не заметил ли кто небольшого конфуза.'
         $ st1.incFun(-5)
@@ -3151,7 +3159,11 @@ label event_loc_street_10_lo3:
         player.incLust(5)
         st1.incFun(10)
         st1.incCorr(2)
-    show expression 'pic/locations/street/lo3.jpg' at top as tempPic
+    show expression 'pic/locations/street/lo3.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     '[st1.fname] радостно спешит куда то! А юбочка радостно развивается на ветру, открывая всем прохожим вид на тоненькие, полосатые трусики и попку! Как хорошо, когда люди ведут себя естественно!'
     $ move(curloc)
     
@@ -3162,7 +3174,11 @@ label event_loc_street_10_lo4:
         st2 = getChar('female')
         st1.incFun(10)
         st2.incLust(20)
-    show expression 'pic/locations/street/lo4.jpg' at top as tempPic
+    show expression 'pic/locations/street/lo4.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Проказник [st1.fname] решил напугать одноклассницу неожиданными щекотунчиками! Хотя [st2.fname] не выглядит особо испуганной.'
     'Скорее заинтригованной от того, чьи же пальцы сегодня трогают её грудь.'
     $ move(curloc)
@@ -3184,7 +3200,11 @@ label event_loc_street_0_lo6:
         st1 = getChar('female')
         st1.incFun(-10)
         st1.incLoy(10)
-    show expression 'pic/locations/street/lo6.jpg' at top as tempPic
+    show expression 'pic/locations/street/lo6.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Бедная [st1.fname] подскользнулась и упала в лужу. Вы, разумеется, кинулись ей помогать подняться. Успев краем глаза заметить пухлые губки киски, просвечивающие через насквозь промокшие трусики. Ученица благодарно улыбается вам, явно не заметив похотливого взгляда.'
     $ move(curloc)
     
@@ -3244,7 +3264,11 @@ label event_loc_street_20_mid1:
         st1.incCorr(5)
         player.incLust(5)
     'Идя по улице, ваш взгляд зацепился за какое то мелькание между заборами. Не справившись с любопытсвом, вы прильнули к ближайшей дырке, чтобы получше рассмотреть то, что происходит во дворе частного дома.'
-    show expression 'pic/locations/street/mid1.jpg' at top as tempPic
+    show expression 'pic/locations/street/mid1.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Судя по всему, вам посчастливилось проходить мимо дома своей ученицы. [st1.fname] занималась поливкой газона, и случайно обрызгала себя из шланга.'
     'Совершенно не смущаясь, она сняла почти всю мокрую одежду, и только дойдя до трусиков заметила, что за ней кто то подглядывает. Хорошо, что забор почти сплошной, и опознать вас не удастся. Вы поспешно отстранились от дырки и продолжили свой путь.'
     $ move(curloc)
@@ -3255,11 +3279,11 @@ label event_loc_street_40_mid2:
         st1 = getChar('female')
         hadSex(st1)
         player.incLust(10)
-    show expression 'pic/locations/street/mid1.jpg' at top as tempPic
+    show expression 'pic/locations/street/mid2.jpg' at top as tempPic
     'Заглянув в ближайшую кафешку, вы обнаружили, что там сидит [st1.fname] и разговаривает с кем то по телефону. Вы уже хотели зказать себе чашечку кофе, как вдруг заметили странные движения рукой не занятой телефоном.'
     player.say '"Хех, похоже что парень девочки заставил её заниматься чем то не совсем приличным в общественном месте!"'
     '[st1.fname] заметила ваше внимание, но продолжает дразнить свою киску пальчиками.'
-    show expression 'pic/locations/street/mid1a.jpg' at top as tempPic
+    show expression 'pic/locations/street/mid2a.jpg' at top as tempPic
     'Вы заказали себе кофейку, и, вливая в себя его обжигающую бодрость, с удовольствием наблюдали за маленькой развратницей. [st1.fname] уже почти потеряла контроль над собой, и интенсивно двигала бёдрами своей ручке. Но стоны пока сдерживала.'
     player.say '"Интересно, надолго ли её хватит, в таком то темпе?"'
     'Вы чуть не поперхнулись, когда увидели как школьница резко застонала, привлекая к себе ненужное внимание, и из её киски полились влажные соки, шумно капая на пол.'
@@ -3267,7 +3291,7 @@ label event_loc_street_40_mid2:
         'Смотаться по быстрому':
             'Не желая присутствовать на разборе полётов, вы смотались, кинув деньги на стол.'
             $ st1.incRep(-10)
-        'Начать выгораживать девушку':
+        'Начать выгораживать девушку (Интеллект)':
             if player.getIntel() < 70:
                 player.say 'Да, дрочила! Ну и что же с того?'
                 'Вы принялись расталкивать собирающуюся вокруг девушки толпу.'
@@ -3293,7 +3317,11 @@ label event_loc_street_25_mid3:
         st2 = getChar('male')
         st1.incCorr(5)
         player.incLust(5)
-    show expression 'pic/locations/street/mid3.jpg' at top as tempPic
+    show expression 'pic/locations/street/mid3.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Решив срезать путь, вы пошли по дворам, где и наткнулись на двух учеников. Интересно, как [st2.fname] умудрился уговорить одноклассницу на столь развратные действия? Судя по тому как он потеет, вид открытых киски и попки вызывает у него весьма однозначную реакцию.'
     'К сожалению вы слишком шумели в кустах, пытаясь устроиться поудобней, и вспугнули парочку.'
     $ move(curloc)
@@ -3305,7 +3333,11 @@ label event_loc_street_35_mid4:
         hadSex(st1)
         player.incLust(10)
     'Проходя по парку, ваше внимание привлек тихий стон из за дерева.'
-    show expression 'pic/locations/street/mid4.jpg' at top as tempPic
+    show expression 'pic/locations/street/mid4.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Подойдя поближе, вы заметили там одну из своих учениц. [st1.fname] сидела возле дерева в разорванных колготках, и с остервенением теребила свой клитор, засовывая и вытаскивая пальчик из ануса.'
     st1.say 'Давай же, как же это у всех получается, а у меня нет?'
     'Не успели вы задуматься над их смыслом, как девчушку зарясло, и тугая струя ударила в ближайшие кусты. Случайно проходившая мимо девушка тоже заметила необычное поведение, и аж выронила сумки с покупками, когда разглядела, что именно происходит неподалёку. Вы поспешили уйти.'
@@ -3338,7 +3370,11 @@ label event_loc_street_55_hi1:
     player.say '[st1.fname], с тобой всё в порядке? - спрашиваете вы, видя нетвёрдую походку девочки.'
     hide temp1
     hide temp2
-    show expression 'pic/locations/street/hi1.jpg' at top as tempPic
+    show expression 'pic/locations/street/hi1.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     st1.say 'Вам нравятся мои новые игрушки?'
     'Девушка задирает юбочку, и вы видите, как тело ученицы сотрясается от удовольствия. В киске и попе торчат нехилых размеров вибраторы, а её клитор массирует маленькое яичко, прилемленное скотчем прямо к лобку. Проходящие мимо люди потеряли дар речи, глядя на это выступление.'
     st1.say 'Мне... Очень... Хорошо... - подрагивает, глотая слова, [st1.fname], - Я хочу... так... ходить в школу!'
@@ -3358,7 +3394,11 @@ label event_loc_street_75_hi2:
         st1 = getChar('female')
         st1.incCorr(10)
         player.incLust(10)
-    show expression 'pic/locations/street/hi2.jpg' at top as tempPic
+    show expression 'pic/locations/street/hi2.jpg':
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     player.say 'Мать моя женщина, - тихо прошептали вы, видя как [st1.fname] собирается отдаться какому то мужику у всех на глазах.'
     'Где ты говоришь тебя научили так себя вести? - лениво ковыряясь в маленькой киске спросил мужик.'
     st1.say 'Ммм, в школе.. - млея от прикосновений прошептала девушка.'
@@ -3438,7 +3478,7 @@ label event_loc_street_55_hi4:
     show street
     python:
         st1 = getChar('female')
-        st1 = getChar('male')
+        st2 = getChar('male')
         hadSex(st1,st2)
         player.incLust(15)
     show expression 'pic/locations/street/hi4.jpg' at top as tempPic

@@ -116,6 +116,10 @@ init -5 python:
                 return max(temp, key = lambda x: x.body.parts['грудь'].size)
             if args[1] == 'brustmin':
                 return min(temp, key = lambda x: x.body.parts['грудь'].size)
+            if args[1] == 'loymax':
+                return max(temp, key = lambda x: x.stats.loyalty)
+            if args[1] == 'loymin':
+                return min(temp, key = lambda x: x.stats.loyalty)
                 
 
     def clrscr():

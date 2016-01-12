@@ -230,14 +230,14 @@ init -20 python:
 
 # Измнение loyalty
         def incLoy(self,amount):
-            self.stats.loyalty += amount*max(0.1, (100 - self.getWill())/100)
+            self.stats.loyalty += amount*max(0.1, (100 - self.getWill()/2)/100)
 # Измнение fun
         def incFun(self,amount):
             self.stats.fun += amount
 # Измнение развратности
         def incCorr(self,amount):
             if self != player:
-                self.stats.corr += amount*max(0.1, (100 - self.getWill())/100)
+                self.stats.corr += amount*max(0.1, (100 - self.getWill()/2)/100)
             else:
                 self.stats.corr += amount
 # Измнение lust
@@ -656,7 +656,13 @@ init -20 python:
             for x in self.wear:
                 temp.extend(x.cover)
             return temp
-            
+        
+        def getWeared(self):
+            temp = []
+            for x in self.wear:
+                temp.extend(x.name)
+            return temp
+        
         def getOutfitLust(self):
             if len(self.wear) == 0:
                 return self.getBeauty()
