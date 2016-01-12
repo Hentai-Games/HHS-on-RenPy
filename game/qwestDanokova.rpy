@@ -677,7 +677,11 @@ label danokova_find_toilet_anal:
         'Пойти в туалет':
             show wcf as bg
             'Вы заходите в женский туалет, и слышите нехарактерные для этого места звуки доносящиеся из крайней кабинки.'
-            show expression ('pic/events/mile_3/toilet_mastur.png') at Move((0.0, 0.0), (0.0, -1.2), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
+            show expression ('pic/events/mile_3/toilet_mastur.png'):
+                xalign 1.0 yalign 0.0
+                ease  10.0 yalign 1.0
+                ease  10.0 yalign 0.0
+                repeat
             player.say 'АГА!'
             'Вашему взгляду предстаёт [st2.name], которая находится на пике возбуждения. Её пальчик погружён во влажную киску, и именно оттуда шли эти странные чавкающие звуки.'
             st2.say 'И-и-и-и-и! - пронзительно визжит девушка, - [player.name], немедленно уйдите!!!'

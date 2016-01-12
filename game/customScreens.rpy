@@ -183,7 +183,11 @@ screen stats_screen:
         if getLoc(curloc) != False:
             if len(getLoc(curloc).getPeople()) > 0:
                 imagebutton auto 'pic/actions/eye_%s.png' action [Function(clrscr),Jump('locationPeople')]
-                
+        if curloc == 'loc_teacherRoom':
+            imagebutton:
+                idle im.MatrixColor('pic/actions/corrMeeting.png', im.matrix.opacity(0.5))
+                hover im.MatrixColor('pic/actions/corrMeeting.png', im.matrix.opacity(1.0))   
+                action Jump('select_corrMeeting')
               
 screen showStatuses:
     fixed:
