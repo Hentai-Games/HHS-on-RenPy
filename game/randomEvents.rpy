@@ -207,6 +207,198 @@ label event_loc_dreams_10_24:
 #
 ######################################################################################################################################
 
+label event_loc_firstFloor_0_no1:
+    show firstFloor
+    show expression 'pic/locations/school/firstFloor/no1.jpg' at top as tempPic
+    'Внезапно во всей школе погас свет. Коридор вдруг приобрёл какой-то мистический оттенок.'
+    if player.getCorr() > 50 and player.getLust() > 70 or development == 1:
+        show expression 'pic/locations/school/firstFloor/no1a.png' at center as tempPic1
+        player.say '"Что?"'
+        hide tempPic1
+        'На секунду вам показалось, что две девушки только что предавались ласкам прямо перед вами! Проморгавшись, вы поняли, что воображение играет с вами шутки.'
+    'Через минуту свет дали, и всё стало по прежнему.'
+    $ move(curloc)
+    
+label event_loc_firstFloor_5_no2:
+    show firstFloor
+    python:
+        st1 = getChar('futa')
+        st2 = getChar('male')
+        st1.incFun(-10)
+        st1.incCorr(2)
+        st1.incLoy(10)
+    show expression 'pic/locations/school/firstFloor/no2.jpg' as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
+    'Поднимаясь по лестнице, вы увидели, что [st1.fname] чем-то очень расстроена. Хотя, если судить по кружочкам над её головой, ей просто безответно нравится [st2.fname].'
+    'Вы решили немного поговорить с девочкой и вселили в неё небольшую надежду на ответные чувства.'
+    if player.getCorr() > 20:
+        $ st1.incLust(20)
+        'Пытаясь утешить, вы приобняли девицу, и неожиданно в ваше бедро упёрлось то, чего у девочек быть не может.'
+        player.say '"Однако... Чего это она там себе нафантазировала?"'
+        show expression 'pic/locations/school/firstFloor/no2a.jpg' as tempPic:
+            xalign 1.0 yalign 0.0
+            ease  10.0 yalign 1.0
+        player.say '"Может быть как она будет издеваться над парнем, если он её не примет и уйдёт к другой?"'
+        player.say '"Не думаю... Это слишком жестоко, для такой милой девочки!"'
+    $ move(curloc)
+    
+label event_loc_firstFloor_0_no3:
+    if is_cherleaderClub != 0:
+        $ skipEvent()
+    show firstFloor
+    'В коридоре вам встретились две девушки, и чуть ли не насильно затащили в класс.'
+    jump event_loc_class2_0_1
+    
+label event_loc_firstFloor_0_no4:
+    show firstFloor
+    python:
+        if hour < 14:
+            skipEvent()
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st3 = getChar('female')
+        st1.incEdu(10)
+        st2.incEdu(10)
+        st3.incEdu(10)
+    show expression 'pic/locations/school/firstFloor/no4.jpg' as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
+    'Ученицы [st1.fname], [st2.fname] и [st3.fname] собираются на дополнительные занятия.'
+    if player.getCorr() > 50:
+        show expression 'pic/locations/school/firstFloor/no4a.jpg' as tempPic:
+            xalign 1.0 yalign 0.0
+            ease  10.0 yalign 1.0
+            ease  10.0 yalign 0.0
+            repeat
+        'Потакая своей развратной натуре, вы надеетесь, что это будут дополнительные занятия по сексуальному просвещению, в области "Совместное использование двойных дилдо количеством трёх человек и более."'
+        player.say '"Да, это был бы интересный опыт, посмотреть как девушки делят один дилдо на троих... Например [st2.fname] и [st3.fname] сверху тренируют свои дырочки, а [st1.fname] соблазняет зрителя своей розовой киской."'
+        player.say '"А потом они меняются, и так вплоть до того, пока оргазм не разлучит их!"'
+        'Вы вздыхаете, прокручивая картинку вероятного будущего в голове, и отправляетесь дальше по своим делам.'
+    $ move(curloc)
+    
+label event_loc_firstFloor_0_no5:
+    show firstFloor
+    python:
+        st1 = getChar('female')
+        st1.incFun(10)
+    show expression 'pic/locations/school/firstFloor/no5.jpg' at top as tempPic
+    'В коридоре вы видите, что [st1.fname] разговаривает с кем-то по телефону. Ну чтож, телефоны не запрещены, пускай себе болтает.'
+    if st1.getCorr() > 60 or development == 1:
+        'Услышав инетересные слова, вы всё таки решаете прислушаться.'
+        st1.say 'Ну па-а-п! Ну купи мне ыФон 376 UltraLux! Ну купи!'
+        st1.say 'Не, ну так нечестно! Давай как вчера, я тебе киску покажу, ты подрочишь и купишь мне!'
+        show expression 'pic/locations/school/firstFloor/no5a.jpg' as tempPic:
+            xalign 1.0 yalign 0.0
+            ease  10.0 yalign 1.0
+            ease  10.0 yalign 0.0
+            repeat
+        'У вас в голове возникла вполне правдобная картинка того, как это всё могло происходить.'
+        player.say '"Вот сидит такая [st1.fname] перед отцом, да без трусиков, а тот наяривает свой здоровенный член, и сипло шепчет любимой дочке ласковые слова..."'
+        player.say '"А теперь ещё и ыФон купит последний..."'
+        player.say '"Хех, да после таких слов от доченьки, я думаю он и бузить особо не будет в случае чего!"'
+        $ st1.incRep(25)
+        $ player.incLust(10)
+    $ move(curloc)
+    
+label event_loc_firstFloor_0_no6:
+    show firstFloor
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st3 = getChar('male')
+        st1.incFun(10)
+        st2.incFun(10)
+        player.incFun(5)
+    show expression 'pic/locations/school/firstFloor/no6.jpg' at top as tempPic
+    '[st1.fname] и [st2.fname] возвращаются с занятий смеясь о чём то. Вам радостно наблюдать эту молодую весёлость. Совсем недавно вы были такой же.'
+    if st1.getCorr() > 40 or development == 1:
+        $ hadSex(st1,st3)
+        $ setLust(3, 30)
+        $ player.incLust(10)
+        'До вас долетают обрывки их разговора.'
+        show expression 'pic/locations/school/firstFloor/no6a.jpg' at top as tempPic
+        st2.say 'И что, ты ему прямо в классе отсосала?'
+        st1.say 'Ага!'
+        st2.say 'И чё, [st3.fname] вообще большой там или как?'
+        st1.say 'Ага!'
+        st2.say 'А как ты вообще, сложно было?'
+        st1.say 'Ага! Еле в рот поместился! Только до половины вошёл, и уже в глотку упёрся. Но зато я языком смогла почти до его яиц дотянуться!'
+        st2.say 'Ого! Ты с высунутым языком сосала что ли? Как шлюха? Класс! Я тебе завидую!'
+        player.say '"Однако..."'
+        'Смеясь и раздвигая руки как рыбаки, девушки скрылись за углом.'
+    $ move(curloc)
+    
+label event_loc_firstFloor_0_no7:
+    show firstFloor
+    python:
+        bissektrisovna.incLoy(5)
+        player.incFun(5)
+    show expression 'pic/locations/school/firstFloor/no7.jpg' at top as tempPic
+    'Скользкий пол, неуклюжий шаг, и вот уже [bissektrisovna.name] обнаруживает вас у себя между ног. Конфуз то какой!'
+    'Хотя, после того, как вы поднялись, никаких обид не возникло и вы вместе посмеялись над этим случаем.'
+    $ move(curloc)
+    
+label event_loc_firstFloor_0_no8:
+    show firstFloor
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        setFun(10,10)
+    show expression 'pic/locations/school/firstFloor/no8.jpg' at top as tempPic
+    '[st1.fname] и [st2.fname] несут принадлежности для черчения. Всё бы хорошо, но только такой предмет в вашей школе пока не преподают.' 
+    'Вы интересуетесь у девочек, зачем им столько бумаги и узнаёте, что они готовят сюрприз для мальчишек.'
+    $ move(curloc)
+    
+label event_loc_firstFloor_0_no9:
+    show firstFloor
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st1.incLoy(-5)
+        st2.incLoy(-5)
+    show expression 'pic/locations/school/firstFloor/no9.jpg' at top as tempPic
+    'До тех пор, пока вы быстрым шагом не ворвались на этаж, [st1.fname] и [st2.fname] что то обсуждали друг с другом. Теперь же они просто смотрят на вас и молчат.'
+    'Аккуратно ступая, вы удаляетесь.'
+    $ move(curloc)
+    
+label event_loc_firstFloor_0_no10:
+    show firstFloor
+    python:
+        player.incLust(5)
+        setRep(5,-2)
+    show expression 'pic/locations/school/firstFloor/no10.jpg' at top as tempPic
+    'Эмм, это было неожиданно. Точнее неожиданного было много. Сначала неожиданно недавно помытый пол, потом неожиданно оставленный кем-то портфель. Далее, насколько вы можете припомнить, была неожиданно не свойственная для вас невнимательность. Как следствие - неожиданный вид, представший перед вашими глазами.'
+    $ move(curloc)
+    
+label event_loc_firstFloor_0_no11:
+    show firstFloor
+    python:
+        st1 = getChar('female')
+        player.incLust(5)
+    show expression 'pic/locations/school/firstFloor/no11.png' as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
+    '[st1.fname] взбегает на второй этаж, явно куда-то опаздывая. Её развевающаяся юбочка радует ваши глаза.'
+    $ move(curloc)
+    
+label event_loc_firstFloor_0_no12:
+    show firstFloor
+    python:
+        setFun(10,10)
+    show expression 'pic/locations/school/firstFloor/no12.png' at top as tempPic
+    $ move(curloc)
+    
+######################################################################################################################################
+#
+######################################################################################################################################
+
 label event_loc_class1_10_1:
     show class1
     python:
