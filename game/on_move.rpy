@@ -110,6 +110,11 @@ init python:
         if lt() > 0: # заполняем классы, если уроки
             fillClasses()
         else:
+            movedArray = 0
+            avaliableLocations = []
+            for x in locations:
+                if x.getprob() > 0:
+                    avaliableLocations.append(x)
             for x in allChars:
                 if x != callup:
                     if x.getLocationStatus() == stop_status:
@@ -120,19 +125,11 @@ init python:
                         x.moveToLocation('loc_teacherRoom')
                         continue
                         
-                    if x == dante:
-                        if 'library' not in school.buildings: # Если не построили библиотеку, то данте вообще не появится.
-                            x.moveToLocation(None)
-                            continue
-                        elif lt() >= 0: # библиотекарша всегда в библиотеке
+                    if x == dante and lt() >= 0: # библиотекарша всегда в библиотеке
                             x.moveToLocation('loc_library')
                             continue
                         
-                    if x == gonoreevna:
-                        if 'doctor' not in school.buildings:  # Если нет медкабинета, то пропуск.
-                            x.moveToLocation(None)
-                            continue
-                        elif lt() >= 0: # Доктор должен быть в мед кабинете
+                    if x == gonoreevna and lt() >= 0: # Доктор должен быть в мед кабинете
                             x.moveToLocation('loc_doctor')
                             continue
                         
@@ -182,18 +179,24 @@ init python:
                                 x.forceLocationStatus(medic_status1)
                             else:
                                 x.forceLocationStatus(medic_status2)
-
-                    for location in locations:
-                        if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
-                            temp = getChar()
-                            
-                            if location.id in ['loc_wcf','loc_wcm']: # В сортир по полу пихаем
-                                if temp.getSex() == 'male':
-                                    location = getLoc('loc_wcm')
-                                else:
-                                    location = getLoc('loc_wcf')
+                    # for location in locations:
+                        # if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
+                            # temp = getChar()
+                            # movedArray += 1
+                            # if location.id in ['loc_wcf','loc_wcm']: # В сортир по полу пихаем
+                                # if temp.getSex() == 'male':
+                                    # location = getLoc('loc_wcm')
+                                # else:
+                                    # location = getLoc('loc_wcf')
                                     
-                            temp.moveToLocation(location)
+                            # temp.moveToLocation(location)
+                    if len(avaliableLocations) > 0:
+                        for counter in range(0,1000):
+                            temp = choice(avaliableLocations)
+                            if rand(0,99) < temp.getprob():
+                                movedArray += 1
+                                x.moveToLocation(temp)
+                                break
         if lt() == -4:
             # Сейчас ночь, нужно убрать всех с локаций
             clearLocations()
