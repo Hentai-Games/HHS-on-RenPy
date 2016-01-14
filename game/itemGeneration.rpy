@@ -164,7 +164,7 @@ init python:
     freejaket.name = _('Пиджак с вырезом')
     freejaket.cost = 2500
     freejaket.picto = 'pic/items/freejaket.png'
-    freejaket.type = 'sexy'
+    freejaket.type = 'clothing'
     clothing.append(freejaket)
     
     skimpyjacket = Clothing(
@@ -179,7 +179,7 @@ init python:
     skimpyjacket.name = _('Полоски ткани')
     skimpyjacket.cost = 5500
     skimpyjacket.picto = 'pic/items/skimpyjacket.png'
-    skimpyjacket.type = 'sexy'
+    skimpyjacket.type = 'clothing'
     clothing.append(skimpyjacket)
     
 #############################################################

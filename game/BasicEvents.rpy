@@ -396,9 +396,15 @@ label unconsciousSchool:
 
 label unconsciousOther:
     $ clrscr()
-    show expression 'pic/events/uncon/2.jpg' at top
-    'Вы упали без сознания от переутомления прямо на улице. Вы пролежали пару часов, пока вас не нашли случайные люди.'
-    'Проснувшись, вы обнаружили свежее пятно спермы на одежде.'
+    if getPar(studs, 'corr') > 50:
+        $ st1 = getChar('female')
+        $ st2 = getChar('female')
+        show expression 'pic/events/uncon/uncon_50.jpg' at top
+        'Вы упали без сознания от переутомления. К счастью, вас довольно скоро обнаружили ваши ученицы, [st1.fname] и [st2.fname] и разбудили. К сожалению, разбудили слишком поздно и на вашей одежде вы обнаружили подсыхающее пятно спермы.'
+    else:
+        show expression 'pic/events/uncon/2.jpg' at top
+        'Вы упали без сознания от переутомления прямо на улице. Вы пролежали пару часов, пока вас не нашли случайные люди.'
+        'Проснувшись, вы обнаружили свежее пятно спермы на одежде.'
     $ player.body.parts['грудь'].sperm = True
     if player.money > 200:
         $ player.money -= rand(100,200)

@@ -443,7 +443,14 @@ label event_loc_firstFloor_20_lo3:
         player.incLust(10)
     show expression 'pic/locations/school/firstFloor/lo3.jpg' at top as tempPic
     'Случайно глянув в приткрытую дверь в коридоре, вы заметили, что [st1.fname] занимается вещами далёкими от учебников и ручек. Её ладошка плавно скользила по мокрым от возбуждения трусикам, и вязкие капли её сока медленно стекали по ноге к парте'
-    'Немного насладившись видом мастурбирующей девочки, вы аккуратно прикрыли дверь и отправились дальше.'
+    menu:
+        'Продолжать смотреть':
+            show expression 'pic/locations/school/firstFloor/lo3a.jpg' at top as tempPic
+            player.say 'Упс!'
+            'Вы поспешно хлопнули дверью, поняв, что [st1.name] заметила вас. Вряд ли это укрепит ваши с ней отношения.'
+            $ st1.incLoy(-10)
+        'Уйти':
+            'Немного насладившись видом мастурбирующей девочки, вы аккуратно прикрыли дверь и отправились дальше.'
     $ move(curloc)
     
 label event_loc_firstFloor_15_lo4:
@@ -501,7 +508,9 @@ label event_loc_firstFloor_20_lo7:
         hadSex(st1,st2)
         player.incLust(5)
     show expression 'pic/locations/school/firstFloor/lo7.jpg' at top as tempPic
-    'Вы видите, как [st1.fname] и [st2.fname] предаются оральным утехам у подоконника. Целуются то есть.'
+    'Вы видите, как [st1.fname] и [st2.fname] предаются оральным утехам у подоконника напротив окна. Целуются то есть.'
+    show expression 'pic/locations/school/firstFloor/lo7a.png':
+        xalign 1.0 yalign 0.0
     player.say '"Хотя, судя по интенсивности, с которой [st1.fname] лезет подружке в трусики, тут и до полного контакта кисок недалеко."'
     menu:
         'Наказать':
@@ -631,9 +640,11 @@ label event_loc_firstFloor_40_mid3:
         st1 = getChar('female')
         st2 = getChar('male','lustmax')
         hadSex(st1,st2)
-    show expression 'pic/locations/school/firstFloor/mid3.jpg' at top as tempPic
+    show expression 'pic/locations/school/firstFloor/mid3.jpg' as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
     st1.say ' Да ты охренел чтоли?'
-    '[st1.fname] позмущённо оборачивается, когда подошедший сзади парень, вдруг достал свой член и окропил её своим семенем.'
+    '[st1.fname] возмущённо оборачивается, когда подошедший сзади парень, вдруг достал свой член и окропил её своим семенем.'
     st2.say 'А нечего жопу так оттопыривать!'
     'И парень залепил ещё смачный шлепок по заляпанной спермой заднице.'
     st1.say 'Да я счас тебя!'
@@ -678,7 +689,11 @@ label event_loc_firstFloor_80_hi1:
         st2 = getChar('male')
         hadSex(st1,st2,st3,st4)
         player.incLust(20)
-    show expression 'pic/locations/school/firstFloor/hi1.jpg' at top as tempPic
+    show expression 'pic/locations/school/firstFloor/hi1.jpg' as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     '[st1.fname] радостно принимала в себя сразу 3 члена, прямо на полу в коридоре. Похоже делала она это уже некоторое время, потому что [st2.fname] яростными рывками в её влагалище выталкивал оттуда сперму своего предшественника.'
     player.say 'Ты хоть предохраняшься, шлюшка? - спросили вы стонущую в очередном оргазме ученицу.'
     st1.say 'М-м-м-м, чаф-ф, М-М-М-М, Д-а-а-а-а-а!'
@@ -702,7 +717,43 @@ label event_loc_hall_0_no1:
         st1 = getChar('female')
         st2 = getChar('male')
     show expression 'pic/locations/school/hall/no1.jpg' at top as tempPic
-    '[st2.fname] и [st1.fname]. Очевидно Вы прервали важную беседу, и вам здесь не рады.'
+    '[st2.fname] и [st1.fname]. Очевидно вы прервали важную беседу, и вам здесь не рады.'
+    if getPar(studs, 'corr') > 40 or development == 1:
+        menu:
+            'Спрятаться в шкафчик':
+                'Вы якобы покидаете парочку, но проворно прячетесь в шкафчик, и наблюдаете оттуда.'
+                st1.say 'Ушла что ли?'
+                if rand(1,3) == 1:
+                    st2.say 'Да если бы. Вот, в шкафчик мой спряталась.'
+                    player.say '"Чёрт!"'
+                    'Вы краснеете от стыда и пулей вылетаете из шкафчика, покидая холл.'
+                    $ st1.incLoy(-10)
+                    $ st2.incLoy(-10)
+                    $ setRep(2,-5)
+                    $ move('loc_firstFloor')
+                else:
+                    st2.say 'Да вроде да. Ну так что, давай при всех попробуем?'
+                    st1.say 'И как ты себе это представляешь?'
+                    st2.say 'Ну ты сядешь мне на коленки, а я буду тебе якобы с математикой помогать!'
+                    st1.say 'Чёрт с тобой! Уболтал, чертяка языкастый!'
+                    show expression 'pic/locations/school/hall/no1_1.jpg' at top as tempPic
+                    'Вы сидите в шкафчике и смотрите, как [st1.fname] приподнимает юбку, и, расстегнув ширинку своего дружка, с тихим всхлипом усаживается ему на коленки. [st2.fname] берёт в руку тетрадку, и начинает что то говорить на ушко.'
+                    player.say '"Не думаю, что он всерьёз обсуждает проблемы теоремы Пифагора в евклидовом пространстве."'
+                    'Ноги девушки начинают подрагивать, но она не встаёт с колен, а лишь немного ускоряет покачивания своей попы на члене парня. Вы видите, как на пол падают первые капли с её возбуждённой киски. [st2.fname] продолжает что то нашёптывать ей и внезапно кусает за мочку.'
+                    st1.say 'А-ах! - как то слишком эротично для занятия по математике вскрикивает девушка.'
+                    st1.say 'В смысле ах, как интересно! М-м-м...'
+                    'Движения парочки всё ускоряются, и уже со стороны должно быть отчётливо заметно, чем они занимаются, но всё таки никто не обращает внимания, словно ничего не происходит.'
+                    st1.say '[st2.fname]! Я счас кончу! КОНЧУ! В смысле кончу доказывать эту задачу! Кончи со мной! Давай придём к решению вместе!'
+                    show expression 'pic/locations/school/hall/no1_2.jpg' at top as tempPic
+                    'Парень вдруг затих на секунду, и крупные капли спермы из влагалища начали падать на пол. Наклонив голову, девушка закусила губу и постанывала.'
+                    st1.say 'Всё, [st2.fname] я закончила...'
+                    st2.say 'Отличное было решение!'
+                    'Парочка собирается и уходит, позволяя вам выйти из шкафчика.'
+                    player.say '"Чёрт! Как же всё затекло!"'
+                    $ player.incEnergy(-50)
+                    $ player.incLust(20)
+            'Уйти':
+                'Вы решаете не испытывать судьбу и покидаете парочку.'
     $ move(curloc)
     
 label event_loc_hall_0_no2:
@@ -714,6 +765,24 @@ label event_loc_hall_0_no2:
         st2.incCorr(5)
     show expression 'pic/locations/school/hall/no2.jpg' at top as tempPic
     player.say 'Ого! Тут похоже не обошлось без любовного послания! Давненько вы таких лиц не видели!'
+    if st1.getCorr() > 50 or development == 1:
+        $ hadSex(st1)
+        player.say '[st1.fname], что то случилось?'
+        'Вы участливо интересуетесь у девушки. Ведь суициды в таком возрасте не так уж и редки, особенно на почве неразделённой любви.'
+        show expression 'pic/locations/school/hall/no2_1.jpg' as tempPic:
+            xalign 1.0 yalign 0.0
+            ease  10.0 yalign 1.0
+            ease  10.0 yalign 0.0
+            repeat
+        st1.say 'Нет, [player.name], всё уже в порядке. Я просто внезапно кончила...'
+        'Девушка демонстрирует вам небольшой вибратор, который продолжает тихо жужжать в её трусиках.'
+        $ player.incLust(10)
+        menu:
+            'Наказать':
+                $ scoldWho = [st1]
+                jump scoldAll
+            'А... Ну...':
+                player.say 'А... Ну тогда всё в порядке... Я надеюсь...'
     $ move(curloc)
     
 label event_loc_hall_0_no3:
@@ -725,6 +794,12 @@ label event_loc_hall_0_no3:
         st2.incCorr(5)
     show expression 'pic/locations/school/hall/no3.jpg' at top as tempPic
     'Очередное любовное послание? Мило. Похоже шкафчики для обуви используют как угодно, но только не для обуви.'
+    if player.getCorr() > 50 or development == 1:
+        show expression 'pic/locations/school/hall/no3_1.jpg' at top as tempPic
+        player.say '"Интересно, что они там пишут друг другу? Как он страстно желает снова засунуть свой член в её маленькую вагину?"'
+        player.say '"Как ему нравятся чавкающие звуки вперемешку со стонами, которые издаёт [st1.fname] во время оргазма?"'
+        player.say '"О том, что любит, когда его головку массируют влажные стенки её юного лона?"'
+        player.say '"В общем непонятно, чего там нужно такого написать, чтобы так покраснеть!"'
     $ move(curloc)
     
 label event_loc_hall_0_no4:
@@ -732,9 +807,16 @@ label event_loc_hall_0_no4:
     python:
         st1 = getChar('female')
         st1.incLoy(10)
-    show expression 'pic/locations/school/hall/no4.jpg' at top as tempPic
-    player.say '"Ну хоть кто то использует шкафчики для обуви, а не для хранения писем поклонников! Какая же [st1.fname] молодец!"'
-    'Вы немного поболтали с девушкой, подняв её лояльность.'
+    show expression 'pic/locations/school/hall/no4.jpg' as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
+    player.say '"Ну хоть кто то использует шкафчики для обуви, а не для хранения писем поклонников! Какая же [st1.fname] молодец! И как мне нравятся её симпатичные ножки!"'
+    if player.getCorr() > 50 or development == 1:
+        show expression 'pic/locations/school/hall/no4_1.jpg' at top as tempPic
+        player.say '"А ещё сильнее красивых ножек, мне нравятся эти ножки на толстенном члене! Как жаль, что я ни разу не видела, как [st1.fname] работает ножками! В своё время у неё должно быть много поклонников."'
+        $ player.incLust(10)
     $ move(curloc)
     
 label event_loc_hall_0_no5:
@@ -746,14 +828,41 @@ label event_loc_hall_0_no5:
         st1.incCorr(5)
     show expression 'pic/locations/school/hall/no5.jpg' at top as tempPic
     'Что то новенькое. Раньше я встречала только парней, подкатывающих к девушкам. А вот [st1.fname] судя по всему имеет своё мнение насчёт того, кто должен начать ухаживания.'
+    if st1.getCorr() > 40 or development == 1:
+        $ st1.incCorr(5)
+        'Вы замечаете, что девушка вдруг начинает тяжело дышать.'
+        player.say '"От волнения что ли?"'
+        show expression 'pic/locations/school/hall/no5_1.jpg' as tempPic:
+            xalign 1.0 yalign 0.0
+            ease  10.0 yalign 1.0
+            ease  10.0 yalign 0.0
+            repeat
+        'Подойдя поближе, причина учащённого дыхания становится ясна.'
+        player.say '[st1.fname], так ты кого любишь больше вибраторы или парня за стеной?'
+        'Вы наклоняетесь к девушке поближе, шепча ей эти слова в ушко.'
+        st1.say 'К-к-ончать!'
+        'И на белых трусиках ученицы начинает расплываться пятно влаги, выброшенной текущей от оргазма киской.'
+        player.say 'Понятно...'
+        menu:
+            'Наказать':
+                $ scoldWho = [st1]
+                jump scoldAll
+            'Не трогать её':
+                pass
     $ move(curloc)
     
 label event_loc_hall_0_no6:
     show hall
     python:
+        st1 = getChar('female')
         player.incLust(5)
-        incFun(5,10)
+        setFun(5,10)
     show expression 'pic/locations/school/hall/no6.jpg' at top as tempPic
+    'Девушки переобуваются в школьную обувь. Вы не можете упустить момента и не полюбоваться на их ножки! Уж слишком игриво они двигают своими пальчиками в чулочках!'
+    if player.getCorr() > 20 or development == 1:
+        show expression 'pic/locations/school/hall/no6_1.jpg' at top as tempPic
+        'Вам почему то вдруг представилась [st1.name], которая, сидя в классе, показывает всем, что трусиков под колготками не носит.'
+        $ player.incLust(10)
     $ move(curloc)
     
 ######################################################################################################################################
@@ -793,7 +902,11 @@ label event_loc_class1_0_3:
     show class1
     python:
         st1 = getChar('female')
-    show expression 'pic/locations/school/class1/no3.jpg' at top as tempPic
+    show expression 'pic/locations/school/class1/no3.jpg' as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     '[st1.fname] проветривает свои ножки на перемене. Видимо школьная обувь слишком тесна.'
     if player.getCorr() > 50:
         'Будь у вас член, у между ножек бы тоже стало тесно от такого вида. А пока стало влажно. Мммм... Тоже пора проветривать...'
@@ -2917,6 +3030,22 @@ label event_loc_entrance_20_StartClubPanties:
             st1.club = 'pants'
             is_pantiesClub = 1
     $ move(curloc)
+
+label event_loc_entrance_0_new1:
+    show entrance
+    python:
+        if 'skimpy' != school.uniform:
+            skipEvent()
+        st1 = getChar('female')
+        st2 = getChar('female')
+        st1.incLoy(10)
+        st2.incLoy(10)
+    show expression 'pic/locations/school/entrance/sexy1.jpg' at top as tempPic
+    player.say '"Да, весьма неплохо! И груди выпирают, и юбки ничего не прикрывают. Даже отсутствие трусиков..."'
+    'Вы размышляли о красоте введённой вами формы лёжа прямо на земле. И какой только балбес раскидывает здесь банановые кожурки?'
+    '[st1.name] и [st2.fname] помогли вам подняться, извиняясь за то, что намусорили.'
+    player.say '"Всё таки не балбес а балбески..."'
+    $ move(curloc)
     
 label event_loc_entrance_0_1:
     show entrance
@@ -4871,7 +5000,7 @@ label event_loc_beach_60_1:
         hadSex(st1)
         st1.incCorr(5)
         player.incLust(15)
-    show expression 'pic/locations/beach/hi1.jpg':
+    show expression 'pic/locations/beach/hi1.jpg' as tempPic:
         xalign 1.0 yalign 0.0
         ease  10.0 yalign 1.0
         ease  10.0 yalign 0.0
