@@ -8,6 +8,9 @@
     last_inventory = 'inventory_all'
     noEventTime = 0 # Время без эвентов
     
+    movedArray = [] # Тестовый массив перемещённых персонажей
+    
+    
     stat_loy = 0 # Инициализация переменных интерфейса
     stat_fun = 0
     stat_lust = 0
