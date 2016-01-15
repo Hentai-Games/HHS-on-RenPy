@@ -57,6 +57,7 @@ init python:
 
 
     def showChars():
+        changetime(1)
         renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
         renpy.show('temp1', what = Image(getCharImage(player), xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
         renpy.show('temp2', what = Image(getCharImage(interactionObj), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
@@ -131,9 +132,9 @@ screen peopleTextList:
                         elif x == dikovna:
                             actions_list += [Jump('intro_dikovna')]
                         else:
-                            actions_list += [Show('show_stat'), Function(showChars), Function(changetime, 1)]
+                            actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
                     else:
-                        actions_list += [Show('show_stat'), Function(showChars), Function(changetime, 1)]
+                        actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
             textbutton x.name +  ' ' + x.locationStatus.name.lower():
                 action actions_list
                 hovered [SetVariable('showHover',x),Show('showCharStatusText')]
@@ -143,6 +144,7 @@ screen peopleTextList:
 screen locationPeoplePicto:
     tag interface
     fixed xpos 0.01 ypos 0.01:
+        key "game_menu" action Function(move, curloc)
         textbutton 'Назад' action Function(move, curloc)
         $ xalig = 0.2
         $ yalig = 0.05
@@ -158,8 +160,21 @@ screen locationPeoplePicto:
                                                      .events)))
 
                 else:
-                    actions_list += [Show('show_stat'), Function(showChars),
-                                     Function(changetime, 1)]
+                    if x in teachers and x not in teacher_intro:
+                        if x == kupruvna:
+                            actions_list += [Jump('intro_kupruvna')]
+                        elif x == danokova:
+                            actions_list += [Jump('intro_danokova')]
+                        elif x == frigidovna:
+                            actions_list += [Jump('intro_frigidovna')]
+                        elif x == bissektrisovna:
+                            actions_list += [Jump('intro_bissektrisovna')]
+                        elif x == dikovna:
+                            actions_list += [Jump('intro_dikovna')]
+                        else:
+                            actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
+                    else:
+                        actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
 
             imagebutton:
                 idle im.FactorScale(x.picto, pictoSize)
@@ -245,6 +260,7 @@ screen show_stat:
 
             textbutton 'Подарить' xminimum 200 action Show('make_gift_char')
             textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
+            key "game_menu" action Function(move,curloc)
             if development == 1:
                 textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
 
@@ -259,6 +275,7 @@ screen make_gift_char:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action [Function(clrscr),Show('show_stat')]
             textbutton _('Назад') action [Function(clrscr),Show('show_stat')]
 
             $ xalig = 0.2
@@ -288,6 +305,7 @@ screen use_aphrodisiac:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action [Function(clrscr),Show('show_stat')]
             textbutton _('Назад') action [Function(clrscr),Show('show_stat')]
 
             $ xalig = 0.2
@@ -317,6 +335,7 @@ screen inventory_clothing_char:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action Function(move, curloc)
             textbutton _('Назад') action Function(move, curloc)
             $ xalig = 0.2
         $ yalig = 0.05

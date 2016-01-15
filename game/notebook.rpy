@@ -8,6 +8,7 @@ label notebook:
 screen notebook:
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action [Show('stats_screen'), Hide('studList'), Hide('teacherList'), Hide('personalInfo'), Hide('charInfoLeft'), Function(move, curloc)]
             textbutton _('Назад') action [Show('stats_screen'), Hide('studList'), Hide('teacherList'), Hide('personalInfo'), Hide('charInfoLeft'), Function(move, curloc)]
             textbutton _('Вы') action [Hide ('charInfoLeft'), Show('personalInfo')]
             textbutton _('Список учеников') action Show('studList')
