@@ -4,7 +4,7 @@ init -20 python:
     from operator import itemgetter, attrgetter, methodcaller
 
     ###################################################################
-    #Класс частей тела
+    # Класс частей тела
     ###################################################################
 
     class BodyPart():
@@ -191,7 +191,7 @@ init -20 python:
         # Создание случайного персонажа с полом sex ('male', 'female' или 'futa') и картинкой picto
         @classmethod
         def random(cls, sex, picto):
-            #выбор пола
+            # выбор пола
             body = Body()
             if sex == 'female':
                 body = FemaleBody.random()
@@ -225,51 +225,51 @@ init -20 python:
             return self.fname + ' ' + self.lname
             
 ###################################################################
-#Incrementers
+# Incrementers
 ###################################################################
 
-# Измнение loyalty
+# Изменение loyalty
         def incLoy(self,amount):
             self.stats.loyalty += amount*max(0.1, (100 - self.getWill()/2)/100)
-# Измнение fun
+# Изменение fun
         def incFun(self,amount):
             self.stats.fun += amount
-# Измнение развратности
+# Изменение развратности
         def incCorr(self,amount):
             if self != player:
                 self.stats.corr += amount*max(0.1, (100 - self.getWill()/2)/100)
             else:
                 self.stats.corr += amount
-# Измнение lust
+# Изменение lust
         def incLust(self,amount):
             self.stats.lust += amount
-# Измнение will
+# Изменение will
         def incWill(self,amount):
             self.stats.will += amount
-# Измнение education
+# Изменение education
         def incEdu(self,amount):
             self.stats.education += amount
-# Измнение health
+# Изменение health
         def incHealth(self,amount):
             self.stats.health += amount
-# Измнение intelligence
+# Изменение intelligence
         def incIntel(self,amount):
             self.stats.intelligence += amount
-# Измнение beauty
+# Изменение beauty
         def incBeauty(self,amount):
             self.stats.beauty += amount
-# Измнение reputation
+# Изменение reputation
         def incRep(self,amount):
             self.stats.reputation += amount
-# Измнение energy
+# Изменение energy
         def incEnergy(self,amount):
             self.stats.energy += amount
-# Измнение dirty
+# Изменение dirty
         def incDirty(self,amount):
             self.stats.dirty += amount
             
 ###################################################################
-#Setters
+# Setters
 ###################################################################
 
 # Измнение loyalty
@@ -372,9 +372,9 @@ init -20 python:
                         return 'female'
             
 ###################################################################
-#инвентарь
+# инвентарь
 ###################################################################
-        #Добавление нескольких предметов в инвентарь
+        # Добавление нескольких предметов в инвентарь
         def addItems(self,*args):
             flag = 0
             for x in args:
@@ -389,7 +389,7 @@ init -20 python:
                 renpy.say('','ITEMS ARE NOT ADDED!')
                 return False
 
-        #Добавлние одного предмета (можно использовать и addItems) просто на всякий пожарный.
+        # Добавление одного предмета (можно использовать и addItems) просто на всякий пожарный.
         def addItem(self,item):
             temp = copy.copy(item)
             self.inventory.append(temp)
@@ -508,7 +508,7 @@ init -20 python:
             food.durability -= 1
             self.checkDur()
 
-        #Есть ли сперма вообще
+        # Есть ли сперма вообще
         def isSperm(self):
             parts = self.body.partsWithSperm()
             for i in parts:
@@ -516,7 +516,7 @@ init -20 python:
                     return 2
             return 1 if len(parts) > 0 else 0
 
-        #Если ли сперма на чём то из
+        # Если ли сперма на чём то из
         def getSperm(self,*args):
             partNames = [x.name for x in self.body.partsWithSperm()]
             for x in args:
@@ -524,24 +524,24 @@ init -20 python:
                     return True
             return False
 
-        #Возвратить стрингу с перечислением заляпанных частей тела
+        # Возвратить стрингу с перечислением заляпанных частей тела
         def printSperm(self):
             partNames = [x.name for x in self.body.partsWithSperm()]
             return ", ".join(partNames)
 
-        #Заляпать спермой части тела
+        # Заляпать спермой части тела
         def coverSperm(self, *args):
             for x in args:
                 if x in self.body.parts:
                     self.body.parts[x].sperm = True
 
-        #Помыться
+        # Помыться
         def cleanAll(self):
             self.stats.dirty = 0
             for _,x in self.body.parts.iteritems():
                 x.sperm = False
 
-        #Очистить часть тела
+        # Очистить часть тела
         def clean(self, *args):
             for x in args:
                 if x in self.body.parts:
@@ -593,7 +593,7 @@ init -20 python:
                     counter += 1
             return counter
             
-        #Сброс переменных
+        # Сброс переменных
         def reset(self):
             self.normalize()
 

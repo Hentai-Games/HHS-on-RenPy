@@ -9,7 +9,7 @@ init python:
 # Основной скрин статистики
 ##############################################################################
 screen stats_screen:
- #   tag interface
+    # tag interface
     fixed xpos 0.01 ypos 0.01:
         vbox xmaximum config.screen_width/2:
             $ currtime = gettime()
@@ -23,7 +23,7 @@ screen stats_screen:
             if development > 0:    
                 textbutton ('Список эвентов') action Show('pomogator') style "small_button" text_style "small_button_text" xalign 0.0
             
-            #Warnings
+            # Warnings
             if ptime - last_eat > 24:
                 text _('Вы голодаете') style style.warning
             elif ptime - last_eat > 15:
@@ -38,11 +38,11 @@ screen stats_screen:
             if player.getDirty() == 2:
                 text _('Вы вспотели') style style.my_text
             if player.getDirty() == 3:
-                text _('От Вас воняет') style style.my_text
+                text _('От вас воняет') style style.my_text
             if player.getDirty() >= 4:
                 text _('От вас воняет, как от последнего бомжа') style style.warning
 
-            #Buttons
+            # Buttons
             hbox style style.myBox:
                 if player.getSperm('лицо') == True:
                     imagebutton auto 'pic/actions/face_%s.png' action Jump('cleanFace')
@@ -225,7 +225,7 @@ screen inventory_all:
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
             textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
-            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Спецвещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
             textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
         $ xalig = 0.2
         $ yalig = 0.05
@@ -309,7 +309,7 @@ screen inventory:
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
             textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
-            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Спецвещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
             textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
         $ xalig = 0.2
         $ yalig = 0.05
@@ -357,7 +357,7 @@ screen inventory_clothing:
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
             textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
-            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Спецвещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
             textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
     # viewport:
         # scrollbars "vertical"
@@ -409,7 +409,7 @@ screen inventory_presents:
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
             textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
-            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Спецвещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
             textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
 
         $ xalig = 0.2
@@ -441,7 +441,7 @@ screen inventory_sexShop:
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
             textbutton _('Подарки') action [SetVariable('last_inventory','inventory_presents'), Function(clrscr), Show('inventory_presents')]
-            textbutton _('Спец вещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
+            textbutton _('Спецвещи') action [SetVariable('last_inventory','inventory_sexShop'), Function(clrscr),Show('inventory_sexShop')]
             textbutton _('Разное') action [SetVariable('last_inventory','inventory'), Function(clrscr),Show('inventory')]
 
         $ xalig = 0.2
