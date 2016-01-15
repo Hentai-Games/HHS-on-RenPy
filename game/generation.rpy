@@ -674,4 +674,6 @@ label skipall:
     $ teachers = _teachers
     $ school.getBudget()
     $ hourlyReset()
+    if development == 1:
+        $ setLust(200,100)
     $ move('myintro')

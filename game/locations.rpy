@@ -98,7 +98,6 @@ init 10 python:
             for x in statuses:
                 try:
                     self.addStatus(x[0], x[1])
-
                 except TypeError:
                     self.addStatus(x)
 
@@ -114,16 +113,15 @@ init 10 python:
             for status, prob, _ in self.__statuses:
                 for _ in xrange(int(round(prob/min_prob))):
                     rez.append(status)
-
             return rez
 
         def eraseStatuses(self):
             # сносит все статусы с локации
             self.__statuses[:] = []
 
-        def removeStatus(self, status):
+        def removeStatus(self, rStatus):
             for x in self.__statuses:
-                if x == status:
+                if rStatus.name == x:
                     self.__statuses.remove(x)
 
     class Event:
@@ -296,71 +294,72 @@ init 10 python:
                         if qwest.id not in qwests:
                             location.qwests.append(qwest) #добавляем его в массив эвентов локации
         return 0
-
-#Создание массива всех локаций
     _locs = renpy.get_all_labels()
-    for x in _locs:
-        if x[:4] == 'loc_':
-            if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = -1, position = ['home','safe'])
-            elif x == 'loc_bedroom': loc = Location(id = x, name = 'спальня', base_prob = -1, position = ['home','safe'])
-            elif x == 'loc_bathroom': loc = Location(id = x, name = 'ванная', base_prob = -1, position = ['home','safe'])
-            elif x == 'loc_kitchen': loc = Location(id = x, name = 'кухня', base_prob = -1, position = ['home','safe'])
+#Создание массива всех локаций
+    def genLocs():
 
-            elif x == 'loc_street': loc = Location(id = x, name = 'улица', base_prob = 20, position = ['other'])
-            elif x == 'loc_beach': loc = Location(id = x, name = 'пляж', base_prob = 30, position = ['other','swim'])
-            elif x == 'loc_beachChange': loc = Location(id = x, name = 'раздевалка', base_prob = -1, position = ['safe','other','change'])
-            elif x == 'loc_shopStreet': loc = Location(id = x, name = 'торговая улица', base_prob = 20, position = ['other'])
-            elif x == 'loc_shop': loc = Location(id = x, name = 'магазин', base_prob = 10, position = ['other'])
-            elif x == 'loc_shopBeauty': loc = Location(id = x, name = 'салон красоты', base_prob = 10, position = ['other'])
-            elif x == 'loc_sexShop': loc = Location(id = x, name = 'сексшоп', base_prob = 5, position = ['other'])
+        for x in _locs:
+            if x[:4] == 'loc_':
+                if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = -1, position = ['home','safe'])
+                elif x == 'loc_bedroom': loc = Location(id = x, name = 'спальня', base_prob = -1, position = ['home','safe'])
+                elif x == 'loc_bathroom': loc = Location(id = x, name = 'ванная', base_prob = -1, position = ['home','safe'])
+                elif x == 'loc_kitchen': loc = Location(id = x, name = 'кухня', base_prob = -1, position = ['home','safe'])
 
-            elif x == 'loc_hall': loc = Location(id = x, name = 'холл', base_prob = 15, position = ['school'])
-            elif x == 'loc_dungeon': loc = Location(id = x, name = 'подвал', base_prob = -1, position = ['school'])
-            elif x == 'loc_entrance': loc = Location(id = x, name = 'вход', base_prob = 20, position = ['school'])
-            elif x == 'loc_library': loc = Location(id = x, name = 'библиотека', base_prob = 10, position = ['school'])
-            elif x == 'loc_changeRoom': loc = Location(id = x, name = 'школьная раздевалка', base_prob = 5, position = ['school','safe','change'])
-            elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 20, position = ['school','classroom','sport'])
-            elif x == 'loc_pool': loc = Location(id = x, name = 'бассейн', base_prob = 20, position = ['school','classroom','swim'])
-            elif x == 'loc_firstFloor': loc = Location(id = x, name = 'первый этаж', base_prob = 20, position = ['school'])
-            elif x == 'loc_secondFloor': loc = Location(id = x, name = 'второй этаж', base_prob = 20, position = ['school'])
-            elif x == 'loc_class1': loc = Location(id = x, name = 'Класс 1', base_prob = 5, position = ['school','classroom'])
-            elif x == 'loc_class2': loc = Location(id = x, name = 'Класс 2', base_prob = 5, position = ['school','classroom'])
-            elif x == 'loc_class3': loc = Location(id = x, name = 'Класс 3', base_prob = 5, position = ['school','classroom'])
-            elif x == 'loc_class4': loc = Location(id = x, name = 'Класс 4', base_prob = 5, position = ['school','classroom'])
-            elif x == 'loc_class5': loc = Location(id = x, name = 'Класс 5', base_prob = 5, position = ['school','classroom'])
-            elif x == 'loc_teacherRoom': loc = Location(id = x, name = 'учительская', base_prob = 0, position = ['school'])
-            elif x == 'loc_wcm': loc = Location(id = x, name = 'Туалет для мальчиков', base_prob = 5, position = ['school'])
-            elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 5, position = ['school'])
-            elif x == 'loc_storage': loc = Location(id = x, name = 'кладовка', base_prob = 5, position = ['school'])
-            elif x == 'loc_chemlab': loc = Location(id = x, name = 'Лаборатория', base_prob = -1, position = ['school'])
-            elif x == 'loc_doctor': loc = Location(id = x, name = 'Медицинский кабинет', base_prob = 2, position = ['school'])
-            elif x == 'loc_office': loc = Location(id = x, name = 'офис', base_prob = 0, position = ['safe','school'])
+                elif x == 'loc_street': loc = Location(id = x, name = 'улица', base_prob = 20, position = ['other'])
+                elif x == 'loc_beach': loc = Location(id = x, name = 'пляж', base_prob = 30, position = ['other','swim'])
+                elif x == 'loc_beachChange': loc = Location(id = x, name = 'раздевалка', base_prob = -1, position = ['safe','other','change'])
+                elif x == 'loc_shopStreet': loc = Location(id = x, name = 'торговая улица', base_prob = 20, position = ['other'])
+                elif x == 'loc_shop': loc = Location(id = x, name = 'магазин', base_prob = 10, position = ['other'])
+                elif x == 'loc_shopBeauty': loc = Location(id = x, name = 'салон красоты', base_prob = 10, position = ['other'])
+                elif x == 'loc_sexShop': loc = Location(id = x, name = 'сексшоп', base_prob = 5, position = ['other'])
 
-            elif x == 'loc_dreams': loc = Location(id = x, name = 'Сны', base_prob = -1, position = ['self'])
-            elif x == 'loc_swim': loc = Location(id = x, name = 'Плавание', base_prob = -1, position = ['self'])
-            elif x == 'loc_run': loc = Location(id = x, name = 'Бег', base_prob = -1, position = ['self'])
-            elif x == 'loc_taxi': loc = Location(id = x, name = 'Такси', base_prob = -1, position = ['self'])
-            elif x == 'loc_gloryHole': loc = Location(id = x, name = 'Глорихол', base_prob = 0, position = ['self'])
+                elif x == 'loc_hall': loc = Location(id = x, name = 'холл', base_prob = 15, position = ['school'])
+                elif x == 'loc_dungeon': loc = Location(id = x, name = 'подвал', base_prob = -1, position = ['school'])
+                elif x == 'loc_entrance': loc = Location(id = x, name = 'вход', base_prob = 20, position = ['school'])
+                elif x == 'loc_library': loc = Location(id = x, name = 'библиотека', base_prob = 10, position = ['school'])
+                elif x == 'loc_changeRoom': loc = Location(id = x, name = 'школьная раздевалка', base_prob = 5, position = ['school','safe','change'])
+                elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 20, position = ['school','classroom','sport'])
+                elif x == 'loc_pool': loc = Location(id = x, name = 'бассейн', base_prob = 20, position = ['school','classroom','swim'])
+                elif x == 'loc_firstFloor': loc = Location(id = x, name = 'первый этаж', base_prob = 20, position = ['school'])
+                elif x == 'loc_secondFloor': loc = Location(id = x, name = 'второй этаж', base_prob = 20, position = ['school'])
+                elif x == 'loc_class1': loc = Location(id = x, name = 'Класс 1', base_prob = 10, position = ['school','classroom'])
+                elif x == 'loc_class2': loc = Location(id = x, name = 'Класс 2', base_prob = 10, position = ['school','classroom'])
+                elif x == 'loc_class3': loc = Location(id = x, name = 'Класс 3', base_prob = 10, position = ['school','classroom'])
+                elif x == 'loc_class4': loc = Location(id = x, name = 'Класс 4', base_prob = 10, position = ['school','classroom'])
+                elif x == 'loc_class5': loc = Location(id = x, name = 'Класс 5', base_prob = 10, position = ['school','classroom'])
+                elif x == 'loc_teacherRoom': loc = Location(id = x, name = 'учительская', base_prob = 0, position = ['school'])
+                elif x == 'loc_wcm': loc = Location(id = x, name = 'Туалет для мальчиков', base_prob = 5, position = ['school'])
+                elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 5, position = ['school'])
+                elif x == 'loc_storage': loc = Location(id = x, name = 'кладовка', base_prob = 5, position = ['school'])
+                elif x == 'loc_chemlab': loc = Location(id = x, name = 'Лаборатория', base_prob = -1, position = ['school'])
+                elif x == 'loc_doctor': loc = Location(id = x, name = 'Медицинский кабинет', base_prob = 2, position = ['school'])
+                elif x == 'loc_office': loc = Location(id = x, name = 'офис', base_prob = -1, position = ['safe','school'])
 
-            elif x == 'loc_class1Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
-            elif x == 'loc_class2Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
-            elif x == 'loc_class3Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
-            elif x == 'loc_class4Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
-            elif x == 'loc_class5Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
-            elif x == 'loc_gymLearn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
-            elif x == 'loc_poolLearn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
-            elif x == 'loc_cabbage': loc = Location(id = x, name = 'Капуста', base_prob = -1, position = ['tech'])
-            elif x == 'loc_shower': loc = Location(id = x, name = 'Душ', base_prob = -1, position = ['tech'])
-            elif x == 'loc_ahmedSex': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
-            elif x == 'loc_ahmedFootjob': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
-            elif x == 'loc_ahmedSuck': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
-            else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
-            locations.append(loc)
+                elif x == 'loc_dreams': loc = Location(id = x, name = 'Сны', base_prob = -1, position = ['self'])
+                elif x == 'loc_swim': loc = Location(id = x, name = 'Плавание', base_prob = -1, position = ['self'])
+                elif x == 'loc_run': loc = Location(id = x, name = 'Бег', base_prob = -1, position = ['self'])
+                elif x == 'loc_taxi': loc = Location(id = x, name = 'Такси', base_prob = -1, position = ['self'])
+                elif x == 'loc_gloryHole': loc = Location(id = x, name = 'Глорихол', base_prob = 0, position = ['self'])
 
-            # For tests
-            #test_loc_status = LocationStatus('TEST', None, 'any', events=['cleanAss'])
-            #loc.addStatus(test_loc_status, 50)
+                elif x == 'loc_class1Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
+                elif x == 'loc_class2Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
+                elif x == 'loc_class3Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
+                elif x == 'loc_class4Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
+                elif x == 'loc_class5Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
+                elif x == 'loc_gymLearn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
+                elif x == 'loc_poolLearn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
+                elif x == 'loc_cabbage': loc = Location(id = x, name = 'Капуста', base_prob = -1, position = ['tech'])
+                elif x == 'loc_shower': loc = Location(id = x, name = 'Душ', base_prob = -1, position = ['tech'])
+                elif x == 'loc_ahmedSex': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
+                elif x == 'loc_ahmedFootjob': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
+                elif x == 'loc_ahmedSuck': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
+                else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
+                locations.append(loc)
 
+                # For tests
+                #test_loc_status = LocationStatus('TEST', None, 'any', events=['cleanAss'])
+                #loc.addStatus(test_loc_status, 50)
+    genLocs() # генерирую локации
     getEvents() #добавляю всем эвенты
     getQwests() #добавляю квесты
 ######################################################
@@ -532,7 +531,8 @@ label test:
     # show expression 'pic/status/male_toy.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
     # ''
     # $move(curloc)
-    jump danokova_office_pencil
+    $ changetime(60*24)
+    $ move('loc_home')
 
 ##############################################################
 # Home

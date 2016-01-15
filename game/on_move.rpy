@@ -12,7 +12,9 @@ init python:
 #базовая функция перемещения. Использовать всегда и всюду
     from random import shuffle
     def move(where):
-        global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime  #объявление глобальных переменных
+        global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime, development  #объявление глобальных переменных
+        if development == 1:    
+            player.setEnergy(2000)
         temp = school
         school = None
         school = temp
@@ -47,10 +49,8 @@ init python:
                 checkSperm(tempLoc) # снятие репутации за сперму.
                 checkOrgasm(tempLoc) # проверка на перевозбуждение
                 checkMisc() # Прочие мелкие проверки
-                if 'school' in getLoc(curloc).position and lt() == 0 and 'pants' in school.clubs and len(getClubChars('pants')) > 0 and ptime - timeGetPanties > 24 and rand(1,3) == 1: # В школе на перемену, если есть кто то в клубе трусиков и он открыт, вам их отдадут
-                    renpy.jump('getPanties')
                 
-            if rand(1,100) < 10 + noEventTime and where[:4] == 'loc_' and same_loc == 0:
+            if rand(1,100) < 10 + noEventTime and len(getLoc(curloc).getPeople()) > 0 and  same_loc == 0: # Если на локации кто то есть и локация поменялась, дёргаем эвент по рандому
                 tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
             
@@ -302,3 +302,7 @@ init python:
                 renpy.jump('splitSystem_cold')
             if temperature > 35 and same_loc == 0:
                 renpy.jump('splitSystem_hot')
+                
+        # В школе на перемену, если есть кто то в клубе трусиков и он открыт, вам их отдадут
+        if 'school' in getLoc(curloc).position and lt() == 0 and 'pants' in school.clubs and len(getClubChars('pants')) > 0 and ptime - timeGetPanties > 24 and rand(1,3) == 1: 
+            renpy.jump('getPanties')
