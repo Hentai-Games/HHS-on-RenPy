@@ -57,6 +57,7 @@ init python:
 
 
     def showChars():
+        changetime(1)
         renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
         renpy.show('temp1', what = Image(getCharImage(player), xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
         renpy.show('temp2', what = Image(getCharImage(interactionObj), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
@@ -131,9 +132,9 @@ screen peopleTextList:
                         elif x == dikovna:
                             actions_list += [Jump('intro_dikovna')]
                         else:
-                            actions_list += [Show('show_stat'), Function(showChars), Function(changetime, 1)]
+                            actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
                     else:
-                        actions_list += [Show('show_stat'), Function(showChars), Function(changetime, 1)]
+                        actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
             textbutton x.name +  ' ' + x.locationStatus.name.lower():
                 action actions_list
                 hovered [SetVariable('showHover',x),Show('showCharStatusText')]
@@ -159,8 +160,21 @@ screen locationPeoplePicto:
                                                      .events)))
 
                 else:
-                    actions_list += [Show('show_stat'), Function(showChars),
-                                     Function(changetime, 1)]
+                    if x in teachers and x not in teacher_intro:
+                        if x == kupruvna:
+                            actions_list += [Jump('intro_kupruvna')]
+                        elif x == danokova:
+                            actions_list += [Jump('intro_danokova')]
+                        elif x == frigidovna:
+                            actions_list += [Jump('intro_frigidovna')]
+                        elif x == bissektrisovna:
+                            actions_list += [Jump('intro_bissektrisovna')]
+                        elif x == dikovna:
+                            actions_list += [Jump('intro_dikovna')]
+                        else:
+                            actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
+                    else:
+                        actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
 
             imagebutton:
                 idle im.FactorScale(x.picto, pictoSize)
