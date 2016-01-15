@@ -32,7 +32,7 @@ init python:
             pedicure -= 1
         
         # Олимпиада
-        if (rand(1,10) == 1 or development > 0) and olympiad.month != month and olympiad.active == False and weekday <= 5:
+        if (rand(1,10) == 1 ) and olympiad.month != month and olympiad.active == False and weekday <= 5:
             olympiad.month = month
             olympiad.weekday = weekday + 2
             if olympiad.weekday > 5:

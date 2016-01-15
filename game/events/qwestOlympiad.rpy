@@ -20,7 +20,7 @@ label olympiad_edu:
                 python:
                     olympiad.score += int(player.getIntel()/100)
                     setLoy(5,5)
-                    changetime(60)
+                    changetime(60*3)
                     player.incEnergy(-120)
             'Заниматься с учителем':
                 show expression 'pic/events/olimpic/2.jpg' at top as tempPic
@@ -29,7 +29,7 @@ label olympiad_edu:
                 'Ваши шансы выиграть олимпиаду выросли.'
                 python:
                     olympiad.score += int(player.getIntel()/100 + teacher.getEdu()/100)
-                    changetime(60)
+                    changetime(60*3)
                     player.incEnergy(-120)
     $ move(curloc)
     
@@ -48,7 +48,7 @@ label olympiad_go:
         for x in olympiad_schools:
             if x > olympiad.score:
                 place += 1
-    
+    show entrance
     'Сегодня день олимпиады. Вы собрали своих учеников и отправились на соревнования по интеллекту.'
     if place == 1:
         python:

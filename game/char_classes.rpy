@@ -757,14 +757,16 @@ init -20 python:
 
                 for stat, (mod, max_val) in status.stats_actions.items():
                     char_stat = getattr(self.stats, stat)
-                    
+
                     # Stat will be limited by max_val, if modificator is #
                     # negative - status will not go lower than max_val
                     if mod > 0:
-                        char_stat = min(max_val, char_stat+mod)
+                        if char_stat+mod > max_val:
+                            mod = 0
                     else:
-                        char_stat = max(max_val, char_stat+mod)
-
+                        if char_stat+mod <= max_val:
+                            mod = 0
+                    
                     if stat == 'loyalty':
                         self.incLoy(mod)
                     elif stat == 'fun':
