@@ -10,7 +10,8 @@ init:
     $ avCorr = 0
     
 screen say:
-
+    key "K_SPACE" action HideInterface()
+    key "game_menu" action NullAction()
     # Умолчания для side_image и two_window
     default side_image = None
     default two_window = False
