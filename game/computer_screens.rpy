@@ -12,6 +12,7 @@ screen compScreen:
     add 'pic/bg.png'
     
     fixed xpos 0.01 ypos 0.01:
+        key "game_menu" action Function(move, curloc)
         textbutton _('Назад') action Function(move, curloc)
         
     frame ypos 0.01 xalign 1.0 style style.myFrame:
@@ -48,13 +49,13 @@ screen description(what):
             elif what == 'skimpy':
                 text _('Совершенно нетрадиционная форма. Юбки укорачиваются до состояния пояса, кружевные чулки и глубокие вырезы поощряются, нижнее бельё порицается. Необходима высокая развратность учителей, чтобы ввести эту форму.')
             elif what == 'naked':
-                text _('Голая форма требует пройти проверку на развратность у учителей. Она даст сильное снижение скромности учителей и учеников ежедневно, вплоть до нуля. Так же она повысит развратность учителей и учеников ежедневно, вплоть до максимума.')
+                text _('Голая форма требует пройти проверку на развратность у учителей. Она даст сильное снижение скромности учителей и учеников ежедневно, вплоть до нуля. Так же она будет повышать развратность учителей и учеников ежедневно, вплоть до максимума.')
             elif what == 'education':
                 text _('Студенты могут оставаться на дополнительные занятия в третьем классе, после конца уроков, что улучшит их образование и поведение.')
             elif what == 'cleaning':
                 text _('Студенты могут убирать кабинеты после уроков, что уменьшит их счастье.')
             elif what == 'streetCleaning':
-                text _('Студенты могут убирать улицы, что принесёт Вам небольшой ежедневный доход и уменьшит их счастье. Нужно одобрение педсовета.')
+                text _('Студенты могут убирать улицы, что принесёт вам небольшой ежедневный доход и уменьшит их счастье. Нужно одобрение педсовета.')
             elif what == 'no':
                 text _('Студенты не будут никак наказываться, что уменьшит их послушность и увеличит счастье. Нужно одобрение педсовета.')
             elif what == 'upskirt':
@@ -62,7 +63,7 @@ screen description(what):
             elif what == 'eduPoor':
                 text _('Б/у материалы - это старые учебники, книги купленные у старьёвщиков и на распродаже, самый низкокачественный и плохой продукт, который можно найти.')
             elif what == 'eduStandart':
-                text _('Обычные учебники - всё как у всех. Есть несколько хороших учебников, они хранятся в школе, и передаются из класса в класс. В основном материалы немного устаревшие, но Вы и не ставите перед собой задачу вырастить академиков.')
+                text _('Обычные учебники - всё как у всех. Есть несколько хороших учебников, они хранятся в школе и передаются из класса в класс. В основном материалы немного устаревшие, но вы и не ставите перед собой задачу вырастить академиков.')
             elif what == 'eduGood':
                 text _('Высококлассная литература - это качественная, написанная по последнему слову педагогики, литература рассчитанная на все виды образовательной деятельности. Это прекрасные учебники, по которым приятно, и полезно учиться.')
             elif what == 'eduSexy':
@@ -80,22 +81,22 @@ screen description(what):
             elif what == 'video':
                 text _('Видео с интересным контентом будет закуплено для уроков английского языка.')
             elif what == 'bed':
-                text _('При покупке вы сможете спать прямо в офисе. Смотрите не сгорите на работе!')
+                text _('При покупке вы сможете спать прямо в офисе. Смотрите, не сгорите на работе!')
             elif what == 'wall':
                 text _('Постройка стены скроет школу от лишних глаз.')
             elif what == 'library':
-                text _('Библиотека. Что тут ещё можно сказать? Вы войдёте в историю школу этой постройкой!')
+                text _('Библиотека. Что тут ещё можно сказать? Вы войдёте в историю школы этой постройкой!')
             elif what == 'chemlab':
                 text _('Химическая лаборатория. Интересно, что там можно исследовать?')
             elif what == 'dungeon':
-                text _('Подвал в котором можно заключать учеников.')
+                text _('Подвал, в котором можно заключать учеников.')
             elif what == 'doctor':
                 text _('Медицинский кабинет. Медсестра прилагается.')
             elif what == 'dildo':
                 text _('Наглядные пособия будут закуплены для занятий cексуального просвящения. Очень наглядные. И практичные.')
             elif what == 'cherleader':
                 vbox:
-                    text _('Клуб черлидеров.')
+                    text _('Клуб чирлидеров.')
                     text _('Команда поддержки вашего спортивного клуба. Девушки, короткие юбчонки, помпоны. Что может быть прекрасней и веселей? Разве что девушки без юбчонок...')
                     text _('Стоимость клуба - 200 монет в день')
                     text _('Занятия клуба проводятся в спортзале в понедельник, среду и пятницу с 15 до 18.')
@@ -138,7 +139,7 @@ screen clubs:
     fixed xpos 0.3 ypos 0.1:
         vbox:
             if is_cherleaderClub == 1:
-                textbutton _('Клуб черлидеров') action [
+                textbutton _('Клуб чирлидеров') action [
                     If('cherleader' in school.clubs, false=[Function(school.addClub,'cherleader'),Show('clubs')],true = [Function(school.removeClub,'cherleader'),Show('clubs')]),
                     SelectedIf('cherleader' in school.clubs),
                     SensitiveIf('sport' in school.clubs)
@@ -202,7 +203,7 @@ screen furniture:
     fixed xpos 0.3 ypos 0.1:
         vbox:
             text _('Дополнительные предметы в классах')
-            textbutton _('Анатомические манекены (Бюджет - 20000)') action [
+            textbutton _('Анатомические манекены (бюджет - 20000)') action [
                 If('manec' in school.furniture, false=Show('preVoting', None, 'corr', 20, 'manec')),
                 SelectedIf('manec' in school.furniture),
                 SensitiveIf(school.budget > 20000 or 'manec' in school.furniture)
@@ -212,7 +213,7 @@ screen furniture:
                 Hide('description') # При потере фокуса - скрывается
                 ]
                 
-            textbutton _('Обучающие видео (Бюджет - 10000)') action [
+            textbutton _('Обучающие видео (бюджет - 10000)') action [
                 If('video' in school.furniture, false=Show('preVoting', None, 'corr', 40, 'video')),
                 SelectedIf('video' in school.furniture),
                 SensitiveIf(school.budget > 10000 or 'video' in school.furniture)
@@ -222,7 +223,7 @@ screen furniture:
                 Hide('description') # При потере фокуса - скрывается
                 ]
                 
-            textbutton _('Наглядные пособия (Бюджет - 15000)') action [
+            textbutton _('Наглядные пособия (бюджет - 15000)') action [
                 If('dildo' in school.furniture, false=Show('preVoting', None, 'corr', 25, 'dildo')),
                 SelectedIf('dildo' in school.furniture),
                 SensitiveIf(school.budget > 15000 or 'dildo' in school.furniture)
@@ -234,7 +235,7 @@ screen furniture:
                 
                 
             text _('\nСтроения и мебель')
-            textbutton _('Кондиционер в офис (Стоимость - 2000)') action [
+            textbutton _('Кондиционер в офис (стоимость - 2000)') action [
                 If('splitSystem' in school.furniture, false=Show('preVoting', None, 'loy', 0, 'splitSystem')),
                 SelectedIf('splitSystem' in school.furniture),
                 SensitiveIf(player.money > 2000 or 'splitSystem' in school.furniture)
@@ -244,7 +245,7 @@ screen furniture:
                 Hide('description') # При потере фокуса - скрывается
                 ]
                 
-            textbutton _('Кровать в офис (Стоимость - 2000)') action [
+            textbutton _('Кровать в офис (стоимость - 2000)') action [
                 If('bed' in school.furniture, false=Show('preVoting', None, 'loy', 15, 'bed')),
                 SelectedIf('bed' in school.furniture),
                 SensitiveIf(player.money > 2000 or 'bed' in school.furniture)
@@ -254,7 +255,7 @@ screen furniture:
                 Hide('description') # При потере фокуса - скрывается
                 ]
             
-            textbutton _('Хим лаборатория (Бюджет - 75000)') action [
+            textbutton _('Химлаборатория (бюджет - 75000)') action [
                 If('chemlab' in school.buildings, false=Show('preVoting', None, 'loy', 50, 'chemlab')),
                 SelectedIf('chemlab' in school.furniture),
                 SensitiveIf(school.budget > 75000 or 'chemlab' in school.furniture)
@@ -264,7 +265,7 @@ screen furniture:
                 Hide('description') # При потере фокуса - скрывается
                 ]
                 
-            textbutton _('Медицинский кабинет (Бюджет - 25000)') action [
+            textbutton _('Медицинский кабинет (бюджет - 25000)') action [
                 If('doctor' in school.buildings, false=Show('preVoting', None, 'loy', 25, 'doctor')),
                 SelectedIf('doctor' in school.furniture),
                 SensitiveIf(school.budget > 25000 or 'doctor' in school.furniture)
@@ -274,7 +275,7 @@ screen furniture:
                 Hide('description') # При потере фокуса - скрывается
                 ]
                 
-            textbutton _('Стена вокруг школы (Бюджет - 100000)') action [
+            textbutton _('Стена вокруг школы (бюджет - 100000)') action [
                 If('wall' in school.buildings, false=Show('preVoting', None, 'corr', 20, 'wall')),
                 SelectedIf('wall' in school.buildings),
                 SensitiveIf(school.budget > 100000 or 'wall' in school.buildings)
@@ -284,7 +285,7 @@ screen furniture:
                 Hide('description') # При потере фокуса - скрывается
                 ]
                 
-            textbutton _('Библиотека (Бюджет - 150000)') action [
+            textbutton _('Библиотека (бюджет - 150000)') action [
                 If('library' in school.buildings, false=Show('preVoting', None, 'loy', 15, 'library')),
                 SelectedIf('library' in school.buildings),
                 SensitiveIf(school.budget > 150000 or 'library' in school.buildings)
@@ -294,7 +295,7 @@ screen furniture:
                 Hide('description') # При потере фокуса - скрывается
                 ]
                 
-            textbutton _('Подвал (Бюджет - 100000)') action [
+            textbutton _('Подвал (бюджет - 100000)') action [
                 If('dungeon' in school.buildings, false=Show('preVoting', None, 'corr', 50, 'dungeon')),
                 SelectedIf('dungeon' in school.buildings),
                 SensitiveIf(school.budget > 100000 or 'dungeon' in school.buildings)
@@ -463,7 +464,7 @@ screen eduMats:
     tag compScreens
     fixed xpos 0.3 ypos 0.1:
         vbox:
-            textbutton _('Б/У материалы') action [
+            textbutton _('Б/у материалы') action [
                 SelectedIf(school.eduMats == 'poor'),
                 SetField(school,'eduMats','poor')
                 ] hovered [
@@ -471,7 +472,7 @@ screen eduMats:
                 ] unhovered [
                 Hide('description')
                 ]
-            textbutton _('Стантартные (Бюджет - 5 000)') action [
+            textbutton _('Стантартные (бюджет - 5 000)') action [
                 SelectedIf(school.eduMats == 'standart'),
                 If('standart' in school.unlockedEduMats, false=[SetField(school,'budget',school.budget - 5000),Function(school.addEduMat,'standart')]),
                 SetField(school,'eduMats','standart'),
@@ -481,7 +482,7 @@ screen eduMats:
                 ] unhovered [
                 Hide('description')
                 ]
-            textbutton _('Хорошие (Бюджет - 15 000)') action [
+            textbutton _('Хорошие (бюджет - 15 000)') action [
                 SelectedIf(school.eduMats == 'good'),
                 If('good' in school.unlockedEduMats, false=[SetField(school,'budget',school.budget - 15000),Function(school.addEduMat,'good')]),
                 SetField(school,'eduMats','good'),
@@ -491,7 +492,7 @@ screen eduMats:
                 ] unhovered [
                 Hide('description')
                 ]
-            textbutton _('"Нестандартные" (Бюджет - 50 000)') action [
+            textbutton _('"Нестандартные" (бюджет - 50 000)') action [
                 If('eduSexy' in school.unlockedEduMats, false=Show('preVoting', None, 'corr', 25, 'eduSexy'), true=SetField(school,'eduMats','eduSexy')),
                 SensitiveIf('eduSexy' in school.unlockedEduMats or school.budget >= 50000)
                 ] hovered [
@@ -571,7 +572,7 @@ screen voting(type,amount,what): # Просто скрин для наглядн
                 if mile_qwest_2_stage in [10,11] and teacher == kupruvna:
                     $ amount = -1
                 vbox:
-                    if teacher not in [dante, gonoreevna] or (teacher == dante and 'library' in school.buildings and what != 'library') or (teacher == gonoreevna and 'doctor' in school.buildings and what != 'doctor'): # Ну тут только так, через жопу... Цикл не прервать.
+                    if teacher not in [dante, gonoreevna] or (teacher == dante and 'library' in school.buildings and what != 'library') or (teacher == gonoreevna and 'doctor' in school.buildings and what != 'doctor'): # Ну, тут только так, через жопу... Цикл не прервать.
                         spacing 10
                         if type == 'loy':
                             imagebutton idle im.FactorScale(teacher.picto,0.5) hover im.FactorScale(teacher.picto,0.5) action NullAction() hovered [SetVariable('showHover',teacher), Show('charInfoLeft')] unhovered [Hide('charInfoLeft')]
@@ -599,8 +600,8 @@ screen voting(type,amount,what): # Просто скрин для наглядн
 
     fixed xpos 0.3 ypos 0.3:
         if voteYes > voteNo and voteVeto == 0:
-            text 'Предложение поддержано' style style.description
+            text 'Предложение поддержано.' style style.description
         elif voteYes <= voteNo and voteVeto == 0:
-            text 'Предложение отклонено' style style.description
+            text 'Предложение отклонено.' style style.description
         else: 
             text 'Один или несколько учителей наложили вето на ваше предложение.' style style.description
