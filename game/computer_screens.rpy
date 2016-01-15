@@ -12,6 +12,7 @@ screen compScreen:
     add 'pic/bg.png'
     
     fixed xpos 0.01 ypos 0.01:
+        key "game_menu" action Function(move, curloc)
         textbutton _('Назад') action Function(move, curloc)
         
     frame ypos 0.01 xalign 1.0 style style.myFrame:

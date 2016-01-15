@@ -143,6 +143,7 @@ screen peopleTextList:
 screen locationPeoplePicto:
     tag interface
     fixed xpos 0.01 ypos 0.01:
+        key "game_menu" action Function(move, curloc)
         textbutton 'Назад' action Function(move, curloc)
         $ xalig = 0.2
         $ yalig = 0.05
@@ -245,6 +246,7 @@ screen show_stat:
 
             textbutton 'Подарить' xminimum 200 action Show('make_gift_char')
             textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
+            key "game_menu" action Function(move,curloc)
             if development == 1:
                 textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
 
@@ -259,6 +261,7 @@ screen make_gift_char:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action [Function(clrscr),Show('show_stat')]
             textbutton _('Назад') action [Function(clrscr),Show('show_stat')]
 
             $ xalig = 0.2
@@ -288,6 +291,7 @@ screen use_aphrodisiac:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action [Function(clrscr),Show('show_stat')]
             textbutton _('Назад') action [Function(clrscr),Show('show_stat')]
 
             $ xalig = 0.2
@@ -317,6 +321,7 @@ screen inventory_clothing_char:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action Function(move, curloc)
             textbutton _('Назад') action Function(move, curloc)
             $ xalig = 0.2
         $ yalig = 0.05
