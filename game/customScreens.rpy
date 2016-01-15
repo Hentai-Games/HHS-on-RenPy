@@ -221,6 +221,7 @@ screen inventory_all:
     fixed xpos 0.01 ypos 0.01:
         $ showed[:] = []
         hbox :
+            key "game_menu" action Function(move, curloc)
             textbutton _('Назад') action Function(move, curloc)
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
@@ -305,6 +306,7 @@ screen inventory:
     fixed xpos 0.01 ypos 0.01:
         $ showed[:] = []
         hbox :
+            key "game_menu" action Function(move, curloc)
             textbutton _('Назад') action Function(move, curloc)
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
@@ -353,6 +355,7 @@ screen inventory_clothing:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action Function(move, curloc)
             textbutton _('Назад') action Function(move, curloc)
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
@@ -405,6 +408,7 @@ screen inventory_presents:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action Function(move, curloc)
             textbutton _('Назад') action Function(move, curloc)
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
@@ -437,6 +441,7 @@ screen inventory_sexShop:
         add 'pic/bg.png'
     fixed xpos 0.01 ypos 0.01:
         hbox :
+            key "game_menu" action Function(move, curloc)
             textbutton _('Назад') action Function(move, curloc)
             textbutton _('Всё') action [SetVariable('last_inventory','inventory_all'), Function(clrscr),Show('inventory_all')]
             textbutton _('Одежда') action [SetVariable('last_inventory','inventory_clothing'), Function(clrscr),Show('inventory_clothing')]
@@ -507,6 +512,7 @@ screen wardrobe:
             add 'pic/events/various/undress.png' at Move((0.8, 2.0), (0.8, 0.8), 0.5, xanchor='center', yanchor='center')
 
     fixed xpos 0.01 ypos 0.01:
+        key "game_menu" action Function(move, curloc)
         textbutton _('Назад') action Function(move, curloc)
         $ xalig = 0.2
         $ yalig = 0.05

@@ -11,6 +11,7 @@ screen shopping:
         text _('Денег - [player.money]')
     fixed xpos 0.01 ypos 0.01:
         textbutton _('Назад') action Function(move, curloc)
+        key "game_menu" action Function(move, curloc)
         hbox xpos 0.2 ypos 0.1:
             frame :
                 vbox :
@@ -99,6 +100,7 @@ screen sexShopping:
         xalign 1.0
         text _('Денег - [player.money]')
     fixed xpos 0.01 ypos 0.01:
+        key "game_menu" action Function(move, curloc)
         textbutton _('Назад') action Function(move, curloc)
         hbox xpos 0.2 ypos 0.1:
             frame :
