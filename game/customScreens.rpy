@@ -584,7 +584,7 @@ screen pomogator:
                 $ xalig = 0.01
                 
                 
-    fixed xpos 0.01 ypos 0.3:
+    fixed xpos 0.01 ypos 0.5:
         vbox:
             $ x = getLoc(curloc+'Learn')
             $ counter = 0

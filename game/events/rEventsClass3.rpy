@@ -328,3 +328,110 @@ label event_loc_class3_55_mid5:
         'Дело молодое, женщин на всех не хватает..':
             $ setLoy(3,10)
     $ move(curloc)
+    
+label event_loc_class3Learn_0_1:
+    if getPar(studs, 'fun') < 30:
+        $ skipEvent()
+    show expression 'pic/locations/school/class1/learn2.jpg' at top as tempPic
+    player.say '"Боже! Какой бардак! Они тут что, все с ума посходили?"'
+    'Студентам слишком весело, чтобы тратить свою жизнь на такое скучное дело как занятия. Они решили поднять бунт и в данный момент крушат всё, что попадается под руку.'
+    menu:
+        'Помочь преподавателю успокоить их':
+            $ frigidovna.incLoy(10)
+            $ setFun(10,-5)
+        'Не вмешиваться':
+            'Видя вашу пассивность, ученики бунтуют всё сильнее, пока наконец учитель не находит в себе силы гаркнуть что есть мочи и успокоить их. Но урок всё равно провален.'
+            $ frigidovna.incLoy(-5)
+            $ setFun(10,5)
+            $ setCorr(10,1)
+            $ setEdu(10,-5)
+    $ move(curloc)
+    
+label event_loc_class3Learn_0_2:
+    show class3
+    python:
+        st1 = getChar('female','classroom')
+    show expression 'pic/locations/school/class3/learn1.jpg' at top as tempPic
+    st1.say '[player.name], можно мне выйти, а то [frigidovna.name] не разрешает...'
+    menu:
+        'Разрешить':
+            player.say 'Иди конечно, я поговорю с учительницей об этом!'
+            $ frigidovna.incLoy(-5)
+        'Запретить':
+            $ frigidovna.incLoy(5)
+            player.say 'Слово учителя - закон! По крайней мере в школе.'
+            st1.say 'Но мне очень надо!'
+            player.say 'Нет!'
+            if rand(1,3) == 1:
+                st1.say 'Ну правда!'
+                player.say 'Я всё сказала! Сиди и занимайся!'
+                show expression 'pic/locations/school/class3/learn1_1.jpg' at top as tempPic
+                'Ученица всё равно подрывается, но не успевает сделать и пару шагов от парты, как падает на пол и весь класс наблюдает, как под ней растекается лужа. [st1.fname] поднимает глаза и смотрит на вас с ненавистью.'
+                $ st1.incLoy(-30)
+            else:
+                st1.say 'Ну и ладно, не очень то и хотелось!'
+                player.say 'Я про это и говорила!'
+                '[frigidovna.name] смотрит на вас с одобрением.'
+    $ move(curloc)
+    
+label event_loc_class3Learn_0_3:
+    show class3
+    python:
+        st1 = getChar('female','classroom')
+        st2 = getChar('male','classroom')
+    show expression 'pic/locations/school/class3/learn3.jpg' at top as tempPic
+    '[st2.name] показывает своё отношение к соседке спереди весьма традиционным способом. Дёргая её за косичку. Уж не мстит ли он ей?'
+    if player.getCorr() > 40:
+        show expression 'pic/locations/school/class3/learn3_1.jpg' at top as tempPic
+        player.say '"Хотя за что ему мстить ей? Разве что за то, что она не успела додёргать его член до звонка?"'
+        'Вы с удовольствием представили, как [st1.fname], стоя в корридоре на перемене, засовывает член своего парня прямо в рукав школьного пиждака, и начинает его массировать. Да, на её бы месте даже вы не стали бы доводить мужчину до оргазма, так как ходить весь день в мокром от спермы пиджаке приятного мало.'
+    $ move(curloc)
+    
+label event_loc_class3Learn_60_4:
+    show class3
+    python:
+        if 'dildo' not in school.furniture:
+            skipEvent()
+        st1 = getChar('female','classroom')
+        st2 = getChar('female','classroom')
+        st3 = getChar('female','classroom')
+        setLust(10,40)
+        st1.incCorr(2)
+        st2.incCorr(2)
+        st3.incCorr(2)
+    show expression 'pic/locations/school/class3/learn4.jpg' at top as tempPic
+    'В тот момент, когда вы заходите в класс, [frigidovna.name] заканчивает объяснять, как надо использовать вибраторы с ДУ.'
+    'Вас радует, что она решила использовать учеников, как материал для демонстрации своих слов. Тем более, по довольным лицам учениц понятно, что они как бы и не против.'
+    $ move(curloc)
+    
+label event_loc_class3Learn_15_5:
+    show class3
+    python:
+        if frigidovna.getCorr() < 20 or 'naked' == school.uniform:
+            skipEvent()
+        st1 = getChar('female','classroom')
+        st2 = getChar('female','classroom')
+        st1.incEdu(5)
+        st2.incEdu(5)
+    show expression 'pic/locations/school/class3/learn5_1.jpg' at top as tempPic
+    '[frigidovna.name] заметила как девушки передавали записку друг другу. Не потерпев такой вольности на своём уроке, она выхватывает её из руг обалдевшей школьницы.'
+    frigidovna.say 'Так, что у нас тут? "Я сегодня без трусиков!" и дальше "И я тоже!". Интересно. Ну раз вам не стыдно приходить в школу без трусов, то должно быть и не стыдно весь урок простоять с голой задницей перед всем классом!'
+    show expression 'pic/locations/school/class3/learn5.jpg' at top as tempPic
+    'С этими словами она забирает юбки у побагровевших учениц и ставит школьниц прямо напротив доски, чтобы любой мог полюбоваться их блестящими попками. Через 10 минут вы не выдерживаете.'
+    player.say '[frigidovna.name], ну пожалейте вы их. Они так и урок не выучат, и пару приставал вдобавок получат.'
+    'Немного подумав, [frigidovna.fname] соглашается, и, отдав юбки, отпускает учениц обратно за парту. Что любопытно, слушать они стали гораздо внимательнее.'
+    $ move(curloc)
+    
+label event_loc_class3Learn_55_6:
+    show class3
+    python:
+        st1 = getChar('male','classroom')
+        st2 = getChar('male','classroom')
+        st1.setLust(0)
+        setFun(5,15)
+        setLust(10,20)
+    show expression 'pic/locations/school/class3/learn6.jpg' at top as tempPic
+    'Зайдя, вы увидели как [st1.fname] сидит на столе, и несколько объятый страстью учениц, жадно ласкают его член. На фоне на цыпочках скачет [frigidovna.name] и что то кричит.'
+    frigidovna.say 'Резинка, дуры!!! Я сказала, что это занятие не по насасываю членов, а по надеванию резинки! Тьфу! Он уже кончил и счас станет бесполезным... [st2.name], ты следующий! Может с тобой получится провести этот урок.'
+    $ move(curloc)
+    

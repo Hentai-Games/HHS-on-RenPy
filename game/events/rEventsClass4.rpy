@@ -147,3 +147,111 @@ label event_loc_class4_0_no9:
     'Вы делаете им замечание, чтобы они слишком далеко не высовывались.'
     $ move(curloc)
     
+label event_loc_class4Learn_0_1:
+    if getPar(studs, 'fun') < 30:
+        $ skipEvent()
+    show expression 'pic/locations/school/class1/learn2.jpg' at top as tempPic
+    player.say '"Боже! Какой бардак! Они тут что, все с ума посходили?"'
+    'Студентам слишком весело, чтобы тратить свою жизнь на такое скучное дело как занятия. Они решили поднять бунт и в данный момент крушат всё, что попадается под руку.'
+    menu:
+        'Помочь преподавателю успокоить их':
+            $ bissektrisovna.incLoy(10)
+            $ setFun(10,-5)
+        'Не вмешиваться':
+            'Видя вашу пассивность, ученики бунтуют всё сильнее, пока наконец учитель не находит в себе силы гаркнуть что есть мочи и успокоить их. Но урок всё равно провален.'
+            $ bissektrisovna.incLoy(-5)
+            $ setFun(10,5)
+            $ setCorr(10,1)
+            $ setEdu(10,-5)
+    $ move(curloc)
+    
+label event_loc_class4Learn_0_2:
+    show class3
+    python:
+        st1 = getChar('male','classroom')
+    show expression 'pic/locations/school/class4/learn1.jpg' at top as tempPic
+    bissektrisovna.say 'Так, [st1.fname]! Ну ка быстро назови мне первые 9 цифр чисел Фибоначчи!'
+    st1.say 'Эээ, ноль... Один... Один... Ддальше идёт... Идёт дальше...'
+    $ temp = ''
+    if player.getIntel() > 70:
+        $ temp = ' (интеллект)'
+    menu:
+        'Подсказать числа (2,3,4,5,6,7)':
+            'Вы тихонько нашёптываете числа ученику.'
+            bissektrisovna.say 'Неправильно! Садись! Два!'
+            'Парень с огорчением смотрит на вас. Наверняка он думает, что вы нарочно подсказали ему неверный ответ.'
+            $ st1.incLoy(-10)
+        'Подсказать числа (2,2,4,6,10,14)':
+            'Вы тихонько нашёптываете числа ученику.'
+            bissektrisovna.say 'Неправильно! Садись! Два!'
+            'Парень с огорчением смотрит на вас. Наверняка он думает, что вы нарочно подсказали ему неверный ответ.'
+            $ st1.incLoy(-10)
+        'Подсказать числа (2,3,5,8,13,21)[temp]':
+            'Вы тихонько нашёптываете числа ученику.'
+            bissektrisovna.say '[player.name]! Прекратите ему подсказывать! Ладно, [st1.fname], садись, четыре.'
+            'Парень с благодарностью смотрит на вас.'
+            $ st1.incLoy(10)
+        'Не подсказывать ничего':
+            'Помекав ещё минуту и дойдя до пятого числа, нерадивый ученик сел с тройкой за парту. [bissektrisovna.name] благодарна вам, что вы не вмешивались в учебный процесс.'
+            $ bissektrisovna.incLoy(5)
+    $ move(curloc)
+    
+label event_loc_class4Learn_5_3:
+    show class3
+    python:
+        st1 = getChar('female','classroom')
+    show expression 'pic/locations/school/class4/learn3.jpg' at top as tempPic
+    '[st1.name] сидит на уроке и внимательно слушает, что там вещает сегодня преподаватель математики. Вроде бы придраться не к чему. Разве что вас терзают сомнения, не забыла ли она сегодня дома трусики...'
+    if st1.getCorr() > 20:
+        $ st1.incCorr(3)
+        $ player.incLust(5)
+        show expression 'pic/locations/school/class4/learn3_1.jpg' at top as tempPic
+        'Видя ваше внимание, [st1.fname] раздвигает свои ноги, окончательно развеяв все сомнения. Она прекрасно помнит, что не надела трусики, и более того, не против продемонстрировать свою бритую киску вам!'
+        player.say '"Ну и что с ней делать? Не снимать же с себя трусы, чтобы ей отдать?"'
+        'Вы решаете оставить девушку в покое. По крайней мере отсутствие нижнего белья не мешает ей внимательно слушать преподавателя.'
+    $ move(curloc)
+    
+label event_loc_class4Learn_45_4:
+    show class3
+    python:
+        st1 = getChar('female','classroom')
+        st2 = getChar('male','classroom')
+        hadSex(st1,st2)
+    show expression 'pic/locations/school/class4/learn4.jpg' at top as tempPic
+    'Зайдя в класс, вы видите, что несмотря на то, как на доске стремительно разворачиваются формулы логарифмического исчисления, под столом у одной парочки разворачиваются совсем другие действия. Если быть точнее, [st1.fname], накинув свои весёленькие трусики на член парня, ловко играет пальчиками с его головкой.'
+    player.say '"Вот ведь чертовка! И какой интересный выход нашла, чтобы руку не запачкать! Или может это просто [st2.fname] у нас такой фетишист?"'
+    $ move(curloc)
+    
+label event_loc_class4Learn_40_5:
+    show class3
+    python:
+        st1 = getChar('male','classroom')
+    show expression 'pic/locations/school/class4/learn5.jpg' at top as tempPic
+    '[bissektrisovna.name] нашла интересный способ наказания учеников и одновременно выяснения реального уровня их знаний. Прикрепив небольшой вибратор прямо к члену одного из парней, она проводит блиц опрос. Провалившийся оказывается с мокрыми штанами. Вы не думаете, что выиграть вообще возможно.'
+    bissektrisovna.name 'Докажи, что уравнение  xy = 2006 (x+y) имеет решения в целых числах.'
+    st1.say 'Э-э-э, н-у-у-у'
+    show expression 'pic/locations/school/class4/learn5_1.jpg' at top as tempPic
+    bissektrisovna.name 'Неправильно!'
+    'На минуту класс наполняется жужжанием и ученик краснеет. Наконец жужжание смолкает.'
+    show expression 'pic/locations/school/class4/learn5.jpg' at top as tempPic
+    bissektrisovna.name 'Три шара радиуса R касаются друг друга и плоскости  α, четвертый шар радиуса R положен сверху так, что касается каждого из трех данных  шаров. Определи высоту «горки» из четырех шаров.'
+    st1.say 'Э-э-э, н-у-у-у'
+    show expression 'pic/locations/school/class4/learn5_1.jpg' at top as tempPic
+    bissektrisovna.name 'Неправильно!'
+    'Жужжание снова наполнет класс, и ученик даже не пытается скрывать, насколько ему хорошо. Разве что не достал свой член.'
+    player.say '"Он вообще точно не представляет как решать задачи, или притворяется?"'
+    show expression 'pic/locations/school/class4/learn5.jpg' at top as tempPic
+    bissektrisovna.name 'В прямоугольник 20 x 25 бросают 120 квадратов 1 x 1. Докажи, что в прямоугольник можно поместить круг с диаметром, равным 1, не имеющий общих точек ни с одним из квадратов.'
+    st1.say '8'
+    bissektrisovna.name 'Что 8?'
+    st1.say 'Ответ...'
+    show expression 'pic/locations/school/class4/learn5_1.jpg' at top as tempPic
+    bissektrisovna.name '[st1.fname], ты дурак?'
+    'И снова парень опростовосился и вибратор, прикрепленный к его уздечке снова приступил к работе. Только на этот раз спустя минуту он не отключился.'
+    st1.say 'А можно ещё один вопрос?'
+    bissektrisovna.name 'Нет!'
+    st1.say 'Я сейчас это... О чёрт!'
+    show expression 'pic/locations/school/class4/learn5_2.jpg' at top as tempPic
+    'Парень вздрогнул всем телом, и на его штанах начала растекаться пятно спермы.'
+    bissektrisovna.name 'А теперь достань его сам, и положи на стол. Следующий!'
+    $ move(curloc)
