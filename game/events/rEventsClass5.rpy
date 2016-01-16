@@ -165,3 +165,87 @@ label event_loc_class5_0_no9:
     show expression 'pic/locations/school/class5/no9.jpg' at top as tempPic
     'Школьная рок группа репетирует песню "Стрела в колене" из своего нового альбома "Молодые сливки 5". Казалось бы причём тут драконы? Вы не стали мешать репетиции, и ушли.'
     $ move(curloc)
+    
+label event_loc_class5Learn_0_1:
+    if getPar(studs, 'fun') < 30:
+        $ skipEvent()
+    show expression 'pic/locations/school/class1/learn2.jpg' at top as tempPic
+    player.say '"Боже! Какой бардак! Они тут что, все с ума посходили?"'
+    'Студентам слишком весело, чтобы тратить свою жизнь на такое скучное дело как занятия. Они решили поднять бунт и в данный момент крушат всё, что попадается под руку.'
+    menu:
+        'Помочь преподавателю успокоить их':
+            $ dikovna.incLoy(10)
+            $ setFun(10,-5)
+        'Не вмешиваться':
+            'Видя вашу пассивность, ученики бунтуют всё сильнее, пока наконец учитель не находит в себе силы гаркнуть что есть мочи и успокоить их. Но урок всё равно провален.'
+            $ dikovna.incLoy(-5)
+            $ setFun(10,5)
+            $ setCorr(10,1)
+            $ setEdu(10,-5)
+    $ move(curloc)
+    
+label event_loc_class5Learn_0_2:
+    show class3
+    python:
+        st1 = getChar('female','classroom')
+    show expression 'pic/locations/school/class5/learn1.jpg' at top as tempPic
+    '[st1.fname] сидит и слушает плеер на уроке. В то время, пока [dikovna.name] внедряет учебный материал в юные головы учеников, кто то не вовлечён в процесс. Вас это немного возмущает.'
+    menu:
+        'Сделать замечание':
+            'Вы бесцеремонно вытаскиваете наушники из ушей ученицы, и молча указываете на преподавателя. Всем своим видом показывая, чем нужно заниматься на уроке.'
+            $ st1.incLoy(-5)
+            $ st1.incEdu(5)
+        'Ничего не делать':
+            player.say '"В конце концов не я их учитель и не мне решать, чем ученики должны заниматься на уроках."'
+            $ st1.incLoy(5)
+            $ st1.incEdu(-5)
+    $ move(curloc)
+    
+label event_loc_class5Learn_0_3:
+    show class3
+    python:
+        if 'usual' not in school.uniform:
+            skipEvent()
+        st1 = getChar('female','classroom')
+        st1.incEdu(3)
+    show expression 'pic/locations/school/class5/learn3.jpg' at top as tempPic
+    'В классе довольно жарко. [st1.fname] сидит и потеет над уроком не только в метафизическом, но и вполне реальном смысле.'
+    if rand(1,3) == 1:
+        show expression 'pic/locations/school/class5/learn3_1.jpg' at top as tempPic
+        $ st1.incLust(50)
+        'Неожиданно девушка приоткрывает свой сарафанчик, чтобы впустить хоть немного ветерка поближе к телу, и вы замечаете эротичный оттопыренный сосок.'
+        player.say '"Однако, я считала, что соски у женщин встают только по двум причинам. И, очевидно, что на этот раз причина "холод" тут не подходит."'
+    $ move(curloc)
+    
+label event_loc_class5Learn_0_4:
+    show class3
+    if dikovna.getLust() < 60:
+        $ skipEvent()
+    $ setLust(10,10)
+    show expression 'pic/locations/school/class5/learn4.jpg' at top as tempPic
+    dikovna.say 'Записывайте дети, и не отставайте!'
+    dikovna.say 'A cock - петушок.'
+    dikovna.say 'A pussy - киска.'
+    dikovna.say 'Wet, wetter, wettest - влажный, влажнее, влажнейший.'
+    dikovna.say 'Hot, hotter, hottest - горячий, горячее, горячейший.'
+    player.say '"Вот вроде бы всё в порядке, но этот подбор слов и отчётливая выпуклость на юбке как бы намекают, что урок проходит не вполне обычно."'
+    $ move(curloc)
+    
+label event_loc_class5Learn_10_5:
+    show class3
+    python:
+        st1 = getChar('male','classroom')
+    show expression 'pic/locations/school/class5/learn5.jpg' at top as tempPic
+    'В классе очень жарко, многие ученицы расстёгивают свою форму, чтобы немного проветрится. Вы, в принципе, солидарны с ними и тоже слегка расстёшиваетесь, чем привлекаете взгляды. Особенно выделяется [st1.name], который пытается одновременно и смотреть и нет.'
+    if player.getCorr() > 40 and player.getBeauty() > 90:
+        show expression 'pic/locations/school/class5/learn5_1.jpg' at top as tempPic
+        'И вы решаете немного поиграть с ним. Вы достаёте свою ручку, и начинаете медленно облизывать её так, словно это не совсем ручка. Точнее совсем не ручка. В общем все понимают, что вы там облизываете, поглядывая на школьника, включая его самого.'
+        'Спустя пару мгновений вашей невинной игры, член парня начинает отчётливо выпирать, оттопыривая его штаны.'
+        show expression 'pic/locations/school/class5/learn5_2.jpg' at top as tempPic
+        'Вы включаете на полную всю свою харизму, и начинаете вытворять с ручкой такое, что игнорировать это смог бы только разложившийся до стадии скелета труп. Ваш язычок порхает по колпачку, с уголка рта стекает плестящая капелька слюны, вы даже немного постанываете. Наконец парень не выдерживает этой муки, и вы отчётливо видите, как на его штанах растекается влажное пятно.'
+        player.say '"Хе-хе-хе. Всё таки могу ещё!"'
+    else:
+        'Вы слегка подмигиваете ему, и продолжаете заниматься своими делами.'
+    $ move(curloc)
+        
+            

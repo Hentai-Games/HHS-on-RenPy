@@ -105,11 +105,11 @@ init -2 python:
             x.inClass = rand(1, classes_number)
 
         # Debug информация
-        for i in xrange(1, classes_number+1):
-            s = [x for x in all_students if x.inClass==i]
-            print 'Class: {}, total: {}'.format(i, len(s))
-            for x in s:
-                print '\t{}'.format(x)
+        # for i in xrange(1, classes_number+1):
+            # s = [x for x in all_students if x.inClass==i]
+            # print 'Class: {}, total: {}'.format(i, len(s))
+            # for x in s:
+                # print '\t{}'.format(x)
 
         return all_students
 
@@ -674,6 +674,4 @@ label skipall:
     $ teachers = _teachers
     $ school.getBudget()
     $ hourlyReset()
-    if development == 1:
-        $ setLust(200,100)
     $ move('myintro')

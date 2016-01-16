@@ -142,7 +142,7 @@ init -20 python:
             stats.loyalty = randf(0, 10)
             stats.fun = randf(10, 20)
             stats.corr = randf(0, 5)
-            stats.lust = randf(0, 5)
+            stats.lust = randf(0, 50)
             stats.will = randf(0, 100)
             stats.intelligence = randf(0, 100)
             stats.education = stats.intelligence / 4

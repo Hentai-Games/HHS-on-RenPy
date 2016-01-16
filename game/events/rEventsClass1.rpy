@@ -799,3 +799,79 @@ label event_loc_class1_65_10:
     st4.say 'А я кажется сейчас уже кончу... - застонала девушка и тихим всхлипом сползла на пол'
     $ hadSex(st1,st2, st3, st4)
     $ move(curloc)
+    
+label event_loc_class1Learn_0_1:
+    show class1
+    python:
+        st1 = getChar('female','classroom')
+        st2 = kupruvna
+        st1.incEdu(5)
+    show expression 'pic/locations/school/class1/learn1.jpg' at top as tempPic
+    'Вы замечаете, что [st1.name] сидит и скучает на уроке.'
+    player.say '[st1.fname], будь, пожалуйста, внимательнее, [st2.name] интересные вещи всё таки рассказывает!'
+    '[st1.fname] кивает вам и начинает внимательно слушать урок. По крайней мере вы надеетесь на это.'
+    $ move(curloc)
+    
+label event_loc_class1Learn_0_2:
+    if getPar(studs, 'fun') < 30:
+        $ skipEvent()
+    show expression 'pic/locations/school/class1/learn2.jpg' at top as tempPic
+    player.say '"Боже! Какой бардак! Они тут что, все с ума посходили?"'
+    'Студентам слишком весело, чтобы тратить свою жизнь на такое скучное дело как занятия. Они решили поднять бунт и в данный момент крушат всё, что попадается под руку.'
+    menu:
+        'Помочь преподавателю успокоить их':
+            $ kupruvna.incLoy(10)
+            $ setFun(10,-5)
+        'Не вмешиваться':
+            'Видя вашу пассивность, ученики бунтуют всё сильнее, пока наконец учитель не находит в себе силы гаркнуть что есть мочи и успокоить их. Но урок всё равно провален.'
+            $ kupruvna.incLoy(-5)
+            $ setFun(10,5)
+            $ setCorr(10,1)
+            $ setEdu(10,-5)
+    $ move(curloc)
+            
+label event_loc_class1Learn_0_3:
+    show class1
+    python:
+        st1 = getChar('female','classroom')
+        st2 = getChar('male','classroom')
+        st2 = kupruvna
+    show expression 'pic/locations/school/class1/learn3.jpg' at top as tempPic
+    '[st1.name] сидит за партой и мечтательно смотрит на своего одноклассника. Интересно, о чём она думает?'
+    if player.getCorr() > 40:
+        show expression 'pic/locations/school/class1/learn3_1.jpg' as tempPic:
+            xalign 1.0 yalign 0.0
+            ease  10.0 yalign 1.0
+            ease  10.0 yalign 0.0
+            repeat
+        player.say '"Может быть она решает давать или не давать соседу доступ к своей киске на перемене?"'
+        player.say '"А может быть она уже всё решила, и мечтает только о том, как её тугая киска заполнится крепким членом?"'
+    show expression 'pic/locations/school/class1/learn3.jpg' at top as tempPic
+    menu:
+        'В любом случае стоит быть внимательнее на уроках!'
+        'Сделать замечание':
+            if st1.getCorr() < 20:
+                'Вы аккуратно трогаете ученицу за плечо, и показываете на преподавателя, которому требуется больше внимания, чем каким то мыслям в голове.'
+            else:
+                show expression 'pic/locations/school/class1/learn3_2.jpg' at top as tempPic
+                'Вы подходите к ученице, и замечаете, что та совсем замечталась. Своей ручкой она нащупывает клитор сквозь трусики, и, тихо постанывая, неспеша массирует её.'
+                player.say '[st1.fname], будь внимательней к словам учителя и помассируй ручкой тетрадку, а не то, что сейчас.'
+                'Девушка ойкает, и убирает руку из под парты.'
+            $ st1.incLoy(-5)
+            $ st1.incEdu(5)
+        'Ничего не делать':
+            player.say '"В конце концов не я их учитель и не мне решать, чем ученики должны заниматься на уроках."'
+            $ st1.incLoy(5)
+            $ st1.incEdu(-5)
+    $ move(curloc)
+    
+label event_loc_class1Learn_15_4:
+    show class1
+    python:
+        st1 = getChar('female','classroom')
+        st1.incCorr(3)
+    show expression 'pic/locations/school/class1/learn4.jpg' at top as tempPic
+    'Скрывшись за учебником от преподавателя, но не от вас, [st1.fname] жадно исследут глубины своей пещерки так, словно в ней где то потерялось обручальное кольцо. На удивление мастурбирет ученица довольно тихо, и никто, кроме вас, ничего не замечает.'
+    'Спустя пару минут активной мастурбации девушка тихонько стонет, сквозь сжатые от удовольствия зубы, и всё, что напоминало о её неутолённой страсти, осталось влажным пятном на стуле.'
+    $ move(curloc)
+    

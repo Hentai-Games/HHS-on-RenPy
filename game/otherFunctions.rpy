@@ -54,15 +54,13 @@ init -5 python:
         player.stats.energy -= randf(t/2,t)
         changetime(t)
         move(curloc)
-
+        
 #Динамическая картинка
-
-    def dynImage(st,at):
+    def dynImage(st,at): 
         return dynpicto, None
 
 #Работа с людьми
-
-    def getChar(*args):
+    def getChar(*args): 
         global dublicationChar
         temp = []
 
@@ -91,35 +89,44 @@ init -5 python:
                 dublicationChar = []
             return choosen
 
-        if len(args) == 2:
-            for x in studs:
-                if x.body.sex() == args[0] or args[0] == '':
-                    temp.append(x)
-            tempChar = temp[0]
-            if args[1] == 'beautymax':
-                return max(temp, key = lambda x: x.stats.beauty)
-            if args[1] == 'beautymin':
-                return min(temp, key = lambda x: x.stats.beauty)
-            if args[1] == 'edumax':
-                return max(temp, key = lambda x: x.stats.education)
-            if args[1] == 'edumin':
-                return min(temp, key = lambda x: x.stats.education)
-            if args[1] == 'corrmax':
-                return max(temp, key = lambda x: x.stats.corr)
-            if args[1] == 'corrmin':
-                return min(temp, key = lambda x: x.stats.corr)
-            if args[1] == 'lustmax':
-                return max(temp, key = lambda x: x.stats.lust)
-            if args[1] == 'lustmin':
-                return min(temp, key = lambda x: x.stats.lust)
-            if args[1] == 'brustmax':
-                return max(temp, key = lambda x: x.body.parts['грудь'].size)
-            if args[1] == 'brustmin':
-                return min(temp, key = lambda x: x.body.parts['грудь'].size)
-            if args[1] == 'loymax':
-                return max(temp, key = lambda x: x.stats.loyalty)
-            if args[1] == 'loymin':
-                return min(temp, key = lambda x: x.stats.loyalty)
+        elif len(args) == 2:
+            if args[1] == 'classroom':
+                for x in getLoc(curloc).getPeople():
+                    if x.body.sex() == args[0] or args[0] == '':
+                        temp.append(x)
+                if len(temp) == 0:
+                    return getChar(args[0])
+                else:
+                    return choice(temp)
+            else:
+                for x in studs:
+                    if x.body.sex() == args[0] or args[0] == '':
+                        temp.append(x)
+                tempChar = temp[0]
+                if args[1] == 'beautymax':
+                    return max(temp, key = lambda x: x.stats.beauty)
+                if args[1] == 'beautymin':
+                    return min(temp, key = lambda x: x.stats.beauty)
+                if args[1] == 'edumax':
+                    return max(temp, key = lambda x: x.stats.education)
+                if args[1] == 'edumin':
+                    return min(temp, key = lambda x: x.stats.education)
+                if args[1] == 'corrmax':
+                    return max(temp, key = lambda x: x.stats.corr)
+                if args[1] == 'corrmin':
+                    return min(temp, key = lambda x: x.stats.corr)
+                if args[1] == 'lustmax':
+                    return max(temp, key = lambda x: x.stats.lust)
+                if args[1] == 'lustmin':
+                    return min(temp, key = lambda x: x.stats.lust)
+                if args[1] == 'brustmax':
+                    return max(temp, key = lambda x: x.body.parts['грудь'].size)
+                if args[1] == 'brustmin':
+                    return min(temp, key = lambda x: x.body.parts['грудь'].size)
+                if args[1] == 'loymax':
+                    return max(temp, key = lambda x: x.stats.loyalty)
+                if args[1] == 'loymin':
+                    return min(temp, key = lambda x: x.stats.loyalty)
                 
 
     def clrscr():
