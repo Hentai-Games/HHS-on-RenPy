@@ -667,7 +667,7 @@ label loc_entrance:
                 xalign 0.1 yalign 0.7
                 action [Function(changetime, 30),Function(move, 'loc_street')]
                 style "navigation_button" text_style "navigation_button_text"
-            if 'library' in school.buildings:
+            if 'library' in school.buildings or development == 1:
                 textbutton 'Библиотека':
                     xalign 0.8 yalign 0.7
                     action [Function(move, 'loc_library')]
