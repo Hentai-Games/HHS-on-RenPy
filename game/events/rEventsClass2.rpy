@@ -707,7 +707,7 @@ label event_loc_class2Learn_0_3:
                 ease  10.0 yalign 0.0
                 repeat
             player.say '"Ага, что то в горло попало... Может быть это [st2.fname] тебе что то в горло напихал? Вон он как то нервно посматривает в твою сторону."'
-            player.incLust(5)
+            $ player.incLust(5)
     else:
         $ st1.incCorr(2)
         $ player.incLust(10)
