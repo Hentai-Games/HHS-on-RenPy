@@ -121,10 +121,8 @@ init 10 python:
 
         def removeStatus(self, rStatus):
             """Удаляет статус из локации"""
-
-            for status, _, _ in self.__statuses:
-                if rStatus.name == status.name:
-                    self.__statuses.remove(x)
+            self.__statuses = [x for x in self.__statuses\
+                               if x[0].name!=rStatus.name]
 
     class Event:
         def __init__(self,id,corr):
