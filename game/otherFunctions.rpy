@@ -8,8 +8,8 @@ init -5 python:
     classrooms = []
     
     def rand(a, b):
-        if a - b == 0 or b == 0:
-            return b
+        if a - b >= 0 or b == 0:
+            return 0
         else :
             return random.randint(a,b)
 
