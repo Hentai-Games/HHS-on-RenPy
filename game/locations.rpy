@@ -13,15 +13,15 @@ init 10 python:
 
         def getprob(self):
             global hour
-            if lt() > 0 or lt() == -4: rez = -1 #Если ночь, то на улице никого нет
+            if lt() > 0 or lt() == -4: rez = -1 # Если ночь, то на улице никого нет
 
-            elif 'school' in self.position and lt() == -1: rez = self.base_prob/4 #Если внеурочное время, то в школе шансов встретить меньше
-            elif 'school' in self.position and lt() == 0: rez = self.base_prob*2 #Если перемена, то в школе шансов встретить гораздо больше
-            elif 'other' in self.position and lt() == 0: rez = -1 # во время перемен никого не будет в городе
-            elif self.id in ['loc_street','loc_shopStreet'] and hour < 8: rez = self.base_prob*2 # перед уроками на улице чаще
-            elif self.id in ['loc_beach'] and hour < 8: rez = self.base_prob/2 # перед уроками на пляже реже
+            elif 'school' in self.position and lt() == -1: rez = self.base_prob/4 # Если внеурочное время, то в школе шансов встретить меньше
+            elif 'school' in self.position and lt() == 0: rez = self.base_prob*2 # Если перемена, то в школе шансов встретить гораздо больше
+            elif 'other' in self.position and lt() == 0: rez = -1 # Во время перемен никого не будет в городе
+            elif self.id in ['loc_street','loc_shopStreet'] and hour < 8: rez = self.base_prob*2 # Перед уроками на улице чаще
+            elif self.id in ['loc_beach'] and hour < 8: rez = self.base_prob/2 # Перед уроками на пляже реже
             else :
-                rez = self.base_prob #Иначе настоящая вероятность.
+                rez = self.base_prob # Иначе настоящая вероятность
 
             return rez
 
@@ -91,7 +91,7 @@ init 10 python:
 
         def addStatuses(self, statuses):
             """Добавляет список статусов к локации
-            statuses - список статусов, если нужно задать вероятности - то
+            statuses - список статусов, если нужно задать вероятности, то
                        список tuple'ов (status, prob)
             """
 
@@ -102,7 +102,7 @@ init 10 python:
                     self.addStatus(x)
 
         def getStatuses(self):
-            """Возвращает список статусов, с учетом их вероятностей.
+            """Возвращает список статусов с учетом их вероятностей.
             Т.е. более вероятные статусы в этом списке будут дублироваться"""
 
             if not self.__statuses:
@@ -120,8 +120,10 @@ init 10 python:
             self.__statuses[:] = []
 
         def removeStatus(self, rStatus):
-            for x in self.__statuses:
-                if rStatus.name == x:
+            """Удаляет статус из локации"""
+
+            for status, _, _ in self.__statuses:
+                if rStatus.name == status.name:
                     self.__statuses.remove(x)
 
     class Event:
@@ -155,7 +157,7 @@ init 10 python:
                             Задается как dict, где key - corr, fun, ...;
                             value - задает на сколько изменится параметр,
                             но финально параметр не вырастит больше
-                            N(заиграться до 100 fun не получится).
+                            N (заиграться до 100 fun не получится).
                             Пример: stats_actions={'fun': (1, 20)} - fun
                             увеличится на 1, но в итоге будет не больше 20
             """
@@ -268,34 +270,34 @@ init 10 python:
                     return qwest
         return False
 
-#Функция добавления эвентов в локации
+# Функция добавления эвентов в локации
     def getEvents():
         for eventLabel in _locs: # перебираем все лейблы
-            if eventLabel[:6] == 'event_': #находим тот, что с евентом
-                for location in locations: #начинаем перебирать локации
-                    if eventLabel.find(location.id) > 0: #Если имя локации содержится в имени эвента
-                        index = eventLabel.rfind(location.id) #находим правый индекс имени локации
-                        corr = eventLabel[index:] #режем по нему
-                        temp = corr.split("_") #разбиваем строку по_
-                        corr = int(temp[2]) #находим развратность
+            if eventLabel[:6] == 'event_': # находим тот, что с евентом
+                for location in locations: # начинаем перебирать локации
+                    if eventLabel.find(location.id) > 0: # Если имя локации содержится в имени эвента
+                        index = eventLabel.rfind(location.id) # находим правый индекс имени локации
+                        corr = eventLabel[index:] # режем по нему
+                        temp = corr.split("_") # разбиваем строку по_
+                        corr = int(temp[2]) # находим развратность
                         event = Event(id = eventLabel, corr = corr) # создаём эвент
-                        location.events.append(event) #добавляем его в массив эвентов локации
+                        location.events.append(event) # добавляем его в массив эвентов локации
         return 0
 
     def getQwests():
         for eventLabel in _locs: # перебираем все лейблы
-            if eventLabel[:6] == 'qwest_': #находим тот, что с квестом
-                for location in locations: #начинаем перебирать локации
-                    if eventLabel.find(location.id) > 0: #Если имя локации содержится в имени эвента
+            if eventLabel[:6] == 'qwest_': # находим тот, что с квестом
+                for location in locations: # начинаем перебирать локации
+                    if eventLabel.find(location.id) > 0: # Если имя локации содержится в имени эвента
                         qwest = Qwest(id = eventLabel) # создаём эвент
                         qwests = []
                         for q in location.qwests:
                             qwests.append(q.id)
                         if qwest.id not in qwests:
-                            location.qwests.append(qwest) #добавляем его в массив эвентов локации
+                            location.qwests.append(qwest) # добавляем его в массив эвентов локации
         return 0
     _locs = renpy.get_all_labels()
-#Создание массива всех локаций
+# Создание массива всех локаций
     def genLocs():
 
         for x in _locs:
@@ -357,13 +359,13 @@ init 10 python:
                 locations.append(loc)
 
                 # For tests
-                #test_loc_status = LocationStatus('TEST', None, 'any', events=['cleanAss'])
-                #loc.addStatus(test_loc_status, 50)
+                # test_loc_status = LocationStatus('TEST', None, 'any', events=['cleanAss'])
+                # loc.addStatus(test_loc_status, 50)
     genLocs() # генерирую локации
-    getEvents() #добавляю всем эвенты
-    getQwests() #добавляю квесты
+    getEvents() # добавляю всем эвенты
+    getQwests() # добавляю квесты
 ######################################################
-#Объявление всех картинок
+# Объявление всех картинок
 init:
     image home = ConditionSwitch(
         "hour >= 5 and hour <= 20", 'pic/locations/home/2.png',
@@ -475,7 +477,7 @@ init:
             counter += 1
             x = renpy.image(str(counter), x)
 
-#Для теста
+# Для теста
 label test:
     show daytime
     # show movie
@@ -581,7 +583,7 @@ label loc_bedroom:
             if (ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4):
                 textbutton 'Спать' xalign 0.2 yalign 0.76 action Jump('sleep')
             if player.getLust() > 0:
-                textbutton 'Маструбировать' xalign 0.156 yalign 0.8 action Jump('startMastur')
+                textbutton 'Мастурбировать' xalign 0.156 yalign 0.8 action Jump('startMastur')
             textbutton 'Шкафчик\nс вещами' xalign 0.9 yalign 0.8 action Show('wardrobe')
     call screen bedroom
 
@@ -599,7 +601,7 @@ label loc_kitchen:
                     Function(changetime, 15),
                     Function(move, curloc)]
             else :
-                text 'Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, вы понимаете, что её не осталось СОВСЕМ. Надо срочно сгонять в магазин.' xalign 0.0 yalign 1.0 style style.description
+                text 'Микроволновка, плита, раковина, шкафчики. Кухня, одним словом. \nОценив количество оставшейся еды, вы понимаете, что её не осталось СОВСЕМ. Надо срочно сгонять в магазин.' xalign 0.0 yalign 1.0 style style.description
             textbutton 'Гостиная':
                 xalign 0.5 yalign 0.8
                 action Function(move, 'loc_home')
@@ -636,15 +638,15 @@ label loc_entrance:
     screen entrance:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Вход в Вашу новую школу. Ворота, крыльцо, всё как у всех, ничего необычного. Разве что кусты не особо пострижены, и дети там периодически играют, ну да ладно.' style style.description
+                text 'Вход в вашу новую школу. Ворота, крыльцо - всё как у всех, ничего необычного. Разве что кусты не особо пострижены, и дети там периодически играют, ну да ладно.' style style.description
                 if 'library' not in school.buildings:
-                    text 'Слева от школы полно места. Вроде как там раньше стоял сарай, но он давным давно рухнул, и теперь земля пустует. Библиотеку чтоли там построить? ' style style.description
+                    text 'Слева от школы полно места. Вроде как там раньше стоял сарай, но он давным давно рухнул, и теперь земля пустует. Библиотеку что ли там построить? ' style style.description
                 else:
                     text 'Справа от школы виден вход в школьную библиотеку. В самом деле, замечательное приобретение! ' style style.description
                 if 'wall' not in school.buildings:
-                    text 'Окидывая взглядом свои владения, вы видите прекрасный вид на окна школы. Выглядит конечно красиво, но как то всё напоказ. ' style style.description
+                    text 'Окидывая взглядом свои владения, вы видите прекрасный вид на окна школы. Выглядит, конечно, красиво, но как-то всё напоказ. ' style style.description
                 else:
-                    text 'Довольно высокая стена окружает школу. С улицы вообще непонятно, толи это школа, толи режимный объект. ' style style.description
+                    text 'Довольно высокая стена окружает школу. С улицы вообще непонятно, то ли это школа, то ли режимный объект. ' style style.description
                 if is_cabbage == 1 and hour == 7 and weekday < 6:
                     text 'Сегодня день уборки урожая! Автобус ожидает вас и ваших учеников.' style style.description
             textbutton 'Холл':
@@ -685,7 +687,7 @@ label loc_library:
     screen library:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Недавно построенная школьная библиотека. Всё  сделано на удивление быстро и качественно. Городская библиотека выделила много книг на её заполнение, которые всё равно готовились списать.' style style.description
+                text 'Недавно построенная школьная библиотека. Всё сделано на удивление быстро и качественно. Городская библиотека выделила много книг на её заполнение, которые всё равно готовились списать.' style style.description
                 text 'В любом случае тут - прекрасное место для самообразования и не только!' style style.description
             textbutton 'Выход':
                 xalign 0.5 yalign 0.8
@@ -699,7 +701,7 @@ label loc_hall:
     screen hall:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'По всему холлу расставлены шкафчики для личных вещей. И еще лавочки, сидя на которых удобно переобуваться. В образующих шкафчиками коридорах легко потеряться с непривычки. По школе ходят ужасные истории, что из первого выпуска школы, ещё никто не вернулся домой. Так и бродят они до сих пор по коридорам, и воруют у новых учеников обувь, чтобы починить свои стоптанные за года блужданий ботинки. Глупая история, считаете Вы.' style style.description
+                text 'По всему холлу расставлены шкафчики для личных вещей. И еще лавочки, сидя на которых удобно переобуваться. В образующих шкафчиками коридорах легко потеряться с непривычки. По школе ходят ужасные истории, что из первого выпуска школы, ещё никто не вернулся домой. Так и бродят они до сих пор по коридорам и воруют у новых учеников обувь, чтобы починить свои стоптанные за года блужданий ботинки. Глупая история, считаете вы.' style style.description
             textbutton 'Первый этаж':
                 xalign 0.1 yalign 0.7
                 action [Function(move, 'loc_firstFloor')]
@@ -733,7 +735,7 @@ label loc_dungeon:
     screen dungeon:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Тёмный, мрачный подвал, больше напоминающий подземелье из какой то игры про рабынь, чем обычное подвальное помещение средней школы.' style style.description
+                text 'Тёмный, мрачный подвал больше напоминающий подземелье из какой-то игры про рабынь, чем обычное подвальное помещение средней школы.' style style.description
             textbutton 'Выход':
                 xalign 0.5 yalign 0.8
                 action [Function(move, 'loc_hall')]
@@ -745,8 +747,8 @@ label loc_pool:
     screen pool:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Бассейн. Здесь проходят занятия по вторникам и четвергам. Хотя так же в перемены, и после уроков ученики могут придти сюда, чтобы поплавать или просто постоять глядя на воду. Вы так же можете немного потренировать своё здоровье, попытавшись проплыть стометровку пару раз.' style style.description
-                text 'Неподалеку от бассейна находится душ, где Вы в любой момент можете освежиться.' style style.description
+                text 'Бассейн. Здесь проходят занятия по вторникам и четвергам. Также в перемены и после уроков ученики могут придти сюда, чтобы поплавать или просто постоять, глядя на воду. Вы также можете немного потренировать своё здоровье, попытавшись проплыть стометровку пару раз.' style style.description
+                text 'Неподалеку от бассейна находится душ, где вы в любой момент можете освежиться.' style style.description
             textbutton 'Раздевалка':
                 xalign 0.2 yalign 0.2
                 action [Function(move, 'loc_changeRoom')]
@@ -767,7 +769,7 @@ label loc_changeRoom:
     screen changeRoom:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Раздевалка. Она разделена на 2 отделения для мальчиков и девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
+                text 'Раздевалка. Она разделена на 2 отделения: для мальчиков и для девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек, разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
             textbutton 'Бассейн':
                 xalign 0.2 yalign 0.8
                 action [Function(move, 'loc_pool')]
@@ -784,7 +786,7 @@ label loc_gym:
     screen gym:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Раздевалка. Она разделена на 2 отделения для мальчиков и девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
+                text 'Раздевалка. Она разделена на 2 отделения: для мальчиков и для девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек, разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
             textbutton 'Кладовка':
                 xalign 0.35 yalign 0.4
                 action [Function(move, 'loc_storage')]
@@ -804,7 +806,7 @@ label loc_storage:
     screen storage:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Кладовка спорт инвентаря. В ней находятся мячи, маты, козлы и прочий спортинвентарь. Многие ученики  ходят сюда, чтобы немного отдохнуть и уединиться ото всех.' style style.description
+                text 'Кладовка спортинвентаря. В ней находятся мячи, маты, козлы и прочий спортинвентарь. Многие ученики ходят сюда, чтобы немного отдохнуть и уединиться от всех.' style style.description
             textbutton 'Спортзал':
                 xalign 0.5 yalign 0.8
                 action Function(move, 'loc_gym')
@@ -816,7 +818,7 @@ label loc_firstFloor:
     screen firstFloor:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Коридор первого этажа. Тут находится Ваш офис, а так же первые три классных кабинета: Кабинет химии, кабинет биологии и класс уроков Секспросвета. Вы видите лестницу на второй этаж и в холл.' style style.description
+                text 'Коридор первого этажа. Тут находится ваш офис, а также первые три классных кабинета: кабинет химии, кабинет биологии и класс уроков секспросвета. Вы видите лестницу на второй этаж и в холл.' style style.description
             textbutton 'Ваш офис':
                 xalign 0.2 yalign 0.8
                 action Function(move, 'loc_office')
@@ -847,7 +849,7 @@ label loc_office:
     show office at left
     # Часть квеста даноковой
     if hour >= 15 and hour < 17 and (weekday == 2 or weekday == 4) and mile_qwest_3_stage == 50:
-        'Дверь в кабинет закрыта и из за неё слышны тихие стоны. Вы вздыхаете и уходите. В конце концов вы добились чего хотели. Наверное.'
+        'Дверь в кабинет закрыта и из-за неё слышны тихие стоны. Вы вздыхаете и уходите. В конце концов, вы добились чего хотели. Наверное.'
         $ move (prevloc)
     if ptime >= work51 and ptime < work51 + 2 and mile_qwest_3_stage > 0:
         if callup == dummy:
@@ -862,7 +864,7 @@ label loc_office:
     screen office:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Ваш офис. Большой дубовый стол, компьютер, сразу видно что Вы здесь уважаемы.' style style.description
+                text 'Ваш офис. Большой дубовый стол, компьютер - сразу видно, что вы здесь уважаемы.' style style.description
                 if lt() >= 0 and is_cabbage == 0 and mile_qwest_2_stage > 0:
                     text 'Вы видите молодого, хорошо одетого мужчину в вашем кабинете.'
             textbutton 'Первый этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
@@ -888,7 +890,7 @@ label loc_office:
             if mile_qwest_2_stage == 7 and (lt() in [-1,0]) and callup == dummy:
                 textbutton 'Вызвать Валентину Купрувну' xalign 0.5 yalign 0.5 action Jump('kupruvnaGotIt1')
             if olympiad.confirm == True:
-                textbutton 'Подготавливать учеников\nк олимпиаде' xalign 0.5 yalign 0.5 action Jump('olympiad_edu')
+                textbutton 'Готовить учеников\nк олимпиаде' xalign 0.5 yalign 0.5 action Jump('olympiad_edu')
             if 'splitSystem' in school.furniture:
                 use splitSystem
     screen splitSystem:
@@ -907,9 +909,9 @@ label loc_class1:
     screen class1:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Кабинет Химии. Тут обычно преподаёт Валентина Купрувна. Весь учительский стол завален всякими колбами и ретортами. В стороне даже приютилась пара баночек для анализов.' style style.description
+                text 'Кабинет химии. Тут обычно преподаёт Валентина Купрувна. Весь учительский стол завален всякими колбами и ретортами. В стороне даже приютилась пара баночек для анализов.' style style.description
                 if 'chemlab' in school.buildings:
-                    text 'Вы построили пристройку, и из этого кабинета теперь можно попать в лабораторию.' style style.description
+                    text 'Вы построили пристройку, и из этого кабинета теперь можно попасть в лабораторию.' style style.description
                 if camera.name in getLoc(curloc).getItems():
                     text 'Камера установлена.' style style.description
             textbutton 'Первый этаж':
@@ -928,8 +930,8 @@ label loc_chemlab:
     screen chemlab:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Химическая лаборатория купленная за весьма немалые деньги. Будем надеяться, что вы сможете осуществить химический прорыв с её помощью!' style style.description
-                text 'Ну или по крайней мере не взорвать всё к чёртовой матери...' style style.description
+                text 'Химическая лаборатория, купленная за весьма немалые деньги. Будем надеяться, что вы сможете осуществить химический прорыв с её помощью!' style style.description
+                text 'Ну или, по крайней мере не взорвать всё к чёртовой матери...' style style.description
             textbutton 'Назад':
                 xalign 0.8 yalign 0.8
                 action Function(move, 'loc_class1')
@@ -941,9 +943,9 @@ label loc_class2:
     screen class2:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Кабинет Биологии. Тут обычно преподаёт Полина Данокова.' style style.description
+                text 'Кабинет биологии. Тут обычно преподаёт Полина Данокова.' style style.description
                 if 'manec' in school.furniture:
-                    text 'В углу стоят обнажённые человекоподобные манекены. Пугающе похожие на человека.' style style.description
+                    text 'В углу стоят обнажённые человекоподобные манекены. Сходство с человеком настолько сильное, что это даже пугает.' style style.description
             textbutton 'Первый этаж':
                 xalign 0.8 yalign 0.8
                 action Function(move, 'loc_firstFloor')
@@ -955,7 +957,7 @@ label loc_class3:
     screen class3:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Кабинет Секспросвета. Тут обычно преподаёт Ангелина Фригидовна. Студентов заставляют заниматься в этом классе в случае провинности.' style style.description
+                text 'Кабинет секспросвета. Тут обычно преподаёт Ангелина Фригидовна. Студентов заставляют заниматься в этом классе в случае провинности.' style style.description
                 if 'dildo' in school.furniture:
                     text 'На столе у учительницы лежит подборка из всевозможных дилдо и искуственных вагин.'
             textbutton 'Первый этаж':
@@ -969,7 +971,7 @@ label loc_class4:
     screen class4:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Кабинет Математики. Тут обычно преподаёт Валентина Биссектрисовна. У доски стоит здоровенная учительская тумба, в которой хранятся разные мелки, тряпки и прочая дребедень. Прикинув, вы понимаете, что такая тумба вместит даже небольшого человека. Только зачем бы там кому то прятаться?' style style.description
+                text 'Кабинет математики. Тут обычно преподаёт Валентина Биссектрисовна. У доски стоит здоровенная учительская тумба, в которой хранятся разные мелки, тряпки и прочая дребедень. Прикинув, вы понимаете, что такая тумба вместит даже небольшого человека. Только зачем бы там кому-то прятаться?' style style.description
             textbutton 'Второй этаж':
                 xalign 0.2 yalign 0.8
                 action Function(move, 'loc_secondFloor')
@@ -981,9 +983,9 @@ label loc_class5:
     screen class5:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Кабинет Английского языка. Тут обычно преподаёт Анжела Диковна.' style style.description
+                text 'Кабинет английского языка. Тут обычно преподаёт Анжела Диковна.' style style.description
                 if 'video' in school.furniture:
-                    text 'К потолку прикручен кинопроектор для показа материалов по применению английского языка. Хотя если задуматься, в певую очередь это материалы по применению языка, и только во вторую по применению английского.'
+                    text 'К потолку прикручен кинопроектор для показа материалов по применению английского языка. Хотя, если задуматься, в первую очередь это материалы по применению языка, и только во вторую по применению английского.'
             textbutton 'Второй этаж':
                 xalign 0.2 yalign 0.8
                 action Function(move, 'loc_secondFloor')
@@ -995,7 +997,7 @@ label loc_secondFloor:
     screen secondFloor:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Из этого коридора Вы видите оставшиеся два класса, класс математики и класс английского языка. А так же учительскую и лестницу на первый этаж.' style style.description
+                text 'Из этого коридора вы видите оставшиеся два класса: класс математики и класс английского языка. А также учительскую и лестницу на первый этаж.' style style.description
                 text 'В конце коридора расположены туалеты для мальчиков и девочек.' style style.description
             textbutton 'Класс 4':
                 xalign 0.7 yalign 0.6
@@ -1033,7 +1035,7 @@ label loc_teacherRoom:
     screen teacherRoom:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Тут обычно проходят кофе-брейки учителей, а так же различные совещания. А ещё, у Вас тут частенько будут вымогать деньги на нужды школы.' style style.description
+                text 'Тут обычно проходят кофе-брейки учителей, а также различные совещания. А ещё, у вас тут частенько будут вымогать деньги на нужды школы.' style style.description
             textbutton 'Второй этаж':
                 xalign 0.8 yalign 0.8
                 action Function(move, 'loc_secondFloor')
@@ -1057,7 +1059,7 @@ label loc_wcm:
     screen wcm:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Мужской туалет. Писсуары явно говорят об этом. Вам здесь нечего делать. Будет неприятно, если Вас здесь застукают.' style style.description
+                text 'Мужской туалет. Писсуары явно говорят об этом. Вам здесь нечего делать. Будет неприятно, если вас здесь застукают.' style style.description
             textbutton 'Второй этаж':
                 xalign 0.8 yalign 0.8
                 action Function(move, 'loc_secondFloor')
@@ -1069,7 +1071,7 @@ label loc_wcf:
     screen wcf:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Женский туалет. Очень миленький. Слева есть умывальник. С зеркалом.' style style.description
+                text 'Женский туалет. Очень миленький. Слева есть умывальник с зеркалом.' style style.description
                 if camera.name in getLoc(curloc).getItems():
                     text 'Камера установлена.' style style.description
                 else:
@@ -1091,12 +1093,12 @@ label loc_street:
     screen street:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Простая улица на которой стоит Ваш дом. Вдоль улицы стоят другие дома ваших соседей. Кто знает, может быть где то по соседству живёт кто то из вашей школы?".' style style.description
-                text 'Улица пересекает почти весь небольшой городок, и в конце упирается в улицу "Торговая".' style style.description
+                text 'Простая улица, на которой стоит ваш дом. Вдоль улицы стоят другие дома ваших соседей. Кто знает, может быть где-то по соседству живёт кто-то из вашей школы?".' style style.description
+                text 'Улица пересекает почти весь небольшой городок и в конце упирается в улицу "Торговая".' style style.description
                 if hour >= 5 and hour <= 20:
                      text 'Посмотрев вдоль, вы видите пару бегущих людей. Действительно, улица чрезвычайно удобна для пробежек.' style style.description
                 else:
-                     text 'Посмотрев вдоль, вы больше не видите бегущих людей. Наверное убежали. Или же просто ночь наступила?' style style.description
+                     text 'Посмотрев вдоль, вы больше не видите бегущих людей. Наверное, убежали. Или же просто ночь наступила?' style style.description
             textbutton 'Домой':
                 xalign 0.8 yalign 0.4
                 action Function(move, 'loc_home')
@@ -1184,8 +1186,8 @@ label loc_shopStreet:
     screen shopStreet:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Торговая улица! На ней много всяких маленьких магазинчиков, в которых закупается весь город. Говорят, что в некоторых странах Есть ОГРОМНЫЕ магазины, в которых есть ВСЁ. Но это как то бездушно. Зачем тебе это всё, когда души то нет?' style style.description
-                text 'Мини маркет работает круглосуточно.' style style.description
+                text 'Торговая улица! На ней много всяких маленьких магазинчиков, в которых закупается весь город. Говорят, что в некоторых странах есть ОГРОМНЫЕ магазины, в которых есть ВСЁ. Но это как-то бездушно. Зачем тебе это всё, когда души-то нет?' style style.description
+                text 'Минимаркет работает круглосуточно.' style style.description
                 text 'Салон красоты работает с 8 до 19 ежедневно.' style style.description
             textbutton 'К дому':
                 xalign 0.5 yalign 0.8
@@ -1196,7 +1198,7 @@ label loc_shopStreet:
                 action [Function(move, 'loc_shop')]
                 style "navigation_button" text_style "navigation_button_text"
             if hour >=8 and hour <= 19:
-                textbutton 'Салон\nКрасоты':
+                textbutton 'Салон\nкрасоты':
                     xalign 0.01 yalign 0.55
                     action [Function(move, 'loc_shopBeauty')]
                     style "navigation_button" text_style "navigation_button_text"
@@ -1212,7 +1214,7 @@ label loc_shop:
     screen shop:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Круглосуточный магазин, единственный в Вашем районе. После прогулки в нем Вы сможете без промедления набрать еды на кухню, выбрать себе напитки и некоторые иные вещи.' style style.description
+                text 'Круглосуточный магазин, единственный в вашем районе. После прогулки в нем вы сможете без промедления набрать еды на кухню, выбрать себе напитки и некоторые иные вещи.' style style.description
             textbutton 'Назад':
                 xalign 0.5 yalign 0.8
                 action [Function(move, 'loc_shopStreet')]
@@ -1316,7 +1318,7 @@ label loc_shopBeauty:
                     Hide('beauty_description') # При потере фокуса - скрывается
                     ]
             vbox xalign 0.0 yalign 1.0:
-                text 'Салон красоты приветствует Вас чистым полом и ярким рецепшеном. Наверняка тут предлагают великолепные по качеству услуги для улучшения внешности, если природа Вас обделила. Хотя и прирождённым красавицам они безусловно тоже помогут стать ещё красивее. Вот только цена, не отпугнёт ли она случайного клиента?' style style.description
+                text 'Салон красоты приветствует вас чистым полом и яркой стойкой администратора. Наверняка тут предлагают великолепные по качеству услуги для улучшения внешности, если природа вас обделила. Хотя и прирождённым красавицам они безусловно помогут стать ещё красивее. Вот только цена, не отпугнёт ли она случайного клиента?' style style.description
             textbutton 'Назад' xalign 0.5 yalign 0.8 action [Function(move, 'loc_shopStreet')] style "navigation_button" text_style "navigation_button_text"
     if is_beauty_visited == 0:
         $clrscr()
@@ -1331,7 +1333,7 @@ label loc_sexShop:
         screen sexShop:
             fixed:
                 vbox xalign 0.0 yalign 1.0:
-                    text 'Вы видите перед собой магазин для взрослых. Полки уставлены различными игрушками для взрослых. Дилдо, вибраторы, резиновые дырки для мальчиков, пони с уникальным седлом для девочек. Отдельная полка для афродизиаков и прочей медицины. Глаза прямо разбегаются от обилия выбора!' style style.description
+                    text 'Вы видите перед собой магазин для взрослых. Полки уставлены различными секс-игрушками. Дилдо, вибраторы, резиновые дырки для мальчиков, пони с уникальным седлом для девочек. Отдельная полка для афродизиаков и прочей медицины. Глаза прямо разбегаются от обилия выбора!' style style.description
                 textbutton 'Закупиться':
                     xalign 0.3 yalign 0.5
                     action [Function(clrscr), Show('sexShopping')]
