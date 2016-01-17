@@ -1,7 +1,7 @@
 init python:
     def dailyRecount(chars):
     
-        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday
+        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday, studs, teachers
         
         timeGetPanties = 0 # сброс времени выдачи трусов
         aphroUsedArr[:] = [] # сброс людей под афродизиаком
@@ -70,6 +70,8 @@ init python:
                         char.removeItem(item)
 
             if char in studs:
+                # Подтягиваем или уменьшаем разврат до учительского уровня. Чем сильнее разница, тем выше изменениия. В будущем УБРАТЬ и сделать через статусы.
+                char.incCorr((getPar(teachers,'corr') - char.getCorr())/10)
                 # Добавление трусов, если их нет у чара.
                 if char.getSex != 'male' and char.getItem(studpantiesF.name) == False:
                     char.addItem(studpantiesF)
@@ -97,7 +99,7 @@ init python:
                         hadSex(char, char.partner)
                 elif char.getLust() > 70:
                     hadSex(char)
-                    
+
     def hourlyReset():
         global hour, weekday, inhibLow
         

@@ -48,7 +48,7 @@ label mastur_orgasm:
     python:
         player.incDirty(1)
         player.incLust(-100)
-        player.incCorr(0.5)
+        player.incCorr(1)
         player.incEnergy(50)
         move(curloc)
         

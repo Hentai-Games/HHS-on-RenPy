@@ -236,7 +236,7 @@ screen furniture:
                 
             text _('\nСтроения и мебель')
             textbutton _('Кондиционер в офис (стоимость - 2000)') action [
-                If('splitSystem' in school.furniture, false=Show('preVoting', None, 'loy', 0, 'splitSystem')),
+                If('splitSystem' in school.furniture, false=Show('preVoting', None, 'loy', 5, 'splitSystem')),
                 SelectedIf('splitSystem' in school.furniture),
                 SensitiveIf(player.money > 2000 or 'splitSystem' in school.furniture)
                 ] hovered [
@@ -255,15 +255,15 @@ screen furniture:
                 Hide('description') # При потере фокуса - скрывается
                 ]
             
-            textbutton _('Химлаборатория (бюджет - 75000)') action [
-                If('chemlab' in school.buildings, false=Show('preVoting', None, 'loy', 50, 'chemlab')),
-                SelectedIf('chemlab' in school.furniture),
-                SensitiveIf(school.budget > 75000 or 'chemlab' in school.furniture)
-                ] hovered [
-                Show('description', None, 'chemlab') # При наведении показывается описание
-                ] unhovered [
-                Hide('description') # При потере фокуса - скрывается
-                ]
+            # textbutton _('Химлаборатория (бюджет - 75000)') action [
+                # If('chemlab' in school.buildings, false=Show('preVoting', None, 'loy', 50, 'chemlab')),
+                # SelectedIf('chemlab' in school.furniture),
+                # SensitiveIf(school.budget > 75000 or 'chemlab' in school.furniture)
+                # ] hovered [
+                # Show('description', None, 'chemlab') # При наведении показывается описание
+                # ] unhovered [
+                # Hide('description') # При потере фокуса - скрывается
+                # ]
                 
             textbutton _('Медицинский кабинет (бюджет - 25000)') action [
                 If('doctor' in school.buildings, false=Show('preVoting', None, 'loy', 25, 'doctor')),
@@ -382,10 +382,10 @@ screen working:
     fixed xpos 0.3 ypos 0.1:
         vbox:
             textbutton _('Заполнять ежедневные бумаги') action [SetVariable('lastWork',ptime), Function(school.working), Hide('working'), Show('compScreen')]
-            textbutton _('Выбивать повышение') action [SetVariable('lastWork', ptime), Function(move,'increaseIncome')]
-            textbutton _('Вывести часть бюджета') action [SetVariable('lastWork',ptime), Function(school.steal,player)]
+            textbutton _('Выбивать повышение') action [Function(move,'increaseIncome')]
+            textbutton _('Вывести часть бюджета') action [Function(school.steal,player)]
             if school.caughtChance > 0:
-                textbutton _('Замести следы выведения средств') action [SetVariable('lastWork',ptime), Function(move,'cover')]
+                textbutton _('Замести следы выведения средств') action [Function(move,'cover')]
             textbutton _('Инвестировать в школу') action [Function(move,'invest')]
             if player.getItem(clubPanties.name) != False:
                 textbutton _('Продать трусики в интернете') action [Function(player.sellItems,clubPanties.name),Show('compScreen')]
