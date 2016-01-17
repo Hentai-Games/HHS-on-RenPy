@@ -132,4 +132,7 @@ init python:
             if 'medic' in school.clubs:
                 school.budget -= 250
                 
-        
+    def monthlyReset():
+        if is_teacher_room_1 != 0: is_teacher_room_1 = 2
+        if is_teacher_room_2 != 0: is_teacher_room_2 = 2
+        if is_teacher_room_3 != 0: is_teacher_room_3 = 2

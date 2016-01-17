@@ -35,6 +35,10 @@
     is_beauty_visited = 0 # Триггер первого посещения салона красоты
     timeGetPanties = 0 # Время последнего получения трусов
     
+    is_teacher_room_2 = 0 # Инициализация переменных просьб в учительской
+    is_teacher_room_1 = 0
+    is_teacher_room_3 = 0
+    
     mile_qwest_2_stage = 0 # Статус квеста Купрувны    
     is_cabbage = 0 # Триггер квеста капусты
     mile_qwest_2_Ahmed = 0 # триггер нахождения беседки

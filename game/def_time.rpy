@@ -68,6 +68,7 @@ init -3 python:
                     number += 1
                     if number >= 31:
                         school.getBudget()
+                        monthlyReset()
                         number -= 30
                         month += 1
                         if month == 13:
