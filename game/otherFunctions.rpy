@@ -98,6 +98,13 @@ init -5 python:
                     return getChar(args[0])
                 else:
                     return choice(temp)
+                    
+            elif args[1] == 'teacher':
+                for x in teachers:
+                    if x.body.sex() == args[0] or args[0] == '':
+                        temp.append(x)
+                return choice(temp)
+                
             else:
                 for x in studs:
                     if x.body.sex() == args[0] or args[0] == '':
@@ -153,7 +160,11 @@ init -5 python:
             
     def setFun(count,amount):
         for x in range(0, count):
-            getChar().incFun(amount)    
+            getChar().incFun(amount)   
+            
+    def setEdu(count,amount):
+        for x in range(0, count):
+            getChar().setEdu(amount)   
 
     def hadSex(*args):
         maleArr = []

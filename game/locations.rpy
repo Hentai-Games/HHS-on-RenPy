@@ -14,15 +14,13 @@ init 10 python:
         def getprob(self):
             global hour
             if lt() > 0 or lt() == -4: rez = -1 # Если ночь, то на улице никого нет
-
-            elif 'school' in self.position and lt() == -1: rez = self.base_prob/4 # Если внеурочное время, то в школе шансов встретить меньше
-            elif 'school' in self.position and lt() == 0: rez = self.base_prob*2 # Если перемена, то в школе шансов встретить гораздо больше
+            elif self.id == 'loc_library' and 'library' not in school.buildings: rez = -1 # Нет библиоотеки, нет людей.
+            elif 'school' in self.position and hour > 18: rez = self.base_prob/4 # Если внеурочное время, то в школе шансов встретить меньше
             elif 'other' in self.position and lt() == 0: rez = -1 # Во время перемен никого не будет в городе
-            elif self.id in ['loc_street','loc_shopStreet'] and hour < 8: rez = self.base_prob*2 # Перед уроками на улице чаще
+            elif self.id in ['loc_street','loc_shopStreet','loc_entrance','loc_hall'] and hour < 8: rez = self.base_prob*2 # Перед уроками все на улице и у входа в школу
             elif self.id in ['loc_beach'] and hour < 8: rez = self.base_prob/2 # Перед уроками на пляже реже
             else :
                 rez = self.base_prob # Иначе настоящая вероятность
-
             return rez
 
         def __repr__(self):
@@ -124,7 +122,7 @@ init 10 python:
 
             for status, _, _ in self.__statuses:
                 if rStatus.name == status.name:
-                    self.__statuses.remove(x)
+                    self.__statuses.remove(status)
 
     class Event:
         def __init__(self,id,corr):
@@ -299,7 +297,6 @@ init 10 python:
     _locs = renpy.get_all_labels()
 # Создание массива всех локаций
     def genLocs():
-
         for x in _locs:
             if x[:4] == 'loc_':
                 if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = -1, position = ['home','safe'])
@@ -321,7 +318,7 @@ init 10 python:
                 elif x == 'loc_library': loc = Location(id = x, name = 'библиотека', base_prob = 10, position = ['school'])
                 elif x == 'loc_changeRoom': loc = Location(id = x, name = 'школьная раздевалка', base_prob = 5, position = ['school','safe','change'])
                 elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 20, position = ['school','classroom','sport'])
-                elif x == 'loc_pool': loc = Location(id = x, name = 'бассейн', base_prob = 20, position = ['school','classroom','swim'])
+                elif x == 'loc_pool': loc = Location(id = x, name = 'бассейн', base_prob = 10, position = ['school','classroom','swim'])
                 elif x == 'loc_firstFloor': loc = Location(id = x, name = 'первый этаж', base_prob = 20, position = ['school'])
                 elif x == 'loc_secondFloor': loc = Location(id = x, name = 'второй этаж', base_prob = 20, position = ['school'])
                 elif x == 'loc_class1': loc = Location(id = x, name = 'Класс 1', base_prob = 10, position = ['school','classroom'])

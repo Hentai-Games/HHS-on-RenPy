@@ -210,10 +210,6 @@ init 11 python:
                     loc.addStatus(inhibLow_status2) # Реакция на разврат школы
                 
             if loc.id in ['loc_wcf','loc_wcm']:
-                loc.eraseStatuses()
-                loc.addStatus(go_status) # Всюду ходят
-                loc.addStatus(flirt_status) # Всюду флиртуют
-                loc.addStatus(stop_status, 1) # Стоят
                 loc.addStatus(kiss_status) # Поцелуи в сортире
                 loc.addStatus(pee_status) # Писают
                 loc.addStatus(hidden_mastur,40) # Дрочат скрытно
