@@ -34,10 +34,8 @@ init -2 python:
     def generate_students_number(students_number, classes_number):
         """Генерирует количество мальчиков, девочек и фут"""
         futas = rand(classes_number, round(students_number*0.1)+3)
-        girls = min(rand(round(students_number*0.45),
-                         round(students_number*0.55)),
-                    len(picto_f))
-        boys = min(len(picto_m), students_number-futas-girls)
+        girls = rand(round(students_number*0.45), round(students_number*0.55))
+        boys = students_number-futas-girls
 
         return futas, boys, girls
 
