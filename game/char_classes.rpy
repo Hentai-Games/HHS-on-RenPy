@@ -230,14 +230,14 @@ init -20 python:
 
 # Изменение loyalty
         def incLoy(self,amount):
-            self.stats.loyalty += amount*max(0.1, (100 - self.getWill()/2)/100)
+            self.stats.loyalty += corrMod*amount*max(0.1, (100 - self.getWill()/2)/100)
 # Изменение fun
         def incFun(self,amount):
             self.stats.fun += amount
 # Изменение развратности
         def incCorr(self,amount):
             if self != player:
-                self.stats.corr += amount*max(0.1, (100 - self.getWill()/2)/100)
+                self.stats.corr += corrMod*amount*max(0.1, (100 - self.getWill()/2)/100)
             else:
                 self.stats.corr += amount
 # Изменение lust
