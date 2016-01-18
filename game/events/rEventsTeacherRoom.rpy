@@ -270,3 +270,109 @@ label event_loc_teacherRoom_0_ask3:
         'Не закупать ничего':
             'Вы приняли решение не закупать ничего. Вам не кажется, что кто то расстроится, если у него вдруг не появится карманного питона.'
     $ move(curloc)
+    
+label event_loc_teacherRoom_50_mid1:
+    show teacherRoom
+    python:
+        st1 = getChar('female')
+        st2 = getChar('female')
+        hadSex(st1,mustangovich)
+        hadSex(st2,mustangovich)
+        mustangovich.incCorr(5)
+        player.incLust(20)
+    show expression 'pic/locations/school/teacherRoom/mid1.jpg' at top as tempPic
+    'Заметив Вас [mustangovich.name]машет рукой из за стола. В то время как [st1.fname] и [st2.fname] обрабатывают его член и соски.'
+    mustangovich.say 'Я тут подумал, что чего девчёнок с гантелями гонять, пусть лучше так потренируются, правильно? - с обезоруживающей улыбкой произносит физрук.'
+    player.say 'Да, конечно, гантели и натирание члена очень похожи, по мышечной нагрузке. Вы то, [mustangovich.name] об этом не понаслышке знаете, вон какие мышцы отрастили!'
+    mustangovich.say 'А то! Я то столько членов, ааа, ооо, кхм, да. - понимая что только ляпнул, заминается физрук и быстро натягивая трусы, выпроваживает девушек из кабинета'
+    $ move(curloc)
+    
+label event_loc_teacherRoom_60_mid2:
+    show teacherRoom
+    python:
+        st1 = getChar('female')
+        hadSex(st1,mustangovich)
+        mustangovich.incCorr(5)
+        player.incLust(20)
+    show expression 'pic/locations/school/teacherRoom/mid2.jpg' at top as tempPic
+    mustangovich.say 'Девственность нетронута! - радостно воскликает [mustangovich.name], пока вы с содроганием наблюдаете, как огромный член вываливается из раздолбанной попки девушки.'
+    player.say 'Ты нарочно подгадываешь, да? Как только я захожу в учительскую, так вижу твой член где угодно но не в штанах! - кричите вы в сердцах, - Это когда нибудь прекратиться или нет?'
+    mustangovich.say 'Да просто [st1.fname] жаловалась на запор, вот я и решил ей помочь, как могу! Правда, [st1.fname]? - девочка немного запыханно кивает, и вы не видите на её лице ни капли стыда или расстройства.'
+    player.say 'Вон! - указываете Вы на дверь, не в силах наблюдать больше эту картину.'
+    'Ученица быстро соскакивает с коленей физрука и скрывается за дверью.'
+    $ move(curloc)
+    
+label event_loc_teacherRoom_45_mid3:
+    show teacherRoom
+    python:
+        st1 = getChar('female')
+        hadSex(st1,mustangovich)
+        mustangovich.incCorr(5)
+        player.incLust(20)
+    show movie
+    play movie "pic/locations/school/teacherRoom/mid3.gif.webm" loop
+    player.say 'Позволь я сама угадаю. Тренировка и укрепление мышц шеи вкупе с подавлением рвотного рефлекса? - саркастически спрашиваете вы, глядя на монотонные движения губ ученицы вдоль члена физрука.'
+    show expression getCharImage(mustangovich,'dialog')
+    mustangovich.say 'Вот прям с языка сняли, [player.fname]! - радостно улыбается [mustangovich.fname], - Вот именно прям укрепление рефлюкса и подавление этих самых мышц, ага!'
+    mustangovich.say 'Мы уже заканчиваем, - быстро говорит учитель, глядя на ваше багровеющее лицо, - Давай, собирайся, [st1.fname], продожим на внеклассных занятиях.'
+    stop movie
+    hide movie
+    $ move(curloc)
+    
+label event_loc_teacherRoom_0_mid4:
+    show teacherRoom
+    python:
+        st1 = getChar('female','teacher')
+        if st1.getCorr() < 40:
+            skipEvent()
+        hadSex(st1,mustangovich)
+        mustangovich.incCorr(5)
+        st1.incCorr(5)
+        player.incLust(20)
+    show expression 'pic/locations/school/teacherRoom/mid4.jpg' at top as tempPic
+    'Вы несколько минут наблюдаете за тем, как [st1.name] жадно обсасывает член физрука, причмокивая и облизываясь от удовольствия. Её правая рука активно шерудит под юбкой, выдавая довольно срамными звуками крайнее возбуждение.'
+    'Вскоре [mustangovich.fname] задрожал и из его члена полился густой поток семени, стекающий вдоль члена прямо на лицо учительницы. [st1.fname] радостно продолжала посасывать ствол, ощущая горячую сперму физрука на своём лице.'
+    player.say '"В конце концов они взрослые люди, и вольны делать что угодно!"'
+    $ move(curloc)
+    
+label event_loc_teacherRoom_25_mid5:
+    show teacherRoom
+    python:
+        if dikovna.getCorr() < 40:
+            skipEvent()
+        st1 = dikovna
+        st2 = getChar('male')
+        hadSex(st1,st2)
+        st1.incCorr(5)
+        st2.incCorr(5)
+        player.incLust(10)
+    show expression 'pic/locations/school/teacherRoom/mid5.jpg' at top as tempPic
+    st1.say 'You has very dissapont me, young one, - поучала [st1.name] своего подопечного, массируя его член в учительской.'
+    st1.say 'You ever не понимаешь, что я говорю, правда? - прошептала она на ушко ученику. Тот согласно застонал.'
+    st1.say ' Тебе всего лишь надо, чтобы someone потеребил твой корешок, да - не отставала от него учительница.'
+    st2.say 'Мг-мг-мг-ха-а-а-а-а, - застонав выдохнул ученик, и брызнул семенем прямо на полки с документами.'
+    st1.say 'We are finished, - улыбнулась вам [st1.name], и, хлопнув паренька по попе, отправила его в коридор.'
+    st1.say 'С этими учениками всегда столько мороки! - добавила она виновато опустив голову.'
+    'Вы заметили, как что то оттопыривает её юбочку.'
+    menu:
+        'Предложить провести Мастер Класс' if player.getLust() > 50:
+            show expression 'pic/locations/school/teacherRoom/mid5a.jpg' at top as tempPic
+            player.say 'Не хотите ли небольшой мастер класс? - с этими словами вы поманили англичанку к себе, и, проподняв ножкой юбочку, явили на свет её мужскую составляющую.'
+            st1.say 'Yes, of course... - прошептала [st1.fname], и начала тереться членом о вашу туфлю.'
+            'Вы умело работали ножкой, заводя учительницу всё сильнее, не забывая и про себя. Пальчики ощупывали Ваше тело, сильно сминая грудь и сосок. Вторая ваша рука ощупывала киску, посылая вдоль тела волны удовольствия. Вам безумно хотелось засунуть этот член в себя, но этикет... Вы не должны давать послабление учительскому составу.'
+            if mile_quest_1 > 0:
+                player.say '"А [mustangovich.name] лишь исключение, которое подтверждает правило!"'
+            st1.say 'I am close to come, - застонала вдруг [st1.name], обхватывая ваши ноги руками, и с силой вгоняя член между икрами.'
+            player.say 'Вы можете кончать, не переживайте, - кивнули вы распалённой учительнице.'
+            show expression 'pic/locations/school/teacherRoom/mid5b.jpg' at top as tempPic
+            st1.say 'Yeah! Cumming! - и англичанка начала разбрызгивать сперму по вашим ногам.'
+            player.say '"Интересно, а от неё можно залететь?" - подумали вы, слизывая одну из капель с пальца.'
+            player.say 'Я надеюсь вы обогатили свой багаж опыта, не так ли?'
+            player.say 'Yeah, fuck, yeah! It was incredible!'
+            $ player.incCorr(5)
+            $ player.incLust(10)
+            $ player.coverSperm('ноги')
+        'Уйти':
+            pass
+    $ move(curloc)
+    
