@@ -47,8 +47,10 @@ init -2 python:
 
     def eat_picto(picto_list):
         """Выбирает случайную картинку из списка и удаляет ее"""
+        global students
         picto = choice(picto_list)
-        picto_list.remove(picto)
+        if students <= 50:
+            picto_list.remove(picto)
 
         return picto
 
@@ -83,8 +85,8 @@ init -2 python:
         for i in xrange(1, classes_number+1):
             boys_l.pop(rand(0, len(boys_l)-1)).inClass = i
             boys_l.pop(rand(0, len(boys_l)-1)).inClass = i
-            girls_l.pop(rand(0, len(boys_l)-1)).inClass = i
-            girls_l.pop(rand(0, len(boys_l)-1)).inClass = i
+            girls_l.pop(rand(0, len(girls_l)-1)).inClass = i
+            girls_l.pop(rand(0, len(girls_l)-1)).inClass = i
 
         # Пул учеников
         students_pool = boys_l + girls_l
