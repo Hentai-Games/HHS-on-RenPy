@@ -572,7 +572,7 @@ screen voting(type,amount,what): # Просто скрин для наглядн
                 if mile_qwest_2_stage in [10,11] and teacher == kupruvna:
                     $ amount = -1
                 vbox:
-                    if teacher not in [dante, gonoreevna] or (teacher == dante and 'library' in school.buildings and what != 'library') or (teacher == gonoreevna and 'doctor' in school.buildings and what != 'doctor'): # Ну, тут только так, через жопу... Цикл не прервать.
+                    if teacher not in [dante, gonoreevna] or (teacher == dante and 'library' in school.buildings and what != 'library') or (teacher == gonoreevna and 'doctor' in school.buildings and what != 'doctor'): # Ну тут только так, через жопу... Цикл не прервать.
                         spacing 10
                         if type == 'loy':
                             imagebutton idle im.FactorScale(teacher.picto,0.5) hover im.FactorScale(teacher.picto,0.5) action NullAction() hovered [SetVariable('showHover',teacher), Show('charInfoLeft')] unhovered [Hide('charInfoLeft')]
