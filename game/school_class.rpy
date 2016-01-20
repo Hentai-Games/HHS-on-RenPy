@@ -115,13 +115,14 @@ init -20 python:
     school = School()
     
     def votingFunc(type,amount, what):
+        global mile_qwest_2_stage, mile_qwest_3_stage, mile_qwest_1_stage
         voteYes = voteNo = voteVeto = 0
         for teacher in teachers:
-            if teacher == dante and 'library' not in school.buildings:
-                continue
-            elif teacher == gonoreevna and 'doctor' not in school.buildings:
-                continue
             if mile_qwest_2_stage in [10,11] and teacher == kupruvna:
+                amount = -1
+            if mile_qwest_3_stage == 50 and teacher == danokova:
+                amount = -1
+            if mile_qwest_1_stage == 2 and teacher == mustangovich:
                 amount = -1
             
             if type == 'loy':
