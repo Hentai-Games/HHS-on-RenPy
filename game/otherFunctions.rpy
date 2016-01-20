@@ -291,22 +291,27 @@ init -5 python:
             kupruvna.moveToLocation(classrooms[0].id)
         else:
             kupruvna.moveToLocation('loc_teacherRoom')
+            
         if len(classrooms[1].getPeople()) > 0 : 
             danokova.moveToLocation(classrooms[1].id)
         else:
-            danokova.moveToLocation('loc_teacherRoom')           
+            danokova.moveToLocation('loc_teacherRoom')   
+            
         if len(classrooms[2].getPeople()) > 0 :  
             frigidovna.moveToLocation(classrooms[2].id)
         else:
-            frigidovna.moveToLocation('loc_teacherRoom')          
+            frigidovna.moveToLocation('loc_teacherRoom')   
+            
         if len(classrooms[3].getPeople()) > 0 : 
             bissektrisovna.moveToLocation(classrooms[3].id)
         else:
-            bissektrisovna.moveToLocation('loc_teacherRoom')           
+            bissektrisovna.moveToLocation('loc_teacherRoom')   
+            
         if len(classrooms[4].getPeople()) > 0 : 
             dikovna.moveToLocation(classrooms[4].id)
         else:
-            dikovna.moveToLocation('loc_teacherRoom')          
+            dikovna.moveToLocation('loc_teacherRoom')    
+            
         if len(classrooms[5].getPeople()) > 0 :  
             mustangovich.moveToLocation(classrooms[5].id)
         else:
