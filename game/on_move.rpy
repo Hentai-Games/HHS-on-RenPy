@@ -179,22 +179,18 @@ init python:
                                 x.forceLocationStatus(medic_status1)
                             else:
                                 x.forceLocationStatus(medic_status2)
-                    # for location in locations:
-                        # if rand(0,99) < location.getprob(): #В зависимости от вероятности (меняется от времени)
-                            # temp = getChar()
-                            # movedArray += 1
-                            # if location.id in ['loc_wcf','loc_wcm']: # В сортир по полу пихаем
-                                # if temp.getSex() == 'male':
-                                    # location = getLoc('loc_wcm')
-                                # else:
-                                    # location = getLoc('loc_wcf')
-                                    
-                            # temp.moveToLocation(location)
+                        continue
+
                     if len(avaliableLocations) > 0:
                         for counter in range(0,1000):
                             temp = choice(avaliableLocations)
                             if rand(0,99) < temp.getprob():
                                 movedArray += 1
+                                if temp.id in ['loc_wcf','loc_wcm'] and x.getCorr() < 20:
+                                    if x.getSex() == 'male':
+                                        temp = 'loc_wcm'
+                                    else:
+                                        temp = 'loc_wcf'
                                 x.moveToLocation(temp)
                                 break
         if lt() == -4:

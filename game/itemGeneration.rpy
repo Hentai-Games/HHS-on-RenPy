@@ -729,7 +729,7 @@ init python:
     clothing.append(swimsuit)
     
     bikini_top = Clothing(
-    lust = 5,
+    lust = 25,
     corr = 15,
     reputation = 0,
     char = 'teacher',
@@ -744,7 +744,7 @@ init python:
     clothing.append(bikini_top)
 
     bikini_bottom = Clothing(
-    lust = 15,
+    lust = 25,
     corr = 15,
     reputation = 0,
     char = 'teacher',

@@ -26,6 +26,11 @@ label event_loc_class2_0_1:
     st1.say 'Нет, это я буду президентом!'
     'Девушки уходят, ругаясь о том, кто станет президентом нового клуба.'
     'В вашем школьном компьютере появилась возможность открыть клуб черлидеров.'
+    python:
+        global is_cherleaderClub
+        st1.club = 'cherleader'
+        st2.club = 'cherleader'
+        is_cherleaderClub = 1
     $ move(curloc)
     
 label event_loc_class2_0_10:
