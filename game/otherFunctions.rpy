@@ -245,7 +245,8 @@ init -5 python:
             return str(number) + ' дня'
 
             
-    def fillClasses():
+    def ClassroomsSel():    # переносим назначение учебных классов перед высталением статусов
+                            # иначе падает в первый день игры
         global classrooms
         classrooms = []
         classrooms.append(getLoc('loc_class1'))
@@ -254,18 +255,21 @@ init -5 python:
         classrooms.append(getLoc('loc_class4'))
         classrooms.append(getLoc('loc_class5'))
         
-        kupruvna.moveToLocation('loc_class1')
-        danokova.moveToLocation('loc_class2')
-        frigidovna.moveToLocation('loc_class3')
-        bissektrisovna.moveToLocation('loc_class4')
-        dikovna.moveToLocation('loc_class5')
-        
         if weekday == 2 or weekday == 4:
-            mustangovich.moveToLocation('loc_pool')
-            classrooms.append('loc_pool')
+            classrooms.append(getLoc('loc_pool'))
         else:
-            mustangovich.moveToLocation('loc_gym')
             classrooms.append(getLoc('loc_gym'))
+            
+    def fillClasses():
+        tempIndex = lt() - 1 + 5 # Проверяем который из классов сейчас пустой
+        if tempIndex > 5: tempIndex -= 6
+        for x in teachers:
+            if tempIndex  != 0 : kupruvna.moveToLocation(classrooms[0].id)
+            if tempIndex  != 1 : danokova.moveToLocation(classrooms[1].id)
+            if tempIndex  != 2 : frigidovna.moveToLocation(classrooms[2].id)
+            if tempIndex  != 3 : bissektrisovna.moveToLocation(classrooms[3].id)
+            if tempIndex  != 4 : dikovna.moveToLocation(classrooms[4].id)
+            if tempIndex  != 5 : mustangovich.moveToLocation(classrooms[5].id)
 
         for x in studs:
             if x != callup:
