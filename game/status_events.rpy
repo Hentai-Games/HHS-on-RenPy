@@ -237,11 +237,7 @@ init 11 python:
                 loc.addStatus(medexam_status) # Проходит медосмотр
                 
             if 'classroom' in loc.position:
-                ClassroomsSel()     # переносим назначение учебных классов перед высталением статусов
-                                    # иначе падает в первый день игры
-                tempIndex = lt() - 1 + 5 # Проверяем который из классов сейчас пустой
-                if tempIndex > 5: tempIndex -= 6
-                if lt() > 0 and loc != classrooms[tempIndex]:
+                if lt() > 0:
                     loc.eraseStatuses() # Сносим статусы
                     loc.addStatus(hidden_mastur)        # Скрытно дрочить
                     loc.addStatus(learnSelector(),50)   # Выбор уроков
