@@ -271,10 +271,7 @@ init 11 python:
                     if 'video' in school.furniture:
                         loc.addStatus(video_status)     # Просмотр порно
             if loc.id == 'loc_teacherRoom':                 # для учительской
-                if lt() > 0:                                # во время занятий
-                    loc.eraseStatuses()                     # Сносим статусы
-                    loc.addStatus(pre_teach_status)         # Готовится к занятию
-                    loc.addStatus(teacher_hidden_mastur)    # ну или дрочит
+                loc.addStatus(pre_teach_status)        # Готовится к занятию
             if loc.id == 'loc_doctor':
                 loc.addStatus(medexam_status)
     statusDistribution()
