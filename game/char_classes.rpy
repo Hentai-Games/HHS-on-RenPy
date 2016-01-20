@@ -230,7 +230,7 @@ init -20 python:
 
 # Изменение loyalty
         def incLoy(self,amount):
-            self.stats.loyalty += corrMod*amount*max(0.1, (100 - self.getWill()/2)/100)
+            self.stats.loyalty += loyMod*amount*max(0.1, (100 - self.getWill()/2)/100)
 # Изменение fun
         def incFun(self,amount):
             self.stats.fun += amount

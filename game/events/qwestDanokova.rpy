@@ -78,6 +78,7 @@ label danokova_start:
             player.say '"Наверное стоит её спросить после уроков о качестве игры. Может быть она будет более адекватна?", - думаете вы, и кивая пропускаете свою сотрудницу.'
         'Ну её':
             player.say 'Погода, говорю, отличная! - киваете вы учительнице и пропускаете её к кассам. С таким уровнем неадекватности, как у неё, стоит повременить со стандартными методами.'
+    $ danokova.incCorr(10)
     $ move(curloc)
 
 label danokova_work:
@@ -384,6 +385,7 @@ label danokova_office_sex:
         callup = dummy
         mile_qwest_3_stage = 3
         changetime(120)
+        danokova.incCorr(10)
         move(prevloc)
 
 # mile_qwest_3_stage == 4
@@ -903,6 +905,8 @@ label get_chloroform:
                         player.say '"Помню! Помню всё таки!"'
                         'Вы внезапно вспомнили весь школьный курс химии, чем получили неслабую прибавку к интеллекту.'
                         $ player.incIntel(20)
+                        $ mile_qwest_3_stage = 17
+                        $ player.addItem(chloroform)
                         $ move(curloc)
                     'Добавить щёлочь':
                         player.say 'Ага... Ясно... Понятно...'
@@ -999,9 +1003,8 @@ label sniff_chloroform:
                 st1.setLoy(0)
     python:
         player.setLust(0)
-        player.incCorr(2)
+        player.incCorr(5)
         st1.incCorr(10)
         st1.setLust(0)
         hadSex(player,st1)
-        
         move('loc_office')
