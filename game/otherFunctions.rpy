@@ -254,17 +254,9 @@ init -5 python:
         classrooms.append(getLoc('loc_class4'))
         classrooms.append(getLoc('loc_class5'))
         
-        kupruvna.moveToLocation('loc_class1')
-        danokova.moveToLocation('loc_class2')
-        frigidovna.moveToLocation('loc_class3')
-        bissektrisovna.moveToLocation('loc_class4')
-        dikovna.moveToLocation('loc_class5')
-        
         if weekday == 2 or weekday == 4:
-            mustangovich.moveToLocation('loc_pool')
-            classrooms.append('loc_pool')
+            classrooms.append(getLoc('loc_pool'))
         else:
-            mustangovich.moveToLocation('loc_gym')
             classrooms.append(getLoc('loc_gym'))
 
         for x in studs:
@@ -293,6 +285,32 @@ init -5 python:
                     tempIndex = lt() - 1 + 4
                     if tempIndex > 5: tempIndex -= 6
                     x.moveToLocation(classrooms[tempIndex])
+
+        # Если в классе кто-то есть, то учитель идет туда, иначе - в учительскую.
+        if len(classrooms[0].getPeople()) > 0 : 
+            kupruvna.moveToLocation(classrooms[0].id)
+        else:
+            kupruvna.moveToLocation('loc_teacherRoom')
+        if len(classrooms[1].getPeople()) > 0 : 
+            danokova.moveToLocation(classrooms[1].id)
+        else:
+            danokova.moveToLocation('loc_teacherRoom')           
+        if len(classrooms[2].getPeople()) > 0 :  
+            frigidovna.moveToLocation(classrooms[2].id)
+        else:
+            frigidovna.moveToLocation('loc_teacherRoom')          
+        if len(classrooms[3].getPeople()) > 0 : 
+            bissektrisovna.moveToLocation(classrooms[3].id)
+        else:
+            bissektrisovna.moveToLocation('loc_teacherRoom')           
+        if len(classrooms[4].getPeople()) > 0 : 
+            dikovna.moveToLocation(classrooms[4].id)
+        else:
+            dikovna.moveToLocation('loc_teacherRoom')          
+        if len(classrooms[5].getPeople()) > 0 :  
+            mustangovich.moveToLocation(classrooms[5].id)
+        else:
+            mustangovich.moveToLocation('loc_teacherRoom')        
                     
     def clearLocations():
         for x in locations:

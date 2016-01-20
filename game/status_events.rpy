@@ -155,6 +155,7 @@ init 11 python:
     
     # Учителя
     teach_status = LocationStatus('Преподаёт', None, 'any', char_type = 'teacher', stats_actions = {'fun':(0.1,30),'education':(0.01, 80)})
+    pre_teach_status = LocationStatus('Готовится к уроку', None, 'any', char_type = 'teacher', stats_actions = {'fun':(0.1,30),'education':(0.01, 80)}) # статус для свободного учителя
     teacher_hidden_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'teacher', events = ['status_teacherHidden_mastur'], requirements = {'lust':60}, stats_actions = {'lust':(-100,0),'corr':(1,20),'fun':(1,30)})
     
     
@@ -258,6 +259,11 @@ init 11 python:
                 if loc.id in ['loc_class5'] and lt() <= 0:
                     if 'video' in school.furniture:
                         loc.addStatus(video_status)     # Просмотр порно
+            if loc.id == 'loc_teacherRoom':                 # для учительской
+                if lt() > 0:                                # во время занятий
+                    loc.eraseStatuses()                     # Сносим статусы
+                    loc.addStatus(pre_teach_status)         # Готовится к занятию
+                    loc.addStatus(teacher_hidden_mastur)    # ну или дрочит
             if loc.id == 'loc_doctor':
                 loc.addStatus(medexam_status)
     statusDistribution()
