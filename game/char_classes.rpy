@@ -762,10 +762,10 @@ init -20 python:
                     # negative - status will not go lower than max_val
                     if mod > 0:
                         if char_stat+mod > max_val:
-                            mod = 0
+                            mod = max_val - char_stat
                     else:
                         if char_stat+mod <= max_val:
-                            mod = 0
+                            mod = max_val - char_stat
                     
                     if stat == 'loyalty':
                         self.incLoy(mod)

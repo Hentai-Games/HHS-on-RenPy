@@ -9,6 +9,7 @@
     last_eat = 0 # Инициализация времени с последнего обеда
     last_inventory = 'inventory_all'
     noEventTime = 0 # Время без эвентов
+    reaction = '' # Инициализация реакции
     
     movedArray = [] # Тестовый массив перемещённых персонажей
     
@@ -61,14 +62,6 @@
     pedicure = 0
     show_peopleTextList = 0
     
-    reputation_intro = [] # Интро эвента для поднятия репутации
-    showed = [] # Стак предметов в отображении инвентаря
-    detentions = [] # Лист провинившихся
-    scoldWho = [] # Лист тех, кого будем наказывать в эвенте
-    highlightP = [] # лист подсвечивающихся на локации
-    aphroUsedArr = [] #лист тех, на ком юзался афродизиак
-    teacher_intro = [] #лист просмотренных интро
-
 init 10 python:
     teacher_son = dummy
     callup = dummy

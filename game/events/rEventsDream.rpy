@@ -71,7 +71,7 @@ label event_loc_dreams_15_9:
     show expression ("pic/locations/home/dream/9.jpg") at top
     'Вам приснилось, что вас застукали ученики, когда вы возвращались утром с рейверской вечеринки. Непонятно почему, но стыдно до сих пор.'
     'Развратность уменьшилась.'
-    $ player.decCorr(1)
+    $ player.incCorr(-1)
     $ move(curloc)
     
 label event_loc_dreams_0_10:

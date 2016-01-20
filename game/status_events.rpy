@@ -33,11 +33,16 @@ init 11 python:
         stats_actions = {'fun':(0.1,20)})
     shopping_status = LocationStatus('Делает покупки', None, ['female','futa'], 
         stats_actions = {'fun':(0.3,30)})
-    football_status = LocationStatus('Играет в футбол', None, 'any', 
+    football_status = LocationStatus('Играет в футбол', None, 'any', char_type = 'student',
         events = ['status_football'], 
         stats_actions = {'fun':(0.3,30)})
     undress_status = LocationStatus('Переодевается', None, 'any', 
         events = ['status_undress'])
+        
+    peep_status_male = LocationStatus('Подглядывает за девочками', None, ['male'], char_type = 'student', 
+        stats_actions = {'fun':(0.1,40), 'lust':(1,70)})
+    peep_status_female = LocationStatus('Подглядывает за мальчиками', None, ['female','futa'], char_type = 'student', 
+        stats_actions = {'fun':(0.1,40), 'lust':(1,70)})
     
     # Мастурбация
     hidden_mastur = LocationStatus('Копошится', None, 'any', char_type = 'student', 
@@ -216,6 +221,12 @@ init 11 python:
                 loc.addStatus(hidden_mastur,40) # Дрочат скрытно
                 loc.addStatus(teacher_hidden_mastur) # Учителя дрочат скрытно
                 
+            if loc.id == 'loc_wcf':
+                loc.addStatus(peep_status_male) # Подглядывает за девочками
+            
+            if loc.id == 'loc_wcm':
+                loc.addStatus(peep_status_female) # Подглядывает за мальчиками
+                
             if loc.id in ['loc_shoppingStreet']:
                 loc.addStatus(shopping_status) # Занимаются шоппингом
                 
@@ -338,6 +349,7 @@ label status_hidden_mastur: # Complete
             show expression 'pic/status/futa_class_mastur.jpg' as tempPic
             'Вы только и успеваете заметить, как [interactionObj.fname] вздрагиает и убирает руку от юбки, по которой расплывается влажное пятно спермы.'
     $ changetime(10)
+    $ player.incLust(15)
     $ move(curloc)
     
 label status_mastur: # Complete
@@ -360,6 +372,7 @@ label status_mastur: # Complete
         'Движения ученицы становятся всё дёрганнее и нетерпеливей, и вот уже первая струйка спермы вырывается с кончика пениса, звонко плюхаясь на пол.'
         '[interactionObj.fname] ещё вздрагивает пару раз и неспеша упаковывает свою игрушку в портфель.'
         $ changetime(10)
+    $ player.incLust(15)
     $ move(curloc)
     
 label status_public_mastur: # Incomplete. Futa, male.
@@ -383,7 +396,7 @@ label status_public_mastur: # Incomplete. Futa, male.
     else:
         '[interactionObj.name] публично дрочит.' # У меня нет пика на этот случай.
     $ changetime(10)
-    $ player.incLust(5)
+    $ player.incLust(15)
     $ move(curloc)
     
 label status_voleyball: # Complete
@@ -406,7 +419,7 @@ label status_kiss: # Complete
             show expression 'pic/status/kiss_yuri.png' as tempPic
     '[interactionObj.name] и [interactionObj.partner.name] целуются. Вы недолго постояли, надеясь что они перейдут к более активным действиям, но нет. Не перешли.'
     $ changetime(10)
-    $ player.incLust(1)
+    $ player.incLust(5)
     $ move(curloc)
 
 label status_undress: # Complete

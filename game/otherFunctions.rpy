@@ -61,7 +61,7 @@ init -5 python:
 
 #Работа с людьми
     def getChar(*args): 
-        global dublicationChar
+        global dublicationChar, studs, teachers
         temp = []
 
         if len(args) == 0:
@@ -92,7 +92,7 @@ init -5 python:
         elif len(args) == 2:
             if args[1] == 'classroom':
                 for x in getLoc(curloc).getPeople():
-                    if x.body.sex() == args[0] or args[0] == '':
+                    if (x.body.sex() == args[0] or args[0] == '') and x in studs:
                         temp.append(x)
                 if len(temp) == 0:
                     return getChar(args[0])
