@@ -163,9 +163,6 @@ init 11 python:
     pre_teach_status = LocationStatus('Готовится к уроку', None, 'any', char_type = 'teacher', stats_actions = {'fun':(0.1,30),'education':(0.01, 80)}) # статус для свободного учителя
     teacher_hidden_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'teacher', events = ['status_teacherHidden_mastur'], requirements = {'lust':60}, stats_actions = {'lust':(-100,0),'corr':(1,20),'fun':(1,30)})
     
-    # При каких статусах с нами не станут говорить
-    not_speak_status = [learn_low_status, learn_mid_status, learn_high_status, learn_lust_status, teach_status]
-    
 init 11 python:
     def lookSelector():
         if 'strict' == school.uniform:
