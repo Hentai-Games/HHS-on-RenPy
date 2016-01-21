@@ -358,7 +358,7 @@ init python:
         if player.isSperm() == 2: # Если видна сперма
             if char.getCorr() < 25 or char.getWill() > 80:
                 reaction.append('Вы замечаете, что '+fname+' как-то странно поглядывает на вас. Похоже эти белые пятна привлекают лишнее внимание.')
-                if char.getLoy() < 50:
+                if char.getLoy() < 50 and char in studs:
                     reaction.append('И так как лояльность ученика не очень высока, ' + temp + ' наверняка проговорится своим родителям.')
                     char.incRep(-0.5)
             else:

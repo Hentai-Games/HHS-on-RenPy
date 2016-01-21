@@ -56,6 +56,7 @@ init python:
         return tempList[rand(0,len(tempList) - 1)].id
 
 
+
     def showChars():
         changetime(1)
         renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
@@ -96,7 +97,7 @@ init python:
             else:
                 return Image(anotherImage, xalign=0.8, yalign= 1.0, yanchor = 'center')
 
-    dummy = Char()
+    dummy = ''
     interactionObj = dummy
     lastView = 'locationPeoplePicto'
     showHover = dummy
@@ -114,7 +115,8 @@ screen peopleTextList:
                 if x in teachers: mystyle = 'bluesmall_button'
                 if x in highlightP: mystyle = 'warning'
                 actions_list = [Function(clrscr),
-                                SetVariable('interactionObj', x)]
+                                SetVariable('interactionObj', x),
+                                SetVariable('reaction', reactionGen(x))]
                 if x.getLocationStatus() and x.getLocationStatus().events:
                     actions_list.append(Jump(choice(x.getLocationStatus()
                                                      .events)))
@@ -154,7 +156,8 @@ screen locationPeoplePicto:
                 $ pictoSize += 0.1
             python:
                 actions_list = [Function(clrscr),
-                                SetVariable('interactionObj', x)]
+                                SetVariable('interactionObj', x),
+                                SetVariable('reaction', reactionGen(x))]
                 if x.getLocationStatus() and x.getLocationStatus().events:
                     actions_list.append(Jump(choice(x.getLocationStatus()
                                                      .events)))
@@ -230,7 +233,6 @@ screen show_stat:
         # add 'pic/bg2.png'
         vbox xmaximum 750:
             text textgen(interactionObj) style style.my_text
-            $ reaction = reactionGen(interactionObj)
             for x in reaction:
                 text x style style.my_text
 
