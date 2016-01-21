@@ -61,7 +61,7 @@ init -5 python:
 
 #Работа с людьми
     def getChar(*args): 
-        global dublicationChar
+        global dublicationChar, studs, teachers
         temp = []
 
         if len(args) == 0:
@@ -92,7 +92,7 @@ init -5 python:
         elif len(args) == 2:
             if args[1] == 'classroom':
                 for x in getLoc(curloc).getPeople():
-                    if x.body.sex() == args[0] or args[0] == '':
+                    if (x.body.sex() == args[0] or args[0] == '') and x in studs:
                         temp.append(x)
                 if len(temp) == 0:
                     return getChar(args[0])
@@ -291,22 +291,27 @@ init -5 python:
             kupruvna.moveToLocation(classrooms[0].id)
         else:
             kupruvna.moveToLocation('loc_teacherRoom')
+            
         if len(classrooms[1].getPeople()) > 0 : 
             danokova.moveToLocation(classrooms[1].id)
         else:
-            danokova.moveToLocation('loc_teacherRoom')           
+            danokova.moveToLocation('loc_teacherRoom')   
+            
         if len(classrooms[2].getPeople()) > 0 :  
             frigidovna.moveToLocation(classrooms[2].id)
         else:
-            frigidovna.moveToLocation('loc_teacherRoom')          
+            frigidovna.moveToLocation('loc_teacherRoom')   
+            
         if len(classrooms[3].getPeople()) > 0 : 
             bissektrisovna.moveToLocation(classrooms[3].id)
         else:
-            bissektrisovna.moveToLocation('loc_teacherRoom')           
+            bissektrisovna.moveToLocation('loc_teacherRoom')   
+            
         if len(classrooms[4].getPeople()) > 0 : 
             dikovna.moveToLocation(classrooms[4].id)
         else:
-            dikovna.moveToLocation('loc_teacherRoom')          
+            dikovna.moveToLocation('loc_teacherRoom')    
+            
         if len(classrooms[5].getPeople()) > 0 :  
             mustangovich.moveToLocation(classrooms[5].id)
         else:

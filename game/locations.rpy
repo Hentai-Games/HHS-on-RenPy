@@ -328,8 +328,8 @@ init 10 python:
                 elif x == 'loc_class4': loc = Location(id = x, name = 'Класс 4', base_prob = 10, position = ['school','classroom'])
                 elif x == 'loc_class5': loc = Location(id = x, name = 'Класс 5', base_prob = 10, position = ['school','classroom'])
                 elif x == 'loc_teacherRoom': loc = Location(id = x, name = 'учительская', base_prob = 0, position = ['school'])
-                elif x == 'loc_wcm': loc = Location(id = x, name = 'Туалет для мальчиков', base_prob = 5, position = ['school'])
-                elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 5, position = ['school'])
+                elif x == 'loc_wcm': loc = Location(id = x, name = 'Туалет для мальчиков', base_prob = 100, position = ['school'])
+                elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 100, position = ['school'])
                 elif x == 'loc_storage': loc = Location(id = x, name = 'кладовка', base_prob = 5, position = ['school'])
                 elif x == 'loc_chemlab': loc = Location(id = x, name = 'Лаборатория', base_prob = -1, position = ['school'])
                 elif x == 'loc_doctor': loc = Location(id = x, name = 'Медицинский кабинет', base_prob = 2, position = ['school'])
@@ -767,7 +767,7 @@ label loc_changeRoom:
     screen changeRoom:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Раздевалка. Она разделена на 2 отделения: для мальчиков и для девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек, разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
+                text 'Раздевалка. Она разделена на 2 отделения: для мальчиков и для девочек. Как ни странно, вы тоже можете тут переодеваться.' style style.description
             textbutton 'Бассейн':
                 xalign 0.2 yalign 0.8
                 action [Function(move, 'loc_pool')]

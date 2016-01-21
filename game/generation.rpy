@@ -652,9 +652,16 @@ label skipall:
             location = curloc,
             money = 5000
         )
-        
 
         for char in _teachers:
+            tempSex = char.getSex()
+            if tempSex == 'futa':
+                tempSex = 'female'
+            for cloth in clothing:
+                if cloth.sex == tempSex and cloth.char == 'teacher':
+                    char.addItem(cloth)
+                    
+        for char in [gonoreevna, dante]:
             tempSex = char.getSex()
             if tempSex == 'futa':
                 tempSex = 'female'
@@ -666,12 +673,20 @@ label skipall:
 #######################################################
 #Пересохранение этого добра для того, чтобы сохранялось.
 #######################################################
-    $ _allChars.extend(_studs)
-    $ _allChars.extend(_teachers)
-    $ school = School()
-    $ allChars = _allChars
-    $ studs = _studs
-    $ teachers = _teachers
-    $ school.getBudget()
-    $ hourlyReset()
-    $ move('myintro')
+    python:
+        _allChars.extend(_studs)
+        _allChars.extend(_teachers)
+        school = School()
+        allChars = _allChars
+        studs = _studs
+        teachers = _teachers
+        school.getBudget()
+        hourlyReset()
+        reputation_intro = [] # Интро эвента для поднятия репутации
+        showed = [] # Стак предметов в отображении инвентаря
+        detentions = [] # Лист провинившихся
+        scoldWho = [] # Лист тех, кого будем наказывать в эвенте
+        highlightP = [] # лист подсвечивающихся на локации
+        aphroUsedArr = [] #лист тех, на ком юзался афродизиак
+        teacher_intro = [] #лист просмотренных интро
+        move('myintro')
