@@ -2,7 +2,7 @@ label event_loc_wcm_0_no1:
     show wcm
     python:
         st1 = getChar('male')
-    show expression 'pic/locations/school/wcm/no%d.jpg' %rand(1,4) at top as tempPic
+    show expression 'pic/locations/school/wcm/no1.png' at top as tempPic
     'Зайдя в туалет, вы увидели, что [st1.fname] стоит, и курит сигарету.'
     if st1.getLoy() > 50:
         'Заметив вас, он вежливо здоровается и продолжает курить.'
