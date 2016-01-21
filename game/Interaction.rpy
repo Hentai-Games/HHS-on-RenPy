@@ -243,7 +243,7 @@ screen show_stat:
                     textbutton 'Замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
                 else:
                     textbutton 'Не замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
-            if lt() <= 0 or 'safe' in getLoc(curloc).position:
+            if interactionObj.locationStatus not in not_speak_status: # Если собеседник не занят
                 if interactionObj.sayCount > 0:
                     textbutton 'Поговорить' xminimum 200 action Jump('speak')
                 if interactionObj.sayCount >= 3:
@@ -410,6 +410,7 @@ label callout:
     player.say 'Я думаю, мы закончили, [callup.fname].'
     callup.say 'Хорошо, до свидания, [player.name].'
     python:
+        callup.moveToLocation('loc_firstFloor') # Выгоняем в коридор
         callup = dummy
         move(curloc)
 ###########################################################################################################################
