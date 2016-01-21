@@ -14,8 +14,8 @@ label event_loc_gym_0_no1:
         show expression 'pic/locations/school/gym/no1_1.jpg' at top as tempPic
         player.say '"Какой злобный взгляд! Интересно, как она его накажет? В самый ответственный момент не даст, заставив обкончать свой собственный живот?"'
         'Вы прикрыли глаза и представили себе эту сцену... Изнемогающий от желания погрузиться во влажную темноту [st2.fname], и [st1.fname], безжалостно заставляющая парня обкончать её руку...'
-        player.incCorr(1)
-        player.incLust(10)
+        $ player.incCorr(1)
+        $ player.incLust(10)
     $ move(curloc)
 
 label event_loc_gym_0_no2:
