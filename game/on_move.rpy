@@ -103,7 +103,7 @@ init python:
             
     #Добавление людей на локации
     def addPeopleLocations():
-        global hour, weekday
+        global hour, weekday, callup
         mystring = ''
         counter = 0
         statusDistribution() # распределяем статусы по локациям
@@ -196,6 +196,7 @@ init python:
         if lt() == -4:
             # Сейчас ночь, нужно убрать всех с локаций
             clearLocations()
+            if callup != dummy : callup = dummy # Заодно убираем вызванного ученика
 
         for loc in locations:
             dressPeople(loc.id) # Одеваем людей на локациях
