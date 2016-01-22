@@ -313,9 +313,9 @@ init 10 python:
                 elif x == 'loc_shopBeauty': loc = Location(id = x, name = 'салон красоты', base_prob = 10, position = ['other'])
                 elif x == 'loc_sexShop': loc = Location(id = x, name = 'сексшоп', base_prob = 5, position = ['other'])
 
-                elif x == 'loc_hall': loc = Location(id = x, name = 'холл', base_prob = 15, position = ['school'])
+                elif x == 'loc_hall': loc = Location(id = x, name = 'холл', base_prob = 5, position = ['school'])
                 elif x == 'loc_dungeon': loc = Location(id = x, name = 'подвал', base_prob = -1, position = ['school'])
-                elif x == 'loc_entrance': loc = Location(id = x, name = 'вход', base_prob = 20, position = ['school'])
+                elif x == 'loc_entrance': loc = Location(id = x, name = 'вход', base_prob = 10, position = ['school'])
                 elif x == 'loc_library': loc = Location(id = x, name = 'библиотека', base_prob = 10, position = ['school'])
                 elif x == 'loc_changeRoom': loc = Location(id = x, name = 'школьная раздевалка', base_prob = 5, position = ['school','safe','change'])
                 elif x == 'loc_gym': loc = Location(id = x, name = 'спортивный зал', base_prob = 20, position = ['school','classroom','sport'])
@@ -328,8 +328,8 @@ init 10 python:
                 elif x == 'loc_class4': loc = Location(id = x, name = 'Класс 4', base_prob = 10, position = ['school','classroom'])
                 elif x == 'loc_class5': loc = Location(id = x, name = 'Класс 5', base_prob = 10, position = ['school','classroom'])
                 elif x == 'loc_teacherRoom': loc = Location(id = x, name = 'учительская', base_prob = 0, position = ['school'])
-                elif x == 'loc_wcm': loc = Location(id = x, name = 'Туалет для мальчиков', base_prob = 100, position = ['school'])
-                elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 100, position = ['school'])
+                elif x == 'loc_wcm': loc = Location(id = x, name = 'Туалет для мальчиков', base_prob = 5, position = ['school'])
+                elif x == 'loc_wcf': loc = Location(id = x, name = 'Туалет для девочек', base_prob = 5, position = ['school'])
                 elif x == 'loc_storage': loc = Location(id = x, name = 'кладовка', base_prob = 5, position = ['school'])
                 elif x == 'loc_chemlab': loc = Location(id = x, name = 'Лаборатория', base_prob = -1, position = ['school'])
                 elif x == 'loc_doctor': loc = Location(id = x, name = 'Медицинский кабинет', base_prob = 2, position = ['school'])
@@ -356,14 +356,12 @@ init 10 python:
                 else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
                 locations.append(loc)
 
-                # For tests
-                # test_loc_status = LocationStatus('TEST', None, 'any', events=['cleanAss'])
-                # loc.addStatus(test_loc_status, 50)
     genLocs() # генерирую локации
     getEvents() # добавляю всем эвенты
     getQwests() # добавляю квесты
+    
 ######################################################
-# Объявление всех картинок
+# Объявление всех картинок локаций
 init:
     image home = ConditionSwitch(
         "hour >= 5 and hour <= 20", 'pic/locations/home/2.png',
