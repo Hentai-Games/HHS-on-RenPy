@@ -20,7 +20,6 @@ label event_loc_storage_0_no2:
         st1.incFun(-5)
     show expression 'pic/locations/school/storage/no2.jpg' at top as tempPic
     'Вы заходите в кладовку, видите что [st1.fname] кого то ждёт, и искренне надеясь что не вас, выходите.'
-
     $ move(prevloc)
 
 label event_loc_storage_0_no3:
@@ -44,7 +43,7 @@ label event_loc_storage_0_no4:
     show expression 'pic/locations/school/storage/no4.jpg' at top as tempPic
     '[st1.fname] подвернула ногу, пытаясь дотянуться до верхней полки со спорт инвентарём. Хорошо, что Вы вовремя зашли!'
     menu:
-        'Помочь' if money >= 50:
+        'Помочь' if player.money >= 50:
             'Вы отправили девочку на такси домой. Сама она ходить по сути не может. Это Вам встало всего в 50 монет. Слухи о вашей доброте разнеслись по школе.'
             $ player.money -= 50
             $ st1.incLoy(5)
@@ -111,24 +110,12 @@ label event_loc_storage_30_low2:
             st2.say '[st1.fname], я сейчас кончу! - сильнее заворочался парень, пытаясь выскользнуть из под ноги ученицы.'
             st1.say 'Как тебе тогда это? - староста вдруг раздвинула свой балахончик, показывая молодое тело школьнику, - Мне тоже уже надоело с тобой возится, и это уже в третий раз! Кончай давай.'
             'С этими словами из уст мальчишки раздался стон, и белая жидкость начала разбрызгиваться по животу, заливая пальчики девочки. Вы постарались незаметно уйти, пока никто Вас не заметил.'
-            $ st1.incLoy(10)
-            $ st1.incFun(10)
-            $ st1.incCorr(1)
-            $ st2.incLoy(10)
-            $ st2.incFun(10)
-            $ st2.incCorr(1)
-
+            $ hadSex(st1,st2)
             $ player.incLust(10)
             $ player.incCorr(1)
-            $ player.incWill(2)
-
         'Наказать':
-            $ st1.incLoy(-5)
-            $ st1.incFun(-5)
-            $ st2.incLoy(-5)
-            $ st2.incFun(-5)
-            $ scoldWho = [st1, st2]
-
+            $ scoldWho = [st1,st2]
+            jump scoldAll
     $ move(curloc)
 
 label event_loc_storage_30_low3:
