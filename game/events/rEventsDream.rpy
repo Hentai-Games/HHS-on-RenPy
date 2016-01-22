@@ -19,7 +19,11 @@ label event_loc_dreams_0_2:
     $ move(curloc)
     
 label event_loc_dreams_0_3:
-    show expression ("pic/locations/home/dream/3.jpg") at top
+    show expression ("pic/locations/home/dream/3.jpg") as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Вам приснилась странная гравюра с японской женщиной под яблоней. Она навеяла вам воспоминания о матери.'
     'Развратные мысли немного развеялись и вы отлично выспались'
     $ player.stats.energy += 100
@@ -35,7 +39,11 @@ label event_loc_dreams_5_4:
     $ move(curloc)
 
 label event_loc_dreams_0_5:
-    show expression ("pic/locations/home/dream/5.jpg") at top
+    show expression ("pic/locations/home/dream/5.jpg")  as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Замечательный сон о барбекю на пляже настроил вас на благодушный лад с утра. Только перекусить захотелось...'
     $ move(curloc)
     
@@ -48,7 +56,11 @@ label event_loc_dreams_20_6:
     $ move(curloc)
     
 label event_loc_dreams_25_7:
-    show expression ("pic/locations/home/dream/7.jpg") at top
+    show expression ("pic/locations/home/dream/7.jpg") as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Это был ужасно беспокойный и вместе с тем развратный сон. Всю жизнь вы прожили как демонолог. Причём МУЖСКОГО пола. В последнюю ночь вы решили себя побаловать маленькой суккубой!'
     'Боже, как она ласково облизывала ваш 20 сантиметровый член!'
     'Проснувшись вы с удивлением понимаете, что даже жалеете о том, что вам никогда не испытать удовольствия от пламенного язычка на головке. При воспоминании об этом соитии, у вас начинает течь по ножкам'
@@ -68,7 +80,11 @@ label event_loc_dreams_40_8:
     $ move(curloc)
     
 label event_loc_dreams_15_9:
-    show expression ("pic/locations/home/dream/9.jpg") at top
+    show expression ("pic/locations/home/dream/9.jpg")  as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Вам приснилось, что вас застукали ученики, когда вы возвращались утром с рейверской вечеринки. Непонятно почему, но стыдно до сих пор.'
     'Развратность уменьшилась.'
     $ player.incCorr(-1)
@@ -90,7 +106,11 @@ label event_loc_dreams_25_11:
     $ move(curloc)
     
 label event_loc_dreams_50_12:
-    show expression ("pic/locations/home/dream/12.jpg") at top
+    show expression ("pic/locations/home/dream/12.jpg")  as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Вам снится сон, в котором вы нашли огромный, перевитый венами, мужской половой орган. Он возвышался над вами, такой живой, с бархатистой кожей, блестящей головкой и она, вы знали, жаждалa прикосновений.'
     'Не выдержав, вы как смогли приласкали его, гладя ладонями, всем телом, обвиваясь вокруг этого столба. И вашей наградой был поток пряно-пахнувшей белой жидкости, его было много, безумно много и вы были счастливы.'
     'Проснувшись вы удивились странному сну, но в паху приятно покалывало.'
@@ -105,7 +125,11 @@ label event_loc_dreams_60_13:
     $ move(curloc)
     
 label event_loc_dreams_40_14:
-    show expression ("pic/locations/home/dream/14.jpg") at top
+    show expression ("pic/locations/home/dream/14.jpg")  as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'В этом сне в женском туалете вашей школы собрались девушки, с.. кхм... довольно большими отклонениями. Особых запах заполнял все пространство, они вас явно не ждали, но даже, как вам показалось, обрадовались.'
     'Проснувшись, вы вздохнули, думая о сочетании упругих грудок и великолепного члена.'
     $ player.stats.lust += 10
@@ -133,7 +157,11 @@ label event_loc_dreams_0_17:
     $ move(curloc)
     
 label event_loc_dreams_70_18:
-    show expression ("pic/locations/home/dream/18.jpg") at top
+    show expression ("pic/locations/home/dream/18.jpg")  as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'В сегодняшнем сне, будучи дриадой, невинные заигрывания с сатиром привели к неожиданному финалу: поймав и уложив вас на покрытую зеленое возвышение, его пальцы снизу раздвинули половые губы, и что-то очень твердое и тупое уперлось в вашу вагину.'
     'Вы сделали последнюю попытку вырваться, понимая, что проникновение ТАКОГО члена будет непростым. Бесполезно. На ощущение собственной беспомощности и бессилия, нижнее естество отреагировало предательски - влагалище намокло горячей сладостью. И сатир ПРОНИК...'
     'Вы никогда не сталкивалась с членом такой толщины. Нижние губы обхватившие член, оказались натянутыми так, что первым ощущением от проникновения была боль. Его первое движение было глубоким и медленным. Насильник явно смаковал его.'
@@ -170,7 +198,11 @@ label event_loc_dreams_0_19:
     $ move(curloc)
     
 label event_loc_dreams_40_21:
-    show expression ("pic/locations/home/dream/21.jpg") at top
+    show expression ("pic/locations/home/dream/21.jpg")  as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'В жарком Египте невольники с огромными членами неутомимо трудились над вашим царственным телом. Отдавая свое роскошное, смазанное маслом тело, вы с наслаждением насаживали себя на член раба до самого конца, чувствуя, как промежность приятно растянулась в самом толстом месте у основания его члена.'
     'Вы сами выбирали ритм, сами выбирали углы проникновения, импровизировали и торжествовали над ними.'
     'Проснувшись вы почувствовали как теплая, щемящая и сладострастная волна, зародившись между ног, распространяется по всему телу. Утренний оргазм уменьшил желание, но увеличил развращённость'
