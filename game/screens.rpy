@@ -195,10 +195,10 @@ screen nvl:
 screen main_menu:
     # Это заменяет другие меню.
     tag menu
-        
+    add 'pic/new.png'
     # Фон главного меню.
-    window:
-        style "mm_root"
+    # window:
+        # style "mm_root"
         
 
     # Кнопки главного меню.

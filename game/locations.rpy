@@ -1114,7 +1114,7 @@ label loc_street:
             textbutton 'Пробежка':
                 xalign 0.3 yalign 0.5
                 action Function(move, 'loc_run')
-            if olympiad.confirm == 1 and olympiad.cheat != 0 and olympiad.qwest == 0:
+            if olympiad.confirm == 1 and olympiad.cheat == 0 and olympiad.qwest == 0:
                 textbutton 'В министерство':
                     xalign 0.5 yalign 0.8
                     action Jump('olympiad_bribe_start')

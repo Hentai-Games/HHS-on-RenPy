@@ -339,11 +339,11 @@ init -5 python:
                 for x in allChars:
                     if x.club == club and x.getSex() == args[0]:
                         tempArr.append(x)
-                        
-                if len(tempArr) == 0 and args[1] == 'please': # Если ОЧЕНЬ нужен человек с нужным полом для эвента, но его нет, тогда создаём его.
-                    tempChar = getChar(args[0])
-                    tempChar.club = club
-                    tempArr.append(tempChar)
+                if len(args) == 2:
+                    if len(tempArr) == 0 and args[1] == 'please': # Если ОЧЕНЬ нужен человек с нужным полом для эвента, но его нет, тогда создаём его.
+                        tempChar = getChar(args[0])
+                        tempChar.club = club
+                        tempArr.append(tempChar)
                     
                 return tempArr
         else:

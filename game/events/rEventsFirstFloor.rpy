@@ -382,7 +382,7 @@ label event_loc_firstFloor_0_lo11:
             pass
         'Посмотреть наверх' if player.getCorr() > 25:
             $ player.incLust(20)
-            show expression 'pic/locations/school/firstFloor/lo11.jpg' at top as tempPic
+            show expression 'pic/locations/school/firstFloor/lo11.png' at top as tempPic
             'Вы постояли немного под лестницей, наблюдая как девушки одна за одной, проходят мимо, оставляя в вашей памяти следы их прекрасных трусиков. Пожалуй, это были одни из самых лучших минут в вашей жизни. '
             if rand(1,3) == 1:
                 'Кто заметил, как вы стояли под лестницей. Ваша репутация упала.'
