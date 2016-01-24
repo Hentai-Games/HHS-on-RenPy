@@ -50,7 +50,7 @@ init python:
                 checkOrgasm(tempLoc) # проверка на перевозбуждение
                 checkMisc() # Прочие мелкие проверки
                 
-            if rand(1,100) < 10 + noEventTime and len(getLoc(curloc).getPeople()) > 1 and  same_loc == 0: # Если на локации кто то есть и локация поменялась, дёргаем эвент по рандому
+            if rand(1,100) < 10 + noEventTime and len(getLoc(curloc).getPeople()) > 0 and  same_loc == 0: # Если на локации кто то есть и локация поменялась, дёргаем эвент по рандому
                 tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
             
