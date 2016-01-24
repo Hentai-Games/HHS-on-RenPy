@@ -24,12 +24,12 @@ init -1 python hide:
     ## Это управляет заголовком окна, когда Ren'Py
     ## запущен в оконном режиме.
 
-    config.window_title = u"HHS"
+    config.window_title = u"Hentai High School Remake"
 
     # Эти управляют именем и версией игры, которые указываются
     # в журналах отладки.
-    config.name = "HHS"
-    config.version = "0.1"
+    config.name = "Hentai High School Remake"
+    config.version = "0.2.0"
     
     #########################################
     # Темы

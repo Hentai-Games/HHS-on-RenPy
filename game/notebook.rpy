@@ -136,7 +136,7 @@ screen personalInfo:
                 corr = round(player.getCorr(),1)
                 fun = round(player.getFun(),1)
                 health = round(player.getHealth(),1)
-                height = round(showHover.body.height,1)
+                height = round(player.body.height,1)
                 money = round(player.money,1)
                 
                 bsize = round(player.body.parts['грудь'].size, 1)

@@ -26,7 +26,7 @@ label dialog_stud_0_3:
 label dialog_stud_0_4:
     $ teacher = teachers[rand(0,len(teachers)-1)]
     $ science = teacher.club.title()
-    player.say '[science] - мой любимый предмет! - заводите Вы разговор.'
+    player.say '[science] - мой любимый предмет! - заводите вы разговор.'
     if user.getSex() == 'male':
         user.say 'А мой - [science]! - как-то невпопад отвечает ученик. Или [user.fname] просто подкалывает вас?'
     else:

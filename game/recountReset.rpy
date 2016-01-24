@@ -1,7 +1,7 @@
 init python:
     def dailyRecount(chars):
     
-        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday, studs, teachers
+        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday, studs, teachers, lastWork, lastWashed, corrTeacherTime
         
         timeGetPanties = 0 # сброс времени выдачи трусов
         aphroUsedArr[:] = [] # сброс людей под афродизиаком
@@ -19,6 +19,9 @@ init python:
         # Работа
         lastWork = -30
         
+        # Собрания
+        corrTeacherTime = - 100
+        
         # Салон красоты
         if him_zavivka > 0:
             him_zavivka -= 1
@@ -32,8 +35,7 @@ init python:
             pedicure -= 1
         
         # Олимпиада
-        if (rand(1,10) == 1 ) and olympiad.month != month and olympiad.active == False and weekday <= 5:
-            olympiad.month = month
+        if (rand(1,10) == 1) and olympiad.month != month and olympiad.active == False and weekday <= 5 or weekday == 2:
             olympiad.weekday = weekday + 2
             if olympiad.weekday > 5:
                 olympiad.weekday -= 5
