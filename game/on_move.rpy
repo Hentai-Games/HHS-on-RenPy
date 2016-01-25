@@ -11,7 +11,7 @@ init:
 init python:
 #базовая функция перемещения. Использовать всегда и всюду
     from random import shuffle
-    def move(where):
+    def move(where,*args):
         global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime, development  #объявление глобальных переменных
         if development == 1:    
             player.setEnergy(2000)
@@ -50,11 +50,13 @@ init python:
                 checkOrgasm(tempLoc) # проверка на перевозбуждение
                 checkMisc() # Прочие мелкие проверки
                 
-            if rand(1,100) < 10 + noEventTime and len(getLoc(curloc).getPeople()) > 0 and  same_loc == 0: # Если на локации кто то есть и локация поменялась, дёргаем эвент по рандому
+            if rand(1,100) < 10 + noEventTime and len(getLoc(curloc).getPeople()) > 0: #and  same_loc == 0: # Если на локации кто то есть и локация поменялась, дёргаем эвент по рандому
                 tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
             
             if  where[:4] == 'loc_': trySpecialEvent(where) # спец эвент
+            if len(args) > 0:
+                changetime(args[0])
             renpy.jump(where) #Переход на локу
         else:
             renpy.jump('loc_home')

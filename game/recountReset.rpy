@@ -135,6 +135,7 @@ init python:
                 school.budget -= 250
                 
     def monthlyReset():
+        global is_teacher_room_1, is_teacher_room_2, is_teacher_room_3
         if is_teacher_room_1 != 0: is_teacher_room_1 = 2
         if is_teacher_room_2 != 0: is_teacher_room_2 = 2
         if is_teacher_room_3 != 0: is_teacher_room_3 = 2

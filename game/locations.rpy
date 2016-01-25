@@ -15,8 +15,9 @@ init 10 python:
             global hour
             if lt() > 0 or lt() == -4: rez = -1 # Если ночь, то на улице никого нет
 
-            elif 'school' in self.position and lt() == -1: rez = self.base_prob/4 # Если внеурочное время, то в школе шансов встретить меньше
-            elif 'school' in self.position and lt() == 0: rez = self.base_prob*2 # Если перемена, то в школе шансов встретить гораздо больше
+            elif 'school' in self.position and lt() < 0: rez = self.base_prob/4 # Если внеурочное время, то в школе шансов встретить меньше
+            elif 'school' in self.position and lt() == 0: rez = self.base_prob # Если перемена, то в школе шансов встретить гораздо больше
+            
             elif 'other' in self.position and lt() == 0: rez = -1 # Во время перемен никого не будет в городе
             elif self.id in ['loc_street','loc_shopStreet'] and hour < 8: rez = self.base_prob*2 # Перед уроками на улице чаще
             elif self.id in ['loc_beach'] and hour < 8: rez = self.base_prob/2 # Перед уроками на пляже реже
@@ -529,7 +530,10 @@ label test:
     # show expression 'pic/status/male_toy.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
     # ''
     # $move(curloc)
-    $ changetime(60*24)
+    $ danokova.setCorr(30)
+    $ danokova.forceLocationStatus(look_naked_status)
+    $ temp = danokova.getCorr()
+    '[temp]'
     $ move('loc_home')
 
 ##############################################################
@@ -594,8 +598,7 @@ label loc_kitchen:
                 if ptime - last_eat > 4:
                     textbutton 'Поесть' xalign 0.4 yalign 0.6 action [
                     Function(player.eat, player.getItem('Сырая еда')),
-                    Function(changetime, 15),
-                    Function(move, curloc)]
+                    Function(move, curloc, 15)]
             else :
                 text 'Микроволновка, плита, раковина, шкафчики. Кухня, одним словом. \nОценив количество оставшейся еды, вы понимаете, что её не осталось СОВСЕМ. Надо срочно сгонять в магазин.' xalign 0.0 yalign 1.0 style style.description
             textbutton 'Гостиная':
@@ -663,7 +666,7 @@ label loc_entrance:
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Домой':
                 xalign 0.1 yalign 0.7
-                action [Function(changetime, 30),Function(move, 'loc_street')]
+                action [Function(move, 'loc_street', 30)]
                 style "navigation_button" text_style "navigation_button_text"
             if 'library' in school.buildings:
                 textbutton 'Библиотека':
@@ -1101,15 +1104,15 @@ label loc_street:
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'На пляж':
                 xalign 0.3 yalign 0.77
-                action [Function(changetime, 30),Function(move, 'loc_beach')]
+                action [Function(move, 'loc_beach', 30)]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Торговая\nулица':
                 xalign 0.6 yalign 0.5
-                action [Function(changetime, 15),Function(move, 'loc_shopStreet')]
+                action [Function(move, 'loc_shopStreet', 15)]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'К школе':
                 xalign 0.7 yalign 0.8
-                action [Function(changetime, 30),Function(move, 'loc_entrance')]
+                action [Function(move, 'loc_entrance', 30)]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Пробежка':
                 xalign 0.3 yalign 0.5
@@ -1134,7 +1137,7 @@ label loc_beach:
                 text 'Пляж, просто пляж. На нём можно неплохо загореть, если уделить этому недельку времени, или же просто искупаться.' style style.description
             textbutton 'К дому':
                 xalign 0.5 yalign 0.8
-                action [Function(changetime, 30),Function(move, 'loc_street')]
+                action [Function(move, 'loc_street', 30)]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Раздевалка':
                 xalign 0.8 yalign 0.55
@@ -1187,7 +1190,7 @@ label loc_shopStreet:
                 text 'Салон красоты работает с 8 до 19 ежедневно.' style style.description
             textbutton 'К дому':
                 xalign 0.5 yalign 0.8
-                action [Function(changetime, 15),Function(move, 'loc_street')]
+                action [Function(move, 'loc_street', 15)]
                 style "navigation_button" text_style "navigation_button_text"
             textbutton 'Магазин':
                 xalign 0.7 yalign 0.5

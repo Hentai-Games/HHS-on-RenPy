@@ -328,7 +328,7 @@ label loc_run:
     if player.stats.energy < 300:
         player.say 'Я слишком устала, чтобы бегать.'
     elif player.getClothPurpose('sport') == False:
-        player.say 'На каблуках я далеко не убегу. Надо переодеться.'
+        player.say 'Как то не хочется бегать в этом. Для бега нужны кроссовки. И маечка. И шортики. В общем нужен спортивный костюм.'
         python:
             flag = False
             for x in player.inventory:
