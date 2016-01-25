@@ -49,9 +49,7 @@ init python:
     def flirtSelector(speaker):
         tempList = []
         for x in flirtList:
-            if speaker.body.sex() == 'futa' and x.sex == 'female':
-                x.sex = 'futa'
-            if speaker.body.sex() == x.sex and speaker.getCorr() >= x.corr and player.getCorr() >= x.corr:
+            if speaker.getSex('mf') == x.sex and speaker.getCorr() >= x.corr and player.getCorr() >= x.corr:
                 tempList.append(x)
         return tempList[rand(0,len(tempList) - 1)].id
 

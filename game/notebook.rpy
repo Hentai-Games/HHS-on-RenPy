@@ -153,9 +153,9 @@ screen personalInfo:
             text _('Развратность [corr]') style style.my_text
             text _('Красота [beauty]') style style.my_text
             text ''
-            text _('Диаметр вагины [vsize]см') style style.my_text
-            text _('Диаметр ануса [asize]см') style style.my_text
-            text ''
+            # text _('Диаметр вагины [vsize]см') style style.my_text
+            # text _('Диаметр ануса [asize]см') style style.my_text
+            # text ''
             text _('Денег [money]') style style.my_text
             
     fixed xpos 0.2 ypos 0.1 :
