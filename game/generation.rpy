@@ -220,21 +220,21 @@ label history:
             $ answer[0] = 1
             menu:
                 'Вы родились красивой девочкой\n+Красота -Интеллект':
-                    $ _beauty += 20
-                    $ _intel -= 5
+                    $ _beauty += 20.0
+                    $ _intel -= 5.0
                     jump history
                 'Вы смогли вставать на ножки уже в 3-х месячном возрасте\n+Здоровье':
-                    $ _health += 150
+                    $ _health += 150.0
                     jump history
                 'Вы обожали сосать сиську, даже когда не были голодны\n+Развратность +Грудь +Дырочки --Интеллект':
-                    $ _corr += 15
-                    $ _anus += 5
-                    $ _vagina += 5
-                    $ _intel -= 10
-                    $ _bsize += 1
+                    $ _corr += 15.0
+                    $ _anus += 5.0
+                    $ _vagina += 5.0
+                    $ _intel -= 10.0
+                    $ _bsize += 1.0
                     jump history
                 'Вы смогли осмысленно говорить уже в пол года\n ++Интеллект':
-                    $ _intel += 10
+                    $ _intel += 10.0
                     jump history
                 'Вы обожали яркие и блестящие предметы.\n +Деньги':
                     $ _money += 5000
@@ -243,20 +243,20 @@ label history:
             $ answer[1] = 1
             menu:
                 'Вы любили смотреть, как красится ваша мама\n+Красота -Интеллект':
-                    $ _beauty += 20
-                    $ _intel -= 5
+                    $ _beauty += 20.0
+                    $ _intel -= 5.0
                     jump history
                 'Вы были очень активным ребёнком\n+Здоровье':
-                    $ _health += 150
+                    $ _health += 150.0
                     jump history
                 'Вы показывали свою письку мальчишкам в детском саду\n+Развратность +Дырочки --Интеллект':
-                    $ _corr += 15
-                    $ _anus += 5
-                    $ _vagina += 5
-                    $ _intel -= 10
+                    $ _corr += 15.0
+                    $ _anus += 5.0
+                    $ _vagina += 5.0
+                    $ _intel -= 10.0
                     jump history
                 'Вы рано научились читать\n ++Интеллект':
-                    $ _intel += 10
+                    $ _intel += 10.0
                     jump history
                 'Вы откладывали деньги, которые Вам давали на сладости.\n +Деньги':
                     $ _money += 5000
@@ -265,21 +265,21 @@ label history:
             $answer[2] = 1
             menu:
                 'В школе Вы старались выглядеть лучше своих подруг\n+Красота -Интеллект':
-                    $ _beauty += 20
-                    $ _intel -= 5
+                    $ _beauty += 20.0
+                    $ _intel -= 5.0
                     jump history
                 'Вашим любимым предметом была физкультура\n+Здоровье':
                     $ _health += 150
                     jump history
                 'Вы любили мастурбировать на занятиях\n+Развратность +Дырочки --Интеллект':
-                    $ _corr += 15
-                    $ _anus += 5
-                    $ _vagina += 5
-                    $ _bsize += 1
-                    $ _intel -= 10
+                    $ _corr += 15.0
+                    $ _anus += 5.0
+                    $ _vagina += 5.0
+                    $ _bsize += 1.0
+                    $ _intel -= 10.0
                     jump history
                 'Вы принимали участие в олимпиадах, и даже занимали там призовые места\n ++Интеллект':
-                    $ _intel += 10
+                    $ _intel += 10.0
                     jump history
                 'Вы экономили на обедах, чтобы купить себе что-нибудь дорогое\n +Деньги':
                     $ _money += 5000
@@ -288,20 +288,20 @@ label history:
             $answer[3] = 1
             menu:
                 ' Вы всегда старались быть накрашенной и ухоженной\n+Красота -Интеллект':
-                    $ _beauty += 20
-                    $ _intel -= 5
+                    $ _beauty += 20.0
+                    $ _intel -= 5.0
                     jump history
                 'Вы участвовали во всех спартакиадах, и даже занимали там призовые места\n+Здоровье':
                     $ _health += 150
                     jump history
                 'Вы с лёгкостью меняли сексуальных партнёров\n+Развратность +Дырочки --Интеллект':
-                    $ _corr += 15
-                    $ _anus += 5
-                    $ _vagina += 5
-                    $ _intel -= 10
+                    $ _corr += 15.0
+                    $ _anus += 5.0
+                    $ _vagina += 5.0
+                    $ _intel -= 10.0
                     jump history
                 'Вы любили естественные науки, и всегда получали по ним хорошие оценки\n ++Интеллект':
-                    $ _intel += 10
+                    $ _intel += 10.0
                     jump history
                 'Вы давали деньги в рост одноклассникам. И Вам их даже возвращали с процентами\n +Деньги':
                     $ _money += 5000
@@ -359,7 +359,7 @@ label skipall:
             health = _health,
             energy = _health,
             beauty = _beauty,
-            fun = 50
+            fun = 50.0
         )
 
         player = Char(
@@ -427,17 +427,17 @@ label skipall:
             lname = 'Купрувна',
             age = 37,
             body = FemaleBody(
-                175,
-                breastSize = 5,
-                vaginaSize = 8
+                175.0,
+                breastSize = 5.0,
+                vaginaSize = 8.0
             ),
             stats = Stats(
-                will = 25,
-                education = 60,
-                intelligence = 50,
-                beauty = 40,
-                health = 1000,
-                energy = 1000,
+                will = 25.0,
+                education = 60.0,
+                intelligence = 50.0,
+                beauty = 40.0,
+                health = 1000.0,
+                energy = 1000.0,
                 loyalty = randf(10, 20),
                 fun = randf(0, 50)
             ),
@@ -457,16 +457,16 @@ label skipall:
             age = 25,
             body = FemaleBody(
                 160,
-                breastSize = 2,
-                vaginaSize = 5
+                breastSize = 2.0,
+                vaginaSize = 5.0
             ),
             stats = Stats(
-                will = 45,
-                education = 20,
-                intelligence = 100,
-                beauty = 60,
-                health = 1000,
-                energy = 1000,
+                will = 45.0,
+                education = 20.0,
+                intelligence = 100.0,
+                beauty = 60.0,
+                health = 1000.0,
+                energy = 1000.0,
                 loyalty = randf(10, 20),
                 fun = randf(0, 50)
             ),
@@ -485,16 +485,16 @@ label skipall:
             lname = 'Фригидовна',
             age = 32,
             body = FemaleBody(
-                175,
-                breastSize = 6
+                175.0,
+                breastSize = 6.0
             ),
             stats = Stats(
-                will = 30,
-                education = 15,
-                intelligence = 40,
-                beauty = 40,
-                health = 1000,
-                energy = 1000,
+                will = 30.0,
+                education = 15.0,
+                intelligence = 40.0,
+                beauty = 40.0,
+                health = 1000.0,
+                energy = 1000.0,
                 loyalty = randf(10, 20),
                 fun = randf(0, 50)
             ),
@@ -514,16 +514,16 @@ label skipall:
             age = 35,
             body = FemaleBody(
                 165,
-                breastSize = 3,
-                vaginaSize = 8
+                breastSize = 3.0,
+                vaginaSize = 8.0
             ),
             stats = Stats(
-                will = 60,
-                education = 60,
-                intelligence = 40,
-                beauty = 85,
-                health = 1000,
-                energy = 1000,
+                will = 60.0,
+                education = 60.0,
+                intelligence = 40.0,
+                beauty = 85.0,
+                health = 1000.0,
+                energy = 1000.0,
                 loyalty = randf(10, 20),
                 fun = randf(0, 50)
             ),
@@ -533,7 +533,7 @@ label skipall:
             club = 'математика',
             picto = 'pic/teachers/bissektrisovna_picto.png',
             location = curloc,
-            money = 5000
+            money = 5000.0
         )
         _teachers.append(bissektrisovna)
 
@@ -542,20 +542,20 @@ label skipall:
             lname = 'Диковна',
             age = 23,
             body = FutaBody(
-                180,
-                breastSize = 5,
-                vaginaSize = 8,
-                anusSize = 4,
-                penisSize = 20
+                180.0,
+                breastSize = 5.0,
+                vaginaSize = 8.0,
+                anusSize = 4.0,
+                penisSize = 20.0
             ),
             stats = Stats(
-                corr = 20,
-                will = 30,
-                education = 50,
-                intelligence = 50,
-                beauty = 60,
-                health = 1000,
-                energy = 1000,
+                corr = 20.0,
+                will = 30.0,
+                education = 50.0,
+                intelligence = 50.0,
+                beauty = 60.0,
+                health = 1000.0,
+                energy = 1000.0,
                 loyalty = randf(10, 20),
                 fun = randf(0, 50)
             ),
@@ -574,16 +574,16 @@ label skipall:
             lname = 'Мустангович',
             age = 30,
             body = MaleBody(
-                190,
-                penisSize = 30
+                190.0,
+                penisSize = 30.0
             ),
             stats = Stats(
-                will = 15,
-                education = 30,
-                intelligence = 40,
-                beauty = 40,
-                health = 1500,
-                energy = 1500,
+                will = 15.0,
+                education = 30.0,
+                intelligence = 40.0,
+                beauty = 40.0,
+                health = 1500.0,
+                energy = 1500.0,
                 loyalty = randf(40, 60),
                 fun = randf(0, 50)
             ),
@@ -600,17 +600,17 @@ label skipall:
         dante = Char(
             fname = 'Ева',
             lname = 'Данте',
-            age = 35,
+            age = 35.0,
             body = FemaleBody(
-                120,
+                120.0,
                 breastSize = 0.5,
-                vaginaSize = 2
+                vaginaSize = 2.0
             ),
             stats = Stats(
-                will = 80,
-                education = 60,
-                intelligence = 60,
-                beauty = 85,
+                will = 80.0,
+                education = 60.0,
+                intelligence = 60.0,
+                beauty = 85.0,
                 health = 1000,
                 energy = 1000,
                 loyalty = randf(0, 10),
@@ -631,16 +631,16 @@ label skipall:
             age = 21,
             body = FemaleBody(
                 180,
-                breastSize = 4,
-                vaginaSize = 16
+                breastSize = 4.0,
+                vaginaSize = 16.0
             ),
             stats = Stats(
-                will = 20,
-                education = 30,
-                intelligence = 20,
-                beauty = 90,
-                health = 1000,
-                energy = 1000,
+                will = 20.0,
+                education = 30.0,
+                intelligence = 20.0,
+                beauty = 90.0,
+                health = 1000.0,
+                energy = 1000.0,
                 loyalty = randf(20, 30),
                 fun = randf(0, 50)
             ),

@@ -362,7 +362,7 @@ label speak:
         user.sayCount -= 1
         changetime(5)
         player.stats.energy -= rand(5,10)
-        user.incLoy(1)
+        user.incLoy(3)
 
         if user == danokova and 'school' in getLoc(curloc).position:
             if mile_qwest_3_stage == 1 and ptime - mile_qwest_3_time > 12 and hour > 14:

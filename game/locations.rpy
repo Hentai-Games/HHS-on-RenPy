@@ -1158,7 +1158,7 @@ label loc_beachChange:
             textbutton 'Переодеться':
                 xalign 0.15 yalign 0.3
                 action Show('wardrobe')
-            if is_beach_event == 1 and rand(1,10) == 1:
+            if is_beach_event == 1 and rand(1,10) == 1 and lt() != -4:
                 textbutton 'Проверить\nдырочку' :
                     xalign 0.795 yalign 0.55
                     action Function(tryEvent, 'loc_gloryHole')
