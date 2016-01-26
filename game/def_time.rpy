@@ -62,9 +62,9 @@ init -3 python:
                 ptime += 1
                 if hour >= 24:
                     hour -= 24
-                    dailyRecount(allChars)
                     weekday += 1
                     if weekday >=8: weekday -=7
+                    dailyRecount(allChars)
                     number += 1
                     if number >= 31:
                         school.getBudget()

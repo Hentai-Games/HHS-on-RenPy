@@ -456,8 +456,8 @@ label event_loc_firstFloor_45_mid4:
     python:
         st1 = getChar('female','lustmax')
         hadSex(st1)
-        incLust(10,25)
-        incFun(10,10)
+        setLust(10,25)
+        setFun(10,10)
         player.incLust(15)
     show expression 'pic/locations/school/firstFloor/mid4.jpg' at top as tempPic
     'Не найдя себе парня, [st1.fname] принялась удовлетворять себя посреди коридора, буквально на ваших глазах. Она медленно опустилась на коленки, её пальчики нащупали под юбкой влажную киску, и медленно погрузились в неё. Девочка громко застонала, ощущая заполненность киски.'

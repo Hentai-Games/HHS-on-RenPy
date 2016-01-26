@@ -30,6 +30,7 @@ label corrMeetingDone:
     
 label corrMeetingEnd:
     show teacherRoom
+    show expression getCharImage(player, 'dialog') as tempPic
     player.say 'Я уже развратила их насколько могла... В общих совещаниях смысла больше нет.'
     $ move(curloc)
     

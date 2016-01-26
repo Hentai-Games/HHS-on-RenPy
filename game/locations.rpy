@@ -777,6 +777,7 @@ label loc_changeRoom:
                 xalign 0.8 yalign 0.8
                 action [Function(move, 'loc_gym')]
                 style "navigation_button" text_style "navigation_button_text"
+            textbutton 'Ваш шкафчик' xalign 0.3 yalign 0.5 action Show('wardrobe')
     call screen changeRoom
 
 
@@ -785,7 +786,7 @@ label loc_gym:
     screen gym:
         fixed:
             vbox xalign 0.0 yalign 1.0:
-                text 'Раздевалка. Она разделена на 2 отделения: для мальчиков и для девочек. Как ни странно, вы тоже можете тут переодеваться. В отделении для девочек, разумеется. Хотя кто знает, что там в соседнем отделении? Вы точно не знаете.' style style.description
+                text 'Спортзал, здесь проходят занятия по понедельникам, средам и пятницам. Но ученики и просто приходят сюда в перемены, чтобы покидать мяч.' style style.description
             textbutton 'Кладовка':
                 xalign 0.35 yalign 0.4
                 action [Function(move, 'loc_storage')]
@@ -869,6 +870,7 @@ label loc_office:
             textbutton 'Первый этаж' xalign 0.8 yalign 0.8 action Function(move, 'loc_firstFloor') style "navigation_button" text_style "navigation_button_text"
             textbutton 'Воспользоваться\nокном' xalign 0.2 yalign 0.3 action Function(move, 'loc_entrance') style "navigation_button" text_style "navigation_button_text"
             textbutton 'Компьютер' xalign 0.9 yalign 0.5 action Show('compScreen')
+            textbutton 'Тумбочка' xalign 0.25 yalign 0.6 action Show('wardrobe')
             if 'bed' in school.furniture and ((ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4)):
                  textbutton 'Спать':
                      xalign 0.2 yalign 0.76

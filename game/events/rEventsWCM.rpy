@@ -14,7 +14,7 @@ label event_loc_wcm_0_no1:
             jump scoldAll
         'Проигнорировать':
             'Вы делаете вид, как будто ничего не произошло, и вы ничего не заметили. [st1.fname] с благодарностью смотрит на вас.'
-            $ st1.setLoy(10)
+            $ st1.incLoy(10)
     $ move(curloc)
     
 label event_loc_wcm_20_mid1:

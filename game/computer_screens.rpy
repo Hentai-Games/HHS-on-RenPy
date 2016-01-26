@@ -30,7 +30,7 @@ screen compScreen:
             textbutton _('Система наказаний') action Show ('detentions') xminimum 300
             textbutton _('Учебники') action Show ('eduMats') xminimum 300
             textbutton _('Мебель и Строения') action Show ('furniture') xminimum 300
-            textbutton _('Ночные действия') action [SensitiveIf(lt() <= -3 and ptime - inhibLowTime > 8), Show ('studCorruption')] xminimum 300
+            textbutton _('Ночные действия') action [SensitiveIf(lt() == -4 and ptime - inhibLowTime > 8), Show ('studCorruption')] xminimum 300
             if hasLocationsItem(camera.name) or development == 1:
                 textbutton _('Проверка камер') action [SensitiveIf(ptime - camSold > 24 and weekday not in [1,7]), Function(clrscr),Jump('checkCam')] xminimum 300
                 
@@ -267,8 +267,8 @@ screen furniture:
                 
             textbutton _('Медицинский кабинет (бюджет - 25000)') action [
                 If('doctor' in school.buildings, false=Show('preVoting', None, 'loy', 25, 'doctor')),
-                SelectedIf('doctor' in school.furniture),
-                SensitiveIf(school.budget > 25000 or 'doctor' in school.furniture)
+                SelectedIf('doctor' in school.buildings),
+                SensitiveIf(school.budget > 25000 or 'doctor' in school.buildings)
                 ] hovered [
                 Show('description', None, 'doctor') # При наведении показывается описание
                 ] unhovered [
@@ -524,15 +524,16 @@ screen studCorruption:
                 ] unhovered [
                 Hide('description')
                 ]
-            textbutton _('Разложить по классам фотки со скрытой камеры') action [
-                Function(clrscr),
-                Jump('inhib3'),
-                SensitiveIf(player.getCorr() > 50)
-                ] hovered [
-                Show('description', None, 'inhib3')
-                ] unhovered [
-                Hide('description')
-                ]
+            if hasToiletPics == 1:
+                textbutton _('Разложить по классам фотки со скрытой камеры') action [
+                    Function(clrscr),
+                    Jump('inhib3'),
+                    SensitiveIf(player.getCorr() > 50)
+                    ] hovered [
+                    Show('description', None, 'inhib3')
+                    ] unhovered [
+                    Hide('description')
+                    ]
             textbutton _('Распространить свой запах') action [
                 Function(clrscr),
                 Jump('inhib4'),

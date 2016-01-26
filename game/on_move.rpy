@@ -105,7 +105,7 @@ init python:
             
     #Добавление людей на локации
     def addPeopleLocations():
-        global hour, weekday, callup
+        global hour, weekday, callup, detentions
         mystring = ''
         counter = 0
         statusDistribution() # распределяем статусы по локациям
@@ -246,6 +246,25 @@ init python:
             elif player.getClothPurpose('swim') and location.id != 'loc_beach' and location.id != 'loc_pool':
                 renpy.scene(layer='screens')
                 renpy.jump('naked')
+            elif player.isCover('попа') == False and player.getCorr() < 40:
+                renpy.scene(layer='screens')
+                renpy.jump('noPanties')
+                
+            if 'school' not in location.position and 'beach' != location.id and useClothesReputation == 1: # Снимаем репутацию за одежду
+                repChange = 0
+                if len(player.getCover()) <= 1:
+                    repChange = -5
+                for x in player.wear:
+                    repChange += x.reputation
+                    
+                peoples = location.getPeople()
+                for char in peoples:
+                    if rand(1,3) == 1:
+                        char.incRep(repChange)
+                        
+            if 'попа' not in player.getCover():
+                player.incLust(0.1)
+                
                 
 # бессознательное состояние
     def checkUnconscious(location):
@@ -280,7 +299,8 @@ init python:
                     renpy.jump('madness_school')
 # Прочие прооверки             
     def checkMisc():
-        global flagIncome, temperature
+        global flagIncome, temperature, mile_qwest_1_stage, mile_qwest_2_stage,mile_qwest_3_stage
+        
         if hour >= 8 and olympiad.confirm == False and olympiad.active == True:
             olympiad.confirm = True
             clrscr()
@@ -303,5 +323,33 @@ init python:
                 renpy.jump('splitSystem_hot')
                 
         # В школе на перемену, если есть кто то в клубе трусиков и он открыт, вам их отдадут
-        if 'school' in getLoc(curloc).position and lt() == 0 and 'pants' in school.clubs and len(getClubChars('pants')) > 0 and ptime - timeGetPanties > 24 and rand(1,3) == 1: 
+        if 'school' in getLoc(curloc).position and lt() == 0 and 'pants' in school.clubs and len(getClubChars('pants')) > 0 and ptime - timeGetPanties > 24 and rand(1,3) == 1:
             renpy.jump('getPanties')
+        
+        # ограничения квестовых учителей
+        if mile_qwest_1_stage == 0: 
+            mustangovich.setCorr(min(30, mustangovich.getCorr()))
+            
+        if mile_qwest_1_stage == 1: 
+            mustangovich.setCorr(min(50, mustangovich.getCorr()))
+            
+        if mile_qwest_2_stage == 0: 
+            kupruvna.setCorr(min(30, kupruvna.getCorr()))
+            
+        if mile_qwest_2_stage == 10: 
+            kupruvna.setCorr(min(10, kupruvna.getCorr()))
+            kupruvna.setLoy(0)
+            
+        if mile_qwest_2_stage == 11: 
+            kupruvna.setCorr(min(60, kupruvna.getCorr()))
+            kupruvna.setLoy(0)
+            
+        if mile_qwest_3_stage == 0:
+            danokova.setCorr(min(30, danokova.getCorr()))
+            
+        if mile_qwest_3_stage == 50:
+            danokova.setCorr(min(30, danokova.getCorr()))
+            danokova.setLoy(min(20, danokova.getLoy()))
+            
+        if mile_qwest_3_stage < 10:
+            danokova.setCorr(min(60, danokova.getCorr()))

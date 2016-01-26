@@ -156,6 +156,7 @@ screen locationPeoplePicto:
                 actions_list = [Function(clrscr),
                                 SetVariable('interactionObj', x),
                                 SetVariable('reaction', reactionGen(x))]
+                                
                 if x.getLocationStatus() and x.getLocationStatus().events:
                     actions_list.append(Jump(choice(x.getLocationStatus()
                                                      .events)))
