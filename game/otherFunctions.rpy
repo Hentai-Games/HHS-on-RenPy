@@ -164,7 +164,7 @@ init -5 python:
             
     def setEdu(count,amount):
         for x in range(0, count):
-            getChar().setEdu(amount)   
+            getChar().incEdu(amount)   
 
     def hadSex(*args):
         maleArr = []
@@ -237,6 +237,7 @@ init -5 python:
                             break
             
     def addDetention(*args):
+        global detentions
         for char in args:
             if char in detentions == False:
                 detentions.append(char)
@@ -252,6 +253,9 @@ init -5 python:
             
     def fillClasses():
         global classrooms
+        for x in allChars:
+            x.moveToLocation(None)
+            
         classrooms = []
         classrooms.append(getLoc('loc_class1'))
         classrooms.append(getLoc('loc_class2'))

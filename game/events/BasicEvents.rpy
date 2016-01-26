@@ -276,20 +276,21 @@ label sleep:
         else:
             hour_up = 12
 
-        if hour >= 0:
+        if hour > hour_up:
             start_hour = hour - 24
         else:
             start_hour = hour
         sleeped = 0
-        while player.stats.energy < player.stats.health and start_hour < hour_up and sleeped < 12:
+        while player.getEnergy() < player.getHealth() and start_hour < hour_up and sleeped < 12:
+            # renpy.say('','start_hour [start_hour]\nhour_up [hour_up]\nsleeped [sleeped]')
             changetime(60)
             last_sleeped = ptime
             start_hour += 1
-            player.stats.energy += player.getHealth()/10
+            player.incEnergy(player.getHealth()/10)
             sleeped += 1
         player.reset()
-        if rand(1,3) > 2:
-            tryEvent('loc_dreams')
+        # if rand(1,3) > 2:
+            # tryEvent('loc_dreams')
         renpy.jump('loc_dreams')
 
 label loc_dreams:
@@ -307,6 +308,12 @@ label naked:
     player.say 'Я не могу выходить на улицу в таком виде!!!'
     $ move(prevloc)
 
+label noPanties:
+    show daytime
+    show expression 'pic/events/madness/miniorgasm1.png' at left as tempPic
+    player.say 'Я забыла одеть трусики! Я не могу выходить в таком виде!'
+    $ move(prevloc)
+    
 label loc_swim:
     show beach
     if player.stats.energy < 200:
@@ -480,7 +487,7 @@ label invest:
     show computer at top
     python:
         investment = renpy.input('Вы решили инвестировать в школу часть своих средств.\nВведите сумму, которую вы собираетесь инвестировать.', default= player.money, allow='{1234567890}')
-        investment = int(investment)
+        investment = int(float(investment))
     if investment > player.money:
         player.say 'Я не могу инвестировать больше средств, чем имею!'
         jump invest
@@ -616,6 +623,7 @@ label inhib3:
     'Вы распечатываете сегодняшние фотографии на своём принтере, и раскладываете их по школе и по партам. Разумеется, вы предварительно замазали лица, чтобы не было понятно, где именно сняты эти фотографии. Будем надеяться, что неожиданные картинки порадуют школьников!'
     'Ещё раз оглядев плоды своих трудов, вы с чистой совестью направились к выходу.'
     python:
+        hasToiletPics = 0
         inhibLowTime = ptime
         inhibLow = 3
         player.incEnergy(-100)
@@ -818,6 +826,7 @@ label checkCam:
         returnArr = getCamArr()
         temp = rand(50,150)*len(returnArr)
         player.money += temp
+        hasToiletPics = 1
         for x in returnArr:
             st1 = getChar('female')
             renpy.show('temp0', what = Image(x, xalign=0.5, yalign= 0.0))

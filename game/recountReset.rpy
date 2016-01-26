@@ -6,6 +6,9 @@ init python:
         timeGetPanties = 0 # сброс времени выдачи трусов
         aphroUsedArr[:] = [] # сброс людей под афродизиаком
         
+        if weekday == 1:
+            school.daysWorked = 0
+        
         if development == 0:
             # Голод
             if (ptime - last_eat)/24 > 1:
@@ -103,7 +106,7 @@ init python:
                     hadSex(char)
 
     def hourlyReset():
-        global hour, weekday, inhibLow
+        global hour, weekday, inhibLow, detentions
         
         if hour == 18:
             inhibLow = 0

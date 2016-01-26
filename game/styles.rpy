@@ -13,20 +13,20 @@ init python:
     style.navigation_button_text.font = "segoeuib.ttf"
     style.navigation_button_text.outlines = [(2, "#494949", 1, 0)]
     style.navigation_button_text.hover_color = "#00FF80"
-    style.navigation_button_text.selected_color = "#00FF00"
+    # style.navigation_button_text.selected_color = "#00FF00"
     
     style.small_button = Style(style.button_text)
     style.small_button_text.color = "#FFFFFF"
     style.small_button_text.outlines = [(1, "#000000", 0, 0)]
     style.small_button_text.hover_color = "#0000FF"
-    style.small_button_text.selected_color = "#00FF00"
+    # style.small_button_text.selected_color = "#00FF00"
     style.small_button_text.size = 14
     
     style.bluesmall_button = Style(style.button_text)
     style.bluesmall_button.color = "#60D5FC"
     style.bluesmall_button.outlines = [(1, "#000000", 0, 0)]
     style.bluesmall_button.hover_color = "#0000FF"
-    style.bluesmall_button.selected_color = "#00FF00"
+    # style.bluesmall_button.selected_color = "#00FF00"
     style.bluesmall_button.size = 14
     
     style.myFrame = Style(style.frame)

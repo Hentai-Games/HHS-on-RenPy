@@ -274,40 +274,40 @@ init -20 python:
 
 # Измнение loyalty
         def setLoy(self,amount):
-            self.stats.loyalty = amount
+            self.stats.loyalty = float(amount)
 # Измнение fun
         def setFun(self,amount):
-            self.stats.fun = amount
+            self.stats.fun = float(amount)
 # Измнение развратности
         def setCorr(self,amount):
-            self.stats.corr = amount
+            self.stats.corr = float(amount)
 # Измнение lust
         def setLust(self,amount):
-            self.stats.lust = amount
+            self.stats.lust = float(amount)
 # Измнение will
         def setWill(self,amount):
-            self.stats.will = amount
+            self.stats.will = float(amount)
 # Измнение education
         def setEdu(self,amount):
-            self.stats.education = amount
+            self.stats.education = float(amount)
 # Измнение health
         def setHealth(self,amount):
-            self.stats.health = amount
+            self.stats.health = float(amount)
 # Измнение intelligence
         def setIntel(self,amount):
-            self.stats.intelligence = amount
+            self.stats.intelligence = float(amount)
 # Измнение beauty
         def setBeauty(self,amount):
-            self.stats.beauty = amount
+            self.stats.beauty = float(amount)
 # Измнение reputation
         def setRep(self,amount):
-            self.stats.reputation = amount
+            self.stats.reputation = float(amount)
 # Измнение energy
         def setEnergy(self,amount):
-            self.stats.energy = amount
+            self.stats.energy = float(amount)
 # Измнение dirty
         def setDirty(self,amount):
-            self.stats.dirty = amount
+            self.stats.dirty = int(amount)
             
 ###################################################################
 # Getters
@@ -660,7 +660,7 @@ init -20 python:
         def getWeared(self):
             temp = []
             for x in self.wear:
-                temp.extend(x.name)
+                temp.append(x.name)
             return temp
         
         def getOutfitLust(self):

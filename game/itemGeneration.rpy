@@ -274,21 +274,6 @@ init python:
     studHarness.type = 'clothing'
     clothing.append(studHarness)
     
-    studJaketM = Clothing(
-    lust = 0,
-    corr = 0,
-    reputation = 1,
-    char = 'stud',
-    sex = 'male',
-    purpose = 'uniform')
-    studJaketM.cover = ['верх']
-    studJaketM.durability = 10000
-    studJaketM.name = _('Мужской пиджак')
-    studJaketM.cost = 1500
-    studJaketM.picto = 'pic/noimage.gif'
-    studJaketM.type = 'clothing'
-    clothing.append(studJaketM)
-    
     studStrictJaketM = Clothing(
     lust = 0,
     corr = 0,
@@ -766,7 +751,7 @@ init python:
     sex = 'female',
     purpose = 'swim')
     minibikini.cover = ['грудь','попа','верх','низ','ноги']
-    minibikini.durability = 40
+    minibikini.durability = 70
     minibikini.name = _('Минибикини')
     minibikini.cost = 2500
     minibikini.picto = 'pic/items/minibikini.png'
@@ -843,20 +828,20 @@ init python:
     clothing.append(bdsmUniform)
     
 #  Форма Мустанговича
-    blueForm = Clothing(
-    lust = 0,
-    corr = 0,
-    reputation = 0,
-    char = 'teacher',
-    sex = 'male',
-    purpose = 'usual')
-    blueForm.cover = ['верх','низ']
-    blueForm.durability = 10000
-    blueForm.name = _('Спортивный костюм')
-    blueForm.cost = 1500
-    blueForm.picto = 'pic/noimage.gif'
-    blueForm.type = 'clothing'
-    clothing.append(blueForm)
+    # blueForm = Clothing(
+    # lust = 0,
+    # corr = 0,
+    # reputation = 0,
+    # char = 'teacher',
+    # sex = 'male',
+    # purpose = 'usual')
+    # blueForm.cover = ['верх','низ']
+    # blueForm.durability = 10000
+    # blueForm.name = _('Спортивный костюм')
+    # blueForm.cost = 1500
+    # blueForm.picto = 'pic/noimage.gif'
+    # blueForm.type = 'clothing'
+    # clothing.append(blueForm)
 
     manpants = Clothing(
     lust = 0,
@@ -867,7 +852,7 @@ init python:
     purpose = 'usual')
     manpants.cover = ['попа']
     manpants.durability = 10000
-    manpants.name = _('Трусы семейные')
+    manpants.name = _('Красные трусы')
     manpants.cost = 1500
     manpants.picto = 'pic/items/jaket.png'
     manpants.type = 'clothing'

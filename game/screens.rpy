@@ -245,7 +245,7 @@ screen navigation:
         textbutton _("Настройки") action ShowMenu("preferences")
         textbutton _("Сохранить игру") action ShowMenu("save")
         textbutton _("Загрузить игру") action ShowMenu("load")
-        textbutton _("Главное меню") action MainMenu()
+        # textbutton _("Главное меню") action MainMenu()
         textbutton _("Справка") action Help()
         textbutton _("Выход") action Quit()
 

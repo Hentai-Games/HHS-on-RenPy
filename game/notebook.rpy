@@ -85,7 +85,10 @@ screen charInfoLeft:
                         text _('Одиночка') style style.my_text
                     
                 $ temp = showHover.age
-                text _('Возраст Nнадцать') style style.my_text
+                if temp < 20:
+                    text _('Возраст Nнадцать') style style.my_text
+                else:
+                    text _('Возраст [temp] лет') style style.my_text
                 
                 $ temp = round(showHover.stats.beauty,1)
                 text _('Красота [temp]') style style.my_text
