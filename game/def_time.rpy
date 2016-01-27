@@ -14,7 +14,7 @@ init -3 python:
     ptime = 0
     last_sleeped = 0
     
-    def gettime():
+    def gettime(*args):
         #Дни недели
         if weekday == 1: _weekday = 'Понедельник'
         if weekday == 2: _weekday = 'Вторник'
@@ -42,6 +42,10 @@ init -3 python:
             output = '%d %s %d, %s. %s:0%s' % (number, _month, year, _weekday, hour, minute)
         else:
             output = '%d %s %d, %s. %s:%s' % (number, _month, year, _weekday, hour, minute)
+            
+        if 'day' in args:
+            output = '%d %s %d, %s.' % (number, _month, year, _weekday)
+            
         return output
         
     def changetime(change):

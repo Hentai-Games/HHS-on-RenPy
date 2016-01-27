@@ -1,37 +1,19 @@
 init python:
-    import os
     def getStudImg(char,*args):
         if char == player:
             anotherImage = player.picto
 
-        elif char.getSex() == 'male':
-            anotherImage = 'pic/showStud/m_1.png'
-        else:
-            anotherImage = 'pic/showStud/fem/'
-            wear_img_sel = 0
+        if char in studs :
             if len(char.wear) == 0:
-                anotherImage += 'naked/'
-                wear_img_sel = 1
-            else:
-                for x in char.wear:
-                    if 'Девчачий строгий пиджак' == x.name : 
-                        anotherImage += 'norm/'
-                        wear_img_sel = 1
-                    if 'Девчачий пиджак' == x.name : 
-                        anotherImage += 'norm/'
-                        wear_img_sel = 1
-                    if 'Простое платье' == x.name : 
-                        anotherImage += 'norm/'
-                        wear_img_sel = 1
-            if wear_img_sel == 1 : 
-                bsize = char.body.parts['грудь'].size
-                if bsize > 0:
-                    if bsize < 1: anotherImage += 'sm_br/'
-                    elif bsize < 2: anotherImage += 'med_br/'
-                    else : anotherImage += 'big_br/'
-                anotherImage += '00.png'
+                anotherImage = 'pic/showStud/' + char.getSex('mf') + '/naked/00.png'
             else :
-                anotherImage = 'pic/showStud/f_1.png'
+                top_covered = 0
+                for x in char.wear:
+                    if 'верх' in x.cover:
+                        anotherImage = 'pic/showStud/' + char.getSex('mf') + '/'+ x.purpose + '/00.png'
+                        top_covered = 1
+                if  top_covered == 0 :
+                    anotherImage = 'pic/showStud/' + char.getSex('mf') + '/underwear/00.png'
 
         if char.lname == 'Данокова':
             anotherImage = 'pic/teachers/danokova_1.png'
@@ -52,10 +34,23 @@ init python:
         if len(args) == 0:
             return anotherImage
 
-        elif args[0] == 'dialog':
+                    
+        if args[0] == 'dialog':
             if char.name == player.name:
                 return Image(anotherImage, xalign=0.2, yalign= 1.0, yanchor = 'center')
             else:
                 return Image(anotherImage, xalign=0.8, yalign= 1.0, yanchor = 'center')
         
-        
+    def ImgList():
+        lf = ''
+        lm = ''
+        lf += 'pic/showStud/female/naked/00.png\n'
+        lm += 'pic/showStud/male/naked/00.png\n'
+        lf += 'pic/showStud/female/underwear/00.png   \n'
+        lm += 'pic/showStud/male/underwear/00.png\n'
+        for x in clothing:
+            if x.char == 'stud' and x.sex == 'female' and 'верх' in x.cover:
+                lf += 'pic/showStud/female/'+ x.purpose + '/00.png\n'
+            if x.char == 'stud' and x.sex == 'male' and 'верх' in x.cover:
+                lm += 'pic/showStud/male/'+ x.purpose + '/00.png\n'
+        return [lf, lm]
