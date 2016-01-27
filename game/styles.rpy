@@ -9,7 +9,7 @@ init python:
     # style.navigation_button.hover_background = Frame("pic/bg.png", 25, 25)
     # style.navigation_button.selected_background = Frame("images/interface/music_library_button_selected.png", 25, 25)
     style.navigation_button_text.color = "#FFFFFF"
-    style.navigation_button_text.size = 24
+    style.navigation_button_text.size = 18
     style.navigation_button_text.font = "segoeuib.ttf"
     style.navigation_button_text.outlines = [(2, "#494949", 1, 0)]
     style.navigation_button_text.hover_color = "#00FF80"
@@ -42,11 +42,35 @@ style my_text is text:
     size 15
     outlines [(1, "#000000", 0, 0)]
     
+style small_text is text:
+    size 10
+    outlines [(1, "#000000", 0, 0)]
+    
 style verticalText is text:
     vertical True
     size 18
     outlines [(2, "#000000", 0, 0)]
-    
+
+style param is text:
+    size 15
+    outlines [(1, "#000000", 0, 0)]
+    bold True
+    drop_shadow [ (2, 1) ,(3, 2)] 
+
+style paramwarning is text:
+    size 15
+    outlines [(1, "#000000", 0, 0)]
+    color "#FF1E1E"
+    bold True
+    drop_shadow [ (2, 1) ,(3, 2)] 
+
+style paramgreen is text:
+    size 15
+    outlines [(1, "#000000", 0, 0)]
+    bold True
+    color "#00FF00"
+    drop_shadow [ (2, 1) ,(3, 2)] 
+      
 style warning is text:
     size 15
     outlines [(1, "#000000", 0, 0)]
@@ -67,3 +91,10 @@ style statButton is button:
     
 style myBox is box:
     spacing 5
+
+style mytimer is text:
+    color "#FFFFFF"
+    size 24
+    font "segoeuib.ttf"
+    outlines [(2, "#494949", 1, 0)]
+    drop_shadow [ (2, 1) ,(3, 2)] 
