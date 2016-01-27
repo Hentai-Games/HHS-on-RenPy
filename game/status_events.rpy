@@ -160,7 +160,7 @@ init 11 python:
     
     # Учителя
     teach_status = LocationStatus('Преподаёт', None, 'any', char_type = 'teacher', stats_actions = {'fun':(0.1,30),'education':(0.01, 80)})
-    pre_teach_status = LocationStatus('Готовится к уроку', None, 'any', char_type = 'teacher', stats_actions = {'fun':(0.1,30),'education':(0.01, 80)}) # статус для свободного учителя
+    pre_teach_status = LocationStatus('Готовится к уроку', None, 'any', char_type = 'teacher', stats_actions = {'fun':(0.1,30),'education':(0.1, 80)}) # статус для свободного учителя
     teacher_hidden_mastur = LocationStatus('Мастурбирует', None, 'any', char_type = 'teacher', events = ['status_teacherHidden_mastur'], requirements = {'lust':60}, stats_actions = {'lust':(-100,0),'corr':(1,20),'fun':(1,30)})
     
 init 11 python:

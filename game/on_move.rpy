@@ -105,23 +105,24 @@ init python:
             
     #Добавление людей на локации
     def addPeopleLocations():
-        global hour, weekday, callup, detentions
+        global hour, weekday, callup, detentions, movedArray
         mystring = ''
         counter = 0
         statusDistribution() # распределяем статусы по локациям
         if lt() > 0: # заполняем классы, если уроки
             fillClasses()
         else:
-            movedArray = 0
             avaliableLocations = []
             for x in locations:
                 if x.getprob() > 0:
                     avaliableLocations.append(x)
             for x in allChars:
-                if x != callup:
+                if x != callup and x not in movedArray:
                     if x.getLocationStatus() == stop_status:
                         x.moveToLocation(x.location)
                         continue
+                        
+                    x.moveToLocation(None) # Всех выкидываем с локаций
                     
                     if x in teachers and lt() == 0 and rand(1,3) == 1: # учителя будут тусоваться в учительской
                         x.moveToLocation('loc_teacherRoom')
@@ -187,7 +188,6 @@ init python:
                         for counter in range(0,1000):
                             temp = choice(avaliableLocations)
                             if rand(0,99) < temp.getprob():
-                                movedArray += 1
                                 if temp.id in ['loc_wcf','loc_wcm'] and x.getCorr() < 20:
                                     if x.getSex() == 'male':
                                         temp = 'loc_wcm'

@@ -708,7 +708,8 @@ init -20 python:
             loc - объект класса Location, имя локации или None.
                   Если задан None - персонаж убирается с локации (на ночь)
             """
-
+            global movedArray
+            
             if loc is None:
                 self.location = None
                 return
@@ -729,15 +730,17 @@ init -20 python:
                 if statuses:
                     applyStatus = choice(statuses)
                     
-                    if applyStatus.name in ['Целуется', 'Скрытничает', 'Занимается сексом', 'Публично трахается']: # В случае дуальных статусов спавним партнёров вместе и заставляем целоваться.
+                    if applyStatus.name in ['Целуется', 'Скрытничает', 'Занимается сексом', 'Публично трахается', 'Флиртует']: # В случае дуальных статусов спавним партнёров вместе и заставляем целоваться.
                         if self.partner == None:
                             self.partner = getPartner(self)
                         
                         if self.partner == None:  # Если партнёров больше нет, тогда всё.
                             self.moveToLocation(loc,'noStatus')
+                            
                         self.applyLocationStatus(applyStatus)
                         self.partner.location = self.location
                         self.partner.forceLocationStatus(applyStatus)
+                        movedArray.append(self.partner)
                     else:
                         self.applyLocationStatus(applyStatus)
                 else:
@@ -760,6 +763,7 @@ init -20 python:
 
                     # Stat will be limited by max_val, if modificator is #
                     # negative - status will not go lower than max_val
+                    
                     if mod > 0:
                         if char_stat+mod > max_val:
                             mod = max(0, max_val - char_stat)

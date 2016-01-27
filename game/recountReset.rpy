@@ -47,23 +47,23 @@ init python:
         # Если есть клуб, забиваем в него как минимум 4 человек
         if 'cherleader' in school.clubs and len(getClubChars('cherleader')) < 4:
             while len(getClubChars('cherleader')) < 4:
-                choice(getClubChars('','female')).club = 'cherleader'
+                choice(getClubChars('','female','please')).club = 'cherleader'
                 
         if 'cosplay' in school.clubs and len(getClubChars('cosplay')) < 4:
             while len(getClubChars('cosplay')) < 4:
-                choice(getClubChars('')).club = 'cosplay'
+                choice(getClubChars('','please')).club = 'cosplay'
 
         if 'sport' in school.clubs and len(getClubChars('sport')) < 4:
             while len(getClubChars('sport')) < 4:
-                choice(getClubChars('')).club = 'sport'
+                choice(getClubChars('','please')).club = 'sport'
                 
         if 'medic' in school.clubs and len(getClubChars('medic')) < 4:
             while len(getClubChars('medic')) < 4:
-                choice(getClubChars('')).club = 'medic'
+                choice(getClubChars('','please')).club = 'medic'
                 
         if 'pants' in school.clubs and len(getClubChars('pants')) < 4:
             while len(getClubChars('pants')) < 4:
-                choice(getClubChars('','female')).club = 'pants'
+                choice(getClubChars('','female','please')).club = 'pants'
 
                 
         for char in chars:
