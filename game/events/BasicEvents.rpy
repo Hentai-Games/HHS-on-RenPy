@@ -820,23 +820,27 @@ label getPanties:
 label checkCam:
     show computer at top
     player.say 'Так так, что там у нас на камерах?'
-    python:
-        clrscr()
-        camSold = ptime
-        returnArr = getCamArr()
-        temp = rand(50,150)*len(returnArr)
-        player.money += temp
-        hasToiletPics = 1
-        for x in returnArr:
-            st1 = getChar('female')
-            renpy.show('temp0', what = Image(x, xalign=0.5, yalign= 0.0))
-            renpy.say('','Камера сняла, как [st1.name] писает.')
-    hide temp0
-    'Вы продали фотографии в интернете и выручили за них [temp] монет.'
-    if mile_qwest_2_stage == 2 and camera.name in getLoc('loc_class1').items and rand(1,3) == 1:
+    if camera.name in getLoc('loc_wcf'):
+        python:
+            clrscr()
+            camSold = ptime
+            returnArr = getCamArr()
+            temp = rand(50,150)*len(returnArr)
+            player.money += temp
+            hasToiletPics = 1
+            for x in returnArr:
+                st1 = getChar('female')
+                renpy.show('temp0', what = Image(x, xalign=0.5, yalign= 0.0))
+                renpy.say('','Камера сняла, как [st1.name] писает.')
+        hide temp0
+        'Вы продали фотографии в интернете и выручили за них [temp] монет.'
+    if mile_qwest_2_stage == 1 and camera.name in getLoc('loc_class1').items and rand(1,3) == 1:
         jump kupruvnaGotIt1
     if mile_qwest_2_stage == 3 and camera.name in getLoc('loc_class1').items  or development == 1:
         jump kupruvnaGotIt2
+    if camSold != ptime:
+        player.say 'А ничего интересного и нет...'
+        $ camSold = ptime
     call screen compScreen
 
 label installCam:

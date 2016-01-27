@@ -29,7 +29,7 @@ init -1 python hide:
     # Эти управляют именем и версией игры, которые указываются
     # в журналах отладки.
     config.name = "Hentai High School Remake"
-    config.version = "0.2.7"
+    config.version = "0.2.8"
     
     #########################################
     # Темы
