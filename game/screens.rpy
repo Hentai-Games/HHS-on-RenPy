@@ -196,6 +196,11 @@ screen main_menu:
     # Это заменяет другие меню.
     tag menu
     add 'pic/new.png'
+    frame:
+        style_group "mm"
+        xalign 1.0
+        yalign .0
+        text 'Версия: [config.version]'
     # Фон главного меню.
     # window:
         # style "mm_root"

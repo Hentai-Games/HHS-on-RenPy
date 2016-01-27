@@ -77,6 +77,7 @@ init -3 python:
                             
             if timeMoved + 10 < mtime or ltMoved != lt():
                 counter = max(1, int((mtime - timeMoved)/10))
+                movedArray[:] = []
                 for x in range(counter): # Если прошло больше 10 минут, двигаем несколько раз за всё прошедшее время.
                     addPeopleLocations() # двигаем людей
                 timeMoved = mtime

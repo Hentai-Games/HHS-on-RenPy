@@ -343,23 +343,30 @@ init -5 python:
 
     def getClubChars(club,*args):
         tempArr = []
-        if len(args) > 0:
+        if len(args) == 0:
+            for x in allChars:
+                if x.club == club:
+                    tempArr.append(x)
+        else:
             if args[0] in ['male','female','futa']:
                 for x in allChars:
                     if x.club == club and x.getSex() == args[0]:
                         tempArr.append(x)
-                if len(args) == 2:
-                    if len(tempArr) == 0 and args[1] == 'please': # Если ОЧЕНЬ нужен человек с нужным полом для эвента, но его нет, тогда создаём его.
-                        tempChar = getChar(args[0])
-                        tempChar.club = club
-                        tempArr.append(tempChar)
-                    
-                return tempArr
-        else:
-            for x in allChars:
-                if x.club == club:
-                    tempArr.append(x)
-            return tempArr
+                        
+            if len(args) == 2 and args[1] in ['please'] and len(tempArr) == 0:
+                tempChar = getChar(args[0])
+                tempChar.club = club
+                tempArr.append(tempChar)
+                
+            if args[0] in ['please']:
+                for x in allChars:
+                    if x.club == club:
+                        tempArr.append(x)
+                if len(tempArr) == 0:
+                    tempChar = getChar()
+                    tempChar.club = club
+                    tempArr.append(tempChar)
+        return tempArr
             
     def getCamArr():
         photoArr = []
