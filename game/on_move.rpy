@@ -11,7 +11,7 @@ init:
 init python:
 #базовая функция перемещения. Использовать всегда и всюду
     from random import shuffle
-    def move(where):
+    def move(where,*args):
         global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime, development  #объявление глобальных переменных
         if development == 1:    
             player.setEnergy(2000)
@@ -55,6 +55,8 @@ init python:
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
             
             if  where[:4] == 'loc_': trySpecialEvent(where) # спец эвент
+            if len(args) > 0:
+                changetime(args[0])
             renpy.jump(where) #Переход на локу
         else:
             renpy.jump('loc_home')

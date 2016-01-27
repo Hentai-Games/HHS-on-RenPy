@@ -61,8 +61,8 @@ init python:
         changetime(1)
         renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
         renpy.show('temp1', what = Image(getCharImage(player), xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
-        renpy.show('temp2', what = Image(getCharImage(interactionObj), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
-
+        renpy.show('temp2', what = Image(getStudImg(interactionObj), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
+# Функция getCharImage оставлена для совместимости и отлова багов. Позже её код надо будет заменить кодом getStudImg, а ту убрать.
     def getCharImage(char,*args):
         if char == player:
             anotherImage = player.picto
@@ -137,7 +137,7 @@ screen peopleTextList:
                             actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
                     else:
                         actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
-            textbutton x.name +  ' ' + x.locationStatus.name.lower():
+            textbutton x.name +  ' {i}' + x.locationStatus.name.lower()+  '{/i}': # Добавил курсив к статусу.
                 action actions_list
                 hovered [SetVariable('showHover',x),Show('showCharStatusText')]
                 unhovered [Hide('showCharStatusText')]
