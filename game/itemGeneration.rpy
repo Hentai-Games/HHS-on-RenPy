@@ -198,7 +198,7 @@ init python:
     studstrictjaket.durability = 10000
     studstrictjaket.name = _('Девчачий строгий пиджак')
     studstrictjaket.cost = 1500
-    studstrictjaket.picto = 'pic/noimage.gif'
+    studstrictjaket.picto = 'pic/items/studstrictjaket.png'
     studstrictjaket.type = 'clothing'
     studstrictjaket.description = _('Тут будет красивое описание предмета')
     clothing.append(studstrictjaket)
@@ -214,7 +214,7 @@ init python:
     studjaket.durability = 10000
     studjaket.name = _('Девчачий пиджак')
     studjaket.cost = 1500
-    studjaket.picto = 'pic/noimage.gif'
+    studjaket.picto = 'pic/items/studjaket.png'
     studjaket.type = 'clothing'
     studjaket.description = _('Тут будет красивое описание предмета')
     clothing.append(studjaket)
@@ -226,11 +226,11 @@ init python:
     char = 'stud',
     sex = 'female',
     purpose = 'sexy')
-    studsexyjaket.cover = ['верх','грудь']
+    studsexyjaket.cover = ['верх']
     studsexyjaket.durability = 10000
     studsexyjaket.name = _('Сексуальный пиджачок')
     studsexyjaket.cost = 1500
-    studsexyjaket.picto = 'pic/noimage.gif'
+    studsexyjaket.picto = 'pic/items/studsexyjaket.png'
     studsexyjaket.type = 'clothing'
     studsexyjaket.description = _('Тут будет красивое описание предмета')
     clothing.append(studsexyjaket)
@@ -242,11 +242,11 @@ init python:
     char = 'stud',
     sex = 'female',
     purpose = 'skimpy')
-    studskimpyjaket.cover = ['верх','грудь']
+    studskimpyjaket.cover = ['верх']
     studskimpyjaket.durability = 10000
     studskimpyjaket.name = _('что-то невесомое')
     studskimpyjaket.cost = 1500
-    studskimpyjaket.picto = 'pic/noimage.gif'
+    studskimpyjaket.picto = 'pic/items/studskimpyjaket.png'
     studskimpyjaket.type = 'clothing'
     studskimpyjaket.description = _('Тут будет красивое описание предмета')
     clothing.append(studskimpyjaket)
@@ -262,7 +262,7 @@ init python:
     studDress.durability = 10000
     studDress.name = _('Простое платье')
     studDress.cost = 1500
-    studDress.picto = 'pic/noimage.gif'
+    studDress.picto = 'pic/items/studDress.png'
     studDress.type = 'clothing'
     studDress.description = _('Тут будет красивое описание предмета')
     clothing.append(studDress)
@@ -278,7 +278,7 @@ init python:
     studHarness.durability = 10000
     studHarness.name = _('Кожанная сбруя')
     studHarness.cost = 1500
-    studHarness.picto = 'pic/noimage.gif'
+    studHarness.picto = 'pic/items/studHarness.png'
     studHarness.type = 'clothing'
     studHarness.description = _('Тут будет красивое описание предмета')
     clothing.append(studHarness)
@@ -445,7 +445,7 @@ init python:
     studskirt.durability = 10000
     studskirt.name = _('Школьная юбка до колен')
     studskirt.cost = 1500
-    studskirt.picto = 'pic/noimage.gif'
+    studskirt.picto = 'pic/items/studskirt.png'
     studskirt.type = 'clothing'
     studskirt.description = _('Тут будет красивое описание предмета')
     clothing.append(studskirt)
@@ -461,7 +461,7 @@ init python:
     studsexyskirt.durability = 10000
     studsexyskirt.name = _('Короткая школьная юбка')
     studsexyskirt.cost = 1500
-    studsexyskirt.picto = 'pic/noimage.gif'
+    studsexyskirt.picto = 'pic/items/studsexyskirt.png'
     studsexyskirt.type = 'clothing'
     studsexyskirt.description = _('Тут будет красивое описание предмета')
     clothing.append(studsexyskirt)
@@ -477,7 +477,7 @@ init python:
     studskimpyskirt.durability = 10000
     studskimpyskirt.name = _('Она называет этот пояс юбкой')
     studskimpyskirt.cost = 1500
-    studskimpyskirt.picto = 'pic/noimage.gif'
+    studskimpyskirt.picto = 'pic/items/studskimpyskirt.png'
     studskimpyskirt.type = 'clothing'
     studskimpyskirt.description = _('Тут будет красивое описание предмета')
     clothing.append(studskimpyskirt)
@@ -577,7 +577,7 @@ init python:
     socks.durability = 10000
     socks.name = _('Тёмные носочки')
     socks.cost = 150
-    socks.picto = 'pic/noimage.gif'
+    socks.picto = 'pic/items/socks.png'
     socks.type = 'clothing'
     socks.description = _('Тут будет красивое описание предмета')
     clothing.append(socks)
@@ -709,7 +709,7 @@ init python:
     studpantiesF.durability = 10000
     studpantiesF.name = _('Трусики')
     studpantiesF.cost = 150
-    studpantiesF.picto = 'pic/noimage.gif'
+    studpantiesF.picto = 'pic/items/studpantiesF.png'
     studpantiesF.type = 'clothing'
     studpantiesF.description = _('Тут будет красивое описание предмета')
     clothing.append(studpantiesF)
@@ -725,7 +725,7 @@ init python:
     studSlip.durability = 10000
     studSlip.name = _('Лифчик')
     studSlip.cost = 150
-    studSlip.picto = 'pic/noimage.gif'
+    studSlip.picto = 'pic/items/studSlip.png'
     studSlip.type = 'clothing'
     studSlip.description = _('Тут будет красивое описание предмета')
     clothing.append(studSlip)
@@ -826,7 +826,7 @@ init python:
     studswimsuit.durability = 40000
     studswimsuit.name = _('Полный купальник')
     studswimsuit.cost = 500
-    studswimsuit.picto = 'pic/noimage.gif'
+    studswimsuit.picto = 'pic/items/studswimsuit.png'
     studswimsuit.type = 'clothing'
     studswimsuit.description = _('Тут будет красивое описание предмета')
     clothing.append(studswimsuit)
@@ -863,9 +863,9 @@ init python:
     sportUniform.durability = 300
     sportUniform.name = _('Спортформа')
     sportUniform.cost = 1500
-    # picto
     sportUniform.picto = 'pic/items/sportUniform.png'
     sportUniform.type = 'clothing'
+    sportUniform.description = _('Тут будет красивое описание предмета')
     clothing.append(sportUniform)
     
 # бдсм форма
@@ -880,9 +880,9 @@ init python:
     bdsmUniform.durability = 1000
     bdsmUniform.name = _('БДСМ униформа')
     bdsmUniform.cost = 5500
-    # picto
     bdsmUniform.picto = 'pic/items/bdsmUniform.png'
     bdsmUniform.type = 'clothing'
+    bdsmUniform.description = _('Тут будет красивое описание предмета')
     clothing.append(bdsmUniform)
     
 #  Форма Мустанговича
@@ -899,6 +899,7 @@ init python:
     blueForm.cost = 1500
     blueForm.picto = 'pic/noimage.gif'
     blueForm.type = 'clothing'
+    blueForm.description = _('Тут будет красивое описание предмета')
     clothing.append(blueForm)
 
     manpants = Clothing(
@@ -914,7 +915,104 @@ init python:
     manpants.cost = 1500
     manpants.picto = 'pic/items/jaket.png'
     manpants.type = 'clothing'
+    manpants.description = _('Тут будет красивое описание предмета')
     clothing.append(manpants)
     
     
     allItems.extend(clothing)
+    
+#######################################################################
+#  Белья нет / не видно
+####################################################################### 
+    NostudpantiesM = Clothing(
+    lust = 0,
+    corr = 0,
+    reputation = 0,
+    char = '',#stud',
+    sex = 'male',
+    purpose = '')
+    NostudpantiesM.cover = ['попа']
+    NostudpantiesM.durability = 0
+    NostudpantiesM.name = _('пах')
+    NostudpantiesM.cost = 0
+    NostudpantiesM.picto = 'pic/noimage.gif'
+    NostudpantiesM.type = 'noclothing'
+    NostudpantiesM.description = _('Он явно предпочитает не одевать нижнее белье')
+
+    NostudpantiesF = Clothing(
+    lust = 0,
+    corr = 0,
+    reputation = 0,
+    char = '',#stud',
+    sex = 'female',
+    purpose = '')
+    NostudpantiesF.cover = ['попа']
+    NostudpantiesF.durability = 0
+    NostudpantiesF.name = _('попа')
+    NostudpantiesF.cost = 0
+    NostudpantiesF.picto = 'pic/items/NostudpantiesF.png'
+    NostudpantiesF.type = 'noclothing'
+    NostudpantiesF.description = _('Она видимо решила ходить без трусиков')
+
+    NoVisstudpantiesM = Clothing(
+    lust = 0,
+    corr = 0,
+    reputation = 0,
+    char = '',#stud',
+    sex = 'male',
+    purpose = '')
+    NoVisstudpantiesM.cover = ['попа']
+    NoVisstudpantiesM.durability = 0
+    NoVisstudpantiesM.name = _('низ')
+    NoVisstudpantiesM.cost = 0
+    NoVisstudpantiesM.picto = 'pic/noimage.gif'
+    NoVisstudpantiesM.type = 'noclothing'
+    NoVisstudpantiesM.description = _('К сожалению одежда не позволяет увидить белье данного человека')
+
+    NoVisstudpantiesF = Clothing(
+    lust = 0,
+    corr = 0,
+    reputation = 0,
+    char = '',#stud',
+    sex = 'female',
+    purpose = '')
+    NoVisstudpantiesF.cover = ['попа']
+    NoVisstudpantiesF.durability = 0
+    NoVisstudpantiesF.name = _('низ')
+    NoVisstudpantiesF.cost = 0
+    NoVisstudpantiesF.picto = 'pic/items/NoVisstudpantiesF.png'
+    NoVisstudpantiesF.type = 'noclothing'
+    NoVisstudpantiesF.description = _('К сожалению одежда не позволяет увидить её трусики')
+
+    NostudSlip = Clothing(
+    lust = 0,
+    corr = 0,
+    reputation = 0,
+    char = '',#stud',
+    sex = 'female',
+    purpose = '')
+    NostudSlip.cover = ['грудь']
+    NostudSlip.durability = 0
+    NostudSlip.name = _('Грудь')
+    NostudSlip.cost = 0
+    NostudSlip.picto = 'pic/items/NostudSlip.png'
+    NostudSlip.type = 'noclothing'
+    NostudSlip.description = _('Лифчик точно не включен в состав её гардероба')
+
+    NoVisstudSlip = Clothing(
+    lust = 0,
+    corr = 0,
+    reputation = 0,
+    char = '',#stud',
+    sex = 'female',
+    purpose = '')
+    NoVisstudSlip.cover = ['грудь']
+    NoVisstudSlip.durability = 0
+    NoVisstudSlip.name = _('верх')
+    NoVisstudSlip.cost = 0
+    NoVisstudSlip.picto = 'pic/items/NoVisstudSlip.png'
+    NoVisstudSlip.type = 'noclothing'
+    NoVisstudSlip.description = _('К сожалению одежда не позволяет увидить её лифчик')
+
+
+#######################################################################
