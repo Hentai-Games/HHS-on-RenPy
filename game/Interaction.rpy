@@ -266,8 +266,41 @@ screen show_stat:
             if development == 1:
                 textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
 
+            null height 10
+            $ w_tooltip = ''
+            $ tmp_list = getWearList(interactionObj)
+            text '{u}Вы видите у собеседника:{/u}' style style.param xsize 240 text_align 0.5
+            null height 10
+            for z in [0, 1, 2, 3, 4] :
+                if tmp_list[int(z)] != 'none':
+                    vbox:
+                        xalign 0.99
+                        imagebutton:
+                            idle im.FactorScale(tmp_list[z].picto, 0.3)
+                            hover im.FactorScale(tmp_list[z].picto, 0.35)
+                            action NullAction()
+                            hovered [SetVariable('w_tooltip', '{u}'+tmp_list[z].name+ '{/u}\n' +tmp_list[z].description), Show('wear_tooltip')]
+                            unhovered [Hide('wear_tooltip')]
+                    null height 10
+
     frame ypos 0.01 xalign 1.0:
         text 'Очков общения: ' + str(interactionObj.sayCount)
+
+screen wear_tooltip:
+    python:
+        import pygame
+        x1, y1 = pygame.mouse.get_pos()
+        x2, y2 = pygame.Surface.get_size(pygame.display.get_surface())
+    fixed:
+        xpos float(x1-60)/float(x2)
+        ypos float(y1)/float(y2)
+        frame:
+            xmaximum 300
+            xanchor 1.0
+            yanchor 0.5
+            text ('[w_tooltip]'):
+                text_align 0.5
+                xsize 300
 
 ###########################################################################################################################
 screen make_gift_char:

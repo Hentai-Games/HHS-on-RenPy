@@ -41,16 +41,51 @@ init python:
             else:
                 return Image(anotherImage, xalign=0.8, yalign= 1.0, yanchor = 'center')
         
-    def ImgList():
-        lf = ''
-        lm = ''
-        lf += 'pic/showStud/female/naked/00.png\n'
-        lm += 'pic/showStud/male/naked/00.png\n'
-        lf += 'pic/showStud/female/underwear/00.png   \n'
-        lm += 'pic/showStud/male/underwear/00.png\n'
-        for x in clothing:
-            if x.char == 'stud' and x.sex == 'female' and 'верх' in x.cover:
-                lf += 'pic/showStud/female/'+ x.purpose + '/00.png\n'
-            if x.char == 'stud' and x.sex == 'male' and 'верх' in x.cover:
-                lm += 'pic/showStud/male/'+ x.purpose + '/00.png\n'
-        return [lf, lm]
+
+        
+    def getWearList(char):
+        tmp_vis = ['none', 'none', 'none', 'none', 'none'] 
+        if char.sex == 'male':
+            tmp_vis[3] = NoVisstudpantiesM
+        else:
+            tmp_vis[2] = NoVisstudSlip
+            tmp_vis[3] = NoVisstudpantiesF
+        tt = []
+        
+        tt = [e for e in char.wear if 'верх' in e.cover]
+        if len(tt) == 1 :
+            tmp_vis[0] = tt[0]
+            if 'грудь' in tmp_vis[0].cover:
+                tmp_vis[2] = 'none'
+            if 'попа' in tmp_vis[0].cover:
+                tmp_vis[3] = 'none'
+        tt = [e for e in char.wear if ('низ' in e.cover) and (not e in tmp_vis)]
+        if len(tt) == 1 :
+            tmp_vis[1] = tt[0]
+            if 'попа' in tmp_vis[1].cover:
+                tmp_vis[3] = 'none'
+
+        if tmp_vis[2] != 'none' and (tmp_vis[0] == 'none' or tmp_vis[0].purpose in ['bdsm', 'sexy', 'skimpy']):
+            tt = [e for e in char.wear if 'грудь' in e.cover]
+            if len(tt) == 1 :
+                tmp_vis[2] = tt[0]
+            else: 
+                tmp_vis[2] = NostudSlip
+
+        v_tmp = (tmp_vis[1] != 'none' and not tmp_vis[1].purpose in ['bdsm', 'sexy', 'skimpy']) or (tmp_vis[0] != 'none' and 'низ' in tmp_vis[0].cover and not tmp_vis[0].purpose in ['bdsm', 'sexy', 'skimpy'])
+        if tmp_vis[3] != 'none' and not v_tmp:
+            tt = [e for e in char.wear if 'попа' in e.cover]
+            if len(tt) == 1 :
+                tmp_vis[3] = tt[0]
+            else: 
+                if char.sex == 'male':
+                    tmp_vis[3] = NostudpantiesM
+                else:
+                    tmp_vis[3] = NostudpantiesF
+
+        tt = [e for e in char.wear if ('ноги' in e.cover) and (not e in tmp_vis)]
+        if len(tt) == 1 :
+            tmp_vis[4] = tt[0]
+                
+        return tmp_vis
+        
