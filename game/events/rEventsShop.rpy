@@ -135,10 +135,10 @@ label event_loc_shop_0_no10:
     if st1.getCorr() > 25 or development == 1:
         player.say '[st1.fname], обрати внимание - Камасутра, 10 дней Содома, 50 оттенков серого - это замечательные книги для прочтения!'
         
-	$ player.incLust(5)
         $ player.incCorr(1)
         $ st1.incCorr(1)
         $ st1.incRep(-1)
+    $ player.incLust(5)
     $ move(curloc)   
 
 label event_loc_shop_0_no11:
