@@ -575,26 +575,34 @@ screen wardrobe:
         if development == 0:
             add 'pic/events/various/undress.png' at Move((0.8, 2.0), (0.8, 0.8), 0.5, xanchor='center', yanchor='center')
 
-    fixed xpos 0.01 ypos 0.01:
         key "game_menu" action Function(move, curloc)
         textbutton _('Назад') action Function(move, curloc)
-        $ xalig = 0.2
-        $ yalig = 0.05
-        for x in player.inventory:
-            if x.type == 'clothing':
-                imagebutton:
-                    idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
-                    hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
-                    xalign xalig yalign yalig  
-                    action [Function(player.wearing,x),Show('wardrobe')] 
-                    hovered [SetVariable('myItem', x), Show('showItem')] 
-                    unhovered Hide ('showItem')
-            else :
-                $ xalig -= 0.09
-            $ xalig += 0.09
-            if xalig >= 0.7 :
-                $ yalig += 0.15
-                $ xalig = 0.2
+    $ adj = ui.adjustment()
+    python:
+        tab_i = [x for x in player.inventory if x.type == 'clothing']
+        tab_cols = 6.0
+        tab_rows = round(float(len(tab_i))/float(tab_cols) +0.45)
+        tab_n = (tab_rows*tab_cols) - len(tab_i)
+    side "c r":
+        area (250, 40, 580, 500)
+        viewport:
+            yadjustment adj
+            mousewheel True
+            grid tab_cols tab_rows:   
+                xfill True
+                spacing 10
+                for x in tab_i:
+                    if x.type == 'clothing':
+                        imagebutton:
+                            idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
+                            hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
+                            action [Function(player.wearing,x),Show('wardrobe')] 
+                            hovered [SetVariable('myItem', x), Show('showItem')] 
+                            unhovered Hide ('showItem')
+                for i in range(int(tab_n)):
+                    vbox:
+                        null
+        bar adjustment adj style "vscrollbar"
     
     frame ypos 0.01 xalign 1.0:
         text 'Текущая сексуальность: ' + str(player.getOutfitLust())
