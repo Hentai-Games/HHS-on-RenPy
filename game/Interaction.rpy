@@ -267,18 +267,19 @@ screen show_stat:
                 textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
 
             null height 10
-            if len(interactionObj.wear) > 0 :
-                text '{u}На собеседнике надето:{/u} ' style style.param xalign 0.01
-                null height 10
-                $ w_tooltip = ''
-                for z in interactionObj.wear:
+            $ w_tooltip = ''
+            $ tmp_list = getWearList(interactionObj)
+            text '{u}Вы видите у собеседника:{/u}' style style.param xsize 240 text_align 0.5
+            null height 10
+            for z in [0, 1, 2, 3, 4] :
+                if tmp_list[int(z)] != 'none':
                     vbox:
                         xalign 0.99
                         imagebutton:
-                            idle im.FactorScale(z.picto, 0.3)
-                            hover im.FactorScale(z.picto, 0.35)
+                            idle im.FactorScale(tmp_list[z].picto, 0.3)
+                            hover im.FactorScale(tmp_list[z].picto, 0.35)
                             action NullAction()
-                            hovered [SetVariable('w_tooltip', '{u}'+z.name+ '{/u}\n' +z.description), Show('wear_tooltip')]
+                            hovered [SetVariable('w_tooltip', '{u}'+tmp_list[z].name+ '{/u}\n' +tmp_list[z].description), Show('wear_tooltip')]
                             unhovered [Hide('wear_tooltip')]
                     null height 10
 
@@ -294,7 +295,7 @@ screen wear_tooltip:
         xpos float(x1-60)/float(x2)
         ypos float(y1)/float(y2)
         frame:
-            xsize 300
+            xmaximum 300
             xanchor 1.0
             yanchor 0.5
             text ('[w_tooltip]'):
