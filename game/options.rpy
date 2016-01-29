@@ -24,12 +24,12 @@ init -1 python hide:
     ## Это управляет заголовком окна, когда Ren'Py
     ## запущен в оконном режиме.
 
-    config.window_title = u"HHS"
+    config.window_title = u"Hentai High School Remake"
 
     # Эти управляют именем и версией игры, которые указываются
     # в журналах отладки.
-    config.name = "HHS"
-    config.version = "0.1"
+    config.name = "Hentai High School Remake"
+    config.version = "0.2.8"
     
     #########################################
     # Темы
@@ -294,7 +294,7 @@ init python:
     ## The name that's used for directories and archive files. For example, if
     ## this is 'mygame-1.0', the windows distribution will be in the
     ## directory 'mygame-1.0-win', in the 'mygame-1.0-win.zip' file.
-    build.directory_name = "HHS-on-RenPy-1.0"
+    build.directory_name = "HHS-on-RenPy " + config.version
 
     ## The name that's uses for executables - the program that users will run
     ## to start the game. For example, if this is 'mygame', then on Windows,

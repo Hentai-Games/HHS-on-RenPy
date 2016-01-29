@@ -1,5 +1,8 @@
 init 10 python:
     locations = []
+    global loc_btn, loc_txt
+    loc_btn = []
+    loc_txt = []
     class Location:
         def __init__(self, id, name, base_prob, position):
             self.id = id
@@ -15,8 +18,8 @@ init 10 python:
             global hour
             if lt() > 0 or lt() == -4: rez = -1 # Если ночь, то на улице никого нет
 
-            elif 'school' in self.position and lt() == -1: rez = self.base_prob/4 # Если внеурочное время, то в школе шансов встретить меньше
-            elif 'school' in self.position and lt() == 0: rez = self.base_prob*2 # Если перемена, то в школе шансов встретить гораздо больше
+            elif 'school' in self.position and lt() < 0: rez = self.base_prob/4 # Если внеурочное время, то в школе шансов встретить меньше
+            elif 'school' in self.position and lt() == 0: rez = self.base_prob # Если перемена, то в школе шансов встретить гораздо больше
             elif 'other' in self.position and lt() == 0: rez = -1 # Во время перемен никого не будет в городе
             elif self.id in ['loc_street','loc_shopStreet'] and hour < 8: rez = self.base_prob*2 # Перед уроками на улице чаще
             elif self.id in ['loc_beach'] and hour < 8: rez = self.base_prob/2 # Перед уроками на пляже реже
@@ -529,7 +532,10 @@ label test:
     # show expression 'pic/status/male_toy.jpg' at Move((0.0, 0.0), (0.0, -1.1), 10.0, repeat = True, bounce = True, xanchor="left", yanchor="top") as tempPic
     # ''
     # $move(curloc)
-    $ changetime(60*24)
+    $ danokova.setCorr(30)
+    $ danokova.forceLocationStatus(look_naked_status)
+    $ temp = danokova.getCorr()
+    '[temp]'
     $ move('loc_home')
 
 ##############################################################
@@ -705,7 +711,7 @@ label loc_changeRoom:
         loc_btn = [
             ('Бассейн', [Function(move, 'loc_pool')], True),
             ('Спортзал', [Function(move, 'loc_gym')], True),
-            ('{u}{i}Переодеться{/i}{/u}', Show('wardrobe'), True),
+            ('{u}{i}Ваш шкафчик{/i}{/u}', Show('wardrobe'), True),
             ]
         loc_txt = ['Раздевалка. Она разделена на 2 отделения: для мальчиков и для девочек. Как ни странно, вы тоже можете тут переодеваться.']
     screen changeRoom:
@@ -1176,7 +1182,7 @@ label loc_shopBeauty:
 
 label loc_sexShop:
     show sexShop at left
-    if ptime > 366 and lt() == -1 and rand(1,3) == 1:
+    if ptime > 168 and lt() in [-1,-3] and rand(1,3) == 1 and mile_qwest_3_stage == 0:
         jump danokova_start
     python:
         loc_btn = [
@@ -1187,8 +1193,3 @@ label loc_sexShop:
     screen sexShop:
         null
     call screen sexShop
-    
-init 10 python:    
-    global loc_btn, loc_txt
-    loc_btn = []
-    loc_txt = []

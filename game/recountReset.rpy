@@ -1,10 +1,13 @@
 init python:
     def dailyRecount(chars):
     
-        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday, studs, teachers
+        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday, studs, teachers, lastWork, lastWashed, corrTeacherTime, camSold
         
         timeGetPanties = 0 # сброс времени выдачи трусов
         aphroUsedArr[:] = [] # сброс людей под афродизиаком
+        
+        if weekday == 1:
+            school.daysWorked = 0
         
         if development == 0:
             # Голод
@@ -19,6 +22,12 @@ init python:
         # Работа
         lastWork = -30
         
+        # Собрания
+        corrTeacherTime = - 100
+        
+        # Проверка камер
+        camSold = -30
+        
         # Салон красоты
         if him_zavivka > 0:
             him_zavivka -= 1
@@ -32,8 +41,7 @@ init python:
             pedicure -= 1
         
         # Олимпиада
-        if (rand(1,10) == 1 ) and olympiad.month != month and olympiad.active == False and weekday <= 5:
-            olympiad.month = month
+        if (rand(1,10) == 1) and olympiad.month != month and olympiad.active == False and weekday <= 5 or weekday == 2:
             olympiad.weekday = weekday + 2
             if olympiad.weekday > 5:
                 olympiad.weekday -= 5
@@ -42,23 +50,23 @@ init python:
         # Если есть клуб, забиваем в него как минимум 4 человек
         if 'cherleader' in school.clubs and len(getClubChars('cherleader')) < 4:
             while len(getClubChars('cherleader')) < 4:
-                choice(getClubChars('','female')).club = 'cherleader'
+                choice(getClubChars('','female','please')).club = 'cherleader'
                 
         if 'cosplay' in school.clubs and len(getClubChars('cosplay')) < 4:
             while len(getClubChars('cosplay')) < 4:
-                choice(getClubChars('')).club = 'cosplay'
+                choice(getClubChars('','please')).club = 'cosplay'
 
         if 'sport' in school.clubs and len(getClubChars('sport')) < 4:
             while len(getClubChars('sport')) < 4:
-                choice(getClubChars('')).club = 'sport'
+                choice(getClubChars('','please')).club = 'sport'
                 
         if 'medic' in school.clubs and len(getClubChars('medic')) < 4:
             while len(getClubChars('medic')) < 4:
-                choice(getClubChars('')).club = 'medic'
+                choice(getClubChars('','please')).club = 'medic'
                 
         if 'pants' in school.clubs and len(getClubChars('pants')) < 4:
             while len(getClubChars('pants')) < 4:
-                choice(getClubChars('','female')).club = 'pants'
+                choice(getClubChars('','female','please')).club = 'pants'
 
                 
         for char in chars:
@@ -101,7 +109,7 @@ init python:
                     hadSex(char)
 
     def hourlyReset():
-        global hour, weekday, inhibLow
+        global hour, weekday, inhibLow, detentions
         
         if hour == 18:
             inhibLow = 0
@@ -133,6 +141,7 @@ init python:
                 school.budget -= 250
                 
     def monthlyReset():
+        global is_teacher_room_1, is_teacher_room_2, is_teacher_room_3
         if is_teacher_room_1 != 0: is_teacher_room_1 = 2
         if is_teacher_room_2 != 0: is_teacher_room_2 = 2
         if is_teacher_room_3 != 0: is_teacher_room_3 = 2

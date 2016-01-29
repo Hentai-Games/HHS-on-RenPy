@@ -49,9 +49,7 @@ init python:
     def flirtSelector(speaker):
         tempList = []
         for x in flirtList:
-            if speaker.body.sex() == 'futa' and x.sex == 'female':
-                x.sex = 'futa'
-            if speaker.body.sex() == x.sex and speaker.getCorr() >= x.corr and player.getCorr() >= x.corr:
+            if speaker.getSex('mf') == x.sex and speaker.getCorr() >= x.corr and player.getCorr() >= x.corr:
                 tempList.append(x)
         return tempList[rand(0,len(tempList) - 1)].id
 
@@ -158,6 +156,7 @@ screen locationPeoplePicto:
                 actions_list = [Function(clrscr),
                                 SetVariable('interactionObj', x),
                                 SetVariable('reaction', reactionGen(x))]
+                                
                 if x.getLocationStatus() and x.getLocationStatus().events:
                     actions_list.append(Jump(choice(x.getLocationStatus()
                                                      .events)))
@@ -395,7 +394,7 @@ label speak:
         user.sayCount -= 1
         changetime(5)
         player.stats.energy -= rand(5,10)
-        user.incLoy(1)
+        user.incLoy(3)
 
         if user == danokova and 'school' in getLoc(curloc).position:
             if mile_qwest_3_stage == 1 and ptime - mile_qwest_3_time > 12 and hour > 14:

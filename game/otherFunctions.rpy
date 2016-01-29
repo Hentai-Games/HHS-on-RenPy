@@ -164,7 +164,7 @@ init -5 python:
             
     def setEdu(count,amount):
         for x in range(0, count):
-            getChar().setEdu(amount)   
+            getChar().incEdu(amount)   
 
     def hadSex(*args):
         maleArr = []
@@ -181,6 +181,7 @@ init -5 python:
                     args[0].body.parts['анус'].size += randf(0.0,0.1)
             args[0].incFun(5)
             args[0].setLust(0)
+            args[0].incCorr(0.5)
             
         else:
             for x in args:
@@ -197,6 +198,7 @@ init -5 python:
                     x.body.parts['вагина'].size += randf(0.0,0.1)
                     x.body.parts['анус'].size += randf(0.0,0.05)
                     x.incFun(5)
+                    x.incCorr(1)
                     
             # Футы и не только?
             elif len(femaleArr) == 0:
@@ -205,16 +207,19 @@ init -5 python:
                         x.body.parts['вагина'].size += randf(0.0,0.1)
                     x.body.parts['анус'].size += randf(0.0,0.05)
                     x.incFun(5)
+                    x.incCorr(1)
                     
             else:
                 # норма
                 fucked = []
                 for male in maleArr: # перебираем всех male/futa
-                    male.incFun(5) 
+                    male.incFun(5)
+                    male.incCorr(1)
                     diameter = male.body.parts['пенис'].size/3.14
                     for female in femaleArr: # перебираем всех female
                         if female not in fucked: # если ещё не была в соитии
-                        
+                            female.incCorr(1)
+                            
                             if female.body.parts['вагина'].size < diameter/2: # Если диаметр слишком большой
                                 female.body.parts['вагина'].size += diameter/5
                                 female.incFun(-5)
@@ -232,6 +237,7 @@ init -5 python:
                             break
             
     def addDetention(*args):
+        global detentions
         for char in args:
             if char in detentions == False:
                 detentions.append(char)
@@ -247,6 +253,9 @@ init -5 python:
             
     def fillClasses():
         global classrooms
+        for x in allChars:
+            x.moveToLocation(None)
+            
         classrooms = []
         classrooms.append(getLoc('loc_class1'))
         classrooms.append(getLoc('loc_class2'))
@@ -334,23 +343,30 @@ init -5 python:
 
     def getClubChars(club,*args):
         tempArr = []
-        if len(args) > 0:
+        if len(args) == 0:
+            for x in allChars:
+                if x.club == club:
+                    tempArr.append(x)
+        else:
             if args[0] in ['male','female','futa']:
                 for x in allChars:
                     if x.club == club and x.getSex() == args[0]:
                         tempArr.append(x)
                         
-                if len(tempArr) == 0 and args[1] == 'please': # Если ОЧЕНЬ нужен человек с нужным полом для эвента, но его нет, тогда создаём его.
-                    tempChar = getChar(args[0])
+            if len(args) == 2 and args[1] in ['please'] and len(tempArr) == 0:
+                tempChar = getChar(args[0])
+                tempChar.club = club
+                tempArr.append(tempChar)
+                
+            if args[0] in ['please']:
+                for x in allChars:
+                    if x.club == club:
+                        tempArr.append(x)
+                if len(tempArr) == 0:
+                    tempChar = getChar()
                     tempChar.club = club
                     tempArr.append(tempChar)
-                    
-                return tempArr
-        else:
-            for x in allChars:
-                if x.club == club:
-                    tempArr.append(x)
-            return tempArr
+        return tempArr
             
     def getCamArr():
         photoArr = []
