@@ -85,7 +85,10 @@ screen charInfoLeft:
                         text _('Одиночка') style style.my_text
                     
                 $ temp = showHover.age
-                text _('Возраст Nнадцать') style style.my_text
+                if temp < 20:
+                    text _('Возраст Nнадцать') style style.my_text
+                else:
+                    text _('Возраст [temp] лет') style style.my_text
                 
                 $ temp = round(showHover.stats.beauty,1)
                 text _('Красота [temp]') style style.my_text
@@ -136,7 +139,7 @@ screen personalInfo:
                 corr = round(player.getCorr(),1)
                 fun = round(player.getFun(),1)
                 health = round(player.getHealth(),1)
-                height = round(showHover.body.height,1)
+                height = round(player.body.height,1)
                 money = round(player.money,1)
                 
                 bsize = round(player.body.parts['грудь'].size, 1)
@@ -153,9 +156,9 @@ screen personalInfo:
             text _('Развратность [corr]') style style.my_text
             text _('Красота [beauty]') style style.my_text
             text ''
-            text _('Диаметр вагины [vsize]см') style style.my_text
-            text _('Диаметр ануса [asize]см') style style.my_text
-            text ''
+            # text _('Диаметр вагины [vsize]см') style style.my_text
+            # text _('Диаметр ануса [asize]см') style style.my_text
+            # text ''
             text _('Денег [money]') style style.my_text
             
     fixed xpos 0.2 ypos 0.1 :

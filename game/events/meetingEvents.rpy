@@ -1,5 +1,5 @@
 label select_corrMeeting:
-    if corrTeacherTime + 20 > ptime or weekday in [6,7] or (hour > 18 or hour <= 14) or player.getCorr() < corrTeacherStage*2:
+    if corrTeacherTime + 20 > ptime or weekday in [6,7] or hour > 18 or hour < 14 or player.getCorr() < corrTeacherStage*2:
         jump corrMeetingDone
     python:
         corrTeacherTime = ptime
@@ -22,7 +22,7 @@ label corrMeetingDone:
         player.say 'В школе никого нет. Уже поздно, надо было проводить до 19 часов.'
     elif hour < 14:
         player.say 'Ещё рано. Надо попробовать после 14.'
-    elif corrTeacherTime + 20 < ptime:
+    elif corrTeacherTime + 20 > ptime:
         player.say 'Потому что я сегодня уже проводила это совещание.'
     else:
         player.say 'Я не думаю, что смогу чему то научить учителей...'
@@ -30,6 +30,7 @@ label corrMeetingDone:
     
 label corrMeetingEnd:
     show teacherRoom
+    show expression getCharImage(player, 'dialog') as tempPic
     player.say 'Я уже развратила их насколько могла... В общих совещаниях смысла больше нет.'
     $ move(curloc)
     

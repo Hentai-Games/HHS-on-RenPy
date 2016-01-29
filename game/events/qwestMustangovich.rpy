@@ -270,7 +270,7 @@ label event_loc_ahmedFootjob_0_2:
 label event_loc_ahmedSex_0_1:
     $ player.incLust(30)
     player.say '"Чёрт, как же хочется повторить!"'
-    if player.getCover() != 0:
+    if len(player.getCover()) != 0:
         'Вы скидываете с себя одежду, и подзываете физрука к себе.'
     else:
         'Ложась на спину и раздвигая ноги подзываете вы к себе физрука.'
@@ -311,7 +311,7 @@ label event_loc_ahmedSex_0_2:
     $ player.incLust(30)
     player.say 'Чёрт, как же я тебя хочу!'
     show expression 'pic/events/sex/ahmed/sex2.png' at right as tempPic
-    if player.getCover() != 0:
+    if len(player.getCover()) != 0:
         'Вы толкаете физрука и, усаживаясь сверху, направляете его член в себя.'
     else:
         'Вы скидываете с себя одежду и, усаживаясь сверху, направляете его член в себя.'
