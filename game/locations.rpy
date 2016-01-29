@@ -1,8 +1,5 @@
 init 10 python:
     locations = []
-    global loc_btn, loc_txt
-    loc_btn = []
-    loc_txt = []
     class Location:
         def __init__(self, id, name, base_prob, position):
             self.id = id
@@ -1190,3 +1187,8 @@ label loc_sexShop:
     screen sexShop:
         null
     call screen sexShop
+    
+init 10 python:    
+    global loc_btn, loc_txt
+    loc_btn = []
+    loc_txt = []
