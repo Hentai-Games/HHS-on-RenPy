@@ -800,7 +800,7 @@ init python:
     
     minibikini = Clothing(
     lust = 40,
-    corr = 60,
+    corr = 70,
     reputation = 0,
     char = 'teacher',
     sex = 'female',
@@ -886,21 +886,21 @@ init python:
     clothing.append(bdsmUniform)
     
 #  Форма Мустанговича
-    blueForm = Clothing(
-    lust = 0,
-    corr = 0,
-    reputation = 0,
-    char = 'teacher',
-    sex = 'male',
-    purpose = 'usual')
-    blueForm.cover = ['верх','низ']
-    blueForm.durability = 10000
-    blueForm.name = _('Спортивный костюм')
-    blueForm.cost = 1500
-    blueForm.picto = 'pic/noimage.gif'
-    blueForm.type = 'clothing'
-    blueForm.description = _('Тут будет красивое описание предмета')
-    clothing.append(blueForm)
+    # blueForm = Clothing(
+    # lust = 0,
+    # corr = 0,
+    # reputation = 0,
+    # char = 'teacher',
+    # sex = 'male',
+    # purpose = 'usual')
+    # blueForm.cover = ['верх','низ']
+    # blueForm.durability = 10000
+    # blueForm.name = _('Спортивный костюм')
+    # blueForm.cost = 1500
+    # blueForm.picto = 'pic/noimage.gif'
+    # blueForm.type = 'clothing'
+    # blueForm.description = _('Тут будет красивое описание предмета')
+    # clothing.append(blueForm)
 
     manpants = Clothing(
     lust = 0,
@@ -911,7 +911,7 @@ init python:
     purpose = 'usual')
     manpants.cover = ['попа']
     manpants.durability = 10000
-    manpants.name = _('Трусы семейные')
+    manpants.name = _('Красные трусы')
     manpants.cost = 1500
     manpants.picto = 'pic/items/jaket.png'
     manpants.type = 'clothing'
