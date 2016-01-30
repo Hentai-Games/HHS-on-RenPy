@@ -414,7 +414,7 @@ screen detentions:
                 ]
                 
             textbutton _('Нет наказания') action [
-                If('no' in school.unlockedUniforms, false=Show('preVoting', None, 'loy', 20, 'no'), true=SetField(school,'detention','no')),
+                If('no' in school.unlockedDetentions, false=Show('preVoting', None, 'loy', 20, 'no'), true=SetField(school,'detention','no')),
                 SelectedIf(school.detention == 'no')
                 ] hovered [
                 Show('description', None, 'no')
@@ -423,7 +423,7 @@ screen detentions:
                 ]
                 
             textbutton _('Уборка улиц') action [
-                If('streetCleaning' in school.unlockedUniforms, false=Show('preVoting', None, 'loy', 40, 'streetCleaning'), true=SetField(school,'detention','streetCleaning')),
+                If('streetCleaning' in school.unlockedDetentions, false=Show('preVoting', None, 'loy', 40, 'streetCleaning'), true=SetField(school,'detention','streetCleaning')),
                 SelectedIf(school.detention == 'streetCleaning')
                 ] hovered [
                 Show('description', None, 'streetCleaning')
@@ -432,7 +432,7 @@ screen detentions:
                 ]
         
             textbutton _('Наказание стыдом') action [
-                If('upskirt' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 30, 'upskirt'), true=SetField(school,'detention','upskirt')),
+                If('upskirt' in school.unlockedDetentions, false=Show('preVoting', None, 'corr', 30, 'upskirt'), true=SetField(school,'detention','upskirt')),
                 SelectedIf(school.detention == 'upskirt')
                 ] hovered [
                 Show('description', None, 'upskirt')
@@ -442,7 +442,7 @@ screen detentions:
                 
             if 'dungeon' in school.buildings:
                 textbutton _('Заключение в подвале') action [
-                    If('upskirt' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 50, 'lock'), true=SetField(school,'detention','lock')),
+                    If('lock' in school.unlockedDetentions, false=Show('preVoting', None, 'corr', 50, 'lock'), true=SetField(school,'detention','lock')),
                     SelectedIf(school.detention == 'lock')
                     ] hovered [
                     Show('description', None, 'lock')
@@ -451,7 +451,7 @@ screen detentions:
                     ]
                     
                 textbutton _('Пытки') action [
-                    If('upskirt' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 80, 'torue'), true=SetField(school,'detention','torue')),
+                    If('torue' in school.unlockedDetentions, false=Show('preVoting', None, 'corr', 80, 'torue'), true=SetField(school,'detention','torue')),
                     SelectedIf(school.detention == 'torue')
                     ] hovered [
                     Show('description', None, 'torue')
