@@ -382,7 +382,7 @@ label event_loc_firstFloor_0_lo11:
             pass
         'Посмотреть наверх' if player.getCorr() > 25:
             $ player.incLust(20)
-            show expression 'pic/locations/school/firstFloor/lo11.jpg' at top as tempPic
+            show expression 'pic/locations/school/firstFloor/lo11.png' at top as tempPic
             'Вы постояли немного под лестницей, наблюдая как девушки одна за одной, проходят мимо, оставляя в вашей памяти следы их прекрасных трусиков. Пожалуй, это были одни из самых лучших минут в вашей жизни. '
             if rand(1,3) == 1:
                 'Кто заметил, как вы стояли под лестницей. Ваша репутация упала.'
@@ -456,8 +456,8 @@ label event_loc_firstFloor_45_mid4:
     python:
         st1 = getChar('female','lustmax')
         hadSex(st1)
-        incLust(10,25)
-        incFun(10,10)
+        setLust(10,25)
+        setFun(10,10)
         player.incLust(15)
     show expression 'pic/locations/school/firstFloor/mid4.jpg' at top as tempPic
     'Не найдя себе парня, [st1.fname] принялась удовлетворять себя посреди коридора, буквально на ваших глазах. Она медленно опустилась на коленки, её пальчики нащупали под юбкой влажную киску, и медленно погрузились в неё. Девочка громко застонала, ощущая заполненность киски.'

@@ -49,9 +49,7 @@ init python:
     def flirtSelector(speaker):
         tempList = []
         for x in flirtList:
-            if speaker.body.sex() == 'futa' and x.sex == 'female':
-                x.sex = 'futa'
-            if speaker.body.sex() == x.sex and speaker.getCorr() >= x.corr and player.getCorr() >= x.corr:
+            if speaker.getSex('mf') == x.sex and speaker.getCorr() >= x.corr and player.getCorr() >= x.corr:
                 tempList.append(x)
         return tempList[rand(0,len(tempList) - 1)].id
 
@@ -61,8 +59,8 @@ init python:
         changetime(1)
         renpy.show('temp0', what = Image('pic/bg.png'), zorder = 0)
         renpy.show('temp1', what = Image(getCharImage(player), xalign=0.2, yalign= 1.0, yanchor = 'center'), zorder = 1)
-        renpy.show('temp2', what = Image(getStudImg(interactionObj), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
-# Функция getCharImage оставлена для совместимости и отлова багов. Позже её код надо будет заменить кодом getStudImg, а ту убрать.
+        renpy.show('temp2', what = Image(getCharImage(interactionObj), xalign=0.8, yalign= 1.0, yanchor = 'center'), zorder = 1)
+
     def getCharImage(char,*args):
         if char == player:
             anotherImage = player.picto
@@ -114,34 +112,63 @@ screen peopleTextList:
                 mystyle = 'small_button_text'
                 if x in teachers: mystyle = 'bluesmall_button'
                 if x in highlightP: mystyle = 'warning'
-                actions_list = [Function(clrscr),
-                                SetVariable('interactionObj', x),
-                                SetVariable('reaction', reactionGen(x))]
-                if x.getLocationStatus() and x.getLocationStatus().events:
-                    actions_list.append(Jump(choice(x.getLocationStatus()
-                                                     .events)))
+                # actions_list = [Function(clrscr),
+                                # SetVariable('interactionObj', x),
+                                # SetVariable('reaction', reactionGen(x))]
+                # if x.getLocationStatus() and x.getLocationStatus().events:
+                    # actions_list.append(Jump(choice(x.getLocationStatus()
+                                                     # .events)))
 
-                else:
-                    if x in teachers and x not in teacher_intro:
-                        if x == kupruvna:
-                            actions_list += [Jump('intro_kupruvna')]
-                        elif x == danokova:
-                            actions_list += [Jump('intro_danokova')]
-                        elif x == frigidovna:
-                            actions_list += [Jump('intro_frigidovna')]
-                        elif x == bissektrisovna:
-                            actions_list += [Jump('intro_bissektrisovna')]
-                        elif x == dikovna:
-                            actions_list += [Jump('intro_dikovna')]
-                        else:
-                            actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
+                # else:
+                    # if x in teachers and x not in teacher_intro:
+                        # if x == kupruvna:
+                            # actions_list += [Jump('intro_kupruvna')]
+                        # elif x == danokova:
+                            # actions_list += [Jump('intro_danokova')]
+                        # elif x == frigidovna:
+                            # actions_list += [Jump('intro_frigidovna')]
+                        # elif x == bissektrisovna:
+                            # actions_list += [Jump('intro_bissektrisovna')]
+                        # elif x == dikovna:
+                            # actions_list += [Jump('intro_dikovna')]
+                        # else:
+                            # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
+                    # else:
+                        # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
+            
+            
+            if x.getLocationStatus() and x.getLocationStatus().events:
+                textbutton x.name +  ' ' + x.locationStatus.name.lower():
+                    action [Function(clrscr), SetVariable('reaction', reactionGen(x)), SetVariable('interactionObj', x), Jump(choice(x.getLocationStatus().events))]
+                    hovered [SetVariable('showHover',x),Show('showCharStatusText')]
+                    unhovered [Hide('showCharStatusText')]
+                    style "bluesmall_button" text_style mystyle xalign 0.0
+                    
+            elif x in teachers and x not in teacher_intro:
+                python:
+                    if x == kupruvna:
+                        actions_list = [Jump('intro_kupruvna')]
+                    elif x == danokova:
+                        actions_list = [Jump('intro_danokova')]
+                    elif x == frigidovna:
+                        actions_list = [Jump('intro_frigidovna')]
+                    elif x == bissektrisovna:
+                        actions_list = [Jump('intro_bissektrisovna')]
+                    elif x == dikovna:
+                        actions_list = [Jump('intro_dikovna')]
                     else:
-                        actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
-            textbutton x.name +  ' {i}' + x.locationStatus.name.lower()+  '{/i}': # Добавил курсив к статусу.
-                action actions_list
-                hovered [SetVariable('showHover',x),Show('showCharStatusText')]
-                unhovered [Hide('showCharStatusText')]
-                style "bluesmall_button" text_style mystyle xalign 0.0
+                        actions_list = [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
+                textbutton x.name +  ' ' + x.locationStatus.name.lower():
+                    action actions_list
+                    hovered [SetVariable('showHover',x),Show('showCharStatusText')]
+                    unhovered [Hide('showCharStatusText')]
+                    style "bluesmall_button" text_style mystyle xalign 0.0
+            else:
+                textbutton x.name +  ' ' + x.locationStatus.name.lower():
+                    action [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
+                    hovered [SetVariable('showHover',x),Show('showCharStatusText')]
+                    unhovered [Hide('showCharStatusText')]
+                    style "bluesmall_button" text_style mystyle xalign 0.0
 
 screen locationPeoplePicto:
     tag interface
@@ -154,38 +181,71 @@ screen locationPeoplePicto:
             $ pictoSize = 0.5
             if x in highlightP:
                 $ pictoSize += 0.1
-            python:
-                actions_list = [Function(clrscr),
-                                SetVariable('interactionObj', x),
-                                SetVariable('reaction', reactionGen(x))]
-                if x.getLocationStatus() and x.getLocationStatus().events:
-                    actions_list.append(Jump(choice(x.getLocationStatus()
-                                                     .events)))
+            # python:
+                # actions_list = [Function(clrscr),
+                                # SetVariable('interactionObj', x),
+                                # SetVariable('reaction', reactionGen(x))]
+                                
+                # if x.getLocationStatus() and x.getLocationStatus().events:
+                    # actions_list.append(Jump(choice(x.getLocationStatus()
+                                                     # .events)))
 
-                else:
-                    if x in teachers and x not in teacher_intro:
-                        if x == kupruvna:
-                            actions_list += [Jump('intro_kupruvna')]
-                        elif x == danokova:
-                            actions_list += [Jump('intro_danokova')]
-                        elif x == frigidovna:
-                            actions_list += [Jump('intro_frigidovna')]
-                        elif x == bissektrisovna:
-                            actions_list += [Jump('intro_bissektrisovna')]
-                        elif x == dikovna:
-                            actions_list += [Jump('intro_dikovna')]
-                        else:
-                            actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
+                # else:
+                    # if x in teachers and x not in teacher_intro:
+                        # if x == kupruvna:
+                            # actions_list += [Jump('intro_kupruvna')]
+                        # elif x == danokova:
+                            # actions_list += [Jump('intro_danokova')]
+                        # elif x == frigidovna:
+                            # actions_list += [Jump('intro_frigidovna')]
+                        # elif x == bissektrisovna:
+                            # actions_list += [Jump('intro_bissektrisovna')]
+                        # elif x == dikovna:
+                            # actions_list += [Jump('intro_dikovna')]
+                        # else:
+                            # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
+                    # else:
+                        # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
+                        
+            if x.getLocationStatus() and x.getLocationStatus().events:
+                imagebutton:
+                    idle im.FactorScale(x.picto, pictoSize)
+                    hover im.FactorScale(x.picto, pictoSize + 0.1)
+                    xalign xalig yalign yalig
+                    action [Function(clrscr), SetVariable('reaction', reactionGen(x)), SetVariable('interactionObj', x), Jump(choice(x.getLocationStatus().events))]
+                    hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
+                    unhovered [Hide('showCharStatusText')]
+                    
+            elif x in teachers and x not in teacher_intro:
+                python:
+                    if x == kupruvna:
+                        actions_list = [Jump('intro_kupruvna')]
+                    elif x == danokova:
+                        actions_list = [Jump('intro_danokova')]
+                    elif x == frigidovna:
+                        actions_list = [Jump('intro_frigidovna')]
+                    elif x == bissektrisovna:
+                        actions_list = [Jump('intro_bissektrisovna')]
+                    elif x == dikovna:
+                        actions_list = [Jump('intro_dikovna')]
                     else:
-                        actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
-
-            imagebutton:
-                idle im.FactorScale(x.picto, pictoSize)
-                hover im.FactorScale(x.picto, pictoSize + 0.1)
-                xalign xalig yalign yalig
-                action actions_list
-                hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
-                unhovered [Hide('showCharStatusText')]
+                        actions_list = [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
+                imagebutton:
+                    idle im.FactorScale(x.picto, pictoSize)
+                    hover im.FactorScale(x.picto, pictoSize + 0.1)
+                    xalign xalig yalign yalig
+                    action actions_list
+                    hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
+                    unhovered [Hide('showCharStatusText')]
+            else:
+                imagebutton:
+                    idle im.FactorScale(x.picto, pictoSize)
+                    hover im.FactorScale(x.picto, pictoSize + 0.1)
+                    xalign xalig yalign yalig
+                    action [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
+                    hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
+                    unhovered [Hide('showCharStatusText')]
+                    
             $ xalig += 0.09
             if xalig >= 0.99:
                 $ yalig += 0.15
@@ -238,69 +298,37 @@ screen show_stat:
 
     fixed xpos 0.8 ypos 0.1:
         vbox:
-            if interactionObj in studs:
-                if interactionObj not in highlightP:
-                    textbutton 'Замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
-                else:
-                    textbutton 'Не замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
-            if interactionObj.locationStatus not in [learnSelector(), teach_status]: # Если собеседник не занят
-                if interactionObj.sayCount > 0:
-                    textbutton 'Поговорить' xminimum 200 action Jump('speak')
-                if interactionObj.sayCount >= 3:
-                    textbutton 'Флирт' xminimum 200 action Jump('flirt')
-                if interactionObj == mustangovich and mustangovich.getLust() > 70 and curloc == 'teacherRoom' and mile_quest_1 >= 1 and interactionObj.sayCount >= 5:
-                    textbutton 'Заняться сексом' xminimum 200 action Jump('ahmed_sex_selector')
-            if player.hasItem(aphrodisiac.name) and interactionObj not in aphroUsedArr:
-                textbutton 'Использовать\nафродизиак' xminimum 200 action Show('use_aphrodisiac')
-            if 'school' in getLoc(curloc).position and curloc != 'loc_office' and interactionObj in studs:
-                textbutton 'Вызвать к себе' xminimum 200 action Jump('callup')
+            if lt() != -4:
+                if interactionObj in studs:
+                    if interactionObj not in highlightP:
+                        textbutton 'Замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
+                    else:
+                        textbutton 'Не замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
+                if interactionObj.locationStatus not in [learnSelector(), teach_status]: # Если собеседник не занят
+                    if interactionObj.sayCount > 0:
+                        textbutton 'Поговорить' xminimum 200 action Jump('speak')
+                    if interactionObj.sayCount >= 3:
+                        textbutton 'Флирт' xminimum 200 action Jump('flirt')
+                    if interactionObj == mustangovich and mustangovich.getLust() > 70 and curloc == 'teacherRoom' and mile_quest_1 >= 1 and interactionObj.sayCount >= 5:
+                        textbutton 'Заняться сексом' xminimum 200 action Jump('ahmed_sex_selector')
+                if player.hasItem(aphrodisiac.name) and interactionObj not in aphroUsedArr:
+                    textbutton 'Использовать\nафродизиак' xminimum 200 action Show('use_aphrodisiac')
+                if 'school' in getLoc(curloc).position and curloc != 'loc_office' and interactionObj in studs:
+                    textbutton 'Вызвать к себе' xminimum 200 action Jump('callup')
 
-            if curloc == 'loc_office':
-                if interactionObj.getRep() < 10:
-                    textbutton 'О родителях' xminimum 200 action Jump('reputation')
-                textbutton 'Выгнать' xminimum 200 action Jump('callout')
+                if curloc == 'loc_office':
+                    if interactionObj.getRep() < 10:
+                        textbutton 'О родителях' xminimum 200 action Jump('reputation')
+                    textbutton 'Выгнать' xminimum 200 action Jump('callout')
 
-            textbutton 'Подарить' xminimum 200 action Show('make_gift_char')
+                textbutton 'Подарить' xminimum 200 action Show('make_gift_char')
             textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
             key "game_menu" action Function(move,curloc)
             if development == 1:
                 textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
 
-            null height 10
-            $ w_tooltip = ''
-            $ tmp_list = getWearList(interactionObj)
-            text '{u}Вы видите у собеседника:{/u}' style style.param xsize 240 text_align 0.5
-            null height 10
-            for z in [0, 1, 2, 3, 4] :
-                if tmp_list[int(z)] != 'none':
-                    vbox:
-                        xalign 0.99
-                        imagebutton:
-                            idle im.FactorScale(tmp_list[z].picto, 0.3)
-                            hover im.FactorScale(tmp_list[z].picto, 0.35)
-                            action NullAction()
-                            hovered [SetVariable('w_tooltip', '{u}'+tmp_list[z].name+ '{/u}\n' +tmp_list[z].description), Show('wear_tooltip')]
-                            unhovered [Hide('wear_tooltip')]
-                    null height 10
-
     frame ypos 0.01 xalign 1.0:
         text 'Очков общения: ' + str(interactionObj.sayCount)
-
-screen wear_tooltip:
-    python:
-        import pygame
-        x1, y1 = pygame.mouse.get_pos()
-        x2, y2 = pygame.Surface.get_size(pygame.display.get_surface())
-    fixed:
-        xpos float(x1-60)/float(x2)
-        ypos float(y1)/float(y2)
-        frame:
-            xmaximum 300
-            xanchor 1.0
-            yanchor 0.5
-            text ('[w_tooltip]'):
-                text_align 0.5
-                xsize 300
 
 ###########################################################################################################################
 screen make_gift_char:
@@ -322,7 +350,6 @@ screen make_gift_char:
                     idle im.FactorScale(x.picto,0.4)
                     hover im.FactorScale(x.picto,0.45)
                     xalign xalig yalign yalig
-                    # action [Function(interactionObj.takeGift, x), Function(player.removeItem, x), Function(move, curloc)]
                     action [SetVariable('gift',x),Jump('takeGift')]
                     hovered [SetVariable('myItem', x), Show('showItem')]
                     unhovered Hide('showItem')
@@ -395,14 +422,16 @@ label speak:
         user.sayCount -= 1
         changetime(5)
         player.stats.energy -= rand(5,10)
-        user.incLoy(1)
+        user.incLoy(3)
 
         if user == danokova and 'school' in getLoc(curloc).position:
             if mile_qwest_3_stage == 1 and ptime - mile_qwest_3_time > 12 and hour > 14:
                 renpy.jump('danokova_work')
             elif mile_qwest_3_stage == 13:
                 renpy.jump('danokova_bdsm_offer')
-            elif mile_qwest_3_stage > 1 and hour > 14 and ptime - work51 > 10 and mile_qwest_3_stage not in [13]:
+            elif mile_qwest_3_stage == 15:
+                renpy.jump('danokova_bdsm_offer_again')
+            elif mile_qwest_3_stage > 1 and hour > 14 and ptime - work51 > 10 and mile_qwest_3_stage not in [13,15,17]:
                 renpy.jump('danokova_continue')
 
         renpy.jump(dialogueSelector(user))
