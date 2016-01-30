@@ -6,7 +6,7 @@ init python:
         fname = char.fname
         lname = char.lname
         age = char.age
-        sex = char.body.sex()
+        sex = char.getSex()
         beauty = char.getBeauty()
         loyalty = char.getLoy()
         edu = char.getEdu()
@@ -115,7 +115,7 @@ init python:
                 else :
                     description += 'Он '
                 if edu < 20: description += 'имеет слабое образование. Настолько слабое, что вы удивлены, что этот человек работает учителем'
-                elif edu < 50: description += 'имеет неплохое образование, но всё же её знания оставляют желать лучшего'
+                elif edu < 50: description += 'имеет неплохое образование, но всё же его недостаточно для полноценной работы учителем.'
                 elif edu < 80: description += 'имеет хорошее представление о своём предмете преподавания'
                 else : description += 'имеет прекрасные знания не только о своём предмете, но и в смежных науках'
 
@@ -130,7 +130,7 @@ init python:
 
             description += '\n'
 
-            if sex == 'female':
+            if sex != 'male':
                 if lust < 20: description += ''
                 elif lust < 50: description += 'Вы замечаете, что её щечки немного покраснели. '
                 elif lust < 80: description += 'Вы замечаете, что она сильно краснеет, когда встречается с вами взглядом. '

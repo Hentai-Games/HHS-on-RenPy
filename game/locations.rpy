@@ -257,12 +257,14 @@ init 10 python:
 
 
     def getLoc(id):
+        global locations
         for x in locations:
             if x.id == id:
                 return x
         return False
 
     def getQwest(id):
+        global locations
         for loc in locations:
             for qwest in loc.qwests:
                 if qwest.id == id:
@@ -270,7 +272,7 @@ init 10 python:
         return False
 
 # Функция добавления эвентов в локации
-    def getEvents():
+    def getEvents(locations):
         for eventLabel in _locs: # перебираем все лейблы
             if eventLabel[:6] == 'event_': # находим тот, что с евентом
                 for location in locations: # начинаем перебирать локации
@@ -283,7 +285,7 @@ init 10 python:
                         location.events.append(event) # добавляем его в массив эвентов локации
         return 0
 
-    def getQwests():
+    def getQwests(locations):
         for eventLabel in _locs: # перебираем все лейблы
             if eventLabel[:6] == 'qwest_': # находим тот, что с квестом
                 for location in locations: # начинаем перебирать локации
@@ -298,7 +300,6 @@ init 10 python:
     _locs = renpy.get_all_labels()
 # Создание массива всех локаций
     def genLocs():
-
         for x in _locs:
             if x[:4] == 'loc_':
                 if x == 'loc_home': loc = Location(id = x, name = 'дом', base_prob = -1, position = ['home','safe'])
@@ -356,10 +357,11 @@ init 10 python:
                 elif x == 'loc_ahmedSuck': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
                 else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
                 locations.append(loc)
+        return locations
 
-    genLocs() # генерирую локации
-    getEvents() # добавляю всем эвенты
-    getQwests() # добавляю квесты
+    locations = genLocs() # генерирую локации
+    getEvents(locations) # добавляю всем эвенты
+    getQwests(locations) # добавляю квесты
     
 ######################################################
 # Объявление всех картинок локаций
@@ -879,7 +881,7 @@ label loc_office:
                 imagebutton:
                     idle im.MatrixColor(getCharImage(callup), im.matrix.opacity(0.5))
                     hover im.MatrixColor(getCharImage(callup), im.matrix.opacity(1.0))
-                    action [Function(clrscr), Show('show_stat'), Function(showChars)]
+                    action [Function(clrscr), SetVariable('reaction', reactionGen(callup)), Show('show_stat'), Function(showChars)]
                     hovered SetVariable('interactionObj',callup) xalign 0.5 yoffset 400
 
             if lt() >= 0 and is_cabbage == 0 and mile_qwest_2_stage > 0 or development > 0:
@@ -889,7 +891,7 @@ label loc_office:
                     xalign 0.1 yalign 1.0
                     action [Jump('cabbageInit')]
             if mile_qwest_2_stage == 7 and (lt() in [-1,0]) and callup == dummy:
-                textbutton 'Вызвать Валентину Купрувну' xalign 0.5 yalign 0.5 action Jump('kupruvnaGotIt1')
+                textbutton 'Вызвать Валентину Купрувну' xalign 0.5 yalign 0.5 action Jump('kupruvnaGotIt3')
             if olympiad.confirm == True:
                 textbutton 'Готовить учеников\nк олимпиаде' xalign 0.5 yalign 0.5 action Jump('olympiad_edu')
             if 'splitSystem' in school.furniture:

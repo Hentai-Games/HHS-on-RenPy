@@ -6,9 +6,6 @@ init python:
         timeGetPanties = 0 # сброс времени выдачи трусов
         aphroUsedArr[:] = [] # сброс людей под афродизиаком
         
-        if weekday == 1:
-            school.daysWorked = 0
-        
         if development == 0:
             # Голод
             if (ptime - last_eat)/24 > 1:
@@ -81,7 +78,7 @@ init python:
                 # Подтягиваем или уменьшаем разврат до учительского уровня. Чем сильнее разница, тем выше изменениия. В будущем УБРАТЬ и сделать через статусы.
                 char.incCorr((getPar(teachers,'corr') - char.getCorr())/10)
                 # Добавление трусов, если их нет у чара.
-                if char.getSex != 'male' and char.getItem(studpantiesF.name) == False:
+                if char.getSex() != 'male' and char.getItem(studpantiesF.name) == False:
                     char.addItem(studpantiesF)
                     
                 # Убираем клуб, если его удалили или ученик не в том клубе
