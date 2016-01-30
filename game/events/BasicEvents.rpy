@@ -276,20 +276,21 @@ label sleep:
         else:
             hour_up = 12
 
-        if hour >= 0:
+        if hour > hour_up:
             start_hour = hour - 24
         else:
             start_hour = hour
         sleeped = 0
-        while player.stats.energy < player.stats.health and start_hour < hour_up and sleeped < 12:
+        while player.getEnergy() < player.getHealth() and start_hour < hour_up and sleeped < 12:
+            # renpy.say('','start_hour [start_hour]\nhour_up [hour_up]\nsleeped [sleeped]')
             changetime(60)
             last_sleeped = ptime
             start_hour += 1
-            player.stats.energy += player.getHealth()/10
+            player.incEnergy(player.getHealth()/10)
             sleeped += 1
         player.reset()
-        if rand(1,3) > 2:
-            tryEvent('loc_dreams')
+        # if rand(1,3) > 2:
+            # tryEvent('loc_dreams')
         renpy.jump('loc_dreams')
 
 label loc_dreams:
@@ -307,11 +308,17 @@ label naked:
     player.say 'Я не могу выходить на улицу в таком виде!!!'
     $ move(prevloc)
 
+label noPanties:
+    show daytime
+    show expression 'pic/events/madness/miniorgasm1.png' at left as tempPic
+    player.say 'Я забыла одеть трусики! Я не могу выходить в таком виде!'
+    $ move(prevloc)
+    
 label loc_swim:
     show beach
     if player.stats.energy < 200:
         player.say 'Я слишком устала, чтобы плавать... Пора возвращаться домой.'
-    elif player.getClothPurpose('swim') == False:
+    elif player.getClothPurpose('swim') == False and len(player.getCover()) != 0:
         player.say 'Я не могу плавать в одежде!'
     else:
         hide screen show_stats
@@ -328,7 +335,7 @@ label loc_run:
     if player.stats.energy < 300:
         player.say 'Я слишком устала, чтобы бегать.'
     elif player.getClothPurpose('sport') == False:
-        player.say 'На каблуках я далеко не убегу. Надо переодеться.'
+        player.say 'Как то не хочется бегать в этом. Для бега нужны кроссовки. И маечка. И шортики. В общем нужен спортивный костюм.'
         python:
             flag = False
             for x in player.inventory:
@@ -480,7 +487,7 @@ label invest:
     show computer at top
     python:
         investment = renpy.input('Вы решили инвестировать в школу часть своих средств.\nВведите сумму, которую вы собираетесь инвестировать.', default= player.money, allow='{1234567890}')
-        investment = int(investment)
+        investment = int(float(investment))
     if investment > player.money:
         player.say 'Я не могу инвестировать больше средств, чем имею!'
         jump invest
@@ -499,10 +506,9 @@ label income:
         debt = '' # Не платим долги, просто будем сохранять тем, кому должны
         temp = school.myIncome(player)
         school.getIncome(player) # Сами получаем зарплату
-        school.workedDays = 0 # Сбрасываем переменную работы
+        school.daysWorked = 0 # Сбрасываем переменную работы
         checkJail() # Проверяем, не нулевой ли complains там.
         complains = ''
-        school.workedDays = 0
         for x in studs:
             if x.getRep() < 10:
                 complains += x.name
@@ -616,6 +622,7 @@ label inhib3:
     'Вы распечатываете сегодняшние фотографии на своём принтере, и раскладываете их по школе и по партам. Разумеется, вы предварительно замазали лица, чтобы не было понятно, где именно сняты эти фотографии. Будем надеяться, что неожиданные картинки порадуют школьников!'
     'Ещё раз оглядев плоды своих трудов, вы с чистой совестью направились к выходу.'
     python:
+        hasToiletPics = 0
         inhibLowTime = ptime
         inhibLow = 3
         player.incEnergy(-100)
@@ -812,22 +819,27 @@ label getPanties:
 label checkCam:
     show computer at top
     player.say 'Так так, что там у нас на камерах?'
-    python:
-        clrscr()
-        camSold = ptime
-        returnArr = getCamArr()
-        temp = rand(50,150)*len(returnArr)
-        player.money += temp
-        for x in returnArr:
-            st1 = getChar('female')
-            renpy.show('temp0', what = Image(x, xalign=0.5, yalign= 0.0))
-            renpy.say('','Камера сняла, как [st1.name] писает.')
-    hide temp0
-    'Вы продали фотографии в интернете и выручили за них [temp] монет.'
-    if mile_qwest_2_stage == 2 and camera.name in getLoc('loc_class1').items and rand(1,3) == 1:
+    if camera.name in getLoc('loc_wcf').items:
+        python:
+            clrscr()
+            camSold = ptime
+            returnArr = getCamArr()
+            temp = rand(50,150)*len(returnArr)
+            player.money += temp
+            hasToiletPics = 1
+            for x in returnArr:
+                st1 = getChar('female')
+                renpy.show('temp0', what = Image(x, xalign=0.5, yalign= 0.0))
+                renpy.say('','Камера сняла, как [st1.name] писает.')
+        hide temp0
+        'Вы продали фотографии в интернете и выручили за них [temp] монет.'
+    if mile_qwest_2_stage == 1 and camera.name in getLoc('loc_class1').items and rand(1,3) == 1:
         jump kupruvnaGotIt1
     if mile_qwest_2_stage == 3 and camera.name in getLoc('loc_class1').items  or development == 1:
         jump kupruvnaGotIt2
+    if camSold != ptime:
+        player.say 'А ничего интересного и нет...'
+        $ camSold = ptime
     call screen compScreen
 
 label installCam:
@@ -842,6 +854,7 @@ label installCam:
             python:
                 player.removeItem(player.getItem(camera.name))
                 getLoc(curloc).items.append(camera.name)
+                installedCam.append(getLoc(curloc).id)
     elif camera.name in getLoc(curloc).getItems():
         player.say 'Зачем здесь вторая камера? Не нужна она тут.'
     else:
@@ -873,3 +886,13 @@ label use_tablet:
     $ player.incLust(25)
     $ player.removeItem(tablet)
     $ move(curloc)
+
+label inviteToOffice:
+    $ clrscr()
+    'Вы быстренько набираете СМС, с просьбой немедленно явиться в офис. Обычно ваши "просьбы" не игнорируют.'
+    python:
+        callup = showHover
+        showHover.moveToLocation('loc_office')
+        changetime(10)
+        move(curloc)
+    
