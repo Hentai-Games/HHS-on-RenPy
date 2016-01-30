@@ -46,11 +46,14 @@
     is_teacher_room_3 = 0
     
     mile_qwest_1_stage = 0 # Статус квеста Мустанговича
+    
     mile_qwest_2_stage = 0 # Статус квеста Купрувны    
     is_cabbage = 0 # Триггер квеста капусты
+    
     mile_qwest_2_Ahmed = 0 # триггер нахождения беседки
     mile_qwest_3_stage = 0 # Статус квеста Даноковой
     mile_qwest_3_hot = 0 # подстатус квеста Даноковой
+    work51_count = 0 # подстатус квеста Даноковой
     work51 = 0 # Последний рабочий час Даноковой
     
     is_cosplayClub = 0 # триггер эвента косплей клуба
@@ -58,6 +61,8 @@
     is_pantiesClub = 0 # Триггер эвента секретного клуба
     corrTeacherStage = 0 # номер стадии совещаний с учителями.
     corrTeacherTime = -24 # время последнего совещания с учителями
+    
+    installedCam = [] # Костыль для камер
     
     him_zavivka = 0 # инициализация переменных салона красоты
     depilation = 0
@@ -112,6 +117,10 @@ label after_load:
     $ temp_furniture = school.furniture
     $ school.furniture = []
     $ school.furniture = temp_furniture
+    python:
+        for x in locations:
+            if x.id in installedCam:
+                x.items.append(camera.name)
     return
     
 #Useful arts:

@@ -184,7 +184,7 @@ init -2 python:
 
 init -1 python:
     _fname = 'Имя'
-    _lname = 'Фамилия'
+    _lname = 'Отчество'
     _age = 25
     _beauty = 20
     _health = 700
@@ -689,4 +689,6 @@ label skipall:
         highlightP = [] # лист подсвечивающихся на локации
         aphroUsedArr = [] #лист тех, на ком юзался афродизиак
         teacher_intro = [] #лист просмотренных интро
+        installedCam = [] # Костыль для камер
+        
         move('myintro')

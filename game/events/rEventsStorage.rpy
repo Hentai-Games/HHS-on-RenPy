@@ -123,7 +123,7 @@ label event_loc_storage_30_low3:
     python:
         st1 = getChar('female')
 
-    show expression 'pic/locations/school/storage/lo3.jpg' at top as tempPic
+    show expression 'pic/locations/school/storage/low3.jpg' at top as tempPic
     'Зайдя в кладовку, Вы увидели ученицу, ласкающую себя маленьким вибратором прямо на матах.'
     player.say '[st1.fname]? - удивлённо спросили Вы её.'
     st1.say '[player.name]! Я! Ммммм! - девушка не выдержала вибрации между ног, и Вы отчётливо увидели, как её влагалище начало сокращаться в оргазме.'
@@ -131,7 +131,7 @@ label event_loc_storage_30_low3:
     menu:
         'Всё в порядке.' if player.getCorr > 40:
             hide tempPic
-            show expression 'pic/locations/school/storage/lo3a.jpg' at top as tempPic
+            show expression 'pic/locations/school/storage/low3a.jpg' at top as tempPic
             player.say 'Всё в порядке, - улыбнулись Вы девушке, - Каждый этим занимается..'
             st1.say 'Я, я, я снова-а-а-а! - затряслась девушка, и раздвинула пальчиками свою маленькую вагину, из которой начали плескать её соки.'
             player.say '"Ну вот, теперь маты менять" - подумали вы, оставляя оргазмирующую ученицу за собой.'

@@ -318,7 +318,7 @@ label loc_swim:
     show beach
     if player.stats.energy < 200:
         player.say 'Я слишком устала, чтобы плавать... Пора возвращаться домой.'
-    elif player.getClothPurpose('swim') == False:
+    elif player.getClothPurpose('swim') == False and len(player.getCover()) != 0:
         player.say 'Я не могу плавать в одежде!'
     else:
         hide screen show_stats
@@ -506,10 +506,9 @@ label income:
         debt = '' # Не платим долги, просто будем сохранять тем, кому должны
         temp = school.myIncome(player)
         school.getIncome(player) # Сами получаем зарплату
-        school.workedDays = 0 # Сбрасываем переменную работы
+        school.daysWorked = 0 # Сбрасываем переменную работы
         checkJail() # Проверяем, не нулевой ли complains там.
         complains = ''
-        school.workedDays = 0
         for x in studs:
             if x.getRep() < 10:
                 complains += x.name
@@ -820,7 +819,7 @@ label getPanties:
 label checkCam:
     show computer at top
     player.say 'Так так, что там у нас на камерах?'
-    if camera.name in getLoc('loc_wcf'):
+    if camera.name in getLoc('loc_wcf').items:
         python:
             clrscr()
             camSold = ptime
@@ -855,6 +854,7 @@ label installCam:
             python:
                 player.removeItem(player.getItem(camera.name))
                 getLoc(curloc).items.append(camera.name)
+                installedCam.append(getLoc(curloc).id)
     elif camera.name in getLoc(curloc).getItems():
         player.say 'Зачем здесь вторая камера? Не нужна она тут.'
     else:
@@ -886,3 +886,13 @@ label use_tablet:
     $ player.incLust(25)
     $ player.removeItem(tablet)
     $ move(curloc)
+
+label inviteToOffice:
+    $ clrscr()
+    'Вы быстренько набираете СМС, с просьбой немедленно явиться в офис. Обычно ваши "просьбы" не игнорируют.'
+    python:
+        callup = showHover
+        showHover.moveToLocation('loc_office')
+        changetime(10)
+        move(curloc)
+    
