@@ -2,6 +2,7 @@
 # кастомные скрины
 ##############################################################################
 init python:
+    import string
     myItem = 0
     mySet = []
     voteDecision = False
@@ -40,6 +41,7 @@ init python:
 ##############################################################################
 screen stats_screen:
     # tag interface
+    # add 'pic/overlay.png'
     fixed xpos 0.01 ypos 0.01:
         vbox xmaximum config.screen_width/2:
             $ currtime = gettime('day')
@@ -100,14 +102,14 @@ screen stats_screen:
                     imagebutton auto 'pic/actions/pussy_%s.png' action Jump('cleanPussy')
                 if player.getSperm('анус') == True:
                     imagebutton auto 'pic/actions/ass_%s.png' action Jump('cleanAss')
+            if len(getLoc(curloc).getPeople()) > 0:
+                if show_peopleTextList == 0:
+                    textbutton ('Показать людей') action SetVariable('show_peopleTextList',1) style "small_button" text_style "small_button_text" xalign 0.0
+                else:
+                    textbutton ('Скрыть людей') action SetVariable('show_peopleTextList',0) style "small_button" text_style "small_button_text" xalign 0.0
                     
-            if show_peopleTextList == 0:
-                textbutton ('Показать людей') action SetVariable('show_peopleTextList',1) style "small_button" text_style "small_button_text" xalign 0.0
-            else:
-                textbutton ('Скрыть людей') action SetVariable('show_peopleTextList',0) style "small_button" text_style "small_button_text" xalign 0.0
-                
-            if show_peopleTextList == 1:
-                use peopleTextList
+                if show_peopleTextList == 1:
+                    use peopleTextList
             # if development > 0:
                 # use showStatuses
                 # use showStatusEvents
@@ -170,12 +172,12 @@ screen stats_screen:
             $ temtime = '%s:%s' % (hour, minute)
         text '[temtime]' style style.mytimer xalign 0.99
         null height 10
-        text 'Промотать' style style.param xalign 0.99
+        text '{u}Промотать:{/u}' style style.param xalign 0.99
         grid 2 1:
             xalign 0.99
             imagebutton auto 'pic/actions/wait15_%s.png' action [Function(waiting,15)]
             imagebutton auto 'pic/actions/wait60_%s.png' action [Function(waiting,60)]
-        text 'Посмотреть' style style.param xalign 0.99
+        text '{u}Посмотреть:{/u}' style style.param xalign 0.99
         grid 2 1:         
             xalign 0.99
             imagebutton :
@@ -211,13 +213,19 @@ screen stats_screen:
             else:
                 null
 
-        text '{u}Действия:{/u} ' style style.param xalign 0.99
+        text '{u}Действия:{/u}' style style.param xalign 0.99
         for lab, act, req in loc_btn :
             if req:
-                textbutton lab:
-                    xalign 0.99
-                    action act
-                    style "navigation_button" text_style "navigation_button_text"
+                if lab[:3] != '{i}':
+                    textbutton lab:
+                        xalign 0.99
+                        action act
+                        style "navigation_button" text_style "navigation_button_text"
+                else:
+                    textbutton lab:
+                        xalign 0.99
+                        action act
+                        style "navigation_button" text_style "action_button_text"
                    
         if curloc == 'loc_shopBeauty' : 
             use shopBeautyBtn 
@@ -232,56 +240,57 @@ screen stats_screen:
 
 screen showStatistic:
     zorder 1
-    fixed xpos 0.75 ypos 0.1:
-        grid 1 2 : 
-            frame :
-                xalign 0.01
-                vbox:
-                    text '{u}Ваши параметры:{/u} ' style style.param
-                    python:
-                        name = player.fullName()
-                        beauty = round(player.getBeauty(),1)
-                        loyalty = round(player.getLoy(),1)
-                        intel = round(player.getIntel(),1)*2
-                        lust = round(player.getLust(),1)
-                        corr = round(player.getCorr(),1)
-                        fun = round(player.getFun(),1)
-                        health = round(player.getHealth(),1)
-                        height = round(player.body.height,1)
-                        money = round(player.money,1)
-                        bsize = round(player.body.parts['грудь'].size, 1)
-                
-                    null height 10
-                    text _('{u}[name]{/u}') style style.my_text
-                    text _('Развратность: [corr]') style style.my_text
-                    text _('Желание: [lust]') style style.my_text
-                    text _('Здоровье: [health]') style style.my_text
-                    text _('Размер груди: [bsize]') style style.my_text
-                    text _('Рост: [height]') style style.my_text
-                    text _('IQ: [intel]') style style.my_text
-                    text _('Счастье: [fun]') style style.my_text
-                    text _('Красота: [beauty]') style style.my_text
-                    text ''
-                    text _('Денег: [money]') style style.my_text
-            frame :
-                xalign 0.99
-                vbox:
-                    text '{u}Параметры школы:{/u} ' style style.param
-                    python:   
-                        St_l = getPar(studs, 'loy')
-                        St_f = getPar(studs, 'fun')
-                        St_lu = getPar(studs, 'lust')
-                        St_c = getPar(studs, 'corr')
-                        St_e = getPar(studs, 'edu')
-                        St_r = getPar(studs, 'rep')
-    
-                    null height 10
-                    text _('Лояльность: [St_l]') style style.my_text
-                    text _('Счастье: [St_f]') style style.my_text
-                    text _('Желание: [St_lu]') style style.my_text
-                    text _('Разврат: [St_c]') style style.my_text
-                    text _('Учёба: [St_e]') style style.my_text
-                    text _('Репутация: [St_r]') style style.my_text
+    fixed xpos 0.72 ypos 0.1:
+        # grid 1 2 : 
+        frame style style.peopleTextList:
+            xalign 0.01
+            vbox:
+                text '{u}Ваши параметры:{/u} ' style style.param
+                python:
+                    name = player.fullName()
+                    beauty = round(player.getBeauty(),1)
+                    loyalty = round(player.getLoy(),1)
+                    intel = round(player.getIntel(),1)*2
+                    lust = round(player.getLust(),1)
+                    corr = round(player.getCorr(),1)
+                    fun = round(player.getFun(),1)
+                    health = round(player.getHealth(),1)
+                    height = round(player.body.height,1)
+                    money = round(player.money,1)
+                    bsize = round(player.body.parts['грудь'].size, 1)
+            
+                null height 10
+                text _('{u}[name]{/u}') style style.my_text
+                text _('Развратность: [corr]') style style.my_text
+                text _('Желание: [lust]') style style.my_text
+                text _('Здоровье: [health]') style style.my_text
+                text _('Размер груди: [bsize]') style style.my_text
+                text _('Рост: [height]') style style.my_text
+                text _('IQ: [intel]') style style.my_text
+                text _('Счастье: [fun]') style style.my_text
+                text _('Красота: [beauty]') style style.my_text
+                # text ''
+                text _('Денег: [money]') style style.my_text
+            # frame style style.peopleTextList::
+                # xalign 0.99
+                # vbox:
+                text ''
+                text '{u}Параметры школы:{/u} ' style style.param
+                python:   
+                    St_l = getPar(studs, 'loy')
+                    St_f = getPar(studs, 'fun')
+                    St_lu = getPar(studs, 'lust')
+                    St_c = getPar(studs, 'corr')
+                    St_e = getPar(studs, 'edu')
+                    St_r = getPar(studs, 'rep')
+
+                null height 10
+                text _('Лояльность: [St_l]') style style.my_text
+                text _('Счастье: [St_f]') style style.my_text
+                text _('Желание: [St_lu]') style style.my_text
+                text _('Разврат: [St_c]') style style.my_text
+                text _('Учёба: [St_e]') style style.my_text
+                text _('Репутация: [St_r]') style style.my_text
               
 screen showStatuses:
     fixed:

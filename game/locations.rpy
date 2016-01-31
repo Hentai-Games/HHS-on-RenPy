@@ -566,9 +566,9 @@ label loc_bedroom:
     python:
         loc_btn = [
             ('Гостиная', Function(move, 'loc_home'), True),
-            ('{u}{i}Переодеться{/i}{/u}', Show('wardrobe'), True),
-            ('{u}{i}Спать{/i}{/u}', Jump('sleep'), ((ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4))),
-            ('{u}{i}Мастурбировать{/i}{/u}', Jump('startMastur'), (player.getLust() > 0))
+            ('{i}Переодеться{/i}', Show('wardrobe'), True),
+            ('{i}Спать{/i}', Jump('sleep'), ((ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4))),
+            ('{i}Мастурбировать{/i}', Jump('startMastur'), (player.getLust() > 0))
             ]
         loc_txt = ['Уютненькая маленькая спальня. Слева находится небольшой шкаф, в котором висит ваша повседневная одежда. Справа кровать, довольно удобная. Тут ещё есть телевизор, но он не работает, так что совсем не будет мешать Вам отходить ко сну.']
     screen bedroom:
@@ -581,8 +581,8 @@ label loc_kitchen:
     python:
         loc_btn = [
             ('Гостиная', Function(move, 'loc_home'), True),
-            ('{u}{i}Поесть{/i}{/u}', [Function(player.eat, player.getItem('Сырая еда')),Function(move, curloc, 15)],(player.hasItem('Сырая еда') and (ptime - last_eat > 4))),
-            ('{u}{i}Сделать сэндвич{/i}{/u}', [Function(player.addItems, 'Сэндвич'), Function(player.apply, 'Сырая еда'), Function(move, curloc, 15)], (player.hasItem('Сэндвич') == False and player.hasItem('Сырая еда') == True))
+            ('{i}Поесть{/i}', [Function(player.eat, player.getItem('Сырая еда')),Function(move, curloc, 15)],(player.hasItem('Сырая еда') and (ptime - last_eat > 4))),
+            ('{i}Сделать сэндвич{/i}', [Function(player.addItems, 'Сэндвич'), Function(player.apply, 'Сырая еда'), Function(move, curloc, 15)], (player.hasItem('Сэндвич') == False and player.hasItem('Сырая еда') == True))
             ]
         if player.hasItem('Сырая еда'):
             loc_txt = ['Микроволновка, плита, раковина, шкафчики. Кухня одним словом. \nОценив количество оставшейся еды, вы прикидываете, что её хватит ещё на '+str(player.getItem('Сырая еда').durability)+' раз.']
@@ -598,7 +598,7 @@ label loc_bathroom:
     python:
         loc_btn = [
             ('Гостиная', Function(move, 'loc_home'), True),
-            ('{u}{i}Принять душ{/i}{/u}', Jump('shower'), True),
+            ('{i}Принять душ{/i}', Jump('shower'), True),
             ]
         loc_txt = ['Ванная комната. Совмещённая. В лучших традициях далёкой страны. Тут можно искупаться, чтобы смыть с себя грязь и прочие человеческие нечистоты. А можно просто постоять под душем и отдохнуть.']
     screen bathroom:
@@ -693,7 +693,7 @@ label loc_pool:
         loc_btn = [
             ('Раздевалка', [Function(move, 'loc_changeRoom')], True),
             ('Холл', [Function(move, 'loc_hall')], True),
-            ('{u}{i}В душ{/i}{/u}', Jump('shower'), True),
+            ('{i}В душ{/i}', Jump('shower'), True),
             ]
         loc_txt = ['Бассейн. Здесь проходят занятия по вторникам и четвергам. Также в перемены и после уроков ученики могут придти сюда, чтобы поплавать или просто постоять, глядя на воду. Вы также можете немного потренировать своё здоровье, попытавшись проплыть стометровку пару раз.']
         loc_txt += ['Неподалеку от бассейна находится душ, где вы в любой момент можете освежиться.']
@@ -708,7 +708,7 @@ label loc_changeRoom:
         loc_btn = [
             ('Бассейн', [Function(move, 'loc_pool')], True),
             ('Спортзал', [Function(move, 'loc_gym')], True),
-            ('{u}{i}Переодеться{/i}{/u}', Show('wardrobe'), True),
+            ('{i}Переодеться{/i}', Show('wardrobe'), True),
             ]
         loc_txt = ['Раздевалка. Она разделена на 2 отделения: для мальчиков и для девочек. Как ни странно, вы тоже можете тут переодеваться.']
     screen changeRoom:
@@ -776,11 +776,11 @@ label loc_office:
         loc_btn = [
             ('Первый этаж', [Function(move, 'loc_firstFloor')], True),
             ('Воспользоваться окном', [Function(move, 'loc_entrance')], True),
-            ('{u}{i}Переодеться{/i}{/u}', Show('wardrobe'), True),
-            ('{u}{i}Компьютер{/i}{/u}', [Show('compScreen')], True),
-            ('{u}{i}Спать{/i}{/u}', [Jump('sleep')], ('bed' in school.furniture and ((ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4)))),
-            ('{u}{i}Вызвать Валентину Купрувну{/i}{/u}', [Jump('kupruvnaGotIt3')], (mile_qwest_2_stage == 7 and (lt() in [-1,0]) and callup == dummy)),
-            ('{u}{i}Готовить учеников к олимпиаде{/i}{/u}', [Jump('olympiad_edu')], olympiad.confirm),
+            ('{i}Переодеться{/i}', Show('wardrobe'), True),
+            ('{i}Компьютер{/i}', [Show('compScreen')], True),
+            ('{i}Спать{/i}', [Jump('sleep')], ('bed' in school.furniture and ((ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4)))),
+            ('{i}Вызвать Валентину Купрувну{/i}', [Jump('kupruvnaGotIt3')], (mile_qwest_2_stage == 7 and (lt() in [-1,0]) and callup == dummy)),
+            ('{i}Готовить учеников к олимпиаде{/i}', [Jump('olympiad_edu')], olympiad.confirm),
             ]
         loc_txt = ['Ваш офис. Большой дубовый стол, компьютер - сразу видно, что вы здесь уважаемы.']
         if lt() >= 0 and is_cabbage == 0 and mile_qwest_2_stage > 0:
@@ -949,7 +949,7 @@ label loc_wcf:
     python:
         loc_btn = [
             ('Второй этаж', Function(move, 'loc_secondFloor'), True),
-            ('{u}{i}Умывальник{/i}{/u}', Jump('cleanWCF'), True)
+            ('{i}Умывальник{/i}', Jump('cleanWCF'), True)
             ]
         loc_txt = ['Женский туалет. Очень миленький. Слева есть умывальник с зеркалом.']
         if camera.name in getLoc(curloc).getItems():
@@ -973,7 +973,7 @@ label loc_street:
             ('К школе', [Function(changetime, 30),Function(move, 'loc_entrance')], (1==1)),
             ('В министерство', Jump('olympiad_bribe_start'), (olympiad.confirm == 1 and olympiad.cheat == 0 and olympiad.qwest == 0)),
             ('К министру', Jump('olympiad_home_sex'), (olympiad.qwest == 1 and hour in range(20,24) and olympiad.cheat == 0)),            
-            ('{u}{i}Пробежка{/i}{/u}', Function(move, 'loc_run'), (1==1)),
+            ('{i}Пробежка{/i}', Function(move, 'loc_run'), (1==1)),
             ]
         loc_txt = ['Простая улица, на которой стоит ваш дом. Вдоль улицы стоят другие дома ваших соседей. Кто знает, может быть где-то по соседству живёт кто-то из вашей школы?".']
         loc_txt += ['Улица пересекает почти весь небольшой городок и в конце упирается в улицу "Торговая".']
@@ -991,7 +991,7 @@ label loc_beach:
         loc_btn = [
             ('К дому', Function(move, 'loc_street', 30), True),
             ('В раздевалку', Function(move, 'loc_beachChange'), True),
-            ('{u}{i}Плавать{/i}{/u}', Function(move, 'loc_swim'), True),
+            ('{i}Плавать{/i}', Function(move, 'loc_swim'), True),
             ]
         loc_txt = ['Пляж, просто пляж. На нём можно неплохо загореть, если уделить этому недельку времени, или же просто искупаться.']
     screen beach:
@@ -1003,9 +1003,9 @@ label loc_beachChange:
     python:
         loc_btn = [
             ('На пляж', Function(move, 'loc_beach'), True),
-            ('{u}{i}Переодеться{/i}{/u}', Show('wardrobe'), True),
-            ('{u}{i}Проверить дырочку{/i}{/u}', Function(tryEvent, 'loc_gloryHole'), (is_beach_event == 1 and rand(1,10) == 1 and lt() != -4)),
-            ('{u}{i}Засунуть пальцы{/i}{/u}', Jump('loc_gloryHole'), (is_glory_found == 1)),
+            ('{i}Переодеться{/i}', Show('wardrobe'), True),
+            ('{i}Проверить дырочку{/i}', Function(tryEvent, 'loc_gloryHole'), (is_beach_event == 1 and rand(1,10) == 1 and lt() != -4)),
+            ('{i}Засунуть пальцы{/i}', Jump('loc_gloryHole'), (is_glory_found == 1)),
             ]
         loc_txt = ['Специально обустроенные комнатки для переодеваний. Внутри небольшая полочка для вещей, умывальник и полотенце. Очень удобно, хотя и необычно.']
     screen beachChange:
@@ -1043,7 +1043,7 @@ label loc_shop:
     python:
         loc_btn = [
             ('На улицу', [Function(move, 'loc_shopStreet')], True),
-            ('{u}{i}Закупиться{/i}{/u}', [Hide('stats_screen'),Show('shopping')], True),
+            ('{i}Закупиться{/i}', [Hide('stats_screen'),Show('shopping')], True),
             ]
         loc_txt = ['Круглосуточный магазин, единственный в вашем районе. После прогулки в нем вы сможете без промедления набрать еды на кухню, выбрать себе напитки и некоторые иные вещи.']
     screen shop:
@@ -1185,7 +1185,7 @@ label loc_sexShop:
     python:
         loc_btn = [
             ('На улицу', [Function(move, 'loc_shopStreet')], True),
-            ('{u}{i}Закупиться{/i}{/u}', [Function(clrscr), Show('sexShopping')], True),
+            ('{i}Закупиться{/i}', [Function(clrscr), Show('sexShopping')], True),
             ]
         loc_txt = ['Вы видите перед собой магазин для взрослых. Полки уставлены различными секс-игрушками. Дилдо, вибраторы, резиновые дырки для мальчиков, пони с уникальным седлом для девочек. Отдельная полка для афродизиаков и прочей медицины. Глаза прямо разбегаются от обилия выбора!']
     screen sexShop:

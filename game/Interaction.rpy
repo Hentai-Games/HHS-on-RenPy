@@ -115,69 +115,70 @@ label locationPeople:
     $ renpy.call_screen(lastView)
 
 screen peopleTextList:
-    vbox:
-        for x in getLoc(curloc).getPeople():
-            python:
-                mystyle = 'small_button_text'
-                if x in teachers: mystyle = 'bluesmall_button'
-                if x in highlightP: mystyle = 'warning'
-                # actions_list = [Function(clrscr),
-                                # SetVariable('interactionObj', x),
-                                # SetVariable('reaction', reactionGen(x))]
-                # if x.getLocationStatus() and x.getLocationStatus().events:
-                    # actions_list.append(Jump(choice(x.getLocationStatus()
-                                                     # .events)))
+    frame style style.peopleTextList:
+        vbox:
+            for x in getLoc(curloc).getPeople():
+                python:
+                    mystyle = 'small_button_text'
+                    if x in teachers: mystyle = 'bluesmall_button'
+                    if x in highlightP: mystyle = 'warning'
+                    # actions_list = [Function(clrscr),
+                                    # SetVariable('interactionObj', x),
+                                    # SetVariable('reaction', reactionGen(x))]
+                    # if x.getLocationStatus() and x.getLocationStatus().events:
+                        # actions_list.append(Jump(choice(x.getLocationStatus()
+                                                         # .events)))
 
-                # else:
-                    # if x in teachers and x not in teacher_intro:
-                        # if x == kupruvna:
-                            # actions_list += [Jump('intro_kupruvna')]
-                        # elif x == danokova:
-                            # actions_list += [Jump('intro_danokova')]
-                        # elif x == frigidovna:
-                            # actions_list += [Jump('intro_frigidovna')]
-                        # elif x == bissektrisovna:
-                            # actions_list += [Jump('intro_bissektrisovna')]
-                        # elif x == dikovna:
-                            # actions_list += [Jump('intro_dikovna')]
+                    # else:
+                        # if x in teachers and x not in teacher_intro:
+                            # if x == kupruvna:
+                                # actions_list += [Jump('intro_kupruvna')]
+                            # elif x == danokova:
+                                # actions_list += [Jump('intro_danokova')]
+                            # elif x == frigidovna:
+                                # actions_list += [Jump('intro_frigidovna')]
+                            # elif x == bissektrisovna:
+                                # actions_list += [Jump('intro_bissektrisovna')]
+                            # elif x == dikovna:
+                                # actions_list += [Jump('intro_dikovna')]
+                            # else:
+                                # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
                         # else:
                             # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
-                    # else:
-                        # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
-            
-            
-            if x.getLocationStatus() and x.getLocationStatus().events:
-                textbutton x.name +  ' ' + x.locationStatus.name.lower():
-                    action [Function(clrscr), SetVariable('reaction', reactionGen(x)), SetVariable('interactionObj', x), Jump(choice(x.getLocationStatus().events))]
-                    hovered [SetVariable('showHover',x),Show('showCharStatusText')]
-                    unhovered [Hide('showCharStatusText')]
-                    style "bluesmall_button" text_style mystyle xalign 0.0
-                    
-            elif x in teachers and x not in teacher_intro:
-                python:
-                    if x == kupruvna:
-                        actions_list = [Jump('intro_kupruvna')]
-                    elif x == danokova:
-                        actions_list = [Jump('intro_danokova')]
-                    elif x == frigidovna:
-                        actions_list = [Jump('intro_frigidovna')]
-                    elif x == bissektrisovna:
-                        actions_list = [Jump('intro_bissektrisovna')]
-                    elif x == dikovna:
-                        actions_list = [Jump('intro_dikovna')]
-                    else:
-                        actions_list = [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
-                textbutton x.name +  ' ' + x.locationStatus.name.lower():
-                    action actions_list
-                    hovered [SetVariable('showHover',x),Show('showCharStatusText')]
-                    unhovered [Hide('showCharStatusText')]
-                    style "bluesmall_button" text_style mystyle xalign 0.0
-            else:
-                textbutton x.name +  ' ' + x.locationStatus.name.lower():
-                    action [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
-                    hovered [SetVariable('showHover',x),Show('showCharStatusText')]
-                    unhovered [Hide('showCharStatusText')]
-                    style "bluesmall_button" text_style mystyle xalign 0.0
+                
+                
+                if x.getLocationStatus() and x.getLocationStatus().events:
+                    textbutton x.name +  ' ' + x.locationStatus.name.lower():
+                        action [Function(clrscr), SetVariable('interactionObj', x), Jump(choice(x.getLocationStatus().events))] #SetVariable('reaction', reactionGen(x)),
+                        hovered [SetVariable('showHover',x),Show('showCharStatusText')]
+                        unhovered [Hide('showCharStatusText')]
+                        style "bluesmall_button" text_style mystyle xalign 0.0
+                        
+                elif x in teachers and x not in teacher_intro:
+                    python:
+                        if x == kupruvna:
+                            actions_list = [Function(clrscr),Jump('intro_kupruvna')]
+                        elif x == danokova:
+                            actions_list = [Function(clrscr),Jump('intro_danokova')]
+                        elif x == frigidovna:
+                            actions_list = [Function(clrscr),Jump('intro_frigidovna')]
+                        elif x == bissektrisovna:
+                            actions_list = [Function(clrscr),Jump('intro_bissektrisovna')]
+                        elif x == dikovna:
+                            actions_list = [Function(clrscr),Jump('intro_dikovna')]
+                        else:
+                            actions_list = [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
+                    textbutton x.name +  ' ' + x.locationStatus.name.lower():
+                        action actions_list
+                        hovered [SetVariable('showHover',x),Show('showCharStatusText')]
+                        unhovered [Hide('showCharStatusText')]
+                        style "bluesmall_button" text_style mystyle xalign 0.0
+                else:
+                    textbutton x.name +  ' ' + x.locationStatus.name.lower():
+                        action [Function(clrscr), SetVariable('interactionObj', x), Show('show_stat'), Function(showChars)] #SetVariable('reaction', reactionGen(x)), 
+                        hovered [SetVariable('showHover',x), Show('showCharStatusText')]
+                        unhovered [Hide('showCharStatusText')]
+                        style "bluesmall_button" text_style mystyle xalign 0.0
 
 screen locationPeoplePicto:
     tag interface
@@ -228,15 +229,15 @@ screen locationPeoplePicto:
             elif x in teachers and x not in teacher_intro:
                 python:
                     if x == kupruvna:
-                        actions_list = [Jump('intro_kupruvna')]
+                        actions_list = [Function(clrscr),Jump('intro_kupruvna')]
                     elif x == danokova:
-                        actions_list = [Jump('intro_danokova')]
+                        actions_list = [Function(clrscr),Jump('intro_danokova')]
                     elif x == frigidovna:
-                        actions_list = [Jump('intro_frigidovna')]
+                        actions_list = [Function(clrscr),Jump('intro_frigidovna')]
                     elif x == bissektrisovna:
-                        actions_list = [Jump('intro_bissektrisovna')]
+                        actions_list = [Function(clrscr),Jump('intro_bissektrisovna')]
                     elif x == dikovna:
-                        actions_list = [Jump('intro_dikovna')]
+                        actions_list = [Function(clrscr),Jump('intro_dikovna')]
                     else:
                         actions_list = [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
                 imagebutton:
@@ -299,10 +300,13 @@ screen show_stat:
             null height 10
 
     fixed xpos 0.2 ypos 0.01 :
-        # add 'pic/bg2.png'
+        # add 'pic/bg2.png' 
+        # Сбрасывается при перемещении персонажа
+        if interactionObj.reaction == '':
+            $ reactionGen(interactionObj)
         vbox xmaximum 740:
             text textgen(interactionObj) style style.my_text
-            for x in reaction:
+            for x in interactionObj.reaction:
                 text x style style.my_text
 
     fixed xpos 0.99 ypos 0.1 :
