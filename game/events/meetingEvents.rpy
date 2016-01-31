@@ -1,5 +1,5 @@
 label select_corrMeeting:
-    if corrTeacherTime + 20 > ptime or weekday in [6,7] or (hour > 18 or hour <= 14) or player.getCorr() < corrTeacherStage*2:
+    if corrTeacherTime + 20 > ptime or weekday in [6,7] or hour > 18 or hour < 14 or player.getCorr() < corrTeacherStage*2:
         jump corrMeetingDone
     python:
         corrTeacherTime = ptime
@@ -22,7 +22,7 @@ label corrMeetingDone:
         player.say 'В школе никого нет. Уже поздно, надо было проводить до 19 часов.'
     elif hour < 14:
         player.say 'Ещё рано. Надо попробовать после 14.'
-    elif corrTeacherTime + 20 < ptime:
+    elif corrTeacherTime + 20 > ptime:
         player.say 'Потому что я сегодня уже проводила это совещание.'
     else:
         player.say 'Я не думаю, что смогу чему то научить учителей...'
@@ -30,6 +30,7 @@ label corrMeetingDone:
     
 label corrMeetingEnd:
     show teacherRoom
+    show expression getCharImage(player, 'dialog') as tempPic
     player.say 'Я уже развратила их насколько могла... В общих совещаниях смысла больше нет.'
     $ move(curloc)
     
@@ -80,7 +81,7 @@ label corrMeeting_5:
     'Вы проводите совещание с учителями. Сегодня вы решили поговорить про возможные неожиданные ситуации, которые могут возникнуть при проведении урока. И про то, что важно в данных ситуациях выбрать правильную линию поведения с учениками.'
     show expression 'pic/events/teacher_corr/no5.jpg' at top as tempPic
     player.say '[kupruvna.name], помните случай когда у вас на уроке растегнулась блузка?'
-    player.say 'Ну не надо краснеть! Да, вы быстро ее привели в порядок, но теперь на адрес директора приходят письма(от мальчиков и девочках) о просьбе уделить вашим урокам больше учебных часов! Эффект потрясающий!!!'
+    player.say 'Ну не надо краснеть! Да, вы быстро ее привели в порядок, но теперь на адрес директора приходят письма (от мальчиков и девочек) о просьбе уделить вашим урокам больше учебных часов! Эффект потрясающий!!!'
     player.say 'Дорогие учителя, в дальнейшем при подобных ситуациях прошу вас немного побыть в таком образе хотя бы до конца урока... В этом случае я предполагаю невероятный рост успеваемости!'
     'Вы ещё немного поговорили о необходимости пересмотра рамок поведения. Вроде бы вам удалось немного убедить учителей.'
     $ move(curloc)

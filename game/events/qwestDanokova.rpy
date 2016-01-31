@@ -11,16 +11,17 @@
 # mile_qwest_3_stage == 11 анал в туалете
 # mile_qwest_3_stage == 13 предложение доказать состоятельность как помошника.
 # mile_qwest_3_stage == 15 ожидаение, пока ГГ достанет верёвку, снотворное и костюм.
+# mile_qwest_3_stage == 17 хлороформ получен.
 
 # Тут походу смотрим та ли стадия квеста и тот ли вызванный ученик
 label danokova_office_action:
     if mile_qwest_3_stage < 5:
-        if callup!bioBoy or mile_qwest_3_hot == 0:
+        if callup!=bioBoy or mile_qwest_3_hot == 0:
             jump danokova_angry
         else:
             jump danokova_quest_choise
     if mile_qwest_3_stage >= 5:
-        if callup!bioBoy or mile_qwest_3_hot == 1:
+        if callup!=bioBoy or mile_qwest_3_hot == 1:
             jump danokova_angry
         else:
             jump danokova_quest_choise
@@ -50,6 +51,7 @@ label danokova_start:
         bioBoy.body.parts['пенис'].size = 18
         bioBoy.setWill(30)
         bioBoy.incCorr(20)
+        highlightP.append(bioBoy)
         st1 = bioBoy
         d = danokova
     show expression 'pic/events/mile_3/shop1.png' as bg
@@ -872,6 +874,14 @@ label danokova_bdsm_offer:
     player.say '"Пожалуй, по этому вопросу надо сконтактироваться с Валентиной Купрувной. Может быть у неё найдётся что то убойное среди её реагентов."'
     $ mile_qwest_3_stage = 15
     $ move('loc_office')
+
+label danokova_bdsm_offer_again:
+    $ d = danokova
+    player.say 'Э-э-э, напомните мне, что я там обещалась достать?'
+    '[d.fname] смотрит на вас как микроцефала, только что потерявшего остатки своих мозгов.'
+    d.say 'Латексный костюм, верёвку и что нибудь усыпляющее. Не знаю, поищите в кабинете у Купрувны.'
+    player.say 'Ясно! Я постараюсь запомнить!'
+    $ move(curloc)
     
 label get_chloroform:
     if mile_qwest_2_stage == 12:

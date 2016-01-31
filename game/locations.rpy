@@ -776,9 +776,10 @@ label loc_office:
         loc_btn = [
             ('Первый этаж', [Function(move, 'loc_firstFloor')], True),
             ('Воспользоваться окном', [Function(move, 'loc_entrance')], True),
+            ('{u}{i}Переодеться{/i}{/u}', Show('wardrobe'), True),
             ('{u}{i}Компьютер{/i}{/u}', [Show('compScreen')], True),
             ('{u}{i}Спать{/i}{/u}', [Jump('sleep')], ('bed' in school.furniture and ((ptime - last_sleeped >= 4) or (player.stats.energy < player.stats.health/4)))),
-            ('{u}{i}Вызвать Валентину Купрувну{/i}{/u}', [Jump('kupruvnaGotIt1')], (mile_qwest_2_stage == 7 and (lt() in [-1,0]) and callup == dummy)),
+            ('{u}{i}Вызвать Валентину Купрувну{/i}{/u}', [Jump('kupruvnaGotIt3')], (mile_qwest_2_stage == 7 and (lt() in [-1,0]) and callup == dummy)),
             ('{u}{i}Готовить учеников к олимпиаде{/i}{/u}', [Jump('olympiad_edu')], olympiad.confirm),
             ]
         loc_txt = ['Ваш офис. Большой дубовый стол, компьютер - сразу видно, что вы здесь уважаемы.']
@@ -790,7 +791,7 @@ label loc_office:
                 imagebutton:
                     idle im.MatrixColor(getCharImage(callup), im.matrix.opacity(0.5))
                     hover im.MatrixColor(getCharImage(callup), im.matrix.opacity(1.0))
-                    action [Function(clrscr), Show('show_stat'), Function(showChars)]
+                    action [Function(clrscr), SetVariable('reaction', reactionGen(callup)), Show('show_stat'), Function(showChars)]
                     hovered SetVariable('interactionObj',callup) xalign 0.5 yoffset 400
 
             if lt() >= 0 and is_cabbage == 0 and mile_qwest_2_stage > 0 or development > 0:

@@ -132,15 +132,15 @@ label event_loc_teacherRoom_0_ask1:
         player.say 'Ага, и именно поэтому теперь вместо него - я. Хорошо, я подумаю над этим вопросом, но ничего не обещаю, - отвечаете вы и даёте понять, что разговор закончен.'
     else:
         $ speech = rand(1,5)
-        if speech = 1: 
+        if speech == 1: 
             bissektrisovna.say 'Грызуны сгрызли все мои учебники! - сокрушается [bissektrisovna.fname], - нам необходимо закупить новые!'
-        if speech = 2: 
+        if speech == 2: 
             bissektrisovna.say 'Прорвало трубу, и все учебники залило! - сокрушается [bissektrisovna.fname], - нам необходимо закупить новые!'
-        if speech = 3: 
+        if speech == 3: 
             bissektrisovna.say 'Ученики разлили какие то химикаты на мои учебники! - сокрушается [bissektrisovna.fname], - нам необходимо закупить новые!'
-        if speech = 4: 
+        if speech == 4: 
             bissektrisovna.say 'Кто то запустил кота, и он обоссал все мои учебники! - сокрушается [bissektrisovna.fname], - нам необходимо закупить новые!'
-        if speech = 5: 
+        if speech == 5: 
             bissektrisovna.say 'Учебники были некачественные, и на них уже выцвели буквы! - сокрушается [bissektrisovna.fname], - нам необходимо закупить новые!'
     hide temp2
     menu:
@@ -187,13 +187,13 @@ label event_loc_teacherRoom_0_ask2:
         player.say 'Ладно, я подумаю, что можно сделать.'
     else:
         $ speech = rand(1,4)
-        if speech = 1: 
+        if speech == 1: 
             dikovna.say 'Tief! Tief! Вор! У нас кто то украл почти всю нашу библиотеку! - возмущается [dikovna.name], - может быть купим новые книжки?'
-        if speech = 2: 
+        if speech == 2: 
             dikovna.say 'Maybe закупим ещё книжек для библиотеки? - заискивает [dikovna.name]'
-        if speech = 3: 
+        if speech == 3: 
             dikovna.say 'Students растащили по домам половину нашей библиотеки! - сокрушается [dikovna.name], - может быть купим новые книжки?'
-        if speech = 4: 
+        if speech == 4: 
             dikovna.say 'Somebody burned my books! Даже "451 градус по Фаренгейту"! - недоумевает [dikovna.name], - может быть купим новые книжки?'
         player.say '"Да когда же это закончится!"'
     hide temp2

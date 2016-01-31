@@ -195,10 +195,15 @@ screen nvl:
 screen main_menu:
     # Это заменяет другие меню.
     tag menu
-        
+    add 'pic/new.png'
+    frame:
+        style_group "mm"
+        xalign 1.0
+        yalign .0
+        text 'Версия: [config.version]'
     # Фон главного меню.
-    window:
-        style "mm_root"
+    # window:
+        # style "mm_root"
         
 
     # Кнопки главного меню.
@@ -245,7 +250,7 @@ screen navigation:
         textbutton _("Настройки") action ShowMenu("preferences")
         textbutton _("Сохранить игру") action ShowMenu("save")
         textbutton _("Загрузить игру") action ShowMenu("load")
-        textbutton _("Главное меню") action MainMenu()
+        # textbutton _("Главное меню") action MainMenu()
         textbutton _("Справка") action Help()
         textbutton _("Выход") action Quit()
 
