@@ -589,7 +589,7 @@ init -20 python:
         def countItems(self,name):
             counter = 0
             for x in self.inventory:
-                if x.name == myItem.name:
+                if x.name == name: #myItem.name:
                     counter += 1
             return counter
             
