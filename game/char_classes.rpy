@@ -187,6 +187,7 @@ init -20 python:
             config.side_image_tag = self.picto
             self.locationStatus = None
             self.partner = None
+            self.reaction = ''
         
         # Создание случайного персонажа с полом sex ('male', 'female' или 'futa') и картинкой picto
         @classmethod

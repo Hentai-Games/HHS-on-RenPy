@@ -11,9 +11,16 @@ init python:
     style.navigation_button_text.color = "#FFFFFF"
     style.navigation_button_text.size = 18
     style.navigation_button_text.font = "segoeuib.ttf"
-    style.navigation_button_text.outlines = [(2, "#494949", 1, 0)]
+    style.navigation_button_text.outlines = [(2, "#494949", 0, 0)]
     style.navigation_button_text.hover_color = "#00FF80"
     # style.navigation_button_text.selected_color = "#00FF00"
+    
+    style.action_button_text.color = "#FF8B8B"
+    style.action_button_text.size = 18
+    style.action_button_text.font = "segoeuib.ttf"
+    style.action_button_text.outlines = [(2, "#494949", 0, 0)]
+    style.action_button_text.hover_color = "#FF0000"
+    
     
     style.small_button = Style(style.button_text)
     style.small_button_text.color = "#FFFFFF"
@@ -34,6 +41,11 @@ init python:
     style.myFrame.xmargin  = 10
     style.myFrame.ymargin   = 10
     
+    style.peopleTextList = Style(style.frame)
+    style.peopleTextList.background = Frame("pic/bg.png", 25, 25)
+    # style.peopleTextList.xmargin  = 10
+    # style.peopleTextList.ymargin   = 10
+    
     style.myBar = Style(style.vbar)
     style.myBar.background = "#FF0000"
     style.myBar.thumb = "#FF0000"
@@ -53,32 +65,32 @@ style verticalText is text:
 
 style param is text:
     size 15
-    outlines [(1, "#000000", 0, 0)]
+    outlines [(2, "#494949", 0, 0)]
     bold True
-    drop_shadow [ (2, 1) ,(3, 2)] 
+    # drop_shadow [ (2, 1) ,(3, 2)] 
 
 style paramwarning is text:
     size 15
-    outlines [(1, "#000000", 0, 0)]
+    outlines [(2, "#000000", 0, 0)]
     color "#FF1E1E"
     bold True
-    drop_shadow [ (2, 1) ,(3, 2)] 
+    # drop_shadow [ (2, 1) ,(3, 2)] 
 
 style paramgreen is text:
     size 15
-    outlines [(1, "#000000", 0, 0)]
+    outlines [(2, "#000000", 0, 0)]
     bold True
     color "#00FF00"
-    drop_shadow [ (2, 1) ,(3, 2)] 
+    # drop_shadow [ (2, 1) ,(3, 2)] 
       
 style warning is text:
     size 15
-    outlines [(1, "#000000", 0, 0)]
+    outlines [(2, "#000000", 0, 0)]
     color "#FF1E1E"
 
 style green is text:
     size 15
-    outlines [(1, "#000000", 0, 0)]
+    outlines [(2, "#000000", 0, 0)]
     color "#00FF00"
 
 style description is text:
@@ -96,5 +108,5 @@ style mytimer is text:
     color "#FFFFFF"
     size 24
     font "segoeuib.ttf"
-    outlines [(2, "#494949", 1, 0)]
-    drop_shadow [ (2, 1) ,(3, 2)] 
+    outlines [(2, "#494949", 0, 0)]
+    # drop_shadow [ (2, 1) ,(3, 2)] 
