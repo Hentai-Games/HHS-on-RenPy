@@ -805,7 +805,7 @@ label loc_office:
                 use splitSystem
     screen splitSystem:
         fixed:
-            vbox xalign 0.9 yalign 0.1:
+            vbox xalign 0.85 yalign 0.07:
                 text 'Выставить температуру ([temperature] C)' style style.description
                 hbox:
                     textbutton '+5' action SetVariable('temperature', temperature + 5), Function(move, curloc)

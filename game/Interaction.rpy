@@ -298,9 +298,9 @@ screen show_stat:
                 text 'Репутация [temp]' style style.my_text
             null height 10
 
-    fixed xpos 0.18 ypos 0.01 :
+    fixed xpos 0.2 ypos 0.01 :
         # add 'pic/bg2.png'
-        vbox xmaximum 750:
+        vbox xmaximum 740:
             text textgen(interactionObj) style style.my_text
             for x in reaction:
                 text x style style.my_text
