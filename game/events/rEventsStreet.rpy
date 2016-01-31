@@ -140,7 +140,7 @@ label event_loc_street_0_no7:
                 $ changetime(30)
                 $ hadSex(player)
                 python:
-                    for x in 10:
+                    for x in range(1,10):
                         hadSex(st1)
         'Попрощаться':
             pass
