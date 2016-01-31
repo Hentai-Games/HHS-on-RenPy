@@ -12,7 +12,7 @@ init python:
 #базовая функция перемещения. Использовать всегда и всюду
     from random import shuffle
     def move(where,*args):
-        global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime, development, interactionObj  #объявление глобальных переменных
+        global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime, development, interactionObj, mtime, lastEventTime  #объявление глобальных переменных
         if development == 1:    
             player.setEnergy(2000)
         interactionObj = ''
@@ -48,7 +48,7 @@ init python:
                 checkOrgasm(tempLoc) # проверка на перевозбуждение
                 checkMisc() # Прочие мелкие проверки
                 
-            if rand(1,100) < 10 + noEventTime and len(getLoc(curloc).getPeople()) > 0 and lastEventTime + 10 < mtime: #and  same_loc == 0: # Если на локации кто то есть и локация поменялась, дёргаем эвент по рандому
+            if rand(1,100) < 10 + noEventTime and len(getLoc(curloc).getPeople()) > 0 and lastEventTime + 15 < mtime: #and  same_loc == 0: # Если на локации кто то есть и локация поменялась, дёргаем эвент по рандому
                 tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
             
@@ -68,8 +68,9 @@ init python:
 
 #Вызов эвента
     def tryEvent(location):
-        global noEventTime
-        if 'classroom' in getLoc(location).position and lt() > 0: location += 'Learn' #Если сейчас уроки, то добавляем к поиску локаций Learn
+        global noEventTime, mtime, lastEventTime
+        if 'classroom' in getLoc(location).position and lt() > 0: 
+            location += 'Learn' #Если сейчас уроки, то добавляем к поиску локаций Learn
         if lt() == -4: location += 'Night' # Если ночь, добавляем Night
         tempEv = []
         for x in locations: #перебираем локи и ищем подходящие эвенты
