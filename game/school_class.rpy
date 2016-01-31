@@ -169,16 +169,16 @@ init -20 python:
                 if what == 'wall':
                     school.budget -= 100000
                 if what == 'library':
-                    teachers.append(dante)
-                    allChars.append(dante)
+                    # teachers.append(dante)
+                    # allChars.append(dante)
                     school.budget -= 150000
                 if what == 'dungeon':
                     school.budget -= 100000
                 if what == 'chemlab':
                     school.budget -= 75000
                 if what == 'doctor':
-                    teachers.append(gonoreevna)
-                    allChars.append(gonoreevna)
+                    # teachers.append(gonoreevna)
+                    # allChars.append(gonoreevna)
                     school.budget -= 25000
                 school.buildings.append(what)
             return True

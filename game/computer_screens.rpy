@@ -30,7 +30,7 @@ screen compScreen:
             textbutton _('Система наказаний') action Show ('detentions') xminimum 300
             textbutton _('Учебники') action Show ('eduMats') xminimum 300
             textbutton _('Мебель и Строения') action Show ('furniture') xminimum 300
-            textbutton _('Ночные действия') action [SensitiveIf(lt() <= -3 and ptime - inhibLowTime > 8), Show ('studCorruption')] xminimum 300
+            textbutton _('Ночные действия') action [SensitiveIf(lt() == -4 and ptime - inhibLowTime > 8), Show ('studCorruption')] xminimum 300
             if hasLocationsItem(camera.name) or development == 1:
                 textbutton _('Проверка камер') action [SensitiveIf(ptime - camSold > 24 and weekday not in [1,7]), Function(clrscr),Jump('checkCam')] xminimum 300
                 
@@ -267,8 +267,8 @@ screen furniture:
                 
             textbutton _('Медицинский кабинет (бюджет - 25000)') action [
                 If('doctor' in school.buildings, false=Show('preVoting', None, 'loy', 25, 'doctor')),
-                SelectedIf('doctor' in school.furniture),
-                SensitiveIf(school.budget > 25000 or 'doctor' in school.furniture)
+                SelectedIf('doctor' in school.buildings),
+                SensitiveIf(school.budget > 25000 or 'doctor' in school.buildings)
                 ] hovered [
                 Show('description', None, 'doctor') # При наведении показывается описание
                 ] unhovered [
@@ -414,7 +414,7 @@ screen detentions:
                 ]
                 
             textbutton _('Нет наказания') action [
-                If('no' in school.unlockedUniforms, false=Show('preVoting', None, 'loy', 20, 'no'), true=SetField(school,'detention','no')),
+                If('no' in school.unlockedDetentions, false=Show('preVoting', None, 'loy', 20, 'no'), true=SetField(school,'detention','no')),
                 SelectedIf(school.detention == 'no')
                 ] hovered [
                 Show('description', None, 'no')
@@ -423,7 +423,7 @@ screen detentions:
                 ]
                 
             textbutton _('Уборка улиц') action [
-                If('streetCleaning' in school.unlockedUniforms, false=Show('preVoting', None, 'loy', 40, 'streetCleaning'), true=SetField(school,'detention','streetCleaning')),
+                If('streetCleaning' in school.unlockedDetentions, false=Show('preVoting', None, 'loy', 40, 'streetCleaning'), true=SetField(school,'detention','streetCleaning')),
                 SelectedIf(school.detention == 'streetCleaning')
                 ] hovered [
                 Show('description', None, 'streetCleaning')
@@ -432,7 +432,7 @@ screen detentions:
                 ]
         
             textbutton _('Наказание стыдом') action [
-                If('upskirt' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 30, 'upskirt'), true=SetField(school,'detention','upskirt')),
+                If('upskirt' in school.unlockedDetentions, false=Show('preVoting', None, 'corr', 30, 'upskirt'), true=SetField(school,'detention','upskirt')),
                 SelectedIf(school.detention == 'upskirt')
                 ] hovered [
                 Show('description', None, 'upskirt')
@@ -442,7 +442,7 @@ screen detentions:
                 
             if 'dungeon' in school.buildings:
                 textbutton _('Заключение в подвале') action [
-                    If('upskirt' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 50, 'lock'), true=SetField(school,'detention','lock')),
+                    If('lock' in school.unlockedDetentions, false=Show('preVoting', None, 'corr', 50, 'lock'), true=SetField(school,'detention','lock')),
                     SelectedIf(school.detention == 'lock')
                     ] hovered [
                     Show('description', None, 'lock')
@@ -451,7 +451,7 @@ screen detentions:
                     ]
                     
                 textbutton _('Пытки') action [
-                    If('upskirt' in school.unlockedUniforms, false=Show('preVoting', None, 'corr', 80, 'torue'), true=SetField(school,'detention','torue')),
+                    If('torue' in school.unlockedDetentions, false=Show('preVoting', None, 'corr', 80, 'torue'), true=SetField(school,'detention','torue')),
                     SelectedIf(school.detention == 'torue')
                     ] hovered [
                     Show('description', None, 'torue')
@@ -524,15 +524,16 @@ screen studCorruption:
                 ] unhovered [
                 Hide('description')
                 ]
-            textbutton _('Разложить по классам фотки со скрытой камеры') action [
-                Function(clrscr),
-                Jump('inhib3'),
-                SensitiveIf(player.getCorr() > 50)
-                ] hovered [
-                Show('description', None, 'inhib3')
-                ] unhovered [
-                Hide('description')
-                ]
+            if hasToiletPics == 1:
+                textbutton _('Разложить по классам фотки со скрытой камеры') action [
+                    Function(clrscr),
+                    Jump('inhib3'),
+                    SensitiveIf(player.getCorr() > 50)
+                    ] hovered [
+                    Show('description', None, 'inhib3')
+                    ] unhovered [
+                    Hide('description')
+                    ]
             textbutton _('Распространить свой запах') action [
                 Function(clrscr),
                 Jump('inhib4'),

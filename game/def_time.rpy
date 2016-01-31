@@ -66,9 +66,9 @@ init -3 python:
                 ptime += 1
                 if hour >= 24:
                     hour -= 24
-                    dailyRecount(allChars)
                     weekday += 1
                     if weekday >=8: weekday -=7
+                    dailyRecount(allChars)
                     number += 1
                     if number >= 31:
                         school.getBudget()
@@ -81,6 +81,7 @@ init -3 python:
                             
             if timeMoved + 10 < mtime or ltMoved != lt():
                 counter = max(1, int((mtime - timeMoved)/10))
+                movedArray[:] = []
                 for x in range(counter): # Если прошло больше 10 минут, двигаем несколько раз за всё прошедшее время.
                     addPeopleLocations() # двигаем людей
                 timeMoved = mtime

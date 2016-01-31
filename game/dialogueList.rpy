@@ -26,7 +26,7 @@ label dialog_stud_0_3:
 label dialog_stud_0_4:
     $ teacher = teachers[rand(0,len(teachers)-1)]
     $ science = teacher.club.title()
-    player.say '[science] - мой любимый предмет! - заводите Вы разговор.'
+    player.say '[science] - мой любимый предмет! - заводите вы разговор.'
     if user.getSex() == 'male':
         user.say 'А мой - [science]! - как-то невпопад отвечает ученик. Или [user.fname] просто подкалывает вас?'
     else:
@@ -118,21 +118,13 @@ label dialog_stud_0_15:
     call screen show_stat
 
 label dialog_stud_0_15:
-    if 'wall' in school.furniture:
+    if 'wall' not in school.buildings:
         user.say '[user.name] спрашивает, не слишком ли острая ограда у школы? Кто-нибудь может и пораниться!'
         player.say 'Вы обещаете подумать над тем, как её улучшить. Хех, улучшить ограду? Стену чтоли вместо неё отгрохать? Просто заложить всё кирпичём и готово...'
     else:
         user.say '[user.name] спрашивает, зачем мы построили стену вокруг школы?'
         player.say 'Вы объясняете, что это необходимая политика в виду усилившейся террористической угрозы. Старательно пытаясь не засмеяться, пока Вы несёте эту ахинею. Ну, по крайней мере, [user.fname] уверенно кивает, видимо полностью доверяя Вам!'
     call screen show_stat
-
-
-
-
-
-
-
-
 
 label dialog_teacher_0_1:
     $ st = getChar('','edumin')
