@@ -347,9 +347,9 @@ screen inventory_unit:
                     vbox:
                         null
         bar adjustment adj style "vscrollbar"
-    if len(tab_i) > 0 :
-        $ myItem = tab_i[0]
-        use showItem
+    # if len(tab_i) > 0 :
+        # $ myItem = tab_i[0]
+        # use showItem
 
 # менюшка с описанием предмета слева
 screen showItem:
