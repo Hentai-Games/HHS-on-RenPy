@@ -1,4 +1,13 @@
 init python:
+    def popap_pos(t):
+        global xp1, yp1, xp2, yp2
+        if t == 'p':
+            xp1 = renpy.focus_coordinates()[0]
+            yp1 = renpy.focus_coordinates()[1]    
+        if t == 'i':
+            xp2 = renpy.focus_coordinates()[0]
+            yp2 = renpy.focus_coordinates()[1]   
+
     class Dialogue():
         def __init__(self, id, corr, type):
             self.id = id
@@ -296,8 +305,9 @@ screen show_stat:
             for x in reaction:
                 text x style style.my_text
 
-    fixed xpos 0.8 ypos 0.1:
+    fixed xpos 0.99 ypos 0.1 :
         vbox:
+            xanchor 0.98
             if lt() != -4:
                 if interactionObj in studs:
                     if interactionObj not in highlightP:
@@ -312,7 +322,9 @@ screen show_stat:
                     if interactionObj == mustangovich and mustangovich.getLust() > 70 and curloc == 'teacherRoom' and mile_quest_1 >= 1 and interactionObj.sayCount >= 5:
                         textbutton 'Заняться сексом' xminimum 200 action Jump('ahmed_sex_selector')
                 if player.hasItem(aphrodisiac.name) and interactionObj not in aphroUsedArr:
-                    textbutton 'Использовать\nафродизиак' xminimum 200 action Show('use_aphrodisiac')
+                    textbutton 'Использовать\nафродизиак' xminimum 200 :
+                        action Show('popup_s')
+                        hovered [SetVariable('tooltip', 'aphro'), Function(popap_pos, 'p')]
                 if 'school' in getLoc(curloc).position and curloc != 'loc_office' and interactionObj in studs:
                     textbutton 'Вызвать к себе' xminimum 200 action Jump('callup')
 
@@ -321,15 +333,92 @@ screen show_stat:
                         textbutton 'О родителях' xminimum 200 action Jump('reputation')
                     textbutton 'Выгнать' xminimum 200 action Jump('callout')
 
-                textbutton 'Подарить' xminimum 200 action Show('make_gift_char')
-            textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
-            key "game_menu" action Function(move,curloc)
-            if development == 1:
-                textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
+                textbutton 'Подарить' xminimum 200 :
+                    action Show('popup_s')
+                    hovered [SetVariable('tooltip', 'gift_t'), Function(popap_pos, 'p')]
+                textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
+                key "game_menu" action Function(move,curloc)
+                if development == 1:
+                    textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
+            null height 10
+            text '{u}Вы видите\nу собеседника:{/u}'style style.param xsize 200 text_align 0.5 xalign 0.5
+            null height 10
+            for z in getWearList(interactionObj):
+                if z != 'none':
+                    vbox:
+                        xalign 0.5
+                        imagebutton:
+                            idle im.FactorScale(z.picto, 0.3)
+                            hover im.FactorScale(z.picto, 0.35)
+                            action NullAction()
+                            hovered [SetVariable('tooltip', '{u}'+z.name+ '{/u}\n' + z.description), Function(popap_pos, 'p'), Show('popup_s')]
+                            unhovered [Hide('popup_s')]
+                    null height 10
 
-    frame ypos 0.01 xalign 1.0:
+    frame ypos 0.01 xalign 0.99 xminimum 200 :
         text 'Очков общения: ' + str(interactionObj.sayCount)
 
+screen popup_s:
+    if tooltip != '':
+        fixed:
+            xpos float(xp1-10)/float(1200)
+            ypos float(yp1)/float(768)
+            frame:
+                xmaximum 300
+                xanchor 1.0
+                yanchor 0.0
+                if tooltip == 'gift_t':
+                    vbox:
+                        textbutton 'Закрыть' text_align 0.5 action Hide('popup_s')
+                        $ z = []
+                        $ z_n = []
+                        for x in player.inventory:
+                            if x.type == 'present' and (x.sex=='any' or x.sex==interactionObj.getSex('mf')) and not x.name in z_n:
+                                $ z += [x]
+                                $ z_n += [x.name]
+                        for x in z:
+                            imagebutton:
+                                xalign 0.5 
+                                idle im.FactorScale(x.picto,0.4)
+                                hover im.FactorScale(x.picto,0.45)
+                                action [SetVariable('gift',x),Jump('takeGift')]
+                                hovered [SetVariable('myItem', x), Function(popap_pos, 'i'), Show('showIt')]
+                                unhovered Hide('showIt')                                
+                            null height 10
+                elif tooltip == 'aphro':
+                    vbox:
+                        textbutton 'Закрыть' text_align 0.5 action Hide('popup_s')
+                        $ z = []
+                        $ z_n = []
+                        for x in [e for e in player.inventory if e.type == 'sexShop']:
+                            if x.purpose == 'aphrodisiac' and not x.name in z_n:
+                                $ z += [x]
+                                $ z_n += [x.name]
+                        for x in z: 
+                            imagebutton:
+                                xalign 0.5 
+                                idle im.FactorScale(x.picto,0.4)
+                                hover im.FactorScale(x.picto,0.45)
+                                action [Jump('use_aphrodisiac')]
+                                hovered [SetVariable('myItem', x), Function(popap_pos, 'i'), Show('showIt')]
+                                unhovered Hide('showIt')                                
+                            null height 10
+                else : 
+                    text ('[tooltip]') text_align 0.5 xsize 300
+
+screen showIt():
+    frame:
+        xanchor 1.0
+        yanchor 0.0
+        xpos float(xp2-50)/float(1200)
+        ypos float(yp2)/float(768)
+        if myItem != 0:
+            vbox:
+                add myItem.picto
+                null height 10
+                text '[myItem.name]' style style.my_text xalign 0.5
+                $ temp = player.countItems(myItem.name)
+                text _('Количество [temp]') style style.my_text xalign 0.5
 ###########################################################################################################################
 screen make_gift_char:
     zorder 1
