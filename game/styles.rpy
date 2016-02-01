@@ -24,14 +24,14 @@ init python:
     
     style.small_button = Style(style.button_text)
     style.small_button_text.color = "#FFFFFF"
-    style.small_button_text.outlines = [(1, "#000000", 0, 0)]
+    style.small_button_text.outlines = [(1, "#494949", 0, 0)]
     style.small_button_text.hover_color = "#0000FF"
     # style.small_button_text.selected_color = "#00FF00"
     style.small_button_text.size = 14
     
     style.bluesmall_button = Style(style.button_text)
     style.bluesmall_button.color = "#60D5FC"
-    style.bluesmall_button.outlines = [(1, "#000000", 0, 0)]
+    style.bluesmall_button.outlines = [(1, "#494949", 0, 0)]
     style.bluesmall_button.hover_color = "#0000FF"
     # style.bluesmall_button.selected_color = "#00FF00"
     style.bluesmall_button.size = 14
@@ -42,9 +42,11 @@ init python:
     style.myFrame.ymargin   = 10
     
     style.peopleTextList = Style(style.frame)
-    style.peopleTextList.background = Frame("pic/bg.png", 25, 25)
-    # style.peopleTextList.xmargin  = 10
-    # style.peopleTextList.ymargin   = 10
+    style.peopleTextList.background = Frame("pic/frame.png", 0, 0)
+    # style.peopleTextList.xmargin  = 100
+    # style.peopleTextList.ymargin   = 100
+    style.peopleTextList.xpadding  = 10
+    style.peopleTextList.ypadding  = 10
     
     style.myBar = Style(style.vbar)
     style.myBar.background = "#FF0000"
@@ -52,16 +54,16 @@ init python:
      
 style my_text is text:
     size 15
-    outlines [(1, "#000000", 0, 0)]
+    outlines [(1, "#494949", 0, 0)]
     
 style small_text is text:
     size 10
-    outlines [(1, "#000000", 0, 0)]
+    outlines [(1, "#494949", 0, 0)]
     
 style verticalText is text:
     vertical True
     size 18
-    outlines [(2, "#000000", 0, 0)]
+    outlines [(2, "#494949", 0, 0)]
 
 style param is text:
     size 15
@@ -71,32 +73,32 @@ style param is text:
 
 style paramwarning is text:
     size 15
-    outlines [(2, "#000000", 0, 0)]
+    outlines [(2, "#494949", 0, 0)]
     color "#FF1E1E"
     bold True
     # drop_shadow [ (2, 1) ,(3, 2)] 
 
 style paramgreen is text:
     size 15
-    outlines [(2, "#000000", 0, 0)]
+    outlines [(2, "#494949", 0, 0)]
     bold True
     color "#00FF00"
     # drop_shadow [ (2, 1) ,(3, 2)] 
       
 style warning is text:
     size 15
-    outlines [(2, "#000000", 0, 0)]
+    outlines [(2, "#494949", 0, 0)]
     color "#FF1E1E"
 
 style green is text:
     size 15
-    outlines [(2, "#000000", 0, 0)]
+    outlines [(2, "#494949", 0, 0)]
     color "#00FF00"
 
 style description is text:
     size 20
     font 'verdana.ttf'
-    outlines [(2, "#000000", 0, 0)]
+    outlines [(2, "#494949", 0, 0)]
 
 style statButton is button:
     size 15
