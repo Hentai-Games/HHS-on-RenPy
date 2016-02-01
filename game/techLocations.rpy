@@ -33,3 +33,6 @@ label loc_ahmedFootjob:
     
 label loc_ahmedSuck:
     jump loc_teacherRoom
+    
+label loc_beachWalk:
+    jump loc_beach
