@@ -289,8 +289,8 @@ label sleep:
             player.incEnergy(player.getHealth()/10)
             sleeped += 1
         player.reset()
-        # if rand(1,3) > 2:
-            # tryEvent('loc_dreams')
+        if rand(1,3) > 2:
+            tryEvent('loc_dreams')
         renpy.jump('loc_dreams')
 
 label loc_dreams:
@@ -330,6 +330,32 @@ label loc_swim:
         $ player.cleanAll()
     $ move(curloc)
 
+label playerTan:
+    show beach
+
+    if player.getClothPurpose('swim') == False and len(player.getCover()) != 0:
+        player.say 'Я не могу загорать в одежде!'
+        $ move(curloc)
+        
+    if rand(1,5) == 1:
+        $ tryEvent('loc_beachWalk')
+    $ changetime(60)
+    
+    if len(player.getCover()) == 0:
+        show expression 'pic/events/beach/tan_naked.jpg' as tempPic:
+            xalign 1.0 yalign 0.0
+            ease  10.0 yalign 1.0
+            ease  10.0 yalign 0.0
+            repeat
+        'Вы немного побродили по пляжу, подставляя своё обнажённое тело под горячие лучи солнца и срывая свист и улюлюкание вслед от местных парней.'
+        $ playerTan += 3
+    else:
+        show expression 'pic/events/beach/tan_normal.jpg' at top as tempPic
+        'Вы посидели на берегу, наслаждаясь ласковыми прикосновениями лучей солнца к вашей коже.'
+        $ playerTan += 2
+    $ playerTan = min(15, playerTan)
+    $ move(curloc)
+    
 label loc_run:
     show street
     if player.stats.energy < 300:
