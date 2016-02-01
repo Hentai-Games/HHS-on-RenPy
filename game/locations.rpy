@@ -343,6 +343,7 @@ init 10 python:
                 elif x == 'loc_run': loc = Location(id = x, name = 'Бег', base_prob = -1, position = ['self'])
                 elif x == 'loc_taxi': loc = Location(id = x, name = 'Такси', base_prob = -1, position = ['self'])
                 elif x == 'loc_gloryHole': loc = Location(id = x, name = 'Глорихол', base_prob = 0, position = ['self'])
+                elif x == 'loc_beachWalk': loc = Location(id = x, name = 'Загар', base_prob = -1, position = ['self'])
 
                 elif x == 'loc_class1Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
                 elif x == 'loc_class2Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
@@ -356,6 +357,7 @@ init 10 python:
                 elif x == 'loc_ahmedSex': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
                 elif x == 'loc_ahmedFootjob': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
                 elif x == 'loc_ahmedSuck': loc = Location(id = x, name = 'Эвенты с физруком', base_prob = -1, position = ['tech'])
+                
                 else: loc = Location(id = x, name = 'UNKNOWN', base_prob = -1, position = ['other'])
                 locations.append(loc)
 
@@ -991,7 +993,8 @@ label loc_beach:
         loc_btn = [
             ('К дому', Function(move, 'loc_street', 30), True),
             ('В раздевалку', Function(move, 'loc_beachChange'), True),
-            ('{i}Плавать{/i}', Function(move, 'loc_swim'), True),
+            ('{i}Плавать{/i}', Function(move, 'loc_swim'), (hour >= 7 and hour <= 20)),
+            ('{i}Загорать{/i}', [Function(clrscr), Jump('playerTan')], (hour >= 7 and hour <= 20)),
             ]
         loc_txt = ['Пляж, просто пляж. На нём можно неплохо загореть, если уделить этому недельку времени, или же просто искупаться.']
     screen beach:

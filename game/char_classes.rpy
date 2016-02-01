@@ -340,17 +340,22 @@ init -20 python:
             return self.stats.intelligence
 # Получение beauty
         def getBeauty(self):
-            beauty = self.stats.beauty - self.getDirty()*5
-            if him_zavivka > 0:
-                beauty += 10
-            if depilation > 0:
-                beauty += 20
-            if skin_care > 0:
-                beauty += 40
-            if manicure > 0:
-                beauty += 5
-            if pedicure > 0:
-                beauty += 5
+            global playerTan, him_zavivka, depilation, skin_care, manicure, pedicure
+            if self == player:
+                beauty = float(self.stats.beauty - self.getDirty()*5)
+                if him_zavivka > 0:
+                    beauty += 10
+                if depilation > 0:
+                    beauty += 20
+                if skin_care > 0:
+                    beauty += 40
+                if manicure > 0:
+                    beauty += 5
+                if pedicure > 0:
+                    beauty += 5
+                beauty += playerTan*10/3
+            else:
+                beauty = self.stats.beauty
             return beauty
 # Получение reputation
         def getRep(self):
@@ -698,6 +703,9 @@ init -20 python:
                         covered += 2
                     else:
                         covered += 1
+            if len(self.getCover()) == 1 and covered == 1:
+                covered += 1
+                
             if covered == 2:
                 return True
             else:

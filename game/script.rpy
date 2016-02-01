@@ -70,6 +70,7 @@
     manicure = 0
     pedicure = 0
     show_peopleTextList = 0
+    playerTan = 0
     
 init 10 python:
     teacher_son = dummy
