@@ -2,6 +2,7 @@
 # кастомные скрины
 ##############################################################################
 init python:
+    import string
     myItem = 0
     mySet = []
     voteDecision = False
@@ -40,6 +41,7 @@ init python:
 ##############################################################################
 screen stats_screen:
     # tag interface
+    # add 'pic/overlay.png'
     fixed xpos 0.01 ypos 0.01:
         vbox xmaximum config.screen_width/2:
             $ currtime = gettime('day')
@@ -100,14 +102,14 @@ screen stats_screen:
                     imagebutton auto 'pic/actions/pussy_%s.png' action Jump('cleanPussy')
                 if player.getSperm('анус') == True:
                     imagebutton auto 'pic/actions/ass_%s.png' action Jump('cleanAss')
+            if len(getLoc(curloc).getPeople()) > 0:
+                if show_peopleTextList == 0:
+                    textbutton ('Показать людей') action SetVariable('show_peopleTextList',1) style "small_button" text_style "small_button_text" xalign 0.0
+                else:
+                    textbutton ('Скрыть людей') action SetVariable('show_peopleTextList',0) style "small_button" text_style "small_button_text" xalign 0.0
                     
-            if show_peopleTextList == 0:
-                textbutton ('Показать людей') action SetVariable('show_peopleTextList',1) style "small_button" text_style "small_button_text" xalign 0.0
-            else:
-                textbutton ('Скрыть людей') action SetVariable('show_peopleTextList',0) style "small_button" text_style "small_button_text" xalign 0.0
-                
-            if show_peopleTextList == 1:
-                use peopleTextList
+                if show_peopleTextList == 1:
+                    use peopleTextList
             # if development > 0:
                 # use showStatuses
                 # use showStatusEvents
@@ -170,12 +172,12 @@ screen stats_screen:
             $ temtime = '%s:%s' % (hour, minute)
         text '[temtime]' style style.mytimer xalign 0.99
         null height 10
-        text 'Промотать' style style.param xalign 0.99
+        text '{u}Промотать:{/u}' style style.param xalign 0.99
         grid 2 1:
             xalign 0.99
             imagebutton auto 'pic/actions/wait15_%s.png' action [Function(waiting,15)]
             imagebutton auto 'pic/actions/wait60_%s.png' action [Function(waiting,60)]
-        text 'Посмотреть' style style.param xalign 0.99
+        text '{u}Посмотреть:{/u}' style style.param xalign 0.99
         grid 2 1:         
             xalign 0.99
             imagebutton :
@@ -211,13 +213,19 @@ screen stats_screen:
             else:
                 null
 
-        text '{u}Действия:{/u} ' style style.param xalign 0.99
+        text '{u}Действия:{/u}' style style.param xalign 0.99
         for lab, act, req in loc_btn :
             if req:
-                textbutton lab:
-                    xalign 0.99
-                    action act
-                    style "navigation_button" text_style "navigation_button_text"
+                if lab[:3] != '{i}':
+                    textbutton lab:
+                        xalign 0.99
+                        action act
+                        style "navigation_button" text_style "navigation_button_text"
+                else:
+                    textbutton lab:
+                        xalign 0.99
+                        action act
+                        style "navigation_button" text_style "action_button_text"
                    
         if curloc == 'loc_shopBeauty' : 
             use shopBeautyBtn 
@@ -232,9 +240,9 @@ screen stats_screen:
 
 screen showStatistic:
     zorder 1
-    fixed xpos 0.75 ypos 0.1:
+    fixed xpos 0.72 ypos 0.1:
         grid 1 2 : 
-            frame :
+            frame style style.peopleTextList:
                 xalign 0.01
                 vbox:
                     text '{u}Ваши параметры:{/u} ' style style.param
@@ -261,11 +269,12 @@ screen showStatistic:
                     text _('IQ: [intel]') style style.my_text
                     text _('Счастье: [fun]') style style.my_text
                     text _('Красота: [beauty]') style style.my_text
-                    text ''
+                    # text ''
                     text _('Денег: [money]') style style.my_text
-            frame :
+            frame style style.peopleTextList:
                 xalign 0.99
                 vbox:
+                    text ''
                     text '{u}Параметры школы:{/u} ' style style.param
                     python:   
                         St_l = getPar(studs, 'loy')
@@ -274,7 +283,7 @@ screen showStatistic:
                         St_c = getPar(studs, 'corr')
                         St_e = getPar(studs, 'edu')
                         St_r = getPar(studs, 'rep')
-    
+
                     null height 10
                     text _('Лояльность: [St_l]') style style.my_text
                     text _('Счастье: [St_f]') style style.my_text

@@ -164,7 +164,7 @@ label event_loc_cabbage_0_sexWithSon:
             'К сарайчику' if mile_qwest_2_Ahmed == 1:
                 if player.hasItem(camera.name) == False:
                     'Немного поплутав, вы всё таки находите тот домик, в котором фермерша совращала вашего непорочного Ахмеда. Медленно заглянув в окно, вы увидели кульминацию акта.'
-                    show expression 'pic/events/mile_2/cumming.png' at top as tempPic
+                    show expression 'pic/events/mile_2/cumming.jpg' at top as tempPic
                     k.say 'Ииии ДАААА!!! - стиснув зубы застонала [k.name], когда семя ученика начало наполнять её нутро.'
                     t.say 'Мама! Мамочка! - отчаянно двигался [t.fname] внутри женщины, выдавливая из неё свою сперму.'
                     player.say '"Как мило, в момент оргазма звать мамочку!" - пронеслось у вас в голове.'
