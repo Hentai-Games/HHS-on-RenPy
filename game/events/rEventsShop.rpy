@@ -128,7 +128,6 @@ label event_loc_shop_0_no10:
     show shop
     python:
         st1 = getChar('female')
-
         st1.incFun(5)
     show expression 'pic/locations/shop/no10.jpg' at top as tempPic
     '[st1.fname] выбирает книги для покупки в книжном отделе. Вы подошли к ней, и поболтали немного о любимых рассказах.'
@@ -143,7 +142,7 @@ label event_loc_shop_0_no10:
 
 label event_loc_shop_0_no11:
     show shop
-
+    $ st1 = getChar('female')
     show expression 'pic/locations/shop/no11.jpg' at top as tempPic
     'Среди витрин Вы углядели молодую маму с кучей детей. Ей можно только посочувствовать, дети не дают ни минуты покоя.'
     

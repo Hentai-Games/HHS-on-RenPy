@@ -814,7 +814,7 @@ label danokova_toilet_anal:
     $ player.setLust(0)
     $ player.incCorr(1)
     $ changetime(120)
-    $ mile_qwest_3_stage == 13
+    $ mile_qwest_3_stage = 13
     $ move('loc_office')
 
 label danokova_bdsm_offer:
