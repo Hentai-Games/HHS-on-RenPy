@@ -1,7 +1,7 @@
 init python:
     def dailyRecount(chars):
     
-        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday, studs, teachers, lastWork, lastWashed, corrTeacherTime, camSold
+        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday, studs, teachers, lastWork, lastWashed, corrTeacherTime, camSold, less_actions
         
         timeGetPanties = 0 # сброс времени выдачи трусов
         aphroUsedArr[:] = [] # сброс людей под афродизиаком
@@ -18,6 +18,9 @@ init python:
             
         # Работа
         lastWork = -30
+        
+        # Занятия на уроке
+        less_actions = 0
         
         # Собрания
         corrTeacherTime = - 100
@@ -78,8 +81,12 @@ init python:
                 # Подтягиваем или уменьшаем разврат до учительского уровня. Чем сильнее разница, тем выше изменениия. В будущем УБРАТЬ и сделать через статусы.
                 char.incCorr((getPar(teachers,'corr') - char.getCorr())/10)
                 # Добавление трусов, если их нет у чара.
-                if char.getSex() != 'male' and char.getItem(studpantiesF.name) == False:
-                    char.addItem(studpantiesF)
+                # if char.getSex() != 'male' and char.getItem(studpantiesF.name) == False:
+                    # char.addItem(studpantiesF)
+                # Проверяем всю одежду студентов
+                for x in [e for e in clothing if (e.char == 'stud' and e.sex == char.getSex('mf'))] :
+                    if not char.getItem(x.name) :
+                        char.addItem(x)
                     
                 # Убираем клуб, если его удалили или ученик не в том клубе
                 if char.club not in school.clubs or (char.getSex() == 'male' and char.club in ['cherleader','pants']):
