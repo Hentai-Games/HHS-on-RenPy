@@ -12,12 +12,10 @@ init python:
 #базовая функция перемещения. Использовать всегда и всюду
     from random import shuffle
     def move(where,*args):
-        global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime, development  #объявление глобальных переменных
+        global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime, development, interactionObj, mtime, lastEventTime  #объявление глобальных переменных
         if development == 1:    
             player.setEnergy(2000)
-        temp = school
-        school = None
-        school = temp
+        interactionObj = ''
         if renpy.has_label(where) == True: #Проверка на то, что локация существует. Если нет, прыгаем домой.
             
             renpy.scene(layer='master') # Сброс картинок
@@ -50,7 +48,7 @@ init python:
                 checkOrgasm(tempLoc) # проверка на перевозбуждение
                 checkMisc() # Прочие мелкие проверки
                 
-            if rand(1,100) < 10 + noEventTime and len(getLoc(curloc).getPeople()) > 0: #and  same_loc == 0: # Если на локации кто то есть и локация поменялась, дёргаем эвент по рандому
+            if rand(1,100) < 10 + noEventTime and len(getLoc(curloc).getPeople()) > 0 and lastEventTime + 15 < mtime: #and  same_loc == 0: # Если на локации кто то есть и локация поменялась, дёргаем эвент по рандому
                 tryEvent(where) # попытка дёрнуть рандомный эвент с локации. Ожидание не даёт эвентов.
             renpy.retain_after_load() # чтобы сохранялся интерфейс, иначе ошибка
             
@@ -70,8 +68,9 @@ init python:
 
 #Вызов эвента
     def tryEvent(location):
-        global noEventTime
-        if 'classroom' in getLoc(location).position and lt() > 0: location += 'Learn' #Если сейчас уроки, то добавляем к поиску локаций Learn
+        global noEventTime, mtime, lastEventTime
+        if 'classroom' in getLoc(location).position and lt() > 0: 
+            location += 'Learn' #Если сейчас уроки, то добавляем к поиску локаций Learn
         if lt() == -4: location += 'Night' # Если ночь, добавляем Night
         tempEv = []
         for x in locations: #перебираем локи и ищем подходящие эвенты
@@ -88,7 +87,7 @@ init python:
             renpy.hide_screen('stats_screen')
             rands = rand(0,len(tempEv)-1)
             callEvent = tempEv[rands].id
-            lastEventTime = ptime #запоминаем время
+            lastEventTime = mtime #запоминаем время
             noEventTime = 0 # Сбрасываем переменную "время без эвентов"
             renpy.jump(callEvent) #эвент
         return False
@@ -117,7 +116,8 @@ init python:
                 if x.getprob() > 0:
                     avaliableLocations.append(x)
             for x in allChars:
-                if x != callup and x not in movedArray:
+                x.reaction = ''
+                if x != callup and x not in movedArray and x != interactionObj:
                     if x.getLocationStatus() == stop_status:
                         x.moveToLocation(x.location)
                         continue
