@@ -385,7 +385,7 @@ screen showItem:
                     text _('Чей [myItem.sex]') style style.my_text
                     text _('Назначение [myItem.purpose]') style style.my_text
             if player.hasItem(myItem.name):
-                textbutton _('Выбросить') action [Hide ('showItem'), Function(player.removeItem, myItem)]
+                textbutton _('Выбросить') action [Hide ('showItem'), Function(player.FremoveItem, myItem)]
 
 
 ##############################################################################

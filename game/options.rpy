@@ -18,7 +18,7 @@ init -1 python hide:
     
     config.developer = True
     config.hard_rollback_limit = 0
-    
+    config.imagemap_cache = False
     
     
     ## Эти управляют шириной и высотой экрана.
