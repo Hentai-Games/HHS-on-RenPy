@@ -8,13 +8,18 @@
 ## раскомментировать в подходящих вам ситуациях.
 
 init -1 python hide:
-
     ## Включать ли нам инструменты разработчика? Здесь нужно
     ## поставить False перед выпуском игры, чтобы
     ## пользователь не смог мошенничать, используя эти инструменты.
-
+    def missing_image_callback(s):
+        return im.Image("pic/noimage.gif")
+        
+    config.missing_image_callback = missing_image_callback
+    
     config.developer = True
     config.hard_rollback_limit = 0
+    config.imagemap_cache = False
+    
     
     ## Эти управляют шириной и высотой экрана.
 

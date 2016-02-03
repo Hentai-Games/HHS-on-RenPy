@@ -1183,7 +1183,7 @@ label loc_shopBeauty:
 
 label loc_sexShop:
     show sexShop at left
-    if ptime > 366 and lt() == -1 and rand(1,3) == 1:
+    if ptime > 168 and lt() in [-1,-3] and rand(1,3) == 1:
         jump danokova_start
     python:
         loc_btn = [

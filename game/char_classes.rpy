@@ -399,7 +399,10 @@ init -20 python:
         def addItem(self,item):
             temp = copy.copy(item)
             self.inventory.append(temp)
-
+            
+        def FremoveItem(self,item):
+            self.removeItem(item)
+        
         # Удаление айтема
         def removeItem(self,item):
             if type(item) is str:

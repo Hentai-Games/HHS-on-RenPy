@@ -21,7 +21,11 @@ label event_loc_shop_0_no2:
 
         st1.incFun(5)
         st2.incFun(5)
-    show expression 'pic/locations/shop/no2.jpg' at top as tempPic
+    show expression 'pic/locations/shop/no2.jpg'  as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     '[st1.fname] и [st2.fname] в отделе игрушек, судя по всему, выбирают подарок для младшего братишки.'
     if st1.getCorr() > 25 or development == 1:
         ' Только судя по заинтерисованному взгляду девочки, она не совсем о ракетах думает...'
@@ -128,7 +132,6 @@ label event_loc_shop_0_no10:
     show shop
     python:
         st1 = getChar('female')
-
         st1.incFun(5)
     show expression 'pic/locations/shop/no10.jpg' at top as tempPic
     '[st1.fname] выбирает книги для покупки в книжном отделе. Вы подошли к ней, и поболтали немного о любимых рассказах.'
@@ -143,12 +146,16 @@ label event_loc_shop_0_no10:
 
 label event_loc_shop_0_no11:
     show shop
-
-    show expression 'pic/locations/shop/no11.jpg' at top as tempPic
+    $ st1 = getChar('female')
+    show expression 'pic/locations/shop/no11.jpg'  as tempPic:
+        xalign 1.0 yalign 0.0
+        ease  10.0 yalign 1.0
+        ease  10.0 yalign 0.0
+        repeat
     'Среди витрин Вы углядели молодую маму с кучей детей. Ей можно только посочувствовать, дети не дают ни минуты покоя.'
     
     if st1.getCorr() > 25 or development == 1:
-        'Поняблюдав за ней, вы поняли, что детей еще не хотите, а вот такие трусики... Может быть!'
+        'Понаблюдав за ней, вы поняли, что детей еще не хотите, а вот такие трусики... Может быть!'
         $ player.incLust(5)
 
     $ move(curloc)    

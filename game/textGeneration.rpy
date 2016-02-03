@@ -327,7 +327,7 @@ init python:
             if complains != '':
                 description += '\n'
                 description += '\n'
-                description += 'Родители следующих учеников жаловались на меня: ' + complains
+                description += '{color=#f00}Родители следующих учеников жаловались на меня: ' + complains + '{/color}'
         return description
 
     def reactionGen(char):

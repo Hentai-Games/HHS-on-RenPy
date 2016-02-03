@@ -318,11 +318,15 @@ label loc_swim:
     show beach
     if player.stats.energy < 200:
         player.say 'Я слишком устала, чтобы плавать... Пора возвращаться домой.'
+        
     elif player.getClothPurpose('swim') == False and len(player.getCover()) != 0:
         player.say 'Я не могу плавать в одежде!'
     else:
         hide screen show_stats
-        show expression ("pic/events/beach/swim_norm%d.jpg" % rand(1,5)) at top
+        if len(player.getCover()) == 0:
+            show expression ("pic/events/beach/swim_naked.jpg") at top
+        else:
+            show expression ("pic/events/beach/swimming.jpg") at top
         'Вы поплавали часок, и немного устали. По крайней мере ваша физическая форма улучшилась.'
         $ changetime(60)
         $ player.stats.energy -= rand(100,200)
@@ -544,7 +548,7 @@ label income:
     'Вам позвонили из бухгалтерии министерства образования.'
     'Зарплата в размере [temp] была зачислена на ваш счёт.'
     if complains != '':
-        'Вас так же уведомили, что вами недовольны родители следующих учеников:\n[complains]'
+        'Вас так же уведомили, что вами недовольны родители следующих учеников:\n{cps=20}{color=#f00}[complains]{/color}{/cps}'
     $ player.money += 100000
     me 'А так же 100 000 лично от меня, как бета-тестерам! Всё равно пока нет возможности честным путём заработать на всё.'
     $ move(curloc)
