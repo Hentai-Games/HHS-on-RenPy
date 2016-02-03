@@ -245,7 +245,3 @@ screen journal:
                     text _('[kupruvna.name] стала гораздо развратней, чем была и больше не будет скрывать свои отношения с сыном. ')
                 else:
                     text _('Что то пошло не так с журналом. Заскриншотьте это сообщение и напишите на форуме или в мой блог:\n mile_qwest_2_stage = [mile_qwest_2_stage], mile_qwest_2_stage_init = [mile_qwest_2_stage_init], mile_qwest_2_caught = [mile_qwest_2_caught], mile_qwest_2_Ahmed = [mile_qwest_2_Ahmed]')
-            
-            
-                
-            
