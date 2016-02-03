@@ -323,7 +323,7 @@ screen show_stat:
                         textbutton 'Поговорить' xminimum 200 action Jump('speak')
                     if interactionObj.sayCount >= 3:
                         textbutton 'Флирт' xminimum 200 action Jump('flirt')
-                    if interactionObj == mustangovich and mustangovich.getLust() > 70 and curloc == 'teacherRoom' and mile_quest_1 >= 1 and interactionObj.sayCount >= 5:
+                    if interactionObj == mustangovich and mustangovich.getLust() > 70 and curloc == 'loc_teacherRoom' and mile_quest_1 >= 1 and interactionObj.sayCount >= 5:
                         textbutton 'Заняться сексом' xminimum 200 action Jump('ahmed_sex_selector')
                 if player.hasItem(aphrodisiac.name) and interactionObj not in aphroUsedArr:
                     textbutton 'Использовать\nафродизиак' xminimum 200 :

@@ -48,6 +48,8 @@
     mile_qwest_1_stage = 0 # Статус квеста Мустанговича
     
     mile_qwest_2_stage = 0 # Статус квеста Купрувны    
+    mile_qwest_2_stage_init = 0  
+    mile_qwest_2_caught = 0
     is_cabbage = 0 # Триггер квеста капусты
     
     mile_qwest_2_Ahmed = 0 # триггер нахождения беседки

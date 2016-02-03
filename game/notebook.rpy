@@ -14,6 +14,7 @@ screen notebook:
             textbutton _('Список учеников') action Show('studList')
             textbutton _('Список учителей') action Show('teacherList')
             textbutton _('Статистика школы') action Show('schoolStats')
+            textbutton _('Журнал') action Show('journal')
             if development > 0:
                 textbutton _('Список по партнёрам') action Show('partnerList')
 
@@ -206,4 +207,45 @@ screen schoolStats:
                 else:
                     for x in school.furniture:
                         text '[x] ' style style.description
+                        
+screen journal:
+    tag notebookList
+    fixed xpos 0.01 ypos 0.1:
+        vbox:
+            if mile_qwest_2_stage_init == 1 or development == 1 or mile_qwest_2_stage > 0:
+                text _('[kupruvna.name]:') style style.description
+                if mile_qwest_2_stage == 0:
+                    text _('Мне необходимо подловить её в перемену или после уроков в первом классе.')
+                elif mile_qwest_2_stage == 1 and camera.name not in getLoc('loc_class1').getItems():
+                    text _('Необходимо установить камеру в её классе')
+                elif mile_qwest_2_stage == 1 and camera.name in getLoc('loc_class1').getItems():
+                    text _('Я должна регулярно проверять камеру, установленную в её классе через свой компьютер.')
+                elif mile_qwest_2_stage == 3:
+                    text _('Нужно продолжать наблюдать за ней через камеру.')
+                    if mile_qwest_2_caught == 1:
+                        text _('[kupruvna.name] обиделась на меня за то, что я показала ей снимки.')
+                elif mile_qwest_2_stage == 5 and is_cabbage == 0:
+                    text _('Нужно подождать.')
+                elif mile_qwest_2_stage == 5 and is_cabbage > 0:
+                    if mile_qwest_2_stage_init >= 2:
+                        text _('Надо как то подтолкнуть её на согласие... Возможно что-то из секс-шопа мне поможет?')
+                    else:
+                        text _('Нужно почаще прогуливаться во время уборки капусты. Возможно я что то замечу?')
+                elif mile_qwest_2_stage == 5 and mile_qwest_2_Ahmed == 1:
+                    text _('Интересный сарайчик я нашла неподалёку. Довольно укромное место.')
+                elif mile_qwest_2_stage == 5 and mile_qwest_2_stage_init == 3:
+                    text _('Мне необходимо достать камеру в следующий раз.')
+                elif mile_qwest_2_stage == 7:
+                    text _('Надо вызвать её к себе в кабинет для последнего разговора.')
+                elif mile_qwest_2_stage == 10:
+                    text _('[kupruvna.name] всегда будет поддерживать меня на голосовании. К сожалению я так и не узнала, что сподвигло её заниматься сексом с учеником. Да и отношения уже не исправить.')
+                elif mile_qwest_2_stage == 11:
+                    text _('[kupruvna.name] всегда будет поддерживать меня на голосовании. К сожалению, после вашего напора, её отношения с сыном закончились. Зато она стало абсолютно безвольной! (Что пока абсолютно бесполезно)')
+                elif mile_qwest_2_stage == 12:
+                    text _('[kupruvna.name] стала гораздо развратней, чем была и больше не будет скрывать свои отношения с сыном. ')
+                else:
+                    text _('Что то пошло не так с журналом. Заскриншотьте это сообщение и напишите на форуме или в мой блог:\n mile_qwest_2_stage = [mile_qwest_2_stage], mile_qwest_2_stage_init = [mile_qwest_2_stage_init], mile_qwest_2_caught = [mile_qwest_2_caught], mile_qwest_2_Ahmed = [mile_qwest_2_Ahmed]')
+            
+            
+                
             
