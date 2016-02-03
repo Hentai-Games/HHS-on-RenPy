@@ -46,15 +46,17 @@
     is_teacher_room_3 = 0
     
     mile_qwest_1_stage = 0 # Статус квеста Мустанговича
+    mile_qwest_1_stage_init = 0
     
     mile_qwest_2_stage = 0 # Статус квеста Купрувны    
     mile_qwest_2_stage_init = 0  
     mile_qwest_2_caught = 0
     is_cabbage = 0 # Триггер квеста капусты
-    
     mile_qwest_2_Ahmed = 0 # триггер нахождения беседки
+    
     mile_qwest_3_stage = 0 # Статус квеста Даноковой
     mile_qwest_3_hot = 0 # подстатус квеста Даноковой
+    mile_qwest_3_stage_init = 0
     work51_count = 0 # подстатус квеста Даноковой
     work51 = 0 # Последний рабочий час Даноковой
     
