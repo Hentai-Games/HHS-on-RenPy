@@ -238,8 +238,6 @@ screen stats_screen:
                    
         if curloc == 'loc_shopBeauty' : 
             use shopBeautyBtn 
-        if lt() > 0 and getLoc(curloc) in classrooms :
-            use less_act
     
     fixed :
         vbox:
