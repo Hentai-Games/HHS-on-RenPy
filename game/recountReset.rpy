@@ -1,7 +1,7 @@
 init python:
     def dailyRecount(chars):
     
-        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday, studs, teachers, lastWork, lastWashed, corrTeacherTime, camSold, playerTan, aphroUsedArr
+        global him_zavivka, depilation, skin_care, manicure, pedicure, ptime, last_eat, timeGetPanties, month, weekday, studs, teachers, lastWork, lastWashed, corrTeacherTime, camSold, playerTan, aphroUsedArr, LessonHelp_time
         
         timeGetPanties = 0 # сброс времени выдачи трусов
         aphroUsedArr[:] = [] # сброс людей под афродизиаком
@@ -18,6 +18,7 @@ init python:
             
         # Работа
         lastWork = -30
+        LessonHelp_time = 0
         
         # Собрания
         corrTeacherTime = - 100
