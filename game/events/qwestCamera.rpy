@@ -1,5 +1,6 @@
 init python:
     is_camera = 0 # контроль квеста камеры
+    is_camera_init = 0
         
 init:      
     screen showSeller: # скрин, который должен добавиться на текущую локацию
@@ -15,7 +16,7 @@ label qwest_loc_class4_cameraQwest:
         if is_camera != 0:
             getQwest('qwest_loc_class4_cameraQwest').done = True
             renpy.jump(curloc)
-        if getPar(studs, 'corr') < 5 or player.getCorr() < 20:
+        if getPar(studs, 'corr') < 5:
             renpy.jump(curloc)
         p = player
         st1 = getChar('female')
@@ -30,13 +31,12 @@ label qwest_loc_class4_cameraQwest:
     'Видя ваш взгляд, девочка пытается отодвинуться от него поглубже в тумбу.'
     p.say 'И что же это за личное расследование? "У кого в классе самые красивые трусы"? А ну, пошла быстро отсюда!'
     $ st1.incLoy(-5)
-    if p.getCorr() > 20:
-        'Хотя немного подумав, вы решили всё таки оставить девочку под трибуной. Вдруг чего интересного нароет? Да ещё и распросили её, не продаются ли где камеры скрытого наблюдения. [st1.fname] рассказала вам, что их можно купить в круглосуточном магазине, если спросить у продавца.'
-        python:
-            is_camera = 1
-            p.incCorr(1)
-            st1.incCorr(2)
-            st1.incLoy(15)
+    'Хотя немного подумав, вы решили всё таки оставить девочку под трибуной. Вдруг чего интересного нароет? Да ещё и распросили её, не продаются ли где камеры скрытого наблюдения. [st1.fname] рассказала вам, что их можно купить в круглосуточном магазине, если спросить у продавца.'
+    python:
+        is_camera = 1
+        p.incCorr(1)
+        st1.incCorr(2)
+        st1.incLoy(15)
     $ move(curloc)
                 
 label qwest_loc_shop_cameraQwest: # Лейбл квеста с продавцом

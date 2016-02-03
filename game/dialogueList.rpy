@@ -25,6 +25,7 @@ label dialog_stud_0_danokova:
                 player.say '"А это уже интересно. Будка - это наверное местный сексшоп."'
                 user.say 'И выходит оттуда какая то нервная и сразу домой...'
                 player.say 'Спасибо, [user.fname]!'
+                $ mile_qwest_3_stage_init = 1
             else:
                 player.say '"Да-да-да... Этот секрет уже вся школа знает..."'
     else:
@@ -147,12 +148,13 @@ label dialog_stud_0_13:
     'Вы поскорбели вместе о безвременной кончине юной анорекисички.'
     call screen show_stat
 
-label dialog_stud_0_14:
+label dialog_stud_5_14:
     if user.getSex() == 'male':
         user.say '[user.name] рассказал, что в 4 классе за учительской тумбой живёт мышь, которая иногда скребётся после уроков!'
     else:
         user.say '[user.name] рассказала, что в 4 классе за учительской тумбой живёт мышь, которая иногда скребётся после уроков!'
     'Вы приняли во внимание этот странный факт.'
+    $ is_camera_init = 1
     call screen show_stat
 
 label dialog_stud_0_15:
