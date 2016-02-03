@@ -8,6 +8,7 @@ init python:
     voteDecision = False
     last_inventory = 'all'
     def inv_show_list(type) :
+        global myItem
         if not type in ['all','clothing','present','sexShop','dif']:
             type = 'all'
         list = []
@@ -24,6 +25,11 @@ init python:
                 list += [x]
             elif type == 'dif' and (x.type == 'food' or x.type == 'tool'):
                 list += [x]
+        if len(list) > 0 :
+            if not myItem in list :
+                myItem = list[0]
+        else :
+            myItem = 0        
         return list
     def inv_action (item):
         if item.type == 'food':
@@ -209,7 +215,7 @@ screen stats_screen:
                 imagebutton:
                     idle im.MatrixColor('pic/actions/corrMeeting.png', im.matrix.opacity(0.5))
                     hover im.MatrixColor('pic/actions/corrMeeting.png', im.matrix.opacity(1.0))   
-                    action Jump('select_corrMeeting')
+                    action [Function(clrscr), Jump('select_corrMeeting')]
             else:
                 null
 
@@ -350,15 +356,13 @@ screen inventory_unit:
                     imagebutton:
                         idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
                         hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))
-                        hovered [SetVariable('myItem', x), Show('showItem')] 
+                        hovered [SetVariable('myItem', x)] 
                         action inv_action (x)
                 for i in range(int(tab_n)):
                     vbox:
                         null
         bar adjustment adj style "vscrollbar"
-    # if len(tab_i) > 0 :
-        # $ myItem = tab_i[0]
-        # use showItem
+    use showItem
 
 # менюшка с описанием предмета слева
 screen showItem:

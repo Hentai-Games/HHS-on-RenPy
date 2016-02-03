@@ -1,4 +1,5 @@
 init python:
+    LessonHelp_time = 0
     def popap_pos(t):
         global xp1, yp1, xp2, yp2
         if t == 'p':
@@ -325,6 +326,8 @@ screen show_stat:
                         textbutton 'Флирт' xminimum 200 action Jump('flirt')
                     if interactionObj == mustangovich and mustangovich.getLust() > 70 and curloc == 'teacherRoom' and mile_quest_1 >= 1 and interactionObj.sayCount >= 5:
                         textbutton 'Заняться сексом' xminimum 200 action Jump('ahmed_sex_selector')
+                if interactionObj.locationStatus == teach_status and interactionObj != mustangovich: # Если собеседник ведет урок. Пока без физры
+                    textbutton 'Помочь с уроком' xsize 200 action Jump('LessonHelp')
                 if player.hasItem(aphrodisiac.name) and interactionObj not in aphroUsedArr:
                     textbutton 'Использовать\nафродизиак' xminimum 200 :
                         action Show('popup_s')
@@ -367,7 +370,7 @@ screen popup_s:
         fixed:
             xpos float(xp1-10)/float(1200)
             ypos float(yp1)/float(768)
-            frame:
+            frame style style.peopleTextList:
                 xmaximum 300
                 xanchor 1.0
                 yanchor 0.0
@@ -411,7 +414,7 @@ screen popup_s:
                     text ('[tooltip]') text_align 0.5 xsize 300
 
 screen showIt():
-    frame:
+    frame style style.peopleTextList:
         xanchor 1.0
         yanchor 0.0
         xpos float(xp2-50)/float(1200)
@@ -684,3 +687,31 @@ label reputation:
             python:
                 callup = dummy
                 move(curloc)
+
+label LessonHelp:
+    $ clrscr()
+    if LessonHelp_time == lt():
+        player.say 'я уже достаточно поработала на текущем уроке.'
+        call screen show_stat
+    $ name = interactionObj.fullName()
+    player.say '[name] я тут подумала'
+    interactionObj.say 'Правда? Ой, точнее что именно?'
+    player.say 'Я ведь могла бы помочь вам на уроке.'
+    interactionObj.say 'Да? И что вы предлагаете?'
+    menu :
+        'Ассистировать':
+            jump loc_lessonAssist
+        'Взять обучение на себя':
+            if round(player.getIntel(),1)*2 < 60 :
+                jump loc_lessonEduFail
+            elif round(player.getIntel(),1)*2 < 120 :
+                jump loc_lessonEduNo
+            else :
+                jump loc_lessonEduOk
+        'Развлечь студентов':
+            jump loc_lessonFun
+        'Эротическое просвещение':
+            jump loc_lessonCorr
+        'Передумать':
+            player.say 'Извините, наверное не в этот раз.'
+    $ move(curloc)

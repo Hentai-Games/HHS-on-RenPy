@@ -345,6 +345,13 @@ init 10 python:
                 elif x == 'loc_gloryHole': loc = Location(id = x, name = 'Глорихол', base_prob = 0, position = ['self'])
                 elif x == 'loc_beachWalk': loc = Location(id = x, name = 'Загар', base_prob = -1, position = ['self'])
 
+                elif x == 'loc_lessonAssist': loc = Location(id = x, name = 'Ассистирование', base_prob = -1, position = ['self'])
+                elif x == 'loc_lessonEduFail': loc = Location(id = x, name = 'Обучение', base_prob = -1, position = ['self'])
+                elif x == 'loc_lessonEduNo': loc = Location(id = x, name = 'Обучение', base_prob = -1, position = ['self'])
+                elif x == 'loc_lessonEduOk': loc = Location(id = x, name = 'Обучение', base_prob = -1, position = ['self'])
+                elif x == 'loc_lessonFun': loc = Location(id = x, name = 'Развлечь студентов', base_prob = -1, position = ['self'])
+                elif x == 'loc_lessonCorr': loc = Location(id = x, name = 'Эротическое просвещение', base_prob = -1, position = ['self'])
+
                 elif x == 'loc_class1Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
                 elif x == 'loc_class2Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
                 elif x == 'loc_class3Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
