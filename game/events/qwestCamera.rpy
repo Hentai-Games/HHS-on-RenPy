@@ -9,22 +9,17 @@ init:
                 hover im.MatrixColor('pic/events/shop/seller.png', im.matrix.opacity(1.0)) 
                 action [Jump('getCam')] xalign 1.0 yalign 1.0
 
-label qwest_loc_shop_cameraQwest: # Лейбл квеста с продавцом
-    if is_camera in [1,2]:
-        show shop # показываем бг магазина
-        show screen showSeller # добавляем нашего продавца
-        call screen shop # вызываем интерфейс магазина
-    if is_camera == 3:
-        $ getQwest('qwest_loc_shop_cameraQwest').done = True # Если квест уже выполнен, то отключаем его. К сожалению, отключать придёться после каждой загрузки.
-    $ renpy.jump(curloc) # если не получилось, просто переходим на локацию
-
-label event_loc_class4_5_StartCameraQwest: # евент под тумбой
+label qwest_loc_class4_cameraQwest:
     show class4
     python:
         if is_camera != 0:
-            skipEvent()
+            getQwest('qwest_loc_class4_cameraQwest').done = True
+            renpy.jump(curloc)
+        if getPar(studs, 'corr') < 5 or player.getCorr() < 20:
+            renpy.jump(curloc)
         p = player
         st1 = getChar('female')
+        clrscr()
     'Вы слышите шуршание под учительской тумбой.'
     p.say 'Хм, неужели действительно там мышь послелилась?'
     show expression 'pic/locations/school/class4/no4.jpg' at top as tempPic
@@ -43,6 +38,15 @@ label event_loc_class4_5_StartCameraQwest: # евент под тумбой
             st1.incCorr(2)
             st1.incLoy(15)
     $ move(curloc)
+                
+label qwest_loc_shop_cameraQwest: # Лейбл квеста с продавцом
+    if is_camera in [1,2]:
+        show shop # показываем бг магазина
+        show screen showSeller # добавляем нашего продавца
+        call screen shop # вызываем интерфейс магазина
+    if is_camera == 3:
+        $ getQwest('qwest_loc_shop_cameraQwest').done = True # Если квест уже выполнен, то отключаем его. К сожалению, отключать придёться после каждой загрузки.
+    $ renpy.jump(curloc) # если не получилось, просто переходим на локацию
     
 label getCam: # Сам эвент
     $clrscr()
