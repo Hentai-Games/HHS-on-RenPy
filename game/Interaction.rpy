@@ -1,4 +1,5 @@
 init python:
+    LessonHelp_time = 0
     def popap_pos(t):
         global xp1, yp1, xp2, yp2
         if t == 'p':
@@ -325,6 +326,10 @@ screen show_stat:
                         textbutton 'Флирт' xminimum 200 action Jump('flirt')
                     if interactionObj == mustangovich and mustangovich.getLust() > 70 and curloc == 'loc_teacherRoom' and mile_quest_1 >= 1 and interactionObj.sayCount >= 5:
                         textbutton 'Заняться сексом' xminimum 200 action Jump('ahmed_sex_selector')
+                if interactionObj.locationStatus == teach_status and interactionObj != mustangovich: # Если собеседник ведет урок. Пока без физры
+                    textbutton 'Помочь с уроком' xsize 200 action Jump('LessonHelp')
+                if interactionObj.locationStatus == teach_status and interactionObj == mustangovich: # Если собеседник ведет урок. Физра
+                    textbutton 'Присоедениться к уроку' xsize 200 action Jump('LessonHelpSport')
                 if player.hasItem(aphrodisiac.name) and interactionObj not in aphroUsedArr:
                     textbutton 'Использовать\nафродизиак' xminimum 200 :
                         action Show('popup_s')
@@ -367,7 +372,7 @@ screen popup_s:
         fixed:
             xpos float(xp1-10)/float(1200)
             ypos float(yp1)/float(768)
-            frame:
+            frame style style.peopleTextList:
                 xmaximum 300
                 xanchor 1.0
                 yanchor 0.0
@@ -411,7 +416,7 @@ screen popup_s:
                     text ('[tooltip]') text_align 0.5 xsize 300
 
 screen showIt():
-    frame:
+    frame style style.peopleTextList:
         xanchor 1.0
         yanchor 0.0
         xpos float(xp2-50)/float(1200)
@@ -684,3 +689,118 @@ label reputation:
             python:
                 callup = dummy
                 move(curloc)
+
+label LessonHelp:
+    $ clrscr()
+    if LessonHelp_time == lt():
+        player.say 'я уже достаточно поработала на текущем уроке.'
+        call screen show_stat
+    $ name = interactionObj.fullName()
+    player.say '[name] я тут подумала'
+    interactionObj.say 'Правда? Ой, точнее что именно?'
+    player.say 'Я ведь могла бы помочь вам на уроке.'
+    interactionObj.say 'Да? И что вы предлагаете?'
+    menu :
+        'Ассистировать':
+            jump loc_lessonAssist
+        'Взять обучение на себя':
+            if round(player.getIntel(),1)*2 < 60 :
+                jump loc_lessonEduFail
+            elif round(player.getIntel(),1)*2 < 120 :
+                jump loc_lessonEduNo
+            else :
+                jump loc_lessonEduOk
+        'Развлечь студентов':
+            jump loc_lessonFun
+        'Эротическое просвещение':
+            jump loc_lessonCorr
+        'Передумать':
+            player.say 'Извините, наверное не в этот раз.'
+            $ interactionObj = ''
+    $ move(curloc)
+
+label LessonHelpSport:
+    $ clrscr()
+    if LessonHelp_time == lt():
+        player.say 'я уже достаточно поработала на текущем уроке.'
+        call screen show_stat
+    $ name = interactionObj.fullName()
+    player.say '[name] а с вами можно?'
+    'Блин, ну  и пошло же прозвучало. Не понял бы он случайно правильно.'
+    interactionObj.say 'Да без вопросов. Присоеденяйтесь к коллективу.'
+    menu :
+        'Присоедениться':
+            hide temp1
+            hide temp2
+            if curloc == 'loc_swim' :
+                if player.getClothPurpose('swim') :
+                    jump loc_LessonSportSwim
+                python:
+                    flag = False
+                    swim_wear = 0
+                    for x in player.inventory:
+                        if x.type == 'clothing':
+                            if x.purpose == 'swim' and 'верх' in x.cover:
+                                swim_wear += 1
+                            if x.purpose == 'swim' and 'низ' in x.cover:
+                                swim_wear += 1    
+                            if swim_wear == 2 :
+                                flag = True
+                                break
+                if flag:
+                    menu:
+                        'Сходить и переодеться':
+                            $ player.wearingByPurpose('swim')
+                            'Вы направляетесь в раздевалку, где одеваете купальник. После этого спокойно присоеденяетесь к занятию.'
+                            jump loc_LessonSportSwim
+                        'Переодеться прямо на месте' if 60 <= player.getCorr():
+                            show expression 'pic/events/lection_help/NAYTI_KARTINKU.jpg' as tempPic # Найти картинку!!!
+                            'Вы быстренько надеваете свой купальник не выходя из бассейна. В процессе вызывая множество заинтересованных взглядов от студентов.'
+                            'Вероятно некоторые могут от этом проболтаться.'
+                            $ setCorr(10,2)
+                            $ setRep(5,-1)
+                            $ player.incCorr(0.1)
+                            jump loc_LessonSportSwim
+                        'Передумать':
+                            $ interactionObj = ''
+                            $ move(curloc)
+                else :
+                    'Увы, но купального костюма для занатия у вас нет. Поэтому от идеи поучаствовать приходится отказаться.'
+                    $ interactionObj = ''
+                    $ move(curloc)
+            if curloc == 'loc_gym' :
+                if player.getClothPurpose('sport') :
+                    jump loc_LessonSportGym
+                python:
+                    flag = False
+                    for x in player.inventory:
+                        if x.type == 'clothing':
+                            if x.purpose == 'sport':
+                                flag = True
+                                break
+                if flag:
+                    menu:
+                        'Сходить и переодеться':
+                            $ player.wearingByPurpose('sport')
+                            'Вы направляетесь в раздевалку, где одеваете спортивную форму. После этого спокойно присоеденяетесь к занятию.'
+                            jump loc_LessonSportGym
+                        'Переодеться прямо на месте' if 60 <= player.getCorr():
+                            show expression 'pic/events/lection_help/NAYTI_KARTINKU.jpg' as tempPic # Найти картинку!!!
+                            'Вы быстренько надеваете спортивную форму прямо в зале. В процессе вызывая множество заинтересованных взглядов от студентов.'
+                            'Вероятно некоторые могут от этом проболтаться.'
+                            $ setCorr(10,2)
+                            $ setRep(5,-1)
+                            $ player.incCorr(0.1)
+                            jump loc_LessonSportGym
+                        'Передумать':
+                            $ interactionObj = ''
+                            $ move(curloc)
+                else :
+                    'Увы, но спортивной формы для занатия у вас нет. Поэтому от идеи поучаствовать приходится отказаться.'
+                    $ interactionObj = ''
+                    $ move(curloc)
+        'Отказаться':
+            'Нет, пожалуй не сейчас.'
+            $ interactionObj = ''
+        # ToDo: пригласить Мустанговича в подсобку?
+    $ move(curloc)
