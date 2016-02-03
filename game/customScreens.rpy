@@ -363,6 +363,7 @@ screen inventory_unit:
 # менюшка с описанием предмета слева
 screen showItem:
     zorder 1
+
     vbox xpos 0.01 ypos 0.1:
         if myItem != 0:
             add myItem.picto
@@ -384,7 +385,7 @@ screen showItem:
                     text _('Чей [myItem.sex]') style style.my_text
                     text _('Назначение [myItem.purpose]') style style.my_text
             if player.hasItem(myItem.name):
-                textbutton _('Выбросить') action [Function(player.removeItem, myItem), Hide ('showItem')]
+                textbutton _('Выбросить') action [Hide ('showItem'), Function(player.FremoveItem, myItem)]
 
 
 ##############################################################################

@@ -68,10 +68,12 @@ init python:
 
 #Вызов эвента
     def tryEvent(location):
-        global noEventTime, mtime, lastEventTime
+        global noEventTime, mtime, lastEventTime, same_loc
         if 'classroom' in getLoc(location).position and lt() > 0: 
             location += 'Learn' #Если сейчас уроки, то добавляем к поиску локаций Learn
         if lt() == -4: location += 'Night' # Если ночь, добавляем Night
+        if location in ['loc_office'] and same_loc == 1:
+            return False
         tempEv = []
         for x in locations: #перебираем локи и ищем подходящие эвенты
             if x.id == location:
@@ -328,13 +330,13 @@ init python:
         
         # ограничения квестовых учителей
         if mile_qwest_1_stage == 0: 
-            mustangovich.setCorr(min(30, mustangovich.getCorr()))
+            mustangovich.setCorr(min(20, mustangovich.getCorr()))
             
         if mile_qwest_1_stage == 1: 
             mustangovich.setCorr(min(50, mustangovich.getCorr()))
             
         if mile_qwest_2_stage == 0: 
-            kupruvna.setCorr(min(30, kupruvna.getCorr()))
+            kupruvna.setCorr(min(20, kupruvna.getCorr()))
             
         if mile_qwest_2_stage == 10: 
             kupruvna.setCorr(min(10, kupruvna.getCorr()))
@@ -345,7 +347,7 @@ init python:
             kupruvna.setLoy(0)
             
         if mile_qwest_3_stage == 0:
-            danokova.setCorr(min(30, danokova.getCorr()))
+            danokova.setCorr(min(20, danokova.getCorr()))
             
         if mile_qwest_3_stage == 50:
             danokova.setCorr(min(30, danokova.getCorr()))
