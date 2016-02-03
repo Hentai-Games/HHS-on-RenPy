@@ -367,7 +367,7 @@ screen popup_s:
         fixed:
             xpos float(xp1-10)/float(1200)
             ypos float(yp1)/float(768)
-            frame style style.peopleTextList:
+            frame:
                 xmaximum 300
                 xanchor 1.0
                 yanchor 0.0
@@ -411,7 +411,7 @@ screen popup_s:
                     text ('[tooltip]') text_align 0.5 xsize 300
 
 screen showIt():
-    frame style style.peopleTextList:
+    frame:
         xanchor 1.0
         yanchor 0.0
         xpos float(xp2-50)/float(1200)
