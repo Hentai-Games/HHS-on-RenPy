@@ -37,6 +37,7 @@ label loc_lessonAssist:
             x.incRep(5)
     $ less_actions = lt()
     $ changetime(15)
+    $ interactionObj = ''
     $ tryEvent(curloc)
     $ move(curloc)
 
@@ -51,6 +52,7 @@ label loc_lessonEduFail:
     $ player.incIntel(3)
     $ less_actions = lt()
     $ changetime(15)
+    $ interactionObj = ''
     $ tryEvent('loc_lessonEduFail')
     $ move(curloc)
 
@@ -65,6 +67,7 @@ label loc_lessonEduNo:
     $ player.incIntel(2)
     $ less_actions = lt()
     $ changetime(15)
+    $ interactionObj = ''
     $ tryEvent('loc_lessonEduNo')
     $ move(curloc)
 
@@ -79,11 +82,12 @@ label loc_lessonEduOk:
     $ player.incIntel(1)
     $ less_actions = lt()
     $ changetime(15)
+    $ interactionObj = ''
     $ tryEvent('loc_lessonEduOk')
     $ move(curloc)
 
 label loc_lessonFun:
-    if interactionObj.getLoy() < float(0.25) :
+    if interactionObj.getLoy() < float(25) :
         interactionObj.say 'Хотя нет!'
         player.say 'Но?'
         interactionObj.say 'Нет! Я по вашему лицу вижу что бы вы там себе не надумали это неприемлемо!'
@@ -99,11 +103,12 @@ label loc_lessonFun:
             x.incLoy(5)
     $ less_actions = lt()
     $ changetime(15)
+    $ interactionObj = ''
     $ tryEvent('loc_lessonFun')
     $ move(curloc)
 
 label loc_lessonCorr:
-    if interactionObj.getLoy() < float(0.50) :
+    if interactionObj.getLoy() < float(50) :
         interactionObj.say 'Хотя нет!'
         player.say 'Но?'
         interactionObj.say 'Нет! Я по вашему лицу вижу что бы вы там себе не надумали это неприемлемо!'
@@ -123,9 +128,33 @@ label loc_lessonCorr:
     $ player.incCorr(0.5)
     $ less_actions = lt()
     $ changetime(15)
+    $ interactionObj = ''
     $ tryEvent('loc_lessonCorr')
     $ move(curloc)
 
+label loc_LessonSportGym:
+    show expression 'pic/events/lection_help/sport_ok2.jpg' as tempPic # Заменить
+    'Вы активно размялись и подняли физическую форму..'
+    $ player.incDirty(1)
+    $ player.stats.energy -= rand(100,200)
+    $ player.stats.health += rand (10,20)
+    $ less_actions = lt()
+    $ changetime(15)
+    $ interactionObj = ''
+    $ tryEvent(curloc) # Заменить на специальные
+    $ move(curloc)
+
+label loc_LessonSportSwim:
+    show expression 'pic/events/lection_help/pool_no2.jpg' as tempPic # Заменить
+    'Вы неплохо поплавали на занятии и улучшили своё здоровье.'
+    $ player.stats.energy -= rand(100,200)
+    $ player.stats.health += rand (10,20)
+    $ player.cleanAll()
+    $ less_actions = lt()
+    $ changetime(15)
+    $ interactionObj = ''
+    $ tryEvent(curloc) # Заменить на специальные
+    $ move(curloc)
 ##############################################
 # ToDo:
 # Перенести эвенты в отдельный файл?
