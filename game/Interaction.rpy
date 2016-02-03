@@ -329,7 +329,7 @@ screen show_stat:
                 if interactionObj.locationStatus == teach_status and interactionObj != mustangovich: # Если собеседник ведет урок. Пока без физры
                     textbutton 'Помочь с уроком' xsize 200 action Jump('LessonHelp')
                 if interactionObj.locationStatus == teach_status and interactionObj == mustangovich: # Если собеседник ведет урок. Физра
-                    textbutton 'Присоедениться к уроку' xsize 200 action Jump('LessonHelpSport')
+                    textbutton 'Присоединиться к уроку' xsize 200 action Jump('LessonHelpSport')
                 if player.hasItem(aphrodisiac.name) and interactionObj not in aphroUsedArr:
                     textbutton 'Использовать\nафродизиак' xminimum 200 :
                         action Show('popup_s')
@@ -693,13 +693,17 @@ label reputation:
 label LessonHelp:
     $ clrscr()
     if LessonHelp_time == lt():
-        player.say 'я уже достаточно поработала на текущем уроке.'
+        player.say 'Я уже достаточно поработала на текущем уроке.'
         call screen show_stat
     $ name = interactionObj.fullName()
-    player.say '[name] я тут подумала'
-    interactionObj.say 'Правда? Ой, точнее что именно?'
+    player.say '[name] я тут подумала...'
+    if interactionObj.getLoy() < 30:
+        interactionObj.say 'Правда? Ой, точнее, что именно?'
+        player.say '"Вот дрянь!"'
+    else:
+        interactionObj.say 'Да?'
     player.say 'Я ведь могла бы помочь вам на уроке.'
-    interactionObj.say 'Да? И что вы предлагаете?'
+    interactionObj.say 'Хорошо... И что вы предлагаете?'
     menu :
         'Ассистировать':
             jump loc_lessonAssist
@@ -726,10 +730,10 @@ label LessonHelpSport:
         call screen show_stat
     $ name = interactionObj.fullName()
     player.say '[name] а с вами можно?'
-    'Блин, ну  и пошло же прозвучало. Не понял бы он случайно правильно.'
-    interactionObj.say 'Да без вопросов. Присоеденяйтесь к коллективу.'
+    'Блин, ну и пошло же это прозвучало! Не понял бы он случайно правильно...'
+    interactionObj.say 'Да без вопросов. Присоединяйтесь к коллективу.'
     menu :
-        'Присоедениться':
+        'Присоединиться':
             hide temp1
             hide temp2
             if curloc == 'loc_swim' :
@@ -751,11 +755,11 @@ label LessonHelpSport:
                     menu:
                         'Сходить и переодеться':
                             $ player.wearingByPurpose('swim')
-                            'Вы направляетесь в раздевалку, где одеваете купальник. После этого спокойно присоеденяетесь к занятию.'
+                            'Вы направляетесь в раздевалку, где одеваете купальник. После этого спокойно присоединяетесь к занятию.'
                             jump loc_LessonSportSwim
                         'Переодеться прямо на месте' if 60 <= player.getCorr():
                             show expression 'pic/events/lection_help/NAYTI_KARTINKU.jpg' as tempPic # Найти картинку!!!
-                            'Вы быстренько надеваете свой купальник не выходя из бассейна. В процессе вызывая множество заинтересованных взглядов от студентов.'
+                            'Вы быстренько надеваете свой купальник не выходя из бассейна. Данный, к слову сказать, весьма неспешный процесс, вызывая множество заинтересованных взглядов от учеников.'
                             'Вероятно некоторые могут от этом проболтаться.'
                             $ setCorr(10,2)
                             $ setRep(5,-1)
@@ -765,7 +769,7 @@ label LessonHelpSport:
                             $ interactionObj = ''
                             $ move(curloc)
                 else :
-                    'Увы, но купального костюма для занатия у вас нет. Поэтому от идеи поучаствовать приходится отказаться.'
+                    'Увы, но купального костюма для занятия у вас нет. Поэтому от идеи поучаствовать пришлось отказаться.'
                     $ interactionObj = ''
                     $ move(curloc)
             if curloc == 'loc_gym' :
@@ -782,11 +786,11 @@ label LessonHelpSport:
                     menu:
                         'Сходить и переодеться':
                             $ player.wearingByPurpose('sport')
-                            'Вы направляетесь в раздевалку, где одеваете спортивную форму. После этого спокойно присоеденяетесь к занятию.'
+                            'Вы направляетесь в раздевалку, где одеваете спортивную форму. После этого спокойно присоединяетесь к занятию.'
                             jump loc_LessonSportGym
                         'Переодеться прямо на месте' if 60 <= player.getCorr():
                             show expression 'pic/events/lection_help/NAYTI_KARTINKU.jpg' as tempPic # Найти картинку!!!
-                            'Вы быстренько надеваете спортивную форму прямо в зале. В процессе вызывая множество заинтересованных взглядов от студентов.'
+                            'Вы быстренько надеваете спортивную форму прямо в зале. Вся мужская половина присутствующих с отвисшими челюстями следила за этим процессом.'
                             'Вероятно некоторые могут от этом проболтаться.'
                             $ setCorr(10,2)
                             $ setRep(5,-1)
@@ -796,11 +800,11 @@ label LessonHelpSport:
                             $ interactionObj = ''
                             $ move(curloc)
                 else :
-                    'Увы, но спортивной формы для занатия у вас нет. Поэтому от идеи поучаствовать приходится отказаться.'
+                    'Увы, но спортивной формы для занятия у вас нет. Поэтому от идеи поучаствовать приходится отказаться.'
                     $ interactionObj = ''
                     $ move(curloc)
         'Отказаться':
             'Нет, пожалуй не сейчас.'
             $ interactionObj = ''
-        # ToDo: пригласить Мустанговича в подсобку?
+        # ToDo: пригласить Мустанговича в подсобку? Зойчем?
     $ move(curloc)
