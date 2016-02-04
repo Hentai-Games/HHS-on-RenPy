@@ -17,7 +17,6 @@ init python:
             player.setEnergy(2000)
         interactionObj = ''
         if renpy.has_label(where) == True: #Проверка на то, что локация существует. Если нет, прыгаем домой.
-            
             renpy.scene(layer='master') # Сброс картинок
             renpy.scene(layer='screens') # Сброс скринов
             renpy.show('daytime') # Базовый фон
