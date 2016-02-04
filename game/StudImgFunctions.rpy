@@ -88,4 +88,28 @@ init python:
             tmp_vis[4] = tt[0]
                 
         return tmp_vis
-        
+
+    def sel_player_picto() :
+        temp_img = player.picto
+        rnd_pic = rand(1, 2)
+        if len(player.wear) == 0:
+            temp_img = 'pic/Hero/GG/naked_0'+str(rnd_pic)+'.png'
+        elif (not 'грудь' in player.getCover()) and (not 'верх' in player.getCover()):
+            temp_img = 'pic/Hero/GG/topless_0'+str(rnd_pic)+'.png'
+        elif 'Спортформа' in player.getWeared():
+            temp_img = 'pic/Hero/GG/sportUniform_0'+str(rnd_pic)+'.png'
+        elif 'БДСМ униформа' in player.getWeared():
+            temp_img = 'pic/Hero/GG/bdsm_0'+str(rnd_pic)+'.png'
+        elif 'Купальник' in player.getWeared():
+            temp_img = 'pic/Hero/GG/swimsuit_0'+str(rnd_pic)+'.png'
+        elif 'Бикини верх' in player.getWeared() or 'Минибикини' in player.getWeared():
+            temp_img = 'pic/Hero/GG/bikini_0'+str(rnd_pic)+'.png'
+        elif 'Пиджак с вырезом' in player.getWeared():
+            temp_img = 'pic/Hero/GG/freejaket_0'+str(rnd_pic)+'.png'
+        elif 'Полоски ткани' in player.getWeared():
+            temp_img = 'pic/Hero/GG/skimpyjacket_0'+str(rnd_pic)+'.png'
+        elif 'грудь' in player.getCover() and (not 'верх' in player.getCover()):
+            temp_img = 'pic/Hero/GG/underwear_0'+str(rnd_pic)+'.png'
+        else :
+            temp_img = 'pic/Hero/GG/norm_0'+str(rnd_pic)+'.png'
+        return temp_img
