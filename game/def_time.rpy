@@ -50,6 +50,7 @@ init -3 python:
         
     def changetime(change):
         global minute, check_minute, hour, ptime, weekday, number, year, month, mtime, ltMoved, timeMoved, flagIncome, noEventTime
+        player.picto = sel_player_picto()
         while change != 0:
             tempChange = min(10,change)
             change -= min(10,change)
