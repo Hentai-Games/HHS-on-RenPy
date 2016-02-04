@@ -423,7 +423,7 @@ screen wardrobe:
                     imagebutton:
                         idle im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(0.7))
                         hover im.MatrixColor(im.FactorScale(x.picto,0.4), im.matrix.opacity(1.0))  
-                        action [Function(player.wearing,x),Show('wardrobe')] 
+                        action [Function(player.Fwearing,x),Show('wardrobe')] 
                         hovered [SetVariable('myItem', x), Show('showItem')] 
                         unhovered Hide ('showItem')
                 for i in range(int(tab_n)):
