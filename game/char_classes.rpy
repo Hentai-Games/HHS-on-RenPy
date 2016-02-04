@@ -605,7 +605,10 @@ init -20 python:
         # Сброс переменных
         def reset(self):
             self.normalize()
-
+        
+        def Fwearing(self, cloth):
+            self.wearing(cloth)
+        
         # Функция одевания
         def wearing(self, cloth):
             if cloth.type == 'clothing':
