@@ -112,7 +112,7 @@ label loc_lessonCorr:
         interactionObj.say 'Хотя нет!'
         player.say 'Но?'
         interactionObj.say 'Нет! Я по вашему лицу вижу что бы вы там себе не надумали это неприемлемо!'
-        player.say '"Нда, такую "лояльность" явно нужно исправлять."'
+        player.say '"Нда, да ей бы и самой "просвещение" не помешает. Ну или хотя бы немного раскрепостить."'
         $ move(curloc)
     player.say 'У нас ведь отличная школа, а ученики выглядят несколько зажато. Мы должны обеспечить их раскрепощение!'
     interactionObj.say 'Что-то мне кажется это уже слишком...'
@@ -133,19 +133,19 @@ label loc_lessonCorr:
     $ move(curloc)
 
 label loc_LessonSportGym:
-    show expression 'pic/events/lection_help/sport_ok2.jpg' as tempPic # Заменить
-    'Вы активно размялись и подняли физическую форму..'
+    show expression 'pic/events/lection_help/SportGym_00.jpg' as tempPic at top
+    'Вы активно размялись и подняли физическую форму.'
     $ player.incDirty(1)
     $ player.stats.energy -= rand(100,200)
     $ player.stats.health += rand (10,20)
     $ less_actions = lt()
     $ changetime(15)
     $ interactionObj = ''
-    $ tryEvent(curloc) # Заменить на специальные
+    $ tryEvent('loc_LessonSportGym')
     $ move(curloc)
 
 label loc_LessonSportSwim:
-    show expression 'pic/events/lection_help/pool_no2.jpg' as tempPic # Заменить
+    show expression 'pic/events/lection_help/SportSwim_00.jpg' as tempPic at top
     'Вы неплохо поплавали на занятии и улучшили своё здоровье.'
     $ player.stats.energy -= rand(100,200)
     $ player.stats.health += rand (10,20)
@@ -153,42 +153,5 @@ label loc_LessonSportSwim:
     $ less_actions = lt()
     $ changetime(15)
     $ interactionObj = ''
-    $ tryEvent(curloc) # Заменить на специальные
+    $ tryEvent('loc_LessonSportSwim')
     $ move(curloc)
-    
-##############################################
-# ToDo:
-# Перенести эвенты в отдельный файл? Да!
-##############################################
-
-label event_loc_lessonFun_0_help1:
-    show expression 'pic/events/lection_help/less_fun_00.jpg' at top as tempPic
-    'Что может быть веселее взаимного общения? Именно поэтому вы решаете устроить конкурс поцелуев, где девочки покажут свои умения, а жюри из мальчиков их оценит!'
-    $ move(curloc)
-
-label event_loc_lessonCorr_0_help1:
-    show expression 'pic/events/lection_help/less_ero_00.jpg' at top as tempPic
-    'Вы устраиваете просветительскую лекцию о взаимоотношении полов.'
-    show expression 'pic/events/lection_help/less_ero_01.jpg' at top as tempPic
-    'А к некоторым ученикам даже применяете наглядную агитацию.'
-    $ move(curloc)
-
-label event_loc_lessonEduFail_0_help1:
-    show expression 'pic/events/lection_help/fail5.jpg' at top as tempPic
-    'Не смотря на всё ваше самомнение, урок не задался. Может ученики попались тупые или материал неадекватный, но скорее вам помешала собственная подготовка.'
-    'Кроме того вероятно о вашем уровне знаний могут пойти не лучшие слухи.'
-    $ setRep(10,-1)
-    $ move(curloc)
-
-label event_loc_lessonEduNo_0_help1:
-    show expression 'pic/events/lection_help/no4.jpg' at top as tempPic
-    'Ну, в принципе, урок удался. Вы конечно не блистали, но и не выставили себя в неуместном виде...'
-    $ move(curloc)
-
-label event_loc_lessonEduOk_0_help1:   
-    show expression 'pic/events/lection_help/ok5.jpg' at top as tempPic
-    'Новые методики и отличный подбор материала позволили вам наглядно продемострировать, что вы вполне заслуженно занимаете место директора!'
-    'Ученики также были впечатлены, а некоторые, вероятно, расскажут об этом и дома.'
-    $ setRep(5,1)
-    $ move(curloc)
-    
