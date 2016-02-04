@@ -68,14 +68,14 @@ label event_loc_lessonFun_0_help1:
                     'Удивительно, но [st2.fname] не удовлетворился произошедшим и перешел к еще более активным действиям.'
                     menu:
                         'Уж такое явно неприемлемо':
-                            'Вы прирываете это действие и наказываете его участноков.'
+                            'Вы прирываете это действие и наказываете его участников.'
                             $ addDetention(st1,st2)
                             $ setRep(10,3)
                             $ st1.incLoy(-5)
                             $ st2.incLoy(-5)
                         'Смотреть чем все закончится' if 50 <= player.getCorr():
                             show expression 'pic/events/lection_help/fun1/04.jpg' at top as tempPic with dissolve
-                            '[st2.fname] не обращая внимание на присутствующих продолжил свое дело пока не кончил. Причем не вынимая член из киски [st1.fname]'
+                            '[st2.fname], не обращая внимание на присутствующих, продолжил свое дело пока не кончил. Причем не вынимая член из киски [st1.fname]'
                             $ setRep(10,-2)
                             $ st1.incLust(-100)  
                             $ st2.incLust(-100)  
@@ -83,7 +83,7 @@ label event_loc_lessonFun_0_help1:
                             $ setLust(10,15)
                             if rand(1, 3) == 1 :
                                 show expression 'pic/events/lection_help/fun1/05.jpg' at top as tempPic with dissolve
-                                'К вашему непомерному изумлению [st2.name] и не собирался останавливаться, а только поменял позу.'
+                                'К вашему непомерному изумлению, [st2.name] и не собирался останавливаться, а только поменял позу.'
                                 player.say 'Да сколько же он собирается продолжать?'
                                 show expression 'pic/events/lection_help/fun1/06.jpg' at top as tempPic with dissolve
                                 'Дождавшись пока [st2.fname] кончит в очередной раз, вы отправляете всех обратно на занятие.'
@@ -117,7 +117,7 @@ label event_loc_LessonSportGym_0_help1:
     $ player.incCorr(0.05)
     if player.getCorr() > 50:
         show expression 'pic/events/lection_help/SportGym1/03.jpg' at top as tempPic
-        'Вы также весльма ярко пердставили как на самом деле должен выглядеть урок в вашей школе.'
+        'Вы также весьма ярко представили, как на самом деле должен выглядеть урок в вашей школе.'
         $ player.incLust(5)
     $ move(curloc)
 
