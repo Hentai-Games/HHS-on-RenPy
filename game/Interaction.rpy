@@ -736,7 +736,7 @@ label LessonHelpSport:
         'Присоединиться':
             hide temp1
             hide temp2
-            if curloc == 'loc_swim' :
+            if curloc == 'loc_pool' :
                 if player.getClothPurpose('swim') :
                     jump loc_LessonSportSwim
                 python:
@@ -748,7 +748,7 @@ label LessonHelpSport:
                                 swim_wear += 1
                             if x.purpose == 'swim' and 'низ' in x.cover:
                                 swim_wear += 1    
-                            if swim_wear == 2 :
+                            if swim_wear >= 2 :
                                 flag = True
                                 break
                 if flag:
@@ -758,9 +758,15 @@ label LessonHelpSport:
                             'Вы направляетесь в раздевалку, где одеваете купальник. После этого спокойно присоединяетесь к занятию.'
                             jump loc_LessonSportSwim
                         'Переодеться прямо на месте' if 60 <= player.getCorr():
-                            show expression 'pic/events/lection_help/NAYTI_KARTINKU.jpg' as tempPic # Найти картинку!!!
-                            'Вы быстренько надеваете свой купальник не выходя из бассейна. Данный, к слову сказать, весьма неспешный процесс, вызывая множество заинтересованных взглядов от учеников.'
+                            show expression 'pic/events/lection_help/dressing/swim_1.png' as tempPic at center
+                            #'Вы быстренько надеваете свой купальник не выходя из бассейна. Данный, к слову сказать, весьма неспешный процесс, вызывая множество заинтересованных взглядов от учеников.'
+                            'Вы сбрасываете свою одежду не выходя из бассейна'
+                            show expression 'pic/events/lection_help/dressing/swim_2.png' as tempPic at center with dissolve
+                            'Данный, к слову сказать, весьма неспешный процесс, вызывает множество заинтересованных взглядов от учеников.'
                             'Вероятно некоторые могут от этом проболтаться.'
+                            show expression 'pic/events/lection_help/dressing/swim_3.png' as tempPic at center with dissolve
+                            'Поэтому с выбором купальника вам приходится поспешить.'
+                            hide tempPic
                             $ setCorr(10,2)
                             $ setRep(5,-1)
                             $ player.incCorr(0.1)
@@ -772,7 +778,7 @@ label LessonHelpSport:
                     'Увы, но купального костюма для занятия у вас нет. Поэтому от идеи поучаствовать пришлось отказаться.'
                     $ interactionObj = ''
                     $ move(curloc)
-            if curloc == 'loc_gym' :
+            elif curloc == 'loc_gym' :
                 if player.getClothPurpose('sport') :
                     jump loc_LessonSportGym
                 python:
@@ -789,9 +795,15 @@ label LessonHelpSport:
                             'Вы направляетесь в раздевалку, где одеваете спортивную форму. После этого спокойно присоединяетесь к занятию.'
                             jump loc_LessonSportGym
                         'Переодеться прямо на месте' if 60 <= player.getCorr():
-                            show expression 'pic/events/lection_help/NAYTI_KARTINKU.jpg' as tempPic # Найти картинку!!!
-                            'Вы быстренько надеваете спортивную форму прямо в зале. Вся мужская половина присутствующих с отвисшими челюстями следила за этим процессом.'
+                            show expression 'pic/events/lection_help/dressing/gym_1.png' as tempPic at center
+                            #'Вы быстренько надеваете спортивную форму прямо в зале. Вся мужская половина присутствующих с отвисшими челюстями следила за этим процессом.'
+                            'Вы решаете надеть спортивную форму прямо в зале.'
+                            show expression 'pic/events/lection_help/dressing/gym_2.png' as tempPic at center with dissolve
+                            'И вся мужская половина присутствующих с отвисшими челюстями следит за этим процессом.'
                             'Вероятно некоторые могут от этом проболтаться.'
+                            show expression 'pic/events/lection_help/dressing/gym_3.png' as tempPic at center with dissolve
+                            'Это заставляет вас не слишком затягивать переодевание.'
+                            hide tempPic
                             $ setCorr(10,2)
                             $ setRep(5,-1)
                             $ player.incCorr(0.1)

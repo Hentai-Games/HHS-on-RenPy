@@ -352,7 +352,7 @@ init 10 python:
                 elif x == 'loc_lessonFun': loc = Location(id = x, name = 'Развлечь студентов', base_prob = -1, position = ['self'])
                 elif x == 'loc_lessonCorr': loc = Location(id = x, name = 'Эротическое просвещение', base_prob = -1, position = ['self'])
                 elif x == 'loc_LessonSportSwim': loc = Location(id = x, name = 'Занятия в бассейне', base_prob = -1, position = ['self'])
-                elif x == 'loc_LessonSportSwim': loc = Location(id = x, name = 'Занятия в спортзале', base_prob = -1, position = ['self'])
+                elif x == 'loc_LessonSportGym': loc = Location(id = x, name = 'Занятия в спортзале', base_prob = -1, position = ['self'])
 
                 elif x == 'loc_class1Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
                 elif x == 'loc_class2Learn': loc = Location(id = x, name = 'Учёба', base_prob = -1, position = ['tech'])
