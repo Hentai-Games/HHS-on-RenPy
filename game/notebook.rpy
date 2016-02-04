@@ -299,6 +299,8 @@ screen journal:
                     if player.hasItem(bdsmUniform.name):
                         text _('И костюм!')
                     text _('К сожалению это бесполезно, так как продолжения квеста пока нет.')
+                if mile_qwest_3_stage == 50:
+                    text _('[danokova.name] обещала поддерживать все мои предложения на голосованиии. К сожалению, вам больше не удастся повлиять на неё и её отношения с парнем.')
                     
             if mile_qwest_1_stage_init > 0 or mile_qwest_1_stage > 0:
                 if mile_qwest_1_stage == 0:
