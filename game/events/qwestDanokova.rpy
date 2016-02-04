@@ -459,7 +459,7 @@ label danokova_office_sex_69:
             show expression getCharImage(d,'dialog') as temp1
             d.say 'Успокойся! - не сдержав смеха, сказала учительница, -  Всё с тобой в порядке, просто ты необычен, понимаешь?'
             '[st1.fname] начал успокаиваться и перестал суетиться.'
-            d.say 'Сделаем так, ты придёшь ко мне снова, а я к этому времени посмотрю на образцы твоих сперматозаидов.'
+            d.say 'Сделаем так, ты придёшь ко мне снова, а я к этому времени посмотрю на образцы твоих сперматозоидов.'
             show expression getCharImage(st1,'dialog') as temp1
             st1.say 'Мне надо сдать вам сперму?'
             show expression getCharImage(d,'dialog') as temp1
