@@ -124,7 +124,7 @@ init python:
                         continue
    
                     x.moveToLocation(None) # Всех выкидываем с локаций
-                    if mile_qwest_2_stage == 10 and hour == 7 and x == kupruvna:
+                    if mile_qwest_2_stage == 11 and hour == 7 and x == kupruvna:
                         x.moveToLocation('loc_office')
                         x.forceLocationStatus(kupruvna_clean_status)
                         continue
@@ -238,7 +238,7 @@ init python:
                 if 'school' in location.position and school.uniform == 'naked':
                     char.undress()
                     
-            if mile_qwest_2_stage == 10 and hour == 7 and char == kupruvna:
+            if mile_qwest_2_stage == 11 and hour == 7 and char == kupruvna:
                 char.wearingByPurpose('naked')
                         
 # Проверка одежды
