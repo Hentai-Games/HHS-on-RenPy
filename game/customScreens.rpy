@@ -375,7 +375,8 @@ screen showItem:
             text '[myItem.name]' style style.my_text
             $ temp = player.countItems(myItem.name)
             text _('Количество [temp]') style style.my_text
-            text _('Использований [myItem.durability]') style style.my_text
+            if myItem.type != 'present': 
+                text _('Использований [myItem.durability]') style style.my_text
             if myItem.type == 'food':
                 text _('Насыщение [myItem.energy]') style style.my_text
             if myItem.type == 'clothing':
