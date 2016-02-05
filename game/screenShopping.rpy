@@ -59,7 +59,8 @@ screen showSellItem:
             add myItem.picto
             null height 10
             text _('[myItem.name]') style style.my_text
-            text _('Использований [myItem.durability]') style style.my_text
+            if myItem.type != 'present':
+                text _('Использований [myItem.durability]') style style.my_text
             
             if myItem.type == 'food':
                 text _('Насыщение [myItem.energy]') style style.my_text
@@ -89,7 +90,8 @@ screen showSellItem:
                 $ temp_d = player.getItem(myItem.name).durability
                 $ temp_c = player.countItem(myItem.name)
                 text _('В наличии [temp_c] шт.') style style.my_text
-                text _('Использований - [temp_d]') style style.my_text
+                if myItem.type != 'present':
+                    text _('Использований - [temp_d]') style style.my_text
 
 screen sexShopping:
     zorder 1
