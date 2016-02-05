@@ -1018,3 +1018,4 @@ label sniff_chloroform:
         st1.setLust(0)
         hadSex(player,st1)
         move('loc_office')
+        

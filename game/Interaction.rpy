@@ -223,7 +223,7 @@ screen locationPeoplePicto:
                     idle im.FactorScale(x.picto, pictoSize)
                     hover im.FactorScale(x.picto, pictoSize + 0.1)
                     xalign xalig yalign yalig
-                    action [Function(clrscr), SetVariable('reaction', reactionGen(x)), SetVariable('interactionObj', x), Jump(choice(x.getLocationStatus().events))]
+                    action [Function(clrscr), SetVariable('interactionObj', x), Jump(choice(x.getLocationStatus().events))]
                     hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
                     unhovered [Hide('showCharStatusText')]
                     
@@ -240,7 +240,7 @@ screen locationPeoplePicto:
                     elif x == dikovna:
                         actions_list = [Function(clrscr),Jump('intro_dikovna')]
                     else:
-                        actions_list = [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
+                        actions_list = [Function(clrscr), SetVariable('interactionObj', x), Show('show_stat'), Function(showChars)]
                 imagebutton:
                     idle im.FactorScale(x.picto, pictoSize)
                     hover im.FactorScale(x.picto, pictoSize + 0.1)
@@ -253,7 +253,7 @@ screen locationPeoplePicto:
                     idle im.FactorScale(x.picto, pictoSize)
                     hover im.FactorScale(x.picto, pictoSize + 0.1)
                     xalign xalig yalign yalig
-                    action [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
+                    action [Function(clrscr), SetVariable('interactionObj', x), Show('show_stat'), Function(showChars)]
                     hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
                     unhovered [Hide('showCharStatusText')]
                     
