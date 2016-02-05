@@ -122,9 +122,13 @@ init python:
                     if x.getLocationStatus() == stop_status:
                         x.moveToLocation(x.location)
                         continue
-                        
+   
                     x.moveToLocation(None) # Всех выкидываем с локаций
-                    
+                    if mile_qwest_2_stage == 10 and hour == 7 and x == kupruvna:
+                        x.moveToLocation('loc_office')
+                        x.forceLocationStatus(kupruvna_clean_status)
+                        continue
+                        
                     if x in teachers and lt() == 0 and rand(1,3) == 1: # учителя будут тусоваться в учительской
                         x.moveToLocation('loc_teacherRoom')
                         continue
@@ -233,6 +237,9 @@ init python:
                 char.wearingByPurpose('swim')
                 if 'school' in location.position and school.uniform == 'naked':
                     char.undress()
+                    
+            if mile_qwest_2_stage == 10 and hour == 7 and char == kupruvna:
+                char.wearingByPurpose('naked')
                         
 # Проверка одежды
     def checkClothes(location):
