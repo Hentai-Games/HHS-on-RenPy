@@ -529,6 +529,8 @@ label speak:
                 renpy.jump('danokova_bdsm_offer')
             elif mile_qwest_3_stage == 15:
                 renpy.jump('danokova_bdsm_offer_again')
+            elif mile_qwest_3_stage == 17:
+                renpy.jump('danokova_bdsm_action')
             elif mile_qwest_3_stage > 1 and hour > 14 and ptime - work51 > 10 and mile_qwest_3_stage not in [13,15,17]:
                 renpy.jump('danokova_continue')
 

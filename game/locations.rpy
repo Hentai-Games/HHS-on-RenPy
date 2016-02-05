@@ -796,7 +796,10 @@ label loc_office:
         loc_txt = ['Ваш офис. Большой дубовый стол, компьютер - сразу видно, что вы здесь уважаемы.']
         if lt() >= 0 and is_cabbage == 0 and mile_qwest_2_stage > 0:
             loc_txt += ['Вы видите молодого, хорошо одетого мужчину в вашем кабинете.']
+        if mile_qwest_2_stage == 10 and hour == 7:
+            loc_txt += ['Почти голая, не считая чулков, Валентина Купрувна что то протирает в углу вашего кабинета.']
     screen office:
+        zorder -1
         fixed:
             if callup != dummy:
                 imagebutton:
@@ -814,6 +817,9 @@ label loc_office:
 
             if 'splitSystem' in school.furniture:
                 use splitSystem
+            
+            if mile_qwest_2_stage == 10 and hour == 7:
+                add 'pic/locations/school/office/maid.png' at left
     screen splitSystem:
         fixed:
             vbox xalign 0.85 yalign 0.07:
