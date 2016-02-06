@@ -15,7 +15,7 @@ init python:
         global curloc, hour, prevloc, same_loc, defaultSymbol, school, noEventTime, development, interactionObj, mtime, lastEventTime  #объявление глобальных переменных
         if development == 1:    
             player.setEnergy(2000)
-        interactionObj = ''
+        interactionObj = '' # Сбрасываем человека с которым разговаривали
         if renpy.has_label(where) == True: #Проверка на то, что локация существует. Если нет, прыгаем домой.
             renpy.scene(layer='master') # Сброс картинок
             renpy.scene(layer='screens') # Сброс скринов
@@ -54,6 +54,7 @@ init python:
             if  where[:4] == 'loc_': trySpecialEvent(where) # спец эвент
             if len(args) > 0:
                 changetime(args[0])
+
             renpy.jump(where) #Переход на локу
         else:
             renpy.jump('loc_home')
@@ -118,6 +119,7 @@ init python:
                     avaliableLocations.append(x)
             for x in allChars:
                 x.reaction = ''
+ 
                 if x != callup and x not in movedArray and x != interactionObj:
                     if x.getLocationStatus() == stop_status:
                         x.moveToLocation(x.location)
@@ -361,3 +363,7 @@ init python:
             
         if mile_qwest_3_stage < 10:
             danokova.setCorr(min(60, danokova.getCorr()))
+            
+        if callup != '': # Запихиваем ученика назад в офис, если он не там.
+            if callup.getLocation() == None or callup.getLocation().id != 'loc_office':
+                callup.moveToLocation('loc_office')

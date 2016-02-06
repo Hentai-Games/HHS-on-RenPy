@@ -30,7 +30,7 @@ init 10 python:
 
         def __repr__(self):
             return '<{} name: "{}">'.format(self.__class__.__name__,
-                                            self.name.encode('utf-8'))
+                                            self.__name__('ascii','replace'))
 
         def getPeople(self):
             rez = []
@@ -255,7 +255,7 @@ init 10 python:
 
         def __repr__(self):
             return '<{} name: "{}">'.format(self.__class__.__name__,
-                                            self.name.encode('utf-8'))
+                                            self.name.encode('ascii','replace'))
 
 
     def getLoc(id):
@@ -796,7 +796,7 @@ label loc_office:
         loc_txt = ['Ваш офис. Большой дубовый стол, компьютер - сразу видно, что вы здесь уважаемы.']
         if lt() >= 0 and is_cabbage == 0 and mile_qwest_2_stage > 0:
             loc_txt += ['Вы видите молодого, хорошо одетого мужчину в вашем кабинете.']
-        if mile_qwest_2_stage == 10 and hour == 7:
+        if mile_qwest_2_stage == 11 and hour == 7:
             loc_txt += ['Почти голая, не считая фартука, Валентина Купрувна что то протирает в углу вашего кабинета.']
     screen office:
         zorder -1
@@ -818,7 +818,7 @@ label loc_office:
             if 'splitSystem' in school.furniture:
                 use splitSystem
             
-            if mile_qwest_2_stage == 10 and hour == 7:
+            if mile_qwest_2_stage == 11 and hour == 7:
                 add 'pic/locations/school/office/maid.png' at left
     screen splitSystem:
         fixed:

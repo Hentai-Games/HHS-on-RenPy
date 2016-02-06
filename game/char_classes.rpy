@@ -1,5 +1,5 @@
 init -20 python:
-    import copy
+    import copy, codecs
     from random import choice
     from operator import itemgetter, attrgetter, methodcaller
 
@@ -837,7 +837,7 @@ init -20 python:
         def __repr__(self):
             return ('<{} name: "{}", sex: "{}">'
                     .format(self.__class__.__name__,
-                            self.name.encode('utf-8'),
+                            self.name.encode('aciii','replace'),
                             self.sex))
 
 # End class Char definition
