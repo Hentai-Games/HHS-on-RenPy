@@ -837,7 +837,7 @@ init -20 python:
         def __repr__(self):
             return ('<{} name: "{}", sex: "{}">'
                     .format(self.__class__.__name__,
-                            self.name.encode('aciii','replace'),
+                            self.name.encode('utf-8'),
                             self.sex))
 
 # End class Char definition

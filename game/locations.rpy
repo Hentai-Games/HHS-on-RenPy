@@ -30,7 +30,7 @@ init 10 python:
 
         def __repr__(self):
             return '<{} name: "{}">'.format(self.__class__.__name__,
-                                            self.__name__('ascii','replace'))
+                                            self.__name__('utf-8'))
 
         def getPeople(self):
             rez = []
@@ -255,7 +255,7 @@ init 10 python:
 
         def __repr__(self):
             return '<{} name: "{}">'.format(self.__class__.__name__,
-                                            self.name.encode('ascii','replace'))
+                                            self.name.encode('utf-8'))
 
 
     def getLoc(id):
