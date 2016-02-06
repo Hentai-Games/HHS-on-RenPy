@@ -272,7 +272,7 @@ screen showCharStatusText:
 
 screen show_stat:
     tag interface
-    if curloc != interactionObj.getLocation().id:
+    if interactionObj.getLocation() == None or curloc != interactionObj.getLocation().id:
         on 'show' action Jump('leave')
     fixed xpos 0.01 ypos 0.01:
         vbox:
