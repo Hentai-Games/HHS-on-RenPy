@@ -68,5 +68,5 @@ init -50 python:
         def __repr__(self):
             return ('<{}: "{}", sex: {}, loy: {}, corr: {}, rep: {}>'
                     .format(self.__class__.__name__,
-                            self.name.encode('ascii','replace'),
+                            self.name.encode('utf-8'),
                             self.sex, self.loy, self.corr, self.reputation))

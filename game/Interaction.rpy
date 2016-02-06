@@ -192,32 +192,6 @@ screen locationPeoplePicto:
             $ pictoSize = 0.5
             if x in highlightP:
                 $ pictoSize += 0.1
-            # python:
-                # actions_list = [Function(clrscr),
-                                # SetVariable('interactionObj', x),
-                                # SetVariable('reaction', reactionGen(x))]
-                                
-                # if x.getLocationStatus() and x.getLocationStatus().events:
-                    # actions_list.append(Jump(choice(x.getLocationStatus()
-                                                     # .events)))
-
-                # else:
-                    # if x in teachers and x not in teacher_intro:
-                        # if x == kupruvna:
-                            # actions_list += [Jump('intro_kupruvna')]
-                        # elif x == danokova:
-                            # actions_list += [Jump('intro_danokova')]
-                        # elif x == frigidovna:
-                            # actions_list += [Jump('intro_frigidovna')]
-                        # elif x == bissektrisovna:
-                            # actions_list += [Jump('intro_bissektrisovna')]
-                        # elif x == dikovna:
-                            # actions_list += [Jump('intro_dikovna')]
-                        # else:
-                            # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
-                    # else:
-                        # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
-                        
             if x.getLocationStatus() and x.getLocationStatus().events:
                 imagebutton:
                     idle im.FactorScale(x.picto, pictoSize)
@@ -315,7 +289,6 @@ screen show_stat:
     fixed xpos 0.99 ypos 0.1 :
         vbox:
             xanchor 0.98
-
             if lt() != -4 and curloc == interactionObj.getLocation().id:
                 if interactionObj in studs:
                     if interactionObj not in highlightP:
