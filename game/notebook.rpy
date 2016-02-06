@@ -296,8 +296,12 @@ screen journal:
                     text _('Я достала хлороформ!')
                     if player.hasItem(rope.name):
                         text _('И верёвку!')
+                    else:
+                        text _('Нужна верёвка.')
                     if player.hasItem(bdsmUniform.name):
                         text _('И костюм!')
+                    else:
+                        text _('Нужно достать БДСМ костюм.')
                     if player.hasItem(bdsmUniform.name) and player.hasItem(rope.name):
                         text _('В общем всё, что необходимо. Пора обратиться к учительнице!')
                 elif mile_qwest_3_stage == 51:
