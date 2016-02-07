@@ -373,6 +373,9 @@ screen showItem:
             add myItem.picto
             null height 10
             text '[myItem.name]' style style.my_text
+            if myItem.type == 'clothing':
+                frame style style.peopleTextList xsize 200:
+                    text _('[myItem.description]') style style.my_text
             $ temp = player.countItems(myItem.name)
             text _('Количество [temp]') style style.my_text
             if myItem.type != 'present': 
@@ -413,7 +416,7 @@ screen wardrobe:
         tab_rows = round(float(len(tab_i))/float(tab_cols) +0.45)
         tab_n = (tab_rows*tab_cols) - len(tab_i)
     side "c r":
-        area (250, 40, 580, 500)
+        area (250, 40, 580, 700)
         viewport:
             yadjustment adj
             mousewheel True
@@ -446,7 +449,7 @@ screen wardrobe:
                         textbutton x.name action [Function( player.dewearing, x ), Show ('wardrobe')] hovered [SetVariable('myItem', x), Show('showItem')] unhovered Hide ('showItem')
                     textbutton _('Раздеться') action [Function( player.undress ), Show ('wardrobe')]
                     
-    fixed xpos 0.01 ypos 0.7:
+    fixed xpos 0.7 ypos 0.7:
         frame :
             vbox :
                 text 'Сеты'
@@ -460,8 +463,8 @@ screen wardrobe:
                         
 screen showSet:
     zorder 1
-    fixed xpos 0.2 ypos 0.7:
-        frame:
+    fixed xpos 0.7 ypos 0.68:
+        frame yanchor 1.0:
             vbox:
                 for x in mySet:
                     text x
