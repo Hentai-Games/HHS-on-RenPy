@@ -149,6 +149,7 @@ init 11 python:
     
     # Прочие локации и действия
     medexam_status = LocationStatus('Проходит медосмотр', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50),'lust':(1,70)})
+    kupruvna_clean_status = LocationStatus('Убирается', None, 'any', char_type = 'teacher', events = ['status_kupruvna_clean'], stats_actions = {'lust':(5,100)})
     
     # Клубы
     sport_status = LocationStatus('Занимается спортом', None, 'any', char_type = 'student', stats_actions = {'fun':(1,50)})
@@ -783,5 +784,26 @@ label status_public_sex: # Incomplete. Male-futa. Female-futa. Futa-futa. Female
     else:
         'Вы наблюдаете, как [interactionObj.name] и [interactionObj.partner.name] неистово спариваются у всех на глазах.'
     $ player.incLust(20)
-    $ changetime(10)
-    $ move(curloc)
+    $ move(curloc, 10)
+
+label status_kupruvna_clean:
+    if kupruvna.getLust() < 80:
+        show expression ('pic/status/clean1.jpg') as tempPic:
+            xalign 1.0 yalign 0.0
+            ease  10.0 yalign 1.0
+            ease  10.0 yalign 0.0
+            repeat
+        'Видя, что вы на неё смотрите, [kupruvna.name] присела.'
+        kupruvna.say 'Вы что то от меня хотели, [player.name]?'
+        player.say 'Нет нет. Ничего, пожалуйста, продолжайте уборку, мне не терпится вновь полюбоваться вашей задницей.'
+        'Румянец стыда вспыхивает на щеках учительницы, но она вновь берёт тряпку и принимаетcя за уборку.'
+    else:
+        show expression ('pic/status/clean2.jpg') as tempPic
+        player.say '[kupruvna.name]! Ну нельзя же так себя изводить! - с улыбкой говорите вы учительнице, которая несмотря на красное от стыда лицо мастурбирует прямо у вас в кабинете.'
+        'Её пальчики раздвинули киску, из которой немедленно выплеснулась изрядная порция смазки.'
+        kupruvna.say 'Пожалуйста!'
+        player.say 'Что пожалуйста? Плохо без крепкого члена сыночка, а?'
+        player.say 'Давай, заканчивай со своими ласками, а потом приберись за собой!'
+    $ player.incLust(10)
+    $ move(curloc, 15)
+    
