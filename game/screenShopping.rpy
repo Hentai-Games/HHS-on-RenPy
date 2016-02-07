@@ -59,6 +59,9 @@ screen showSellItem:
             add myItem.picto
             null height 10
             text _('[myItem.name]') style style.my_text
+            if myItem.type == 'clothing':
+                frame style style.peopleTextList xsize 200:
+                    text _('[myItem.description]') style style.my_text
             if myItem.type != 'present':
                 text _('Использований [myItem.durability]') style style.my_text
             
