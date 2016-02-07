@@ -192,38 +192,12 @@ screen locationPeoplePicto:
             $ pictoSize = 0.5
             if x in highlightP:
                 $ pictoSize += 0.1
-            # python:
-                # actions_list = [Function(clrscr),
-                                # SetVariable('interactionObj', x),
-                                # SetVariable('reaction', reactionGen(x))]
-                                
-                # if x.getLocationStatus() and x.getLocationStatus().events:
-                    # actions_list.append(Jump(choice(x.getLocationStatus()
-                                                     # .events)))
-
-                # else:
-                    # if x in teachers and x not in teacher_intro:
-                        # if x == kupruvna:
-                            # actions_list += [Jump('intro_kupruvna')]
-                        # elif x == danokova:
-                            # actions_list += [Jump('intro_danokova')]
-                        # elif x == frigidovna:
-                            # actions_list += [Jump('intro_frigidovna')]
-                        # elif x == bissektrisovna:
-                            # actions_list += [Jump('intro_bissektrisovna')]
-                        # elif x == dikovna:
-                            # actions_list += [Jump('intro_dikovna')]
-                        # else:
-                            # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
-                    # else:
-                        # actions_list += [Show('show_stat'), Function(showChars)]    #, Function(changetime, 1)]
-                        
             if x.getLocationStatus() and x.getLocationStatus().events:
                 imagebutton:
                     idle im.FactorScale(x.picto, pictoSize)
                     hover im.FactorScale(x.picto, pictoSize + 0.1)
                     xalign xalig yalign yalig
-                    action [Function(clrscr), SetVariable('reaction', reactionGen(x)), SetVariable('interactionObj', x), Jump(choice(x.getLocationStatus().events))]
+                    action [Function(clrscr), SetVariable('interactionObj', x), Jump(choice(x.getLocationStatus().events))]
                     hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
                     unhovered [Hide('showCharStatusText')]
                     
@@ -240,7 +214,7 @@ screen locationPeoplePicto:
                     elif x == dikovna:
                         actions_list = [Function(clrscr),Jump('intro_dikovna')]
                     else:
-                        actions_list = [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
+                        actions_list = [Function(clrscr), SetVariable('interactionObj', x), Show('show_stat'), Function(showChars)]
                 imagebutton:
                     idle im.FactorScale(x.picto, pictoSize)
                     hover im.FactorScale(x.picto, pictoSize + 0.1)
@@ -253,7 +227,7 @@ screen locationPeoplePicto:
                     idle im.FactorScale(x.picto, pictoSize)
                     hover im.FactorScale(x.picto, pictoSize + 0.1)
                     xalign xalig yalign yalig
-                    action [Function(clrscr), SetVariable('interactionObj', x), SetVariable('reaction', reactionGen(x)), Show('show_stat'), Function(showChars)]
+                    action [Function(clrscr), SetVariable('interactionObj', x), Show('show_stat'), Function(showChars)]
                     hovered [SetVariable('showHover', x), Show('charInfoLeft'),Show('showCharStatusText')]
                     unhovered [Hide('showCharStatusText')]
                     
@@ -272,6 +246,8 @@ screen showCharStatusText:
 
 screen show_stat:
     tag interface
+    if interactionObj.getLocation() == None or curloc != interactionObj.getLocation().id:
+        on 'show' action Jump('leave')
     fixed xpos 0.01 ypos 0.01:
         vbox:
             add interactionObj.picto
@@ -313,7 +289,7 @@ screen show_stat:
     fixed xpos 0.99 ypos 0.1 :
         vbox:
             xanchor 0.98
-            if lt() != -4:
+            if lt() != -4 and curloc == interactionObj.getLocation().id:
                 if interactionObj in studs:
                     if interactionObj not in highlightP:
                         textbutton 'Замечать' xminimum 200 action [Function(addHighlight,interactionObj), Show('show_stat')]
@@ -345,10 +321,10 @@ screen show_stat:
                 textbutton 'Подарить' xminimum 200 :
                     action Show('popup_s')
                     hovered [SetVariable('tooltip', 'gift_t'), Function(popap_pos, 'p')]
-                textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
-                key "game_menu" action Function(move,curloc)
-                if development == 1:
-                    textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
+            textbutton 'Попрощаться' xminimum 200 action Function(move,curloc)
+            key "game_menu" action Function(move,curloc)
+            if development == 1:
+                textbutton 'Карманы' xminimum 200 action Show('inventory_clothing_char')
             null height 10
             text '{u}Вы видите\nу собеседника:{/u}'style style.param xsize 200 text_align 0.5 xalign 0.5
             null height 10
@@ -529,6 +505,8 @@ label speak:
                 renpy.jump('danokova_bdsm_offer')
             elif mile_qwest_3_stage == 15:
                 renpy.jump('danokova_bdsm_offer_again')
+            elif mile_qwest_3_stage == 17:
+                renpy.jump('danokova_bdsm_action')
             elif mile_qwest_3_stage > 1 and hour > 14 and ptime - work51 > 10 and mile_qwest_3_stage not in [13,15,17]:
                 renpy.jump('danokova_continue')
 
@@ -586,6 +564,12 @@ label use_aphrodisiac:
         player.apply(myItem.name)
         aphroUsedArr.append(interactionObj)
     call screen show_stat
+###########################################################################################################################
+label leave:
+    $ clrscr()
+    interactionObj.say 'Простите, мне пора.'
+    '[interactionObj.name] прощается с вами и уходит.'
+    $ move(curloc)
 ###########################################################################################################################
 label reputation:
     show office

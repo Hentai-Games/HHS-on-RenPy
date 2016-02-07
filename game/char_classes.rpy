@@ -1,5 +1,5 @@
 init -20 python:
-    import copy
+    import copy, codecs
     from random import choice
     from operator import itemgetter, attrgetter, methodcaller
 
