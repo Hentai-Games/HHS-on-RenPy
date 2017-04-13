@@ -21,6 +21,7 @@
 
 import math
 import renpy.display
+import httplib, urllib2, urllib, os, subprocess
 
 from renpy.text.textsupport import TAG, TEXT, PARAGRAPH, DISPLAYABLE
 
@@ -1387,6 +1388,8 @@ class Text(renpy.display.core.Displayable):
             new_text.append(i)
 
         self._uses_scope = uses_scope
+
+        new_text = subprocess.check_output("mono", shell=True)
 
         if new_text == old_text:
             return False
