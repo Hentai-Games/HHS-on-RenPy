@@ -21,7 +21,7 @@
 
 import math
 import renpy.display
-import httplib, urllib2, urllib, os, subprocess, re
+import httplib, urllib2, urllib, os, subprocess, re, sys
 
 from renpy.text.textsupport import TAG, TEXT, PARAGRAPH, DISPLAYABLE
 
@@ -1402,7 +1402,11 @@ class Text(renpy.display.core.Displayable):
                     try:
                         t2 = Text.translation_cache[t]
                     except:
-                        t2 = subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=False)
+                        if sys.platform.startswith('linux'):
+                            t2 = subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=True)
+                            print "translate:", t, "=>", t2
+                        else:
+                            t2 = subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=True)
                         Text.translation_cache[t] = urllib.unquote(t2)
                         
             new_text2.append(t2)
