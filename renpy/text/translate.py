@@ -6,6 +6,7 @@ class TranslationCache:
 
     filename_cache = 'translation-cache.csv'
     cache = {}
+    run_msbuild = True
 
     def __init__(self):
         self.load_cache()
@@ -23,6 +24,9 @@ class TranslationCache:
         if sys.platform.startswith('linux'):
             print "loaded cache:"
             print json.dumps(TranslationCache.cache)
+            
+            if TranslationCache.run_msbuild:
+                subprocess.call("msbuild translator/RenpyTranslate/", shell=True)
 
     def save_cache(self):
         with open(TranslationCache.filename_cache, 'w') as f:
