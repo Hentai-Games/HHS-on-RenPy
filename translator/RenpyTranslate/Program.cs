@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
+using System.Threading;
 
 namespace RenpyTranslate
 {
@@ -28,6 +29,7 @@ namespace RenpyTranslate
                 {
                     translationCache = JsonConvert.DeserializeObject< Dictionary<string,string>>(File.ReadAllText(fileCache));
                 }
+                args[0] = WebUtility.UrlDecode(args[0]);
                 var textRussian = string.Join(" ", args);
                 File.AppendAllText(LOGFILE, DateTime.Now.ToString("yyyyMMdd HHmmss") + ": \"" + textRussian + "\"\n");
 
@@ -39,7 +41,7 @@ namespace RenpyTranslate
                 {
                     var textEnglish = TranslateString(textRussian);
                     translationCache[textRussian] = textEnglish;
-                    Console.Write(textEnglish?.Trim());
+                    Console.Write(WebUtility.UrlEncode(textEnglish?.Trim()));
                 }
                 File.WriteAllText(fileCache, JsonConvert.SerializeObject(translationCache, Formatting.Indented));
             }
@@ -54,6 +56,7 @@ namespace RenpyTranslate
             ru = ru.Replace("\\\"", "\"");
             var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ru&tl=en&dt=t";
             WebClient client = new WebClient();
+            Thread.Sleep(500);
             client.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0");
             var json = client.UploadString(url, "q=" + WebUtility.UrlEncode(ru));
             //Console.WriteLine("url: " + url);
