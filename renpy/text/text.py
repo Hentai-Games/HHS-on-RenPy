@@ -22,6 +22,7 @@
 import math
 import renpy.display
 import httplib, urllib2, urllib, os, subprocess, re, sys
+import traceback
 
 from renpy.text.textsupport import TAG, TEXT, PARAGRAPH, DISPLAYABLE
 
@@ -29,6 +30,7 @@ import renpy.text.textsupport as textsupport
 import renpy.text.texwrap as texwrap
 import renpy.text.font as font
 import renpy.text.extras as extras
+import renpy.text.translate as RenpyTranslate
 
 try:
     from _renpybidi import log2vis, WRTL, RTL, ON
@@ -1242,7 +1244,7 @@ VERT_FORWARD = renpy.display.render.Matrix2D(0, 1, -1, 0)
 
 class Text(renpy.display.core.Displayable):
 
-    translation_cache = {}
+    translation_cache = RenpyTranslate.TranslationCache()
 
     """
     :doc: text
@@ -1367,6 +1369,9 @@ class Text(renpy.display.core.Displayable):
 
     def set_text(self, text, scope=None, substitute=False, update=True):
 
+        #if sys.platform.startswith('linux'):
+        #    traceback.print_stack()
+
         old_text = self.text
 
         if not isinstance(text, list):
@@ -1397,18 +1402,7 @@ class Text(renpy.display.core.Displayable):
         for t in new_text:
             t2 = t
             if isinstance(t, basestring):
-                if re.search(ur"[\u0400-\u04FF]", t, flags=re.U):
-                    t = t.strip()
-                    try:
-                        t2 = Text.translation_cache[t]
-                    except:
-                        if sys.platform.startswith('linux'):
-                            t2 = subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=True)
-                            print "translate:", t, "=>", t2
-                        else:
-                            t2 = subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=True)
-                        Text.translation_cache[t] = urllib.unquote(t2)
-                        
+                t2 = Text.translation_cache.get_translation(t)
             new_text2.append(t2)
         new_text = new_text2
 
@@ -1436,6 +1430,9 @@ class Text(renpy.display.core.Displayable):
         This needs to be called after text has been updated, but before
         any layout objects are created.
         """
+
+        #if sys.platform.startswith('linux'):
+        #    traceback.print_stack()
 
         self.dirty = False
 
