@@ -21,7 +21,6 @@
 
 import math
 import renpy.display
-import httplib, urllib2, urllib, os, subprocess, re
 
 from renpy.text.textsupport import TAG, TEXT, PARAGRAPH, DISPLAYABLE
 
@@ -1242,8 +1241,6 @@ VERT_FORWARD = renpy.display.render.Matrix2D(0, 1, -1, 0)
 
 class Text(renpy.display.core.Displayable):
 
-    translation_cache = {}
-
     """
     :doc: text
     :args: (text, slow=None, scope=None, substitute=None, slow_done=None, **properties)
@@ -1390,23 +1387,6 @@ class Text(renpy.display.core.Displayable):
             new_text.append(i)
 
         self._uses_scope = uses_scope
-
-        new_text2 = []
-        if not isinstance(new_text, list):
-            new_text = [ new_text ]
-        for t in new_text:
-            t2 = t
-            if isinstance(t, basestring):
-                if re.search(ur"[\u0400-\u04FF]", t, flags=re.U):
-                    t = t.strip()
-                    try:
-                        t2 = Text.translation_cache[t]
-                    except:
-                        t2 = subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=False)
-                        Text.translation_cache[t] = urllib.unquote(t2)
-                        
-            new_text2.append(t2)
-        new_text = new_text2
 
         if new_text == old_text:
             return False
