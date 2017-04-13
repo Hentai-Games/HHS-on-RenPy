@@ -40,7 +40,7 @@ translate english event_loc_pool_0_no3_3e5d9459:
 translate english event_loc_pool_0_no4_87037294:
 
     # "[st1.fname] сейчас расплачется, из за того, что проиграла водную гонку своей подруге. Вы замечаете, что [st1.fname] похоже не сильно обрадована своим выигрышем."
-    "[St1.fname] is now crying, due to the fact that she lost the water race to her friend.  You notice that [st1.fname] does not seem to be very pleased with your winnings."
+    "[St1.fname] is now crying, due to the fact that she lost the water race to her friend.  You notice that [St1.fname] does not seem to be very pleased with your winnings."
 
 # game/events/rEventsPool.rpy:54
 translate english event_loc_pool_0_no4_d6970a04:
@@ -70,7 +70,7 @@ translate english event_loc_pool_0_no6_ce25bc9c:
 translate english event_loc_pool_0_no7_66a5d6cd:
 
     # "[st1.fname] и [st2.fname] играют в \"кто просидит дольше под водой\". И дураку понятно, что [st1.fname] не имеет никаких шансов на выигрышь. Чтобы дело не закончилось утоплением, вы выдурнули её из воды, и посоветовали не играть в подобные игры."
-    "[St1.fname] and [st2.fname] play \"who will sit longer under water\".  And it's clear to the fool that [st1.fname] has no chance of winning.  In order not to end the drowning, you fucked it out of the water, and advised not to play in such games."
+    "[St1.fname] and [st2.fname] play \"who will sit longer under water\".  And it's clear to the fool that [St1.fname] has no chance of winning.  In order not to end the drowning, you fucked it out of the water, and advised not to play in such games."
 
 # game/events/rEventsPool.rpy:119
 translate english event_loc_pool_30_low1_c80da402:
@@ -118,7 +118,7 @@ translate english event_loc_pool_20_low4_843b02cd:
 translate english event_loc_pool_20_low4_53ed2a61:
 
     # "[st1.fname] доигралась до того, что смущённый [st1.fname], пряча ото всех свой вставший член поспешил скрыться в раздевалке."
-    "[St1.fname] played up to the fact that the confused [st1.fname], hiding from all his risen member hurried to hide in the locker room."
+    "[St1.fname] played up to the fact that the confused [St1.fname], hiding from all his risen member hurried to hide in the locker room."
 
 # game/events/rEventsPool.rpy:200
 translate english event_loc_pool_50_mid1_dcd7f981:

@@ -604,7 +604,7 @@ translate english event_loc_entrance_15_11_3f9c5552:
 translate english event_loc_entrance_25_12_5a62f007:
 
     # player.say "[st1.fname]! - окликнули вы девушку и дождались, пока она подойдёт своей странной походкой, - Я даже не спрашиваю, [st1.fname], куда подевались твои трусики, но что, прости меня пожалуйста, стекает по твоей ляжке, можешь объяснить?"
-    player.say "[St1.fname]!  - you called the girl and waited until she came up with her strange gait. - I do not even ask [st1.fname], where your panties were, but what, please forgive me, flows down your thigh, can you explain?"
+    player.say "[St1.fname]!  - you called the girl and waited until she came up with her strange gait. - I do not even ask [St1.fname], where your panties were, but what, please forgive me, flows down your thigh, can you explain?"
 
 # game/events/rEventsEntrance.rpy:397
 translate english event_loc_entrance_25_12_cc1b67cf:

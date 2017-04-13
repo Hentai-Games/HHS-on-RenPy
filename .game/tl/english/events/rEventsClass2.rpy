@@ -220,7 +220,7 @@ translate english event_loc_class2_0_3_2ee9389a:
 translate english event_loc_class2_0_4_6e75d773:
 
     # "[st2.fname] решила сделать массаж плеч подруге. Вы не думаете, что [st2.fname] против данного внимания, так что вам тут делать нечего."
-    "[St2.fname] decided to do a shoulder massage to her friend.  You do not think that [st2.fname] is against this attention, so you have nothing to do here."
+    "[St2.fname] decided to do a shoulder massage to her friend.  You do not think that [St2.fname] is against this attention, so you have nothing to do here."
 
 # game/events/rEventsClass2.rpy:118
 translate english event_loc_class2_0_4_d796266c:

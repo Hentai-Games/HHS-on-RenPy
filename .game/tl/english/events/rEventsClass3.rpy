@@ -340,7 +340,7 @@ translate english event_loc_class3_30_lo1_3c5c8515:
 translate english event_loc_class3_30_lo1_201f3f0a:
 
     # player.say "[st1.fname], [st1.fname]... Куда ты? - испуганно спросили вы ученицу, когда та вдруг подняла вашу юбочку, и залезла языком прямо в киску"
-    player.say "[St1.fname], [st1.fname] ... Where are you going?  - You asked the student frightenedly, when she suddenly lifted your skirt, and got her tongue right into her pussy"
+    player.say "[St1.fname], [St1.fname] ... Where are you going?  - You asked the student frightenedly, when she suddenly lifted your skirt, and got her tongue right into her pussy"
 
 # game/events/rEventsClass3.rpy:190
 translate english event_loc_class3_30_lo1_d52204d8:

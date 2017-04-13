@@ -34,7 +34,7 @@ translate english event_loc_changeRoom_0_no2_45247900:
 translate english event_loc_changeRoom_8_no3_91099ceb:
 
     # "[st1.fname] переодевается после бассейна. Судя по всему, занятие было неудачным, и она чем то расстроена. Вы поболтали с ней, чтобы немного утешить. Всё это время [st1.fname] так и стояла с открытой грудью."
-    "[St1.fname] is changed after the pool.  Apparently, the occupation was unsuccessful, and she is somewhat upset.  You chatted with her to comfort her.  All this time [st1.fname] and stood with an open chest."
+    "[St1.fname] is changed after the pool.  Apparently, the occupation was unsuccessful, and she is somewhat upset.  You chatted with her to comfort her.  All this time [St1.fname] and stood with an open chest."
 
 # game/events/rEventsChangeRoom.rpy:48
 translate english event_loc_changeRoom_8_no3_67ea1d9a:
