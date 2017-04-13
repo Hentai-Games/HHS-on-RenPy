@@ -21,7 +21,7 @@
 
 import math
 import renpy.display
-import httplib, urllib2, urllib, os, subprocess
+import httplib, urllib2, urllib, os, subprocess, re
 
 from renpy.text.textsupport import TAG, TEXT, PARAGRAPH, DISPLAYABLE
 
@@ -1396,12 +1396,16 @@ class Text(renpy.display.core.Displayable):
             new_text = [ new_text ]
         for t in new_text:
             if isinstance(t, basestring):
-                try:
-                    t = Text.translation_cache[t]
-                except:
-                    t2 = subprocess.check_output("mono translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" + t.replace("\"", "'") + "\"", shell=True)
-                    Text.translation_cache[t] = t2
-                    new_text2.append(t2)
+                if re.search(ur"[\u0400-\u04FF]", t, flags=re.U):
+                    try:
+                        t = Text.translation_cache[t]
+                    except:
+                        print "translate:", t
+                        t2 = subprocess.check_output("mono translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" + t.replace("\"", "'") + "\"", shell=True)
+                        Text.translation_cache[t] = t2
+                        new_text2.append(t2)
+                else:
+                    new_text2.append(t)
             else:
                 new_text2.append(t)
         new_text = new_text2
