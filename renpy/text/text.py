@@ -876,8 +876,7 @@ class Layout(object):
                 tss.pop()
 
                 if not tss:
-                    pass
-                    #raise Exception("%r closes a text tag that isn't open." % text)
+                    raise Exception("%r closes a text tag that isn't open." % text)
 
             elif tag == "_start":
                 fs = FlagSegment()
@@ -1024,8 +1023,7 @@ class Layout(object):
                 pass
 
             else:
-                pass
-                # raise Exception("Unknown text tag %r" % text)
+                raise Exception("Unknown text tag %r" % text)
 
         # If the line is empty, fill it with a space.
         fill_empty_line()
@@ -1404,9 +1402,9 @@ class Text(renpy.display.core.Displayable):
                     try:
                         t2 = Text.translation_cache[t]
                     except:
-                        t2 = subprocess.check_output("mono translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" + t.replace("\n", " ").replace("\"", "'") + "\"", shell=True)
-                        Text.translation_cache[t] = t2
-                        print "translate:", t, "=>", t2
+                        t2 = subprocess.check_output("tutorial/game/translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=False)
+                        Text.translation_cache[t] = urllib.unquote(t2)
+                        
             new_text2.append(t2)
         new_text = new_text2
 
