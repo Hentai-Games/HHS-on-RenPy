@@ -4,7 +4,7 @@
 translate english event_loc_office_30_m1_556faa2b:
 
     # "[st1.fname] Услышав странные звуки возле кабинета, вы неударжались и заглянули в него. Вызванный вами [st1.fname] сидел за компьютером и яростно надрачивал свой небольшой член."
-    "[St1.fname] Hearing strange sounds near the cabinet, you did not take it hard and looked into it.  The [st1.fname] you called was sitting at the computer and furiously screwing up your little dick."
+    "[St1.fname] Hearing strange sounds near the cabinet, you did not take it hard and looked into it.  The [St1.fname] you called was sitting at the computer and furiously screwing up your little dick."
 
 # game/events/rEventsOffice.rpy:12
 translate english event_loc_office_30_m1_98634a03:

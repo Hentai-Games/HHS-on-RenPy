@@ -1264,7 +1264,7 @@ translate english danokova_office_sex_69_12245776:
 translate english danokova_office_sex_69_1bb41a72:
 
     # "[d.fname] активно работала языком и головой, обрабатывая пульсирующий во рту орган. [st1.fname] не отставал, и с юношеским энтузиазмом отдавался новому делу, вылизывая молодую учительницу. Он наконец то заметил, что [st1.fname] смешно вздрагивает, когда его язык касается маленького бугорка под капюшончиком, и сосредоточил всё своё внимание на нём."
-    "[D.fname] actively worked with the tongue and head, processing the pulsing organ in the mouth.  [St1.fname] did not lag behind, and with youthful enthusiasm gave himself up to a new cause, licking a young teacher.  He finally noticed that [st1.fname] jerks funny when his tongue touches the small hump under the hood, and has focused all his attention on him."
+    "[D.fname] actively worked with the tongue and head, processing the pulsing organ in the mouth.  [St1.fname] did not lag behind, and with youthful enthusiasm gave himself up to a new cause, licking a young teacher.  He finally noticed that [St1.fname] jerks funny when his tongue touches the small hump under the hood, and has focused all his attention on him."
 
 # game/events/qwestDanokova.rpy:429
 translate english danokova_office_sex_69_7fec324f:

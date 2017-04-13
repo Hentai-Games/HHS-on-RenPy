@@ -562,7 +562,7 @@ translate english event_loc_beach_30_15_cb3b39fb:
 translate english event_loc_beach_30_15_fe482e02:
 
     # "Видя, что Вы не против, [st1.fname] снимает с себя абсолютно всё, и ложиться отдыхать на шезлонг. Мда, возможно вы погорячились с согласием. [st1.fname], своим шикарным телом, привлекла к себе не только ваш взгляд."
-    "Seeing that you do not mind, [st1.fname] takes off everything, and go to rest on a chaise longue.  Hmm, maybe you got excited with it.  [St1.fname], with its chic body, attracted not only your view."
+    "Seeing that you do not mind, [st1.fname] takes off everything, and go to rest on a chaise longue.  Hmm, maybe you got excited with it.  [st1.fname], with its chic body, attracted not only your view."
 
 # game/events/rEventsBeach.rpy:588
 translate english event_loc_beach_30_15_567b710f:

@@ -238,7 +238,7 @@ translate english event_loc_wcf_40_mid1_a2afa9db:
 translate english event_loc_wcf_40_mid1_6610ad97:
 
     # st2.say "[st1.fname], ну что ты делаешь, [st1.fname], хи-хи-хи."
-    st2.say "[St1.fname], what are you doing, [st1.fname], hee-hee-hee."
+    st2.say "[St1.fname], what are you doing, [St1.fname], hee-hee-hee."
 
 # game/events/rEventsWCF.rpy:156
 translate english event_loc_wcf_40_mid1_46f6d5fa:

@@ -46,7 +46,7 @@ translate english event_loc_gym_0_no2_950912f2:
 translate english event_loc_gym_0_no3_6c1bdc5b:
 
     # "[st1.fname] делает упражнения по лёгкой атлетике. Вообще, для занятий подобным придумали пуанты, но [st1.fname] их почему-то не носит."
-    "[St1.fname] does exercises in athletics.  In general, for training like invented Pointe shoes, but [st1.fname] for some reason does not carry them."
+    "[St1.fname] does exercises in athletics.  In general, for training like invented Pointe shoes, but [St1.fname] for some reason does not carry them."
 
 # game/events/rEventsGym.rpy:49
 translate english event_loc_gym_0_no3_06948058:
@@ -268,7 +268,7 @@ translate english event_loc_gym_0_no9_7234d36d:
 translate english event_loc_gym_0_no10_66bc6682:
 
     # "[st1.fname] делает растяжку. [st1.fname] растяжку делает. Делает растяжку [st1.fname]. Я готова сколь угодно долго переставлять слова, но суть от этого не меняется - [st1.fname] делает растяжку."
-    "[St1.fname] does the stretching.  [St1.fname] does the stretching.  It does the stretching [st1.fname].  I am ready to rearrange words for as long as I like, but the essence of this does not change - [st1.fname] does stretching."
+    "[St1.fname] does the stretching.  [St1.fname] does the stretching.  It does the stretching [St1.fname].  I am ready to rearrange words for as long as I like, but the essence of this does not change - [St1.fname] does stretching."
 
 # game/events/rEventsGym.rpy:212
 translate english event_loc_gym_0_no10_864e71c1:
