@@ -27,15 +27,15 @@ namespace RenpyTranslate
             var textRussian = string.Join(" ", args);
             if (translationCache.ContainsKey(textRussian))
             {
-                Console.WriteLine(translationCache[textRussian]);
+                Console.Write(translationCache[textRussian]?.Trim());
             }
             else
             {
                 var textEnglish = TranslateString(textRussian);
                 translationCache[textRussian] = textEnglish;
-                Console.WriteLine(textEnglish);
+                Console.Write(textEnglish?.Trim());
             }
-            File.WriteAllText(fileCache, JsonConvert.SerializeObject(translationCache));
+            File.WriteAllText(fileCache, JsonConvert.SerializeObject(translationCache, Formatting.Indented));
         }
 
         public static string TranslateString(string ru)
@@ -45,7 +45,7 @@ namespace RenpyTranslate
             WebClient client = new WebClient();
             client.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0");
             var json = client.UploadString(url, "q=" + WebUtility.UrlEncode(ru));
-            Console.WriteLine("url: " + url);
+            //Console.WriteLine("url: " + url);
             var english = new List<string>();
             foreach (var y in JsonConvert.DeserializeObject<dynamic>(json)[0])
             {
