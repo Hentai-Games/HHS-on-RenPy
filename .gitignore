@@ -67,3 +67,4 @@ log.txt
 game/pic
 renpy-*-sdk/
 game/saves/persistent
+*.original.rpy
