@@ -75,3 +75,6 @@ traceback.txt
 translation.log
 errors.txt
 log.txt
+/.vs
+*.pyo
+*.rpymc
