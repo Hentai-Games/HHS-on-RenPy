@@ -454,7 +454,7 @@ translate english intro_bissektrisovna_afeb076b:
 translate english intro_bissektrisovna_4bc8dd4d:
 
     # b.say "Ну разумеется! У меня фотографическая память! А я читала ваше резюме!"
-    b.say "Well, of course!  I have a photographic memory!  And I read your resume!"
+    b.say "Well, of course!  I have photographic memory!  And I read your resume!"
 
 # game/events/charIntro.rpy:108
 translate english intro_bissektrisovna_5d10407f:
