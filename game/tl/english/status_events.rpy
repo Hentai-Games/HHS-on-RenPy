@@ -640,7 +640,7 @@ translate english status_hidden_sex_c5a69e47:
 translate english status_hidden_sex_7565b833:
 
     # "[st1.fname] и [st2.fname] предавались ласкам в туалете. Ну как предавались. Очевидное удовольствие от процесса получала только [st2.fname], [st1.fname] в свою очередь всячески поторапливала подружку."
-    "[St1.fname] and [st2.fname] indulged in the toilets in the toilet.  Well, as indulged.  Obvious pleasure from the process received only [st2.fname], [st1.fname] in turn, in every possible way hurried girlfriend."
+    "[St1.fname] and [st2.fname] indulged in the toilets in the toilet.  Well, as indulged.  Obvious pleasure from the process received only [st2.fname], [St1.fname] in turn, in every possible way hurried girlfriend."
 
 # game/status_events.rpy:586
 translate english status_hidden_sex_cc26de39:
@@ -910,7 +910,7 @@ translate english status_sex_4ac32e8a:
 translate english status_sex_8c032aeb:
 
     # st1.say "[st2.fname]! Я кончаю, [st2.fname]! [st2.fname]! Да-а-а-а-а!"
-    st1.say "[St2.fname]!  I'm finishing, [st2.fname]!  [St2.fname]!  Yes-ah-ah-ah!"
+    st1.say "[St2.fname]!  I'm finishing, [St2.fname]!  [St2.fname]!  Yes-ah-ah-ah!"
 
 # game/status_events.rpy:665
 translate english status_sex_c2117e99:
