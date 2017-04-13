@@ -16,3 +16,8 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
+
+
+translation-cache.csv merge=union
+
+
