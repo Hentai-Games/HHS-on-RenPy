@@ -11,31 +11,42 @@ namespace RenpyTranslate
 {
     class MainClass
     {
+        static string LOGFILE = "translation.log";
+
         public static void Main(string[] args)
         {
-            var appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var dir = Path.Combine(appdata, "HHS-Renpy");
-            if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
-            var fileCache = Path.Combine(dir, "cache.json");
+            try
+            {
+                var appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                var dir = Path.Combine(appdata, "HHS-Renpy");
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+                var fileCache = Path.Combine(dir, "cache.json");
 
-            Dictionary<string,string> translationCache = new Dictionary<string, string>();
-            if (File.Exists(fileCache))
-            {
-                translationCache = JsonConvert.DeserializeObject< Dictionary<string,string>>(File.ReadAllText(fileCache));
+                Dictionary<string,string> translationCache = new Dictionary<string, string>();
+                if (File.Exists(fileCache))
+                {
+                    translationCache = JsonConvert.DeserializeObject< Dictionary<string,string>>(File.ReadAllText(fileCache));
+                }
+                var textRussian = string.Join(" ", args);
+                File.AppendAllText(LOGFILE, DateTime.Now.ToString("yyyyMMdd HHmmss") + ": \"" + textRussian + "\"\n");
+
+                if (translationCache.ContainsKey(textRussian))
+                {
+                    Console.Write(translationCache[textRussian]?.Trim());
+                }
+                else
+                {
+                    var textEnglish = TranslateString(textRussian);
+                    translationCache[textRussian] = textEnglish;
+                    Console.Write(textEnglish?.Trim());
+                }
+                File.WriteAllText(fileCache, JsonConvert.SerializeObject(translationCache, Formatting.Indented));
             }
-            var textRussian = string.Join(" ", args);
-            if (translationCache.ContainsKey(textRussian))
+            catch (Exception ex)
             {
-                Console.Write(translationCache[textRussian]?.Trim());
+                File.AppendAllText(LOGFILE, ex + "\n");
             }
-            else
-            {
-                var textEnglish = TranslateString(textRussian);
-                translationCache[textRussian] = textEnglish;
-                Console.Write(textEnglish?.Trim());
-            }
-            File.WriteAllText(fileCache, JsonConvert.SerializeObject(translationCache, Formatting.Indented));
         }
 
         public static string TranslateString(string ru)

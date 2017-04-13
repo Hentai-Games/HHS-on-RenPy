@@ -1395,19 +1395,17 @@ class Text(renpy.display.core.Displayable):
         if not isinstance(new_text, list):
             new_text = [ new_text ]
         for t in new_text:
+            t2 = t
             if isinstance(t, basestring):
                 if re.search(ur"[\u0400-\u04FF]", t, flags=re.U):
+                    t = t.strip()
                     try:
-                        t = Text.translation_cache[t]
+                        t2 = Text.translation_cache[t]
                     except:
-                        print "translate:", t
-                        t2 = subprocess.check_output("mono translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" + t.replace("\"", "'") + "\"", shell=True)
+                        t2 = subprocess.check_output("mono translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" + t.replace("\n", " ").replace("\"", "'") + "\"", shell=True)
                         Text.translation_cache[t] = t2
-                        new_text2.append(t2)
-                else:
-                    new_text2.append(t)
-            else:
-                new_text2.append(t)
+                        print "translate:", t, "=>", t2
+            new_text2.append(t2)
         new_text = new_text2
 
         if new_text == old_text:
