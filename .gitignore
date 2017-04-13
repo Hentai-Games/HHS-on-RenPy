@@ -69,3 +69,9 @@ renpy-*-sdk/
 game/saves/persistent
 *.original.rpy
 *.original
+obj
+bin
+traceback.txt
+translation.log
+errors.txt
+log.txt
