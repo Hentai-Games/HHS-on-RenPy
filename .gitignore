@@ -78,3 +78,4 @@ log.txt
 /.vs
 *.pyo
 *.rpymc
+/translator/RenpyTranslate/.vs/RenpyTranslate/v15/.suo
