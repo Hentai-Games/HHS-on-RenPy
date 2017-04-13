@@ -1,5 +1,7 @@
 ﻿init -3 python: 
     development = 0 #Режим разработчика
+
+    config.language = "english"
     
     i = 500
     corrMod = 1.0 # Модификатор скорости роста разврата
