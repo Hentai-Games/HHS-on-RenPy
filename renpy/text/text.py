@@ -876,7 +876,8 @@ class Layout(object):
                 tss.pop()
 
                 if not tss:
-                    raise Exception("%r closes a text tag that isn't open." % text)
+                    pass
+                    #raise Exception("%r closes a text tag that isn't open." % text)
 
             elif tag == "_start":
                 fs = FlagSegment()
@@ -1023,7 +1024,8 @@ class Layout(object):
                 pass
 
             else:
-                raise Exception("Unknown text tag %r" % text)
+                pass
+                # raise Exception("Unknown text tag %r" % text)
 
         # If the line is empty, fill it with a space.
         fill_empty_line()
