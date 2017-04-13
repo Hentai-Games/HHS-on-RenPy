@@ -1242,6 +1242,8 @@ VERT_FORWARD = renpy.display.render.Matrix2D(0, 1, -1, 0)
 
 class Text(renpy.display.core.Displayable):
 
+    translation_cache = {}
+
     """
     :doc: text
     :args: (text, slow=None, scope=None, substitute=None, slow_done=None, **properties)
@@ -1389,7 +1391,20 @@ class Text(renpy.display.core.Displayable):
 
         self._uses_scope = uses_scope
 
-        new_text = subprocess.check_output("mono", shell=True)
+        new_text2 = []
+        if not isinstance(new_text, list):
+            new_text = [ new_text ]
+        for t in new_text:
+            if isinstance(t, basestring):
+                try:
+                    t = Text.translation_cache[t]
+                except:
+                    t2 = subprocess.check_output("mono translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" + t.replace("\"", "'") + "\"", shell=True)
+                    Text.translation_cache[t] = t2
+                    new_text2.append(t2)
+            else:
+                new_text2.append(t)
+        new_text = new_text2
 
         if new_text == old_text:
             return False
