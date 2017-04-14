@@ -51,9 +51,24 @@ namespace RenpyTranslate
             }
         }
 
+        static Dictionary<string, string> preTranslate = new Dictionary<string, string>() {
+            [ "\\\"" ] = "\"",
+        };
+
+        static Dictionary<string, string> postTranslate = new Dictionary<string, string>() {
+            [ "\\ n" ] = "\n",
+            [ "preyakulyatom" ] = "preejaculation",
+            [ "{U}" ] = "{u}",
+            [ "{/ u}" ] = "{/u}",
+            [ "\"" ] = "\\\"",
+        };
+
         public static string TranslateString(string ru)
         {
-            ru = ru.Replace("\\\"", "\"");
+            foreach (var kv in preTranslate) {
+                ru = ru.Replace(kv.Key, kv.Value);
+            }
+
             var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ru&tl=en&dt=t";
             WebClient client = new WebClient();
             Thread.Sleep(500);
@@ -66,8 +81,10 @@ namespace RenpyTranslate
                 english.Add(y[0].ToString());
             }
             var result = string.Join(" ", english);
-            result = result.Replace("preyakulyatom", "preejaculation");
-            result = result.Replace("\"", "\\\"");
+
+            foreach (var kv in postTranslate) {
+                result = result.Replace(kv.Key, kv.Value);
+            }
 
             return result;
         }
