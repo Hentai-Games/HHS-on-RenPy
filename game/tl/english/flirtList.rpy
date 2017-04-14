@@ -10,7 +10,7 @@ translate english flirt_male_0_1_2461433e:
 translate english flirt_male_0_1_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:26
 translate english flirt_male_0_2_79756482:
@@ -22,7 +22,7 @@ translate english flirt_male_0_2_79756482:
 translate english flirt_male_0_2_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:34
 translate english flirt_male_0_3_12ef025e:
@@ -34,7 +34,7 @@ translate english flirt_male_0_3_12ef025e:
 translate english flirt_male_0_3_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:42
 translate english flirt_male_20_3_9b0883c8:
@@ -46,7 +46,7 @@ translate english flirt_male_20_3_9b0883c8:
 translate english flirt_male_20_3_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:50
 translate english flirt_male_20_4_be1c49e9:
@@ -58,7 +58,7 @@ translate english flirt_male_20_4_be1c49e9:
 translate english flirt_male_20_4_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:58
 translate english flirt_male_20_5_dd357d35:
@@ -70,7 +70,7 @@ translate english flirt_male_20_5_dd357d35:
 translate english flirt_male_20_5_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:66
 translate english flirt_male_20_6_0e11242f:
@@ -82,7 +82,7 @@ translate english flirt_male_20_6_0e11242f:
 translate english flirt_male_20_6_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:74
 translate english flirt_male_20_7_f9b1cca2:
@@ -94,7 +94,7 @@ translate english flirt_male_20_7_f9b1cca2:
 translate english flirt_male_20_7_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:83
 translate english flirt_male_50_8_156f00dc:
@@ -112,7 +112,7 @@ translate english flirt_male_50_8_79df412e:
 translate english flirt_male_50_8_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:93
 translate english flirt_male_50_9_4350762c:
@@ -142,7 +142,7 @@ translate english flirt_male_50_9_1daf47c3:
 translate english flirt_male_50_9_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:105
 translate english flirt_female_0_1_e39c3972:
@@ -154,7 +154,7 @@ translate english flirt_female_0_1_e39c3972:
 translate english flirt_female_0_1_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:113
 translate english flirt_female_0_2_4d5519d1:
@@ -166,7 +166,7 @@ translate english flirt_female_0_2_4d5519d1:
 translate english flirt_female_0_2_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:121
 translate english flirt_female_0_3_35280a45:
@@ -178,7 +178,7 @@ translate english flirt_female_0_3_35280a45:
 translate english flirt_female_0_3_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:129
 translate english flirt_female_20_4_0f04767b:
@@ -190,7 +190,7 @@ translate english flirt_female_20_4_0f04767b:
 translate english flirt_female_20_4_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:138
 translate english flirt_female_20_5_6c28646a:
@@ -202,7 +202,7 @@ translate english flirt_female_20_5_6c28646a:
 translate english flirt_female_20_5_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:147
 translate english flirt_female_20_6_bd3e199a:
@@ -214,7 +214,7 @@ translate english flirt_female_20_6_bd3e199a:
 translate english flirt_female_20_6_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:156
 translate english flirt_female_20_7_1a8d9ceb:
@@ -226,7 +226,7 @@ translate english flirt_female_20_7_1a8d9ceb:
 translate english flirt_female_20_7_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"
 
 # game/flirtList.rpy:165
 translate english flirt_female_50_7_8adefde0:
@@ -238,4 +238,4 @@ translate english flirt_female_50_7_8adefde0:
 translate english flirt_female_50_7_2d0d103f:
 
     # "[answer]"
-    "[Answer]"
+    "[answer]"

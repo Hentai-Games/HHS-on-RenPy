@@ -64,7 +64,7 @@ translate english event_loc_beach_5_4_e259c1c8:
 translate english event_loc_beach_10_5_cd9e3b29:
 
     # "[st1.fname] чего то испугалась, и жмётся к своей подружке. Может быть на пляже водятся скорпионы? Или просто кто то решил пощеголять без плавок? Вы оборачиваетесь, и видите, как [st2.fname] что то прячет в трусы. Судя по довольному виду, [st3.fname] ничуть не смущена."
-    "[St1.fname] which is frightened, and clings to his girlfriend.  Maybe there are scorpions on the beach?  Or just someone decided to flaunt without swimming trunks?  You turn around and see how [st2.fname] hides something in the pants.  Judging by the content, [st3.fname] is not at all embarrassed."
+    "[st1.fname] which is frightened, and clings to his girlfriend.  Maybe there are scorpions on the beach?  Or just someone decided to flaunt without swimming trunks?  You turn around and see how [st2.fname] hides something in the pants.  Judging by the content, [st3.fname] is not at all embarrassed."
 
 # game/events/rEventsBeach.rpy:69
 translate english event_loc_beach_0_6_ac547859:
@@ -112,7 +112,7 @@ translate english event_loc_beach_10_7_9c21bd06:
 translate english event_loc_beach_0_8_f1de0017:
 
     # "[st1.fname] сладко подтягивается, пока её бойфренд ушёл ещё за другим коктейлем."
-    "[St1.fname] sweetly pulls up until her boyfriend has gone for another cocktail."
+    "[st1.fname] sweetly pulls up until her boyfriend has gone for another cocktail."
 
 # game/events/rEventsBeach.rpy:117
 translate english event_loc_beach_0_9_02cabae7:
@@ -124,7 +124,7 @@ translate english event_loc_beach_0_9_02cabae7:
 translate english event_loc_beach_0_10_fc2d3108:
 
     # "[st1.fname] пришла сегодня с младшей сестрой. Судя по её недовольному виду, она ожидала другого времяпровождения."
-    "[St1.fname] came today with her younger sister.  Judging by her dissatisfied look, she was expecting another pastime."
+    "[st1.fname] came today with her younger sister.  Judging by her dissatisfied look, she was expecting another pastime."
 
 # game/events/rEventsBeach.rpy:128
 translate english event_loc_beach_0_10_cd42ac66:
@@ -148,7 +148,7 @@ translate english event_loc_beach_0_10_14af1972:
 translate english event_loc_beach_5_11_09094795:
 
     # "[st1.fname], [st2.fname], [st3.fname] и [st4.fname] играют в какую то игру на пляже. Но вот [st4.fname] как то слишком нежно приобнимает свою подружку."
-    "[St1.fname], [st2.fname], [st3.fname] and [st4.fname] are playing some game on the beach.  But here [st4.fname] as that too gently embraces his girlfriend."
+    "[st1.fname], [st2.fname], [st3.fname] and [st4.fname] are playing some game on the beach.  But here [st4.fname] as that too gently embraces his girlfriend."
 
 # game/events/rEventsBeach.rpy:145
 translate english event_loc_beach_5_11_05f73177:
@@ -166,7 +166,7 @@ translate english event_loc_beach_0_12_d537ff5c:
 translate english event_loc_beach_8_14_3b084227:
 
     # "[st1.fname] сегодня решила надеть свой школьный купальный костюм. Надо бы ей намекнуть, что он ей уже немного маловат, и слишком сильно обтягивает её попку. Хотя может быть именно этого она и добивается?"
-    "[St1.fname] today decided to put on her school swimsuit.  I ought to hint to him that he is already a little too small, and too tightly clings to her ass.  Although maybe this is what she is trying to achieve?"
+    "[st1.fname] today decided to put on her school swimsuit.  I ought to hint to him that he is already a little too small, and too tightly clings to her ass.  Although maybe this is what she is trying to achieve?"
 
 # game/events/rEventsBeach.rpy:178
 translate english event_loc_beach_0_15_2f82f897:
@@ -178,13 +178,13 @@ translate english event_loc_beach_0_15_2f82f897:
 translate english event_loc_beach_0_16_226c6985:
 
     # "[st1.fname] фотографируется на пляже. Ей немного не удобно от того, что пришлось надеть свой школьный купальник, но другого, судя по всему, у неё нет."
-    "[St1.fname] is photographed on the beach.  She is a little uncomfortable with the fact that she had to put on her school swimsuit, but she does not seem to have the other one."
+    "[st1.fname] is photographed on the beach.  She is a little uncomfortable with the fact that she had to put on her school swimsuit, but she does not seem to have the other one."
 
 # game/events/rEventsBeach.rpy:197
 translate english event_loc_beach_0_17_93a9fe53:
 
     # "[danokova.name] приветствует вас, и приглашает позагорать вместе. Вы отвечаете, что ей пора бы уже прекратить принимать солнечные ванны, судя по отчётливому красноватому оттенку кожи. Учительница смотрит на себя, ойкает и убегает."
-    "[Danokova.name] welcomes you, and invites you to sunbathe together.  You answer that it is time to stop taking sun baths, judging by the distinct reddish skin tone.  The teacher looks at herself, runs and runs away."
+    "[danokova.name] welcomes you, and invites you to sunbathe together.  You answer that it is time to stop taking sun baths, judging by the distinct reddish skin tone.  The teacher looks at herself, runs and runs away."
 
 # game/events/rEventsBeach.rpy:210
 translate english event_loc_beach_0_18_b4a3b837:
@@ -226,7 +226,7 @@ translate english event_loc_beach_5_20_a516c266:
 translate english event_loc_beach_5_20_0ee0d1ab:
 
     # "Вы делаете вид, что ничего особенного не происходит. [st1.fname] явно стала чувствовать себя более раскованно."
-    "You pretend that nothing special is happening.  [St1.fname] clearly began to feel more relaxed."
+    "You pretend that nothing special is happening.  [st1.fname] clearly began to feel more relaxed."
 
 # game/events/rEventsBeach.rpy:244
 translate english event_loc_beach_5_21_855fe73f:
@@ -268,7 +268,7 @@ translate english event_loc_beach_5_21_1e2365c5:
 translate english event_loc_beach_5_22_f66f8092:
 
     # "[st1.fname] фотографируется у моря. Кстати у неё неплохая грудь в этом купальнике!"
-    "[St1.fname] is photographed by the sea.  By the way, she has a good chest in this swimsuit!"
+    "[st1.fname] is photographed by the sea.  By the way, she has a good chest in this swimsuit!"
 
 # game/events/rEventsBeach.rpy:272
 translate english event_loc_beach_5_22_967e698e:
@@ -298,7 +298,7 @@ translate english event_loc_beach_5_23_12944974:
 translate english event_loc_beach_0_24_74e830f1:
 
     # "[st1.fname] устала, или её просто разморило на солнышке. Вы немного полюбовались на спящую девочку, и пошли дальше."
-    "[St1.fname] is tired, or just razmorilo in the sun.  You took a little look at the sleeping girl, and went on."
+    "[st1.fname] is tired, or just razmorilo in the sun.  You took a little look at the sleeping girl, and went on."
 
 # game/events/rEventsBeach.rpy:310
 translate english event_loc_beach_0_25_09dd2ac3:
@@ -340,13 +340,13 @@ translate english event_loc_beach_15_1_27620fc2:
 translate english event_loc_beach_15_2_c7da7841:
 
     # "[st1.fname] судя по всему совсем запарилась на жаре, и приспустила трусики, попивая холодную колу. И как ей только не стыдно? Хотя кроме вас её никто и не замечает."
-    "[St1.fname] seems to have completely stuck in the heat, and lowered her panties, sipping a cold cola.  And how can she not be ashamed?  Although except for you, no one and does not notice."
+    "[st1.fname] seems to have completely stuck in the heat, and lowered her panties, sipping a cold cola.  And how can she not be ashamed?  Although except for you, no one and does not notice."
 
 # game/events/rEventsBeach.rpy:353
 translate english event_loc_beach_0_kup1_afb52e1d:
 
     # "[st1.name] просит вас намазать её спину кремом от загара."
-    "[St1.name] asks you to smear her back with cream from sunburn."
+    "[st1.name] asks you to smear her back with cream from sunburn."
 
 # game/events/rEventsBeach.rpy:356
 translate english event_loc_beach_0_kup1_63c0976b:
@@ -358,7 +358,7 @@ translate english event_loc_beach_0_kup1_63c0976b:
 translate english event_loc_beach_0_kup1_d667ea0e:
 
     # "Отказываетесь, и указываете учительнице на то, что загорать топлесс - слишком вызывающе для преподавателя. [st1.name] смущается, и одевает свой лифчик от купальника. Кстати ваш довольно гневный монолог услышали многие родители, что положительно скажется на вашей репутации."
-    "Refuse, and instruct the teacher that sunbathing topless - too provocative for the teacher.  [St1.name] is embarrassed, and puts on her bra from the swimsuit.  By the way, many parents have heard your rather angry monologue, which will positively affect your reputation."
+    "Refuse, and instruct the teacher that sunbathing topless - too provocative for the teacher.  [st1.name] is embarrassed, and puts on her bra from the swimsuit.  By the way, many parents have heard your rather angry monologue, which will positively affect your reputation."
 
 # game/events/rEventsBeach.rpy:376
 translate english event_loc_beach_20_4_24ad2c4e:
@@ -370,7 +370,7 @@ translate english event_loc_beach_20_4_24ad2c4e:
 translate english event_loc_beach_20_4_e0ccc3c5:
 
     # "Вы подходите к фотографу, и со словами: \"А ну пошёл отсюда, старый извращенец!\", прогоняете его. [st1.fname] смотрит на вас с недоумением и обидой. Похоже она всерьёз собиралась раздеться перед этим старичком."
-    "You come to the photographer, and with the words: \"Come on, you old pervert!\", Drive him away.  [St1.fname] looks at you with bewilderment and resentment.  It looks like she was seriously about to undress before this old man."
+    "You come to the photographer, and with the words: \"Come on, you old pervert!\", Drive him away.  [st1.fname] looks at you with bewilderment and resentment.  It looks like she was seriously about to undress before this old man."
 
 # game/events/rEventsBeach.rpy:388
 translate english event_loc_beach_20_4_5bb899f8:
@@ -412,7 +412,7 @@ translate english event_loc_beach_20_4_a5c6c27e:
 translate english event_loc_beach_15_5_86e16aa9:
 
     # "[st1.fname] тщательно намазывает свою подругу кремом от загара."
-    "[St1.fname] carefully plaster his girlfriend with sunblock cream."
+    "[st1.fname] carefully plaster his girlfriend with sunblock cream."
 
 # game/events/rEventsBeach.rpy:411
 translate english event_loc_beach_15_5_5fe38919:
@@ -430,7 +430,7 @@ translate english event_loc_beach_20_6_cf73f2e1:
 translate english event_loc_beach_20_6_e0ee3013:
 
     # "Вы подходите к ученице, и просите её накинуть лифчик от купальника. [st1.fname] смущается, и выполняет ваше указание. Другие отдыхающие с одобрением смотрят на вас."
-    "You come to the apprentice, and ask her to throw a bra from the swimsuit.  [St1.fname] is embarrassed, and executes your instruction.  Other vacationers look at you with approval."
+    "You come to the apprentice, and ask her to throw a bra from the swimsuit.  [st1.fname] is embarrassed, and executes your instruction.  Other vacationers look at you with approval."
 
 # game/events/rEventsBeach.rpy:428
 translate english event_loc_beach_20_6_1a1ffd3c:
@@ -448,7 +448,7 @@ translate english event_loc_beach_0_biss1_2d188ce9:
 translate english event_loc_beach_0_biss1_f37983c6:
 
     # "Вы подходите к учительнице, и просите её либо переодеться во что нибудь подобающее, либо покинуть пляж. [st1.fname] хмыкает, и уходит. Другие отдыхающие с одобрением смотрят на вас."
-    "You come to the teacher, and ask her to change into something appropriate, or leave the beach.  [St1.fname] snorts and leaves.  Other vacationers look at you with approval."
+    "You come to the teacher, and ask her to change into something appropriate, or leave the beach.  [st1.fname] snorts and leaves.  Other vacationers look at you with approval."
 
 # game/events/rEventsBeach.rpy:446
 translate english event_loc_beach_0_biss1_2ee12c87:
@@ -460,7 +460,7 @@ translate english event_loc_beach_0_biss1_2ee12c87:
 translate english event_loc_beach_15_8_0314ce51:
 
     # "[st1.fname] охлаждается кубиками льда. Судя по её лицу, это не только охлаждает, но даже напротив, распаляет её."
-    "[St1.fname] is cooled by ice cubes.  Judging by her face, it not only cools, but even on the contrary, it inflames it."
+    "[st1.fname] is cooled by ice cubes.  Judging by her face, it not only cools, but even on the contrary, it inflames it."
 
 # game/events/rEventsBeach.rpy:457
 translate english event_loc_beach_15_8_86de11ed:
@@ -484,7 +484,7 @@ translate english event_loc_beach_30_9_4319406e:
 translate english event_loc_beach_30_9_746f22e2:
 
     # "Понимая, куда это всё ведёт, вы не выдерживаете, и прерываете их прелюдию, прося по крайней мере отойти в какое нибудь более укромное место. [st1.fname] и [st2.fname] соглашаются с вами, и взявшись за руки уходят в ближайшие кустики."
-    "Realizing where this leads everything, you can not stand it, and interrupt their prelude, asking at least to retire to some more private place.  [St1.fname] and [st2.fname] agree with you, and holding hands go to the nearest bushes."
+    "Realizing where this leads everything, you can not stand it, and interrupt their prelude, asking at least to retire to some more private place.  [st1.fname] and [st2.fname] agree with you, and holding hands go to the nearest bushes."
 
 # game/events/rEventsBeach.rpy:480
 translate english event_loc_beach_30_9_ba4c25c4:
@@ -496,13 +496,13 @@ translate english event_loc_beach_30_9_ba4c25c4:
 translate english event_loc_beach_20_10_0552e101:
 
     # "[st1.fname] пришла сегодня на пляж в довольно откровенном наряде. Судя по тому, что она держит верёвочки своего лифчика в зубах, загорать она собирается топлесс, да и способ, которым она наносит крем на своё молодое тело, не оставляет вас и окружающих равнодушными."
-    "[St1.fname] came today on the beach in a rather frank outfit.  Judging by the fact that she holds the rope of her bra in her teeth, she is going to sunbathe topless, and the way she puts the cream on her young body does not leave you and the people indifferent."
+    "[st1.fname] came today on the beach in a rather frank outfit.  Judging by the fact that she holds the rope of her bra in her teeth, she is going to sunbathe topless, and the way she puts the cream on her young body does not leave you and the people indifferent."
 
 # game/events/rEventsBeach.rpy:507
 translate english event_loc_beach_30_11_6e4ac607:
 
     # "[st1.fname] похоже хочет снять свой купальник, но заметив Вас, останавливается, и держит его одной рукой, глядя на Вас с ожиданием."
-    "[St1.fname] seems to want to take off his swimsuit, but noticing you, stops, and holds it with one hand, looking at you with expectation."
+    "[st1.fname] seems to want to take off his swimsuit, but noticing you, stops, and holds it with one hand, looking at you with expectation."
 
 # game/events/rEventsBeach.rpy:511
 translate english event_loc_beach_30_11_3954be0a:
@@ -556,7 +556,7 @@ translate english event_loc_beach_35_14_713d98a8:
 translate english event_loc_beach_30_15_cb3b39fb:
 
     # "[st1.fname] похоже хочет снять свой топ, но заметив вас, останавливается, глядя с ожиданием."
-    "[St1.fname] seems to want to take off his top, but noticing you, stops, looking with expectation."
+    "[st1.fname] seems to want to take off his top, but noticing you, stops, looking with expectation."
 
 # game/events/rEventsBeach.rpy:582
 translate english event_loc_beach_30_15_fe482e02:
@@ -574,13 +574,13 @@ translate english event_loc_beach_30_15_567b710f:
 translate english event_loc_beach_30_16_9d9bfe1a:
 
     # "[st1.fname] устроила фото-сессию себя любимой. Она стоит в волнах прибоя, и меняет позы, пока какой то парень её фотографирует."
-    "[St1.fname] made a photo session of herself a favorite.  She stands in the waves of the surf, and changes her posture, while some guy takes pictures of her."
+    "[st1.fname] made a photo session of herself a favorite.  She stands in the waves of the surf, and changes her posture, while some guy takes pictures of her."
 
 # game/events/rEventsBeach.rpy:606
 translate english event_loc_beach_30_16_8a7368a2:
 
     # "Внезапно налетевшая волна прибоя срывает купальник с ученицы. [st1.fname] продолжает фото-сессию, как ни в чём не бывало."
-    "Suddenly, a surfaced surf tears the swimsuit from the student.  [St1.fname] continues the photo session, as if nothing had happened."
+    "Suddenly, a surfaced surf tears the swimsuit from the student.  [st1.fname] continues the photo session, as if nothing had happened."
 
 # game/events/rEventsBeach.rpy:607
 translate english event_loc_beach_30_16_492aeab2:
@@ -724,13 +724,13 @@ translate english event_loc_beach_20_23_fbfd5fa1:
 translate english event_loc_beach_5_24_86d18fb2:
 
     # "[st1.name] приподняла свой топ, чтобы намазать груди кремом для загара. Судя по её удивлённому лицу, она не ожидала вас увидеть."
-    "[St1.name] lifted her top to smear her breasts with tanning cream.  Judging by her surprised face, she did not expect to see you."
+    "[st1.name] lifted her top to smear her breasts with tanning cream.  Judging by her surprised face, she did not expect to see you."
 
 # game/events/rEventsBeach.rpy:724
 translate english event_loc_beach_5_24_97879d14:
 
     # "Вы подходите к учительнице, и просите её надеть топ, потому что все смотрят, что скажется на репутации школы. [st1.fname] извиняется, и начинает в спешке натягивать лифчик. Удивительно, как такая скромная учительница умудрилась раздеться до трусов перед публикой."
-    "You come to the teacher, and ask her to put on a top, because everyone is watching what will affect the reputation of the school.  [St1.fname] apologizes, and begins to pull the bra in a hurry.  It's amazing how such a modest teacher managed to undress to cowards before the public."
+    "You come to the teacher, and ask her to put on a top, because everyone is watching what will affect the reputation of the school.  [st1.fname] apologizes, and begins to pull the bra in a hurry.  It's amazing how such a modest teacher managed to undress to cowards before the public."
 
 # game/events/rEventsBeach.rpy:729
 translate english event_loc_beach_5_24_2ee12c87:
@@ -760,7 +760,7 @@ translate english event_loc_beach_35_3_fb0cd6b0:
 translate english event_loc_beach_35_3_f92143dd:
 
     # "В этом небольшом, дёргающимся тельце на полу, вы узнали одну из своих учениц. Бедем надеятся, что никто ничего не услышал, подумали вы, поднимая полубессознательную девочку и усаживая её обратно. [st1.fname] устало улыбается вам."
-    "In this small, twitching corpse on the floor, you recognized one of your students.  We hope that no one has heard anything, you thought, lifting a half-unconscious girl and putting her back.  [St1.fname] smiles tiredly at you."
+    "In this small, twitching corpse on the floor, you recognized one of your students.  We hope that no one has heard anything, you thought, lifting a half-unconscious girl and putting her back.  [st1.fname] smiles tiredly at you."
 
 # game/events/rEventsBeach.rpy:775
 translate english event_loc_beach_45_4_3b291581:
@@ -808,7 +808,7 @@ translate english event_loc_beach_50_5_25e755ae:
 translate english event_loc_beach_35_6_c4ddaeed:
 
     # "[st1.fname] решила не заморачиваться с бикини и купальником и отдыхать как есть. Всё хорошо, и груди сочные и лобок выбрит и даже загар требуется."
-    "[St1.fname] decided not to bother with a bikini and swimsuit and rest as is.  Everything is fine, and the breasts are juicy and pubic shaved and even a tan is required."
+    "[st1.fname] decided not to bother with a bikini and swimsuit and rest as is.  Everything is fine, and the breasts are juicy and pubic shaved and even a tan is required."
 
 # game/events/rEventsBeach.rpy:812
 translate english event_loc_beach_35_6_420dbde3:
@@ -844,7 +844,7 @@ translate english event_loc_beach_70_2_b2d9437d:
 translate english event_loc_beach_70_2_f70b2b3c:
 
     # "[st2.fname] яростно сношал свою подругу, совершенно не обращая внимания на то, что за ним наблюдают десятки глаз, и даже пара камер. Пожалуй от этого он возбуждался ещё сильнее. И его крепкий член всё активнее вторгался в пещерку школьницы."
-    "[St2.fname] fiercely mated his girlfriend, completely ignoring the fact that dozens of eyes, and even a couple of cameras, are watching him.  Perhaps from this he was excited even more.  And his sturdy member increasingly invaded the cave of the schoolgirl."
+    "[st2.fname] fiercely mated his girlfriend, completely ignoring the fact that dozens of eyes, and even a couple of cameras, are watching him.  Perhaps from this he was excited even more.  And his sturdy member increasingly invaded the cave of the schoolgirl."
 
 # game/events/rEventsBeach.rpy:840
 translate english event_loc_beach_70_2_3db510a6:

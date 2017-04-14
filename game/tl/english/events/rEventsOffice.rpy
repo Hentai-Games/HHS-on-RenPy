@@ -4,7 +4,7 @@
 translate english event_loc_office_30_m1_556faa2b:
 
     # "[st1.fname] Услышав странные звуки возле кабинета, вы неударжались и заглянули в него. Вызванный вами [st1.fname] сидел за компьютером и яростно надрачивал свой небольшой член."
-    "[St1.fname] Hearing strange sounds near the cabinet, you did not take it hard and looked into it.  The [St1.fname] you called was sitting at the computer and furiously screwing up your little dick."
+    "[st1.fname] Hearing strange sounds near the cabinet, you did not take it hard and looked into it.  The [st1.fname] you called was sitting at the computer and furiously screwing up your little dick."
 
 # game/events/rEventsOffice.rpy:12
 translate english event_loc_office_30_m1_98634a03:
@@ -34,7 +34,7 @@ translate english event_loc_office_30_m1_59a50427:
 translate english event_loc_office_30_m1_1c9d693d:
 
     # "[st1.fname] постанывал от удовольствия и подавался всем телом навстресу вашим ласкам. Спустя пару минут из его члена стала выделяться смазка, и вот уже под влажное хлюпание своей головки о вашу ножку, он бурно кончил залив себя своей же спермой."
-    "[St1.fname] moaned with pleasure and moved all over to your caresses.  After a couple of minutes of its member began to stand out a lubricant, and now under the wet squelching of his head on your leg, he roughly finished the bay with his own sperm."
+    "[st1.fname] moaned with pleasure and moved all over to your caresses.  After a couple of minutes of its member began to stand out a lubricant, and now under the wet squelching of his head on your leg, he roughly finished the bay with his own sperm."
 
 # game/events/rEventsOffice.rpy:32
 translate english event_loc_office_30_m1_132c60a8:
@@ -52,7 +52,7 @@ translate english event_loc_office_30_m1_16285475:
 translate english event_loc_office_30_m2_a0ab7f72:
 
     # "[st1.fname] Вы немного опешили войдя в кабинет. [st1.fname] лежал на вашей кровати почти голый и весь перемазанный в сперме. Увидев вас, он поспешно принялся натягивать трусы, но не полностью опавший член никак не хотел в них помещаться."
-    "[St1.fname] You are a little taken aback by entering the office.  [St1.fname] lay on your bed almost naked and all smeared in semen.  Seeing you, he hastily began pulling on his panties, but not completely fallen member did not want to fit into them."
+    "[st1.fname] You are a little taken aback by entering the office.  [st1.fname] lay on your bed almost naked and all smeared in semen.  Seeing you, he hastily began pulling on his panties, but not completely fallen member did not want to fit into them."
 
 # game/events/rEventsOffice.rpy:60
 translate english event_loc_office_30_m2_d61dcd8d:
@@ -250,7 +250,7 @@ translate english event_loc_office_30_f2_e238f654:
 translate english event_loc_office_30_f2_83fe70e6:
 
     # "Вы вошли в кабинет и без слов принялись раздеваться. [st1.fname] не отрывая от вас взгляда, продолжает ласкать себя. Подойдя к кровати, Вы уверенными движениями сняли с девушки школьную форму, попутно насладившись видом её юного тела, и без дальнейших прелюдий вставили 2 пальца в её лоно."
-    "You entered the office and began to undress without words.  [St1.fname] does not take your eyes off you, continues to caress yourself.  Approaching the bed, you confidently removed the school uniform from the girl, simultaneously enjoying the sight of her young body, and without further foreplay, inserted two fingers into her bosom."
+    "You entered the office and began to undress without words.  [st1.fname] does not take your eyes off you, continues to caress yourself.  Approaching the bed, you confidently removed the school uniform from the girl, simultaneously enjoying the sight of her young body, and without further foreplay, inserted two fingers into her bosom."
 
 # game/events/rEventsOffice.rpy:250
 translate english event_loc_office_30_f2_12a889be:
@@ -280,7 +280,7 @@ translate english event_loc_office_30_f2_132c60a8:
 translate english event_loc_office_30_f2_68d71556:
 
     # player.say "[st1.fname], не хочешь немного помощи? Я смотрю ты уже совсем запыхалась! - нежным голосом ображаетесь вы к девушке. [st1.fname] смотрит на вас испуганными глазами, и быстро натянув свои вещи скрывается за дверью... Мдя, видимо над поведением ещё работать и работать."
-    player.say "[St1.fname], do not you want some help?  I see you are already quite out of breath!  - You say to a girl in a tender voice.  [St1.fname] looks at you with frightened eyes, and quickly pulling up his things is hidden behind the door ... Opensource, apparently above the behavior still work and work."
+    player.say "[st1.fname], do not you want some help?  I see you are already quite out of breath!  - You say to a girl in a tender voice.  [st1.fname] looks at you with frightened eyes, and quickly pulling up his things is hidden behind the door ... Opensource, apparently above the behavior still work and work."
 
 # game/events/rEventsOffice.rpy:276
 translate english event_loc_office_30_f2_5417bc55:
@@ -334,7 +334,7 @@ translate english event_loc_office_30_f4_670b5ce4:
 translate english event_loc_office_30_f4_9d481f1e:
 
     # "Или благословение, судя по тому, что не каждый день у вас в кровати оказывается озабоченный подросток. [st1.fname] в ваше отсутствие самозабвенно погружала пальчики левой руки в свою киску, а правой теребила свой бугорок сладострастия."
-    "Or a blessing, judging by the fact that not every day in your bed is a troubled teenager.  [St1.fname] in your absence, selflessly plunged the fingers of her left hand into her pussy, and the right fiddled with her lump of voluptuousness."
+    "Or a blessing, judging by the fact that not every day in your bed is a troubled teenager.  [st1.fname] in your absence, selflessly plunged the fingers of her left hand into her pussy, and the right fiddled with her lump of voluptuousness."
 
 # game/events/rEventsOffice.rpy:358
 translate english event_loc_office_30_f4_e658971c:
@@ -490,7 +490,7 @@ translate english event_loc_office_30_f8_25650650:
 translate english event_loc_office_30_f9_c2af1886:
 
     # "\"2+1=3\" - проводили вы нехитрые вычисления объёма дырочек школьницы, наблюдая за ней через приоткрытую дверь. [st1.fname] превзошла сама себя, задействовав вторую дырочку для получения большего наслаждения, чем обычно."
-    "\"2 + 1 = 3\" - you carried out simple calculations of the volume of holes schoolgirls, watching her through the slightly open door.  [St1.fname] has surpassed itself by using the second hole to get more pleasure than usual."
+    "\"2 + 1 = 3\" - you carried out simple calculations of the volume of holes schoolgirls, watching her through the slightly open door.  [st1.fname] has surpassed itself by using the second hole to get more pleasure than usual."
 
 # game/events/rEventsOffice.rpy:526
 translate english event_loc_office_30_f9_a0ccdea7:

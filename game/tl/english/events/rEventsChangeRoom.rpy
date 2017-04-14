@@ -4,7 +4,7 @@
 translate english event_loc_changeRoom_0_no1_d6b717f8:
 
     # "[st1.fname] одевается после бассейна. Судя по всему она не собирается снимать купальник. Может быть планирует вернуться?"
-    "[St1.fname] gets dressed after the pool.  Apparently she is not going to take off her swimsuit.  Can be planning to return?"
+    "[st1.fname] gets dressed after the pool.  Apparently she is not going to take off her swimsuit.  Can be planning to return?"
 
 # game/events/rEventsChangeRoom.rpy:13
 translate english event_loc_changeRoom_0_no1_c5ca667d:
@@ -34,7 +34,7 @@ translate english event_loc_changeRoom_0_no2_45247900:
 translate english event_loc_changeRoom_8_no3_91099ceb:
 
     # "[st1.fname] переодевается после бассейна. Судя по всему, занятие было неудачным, и она чем то расстроена. Вы поболтали с ней, чтобы немного утешить. Всё это время [st1.fname] так и стояла с открытой грудью."
-    "[St1.fname] is changed after the pool.  Apparently, the occupation was unsuccessful, and she is somewhat upset.  You chatted with her to comfort her.  All this time [St1.fname] and stood with an open chest."
+    "[st1.fname] is changed after the pool.  Apparently, the occupation was unsuccessful, and she is somewhat upset.  You chatted with her to comfort her.  All this time [st1.fname] and stood with an open chest."
 
 # game/events/rEventsChangeRoom.rpy:48
 translate english event_loc_changeRoom_8_no3_67ea1d9a:
@@ -52,13 +52,13 @@ translate english event_loc_changeRoom_8_no3_78c594e9:
 translate english event_loc_changeRoom_10_no4_2dcf7b26:
 
     # "[st1.fname] Примеряет свой новый бикини. Хмм, по моему вы ещё не разрешали плавать в бикини."
-    "[St1.fname] Sample your new bikini.  Hmm, in my opinion you were not allowed to swim in a bikini."
+    "[st1.fname] Sample your new bikini.  Hmm, in my opinion you were not allowed to swim in a bikini."
 
 # game/events/rEventsChangeRoom.rpy:62
 translate english event_loc_changeRoom_10_no4_cfb73326:
 
     # player.say "[st1.fname]! Зачем тебе бикини, когда все уже плавают голыми, а?"
-    player.say "[St1.fname]!  Why do you want a bikini when everyone is already swimming naked, eh?"
+    player.say "[st1.fname]!  Why do you want a bikini when everyone is already swimming naked, eh?"
 
 # game/events/rEventsChangeRoom.rpy:64
 translate english event_loc_changeRoom_10_no4_2fa80ec4:
@@ -82,7 +82,7 @@ translate english event_loc_changeRoom_10_no4_1d946188:
 translate english event_loc_changeRoom_5_no5_02e80e20:
 
     # "[st1.fname] похоже обнаружила, что она больше не девочка, и у неё появилась грудь."
-    "[St1.fname] seems to have discovered that she is no longer a girl, and she has a breast."
+    "[st1.fname] seems to have discovered that she is no longer a girl, and she has a breast."
 
 # game/events/rEventsChangeRoom.rpy:97
 translate english event_loc_changeRoom_5_no5_7e981f03:
@@ -124,7 +124,7 @@ translate english event_loc_changeRoom_15_low1_66b3377a:
 translate english event_loc_changeRoom_40_low2_74276e07:
 
     # "Войдя в раздевалку, вы увидели как группа парней домогается до девушек. Причём очень так активно домогается. [st1.fname], [st2.fname] и [st3.fname] пытаются вырваться из их \"чутких\" объятий."
-    "Entering the locker room, you saw how a group of guys are molested by the girls.  And very much so actively solicits.  [St1.fname], [st2.fname] and [st3.fname] try to escape from their \"sensitive\" embraces."
+    "Entering the locker room, you saw how a group of guys are molested by the girls.  And very much so actively solicits.  [st1.fname], [st2.fname] and [st3.fname] try to escape from their \"sensitive\" embraces."
 
 # game/events/rEventsChangeRoom.rpy:146
 translate english event_loc_changeRoom_40_low2_5d5d1a39:
@@ -142,7 +142,7 @@ translate english event_loc_changeRoom_40_low2_71487530:
 translate english event_loc_changeRoom_40_mid1_e503e2c7:
 
     # "Бросив случайный взгляд к дальней стенке раздевалки Вы заметили одну из учениц. [st1.fname] эротично стояла на носочках, слегка раздвинув ножки."
-    "Throwing a casual glance to the far wall of the locker room, you noticed one of the students.  [St1.fname] erotically stood on toes, slightly spreading her legs."
+    "Throwing a casual glance to the far wall of the locker room, you noticed one of the students.  [st1.fname] erotically stood on toes, slightly spreading her legs."
 
 # game/events/rEventsChangeRoom.rpy:175
 translate english event_loc_changeRoom_40_mid1_e0e74ae9:
@@ -154,7 +154,7 @@ translate english event_loc_changeRoom_40_mid1_e0e74ae9:
 translate english event_loc_changeRoom_40_mid1_611842b3:
 
     # player.say "[st1.fname], что то нехорошее случилось? - заботливо спросили вы, наблюдая за выражением лица девочки."
-    player.say "[St1.fname], what's wrong happened?  - you asked, carefully, watching the expression of the girl's face."
+    player.say "[st1.fname], what's wrong happened?  - you asked, carefully, watching the expression of the girl's face."
 
 # game/events/rEventsChangeRoom.rpy:179
 translate english event_loc_changeRoom_40_mid1_cc777705:
@@ -172,7 +172,7 @@ translate english event_loc_changeRoom_40_mid1_e893782a:
 translate english event_loc_changeRoom_40_mid1_032290fe:
 
     # "[st1.fname] радостно кивнула, сделала неуклюжий реверанс и скрылась в душе."
-    "[St1.fname] happily nodded, made a clumsy curtsey and disappeared into the shower."
+    "[st1.fname] happily nodded, made a clumsy curtsey and disappeared into the shower."
 
 # game/events/rEventsChangeRoom.rpy:196
 translate english event_loc_changeRoom_50_mid2_250741aa:
@@ -184,7 +184,7 @@ translate english event_loc_changeRoom_50_mid2_250741aa:
 translate english event_loc_changeRoom_50_mid2_ed2b86ec:
 
     # "[st1.fname] и [st2.fname] не обращая ни на кого внимания, предаются страстным ласкам прямо на лавочке в раздевалке. Вам плохо видно, но кажется член парня едва помещается в узенькую киску девушки, хотя обилие выделяемой ей смазки безусловно помогает процессу."
-    "[St1.fname] and [st2.fname] not paying attention to anyone, indulge in passionate caresses right on the bench in the locker room.  You can not see well, but the guy's cock seems to fit into the girl's narrow pussy, although the abundance of grease allocated to it certainly helps the process."
+    "[st1.fname] and [st2.fname] not paying attention to anyone, indulge in passionate caresses right on the bench in the locker room.  You can not see well, but the guy's cock seems to fit into the girl's narrow pussy, although the abundance of grease allocated to it certainly helps the process."
 
 # game/events/rEventsChangeRoom.rpy:214
 translate english event_loc_changeRoom_75_Hi1_54618359:
@@ -196,7 +196,7 @@ translate english event_loc_changeRoom_75_Hi1_54618359:
 translate english event_loc_changeRoom_75_Hi2_74276e07:
 
     # "Войдя в раздевалку, вы увидели как группа парней домогается до девушек. Причём очень так активно домогается. [st1.fname], [st2.fname] и [st3.fname] пытаются вырваться из их \"чутких\" объятий."
-    "Entering the locker room, you saw how a group of guys are molested by the girls.  And very much so actively solicits.  [St1.fname], [st2.fname] and [st3.fname] try to escape from their \"sensitive\" embraces."
+    "Entering the locker room, you saw how a group of guys are molested by the girls.  And very much so actively solicits.  [st1.fname], [st2.fname] and [st3.fname] try to escape from their \"sensitive\" embraces."
 
 # game/events/rEventsChangeRoom.rpy:246
 translate english event_loc_changeRoom_75_Hi2_6a86d2f2:
@@ -214,7 +214,7 @@ translate english event_loc_changeRoom_75_Hi2_8cd93e50:
 translate english event_loc_changeRoom_75_Hi2_a778620f:
 
     # "[st3.fname] начинает шумно дышать, когда два парня справа начинают ласкать её груди."
-    "[St3.fname] starts to breathe noisily when two guys on the right begin to caress her breasts."
+    "[st3.fname] starts to breathe noisily when two guys on the right begin to caress her breasts."
 
 # game/events/rEventsChangeRoom.rpy:249
 translate english event_loc_changeRoom_75_Hi2_c85c1218:
