@@ -202,28 +202,28 @@ translate english strings:
 
     # game/events/rEventsBeachAdventures.rpy:5
     old "Подойти поближе"
-    new ""
+    new "Come closer"
 
     # game/events/rEventsBeachAdventures.rpy:5
     old "Игнорировать и уйти"
-    new ""
+    new "Ignore and leave"
 
     # game/events/rEventsBeachAdventures.rpy:30
     old "Развернуться с улыбкой"
-    new ""
+    new "Turn around with a smile"
 
     # game/events/rEventsBeachAdventures.rpy:30
     old "Дать пощёчину"
-    new ""
+    new "Give a slap"
 
     # game/events/rEventsBeachAdventures.rpy:66
     old "Идти себе дальше"
-    new ""
+    new "Going further"
 
     # game/events/rEventsBeachAdventures.rpy:92
     old "Обрадовать его"
-    new ""
+    new "To please him"
 
     # game/events/rEventsBeachAdventures.rpy:92
     old "Послать куда подальше и отдыхать"
-    new ""
+    new "Send to far away and rest"

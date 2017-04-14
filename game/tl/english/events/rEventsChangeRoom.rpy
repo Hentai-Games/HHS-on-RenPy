@@ -334,12 +334,12 @@ translate english strings:
 
     # game/events/rEventsChangeRoom.rpy:66
     old "Указать на недопустимость бикини"
-    new ""
+    new "Indicate the inadmissibility of a bikini"
 
     # game/events/rEventsChangeRoom.rpy:144
     old "Смотреть"
-    new ""
+    new "Look"
 
     # game/events/rEventsChangeRoom.rpy:176
     old "Спросить, что случилось"
-    new ""
+    new "Ask what happened"

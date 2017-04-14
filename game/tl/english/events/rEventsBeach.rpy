@@ -856,56 +856,56 @@ translate english strings:
 
     # game/events/rEventsBeach.rpy:228
     old "Сказать, что это нормально, носить бикини"
-    new ""
+    new "To say that it is normal to wear a bikini"
 
     # game/events/rEventsBeach.rpy:228
     old "Сделать вид, что не обратили внимания"
-    new ""
+    new "To pretend that they did not pay attention"
 
     # game/events/rEventsBeach.rpy:246
     old "Подойти к ним"
-    new ""
+    new "Approach them"
 
     # game/events/rEventsBeach.rpy:270
     old "Стоять и смотреть"
-    new ""
+    new "Stand and watch"
 
     # game/events/rEventsBeach.rpy:322
     old "Полюбоваться ещё немного"
-    new ""
+    new "Admire a little more"
 
     # game/events/rEventsBeach.rpy:354
     old "Намазать"
-    new ""
+    new "Spread"
 
     # game/events/rEventsBeach.rpy:377
     old "Остановить девушку и закончить фото-сессию"
-    new ""
+    new "Stop the girl and finish the photo session."
 
     # game/events/rEventsBeach.rpy:421
     old "Сделать ей замечание"
-    new ""
+    new "Make her a comment"
 
     # game/events/rEventsBeach.rpy:468
     old "Смотреть что будет дальше"
-    new ""
+    new "See what happens next"
 
     # game/events/rEventsBeach.rpy:508
     old "Кивнуть ей, показав что вы не против"
-    new ""
+    new "Nod her, showing that you do not mind"
 
     # game/events/rEventsBeach.rpy:508
     old "Покачать головой, показав, что вы против"
-    new ""
+    new "Shake your head, showing that you are against"
 
     # game/events/rEventsBeach.rpy:642
     old "Сказать ей, что в такой солнечный день можно было бы надеть что нибудь полегче"
-    new ""
+    new "Tell her that on such a sunny day you could wear something easier"
 
     # game/events/rEventsBeach.rpy:642
     old "Ничего не говорить"
-    new ""
+    new "Do not say anything"
 
     # game/events/rEventsBeach.rpy:687
     old "Не помогать"
-    new ""
+    new "Do not help"

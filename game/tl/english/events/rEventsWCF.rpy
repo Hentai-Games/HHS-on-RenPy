@@ -304,4 +304,4 @@ translate english strings:
 
     # game/events/rEventsWCF.rpy:11
     old "Извиниться и уйти"
-    new ""
+    new "Apologize and leave"

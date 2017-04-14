@@ -4168,79 +4168,79 @@ translate english strings:
 
     # game/events/qwestDanokova.rpy:76
     old "Продолжать наступление"
-    new ""
+    new "Continue the offensive"
 
     # game/events/qwestDanokova.rpy:76
     old "Ну её"
-    new ""
+    new "Well her"
 
     # game/events/qwestDanokova.rpy:92
     old "Поговорить насчёт Ливерпуля"
-    new ""
+    new "Talk about Liverpool"
 
     # game/events/qwestDanokova.rpy:92
     old "Уточнить, какую именно игру Вы имеете в виду"
-    new ""
+    new "Specify which game you have in mind"
 
     # game/events/qwestDanokova.rpy:100
     old "Занята"
-    new ""
+    new "Busy"
 
     # game/events/qwestDanokova.rpy:100
     old "Не занята"
-    new ""
+    new "Not busy"
 
     # game/events/qwestDanokova.rpy:153
     old "Шантажировать"
-    new ""
+    new "Blackmail"
 
     # game/events/qwestDanokova.rpy:153
     old "Поспособствовать"
-    new ""
+    new "Contribute"
 
     # game/events/qwestDanokova.rpy:183
     old "Хочу, чтобы Вы поддерживали все предложения, что я выдвигаю"
-    new ""
+    new "I want you to support all the proposals that I put forward"
 
     # game/events/qwestDanokova.rpy:183
     old "Хочу, чтобы Вы продолжали писать свою статью"
-    new ""
+    new "I want you to continue writing your article"
 
     # game/events/qwestDanokova.rpy:237
     old "Ваш взгляд натыкается на недавно установленную сплит систему."
-    new ""
+    new "Your view stumbles upon a newly installed split system."
 
     # game/events/qwestDanokova.rpy:237
     old "Сделать жарко"
-    new ""
+    new "Make it hot"
 
     # game/events/qwestDanokova.rpy:237
     old "Сделать холодно"
-    new ""
+    new "Make it cold"
 
     # game/events/qwestDanokova.rpy:237
     old "Ничего не трогать"
-    new ""
+    new "Do not touch anything"
 
     # game/events/qwestDanokova.rpy:306
     old "Пропустить его"
-    new ""
+    new "Skip it"
 
     # game/events/qwestDanokova.rpy:306
     old "Вернуть его"
-    new ""
+    new "Get him back"
 
     # game/events/qwestDanokova.rpy:310
     old "Попросить вернуться из уважения к Вам (Лояльность)"
-    new ""
+    new "Ask to return out of respect for you (Loyalty)"
 
     # game/events/qwestDanokova.rpy:310
     old "Пригрозить родителями (Репутация)"
-    new ""
+    new "Threaten by parents (Reputation)"
 
     # game/events/qwestDanokova.rpy:310
     old "Разве ты сам этого не хочешь? (Развратность)"
-    new ""
+    new "Do not you yourself want this?  (Depravity)"
 
     # game/events/qwestDanokova.rpy:432
     old "[d.name]"
@@ -4252,68 +4252,68 @@ translate english strings:
 
     # game/events/qwestDanokova.rpy:524
     old "Уйти, чтобы он вас не заметил"
-    new ""
+    new "Go away so that he does not notice you"
 
     # game/events/qwestDanokova.rpy:524
     old "Перехватить его на выходе"
-    new ""
+    new "Intercept it at the output"
 
     # game/events/qwestDanokova.rpy:667
     old "Поискать в подсобке спортзала"
-    new ""
+    new "Search in the back room of the gym"
 
     # game/events/qwestDanokova.rpy:667
     old "Пойти в туалет"
-    new ""
+    new "Go to the toilet"
 
     # game/events/qwestDanokova.rpy:667
     old "Попробовать проверить камеры"
-    new ""
+    new "Try to check the camera"
 
     # game/events/qwestDanokova.rpy:667
     old "Поспрашивать учеников"
-    new ""
+    new "Ask students"
 
     # game/events/qwestDanokova.rpy:902
     old "Добавить перидин и гидроксид натрия[help]"
-    new ""
+    new "Add peridine and sodium hydroxide [help]"
 
     # game/events/qwestDanokova.rpy:902
     old "Добавить аммиак"
-    new ""
+    new "Add ammonia"
 
     # game/events/qwestDanokova.rpy:902
     old "Нагреть на открытом огне"
-    new ""
+    new "Heat on an open fire"
 
     # game/events/qwestDanokova.rpy:908
     old "Так, чтобы ускорить реакцию, надо нагреть или что то добавить..."
-    new ""
+    new "So, to speed up the reaction, you need to warm up or add something ..."
 
     # game/events/qwestDanokova.rpy:908
     old "Нагреть с помощью водяной бани[help]"
-    new ""
+    new "Heat with a water bath [help]"
 
     # game/events/qwestDanokova.rpy:908
     old "Добавить щёлочь"
-    new ""
+    new "Add alkali"
 
     # game/events/qwestDanokova.rpy:981
     old "Он говорит, что никому не скажет..."
-    new ""
+    new "He says that he will not tell anyone ..."
 
     # game/events/qwestDanokova.rpy:981
     old "Поверить"
-    new ""
+    new "Believe"
 
     # game/events/qwestDanokova.rpy:981
     old "Не верить"
-    new ""
+    new "Do not believe"
 
     # game/events/qwestDanokova.rpy:1118
     old "Лизнуть"
-    new ""
+    new "Lick"
 
     # game/events/qwestDanokova.rpy:1118
     old "Отстраниться и подождать"
-    new ""
+    new "Dismiss and wait"

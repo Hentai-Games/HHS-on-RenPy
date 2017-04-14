@@ -826,88 +826,88 @@ translate english strings:
 
     # game/events/qwestOlympiad.rpy:14
     old "Заниматься с учениками лично?"
-    new ""
+    new "Do students personally?"
 
     # game/events/qwestOlympiad.rpy:14
     old "Заниматься лично"
-    new ""
+    new "Do it yourself"
 
     # game/events/qwestOlympiad.rpy:14
     old "Заниматься с учителем"
-    new ""
+    new "Deal with the teacher"
 
     # game/events/qwestOlympiad.rpy:64
     old "Что делать дальше?"
-    new ""
+    new "What to do next?"
 
     # game/events/qwestOlympiad.rpy:64
     old "Проводить всех домой"
-    new ""
+    new "Take everyone home"
 
     # game/events/qwestOlympiad.rpy:64
     old "Угостить всех мороженным (300 монет)"
-    new ""
+    new "Treat everyone with ice cream (300 coins)"
 
     # game/events/qwestOlympiad.rpy:126
     old "Обратиться за помощью к министру"
-    new ""
+    new "Seek help from the Minister"
 
     # game/events/qwestOlympiad.rpy:142
     old "Соблазнить его (Б-р-р-р)"
-    new ""
+    new "Seduce him (b-rr-rr)"
 
     # game/events/qwestOlympiad.rpy:142
     old "Предложить взятку"
-    new ""
+    new "Offer a bribe"
 
     # game/events/qwestOlympiad.rpy:151
     old "\"Заманчивое\" предложение. Как бы не прогадать."
-    new ""
+    new "\"Tempting\" offer.  How not to lose."
 
     # game/events/qwestOlympiad.rpy:151
     old "Согласиться"
-    new ""
+    new "Agree"
 
     # game/events/qwestOlympiad.rpy:151
     old "Настоять на немедленном решении вопроса"
-    new ""
+    new "To insist on the immediate resolution of the matter"
 
     # game/events/qwestOlympiad.rpy:151
     old "Передумать и уйти"
-    new ""
+    new "Change your mind and leave"
 
     # game/events/qwestOlympiad.rpy:173
     old "Всё равно отказаться"
-    new ""
+    new "Still refuse"
 
     # game/events/qwestOlympiad.rpy:173
     old "Сделать контрпредложение"
-    new ""
+    new "Make counteroffer"
 
     # game/events/qwestOlympiad.rpy:186
     old "Исполнить \"желание\" самой"
-    new ""
+    new "To fulfill the \"desire\" itself"
 
     # game/events/qwestOlympiad.rpy:186
     old "Призвать фей"
-    new ""
+    new "Summon Faeries"
 
     # game/events/qwestOlympiad.rpy:228
     old "Продолжать подчиняться"
-    new ""
+    new "Continue to obey"
 
     # game/events/qwestOlympiad.rpy:228
     old "Отказаться раздеваться"
-    new ""
+    new "Refuse to undress"
 
     # game/events/qwestOlympiad.rpy:293
     old "Как я отношусь к косплею?"
-    new ""
+    new "How do I feel about cosplay?"
 
     # game/events/qwestOlympiad.rpy:293
     old "Положительно"
-    new ""
+    new "Positively"
 
     # game/events/qwestOlympiad.rpy:293
     old "Отрицательно"
-    new ""
+    new "Negative"

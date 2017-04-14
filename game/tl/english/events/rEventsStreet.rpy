@@ -1066,56 +1066,56 @@ translate english strings:
 
     # game/events/rEventsStreet.rpy:110
     old "Вы собираетесь прощаться"
-    new ""
+    new "You are going to say goodbye"
 
     # game/events/rEventsStreet.rpy:110
     old "Проследить за девушкой"
-    new ""
+    new "Follow the girl"
 
     # game/events/rEventsStreet.rpy:110
     old "Попрощаться"
-    new ""
+    new "Say goodbye"
 
     # game/events/rEventsStreet.rpy:176
     old "Интересно, а трусики они сегодня одели?"
-    new ""
+    new "I wonder, did they put on panties today?"
 
     # game/events/rEventsStreet.rpy:176
     old "Потребовать поднять юбки"
-    new ""
+    new "Demand to raise skirts"
 
     # game/events/rEventsStreet.rpy:176
     old "Не делать глупостей"
-    new ""
+    new "Do not do stupid things"
 
     # game/events/rEventsStreet.rpy:243
     old "Окликнуть ее"
-    new ""
+    new "Hail her"
 
     # game/events/rEventsStreet.rpy:243
     old "Понаблюдать за ней"
-    new ""
+    new "Watch her"
 
     # game/events/rEventsStreet.rpy:430
     old "Смотаться по быстрому"
-    new ""
+    new "Rid about the fast"
 
     # game/events/rEventsStreet.rpy:430
     old "Начать выгораживать девушку (Интеллект)"
-    new ""
+    new "Start defending the girl (Intelligence)"
 
     # game/events/rEventsStreet.rpy:553
     old "Угрожать (Интеллект)"
-    new ""
+    new "Threaten (Intelligence)"
 
     # game/events/rEventsStreet.rpy:553
     old "Согласиться занять место ученицы"
-    new ""
+    new "Agree to take the place of student"
 
     # game/events/rEventsStreet.rpy:553
     old "Оставить их и уйти"
-    new ""
+    new "Leave them and leave"
 
     # game/events/rEventsStreet.rpy:599
     old "Спасти положение"
-    new ""
+    new "Rescue the position"

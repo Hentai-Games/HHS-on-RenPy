@@ -352,24 +352,24 @@ translate english strings:
 
     # game/events/beachChangeRoom.rpy:172
     old "Привлечь внимание?"
-    new ""
+    new "Attract attention?"
 
     # game/events/beachChangeRoom.rpy:172
     old "Сунуть пальцы в дырку"
-    new ""
+    new "Put your fingers in the hole"
 
     # game/events/beachChangeRoom.rpy:172
     old "Не стоит"
-    new ""
+    new "Not worth it"
 
     # game/events/beachChangeRoom.rpy:177
     old "Подрочить"
-    new ""
+    new "Masturbate"
 
     # game/events/beachChangeRoom.rpy:177
     old "Отсосать"
-    new ""
+    new "Suck off"
 
     # game/events/beachChangeRoom.rpy:177
     old "Трахнуть его"
-    new ""
+    new "Fuck him"

@@ -406,16 +406,16 @@ translate english strings:
 
     # game/events/rEventsClass5.rpy:58
     old "Сделать замечание"
-    new ""
+    new "Make a comment"
 
     # game/events/rEventsClass5.rpy:58
     old "Проследить за ними"
-    new ""
+    new "Track them"
 
     # game/events/rEventsClass5.rpy:123
     old "Подрядить ученика на это дело"
-    new ""
+    new "To subcontract a student to this matter"
 
     # game/events/rEventsClass5.rpy:175
     old "Помочь преподавателю успокоить их"
-    new ""
+    new "Help the teacher to reassure them"

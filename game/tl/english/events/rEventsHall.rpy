@@ -286,12 +286,12 @@ translate english strings:
 
     # game/events/rEventsHall.rpy:9
     old "Спрятаться в шкафчик"
-    new ""
+    new "Hiding in the locker"
 
     # game/events/rEventsHall.rpy:67
     old "А... Ну..."
-    new ""
+    new "Well ... Well ..."
 
     # game/events/rEventsHall.rpy:133
     old "Не трогать её"
-    new ""
+    new "Do not touch her"

@@ -856,20 +856,20 @@ translate english strings:
 
     # game/events/rEventsEntrance.rpy:242
     old "Смотреть дальше"
-    new ""
+    new "Look beyond"
 
     # game/events/rEventsEntrance.rpy:288
     old "Всё таки наказать их"
-    new ""
+    new "All the same, punish them"
 
     # game/events/rEventsEntrance.rpy:288
     old "Заткнуться и смотреть"
-    new ""
+    new "Shut up and watch"
 
     # game/events/rEventsEntrance.rpy:372
     old "Вы слышите шевеление в кустах."
-    new ""
+    new "You hear the stir in the bushes."
 
     # game/events/rEventsEntrance.rpy:372
     old "Проверить"
-    new ""
+    new "Check"

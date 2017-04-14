@@ -586,36 +586,36 @@ translate english strings:
 
     # game/events/rEventsFirstFloor.rpy:207
     old "Оставить всех после уроков"
-    new ""
+    new "Leave everyone after school"
 
     # game/events/rEventsFirstFloor.rpy:380
     old "Посмотреть наверх"
-    new ""
+    new "Look up"
 
     # game/events/rEventsFirstFloor.rpy:403
     old "Ну и ладно, хоть не беременны!"
-    new ""
+    new "Well, okay, at least not pregnant!"
 
     # game/events/rEventsFirstFloor.rpy:442
     old "Наказать его"
-    new ""
+    new "Punish him"
 
     # game/events/rEventsFirstFloor.rpy:442
     old "И действительно, чего это она оттопырила попу?"
-    new ""
+    new "And really, what is it she stuck out the ass?"
 
     # game/events/rEventsFirstFloor.rpy:464
     old "Попросить уйти в другое место"
-    new ""
+    new "Ask to leave for another place"
 
     # game/events/rEventsFirstFloor.rpy:492
     old "Хотя, если подумать..."
-    new ""
+    new "Although, if you think ..."
 
     # game/events/rEventsFirstFloor.rpy:492
     old "Орднунг убер аллес! (Наказать)"
-    new ""
+    new "Ordnung uber alleys!  (Punish)"
 
     # game/events/rEventsFirstFloor.rpy:492
     old "Всё таки уйти"
-    new ""
+    new "All the same leave"

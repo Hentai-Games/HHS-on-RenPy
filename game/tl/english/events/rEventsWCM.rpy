@@ -220,36 +220,36 @@ translate english strings:
 
     # game/events/rEventsWCM.rpy:11
     old "Проигнорировать"
-    new ""
+    new "Ignore"
 
     # game/events/rEventsWCM.rpy:28
     old "Заглянуть из соседней кабинки"
-    new ""
+    new "Look from the next booth"
 
     # game/events/rEventsWCM.rpy:28
     old "Не проверять"
-    new ""
+    new "Do not check"
 
     # game/events/rEventsWCM.rpy:50
     old "Отчитать"
-    new ""
+    new "Read off"
 
     # game/events/rEventsWCM.rpy:85
     old "Подсмотреть из соседней кабинки"
-    new ""
+    new "Peep from the next booth"
 
     # game/events/rEventsWCM.rpy:91
     old "Аккуратно уйти"
-    new ""
+    new "Carefully leave"
 
     # game/events/rEventsWCM.rpy:109
     old "Подсмотреть"
-    new ""
+    new "Peep"
 
     # game/events/rEventsWCM.rpy:109
     old "Выйти"
-    new ""
+    new "Go out"
 
     # game/events/rEventsWCM.rpy:114
     old "Аккуратно закрыть дверь и выйти"
-    new ""
+    new "Gently close the door and exit"

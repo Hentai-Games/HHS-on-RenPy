@@ -220,20 +220,20 @@ translate english strings:
 
     # game/events/rEventsStorage.rpy:45
     old "Помочь"
-    new ""
+    new "Help"
 
     # game/events/rEventsStorage.rpy:45
     old "Не обращать внимания"
-    new ""
+    new "Do not mention it"
 
     # game/events/rEventsStorage.rpy:106
     old "Всё таки лучше учить хоть как, чем никак."
-    new ""
+    new "All the same it is better to learn at least how, than in any way."
 
     # game/events/rEventsStorage.rpy:106
     old "Наказать"
-    new ""
+    new "Punish"
 
     # game/events/rEventsStorage.rpy:131
     old "Всё в порядке."
-    new ""
+    new "Everything is fine."
