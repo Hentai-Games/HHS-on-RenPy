@@ -7,6 +7,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace RenpyTranslate
 {
@@ -84,6 +85,11 @@ namespace RenpyTranslate
 
             foreach (var kv in postTranslate) {
                 result = result.Replace(kv.Key, kv.Value);
+            }
+
+            if (result.Contains("{"))
+            {
+                result = new Regex(@"{(.+?)}").Replace(result, match => match.Captures[0].Value.Replace(" ", "").ToLower());
             }
 
             return result;
