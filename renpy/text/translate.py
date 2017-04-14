@@ -28,7 +28,7 @@ class TranslationCache:
 
     def save_cache(self):
         with open(TranslationCache.filename_cache, 'w') as f:
-            for key, value in TranslationCache.cache.iteritems():
+            for key, value in sorted(TranslationCache.cache.iteritems(), key=lambda (k,v): (v,k)):
                 f.write(json.dumps([key, value]) + "\n")
 
     def get_translation(self, t):

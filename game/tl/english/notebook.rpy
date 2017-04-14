@@ -232,7 +232,7 @@ translate english strings:
 
     # game/notebook.rpy:260
     old "Что то пошло не так с журналом. Заскриншотьте это сообщение и напишите на форуме или в мой блог:\n mile_qwest_2_stage = [mile_qwest_2_stage], mile_qwest_2_stage_init = [mile_qwest_2_stage_init], mile_qwest_2_caught = [mile_qwest_2_caught], mile_qwest_2_Ahmed = [mile_qwest_2_Ahmed]"
-    new "Something went wrong with the magazine.  Please, sign in to this message and write on the forum or on my blog: \ n mile_qwest_2_stage = [mile_qwest_2_stage], mile_qwest_2_stage_init = [mile_qwest_2_stage_init], mile_qwest_2_caught = [mile_qwest_2_caught], mile_qwest_2_Ahmed = [mile_qwest_2_Ahmed]"
+    new "Something went wrong with the magazine.  Please, sign in to this message and write on the forum or on my blog: \n mile_qwest_2_stage = [mile_qwest_2_stage], mile_qwest_2_stage_init = [mile_qwest_2_stage_init], mile_qwest_2_caught = [mile_qwest_2_caught], mile_qwest_2_Ahmed = [mile_qwest_2_Ahmed]"
 
     # game/notebook.rpy:264
     old "[danokova.name]:"
@@ -340,7 +340,7 @@ translate english strings:
 
     # game/notebook.rpy:312
     old "Что то пошло не так с журналом. Заскриншотьте это сообщение и напишите на форуме или в мой блог:\n mile_qwest_3_stage = [mile_qwest_3_stage], mile_qwest_3_stage_init = [mile_qwest_3_stage_init]"
-    new "Something went wrong with the magazine.  Please sign this message and write on the forum or on my blog: \ n mile_qwest_3_stage = [mile_qwest_3_stage], mile_qwest_3_stage_init = [mile_qwest_3_stage_init]"
+    new "Something went wrong with the magazine.  Please sign this message and write on the forum or on my blog: \n mile_qwest_3_stage = [mile_qwest_3_stage], mile_qwest_3_stage_init = [mile_qwest_3_stage_init]"
 
     # game/notebook.rpy:316
     old "Странные события:"
