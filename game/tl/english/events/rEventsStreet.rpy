@@ -490,7 +490,7 @@ translate english event_loc_street_0_lo8_35f642bf:
 translate english event_loc_street_0_lo9_0988725a:
 
     # "Мимо вас радостно промчалась [st1.fname] на велосипеде. Вы не смогли не обратить внимание на развевающуюся от скорости юбочку. Точнее на место немного пониже."
-    "[Bst1.fname] passed by you joyfully.  You could not fail to pay attention to the fluttering skirt.  More precisely in place a little lower."
+    "[st1.fname] passed by you joyfully.  You could not fail to pay attention to the fluttering skirt.  More precisely in place a little lower."
 
 # game/events/rEventsStreet.rpy:390
 translate english event_loc_street_35_lo10_f229ccd3:
