@@ -59,6 +59,7 @@ namespace RenpyTranslate
         static Dictionary<string, string> postTranslate = new Dictionary<string, string>() {
             [ "\\ n" ] = "\n",
             [ "preyakulyatom" ] = "preejaculation",
+            [ "patronymic" ] = "last name",
             [ "{U}" ] = "{u}",
             [ "{/ u}" ] = "{/u}",
             [ "\"" ] = "\\\"",

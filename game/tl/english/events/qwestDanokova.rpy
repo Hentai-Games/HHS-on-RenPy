@@ -22,7 +22,7 @@ translate english danokova_start_29aac3bb:
 translate english danokova_start_8edf8d1b:
 
     # st1.say "[d.name], а вы никому не скажете? - краснея спрашивает парень, на поверку оказывающийся учеником вашей школы. Надо бы, кстати, запомнить его, мало ли что."
-    st1.say "[D.name], but you will not tell anyone?  - blushing asked the guy who turns out to be a student of your school.  It should be, by the way, remember it, you never know what."
+    st1.say "[d.name], but you will not tell anyone?  - blushing asked the guy who turns out to be a student of your school.  It should be, by the way, remember it, you never know what."
 
 # game/events/qwestDanokova.rpy:62
 translate english danokova_start_b7f0d647:
@@ -394,7 +394,7 @@ translate english danokova_continue_d78f706d:
 translate english danokova_continue_b97856a7:
 
     # d.say "Хорошо, что Вы спросили. [bioBoy.fname] мне весьма сильно помог продвинуться с написанием. У него довольно бурная реакция на температурный режим помещения."
-    d.say "It's good that you asked.  [BioBoy.fname] helped me very much with the writing.  He has quite a violent reaction to the temperature regime of the room."
+    d.say "It's good that you asked.  [bioBoy.fname] helped me very much with the writing.  He has quite a violent reaction to the temperature regime of the room."
 
 # game/events/qwestDanokova.rpy:151
 translate english danokova_continue_69eae6d4:
@@ -682,7 +682,7 @@ translate english danokova_continue_17cae41b:
 translate english danokova_continue_a185a839:
 
     # d.say "[d.fname] кивает вам и уходит."
-    d.say "[D.fname] nods to you and leaves."
+    d.say "[d.fname] nods to you and leaves."
 
 # game/events/qwestDanokova.rpy:221
 translate english danokova_continue_f1abc6ef:
@@ -718,7 +718,7 @@ translate english danokova_working_131c5a5b:
 translate english danokova_hot_969e8777:
 
     # "Вы выставили 40 градусов на кондиционере, и в кабинете стало невыносимо жарко. Вы ожидали любой реакции на изменение температуры, но не такой. [danokova.fname] шумно задышала, но не выясняя причины изменения атмосферы начала раздеваться, всё ещё не замечая вас. Вскоре все её вещи остались лежать на полу, а она сама, в одном нижнем белье, продолжила работать над своем проектом с непроизносимым названием."
-    "You put 40 degrees on the air conditioner, and in the office it became unbearably hot.  You expected any reaction to a change in temperature, but not that.  [Danokova.fname] breathed noisily, but without knowing the causes of the change in the atmosphere, she began to undress, still not noticing you.  Soon all her things were left lying on the floor, and she herself, in one of her underwear, continued to work on her project with an unpronounceable title."
+    "You put 40 degrees on the air conditioner, and in the office it became unbearably hot.  You expected any reaction to a change in temperature, but not that.  [danokova.fname] breathed noisily, but without knowing the causes of the change in the atmosphere, she began to undress, still not noticing you.  Soon all her things were left lying on the floor, and she herself, in one of her underwear, continued to work on her project with an unpronounceable title."
 
 # game/events/qwestDanokova.rpy:255
 translate english danokova_hot_bed3ea88:
@@ -730,13 +730,13 @@ translate english danokova_hot_bed3ea88:
 translate english danokova_hot_b594a94c:
 
     # "[danokova.fname] сидит раскрасневшаяся от жары перед компьютером. Её лицо сосредоточенно, и она бешенно стучит по клавиатуре. Наверное не стоит сейчас никого приглашать."
-    "[Danokova.fname] sits flushed with the heat in front of the computer.  Her face is concentrated, and she furiously knocks on the keyboard.  Probably should not now invite anyone."
+    "[danokova.fname] sits flushed with the heat in front of the computer.  Her face is concentrated, and she furiously knocks on the keyboard.  Probably should not now invite anyone."
 
 # game/events/qwestDanokova.rpy:261
 translate english danokova_hot_1f661761:
 
     # "[danokova.name] сидит полуобнажённая за компьютером и сосредоточено работает. По её покрасневшей щёчке стекает капелька пота."
-    "[Danokova.name] sits half-naked at the computer and focused works.  On her reddened cheek drips a drop of sweat."
+    "[danokova.name] sits half-naked at the computer and focused works.  On her reddened cheek drips a drop of sweat."
 
 # game/events/qwestDanokova.rpy:266
 translate english danokova_hot_d4e70ef6:
@@ -784,7 +784,7 @@ translate english danokova_angry_d1992d64:
 translate english danokova_angry_6f211c5d:
 
     # d.say "Она должна быть закрыта тобой, с другой стороны, неужели сразу непонятно? - хмуря брови говорит учительница, и кивком указывает направление, куда стоит всем проследовать. [st1.fname] быстро всё понимает, и сматывается, оставляя вас наедине с биологичкой."
-    d.say "It should be closed by you, on the other hand, is it really incomprehensible at once?  - the eyebrows scowl says the teacher, and nods the direction where everyone should go.  [St1.fname] quickly understands everything, and winds up, leaving you alone with the biology."
+    d.say "It should be closed by you, on the other hand, is it really incomprehensible at once?  - the eyebrows scowl says the teacher, and nods the direction where everyone should go.  [st1.fname] quickly understands everything, and winds up, leaving you alone with the biology."
 
 # game/events/qwestDanokova.rpy:298
 translate english danokova_return_pupil_a137f12f:
@@ -802,7 +802,7 @@ translate english danokova_return_pupil_964ad3b1:
 translate english danokova_return_pupil_67aff227:
 
     # st1.say "Эмм, я как бы это, ну, как его, - мнётся [st1.fname]."
-    st1.say "Um, I kind of like that, well, like him, - [st1.fname] [me]."
+    st1.say "Um, I kind of like that, well, like him, - [st1.fname] ."
 
 # game/events/qwestDanokova.rpy:301
 translate english danokova_return_pupil_a7a04fc6:
@@ -898,7 +898,7 @@ translate english danokova_office_sex_07f4a283:
 translate english danokova_office_sex_8b039263:
 
     # "[d.fname] начинает стягивать с себя бюстгалтер, наблюдая за тем, как [st1.fname] усиленно пытается скрыть возбуждение в своих зелёных трусах."
-    "[D.fname] begins to pull off his bra, watching how [st1.fname] is strenuously trying to hide the excitement in his green underpants."
+    "[d.fname] begins to pull off his bra, watching how [st1.fname] is strenuously trying to hide the excitement in his green underpants."
 
 # game/events/qwestDanokova.rpy:343
 translate english danokova_office_sex_32aae36c:
@@ -1006,7 +1006,7 @@ translate english danokova_office_sex_1cdd4c16:
 translate english danokova_office_sex_e8d1400e:
 
     # "[st1.fname] вовсю двигал своей задницей, вбивая свой член в горячую расщелину между рукой и телом свой учительницы. Его смазанный кол ритмично вырывался из тесного плена, показывая наружу свою напряжённую головку."
-    "[St1.fname] with might and main moved his ass, driving his cock into the hot crevice between his hand and the body of his teacher.  His smeared count was pounding rhythmically out of tight captivity, showing his strained head outward."
+    "[st1.fname] with might and main moved his ass, driving his cock into the hot crevice between his hand and the body of his teacher.  His smeared count was pounding rhythmically out of tight captivity, showing his strained head outward."
 
 # game/events/qwestDanokova.rpy:365
 translate english danokova_office_sex_90112a16:
@@ -1168,7 +1168,7 @@ translate english danokova_office_sex_69_3e58cdb9:
 translate english danokova_office_sex_69_5222c766:
 
     # "[d.fname] аккуратно уселась перед лицом ученика, открывая ему шикарный вид на свою киску, и опустила свой носик к его члену."
-    "[D.fname] neatly sat in front of the student's face, revealing a chic look at her pussy, and lowered her nose to his penis."
+    "[d.fname] neatly sat in front of the student's face, revealing a chic look at her pussy, and lowered her nose to his penis."
 
 # game/events/qwestDanokova.rpy:409
 translate english danokova_office_sex_69_56476bc0:
@@ -1264,7 +1264,7 @@ translate english danokova_office_sex_69_12245776:
 translate english danokova_office_sex_69_1bb41a72:
 
     # "[d.fname] активно работала языком и головой, обрабатывая пульсирующий во рту орган. [st1.fname] не отставал, и с юношеским энтузиазмом отдавался новому делу, вылизывая молодую учительницу. Он наконец то заметил, что [st1.fname] смешно вздрагивает, когда его язык касается маленького бугорка под капюшончиком, и сосредоточил всё своё внимание на нём."
-    "[D.fname] actively worked with the tongue and head, processing the pulsing organ in the mouth.  [St1.fname] did not lag behind, and with youthful enthusiasm gave himself up to a new cause, licking a young teacher.  He finally noticed that [St1.fname] jerks funny when his tongue touches the small hump under the hood, and has focused all his attention on him."
+    "[d.fname] actively worked with the tongue and head, processing the pulsing organ in the mouth.  [st1.fname] did not lag behind, and with youthful enthusiasm gave himself up to a new cause, licking a young teacher.  He finally noticed that [st1.fname] jerks funny when his tongue touches the small hump under the hood, and has focused all his attention on him."
 
 # game/events/qwestDanokova.rpy:429
 translate english danokova_office_sex_69_7fec324f:
@@ -1288,13 +1288,13 @@ translate english danokova_office_sex_69_682eca21:
 translate english danokova_office_sex_69_1a15611f:
 
     # "[st1.name] нашёл слабое место учительницы. В тот момент, когда его палец занял место языка, а язык начал исследовать глубину пещерки выше, [d.name] застонала, и задрожала всем телом. Вам было прекрасно видно, как быстро запульсировал её анус, выдавая несвоевременный оргазм."
-    "[St1.name] found the teacher's weak point.  At the moment when his finger took the place of the tongue, and the tongue began to explore the depth of the cave above, [d.name] moaned, and trembled all over.  You could clearly see how quickly her anus pulsed, giving out an untimely orgasm."
+    "[st1.name] found the teacher's weak point.  At the moment when his finger took the place of the tongue, and the tongue began to explore the depth of the cave above, [d.name] moaned, and trembled all over.  You could clearly see how quickly her anus pulsed, giving out an untimely orgasm."
 
 # game/events/qwestDanokova.rpy:436
 translate english danokova_office_sex_69_db3071c0:
 
     # "Стоит отметить, что несмотря на сотрясающие её тело волны оргазма, биологичка так и не выпустила член изо рта, продолжая постанывая посасывать его. [st1.fname] то ли не понял, что его партнёрша уже финишировала, толи ему понравился вкус, в любом случае он не собирался останавливаться ласкать учительницу."
-    "It is worth noting that despite the waves of orgasm that shook her body, the biologist did not release a member from the mouth, continuing to postanyvaya suck it.  [St1.fname] either did not understand that his partner had already finished, he was flattered by the taste, in any case he was not going to stop caressing the teacher."
+    "It is worth noting that despite the waves of orgasm that shook her body, the biologist did not release a member from the mouth, continuing to postanyvaya suck it.  [st1.fname] either did not understand that his partner had already finished, he was flattered by the taste, in any case he was not going to stop caressing the teacher."
 
 # game/events/qwestDanokova.rpy:437
 translate english danokova_office_sex_69_59f90255:
@@ -1336,7 +1336,7 @@ translate english danokova_office_sex_69_443d78b2:
 translate english danokova_office_sex_69_865d3d8f:
 
     # st1.say "Ммм, кончаю! - застонал [st1.fname]. [d.name] не отрывалась от пульсирующего органа, усиленно сглатывая обильно льющееся семя. И всё равно сквозь уголки её рта, она начала брызгать и выливаться."
-    st1.say "Mmm, I'm coming!  Moaned [st1.fname].  [D.name] did not detach from the pulsating organ, swallowing the abundantly pouring semen.  And still through the corners of her mouth, she began to splash and pour out."
+    st1.say "Mmm, I'm coming!  Moaned [st1.fname].  [d.name] did not detach from the pulsating organ, swallowing the abundantly pouring semen.  And still through the corners of her mouth, she began to splash and pour out."
 
 # game/events/qwestDanokova.rpy:448
 translate english danokova_office_sex_69_49f4f35e:
@@ -1396,7 +1396,7 @@ translate english danokova_office_sex_69_e12beaa7:
 translate english danokova_office_sex_69_12937767:
 
     # "[st1.fname] начал успокаиваться и перестал суетиться."
-    "[St1.fname] began to calm down and stopped fussing."
+    "[st1.fname] began to calm down and stopped fussing."
 
 # game/events/qwestDanokova.rpy:462
 translate english danokova_office_sex_69_6f6c4ce3:
@@ -1462,7 +1462,7 @@ translate english danokova_office_suck_0f6e31e9:
 translate english danokova_office_suck_ceca512b:
 
     # "[d.fname] встала перед сидящим парнем на колени и взяла его член в руку. Тот слегка дрогнул в ответ, и на кончике появилась прозрачная капля, которая немедленно потекла вниз."
-    "[D.fname] stood before the seated guy on her knees and took his cock in her hand.  He slightly faltered in response, and on the tip appeared a transparent drop, which immediately flowed down."
+    "[d.fname] stood before the seated guy on her knees and took his cock in her hand.  He slightly faltered in response, and on the tip appeared a transparent drop, which immediately flowed down."
 
 # game/events/qwestDanokova.rpy:491
 translate english danokova_office_suck_17d0d3e4:
@@ -1510,7 +1510,7 @@ translate english danokova_office_suck_5c48f2f9:
 translate english danokova_office_suck_4f6c60b2:
 
     # st1.say "[d.fname], я кажется сейчас, ооох, - парень выгнулся на кресле, и Вы отчётливо увидели, как блестящий от слюны член задрожал во рту у биологички. Не высказывая никакого удивления, она продолжала посасывать член, не прерывая стимуляции языком. Не поместившаяся во рту сперма, стекала вдоль уголков жаркого рта прямо к лобку парня."
-    st1.say "[D.fname], I think now, oooh, - the guy arched on the armchair, and you clearly saw how shiny from the saliva member shivered in the mouth of the biologist.  Without expressing any surprise, she continued to suck the cock, without interrupting the stimulation with the tongue.  Not placed in the mouth of the sperm, flowed along the corners of the hot mouth directly to the pubes of the guy."
+    st1.say "[d.fname], I think now, oooh, - the guy arched on the armchair, and you clearly saw how shiny from the saliva member shivered in the mouth of the biologist.  Without expressing any surprise, she continued to suck the cock, without interrupting the stimulation with the tongue.  Not placed in the mouth of the sperm, flowed along the corners of the hot mouth directly to the pubes of the guy."
 
 # game/events/qwestDanokova.rpy:501
 translate english danokova_office_suck_0d19448f:
@@ -1522,7 +1522,7 @@ translate english danokova_office_suck_0d19448f:
 translate english danokova_office_suck_8ebf85d6:
 
     # "[st1.fname] наконец то закончил кончать, и постарался вынуть свой член изо рта, чем спровоцировал последнюю пульсацию, выплеснувшую ещё немного семени в рот преподавательницы."
-    "[St1.fname] finally finished finishing, and tried to take his penis out of his mouth, which provoked the last pulsation, splashing out some more semen into the teacher's mouth."
+    "[st1.fname] finally finished finishing, and tried to take his penis out of his mouth, which provoked the last pulsation, splashing out some more semen into the teacher's mouth."
 
 # game/events/qwestDanokova.rpy:504
 translate english danokova_office_suck_9e9d7dce:
@@ -1552,7 +1552,7 @@ translate english danokova_office_suck_3ea0ee27:
 translate english danokova_office_suck_e5d80148:
 
     # "[d.fname] вернулась к облизыванию члена, только на этот раз сосредоточила свои усилия не на головке, а на крепком стволе с отчётливо виднеющейся мышцей по середине. Её язык медленно проскользил от мошонки до уздечки с натянувшейся кожицей, и слегка повибрировал на самом кончике. [st1.fname] напрягся на стуле, и снова вцепился в него обеими руками."
-    "[D.fname] returned to licking a penis, only this time focused its efforts not on the head, but on a strong trunk with a clearly visible muscle in the middle.  Her tongue slowly slid from the scrotum to the bridle with stretched skin, and slightly felt at the tip.  [St1.fname] tensed on the chair, and again he clutched it with both hands."
+    "[d.fname] returned to licking a penis, only this time focused its efforts not on the head, but on a strong trunk with a clearly visible muscle in the middle.  Her tongue slowly slid from the scrotum to the bridle with stretched skin, and slightly felt at the tip.  [st1.fname] tensed on the chair, and again he clutched it with both hands."
 
 # game/events/qwestDanokova.rpy:510
 translate english danokova_office_suck_e1136e3e:
@@ -1618,7 +1618,7 @@ translate english danokova_office_suck_4ce6945f:
 translate english danokova_office_suck_43c8380d:
 
     # "[d.fname] быстро привела себя в порядок, частично слизав, а частично вытерев сперму с лица и одежды, и уселась снова за комп, не обращая на ученика никакого внимания. Тот в свою очередь, решил не усугублять ситуацию, и, быстро натянув штаны, поспешил на выход."
-    "[D.fname] quickly put herself in order, partially licking, and partly wiping the sperm from the face and clothes, and sat down again at the computer, not paying any attention to the student.  He, in turn, decided not to aggravate the situation, and quickly pulled on his pants, hurried out."
+    "[d.fname] quickly put herself in order, partially licking, and partly wiping the sperm from the face and clothes, and sat down again at the computer, not paying any attention to the student.  He, in turn, decided not to aggravate the situation, and quickly pulled on his pants, hurried out."
 
 # game/events/qwestDanokova.rpy:526
 translate english danokova_office_suck_d8435d11:
@@ -1702,7 +1702,7 @@ translate english danokova_office_suck_b76a4385:
 translate english danokova_office_suck_8d3412c6:
 
     # "[st1.fname] окидывает Вас взглядом, оценивая формы."
-    "[St1.fname] looks at you, evaluating the forms."
+    "[st1.fname] looks at you, evaluating the forms."
 
 # game/events/qwestDanokova.rpy:546
 translate english danokova_office_suck_9bd73dbe:
@@ -1762,7 +1762,7 @@ translate english danokova_office_suck_4b644122:
 translate english danokova_office_suck_9de342c0:
 
     # "[st1.fname] не отвечает и постанывая, продолжает долбить вашу киску размашистыми движениями."
-    "[St1.fname] does not respond and moaning, continues to pound your pussy with sweeping movements."
+    "[st1.fname] does not respond and moaning, continues to pound your pussy with sweeping movements."
 
 # game/events/qwestDanokova.rpy:561
 translate english danokova_office_suck_e2000af7:
@@ -1798,7 +1798,7 @@ translate english danokova_office_suck_f9f91214:
 translate english danokova_office_suck_b52add28:
 
     # "[st1.fname] похоже тоже не был в состоянии предсказать возможную реакцию учительницы, и поспешил с вами согласиться. Вы аккуратно выглянули из кабинки, и убедившись, что путь чист, расстались с парнем в коридоре."
-    "[St1.fname] seems also not able to predict the possible reaction of the teacher, and hastened to agree with you.  You looked out carefully from the booth, and making sure that the path is clean, parted with the guy in the corridor."
+    "[st1.fname] seems also not able to predict the possible reaction of the teacher, and hastened to agree with you.  You looked out carefully from the booth, and making sure that the path is clean, parted with the guy in the corridor."
 
 # game/events/qwestDanokova.rpy:583
 translate english danokova_office_pencil_3dc084e8:
@@ -1852,7 +1852,7 @@ translate english danokova_office_pencil_7323b6c4:
 translate english danokova_office_pencil_82bb0325:
 
     # "[st1.fname] ощутимо напрягся от такого делового тона."
-    "[St1.fname] has appreciably strained from such a business tone."
+    "[st1.fname] has appreciably strained from such a business tone."
 
 # game/events/qwestDanokova.rpy:593
 translate english danokova_office_pencil_fd799366:
@@ -1888,7 +1888,7 @@ translate english danokova_office_pencil_911abdf1:
 translate english danokova_office_pencil_8ee7e458:
 
     # "[d.name] неожиданно даже для вас забрала ноги парня выше головы, словно собралась засунуть что то ему в задний проход."
-    "[D.name] unexpectedly even for you took the boy's legs above his head, as if he was about to shove something into his anus."
+    "[d.name] unexpectedly even for you took the boy's legs above his head, as if he was about to shove something into his anus."
 
 # game/events/qwestDanokova.rpy:600
 translate english danokova_office_pencil_f265bcc7:
@@ -1942,7 +1942,7 @@ translate english danokova_office_pencil_f197c961:
 translate english danokova_office_pencil_b7dad078:
 
     # "[d.fname] ускоряет движения, меняет наклон члена, массирует то уздечку большим пальцем, то гладит всю головку ладошкой. Её взгляд не открывается от пульсирующего от движений ануса."
-    "[D.fname] accelerates the movement, changes the slope of the penis, massages the bridle with the thumb, then strokes the entire head with the palm.  Her gaze does not open from the anus pulsating from the movements."
+    "[d.fname] accelerates the movement, changes the slope of the penis, massages the bridle with the thumb, then strokes the entire head with the palm.  Her gaze does not open from the anus pulsating from the movements."
 
 # game/events/qwestDanokova.rpy:610
 translate english danokova_office_pencil_22cb1eec:
@@ -2002,7 +2002,7 @@ translate english danokova_office_pencil_105080af:
 translate english danokova_office_pencil_0f337482:
 
     # "[d.fname] продолжает ласкать парня рукой и ручкой, пока с его члена не начинает свисать длиннющая капля преэяулята. Учительница облизывается ещё раз, глядя на неё. Парень продолжает подрагивать под лёгкими прикосновениями женщины."
-    "[D.fname] continues to fondle the guy with his hand and pen until a long drop of preayulate begins to hang from his cock.  The teacher licked again, looking at her.  The guy continues to tremble under the slight touch of a woman."
+    "[d.fname] continues to fondle the guy with his hand and pen until a long drop of preayulate begins to hang from his cock.  The teacher licked again, looking at her.  The guy continues to tremble under the slight touch of a woman."
 
 # game/events/qwestDanokova.rpy:621
 translate english danokova_office_pencil_91212075:
@@ -2038,7 +2038,7 @@ translate english danokova_office_pencil_91e10bf0:
 translate english danokova_office_pencil_18932833:
 
     # "[d.fname] самозабвенно погрузилась в свой эксперимент. На ваш взгляд даже слишком самозабвенно. Вам было сложно уследить за ловкими движениями её рук и языка. Да, видимо она уже слегка подзабыла своё объяснение того, зачем она касается своим языком чужого ануса."
-    "[D.fname] selflessly immersed in her experiment.  In your opinion, even too selflessly.  It was difficult for you to keep track of the deft movements of her hands and tongue.  Yes, apparently she has already slightly forgotten her explanation of why she touches someone else's anus with her tongue."
+    "[d.fname] selflessly immersed in her experiment.  In your opinion, even too selflessly.  It was difficult for you to keep track of the deft movements of her hands and tongue.  Yes, apparently she has already slightly forgotten her explanation of why she touches someone else's anus with her tongue."
 
 # game/events/qwestDanokova.rpy:630
 translate english danokova_office_pencil_9b917b17:
@@ -2380,7 +2380,7 @@ translate english danokova_find_toilet_anal_e11145f7:
 translate english danokova_find_toilet_anal_87b51be7:
 
     # "Вы с надеждой возвращаетесь в офис. Но похоже, что вы безнадёжно опоздали с поиском парочки. [d.name] сидит одна в кабинете, и ученика вокруг не наблюдается."
-    "You hopefully return to the office.  But it seems that you are hopelessly late for finding a couple.  [D.name] sits alone in the study, and the student is not around."
+    "You hopefully return to the office.  But it seems that you are hopelessly late for finding a couple.  [d.name] sits alone in the study, and the student is not around."
 
 # game/events/qwestDanokova.rpy:744
 translate english danokova_find_toilet_anal_de2e9af5:
@@ -2428,7 +2428,7 @@ translate english danokova_toilet_anal_6be94ef0:
 translate english danokova_toilet_anal_330920f4:
 
     # "[d.fname] приняла весьма откровенную позу на унитазе, и общается с кем то стоящим сзади. Вы включаете камеру на запись, радуясь появляющемуся на глазах компромату."
-    "[D.fname] took a very frank posture on the toilet, and communicates with someone standing behind.  You turn on the camera for recording, rejoicing with the incriminating evidence."
+    "[d.fname] took a very frank posture on the toilet, and communicates with someone standing behind.  You turn on the camera for recording, rejoicing with the incriminating evidence."
 
 # game/events/qwestDanokova.rpy:763
 translate english danokova_toilet_anal_92511471:
@@ -2440,7 +2440,7 @@ translate english danokova_toilet_anal_92511471:
 translate english danokova_toilet_anal_cecaf447:
 
     # d.say "[st1.fname] ну чего ты там копаешься? Давай уже начнём. Я видела твою реакцию на стимуляцию ануса, теперь мне необходимо проверить свою, чтобы включить различия в свою статью."
-    d.say "[St1.fname] Well what are you digging around there?  Let's begin already.  I saw your reaction to the stimulation of the anus, now I need to check my own to include the differences in my article."
+    d.say "[st1.fname] Well what are you digging around there?  Let's begin already.  I saw your reaction to the stimulation of the anus, now I need to check my own to include the differences in my article."
 
 # game/events/qwestDanokova.rpy:766
 translate english danokova_toilet_anal_652b7407:
@@ -2524,13 +2524,13 @@ translate english danokova_toilet_anal_5d7a13dc:
 translate english danokova_toilet_anal_7086f04a:
 
     # "[d.fname] активно подмахивала ученику своей блестящей от пота задницей. Гулкие шлепки разносились по туалету."
-    "[D.fname] actively pushed the pupil of his shiny ass sweat.  Deep flip flops spread over the toilet."
+    "[d.fname] actively pushed the pupil of his shiny ass sweat.  Deep flip flops spread over the toilet."
 
 # game/events/qwestDanokova.rpy:782
 translate english danokova_toilet_anal_7cfbd5e8:
 
     # st1.say "[d.fname], вам точно нравится?"
-    st1.say "[D.fname], do you like it exactly?"
+    st1.say "[d.fname], do you like it exactly?"
 
 # game/events/qwestDanokova.rpy:783
 translate english danokova_toilet_anal_30749df0:
@@ -2554,13 +2554,13 @@ translate english danokova_toilet_anal_f307e265:
 translate english danokova_toilet_anal_397b42d7:
 
     # st1.say "[d.name], пожалуйста, не так быстро! А то я сейчас кончу!"
-    st1.say "[D.name], please, not so fast!  And then I will finish now!"
+    st1.say "[d.name], please, not so fast!  And then I will finish now!"
 
 # game/events/qwestDanokova.rpy:788
 translate english danokova_toilet_anal_23cf862d:
 
     # "[d.fname] вряд ли слышала о чём говорит её ученик, она уже кончала. Её тело сотрясали сладкие спазмы оргазма. Анус ритмично напрягался, пытаясь то вытолкнуть, то всосать в себя таранящий его член."
-    "[D.fname] hardly heard about what her student says, she was already finishing.  Her body was shaken by the sweet spasms of orgasm.  The anus strained rhythmically, trying to push it out, then suck in the ramming member."
+    "[d.fname] hardly heard about what her student says, she was already finishing.  Her body was shaken by the sweet spasms of orgasm.  The anus strained rhythmically, trying to push it out, then suck in the ramming member."
 
 # game/events/qwestDanokova.rpy:790
 translate english danokova_toilet_anal_6b583f72:
@@ -2584,7 +2584,7 @@ translate english danokova_toilet_anal_20df1e0f:
 translate english danokova_toilet_anal_e809d304:
 
     # "[st1.name] прижался всем телом к биологичке и обвил её руками, чтобы корчащееся в наслаждении тело не соскользнуло с его пениса."
-    "[St1.name] pressed his whole body to the biologist and wrapped her arms around so that the body writhing in pleasure did not slip off his penis."
+    "[st1.name] pressed his whole body to the biologist and wrapped her arms around so that the body writhing in pleasure did not slip off his penis."
 
 # game/events/qwestDanokova.rpy:795
 translate english danokova_toilet_anal_080fe812:
@@ -2596,7 +2596,7 @@ translate english danokova_toilet_anal_080fe812:
 translate english danokova_toilet_anal_90233118:
 
     # d.say "[st1.fname]..."
-    d.say "[St1.fname] ..."
+    d.say "[st1.fname] ..."
 
 # game/events/qwestDanokova.rpy:797
 translate english danokova_toilet_anal_db2d0873:
@@ -2608,7 +2608,7 @@ translate english danokova_toilet_anal_db2d0873:
 translate english danokova_toilet_anal_a404d0c5:
 
     # d.say "[st1.fname]... Отвернись!"
-    d.say "[St1.fname] ... Turn away!"
+    d.say "[st1.fname] ... Turn away!"
 
 # game/events/qwestDanokova.rpy:799
 translate english danokova_toilet_anal_b9a15205:
@@ -2680,7 +2680,7 @@ translate english danokova_toilet_anal_1f642f53:
 translate english danokova_bdsm_offer_3771712d:
 
     # player.say "[d.name]..."
-    player.say "[D.name] ..."
+    player.say "[d.name] ..."
 
 # game/events/qwestDanokova.rpy:823
 translate english danokova_bdsm_offer_dadef36b:
@@ -2692,7 +2692,7 @@ translate english danokova_bdsm_offer_dadef36b:
 translate english danokova_bdsm_offer_996cf4cf:
 
     # player.say "[d.name]!"
-    player.say "[D.name]!"
+    player.say "[d.name]!"
 
 # game/events/qwestDanokova.rpy:825
 translate english danokova_bdsm_offer_c3b8ce13:
@@ -2818,13 +2818,13 @@ translate english danokova_bdsm_offer_953f1714:
 translate english danokova_bdsm_offer_98723c75:
 
     # d.say "[mustangovich.name] явно проникся вашей идеей."
-    d.say "[Mustangovich.name] is clearly imbued with your idea."
+    d.say "[mustangovich.name] is clearly imbued with your idea."
 
 # game/events/qwestDanokova.rpy:852
 translate english danokova_bdsm_offer_799e7aa3:
 
     # d.say "[kupruvna.name] со своим сыном тоже частенько даёт жару."
-    d.say "[Kupruvna.name] with his son also often gives heat."
+    d.say "[kupruvna.name] with his son also often gives heat."
 
 # game/events/qwestDanokova.rpy:853
 translate english danokova_bdsm_offer_2c803dcd:
@@ -2860,7 +2860,7 @@ translate english danokova_bdsm_offer_9ac91b4d:
 translate english danokova_bdsm_offer_3e6f353c:
 
     # d.say "Ну, как вы уже видели, я весьма сблизилась с этим. Да, его имя [bioBoy.fname]. [bioBoy.name]. У меня осталась незакончена последняя часть статьи. Но на этот эксперимент он вряд ли согласится. Поэтому от вас мне нужна верёвка, снотворное и кожанный костюм."
-    d.say "Well, as you have already seen, I have become very close to this.  Yes, his name is [bioBoy.fname].  [BioBoy.name].  I have not finished the last part of the article.  But he is unlikely to agree to this experiment.  Therefore, from you I need a rope, sleeping pills and a leather suit."
+    d.say "Well, as you have already seen, I have become very close to this.  Yes, his name is [bioBoy.fname].  [bioBoy.name].  I have not finished the last part of the article.  But he is unlikely to agree to this experiment.  Therefore, from you I need a rope, sleeping pills and a leather suit."
 
 # game/events/qwestDanokova.rpy:859
 translate english danokova_bdsm_offer_90e5c8bf:
@@ -2950,7 +2950,7 @@ translate english danokova_bdsm_offer_again_fa724588:
 translate english danokova_bdsm_offer_again_3d8ba002:
 
     # "[d.fname] смотрит на вас как микроцефала, только что потерявшего остатки своих мозгов."
-    "[D.fname] looks at you as a microcephalus, who has just lost the remnants of his brains."
+    "[d.fname] looks at you as a microcephalus, who has just lost the remnants of his brains."
 
 # game/events/qwestDanokova.rpy:882
 translate english danokova_bdsm_offer_again_2fb4d6f4:
@@ -3160,7 +3160,7 @@ translate english sniff_chloroform_6eba01e1:
 translate english sniff_chloroform_c1098619:
 
     # "[st1.name] ритмично вгонял в вас свой член. Причём вам это доставляло неслабое удовольствие. Ну не то, чтобы прям вам. Вашему телу. Определённо этому способствовала стимуляция сразу нескольких эрогенных зон. Вы просто не сразу поняли, что в вашем анусе торчит небольшая анальная пробка, и при каждом движении ученика, она слегка сдвигается, чем вызывает прилив наслаждения."
-    "[St1.name] rhythmically drove your dick in you.  And it gave you not weak pleasure.  Well, not that it is direct to you.  Your body.  Certainly, this was facilitated by the stimulation of several erogenous zones.  You just did not immediately realize that in your anus a small anal cork is sticking out, and with each movement of the pupil, it slightly shifts, which causes a rush of pleasure."
+    "[st1.name] rhythmically drove your dick in you.  And it gave you not weak pleasure.  Well, not that it is direct to you.  Your body.  Certainly, this was facilitated by the stimulation of several erogenous zones.  You just did not immediately realize that in your anus a small anal cork is sticking out, and with each movement of the pupil, it slightly shifts, which causes a rush of pleasure."
 
 # game/events/qwestDanokova.rpy:954
 translate english sniff_chloroform_767fbfce:
@@ -3388,7 +3388,7 @@ translate english sniff_chloroform_44b405a5:
 translate english danokova_bdsm_action_1cb789c0:
 
     # player.say "[danokova.fname], я всё достала! Верёвка, костюм, хлороформ. Всё по списку!"
-    player.say "[Danokova.fname], I got it all!  Rope, costume, chloroform.  All on the list!"
+    player.say "[danokova.fname], I got it all!  Rope, costume, chloroform.  All on the list!"
 
 # game/events/qwestDanokova.rpy:1030
 translate english danokova_bdsm_action_03e5b158:
@@ -3406,7 +3406,7 @@ translate english danokova_bdsm_action_422bd8f4:
 translate english danokova_bdsm_action_031c7186:
 
     # "[danokova.name] вздыхает, уничижительно разглядывая с ног до головы."
-    "[Danokova.name] sighs, pejoratively examining from head to foot."
+    "[danokova.name] sighs, pejoratively examining from head to foot."
 
 # game/events/qwestDanokova.rpy:1033
 translate english danokova_bdsm_action_a0192ffb:
@@ -3430,13 +3430,13 @@ translate english danokova_bdsm_action_9ce892ab:
 translate english danokova_bdsm_action_1cb789c0_1:
 
     # player.say "[danokova.fname], я всё достала! Верёвка, костюм, хлороформ. Всё по списку!"
-    player.say "[Danokova.fname], I got it all!  Rope, costume, chloroform.  All on the list!"
+    player.say "[danokova.fname], I got it all!  Rope, costume, chloroform.  All on the list!"
 
 # game/events/qwestDanokova.rpy:1041
 translate english danokova_bdsm_action_e8514dc6:
 
     # danokova.say "[bioBoy.fname]. Его вы тоже достали?"
-    danokova.say "[BioBoy.fname].  Did you get it, too?"
+    danokova.say "[bioBoy.fname].  Did you get it, too?"
 
 # game/events/qwestDanokova.rpy:1042
 translate english danokova_bdsm_action_422bd8f4_1:
@@ -3448,7 +3448,7 @@ translate english danokova_bdsm_action_422bd8f4_1:
 translate english danokova_bdsm_action_347755d8:
 
     # "[danokova.name] вздыхает, уничижительно разглядывая с ног до головы. Потом смотрит в окно, на клонящееся к закату солнце."
-    "[Danokova.name] sighs, pejoratively examining from head to foot.  Then he looks out of the window at the sun setting toward the sunset."
+    "[danokova.name] sighs, pejoratively examining from head to foot.  Then he looks out of the window at the sun setting toward the sunset."
 
 # game/events/qwestDanokova.rpy:1044
 translate english danokova_bdsm_action_f0e1b845:
@@ -3466,13 +3466,13 @@ translate english danokova_bdsm_action_7271263a:
 translate english danokova_bdsm_action_51d56c5a:
 
     # "[danokova.fname] не говоря ни слова отворачивается, давая понять, что разговор закончен. Похоже, что она просто не совсем поняла ваш последний риторический вопрос."
-    "[Danokova.fname] without speaking a word turns away, letting know that the conversation is over.  It seems that she just did not quite understand your last rhetorical question."
+    "[danokova.fname] without speaking a word turns away, letting know that the conversation is over.  It seems that she just did not quite understand your last rhetorical question."
 
 # game/events/qwestDanokova.rpy:1051
 translate english danokova_bdsm_action_1cb789c0_2:
 
     # player.say "[danokova.fname], я всё достала! Верёвка, костюм, хлороформ. Всё по списку!"
-    player.say "[Danokova.fname], I got it all!  Rope, costume, chloroform.  All on the list!"
+    player.say "[danokova.fname], I got it all!  Rope, costume, chloroform.  All on the list!"
 
 # game/events/qwestDanokova.rpy:1052
 translate english danokova_bdsm_action_ad4a2a45:
@@ -3526,7 +3526,7 @@ translate english danokova_bdsm_action_27ae5561:
 translate english danokova_bdsm_action_b50070cc:
 
     # player.say "[danokova.name], потрудитесь объяснить! - Вам совершенно не понравилось, когда над вами смеются."
-    player.say "[Danokova.name], please explain!  \"You did not like it when they laughed at you.\""
+    player.say "[danokova.name], please explain!  \"You did not like it when they laughed at you.\""
 
 # game/events/qwestDanokova.rpy:1061
 translate english danokova_bdsm_action_dc78c437:
@@ -3544,7 +3544,7 @@ translate english danokova_bdsm_action_34cb1086:
 translate english dan_test_c919b632:
 
     # player.say "[danokova.fname], я всё достала! Верёвка, костюм, хлороформ. Всё по списку! Вот! - вы протягиваете набитый вещами пакет учительнице."
-    player.say "[Danokova.fname], I got it all!  Rope, costume, chloroform.  All on the list!  Here!  - you are holding out a stuffed bag to the teacher."
+    player.say "[danokova.fname], I got it all!  Rope, costume, chloroform.  All on the list!  Here!  - you are holding out a stuffed bag to the teacher."
 
 # game/events/qwestDanokova.rpy:1073
 translate english dan_test_46a41b4c:
@@ -3616,7 +3616,7 @@ translate english dan_test_1b730a25:
 translate english dan_test_5e59053d:
 
     # "[danokova.name] совершенно не стесняясь того, что её могут увидеть, приподнимает свою юбку и, придерживая её подбородком, стягивает с себя белоснежные трусики."
-    "[Danokova.name] completely unconcerned that they can see her, raise her skirt and, holding her chin, pulls off her snow-white panties."
+    "[danokova.name] completely unconcerned that they can see her, raise her skirt and, holding her chin, pulls off her snow-white panties."
 
 # game/events/qwestDanokova.rpy:1093
 translate english dan_test_af8b33a3:
@@ -3838,7 +3838,7 @@ translate english dan_test_dd0d0259:
 translate english dan_test_f0e15d11:
 
     # "Её сапог начал ритмично надавливать на смотрящий в потолок член и возить пунцовой головкой по животу. [bioBoy.fname] заёрзал, попытавшись отстраниться, но ваши путы держали крепко и из этого мало что вышло."
-    "Her boot began to rhythmically press on looking at the ceiling member and carry a crimson head over the stomach.  [BioBoy.fname] fumbled, trying to pull away, but your binds were held tight and this little came of it."
+    "Her boot began to rhythmically press on looking at the ceiling member and carry a crimson head over the stomach.  [bioBoy.fname] fumbled, trying to pull away, but your binds were held tight and this little came of it."
 
 # game/events/qwestDanokova.rpy:1148
 translate english dan_test_dfca8ccf:
@@ -3898,7 +3898,7 @@ translate english dan_test_6b932854:
 translate english dan_test_f5b3f507:
 
     # st1.say "[danokova.name], моя учительница по биологии!!! - задыхаясь выпалил парень."
-    st1.say "[Danokova.name], my biology teacher !!!  The guy blurted out."
+    st1.say "[danokova.name], my biology teacher !!!  The guy blurted out."
 
 # game/events/qwestDanokova.rpy:1160
 translate english dan_test_f10f1b9e:
@@ -4066,7 +4066,7 @@ translate english dan_test_0e472536:
 translate english dan_test_fb13d869:
 
     # "Естество парня бешенно задёргалось, разбрасывая вокруг себя потоки спермы. [bioBoy.fname] стонал, пытаясь слезть с дразнивших его пальцев, но лишь усиливал стимуляцию и поток семени не останавливался ни на секунду."
-    "The nature of the guy furiously fluttered, scattering around him the flow of sperm.  [BioBoy.fname] groaned, trying to get off his teasing fingers, but only intensified the stimulation and the flow of the seed did not stop for a second."
+    "The nature of the guy furiously fluttered, scattering around him the flow of sperm.  [bioBoy.fname] groaned, trying to get off his teasing fingers, but only intensified the stimulation and the flow of the seed did not stop for a second."
 
 # game/events/qwestDanokova.rpy:1194
 translate english dan_test_71009676:

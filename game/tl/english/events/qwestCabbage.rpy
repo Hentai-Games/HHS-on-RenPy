@@ -10,7 +10,7 @@ translate english cabbageInit_df99704e:
 translate english cabbageInit_e9d1554b:
 
     # s "Приятно познакомится. [p.name], если я не ошибаюсь?"
-    s "Nice to meet you.  [P.name], if I'm not mistaken?"
+    s "Nice to meet you.  [p.name], if I'm not mistaken?"
 
 # game/events/qwestCabbage.rpy:8
 translate english cabbageInit_9b01bf98:
@@ -190,7 +190,7 @@ translate english event_loc_cabbage_0_2_45771cd9:
 translate english event_loc_cabbage_0_2_9e133d35:
 
     # p.say "[st1.name]! - окликнули вы парня и выразительно показали пальцем в сторону капустного поля."
-    p.say "[St1.name]!  - You called to the guy and pointedly pointed to the cabbage field."
+    p.say "[st1.name]!  - You called to the guy and pointedly pointed to the cabbage field."
 
 # game/events/qwestCabbage.rpy:109
 translate english event_loc_cabbage_0_2_79bd1d7c:
@@ -226,7 +226,7 @@ translate english event_loc_cabbage_20_4_97991285:
 translate english event_loc_cabbage_20_4_b7b97e2a:
 
     # player.say "[st1.fname]!!! - прошипели вы из листвы, - А ну, быстро на уборку!"
-    player.say "[St1.fname] !!!  - you hissed from the leaves, - Well, quickly to cleaning!"
+    player.say "[st1.fname] !!!  - you hissed from the leaves, - Well, quickly to cleaning!"
 
 # game/events/qwestCabbage.rpy:128
 translate english event_loc_cabbage_20_4_07efc6de:

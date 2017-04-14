@@ -4,7 +4,7 @@
 translate english event_loc_hall_0_no1_d46a5353:
 
     # "[st2.fname] и [st1.fname]. Очевидно, вы прервали важную беседу, и вам здесь не рады."
-    "[St2.fname] and [st1.fname].  Obviously, you interrupted an important conversation, and you are not welcome here."
+    "[st2.fname] and [st1.fname].  Obviously, you interrupted an important conversation, and you are not welcome here."
 
 # game/events/rEventsHall.rpy:11
 translate english event_loc_hall_0_no1_c123876f:
@@ -64,7 +64,7 @@ translate english event_loc_hall_0_no1_14ea383b:
 translate english event_loc_hall_0_no1_a0cb2c4b:
 
     # "Вы сидите в шкафчике и смотрите, как [st1.fname] приподнимает юбку и, расстегнув ширинку своего дружка, с тихим всхлипом усаживается ему на коленки. [st2.fname] берёт в руку тетрадку и начинает что-то говорить на ушко."
-    "You sit in the locker and watch how [st1.fname] lifts her skirt and, unbuttoning her friend's fly, with a quiet sob sits down on his knees.  [St2.fname] takes a notebook in his hand and begins to say something in his ear."
+    "You sit in the locker and watch how [st1.fname] lifts her skirt and, unbuttoning her friend's fly, with a quiet sob sits down on his knees.  [st2.fname] takes a notebook in his hand and begins to say something in his ear."
 
 # game/events/rEventsHall.rpy:28
 translate english event_loc_hall_0_no1_5a47e27a:
@@ -76,7 +76,7 @@ translate english event_loc_hall_0_no1_5a47e27a:
 translate english event_loc_hall_0_no1_05697489:
 
     # "Ноги девушки начинают подрагивать, но она не встаёт с колен, а лишь немного ускоряет покачивания своей попы на члене парня. Вы видите, как на пол падают первые капли из её возбуждённой киски. [st2.fname] продолжает что-то нашёптывать ей и внезапно кусает за мочку."
-    "The girl's legs start to tremble, but she does not get up from her knees, but only slightly speeds up rocking his priests on the guy's cock.  You see how the first drops of her excited pussy fall on the floor.  [St2.fname] continues to whisper something to her and suddenly bites at the lobe."
+    "The girl's legs start to tremble, but she does not get up from her knees, but only slightly speeds up rocking his priests on the guy's cock.  You see how the first drops of her excited pussy fall on the floor.  [st2.fname] continues to whisper something to her and suddenly bites at the lobe."
 
 # game/events/rEventsHall.rpy:30
 translate english event_loc_hall_0_no1_da1f2539:
@@ -100,7 +100,7 @@ translate english event_loc_hall_0_no1_ed086818:
 translate english event_loc_hall_0_no1_0bc4b0e9:
 
     # st1.say "[st2.fname]! Я сейчас кончу! КОНЧУ! В смысле, кончу доказывать эту задачу! Кончи со мной! Давай придём к решению вместе!"
-    st1.say "[St2.fname]!  I'm coming now!  FINISH!  I mean, I'm finishing this task!  Cum with me!  Let's come to a decision together!"
+    st1.say "[st2.fname]!  I'm coming now!  FINISH!  I mean, I'm finishing this task!  Cum with me!  Let's come to a decision together!"
 
 # game/events/rEventsHall.rpy:35
 translate english event_loc_hall_0_no1_ad8abcfb:
@@ -148,7 +148,7 @@ translate english event_loc_hall_0_no2_a582b3c1:
 translate english event_loc_hall_0_no2_2be80209:
 
     # player.say "[st1.fname], что-то случилось?"
-    player.say "[St1.fname], something happened?"
+    player.say "[st1.fname], something happened?"
 
 # game/events/rEventsHall.rpy:58
 translate english event_loc_hall_0_no2_af77b708:
@@ -244,7 +244,7 @@ translate english event_loc_hall_0_no5_d7fcec9c:
 translate english event_loc_hall_0_no5_7ad95059:
 
     # player.say "[st1.fname], так ты кого любишь больше вибраторы или парня за стеной?"
-    player.say "[St1.fname], so who do you love more than the vibrators or the guy behind the wall?"
+    player.say "[st1.fname], so who do you love more than the vibrators or the guy behind the wall?"
 
 # game/events/rEventsHall.rpy:129
 translate english event_loc_hall_0_no5_07e4ea47:

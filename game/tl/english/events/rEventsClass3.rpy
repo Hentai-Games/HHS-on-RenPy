@@ -4,7 +4,7 @@
 translate english event_loc_class3_0_no1_bcb9867d:
 
     # "Сегодня выдался жаркий денёк. [st1.fname] обмахивает тетрадкой свою подругу."
-    "Today was a hot day.  [St1.fname] flirts his girlfriend with a notebook."
+    "Today was a hot day.  [st1.fname] flirts his girlfriend with a notebook."
 
 # game/events/rEventsClass3.rpy:9
 translate english event_loc_class3_0_no1_afdd3a76:
@@ -34,7 +34,7 @@ translate english event_loc_class3_0_no1_160336dd:
 translate english event_loc_class3_0_no2_a6fd3cca:
 
     # "[st1.name] подготавливает доску для следующего занятия. У неё сконцентрированное и задумчивое лицо."
-    "[St1.name] prepares the board for the next lesson.  She has a concentrated and pensive face."
+    "[st1.name] prepares the board for the next lesson.  She has a concentrated and pensive face."
 
 # game/events/rEventsClass3.rpy:26
 translate english event_loc_class3_0_no2_558f25f2:
@@ -52,7 +52,7 @@ translate english event_loc_class3_0_no2_0314be3d:
 translate english event_loc_class3_0_no3_d86e5a1b:
 
     # "[st1.fname] и [st2.fname] развлекаются игрой на гитаре. Вы немного послушали их лирическую песни о солдате пропадающем в каком-то Афганистане, смахнули слезу, и вышли."
-    "[St1.fname] and [st2.fname] are entertained by playing the guitar.  You listened to their lyrical songs about the soldier disappearing in Afghanistan, listened to a tear, and left."
+    "[st1.fname] and [st2.fname] are entertained by playing the guitar.  You listened to their lyrical songs about the soldier disappearing in Afghanistan, listened to a tear, and left."
 
 # game/events/rEventsClass3.rpy:40
 translate english event_loc_class3_0_no3_fd91ab64:
@@ -106,19 +106,19 @@ translate english event_loc_class3_5_no5_65cdfdf8:
 translate english event_loc_class3_5_no5_961f80bb:
 
     # player.say "[st1.name]! А ну немедленно прекрати!"
-    player.say "[St1.name]!  Stop it now!"
+    player.say "[st1.name]!  Stop it now!"
 
 # game/events/rEventsClass3.rpy:67
 translate english event_loc_class3_5_no5_b6ee977b:
 
     # "[st2.name] смотрит на вас с благодарностью."
-    "[St2.name] looks at you with gratitude."
+    "[st2.name] looks at you with gratitude."
 
 # game/events/rEventsClass3.rpy:79
 translate english event_loc_class3_0_no6_effb39b8:
 
     # "[st1.fname] внимательно читает какой-то любовный роман, машинально накручивая на палец локон спящей рядом подружки. Не желая нарушать идиллию, вы тихо выходите, пока вас не заметили."
-    "[St1.fname] carefully reads some kind of love story, mechanically winding a finger on the finger with a sleeping girlfriend next to her.  Not wanting to break the idyll, you quietly go out until you are noticed."
+    "[st1.fname] carefully reads some kind of love story, mechanically winding a finger on the finger with a sleeping girlfriend next to her.  Not wanting to break the idyll, you quietly go out until you are noticed."
 
 # game/events/rEventsClass3.rpy:87
 translate english event_loc_class3_5_no7_69bb761c:
@@ -172,7 +172,7 @@ translate english event_loc_class3_0_no8_12546958:
 translate english event_loc_class3_0_no8_797fd8f1:
 
     # "Её подруга [st2.fname] рассказывает ей, что сегодня на уроке Секспросвета [st1.fname] не смогла найти пенис на анатомическом атласе человека. Вы несколькими словами утешаете ученицу."
-    "Her girlfriend [st2.fname] tells her that today she was unable to find a penis on the anatomical atlas of a person at the [[st1.fname]] class.  In a few words you console the student."
+    "Her girlfriend [st2.fname] tells her that today she was unable to find a penis on the anatomical atlas of a person at the [st1.fname]] class.  In a few words you console the student."
 
 # game/events/rEventsClass3.rpy:114
 translate english event_loc_class3_0_no8_408c32b5:
@@ -262,7 +262,7 @@ translate english event_loc_class3_0_no8_bf2b9c96:
 translate english event_loc_class3_10_no9_6d2ef23e:
 
     # "[st1.fname] вытирает тряпочкой случайно пролившийся крем для рук."
-    "[St1.fname] wipes with a cloth a spilled hand cream."
+    "[st1.fname] wipes with a cloth a spilled hand cream."
 
 # game/events/rEventsClass3.rpy:152
 translate english event_loc_class3_10_no9_f3a2c83c:
@@ -280,7 +280,7 @@ translate english event_loc_class3_10_no9_1beb2d25:
 translate english event_loc_class3_0_no10_842f32d5:
 
     # "[st1.fname] грустно стоит около открытого окна, и занавески нежно обмахивают её. Весьма поэтичная картина. Чего только не увидишь!"
-    "[St1.fname] sadly stands near an open window, and the curtains gently fan it.  Very poetic picture.  What can not you see!"
+    "[st1.fname] sadly stands near an open window, and the curtains gently fan it.  Very poetic picture.  What can not you see!"
 
 # game/events/rEventsClass3.rpy:164
 translate english event_loc_class3_0_no10_9bdab33f:
@@ -304,7 +304,7 @@ translate english event_loc_class3_30_lo1_866db27f:
 translate english event_loc_class3_30_lo1_f1803d9e:
 
     # "[st1.fname], всё ещё постанывая, стискивает свой член, виновато разглядывая капли спермы."
-    "[St1.fname], still moaning, squeezing her penis, guiltily examining the drops of sperm."
+    "[st1.fname], still moaning, squeezing her penis, guiltily examining the drops of sperm."
 
 # game/events/rEventsClass3.rpy:180
 translate english event_loc_class3_30_lo1_c1b7b463:
@@ -340,7 +340,7 @@ translate english event_loc_class3_30_lo1_3c5c8515:
 translate english event_loc_class3_30_lo1_201f3f0a:
 
     # player.say "[st1.fname], [st1.fname]... Куда ты? - испуганно спросили вы ученицу, когда та вдруг подняла вашу юбочку, и залезла языком прямо в киску"
-    player.say "[St1.fname], [St1.fname] ... Where are you going?  - You asked the student frightenedly, when she suddenly lifted your skirt, and got her tongue right into her pussy"
+    player.say "[st1.fname], [st1.fname] ... Where are you going?  - You asked the student frightenedly, when she suddenly lifted your skirt, and got her tongue right into her pussy"
 
 # game/events/rEventsClass3.rpy:190
 translate english event_loc_class3_30_lo1_d52204d8:
@@ -418,7 +418,7 @@ translate english event_loc_class3_40_mid1_136f9e86:
 translate english event_loc_class3_40_mid1_3d69ce73:
 
     # "[st3.fname] с силой водила по оголённой головке ногами. Вас аж передёрнуло от этого зрелища."
-    "[St3.fname] with the power of the driver on the bare head with his feet.  You already narrowed yourself from this spectacle."
+    "[st3.fname] with the power of the driver on the bare head with his feet.  You already narrowed yourself from this spectacle."
 
 # game/events/rEventsClass3.rpy:239
 translate english event_loc_class3_40_mid1_dbdcceb9:
@@ -436,7 +436,7 @@ translate english event_loc_class3_40_mid1_7a2beb5e:
 translate english event_loc_class3_40_mid1_0f450a72:
 
     # "[st3.fname] неуверенно начала повторять ваши движения и [st1.fname] застонал от её движений, благодарно посмотрев на вас."
-    "[St3.fname] hesitantly began to repeat your movements and [st1.fname] groaned at her movements, thankfully looking at you."
+    "[st3.fname] hesitantly began to repeat your movements and [st1.fname] groaned at her movements, thankfully looking at you."
 
 # game/events/rEventsClass3.rpy:243
 translate english event_loc_class3_40_mid1_1c315352:
@@ -472,7 +472,7 @@ translate english event_loc_class3_40_mid1_16978813:
 translate english event_loc_class3_40_mid1_c538c68d:
 
     # player.say "Чудненько же! [st3.fname], надеюсь в следующий раз ты будешь более аккуратна!"
-    player.say "Chudnenko the same!  [St3.fname], I hope next time you'll be more careful!"
+    player.say "Chudnenko the same!  [st3.fname], I hope next time you'll be more careful!"
 
 # game/events/rEventsClass3.rpy:250
 translate english event_loc_class3_40_mid1_da87ef86:
@@ -484,7 +484,7 @@ translate english event_loc_class3_40_mid1_da87ef86:
 translate english event_loc_class3_50_mid2_6d958f83:
 
     # "[st1.fname] и [st2.fname] яростно заканчивают спаривание прямо у Вас на глазах. Вы не можете назвать это действие ничем иным, потому что ученик двигается буквально как зверь внутри одноклассницы."
-    "[St1.fname] and [st2.fname] violently end the pairing right in front of you.  You can not call this action anything else, because the disciple moves literally like an animal inside a classmate."
+    "[st1.fname] and [st2.fname] violently end the pairing right in front of you.  You can not call this action anything else, because the disciple moves literally like an animal inside a classmate."
 
 # game/events/rEventsClass3.rpy:269
 translate english event_loc_class3_50_mid2_4760528e:
@@ -538,7 +538,7 @@ translate english event_loc_class3_50_mid3_81bc4744:
 translate english event_loc_class3_50_mid3_dc255b06:
 
     # "[st2.fname] чмокнула одноклассника в щёчку и стала поправлять одежду."
-    "[St2.fname] chmoknula classmate on the cheek and began to straighten the clothes."
+    "[st2.fname] chmoknula classmate on the cheek and began to straighten the clothes."
 
 # game/events/rEventsClass3.rpy:291
 translate english event_loc_class3_50_mid3_6843093c:
@@ -688,7 +688,7 @@ translate english event_loc_class3Learn_0_2_eba982e1:
 translate english event_loc_class3Learn_0_2_77f5b466:
 
     # "Ученица всё равно подрывается, но не успевает сделать и пару шагов от парты, как падает на пол и весь класс наблюдает, как под ней растекается лужа. [st1.fname] поднимает глаза и смотрит на вас с ненавистью."
-    "The student still undermines, but does not have time to make and a couple of steps from the desk, as it falls to the floor and the whole class watches the puddle spread under it.  [St1.fname] looks up and looks at you with hatred."
+    "The student still undermines, but does not have time to make and a couple of steps from the desk, as it falls to the floor and the whole class watches the puddle spread under it.  [st1.fname] looks up and looks at you with hatred."
 
 # game/events/rEventsClass3.rpy:372
 translate english event_loc_class3Learn_0_2_f2a532e2:
@@ -706,13 +706,13 @@ translate english event_loc_class3Learn_0_2_2c45818d:
 translate english event_loc_class3Learn_0_2_4c6b8676:
 
     # "[frigidovna.name] смотрит на вас с одобрением."
-    "[Frigidovna.name] looks at you with approval."
+    "[frigidovna.name] looks at you with approval."
 
 # game/events/rEventsClass3.rpy:383
 translate english event_loc_class3Learn_0_3_d088e7b1:
 
     # "[st2.name] показывает своё отношение к соседке спереди весьма традиционным способом. Дёргая её за косичку. Уж не мстит ли он ей?"
-    "[St2.name] shows its relation to the neighbor in the front in a very traditional way.  Tugging her for a pigtail.  Was he avenging her?"
+    "[st2.name] shows its relation to the neighbor in the front in a very traditional way.  Tugging her for a pigtail.  Was he avenging her?"
 
 # game/events/rEventsClass3.rpy:386
 translate english event_loc_class3Learn_0_3_0e365e5a:
@@ -742,7 +742,7 @@ translate english event_loc_class3Learn_60_4_b540f600:
 translate english event_loc_class3Learn_15_5_b46ef0d0:
 
     # "[frigidovna.name] заметила как девушки передавали записку друг другу. Не потерпев такой вольности на своём уроке, она выхватывает её из руг обалдевшей школьницы."
-    "[Frigidovna.name] noticed how the girls passed the note to each other.  Not having suffered such liberties in her lesson, she snatches it from the stare of a stunned schoolgirl."
+    "[frigidovna.name] noticed how the girls passed the note to each other.  Not having suffered such liberties in her lesson, she snatches it from the stare of a stunned schoolgirl."
 
 # game/events/rEventsClass3.rpy:418
 translate english event_loc_class3Learn_15_5_5cd667e5:
@@ -760,7 +760,7 @@ translate english event_loc_class3Learn_15_5_e2c0660d:
 translate english event_loc_class3Learn_15_5_8de0b710:
 
     # player.say "[frigidovna.name], ну пожалейте вы их. Они так и урок не выучат, и пару приставал вдобавок получат."
-    player.say "[Frigidovna.name], well, pity you them.  They will not learn a lesson, and they will also get a couple pestered."
+    player.say "[frigidovna.name], well, pity you them.  They will not learn a lesson, and they will also get a couple pestered."
 
 # game/events/rEventsClass3.rpy:422
 translate english event_loc_class3Learn_15_5_5f5e21a5:
