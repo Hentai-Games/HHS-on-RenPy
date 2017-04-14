@@ -1216,11 +1216,11 @@ translate english strings:
 
     # game/events/BasicEvents.rpy:30
     old "selchar"
-    new ""
+    new "selchar"
 
     # game/events/BasicEvents.rpy:30
     old "skipall"
-    new ""
+    new "skipall"
 
     # game/events/BasicEvents.rpy:112
     old "Чем бы вытереть эту липкую жидкость?"

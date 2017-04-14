@@ -208,7 +208,7 @@ translate english intro_danokova_3082dc71:
 translate english intro_danokova_6313bb7a:
 
     # player.say "???"
-    player.say "????"
+    player.say "???"
 
 # game/events/charIntro.rpy:52
 translate english intro_danokova_20371e47:
@@ -538,7 +538,7 @@ translate english intro_dikovna_329cefc2:
 translate english intro_dikovna_786e884b:
 
     # d.say "Boy, could you please explain, what are you doing here right now?"
-    d.say "Boy, could you please explain, what are you doing right now?"
+    d.say "Boy, could you please explain, what are you doing here right now?"
 
 # game/events/charIntro.rpy:135
 translate english intro_dikovna_9e4d6e25:
