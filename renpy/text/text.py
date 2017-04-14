@@ -1396,15 +1396,18 @@ class Text(renpy.display.core.Displayable):
 
         self._uses_scope = uses_scope
 
+        
         new_text2 = []
         if not isinstance(new_text, list):
             new_text = [ new_text ]
         for t in new_text:
             t2 = t
             if isinstance(t, basestring):
-                t2 = Text.translation_cache.get_translation(t)
+                # remove all tokens like {u} or {/u}
+                t2 = re.sub(ur'{.+?}', '', t)
             new_text2.append(t2)
         new_text = new_text2
+
 
         if new_text == old_text:
             return False
@@ -1488,6 +1491,8 @@ class Text(renpy.display.core.Displayable):
         # self.displayables is the set of displayables used by this
         # Text.
         self.tokens, self.displayables = self.get_displayables(tokens)
+
+        # print self.displayables
 
 
     def visit(self):
@@ -1667,6 +1672,18 @@ class Text(renpy.display.core.Displayable):
 
     def render(self, width, height, st, at):
 
+        tokens = []
+        for tok in self.tokens:
+            if tok[0] == 1:
+                is_unicode = isinstance(tok[1], unicode)
+                translated = Text.translation_cache.get_translation(tok[1])
+                if is_unicode:
+                    tok = [tok[0], unicode(translated)]
+                else:
+                    tok = [tok[0], translated]
+            tokens.append(tok)
+        self.tokens = tokens
+
         if self.style.vertical:
             height, width = width, height
 
@@ -1679,6 +1696,9 @@ class Text(renpy.display.core.Displayable):
 
         if self.dirty or self.displayables is None:
             self.update()
+
+        print self.tokens
+        print self.displayables
 
         # Render all of the child displayables.
         renders = { }
