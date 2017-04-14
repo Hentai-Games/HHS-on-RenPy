@@ -112,7 +112,7 @@ translate english event_loc_class2_0_1_58cadf66:
 translate english event_loc_class2_0_10_1212f4ad:
 
     # "[st1.fname] заснула. Толи урок был слишком утомительным, толи просто не выспалась. [st2.fname] и [st3.fname] хихикают над соней. А вот вам не до веселья. Она испортила парту!"
-    "[St1.fname] fell asleep.  Tolia's lesson was too tiring, toli just did not get enough sleep.  [St2.fname] and [st3.fname] giggle over sleepyhead.  But you do not have fun.  She ruined her desk!"
+    "[st1.fname] fell asleep.  Tolia's lesson was too tiring, toli just did not get enough sleep.  [st2.fname] and [st3.fname] giggle over sleepyhead.  But you do not have fun.  She ruined her desk!"
 
 # game/events/rEventsClass2.rpy:49
 translate english event_loc_class2_0_10_ebea76f2:
@@ -166,7 +166,7 @@ translate english event_loc_class2_0_10_cf3deb8c:
 translate english event_loc_class2_5_2_44ad8b3e:
 
     # "[st1.fname] похоже поймана с поличным за написанием любовного письма. [st2.fname] пока ещё не понял, чем она занималась, но уже заметил шокированное выражение лица ученицы."
-    "[St1.fname] is similarly caught red-handed for writing a love letter.  [St2.fname] has not yet understood what she was doing, but has already noticed the student's shocked expression."
+    "[st1.fname] is similarly caught red-handed for writing a love letter.  [st2.fname] has not yet understood what she was doing, but has already noticed the student's shocked expression."
 
 # game/events/rEventsClass2.rpy:76
 translate english event_loc_class2_5_2_be63ed6c:
@@ -202,7 +202,7 @@ translate english event_loc_class2_5_2_08b35d27:
 translate english event_loc_class2_0_3_5e34f1ce:
 
     # "[st1.fname] сидит на трибуне преподавателя и грустит. Зачем грустить в такой прекрасный день? Непонятно."
-    "[St1.fname] sits on the podium of the teacher and is sad.  Why sad in such a beautiful day?  Unclear."
+    "[st1.fname] sits on the podium of the teacher and is sad.  Why sad in such a beautiful day?  Unclear."
 
 # game/events/rEventsClass2.rpy:103
 translate english event_loc_class2_0_3_8beda1ca:
@@ -220,7 +220,7 @@ translate english event_loc_class2_0_3_2ee9389a:
 translate english event_loc_class2_0_4_6e75d773:
 
     # "[st2.fname] решила сделать массаж плеч подруге. Вы не думаете, что [st2.fname] против данного внимания, так что вам тут делать нечего."
-    "[St2.fname] decided to do a shoulder massage to her friend.  You do not think that [St2.fname] is against this attention, so you have nothing to do here."
+    "[st2.fname] decided to do a shoulder massage to her friend.  You do not think that [st2.fname] is against this attention, so you have nothing to do here."
 
 # game/events/rEventsClass2.rpy:118
 translate english event_loc_class2_0_4_d796266c:
@@ -238,7 +238,7 @@ translate english event_loc_class2_0_4_e66b7292:
 translate english event_loc_class2_5_5_ef7ca185:
 
     # "[st1.fname] приглашает своего бойфренда в кино. Хотя немного присмотревшись, вы понимаете, что [st2.fname] скорее всего ещё не её бойфренд, ну чтож, удачи им."
-    "[St1.fname] invites her boyfriend to the cinema.  Although a little closer, you understand that [st2.fname] is probably not yet her boyfriend, well, well, good luck to them."
+    "[st1.fname] invites her boyfriend to the cinema.  Although a little closer, you understand that [st2.fname] is probably not yet her boyfriend, well, well, good luck to them."
 
 # game/events/rEventsClass2.rpy:135
 translate english event_loc_class2_5_5_1e652859:
@@ -268,7 +268,7 @@ translate english event_loc_class2_0_6_83b4cbb9:
 translate english event_loc_class2_0_7_ceb0efe5:
 
     # "[st1.name] вытирает пыль с доски. Очень трудолюбивая девочка. Хотя и немного страшненькая."
-    "[St1.name] wipes the dust off the board.  Very hardworking girl.  Although a little ugly."
+    "[st1.name] wipes the dust off the board.  Very hardworking girl.  Although a little ugly."
 
 # game/events/rEventsClass2.rpy:163
 translate english event_loc_class2_0_7_433785dc:
@@ -292,13 +292,13 @@ translate english event_loc_class2_10_8_f584c7d1:
 translate english event_loc_class2_10_8_d3ac59f5:
 
     # "Вы проводите небольшую лекцию о сексуальном образовании, и важности его в современном обществе. [st1.fname] и [st2.fname] выглядят смущённо."
-    "You give a small lecture on sexual education, and its importance in modern society.  [St1.fname] and [st2.fname] look confused."
+    "You give a small lecture on sexual education, and its importance in modern society.  [st1.fname] and [st2.fname] look confused."
 
 # game/events/rEventsClass2.rpy:185
 translate english event_loc_class2_5_9_5de36393:
 
     # "[st1.fname] подвернула ногу и [st2.fname] несёт её в медкабинет. Именно поэтому она так вспотела и тяжело дышит."
-    "[St1.fname] has twisted the leg and [st2.fname] carries it to the medical cabinet.  That's why she was so sweaty and panting."
+    "[st1.fname] has twisted the leg and [st2.fname] carries it to the medical cabinet.  That's why she was so sweaty and panting."
 
 # game/events/rEventsClass2.rpy:187
 translate english event_loc_class2_5_9_752298d0:
@@ -310,7 +310,7 @@ translate english event_loc_class2_5_9_752298d0:
 translate english event_loc_class2_10_1_8ab4f9d3:
 
     # "Зайдя в класс вы заметили двух учеников, снимающих с себя одежду. [st1.fname] и [st2.fname] уже были полностью обнажены, разве что их боксеры пока оставались на их бедрах. Ваш взгляд мгновенно остановился на выпуклых очертаниях их довольно больших по возрасту членов."
-    "When you entered the class you noticed two students taking off their clothes.  [St1.fname] and [st2.fname] were already completely naked, except that their boxers were still on their hips.  Your gaze instantly stopped at the convex outlines of their rather large members."
+    "When you entered the class you noticed two students taking off their clothes.  [st1.fname] and [st2.fname] were already completely naked, except that their boxers were still on their hips.  Your gaze instantly stopped at the convex outlines of their rather large members."
 
 # game/events/rEventsClass2.rpy:206
 translate english event_loc_class2_10_1_adae944b:
@@ -448,7 +448,7 @@ translate english event_loc_class2_25_2_af4572d6:
 translate english event_loc_class2_25_2_ba3ef882:
 
     # "Прежде чем вы успели открыть рот, он с громким стоном спустил, заляпав школьницу своим семенем. [st2.fname] шокированно смотрит на вас, и по её грудям и животику медленно стекают капли свежей спермы."
-    "Before you had time to open your mouth, he lowered him with a loud groan, slapping the schoolgirl with his seed.  [St2.fname] looks at you shockingly, and drops of fresh sperm slowly drip down her breasts and belly."
+    "Before you had time to open your mouth, he lowered him with a loud groan, slapping the schoolgirl with his seed.  [st2.fname] looks at you shockingly, and drops of fresh sperm slowly drip down her breasts and belly."
 
 # game/events/rEventsClass2.rpy:251
 translate english event_loc_class2_25_2_f5ce2182:
@@ -460,7 +460,7 @@ translate english event_loc_class2_25_2_f5ce2182:
 translate english event_loc_class2_15_3_e40474d5:
 
     # "Зайдя в класс, вы услышали как [st2.fname] рассказывает подружкам про вчерашнюю встречу со своим одноклассником. Якобы [st1.fname] накончал ей полные трусы, стоило только показать ему свою киску. [st3.fname], [st4.fname] и [st5.fname] возбуждённо ахают в ответ."
-    "Entering the classroom, you heard how [st2.fname] tells the girlfriends about yesterday's meeting with her classmate.  Ostensibly [st1.fname] finished her full panties, it was only necessary to show him her pussy.  [St3.fname], [st4.fname] and [st5.fname] are agitated in response."
+    "Entering the classroom, you heard how [st2.fname] tells the girlfriends about yesterday's meeting with her classmate.  Ostensibly [st1.fname] finished her full panties, it was only necessary to show him her pussy.  [st3.fname], [st4.fname] and [st5.fname] are agitated in response."
 
 # game/events/rEventsClass2.rpy:269
 translate english event_loc_class2_15_3_028183ee:
@@ -520,13 +520,13 @@ translate english event_loc_class2_11_8_9be031ff:
 translate english event_loc_class2_20_9_9720add5:
 
     # "[st1.name] и [st2.name] меряются сиськами. Какой занимательный конкурс. Хотя на Ваш непредвзятый судейский взгляд, [st3.fname] очевидно впереди."
-    "[St1.name] and [st2.name] are measured with tits.  What an entertaining contest.  Though to your unbiased judicial opinion, [st3.fname] is obviously ahead."
+    "[st1.name] and [st2.name] are measured with tits.  What an entertaining contest.  Though to your unbiased judicial opinion, [st3.fname] is obviously ahead."
 
 # game/events/rEventsClass2.rpy:380
 translate english event_loc_class2_35_10_0f3ddf09:
 
     # "Звуки громких хлопков и стоны привлекли ваше внимание. [st1.fname] звонко хлопал девочку по заднице, явно наслаждаясь процессом. Кинув быстрый взгляд ей под юбку, вы осознали, что как ни странно, [st2.fname] наслаждается поркой тоже."
-    "The sounds of loud claps and groans attracted your attention.  [St1.fname] sonorous clapped the girl on the ass, obviously enjoying the process.  Throwing a quick glance at her under her skirt, you realized that strangely enough, [st2.fname] enjoys flogging too."
+    "The sounds of loud claps and groans attracted your attention.  [st1.fname] sonorous clapped the girl on the ass, obviously enjoying the process.  Throwing a quick glance at her under her skirt, you realized that strangely enough, [st2.fname] enjoys flogging too."
 
 # game/events/rEventsClass2.rpy:381
 translate english event_loc_class2_35_10_d9bfb372:
@@ -586,7 +586,7 @@ translate english event_loc_class2_20_1danokova_34159815:
 translate english event_loc_class2_20_1danokova_2f914668:
 
     # "[st2.fname] стонет, но двигает бёдрами в такт движениям ног учительницы."
-    "[St2.fname] groans, but moves the hips in time with the movements of the teacher's legs."
+    "[st2.fname] groans, but moves the hips in time with the movements of the teacher's legs."
 
 # game/events/rEventsClass2.rpy:408
 translate english event_loc_class2_20_1danokova_6d686349:
@@ -598,7 +598,7 @@ translate english event_loc_class2_20_1danokova_6d686349:
 translate english event_loc_class2_20_1danokova_bf8d917a:
 
     # "[st1.name] серьёзно отчитывает школьника, не забывая усиленно массировать его пенис, пока тот не разряжается струями спермы."
-    "[St1.name] seriously scolds the schoolboy, without forgetting to massively massage his penis until it is discharged by jets of sperm."
+    "[st1.name] seriously scolds the schoolboy, without forgetting to massively massage his penis until it is discharged by jets of sperm."
 
 # game/events/rEventsClass2.rpy:410
 translate english event_loc_class2_20_1danokova_59e8b9cb:
@@ -628,7 +628,7 @@ translate english event_loc_class2_15_2danokova_9a4b2d96:
 translate english event_loc_class2_40_3_ef1d5eec:
 
     # "Вы обнаружили в классе одну из учениц. [st1.fname] сидела на столе, и меж её ног отчаянно крутился вибратор."
-    "You found one of the students in the class.  [St1.fname] was sitting on the table, and between her legs the vibrator was spinning desperately."
+    "You found one of the students in the class.  [st1.fname] was sitting on the table, and between her legs the vibrator was spinning desperately."
 
 # game/events/rEventsClass2.rpy:438
 translate english event_loc_class2_40_3_570f0866:
@@ -694,7 +694,7 @@ translate english event_loc_class2_60_5_c4654309:
 translate english event_loc_class2_50_6_0f3b3e25:
 
     # "Брызги из влажной киски. Вот что вы увидели, когда обратили внимание на копошение за партой. [st2.fname] своими умелыми пальчиками только довёл девушку до оргазма."
-    "Spray from a wet pussy.  That's what you saw when you paid attention to the swarming at the desk.  [St2.fname] with his skillful fingers only brought the girl to orgasm."
+    "Spray from a wet pussy.  That's what you saw when you paid attention to the swarming at the desk.  [st2.fname] with his skillful fingers only brought the girl to orgasm."
 
 # game/events/rEventsClass2.rpy:490
 translate english event_loc_class2_50_6_96cf85d1:
@@ -724,7 +724,7 @@ translate english event_loc_class2_65_7_d680b0e4:
 translate english event_loc_class2_65_7_c5eb7f65:
 
     # "Колечко её сфинктера довольно сильно натянулось, плотно обхватывая член, и наверное, доставляя парню немалое удовольствие от тесноты. [st2.fname], в свою очередь, довольно резко вгонял в её анус член, так, что ваша собственная попка непроизвольно сжималась опасаясь подобного вторжения. Несмотря на всю животную ярость спаривающейся парочки, вам тоже захотелось чего нибудь этаково."
-    "The spine of her sphincter stretched quite tightly, tightly wrapping her cock, and probably giving the guy considerable pleasure from crowdedness.  [St2.fname], in turn, quite sharply drove into her anus member, so that your own ass was involuntarily shrinking from fear of such an invasion.  Despite the animal fury of the pairing couple, you also wanted something like that."
+    "The spine of her sphincter stretched quite tightly, tightly wrapping her cock, and probably giving the guy considerable pleasure from crowdedness.  [st2.fname], in turn, quite sharply drove into her anus member, so that your own ass was involuntarily shrinking from fear of such an invasion.  Despite the animal fury of the pairing couple, you also wanted something like that."
 
 # game/events/rEventsClass2.rpy:517
 translate english event_loc_class2_65_7_95a404ba:
@@ -838,7 +838,7 @@ translate english event_loc_class2_50_9_34ced8cc:
 translate english event_loc_class2_50_9_31a57933:
 
     # "[st2.fname] наяривал Вас с поистине юношеским рвением и умением. То есть энтузиазма было много, а у меня мало. Но несмотря на это, вы получали огромное удовольствия от движения члена в вашей хлюпающей щели. Внезапно горячая струйка семени ударила в вашей киске, и вскоре движения парня стали замедляться, и а вы так и остались без оргазма."
-    "[St2.fname] fucked you up with truly youthful zeal and skill.  That is, a lot of enthusiasm, but I have little.  But in spite of this, you got great pleasure from the movement of the penis in your sloshing slit.  Suddenly, a hot trickle of seed struck in your pussy, and soon the movements of the guy began to slow down, and you were left without an orgasm."
+    "[st2.fname] fucked you up with truly youthful zeal and skill.  That is, a lot of enthusiasm, but I have little.  But in spite of this, you got great pleasure from the movement of the penis in your sloshing slit.  Suddenly, a hot trickle of seed struck in your pussy, and soon the movements of the guy began to slow down, and you were left without an orgasm."
 
 # game/events/rEventsClass2.rpy:575
 translate english event_loc_class2_50_9_84cde1ba:
@@ -898,13 +898,13 @@ translate english event_loc_class2_85_1_e838fd30:
 translate english event_loc_class2_85_1_349933a7:
 
     # "[st6.name]скакала на лежащем на парте однокласснике, [st1.fname] в свою очередь старался проявить как можно больше активности в таком положении и положив руки на бёдра девушки, интенсивно двигал тазом, ритмично вгоняя свой член в хлюпающую пещерку."
-    "[St6.name] was jumping on a classmate lying on the school desk, [st1.fname] in turn tried to show as much activity in this position and putting her hands on the girl's thighs, moving the pelvis intensively, rhythmically pushing her cock into the squishing cave."
+    "[st6.name] was jumping on a classmate lying on the school desk, [st1.fname] in turn tried to show as much activity in this position and putting her hands on the girl's thighs, moving the pelvis intensively, rhythmically pushing her cock into the squishing cave."
 
 # game/events/rEventsClass2.rpy:614
 translate english event_loc_class2_85_1_9e6ed8ad:
 
     # "[st2.name], ухватив за волосы другу девушку, жадно сношал её в рот. Хотя, судя по её виду, [st7.fname] совсем не против подобного обращения и с радость принимает всё, что может ей дать парень."
-    "[St2.name], grabbing a girl by the hair of a friend, greedily took it into her mouth.  Although, judging by her appearance, [st7.fname] is not at all against such treatment and with joy accepts everything that a guy can give her."
+    "[st2.name], grabbing a girl by the hair of a friend, greedily took it into her mouth.  Although, judging by her appearance, [st7.fname] is not at all against such treatment and with joy accepts everything that a guy can give her."
 
 # game/events/rEventsClass2.rpy:615
 translate english event_loc_class2_85_1_3ef57337:
@@ -958,7 +958,7 @@ translate english event_loc_class2_85_1_72fc3783:
 translate english event_loc_class2_85_1_936dad9e:
 
     # st1.say "Это мы запросто! [st3.fname], угости заначкой! - не прошло и мгновения, как кондом оказался на члене, а член погрузился в вашу киску."
-    st1.say "It's easy!  [St3.fname], nostalgia treats!  - not passed a moment, as the condom was on the penis, and the member plunged into your pussy."
+    st1.say "It's easy!  [st3.fname], nostalgia treats!  - not passed a moment, as the condom was on the penis, and the member plunged into your pussy."
 
 # game/events/rEventsClass2.rpy:627
 translate english event_loc_class2_85_1_1ff554fd:
@@ -970,7 +970,7 @@ translate english event_loc_class2_85_1_1ff554fd:
 translate english event_loc_class2_85_1_c54d1c19:
 
     # "[st2.name] начал неспешные движения, проникая всё глубже, вплоть до матки и даже дальше, растягивая влагалище всё сильнее. Ваши ноги задрожали, а ногти проскребли небольшую борозду на паркете."
-    "[St2.name] began unhurried movements, penetrating deeper, up to the uterus and even further, stretching the vagina ever stronger.  Your legs trembled, and your nails scraped a small furrow on the floor."
+    "[st2.name] began unhurried movements, penetrating deeper, up to the uterus and even further, stretching the vagina ever stronger.  Your legs trembled, and your nails scraped a small furrow on the floor."
 
 # game/events/rEventsClass2.rpy:629
 translate english event_loc_class2_85_1_4c3d454a:
@@ -1054,7 +1054,7 @@ translate english event_loc_class2Learn_0_1_6d2326f2:
 translate english event_loc_class2Learn_0_1_fa7344f9:
 
     # player.say "[st1.name]! А ну ка выйди к доске и запиши названия всех органов с помошью которых происходит опыление!"
-    player.say "[St1.name]!  And now go out to the blackboard and write down the names of all organs with the help of which pollination occurs!"
+    player.say "[st1.name]!  And now go out to the blackboard and write down the names of all organs with the help of which pollination occurs!"
 
 # game/events/rEventsClass2.rpy:666
 translate english event_loc_class2Learn_0_1_41718363:
@@ -1084,7 +1084,7 @@ translate english event_loc_class2Learn_0_1_e6b19606:
 translate english event_loc_class2Learn_0_1_9bda7d05:
 
     # "[st1.fname] выходит, и довольно точно записывает всё, что только что сказала [st3.name]. После чего поворачивается к вам и с негодованием смотрит."
-    "[St1.fname] comes out, and pretty accurately writes everything that just said [st3.name].  Then he turns to you and looks indignantly."
+    "[st1.fname] comes out, and pretty accurately writes everything that just said [st3.name].  Then he turns to you and looks indignantly."
 
 # game/events/rEventsClass2.rpy:673
 translate english event_loc_class2Learn_0_1_de4479f1:
@@ -1132,7 +1132,7 @@ translate english event_loc_class2Learn_0_3_dee05011:
 translate english event_loc_class2Learn_0_3_36475216:
 
     # player.say "[st1.fname], тебе нехорошо?"
-    player.say "[St1.fname], are you unwell?"
+    player.say "[st1.fname], are you unwell?"
 
 # game/events/rEventsClass2.rpy:707
 translate english event_loc_class2Learn_0_3_a495d591:
@@ -1168,7 +1168,7 @@ translate english event_loc_class2Learn_0_3_1c02340b:
 translate english event_loc_class2Learn_0_3_d768e53a:
 
     # player.say "[st1.fname], на будущее, красть вещи - нехорошо, понятненько? А теперь пойди верни игрушку туда, где ты её взяла."
-    player.say "[St1.fname], for the future, stealing things - is it bad, understandable?  Now go get the toy back to where you took it."
+    player.say "[st1.fname], for the future, stealing things - is it bad, understandable?  Now go get the toy back to where you took it."
 
 # game/events/rEventsClass2.rpy:724
 translate english event_loc_class2Learn_0_3_3e83864b:
@@ -1186,13 +1186,13 @@ translate english event_loc_class2Learn_15_4_39819f49:
 translate english event_loc_class2Learn_15_4_52586595:
 
     # st1.say "[st2.fname]! Какого чёрта!"
-    st1.say "[St2.fname]!  What the heck!"
+    st1.say "[st2.fname]!  What the heck!"
 
 # game/events/rEventsClass2.rpy:737
 translate english event_loc_class2Learn_15_4_fe45c08a:
 
     # "[st1.name] пытается отбрить лезущего ей под юбку парня."
-    "[St1.name] is trying to shave off the guy climbing under her skirt."
+    "[st1.name] is trying to shave off the guy climbing under her skirt."
 
 # game/events/rEventsClass2.rpy:738
 translate english event_loc_class2Learn_15_4_dc490ba6:
@@ -1252,7 +1252,7 @@ translate english event_loc_class2Learn_40_6_c1df5b56:
 translate english event_loc_class2Learn_40_6_4d28e95d:
 
     # "Девушка подходит, и ложится на преподавательский стол. Что странное, трусов на ней уже нет. [danokova.name] собирается было увлажнить подопытную, но похоже происходящее сильно завело ученицу, и увлажнять дальше - только портить. Поэтому преподавательница просто взяла свой щуп, в виде тонкой трубки и ввела его девушке во влагалище. С юных губ слетел тихий стон."
-    "The girl approaches, and lays down on a teaching table.  What's strange, there are no more cowards on it.  [Danokova.name] was going to humidify the experimental, but it seems like the event has brought the student to a great extent, and to moisten further - only to spoil.  Therefore, the teacher just took her probe, in the form of a thin tube and introduced it to the girl in the vagina.  A quiet moan flew from his young lips."
+    "The girl approaches, and lays down on a teaching table.  What's strange, there are no more cowards on it.  [danokova.name] was going to humidify the experimental, but it seems like the event has brought the student to a great extent, and to moisten further - only to spoil.  Therefore, the teacher just took her probe, in the form of a thin tube and introduced it to the girl in the vagina.  A quiet moan flew from his young lips."
 
 # game/events/rEventsClass2.rpy:772
 translate english event_loc_class2Learn_40_6_a66292b9:

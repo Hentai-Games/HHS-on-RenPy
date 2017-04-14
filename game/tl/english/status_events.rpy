@@ -10,13 +10,13 @@ translate english status_wc_1dd77b39:
 translate english status_swim_84f22399:
 
     # "[interactionObj.name] купается. Вам не докричаться до неё."
-    "[InteractionObj.name] is bathed.  You do not cry out to her."
+    "[interactionObj.name] is bathed.  You do not cry out to her."
 
 # game/status_events.rpy:297
 translate english status_swim_d5074be9:
 
     # "[interactionObj.name] плавает. Вам не докричаться до него."
-    "[InteractionObj.name] is floating.  You do not have to shout at him."
+    "[interactionObj.name] is floating.  You do not have to shout at him."
 
 # game/status_events.rpy:304
 translate english status_hidden_mastur_5ade053e:
@@ -28,7 +28,7 @@ translate english status_hidden_mastur_5ade053e:
 translate english status_hidden_mastur_19a6f80f:
 
     # "[interactionObj.name] уже не в силах остановиться, её тело трясёт, а рука быстро двигается вдоль члена."
-    "[InteractionObj.name] is no longer able to stop, her body shakes, and her hand moves quickly along the penis."
+    "[interactionObj.name] is no longer able to stop, her body shakes, and her hand moves quickly along the penis."
 
 # game/status_events.rpy:306
 translate english status_hidden_mastur_aa7cdfd5:
@@ -52,13 +52,13 @@ translate english status_hidden_mastur_2332f9a9:
 translate english status_hidden_mastur_8c376d94:
 
     # "[interactionObj.name] сидит на унитазе и натирает свою киску прямо сквозь промокшие трусики. Похоже, что её возбуждение достигло предела и ей требуется разрядка."
-    "[InteractionObj.name] sits on the toilet and rubs his pussy right through the wet panties.  It seems that her excitement has reached the limit and she needs a discharge."
+    "[interactionObj.name] sits on the toilet and rubs his pussy right through the wet panties.  It seems that her excitement has reached the limit and she needs a discharge."
 
 # game/status_events.rpy:316
 translate english status_hidden_mastur_63f50800:
 
     # player.say "[interactionObj.fname], чем ты здесь занимаешься, а?"
-    player.say "[InteractionObj.fname], what are you doing here, eh?"
+    player.say "[interactionObj.fname], what are you doing here, eh?"
 
 # game/status_events.rpy:317
 translate english status_hidden_mastur_c683954a:
@@ -130,7 +130,7 @@ translate english status_hidden_mastur_59701643:
 translate english status_hidden_mastur_871230b3:
 
     # "[interactionObj.fname] мелко взрагивает, кончая прямо на уроке, с её губ срывается лёгкий стон, который остаётся незамечанным всеми, кроме вас."
-    "[InteractionObj.fname] winks a little, ending right at the lesson, a slight groan from her lips, which remains unremarkable except for you."
+    "[interactionObj.fname] winks a little, ending right at the lesson, a slight groan from her lips, which remains unremarkable except for you."
 
 # game/status_events.rpy:353
 translate english status_hidden_mastur_6a4f3e2b:
@@ -166,7 +166,7 @@ translate english status_mastur_cf5e0059:
 translate english status_mastur_3a2538fd:
 
     # "[interactionObj.name], мало кого стесняясь, начинает прибирать за собой после обильного семяизвержения."
-    "[InteractionObj.name], few people embarrassed, begins to clean up after a profuse ejaculation."
+    "[interactionObj.name], few people embarrassed, begins to clean up after a profuse ejaculation."
 
 # game/status_events.rpy:372
 translate english status_mastur_05883425:
@@ -184,7 +184,7 @@ translate english status_mastur_518b78fb:
 translate english status_mastur_5b2691dc:
 
     # "[interactionObj.name], дрожа от нетерпения, засовывает свой член в узенькую дырочку искусственной вагины. Её лицо искажает сладострастие, и, активно двигая бёдрами и руками, девочка начинает трахать свою игрушку."
-    "[InteractionObj.name], shivering with impatience, thrusts his penis into the narrow hole of the artificial vagina.  Her face distorts voluptuousness, and, actively moving her hips and hands, the girl begins to fuck her toy."
+    "[interactionObj.name], shivering with impatience, thrusts his penis into the narrow hole of the artificial vagina.  Her face distorts voluptuousness, and, actively moving her hips and hands, the girl begins to fuck her toy."
 
 # game/status_events.rpy:375
 translate english status_mastur_d23febe2:
@@ -196,19 +196,19 @@ translate english status_mastur_d23febe2:
 translate english status_mastur_defad9f9:
 
     # "[interactionObj.fname] ещё вздрагивает пару раз и неспеша упаковывает свою игрушку в портфель."
-    "[InteractionObj.fname] still shudders a couple of times and slowly packs its toy into a briefcase."
+    "[interactionObj.fname] still shudders a couple of times and slowly packs its toy into a briefcase."
 
 # game/status_events.rpy:384
 translate english status_public_mastur_5bf4e818:
 
     # "[interactionObj.fname] мастурбирует, сидя на лавочке. Она совершенно никого не стесняется, и из её молодой киски капают соки, заливая злополучное место для для отдыха и асфальт."
-    "[InteractionObj.fname] masturbates while sitting on a bench.  She is absolutely no shy, and from her young pussy dripping juices, flooding the ill-fated place for rest and asphalt."
+    "[interactionObj.fname] masturbates while sitting on a bench.  She is absolutely no shy, and from her young pussy dripping juices, flooding the ill-fated place for rest and asphalt."
 
 # game/status_events.rpy:387
 translate english status_public_mastur_78d15fc9:
 
     # player.say "[interactionObj.name]! Чем это ты тут занимаешься?!"
-    player.say "[InteractionObj.name]!  What are you doing here ?!"
+    player.say "[interactionObj.name]!  What are you doing here ?!"
 
 # game/status_events.rpy:388
 translate english status_public_mastur_6d67fe26:
@@ -256,43 +256,43 @@ translate english status_public_mastur_7e265f8b:
 translate english status_public_mastur_f90e61a9:
 
     # "[interactionObj.name] публично дрочит."
-    "[InteractionObj.name] is publicly jerking off."
+    "[interactionObj.name] is publicly jerking off."
 
 # game/status_events.rpy:407
 translate english status_voleyball_810310f6:
 
     # "[interactionObj.name] играет с другими ребятами в пляжный волейбол. Вы не хотите мешать."
-    "[InteractionObj.name] plays with other guys in beach volleyball.  You do not want to interfere."
+    "[interactionObj.name] plays with other guys in beach volleyball.  You do not want to interfere."
 
 # game/status_events.rpy:412
 translate english status_football_537fff03:
 
     # "[interactionObj.name] играет с другими ребятами в футбол. Вы не хотите мешать."
-    "[InteractionObj.name] plays with other guys in football.  You do not want to interfere."
+    "[interactionObj.name] plays with other guys in football.  You do not want to interfere."
 
 # game/status_events.rpy:423
 translate english status_kiss_86d8f663:
 
     # "[interactionObj.name] и [interactionObj.partner.name] целуются. Вы недолго постояли, надеясь что они перейдут к более активным действиям, но нет. Не перешли."
-    "[InteractionObj.name] and [interactionObj.partner.name] are kissed.  You did not stay long, hoping that they would move to more active actions, but no.  Do not crossed."
+    "[interactionObj.name] and [interactionObj.partner.name] are kissed.  You did not stay long, hoping that they would move to more active actions, but no.  Do not crossed."
 
 # game/status_events.rpy:431
 translate english status_undress_ee7da3c5:
 
     # "[interactionObj.name] просит вас не мешать переодеваться."
-    "[InteractionObj.name] asks you not to interfere with changing clothes."
+    "[interactionObj.name] asks you not to interfere with changing clothes."
 
 # game/status_events.rpy:434
 translate english status_undress_ee7da3c5_1:
 
     # "[interactionObj.name] просит вас не мешать переодеваться."
-    "[InteractionObj.name] asks you not to interfere with changing clothes."
+    "[interactionObj.name] asks you not to interfere with changing clothes."
 
 # game/status_events.rpy:437
 translate english status_undress_ee7da3c5_2:
 
     # "[interactionObj.name] просит вас не мешать переодеваться."
-    "[InteractionObj.name] asks you not to interfere with changing clothes."
+    "[interactionObj.name] asks you not to interfere with changing clothes."
 
 # game/status_events.rpy:438
 translate english status_undress_cfdff169:
@@ -304,7 +304,7 @@ translate english status_undress_cfdff169:
 translate english status_useManec_0033a09c:
 
     # "[interactionObj.name] активнейшим образом изучает внутреннее устройство женского организма, путём введения своего щупа непосредственно в искусственное влагалище купленного вами манекена."
-    "[InteractionObj.name] most actively studies the internal structure of the female body, by introducing its probe directly into the artificial vagina of the mannequin you bought."
+    "[interactionObj.name] most actively studies the internal structure of the female body, by introducing its probe directly into the artificial vagina of the mannequin you bought."
 
 # game/status_events.rpy:448
 translate english status_useManec_1fb7705a:
@@ -322,7 +322,7 @@ translate english status_useManec_62056723:
 translate english status_useManec_e45d1d39:
 
     # "По классу разносятся влажные хлюпания истекающей смазкой киски. [interactionObj.fname] прикрывает глаза, полностью отдаваясь наслаждению."
-    "In the class, wet sloshing is carried out by the expiring grease pussy.  [InteractionObj.fname] covers the eyes, completely surrendering to pleasure."
+    "In the class, wet sloshing is carried out by the expiring grease pussy.  [interactionObj.fname] covers the eyes, completely surrendering to pleasure."
 
 # game/status_events.rpy:452
 translate english status_useManec_a5b0bec3:
@@ -382,7 +382,7 @@ translate english status_useManec_8c90ad34:
 translate english status_useDildo_765f0ad3:
 
     # "[interactionObj.name] тестирует вибратор, про который столько долго рассказывали на уроках секспросвета."
-    "[InteractionObj.name] tests a vibrator, about which they talked for so long in the lessons of the sex-light."
+    "[interactionObj.name] tests a vibrator, about which they talked for so long in the lessons of the sex-light."
 
 # game/status_events.rpy:481
 translate english status_useDildo_b1582aa5:
@@ -394,7 +394,7 @@ translate english status_useDildo_b1582aa5:
 translate english status_useDildo_657cd11d:
 
     # "[interactionObj.name] решила примерить несколько игрушек в обилии разбросанных по классу. Она запихала в кондом три небольших вибратора и натянула получившуюся конструкцию на свой член. С виду получилась довольно неплохо, но [interactionObj.fname] сидит, так и не решаясь её включить."
-    "[InteractionObj.name] decided to try on a few toys in an abundance of class-scattered.  She shoved three small vibrators into the condom and pulled the resulting design onto her cock.  It looked pretty good, but [interactionObj.fname] sits, and does not dare to turn it on."
+    "[interactionObj.name] decided to try on a few toys in an abundance of class-scattered.  She shoved three small vibrators into the condom and pulled the resulting design onto her cock.  It looked pretty good, but [interactionObj.fname] sits, and does not dare to turn it on."
 
 # game/status_events.rpy:489
 translate english status_useDildo_f6f91b08:
@@ -430,7 +430,7 @@ translate english status_useDildo_80c71ea5:
 translate english status_useDildo_d47d067d:
 
     # "Вскоре к первой струйке присоединяется вторая, и вот уже член бешенно пульсирует, стукаясь головкой об парту и наполняя средство контрацепции бурными потоками спермы. [interactionObj.fname] чудом не вскрикивает на всю школу, закусывая нижнюю губу от сладострастия."
-    "Soon, the second one joins the first trickle, and now the member is furiously pulsating, tapping the head on the desk and filling the contraceptive means with stormy streams of sperm.  [InteractionObj.fname] miraculously does not scream at the whole school, snacking his lower lip from voluptuousness."
+    "Soon, the second one joins the first trickle, and now the member is furiously pulsating, tapping the head on the desk and filling the contraceptive means with stormy streams of sperm.  [interactionObj.fname] miraculously does not scream at the whole school, snacking his lower lip from voluptuousness."
 
 # game/status_events.rpy:505
 translate english status_useDildo_6b6532e7:
@@ -466,7 +466,7 @@ translate english status_teacherHidden_mastur_a4c1f670:
 translate english status_teacherHidden_mastur_fc45f6cf:
 
     # "[interactionObj.name] сидела на унитазе и, широко раздвинув ноги, буквально трахала собственную руку. Пальцы учительницы были все перемазаны в выделившемся с кончика головки эякуляте, но вытирать их она и не думала."
-    "[InteractionObj.name] sat on the toilet and, spreading her legs wide, literally fucked her own hand.  The teacher's fingers were all smeared in the ejaculate separated from the tip of the head, but she did not think to wipe them."
+    "[interactionObj.name] sat on the toilet and, spreading her legs wide, literally fucked her own hand.  The teacher's fingers were all smeared in the ejaculate separated from the tip of the head, but she did not think to wipe them."
 
 # game/status_events.rpy:526
 translate english status_teacherHidden_mastur_4d4435b5:
@@ -496,7 +496,7 @@ translate english status_teacherHidden_mastur_6b7386ee:
 translate english status_teacherHidden_mastur_1fb3d9f7:
 
     # "[interactionObj.name] сидела на унитазе, запустив свою руку в трусики. Вообще, это довольно необычное явление, когда на унитазе сидят не снимая нижнего белья. Но в данном случае унитаз выступал не по прямому назначению, а в качестве подпорки под пятую точку, дабы не свалиться на пол от удовольствия."
-    "[InteractionObj.name] was sitting on the toilet, running her hand into her panties.  In general, this is quite an unusual phenomenon, when sitting on the toilet without removing the underwear.  But in this case, the toilet bowl was not for its intended purpose, but as a support for the fifth point, so as not to fall to the floor with pleasure."
+    "[interactionObj.name] was sitting on the toilet, running her hand into her panties.  In general, this is quite an unusual phenomenon, when sitting on the toilet without removing the underwear.  But in this case, the toilet bowl was not for its intended purpose, but as a support for the fifth point, so as not to fall to the floor with pleasure."
 
 # game/status_events.rpy:533
 translate english status_teacherHidden_mastur_82309130:
@@ -526,7 +526,7 @@ translate english status_teacherHidden_mastur_9d4c0ba4:
 translate english status_teacherHidden_mastur_2f77cf5b:
 
     # "[interactionObj.fname] несколько раз дёрнулась, плотно прижимая руку к своей киске, и затихла, восстанавливая дыхание."
-    "[InteractionObj.fname] several times she jerked, tightly pressing her hand to her pussy, and calmed down, restoring her breath."
+    "[interactionObj.fname] several times she jerked, tightly pressing her hand to her pussy, and calmed down, restoring her breath."
 
 # game/status_events.rpy:538
 translate english status_teacherHidden_mastur_b68eeef5:
@@ -538,7 +538,7 @@ translate english status_teacherHidden_mastur_b68eeef5:
 translate english status_watchVideo_51e0adf0:
 
     # "[interactionObj.name] смотрит порно с обилием больших членов, спермы и миловидных личиков."
-    "[InteractionObj.name] looks porn with an abundance of large members, sperm and pretty faces."
+    "[interactionObj.name] looks porn with an abundance of large members, sperm and pretty faces."
 
 # game/status_events.rpy:547
 translate english status_watchVideo_0625e6c7:
@@ -640,7 +640,7 @@ translate english status_hidden_sex_c5a69e47:
 translate english status_hidden_sex_7565b833:
 
     # "[st1.fname] и [st2.fname] предавались ласкам в туалете. Ну как предавались. Очевидное удовольствие от процесса получала только [st2.fname], [st1.fname] в свою очередь всячески поторапливала подружку."
-    "[St1.fname] and [st2.fname] indulged in the toilets in the toilet.  Well, as indulged.  Obvious pleasure from the process received only [st2.fname], [St1.fname] in turn, in every possible way hurried girlfriend."
+    "[st1.fname] and [st2.fname] indulged in the toilets in the toilet.  Well, as indulged.  Obvious pleasure from the process received only [st2.fname], [st1.fname] in turn, in every possible way hurried girlfriend."
 
 # game/status_events.rpy:586
 translate english status_hidden_sex_cc26de39:
@@ -670,7 +670,7 @@ translate english status_hidden_sex_81afecfe:
 translate english status_hidden_sex_51688251:
 
     # "[st2.fname] задрожала, сильно вжимаясь попой в живот своей подружки, и с её члена начали вылетать крупные капли густой спермы, покрывающие ободок и бачок унитаза."
-    "[St2.fname] shuddered, strongly squeezing the booty into the belly of her girlfriend, and from her cock began to fly large drops of thick semen, covering the rim and the toilet bowl."
+    "[st2.fname] shuddered, strongly squeezing the booty into the belly of her girlfriend, and from her cock began to fly large drops of thick semen, covering the rim and the toilet bowl."
 
 # game/status_events.rpy:591
 translate english status_hidden_sex_74b47d8b:
@@ -784,7 +784,7 @@ translate english status_hidden_sex_40219609:
 translate english status_hidden_sex_134de4d1:
 
     # st1.say "[st2.fname], я тебя хочу!"
-    st1.say "[St2.fname], I want you!"
+    st1.say "[st2.fname], I want you!"
 
 # game/status_events.rpy:623
 translate english status_hidden_sex_1e2d2da8:
@@ -808,7 +808,7 @@ translate english status_hidden_sex_86302de0:
 translate english status_hidden_sex_8468e71e:
 
     # "[st2.fname] опустила свои руки к упругой попке подруги и пальчиками принялась ласкать маленькие дырочки, чем вызвала полный вожделения стон из уст любовницы."
-    "[St2.fname] lowered her hands to the elastic ass of her friend and began to caress little holes with her fingers, which caused a full lust from the lips of her mistress."
+    "[st2.fname] lowered her hands to the elastic ass of her friend and began to caress little holes with her fingers, which caused a full lust from the lips of her mistress."
 
 # game/status_events.rpy:632
 translate english status_hidden_sex_5ac104de:
@@ -832,7 +832,7 @@ translate english status_hidden_sex_b1f73834:
 translate english status_hidden_sex_f3ba7fc2:
 
     # "[st1.fname] прильнула к своей подружке, еще сильнее прижимаясь клитором к скользкой от её соков ноге, и, вздрагивая, насаживалась на шаловливые пальчики."
-    "[St1.fname] clung to her girlfriend, pressing her clit even harder against the slippery leg of her juices, and shuddering, she sat down on playful fingers."
+    "[st1.fname] clung to her girlfriend, pressing her clit even harder against the slippery leg of her juices, and shuddering, she sat down on playful fingers."
 
 # game/status_events.rpy:636
 translate english status_hidden_sex_0714f436:
@@ -910,13 +910,13 @@ translate english status_sex_4ac32e8a:
 translate english status_sex_8c032aeb:
 
     # st1.say "[st2.fname]! Я кончаю, [st2.fname]! [st2.fname]! Да-а-а-а-а!"
-    st1.say "[St2.fname]!  I'm finishing, [St2.fname]!  [St2.fname]!  Yes-ah-ah-ah!"
+    st1.say "[st2.fname]!  I'm finishing, [st2.fname]!  [st2.fname]!  Yes-ah-ah-ah!"
 
 # game/status_events.rpy:665
 translate english status_sex_c2117e99:
 
     # "[st1.fname] выгнулась всем телом, крепко обхватив любовника ногами за поясницу. Вы видите, как её киска исторгает из себя просто ненормальные объёмы влаги перемешанные со спермой."
-    "[St1.fname] arched over the whole body, clasping his lover tightly around his lower back.  You see how her pussy pulls out of itself just abnormal volumes of moisture mixed with sperm."
+    "[st1.fname] arched over the whole body, clasping his lover tightly around his lower back.  You see how her pussy pulls out of itself just abnormal volumes of moisture mixed with sperm."
 
 # game/status_events.rpy:675
 translate english status_sex_0fbfdb56:
@@ -946,7 +946,7 @@ translate english status_sex_a5263288:
 translate english status_sex_7b1932a1:
 
     # "[st1.fname] продолжала мерно качать головой, не выпуская члена изо рта. Из уголка её губ стекала капля слюны по уже блестящему от влаги стволу."
-    "[St1.fname] continued to shake her head, not releasing a member from her mouth.  From the corner of her lips a droplet of saliva dribbled down the trunk already shining from the moisture."
+    "[st1.fname] continued to shake her head, not releasing a member from her mouth.  From the corner of her lips a droplet of saliva dribbled down the trunk already shining from the moisture."
 
 # game/status_events.rpy:680
 translate english status_sex_3112fe6d:
@@ -958,7 +958,7 @@ translate english status_sex_3112fe6d:
 translate english status_sex_3dce7e29:
 
     # "[st2.fname] схватила подругу и, перевернув её на спину, вошла в узенькую щёлку без прелюдий."
-    "[St2.fname] grabbed a friend and, turning it on her back, went into a narrow crack without foreplay."
+    "[st2.fname] grabbed a friend and, turning it on her back, went into a narrow crack without foreplay."
 
 # game/status_events.rpy:683
 translate english status_sex_72e7b397:
@@ -1012,19 +1012,19 @@ translate english status_sex_90c5d072:
 translate english status_sex_242870e8:
 
     # st2.say "[st1.fname], только не в меня, не в этот раз, пожалуйста!"
-    st2.say "[St1.fname], just not in me, not this time, please!"
+    st2.say "[st1.fname], just not in me, not this time, please!"
 
 # game/status_events.rpy:702
 translate english status_sex_247476e2:
 
     # "[st1.fname] и [st2.fname] предавались ласкам, если, конечно, так можно назвать полное проникновение члена одной в киску своей подружки."
-    "[St1.fname] and [st2.fname] indulged in caresses, if, of course, so you can call the full penetration of a member of one in the pussy of his girlfriend."
+    "[st1.fname] and [st2.fname] indulged in caresses, if, of course, so you can call the full penetration of a member of one in the pussy of his girlfriend."
 
 # game/status_events.rpy:703
 translate english status_sex_3adb8b0d:
 
     # "[st1.fname] дрожала от напряжения, почти не двигаясь, и судорожно раздумывала, куда бы ей спустить. Безусловно, вытаскивать свой напрягшийся пенис из влажной пещерки ей не хотелось в любом случае, но и расстраивать подругу не хотелось тоже."
-    "[St1.fname] was trembling with stress, almost not moving, and convulsively wondered where to let it go.  Of course, she did not want to pull out her penis from a wet cave, in any case, but she did not want to upset her friend either."
+    "[st1.fname] was trembling with stress, almost not moving, and convulsively wondered where to let it go.  Of course, she did not want to pull out her penis from a wet cave, in any case, but she did not want to upset her friend either."
 
 # game/status_events.rpy:704
 translate english status_sex_af894cce:
@@ -1090,7 +1090,7 @@ translate english status_sex_f3f34fed:
 translate english status_sex_42f572f3:
 
     # "[st1.fname] рывками насаживал текущую киску на свой член, не обращая внимания на трущийся о его живот причиндал футы-подружки."
-    "[St1.fname] jerkily pushed the current pussy on his dick, not paying attention to rubbing his belly caused by foot-girlfriend."
+    "[st1.fname] jerkily pushed the current pussy on his dick, not paying attention to rubbing his belly caused by foot-girlfriend."
 
 # game/status_events.rpy:726
 translate english status_sex_e8f8578f:
@@ -1132,7 +1132,7 @@ translate english status_sex_fefe18a8:
 translate english status_sex_cd817e11:
 
     # "[st1.fname] лежала на спине раскинув ноги. Её блестящая от возбуждения киска была видна всем окружающим."
-    "[St1.fname] was lying on her back with legs spread out.  Her shining pussy excitement was visible to everyone around."
+    "[st1.fname] was lying on her back with legs spread out.  Her shining pussy excitement was visible to everyone around."
 
 # game/status_events.rpy:740
 translate english status_sex_a83351b9:
@@ -1174,7 +1174,7 @@ translate english status_sex_8e43804c:
 translate english status_sex_69f2271e:
 
     # st1.say "Ах, как хорошо! [st2.fname] иди сюда, я тоже хочу тебя поласкать!"
-    st1.say "Oh, that's good!  [St2.fname] come here, I also want to caress you!"
+    st1.say "Oh, that's good!  [st2.fname] come here, I also want to caress you!"
 
 # game/status_events.rpy:747
 translate english status_sex_c5f1581f:
@@ -1186,7 +1186,7 @@ translate english status_sex_c5f1581f:
 translate english status_sex_83a724b8:
 
     # st1.say "[st2.fname]! Я кончаю!"
-    st1.say "[St2.fname]!  I'm coming!"
+    st1.say "[st2.fname]!  I'm coming!"
 
 # game/status_events.rpy:750
 translate english status_sex_976d8412:
@@ -1222,7 +1222,7 @@ translate english status_public_sex_99927e81:
 translate english status_public_sex_98248dc2:
 
     # "[st1.fname] призывно оттопыривала попку, немного двигаясь навстречу пенису, а её пальчики теребили истекающую соком киску. Вы не уверены, но вам кажется, что парень уже не первый раз собирается кончить. По крайней мере, у вас нет другого объяснения тому, что ученица движениями своих пальцев выталкивает капли белесой жидкости прямо на асфальт."
-    "[St1.fname] appealingly protruding her ass, moving slightly towards the penis, and her fingers were fumbling with the pussy expiring with juice.  You are not sure, but it seems to you that the guy is not the first time going to finish.  At the very least, you have no other explanation for the student pushes drops of whitish liquid directly onto the asphalt with the movements of her fingers."
+    "[st1.fname] appealingly protruding her ass, moving slightly towards the penis, and her fingers were fumbling with the pussy expiring with juice.  You are not sure, but it seems to you that the guy is not the first time going to finish.  At the very least, you have no other explanation for the student pushes drops of whitish liquid directly onto the asphalt with the movements of her fingers."
 
 # game/status_events.rpy:773
 translate english status_public_sex_a7e83123:
@@ -1294,7 +1294,7 @@ translate english status_kupruvna_clean_651fe16a:
 translate english status_kupruvna_clean_373cf98e:
 
     # player.say "[kupruvna.name]! Ну нельзя же так себя изводить! - с улыбкой говорите вы учительнице, которая несмотря на красное от стыда лицо мастурбирует прямо у вас в кабинете."
-    player.say "[Kupruvna.name]!  Well, you can not so torment yourself!  - with a smile you tell the teacher, who despite the red face shame, masturbates right in your office."
+    player.say "[kupruvna.name]!  Well, you can not so torment yourself!  - with a smile you tell the teacher, who despite the red face shame, masturbates right in your office."
 
 # game/status_events.rpy:803
 translate english status_kupruvna_clean_2b0a3481:

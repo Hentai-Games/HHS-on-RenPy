@@ -58,7 +58,7 @@ translate english dialog_stud_0_danokova_d8d99a20:
 translate english dialog_stud_0_danokova_bcc201c3:
 
     # "[user.fname] начинает загадочно улыбаться и замолкает. Возможно вам недостаёт лояльности ученика?"
-    "[User.fname] begins to smile mysteriously and pauses.  Perhaps you lack the student's loyalty?"
+    "[user.fname] begins to smile mysteriously and pauses.  Perhaps you lack the student's loyalty?"
 
 # game/dialogueList.rpy:21
 translate english dialog_stud_0_danokova_161bc445:
@@ -106,7 +106,7 @@ translate english dialog_stud_0_danokova_09f6cd32:
 translate english dialog_stud_0_danokova_c4db85b8:
 
     # user.say "[danokova.name] странная! Хотя за ней весело наблюдать!"
-    user.say "[Danokova.name] strange!  Although it's fun to watch!"
+    user.say "[danokova.name] strange!  Although it's fun to watch!"
 
 # game/dialogueList.rpy:33
 translate english dialog_stud_0_danokova_6987a8f5:
@@ -118,7 +118,7 @@ translate english dialog_stud_0_danokova_6987a8f5:
 translate english dialog_stud_0_mustangovich_f24096ae:
 
     # "[user.fname] рассказывает вам, что иногда встречает то плачущих, то загадочно улыбающихся девочек в холле. Причём всегда во время первой перемены!"
-    "[User.fname] tells you that sometimes meets those crying, then mysteriously smiling girls in the hall.  And always during the first change!"
+    "[user.fname] tells you that sometimes meets those crying, then mysteriously smiling girls in the hall.  And always during the first change!"
 
 # game/dialogueList.rpy:40
 translate english dialog_stud_0_mustangovich_58043c38:
@@ -136,7 +136,7 @@ translate english dialog_stud_0_mustangovich_4f5152c9:
 translate english dialog_stud_0_mustangovich_0bfab729:
 
     # user.say "[mustangovich.name], он УХ! Здоровенный, да?"
-    user.say "[Mustangovich.name], he's UH!  Hefty, huh?"
+    user.say "[mustangovich.name], he's UH!  Hefty, huh?"
 
 # game/dialogueList.rpy:46
 translate english dialog_stud_0_mustangovich_771be055:
@@ -160,7 +160,7 @@ translate english dialog_stud_0_1_658d41b2:
 translate english dialog_stud_0_2_a2f95325:
 
     # player.say "[science] очень интересна в изучении, как ты думаешь?"
-    player.say "[Science] is very interesting in learning, do you think?"
+    player.say "[science] is very interesting in learning, do you think?"
 
 # game/dialogueList.rpy:60
 translate english dialog_stud_0_2_16b51e33:
@@ -184,7 +184,7 @@ translate english dialog_stud_0_2_bc3a7c1a:
 translate english dialog_stud_0_3_c2792d52:
 
     # player.say "[science] - это классно! - весело говорите Вы."
-    player.say "[Science] - it's great!  - you say cheerfully."
+    player.say "[science] - it's great!  - you say cheerfully."
 
 # game/dialogueList.rpy:70
 translate english dialog_stud_0_3_2f001d62:
@@ -202,7 +202,7 @@ translate english dialog_stud_0_3_8348c973:
 translate english dialog_stud_0_4_8af1fcce:
 
     # player.say "[science] - мой любимый предмет! - заводите вы разговор."
-    player.say "[Science] is my favorite subject!  - you start a conversation."
+    player.say "[science] is my favorite subject!  - you start a conversation."
 
 # game/dialogueList.rpy:79
 translate english dialog_stud_0_4_65a76e36:
@@ -304,25 +304,25 @@ translate english dialog_stud_0_9_e10c4b45:
 translate english dialog_stud_0_10_730c5ed9:
 
     # user.say "[user.name] подсказал вам, что неплохие вещи продаются на углу Торговой улицы, в небольшом минимаркете."
-    user.say "[User.name] told you that good things are sold at the corner of Torgovaya Street, in a small minimarket."
+    user.say "[user.name] told you that good things are sold at the corner of Torgovaya Street, in a small minimarket."
 
 # game/dialogueList.rpy:124
 translate english dialog_stud_0_10_4d7ce7b6:
 
     # user.say "[user.name] подсказала вам, что неплохие вещи продаются на углу Торговой улицы, в небольшом минимаркете."
-    user.say "[User.name] told you that good things are sold at the corner of Torgovaya Street, in a small minimarket."
+    user.say "[user.name] told you that good things are sold at the corner of Torgovaya Street, in a small minimarket."
 
 # game/dialogueList.rpy:129
 translate english dialog_stud_0_11_9802a66d:
 
     # user.say "[user.name] рассказал, что однажды слышал стоны привидения в раздевалке на пляже. Он, конечно не трус, но от опрометчивых действий воздержался и быстренько сбежал оттуда."
-    user.say "[User.name] said that he had once heard the ghosts moaning in the locker room on the beach.  He, certainly not the coward, but from reckless actions has refrained and has quickly run away therefrom."
+    user.say "[user.name] said that he had once heard the ghosts moaning in the locker room on the beach.  He, certainly not the coward, but from reckless actions has refrained and has quickly run away therefrom."
 
 # game/dialogueList.rpy:131
 translate english dialog_stud_0_11_6656ff92:
 
     # user.say "[user.name] рассказала, что однажды слышала стоны привидения в раздевалке на пляже. Она страшно испугалась и убежала."
-    user.say "[User.name] said that she had once heard the ghosts moaning in the locker room on the beach.  She was terribly frightened and ran away."
+    user.say "[user.name] said that she had once heard the ghosts moaning in the locker room on the beach.  She was terribly frightened and ran away."
 
 # game/dialogueList.rpy:132
 translate english dialog_stud_0_11_efb48091:
@@ -334,13 +334,13 @@ translate english dialog_stud_0_11_efb48091:
 translate english dialog_stud_0_12_6a23c81e:
 
     # user.say "[user.name] поведал, что на пляже происходит больше всего событий в городе!"
-    user.say "[User.name] told that the beach is the most events in the city!"
+    user.say "[user.name] told that the beach is the most events in the city!"
 
 # game/dialogueList.rpy:139
 translate english dialog_stud_0_12_4d3ba930:
 
     # user.say "[user.name] поведала, что на пляже происходит больше всего событий в городе!"
-    user.say "[User.name] told that the beach is the most events in the city!"
+    user.say "[user.name] told that the beach is the most events in the city!"
 
 # game/dialogueList.rpy:140
 translate english dialog_stud_0_12_669f2fb9:
@@ -352,13 +352,13 @@ translate english dialog_stud_0_12_669f2fb9:
 translate english dialog_stud_0_13_35b6c27d:
 
     # user.say "[user.name] рассказал, что одна его подруга не ела много дней, соблюдая диету, а потом заболела и умерла."
-    user.say "[User.name] said that one of his friends did not eat for many days, following a diet, and then fell ill and died."
+    user.say "[user.name] said that one of his friends did not eat for many days, following a diet, and then fell ill and died."
 
 # game/dialogueList.rpy:147
 translate english dialog_stud_0_13_d7e6fd0f:
 
     # user.say "[user.name] рассказала, что одна её подруга не ела много дней, cоблюдая диету, а потом заболела и умерла."
-    user.say "[User.name] said that one of her friends had not eaten for many days, with a diet, and then fell ill and died."
+    user.say "[user.name] said that one of her friends had not eaten for many days, with a diet, and then fell ill and died."
 
 # game/dialogueList.rpy:148
 translate english dialog_stud_0_13_0a29caaf:
@@ -370,13 +370,13 @@ translate english dialog_stud_0_13_0a29caaf:
 translate english dialog_stud_5_14_9ed9063e:
 
     # user.say "[user.name] рассказал, что в 4 классе за учительской тумбой живёт мышь, которая иногда скребётся после уроков!"
-    user.say "[User.name] said that in the 4 th grade behind the teacher's pedestal there lives a mouse, which sometimes scratches after lessons!"
+    user.say "[user.name] said that in the 4 th grade behind the teacher's pedestal there lives a mouse, which sometimes scratches after lessons!"
 
 # game/dialogueList.rpy:155
 translate english dialog_stud_5_14_238ce9dd:
 
     # user.say "[user.name] рассказала, что в 4 классе за учительской тумбой живёт мышь, которая иногда скребётся после уроков!"
-    user.say "[User.name] told that in the 4th grade behind the teacher's pedestal there lives a mouse, which sometimes scratches after lessons!"
+    user.say "[user.name] told that in the 4th grade behind the teacher's pedestal there lives a mouse, which sometimes scratches after lessons!"
 
 # game/dialogueList.rpy:156
 translate english dialog_stud_5_14_4f91abb4:
@@ -388,7 +388,7 @@ translate english dialog_stud_5_14_4f91abb4:
 translate english dialog_stud_0_15_118bccab:
 
     # user.say "[user.name] невинно интересуется, почему во всех школах есть библиотеки, а в нашей нет?"
-    user.say "[User.name] innocently wondered why in all schools there are libraries, but in ours not?"
+    user.say "[user.name] innocently wondered why in all schools there are libraries, but in ours not?"
 
 # game/dialogueList.rpy:163
 translate english dialog_stud_0_15_eebaef7e:
@@ -400,7 +400,7 @@ translate english dialog_stud_0_15_eebaef7e:
 translate english dialog_stud_0_15_0689c4bb:
 
     # user.say "[user.name] благодарит Вас за финансирование постройки школьной библиотеки!"
-    user.say "[User.name] thanks you for financing the construction of the school library!"
+    user.say "[user.name] thanks you for financing the construction of the school library!"
 
 # game/dialogueList.rpy:166
 translate english dialog_stud_0_15_a988fdde:
@@ -412,7 +412,7 @@ translate english dialog_stud_0_15_a988fdde:
 translate english dialog_stud_0_15_ee5e440b:
 
     # user.say "[user.name] спрашивает, не слишком ли острая ограда у школы? Кто-нибудь может и пораниться!"
-    user.say "[User.name] asks if the school fence is too sharp?  Someone can get hurt!"
+    user.say "[user.name] asks if the school fence is too sharp?  Someone can get hurt!"
 
 # game/dialogueList.rpy:172
 translate english dialog_stud_0_15_3767a7b0:
@@ -424,7 +424,7 @@ translate english dialog_stud_0_15_3767a7b0:
 translate english dialog_stud_0_15_9d06de38:
 
     # user.say "[user.name] спрашивает, зачем мы построили стену вокруг школы?"
-    user.say "[User.name] asks why we built a wall around the school?"
+    user.say "[user.name] asks why we built a wall around the school?"
 
 # game/dialogueList.rpy:175
 translate english dialog_stud_0_15_3146eee5:
@@ -508,13 +508,13 @@ translate english dialog_teacher_0_5_4310f803:
 translate english dialog_teacher_0_6_2b4b8cde:
 
     # user.say "[user.name] 5 минут распинался про то, что не нужно химичке такое количество пробирок, колбочек, баночек и прочей фигни! Не нужно и всё! А у него мячей не хватает в спортзале. И одежды походу тоже."
-    user.say "[User.name] 5 minutes raspinalsya about the fact that you do not need a chemist such a number of test tubes, cones, jars and other garbage!  It is not necessary and that's all!  And he does not have balls in the gym.  And clothes go also."
+    user.say "[user.name] 5 minutes raspinalsya about the fact that you do not need a chemist such a number of test tubes, cones, jars and other garbage!  It is not necessary and that's all!  And he does not have balls in the gym.  And clothes go also."
 
 # game/dialogueList.rpy:226
 translate english dialog_teacher_0_6_2c65d8aa:
 
     # user.say "[user.name], хихикнув, начала обсуждать нелёгкую жизнь Мустанговича. То ему мячей не хватает, то спортивной одежды..."
-    user.say "[User.name], giggling, began to discuss the hard life of Mustangovich.  Then he lacks balls, then sportswear ..."
+    user.say "[user.name], giggling, began to discuss the hard life of Mustangovich.  Then he lacks balls, then sportswear ..."
 
 # game/dialogueList.rpy:231
 translate english dialog_teacher_0_mustangovich1_69975b05:
@@ -532,7 +532,7 @@ translate english dialog_teacher_0_mustangovich1_d3f02499:
 translate english dialog_teacher_0_mustangovich1_44ac0703:
 
     # "[user.fname] протягивает вам одну из своих таблеток. Учитывая что капсула наполнена маленькими сердечками, неудивительно, что он думал, что это таблетки от сердца."
-    "[User.fname] gives you one of its pills.  Given that the capsule is filled with small hearts, it's no wonder he thought it was a pill from the heart."
+    "[user.fname] gives you one of its pills.  Given that the capsule is filled with small hearts, it's no wonder he thought it was a pill from the heart."
 
 # game/dialogueList.rpy:243
 translate english dialog_teacher_20_1_f660973b:

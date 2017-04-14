@@ -20,7 +20,7 @@ translate english strings:
 
     # game/customScreens.rpy:66
     old "{b}Сейчас БАГ{b}"
-    new "{B} Now BAG {b}"
+    new "{b} Now BAG {b}"
 
     # game/customScreens.rpy:72
     old "Ваша энергия: [temp]"
@@ -72,7 +72,7 @@ translate english strings:
 
     # game/customScreens.rpy:269
     old "{u}[name]{/u}"
-    new "{U} [name] {/u}"
+    new "{u} [name] {/u}"
 
     # game/customScreens.rpy:270
     old "Развратность: [corr]"

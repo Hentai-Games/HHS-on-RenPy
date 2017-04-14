@@ -4,7 +4,7 @@
 translate english event_loc_gym_0_no1_b23a633c:
 
     # "[st1.fname] больно получила мячом по бедру. Вы утешили ее и помогли ей подняться. А вот [st2.fname] получил втык за подобное поведение."
-    "[St1.fname] painfully received the ball on the thigh.  You comforted her and helped her up.  But [st2.fname] got a bug for this behavior."
+    "[st1.fname] painfully received the ball on the thigh.  You comforted her and helped her up.  But [st2.fname] got a bug for this behavior."
 
 # game/events/rEventsGym.rpy:12
 translate english event_loc_gym_0_no1_7c05197a:
@@ -28,7 +28,7 @@ translate english event_loc_gym_0_no1_c0ec43bb:
 translate english event_loc_gym_0_no2_9a6dc854:
 
     # "[st1.fname] и [st2.fname] играют в баскетбол. Хоть бы переоделись в форму для занятий."
-    "[St1.fname] and [st2.fname] play basketball.  If only we could change into a uniform for classes."
+    "[st1.fname] and [st2.fname] play basketball.  If only we could change into a uniform for classes."
 
 # game/events/rEventsGym.rpy:34
 translate english event_loc_gym_0_no2_4ee760bd:
@@ -46,7 +46,7 @@ translate english event_loc_gym_0_no2_950912f2:
 translate english event_loc_gym_0_no3_6c1bdc5b:
 
     # "[st1.fname] делает упражнения по лёгкой атлетике. Вообще, для занятий подобным придумали пуанты, но [st1.fname] их почему-то не носит."
-    "[St1.fname] does exercises in athletics.  In general, for training like invented Pointe shoes, but [St1.fname] for some reason does not carry them."
+    "[st1.fname] does exercises in athletics.  In general, for training like invented Pointe shoes, but [st1.fname] for some reason does not carry them."
 
 # game/events/rEventsGym.rpy:49
 translate english event_loc_gym_0_no3_06948058:
@@ -64,7 +64,7 @@ translate english event_loc_gym_0_no3_4f503d59:
 translate english event_loc_gym_0_no4_cc1fc8df:
 
     # "[st1.fname]? Нет, [st2.fname]? Нет, [st3.fname]? Да, точно [st3.fname]! Теперь когда девочка лежит в нокауте от волейбольного мяча, вы, наконец-то, смогли её идентифицировать. Ну что же, волейбол - суровая игра, и в неё надо уметь играть!"
-    "[St1.fname]?  No, [st2.fname]?  No, [st3.fname]?  Yes, exactly [st3.fname]!  Now when the girl lies in a knockout from the volleyball, you, finally, were able to identify her.  Well, volleyball - a harsh game, and it must be able to play!"
+    "[st1.fname]?  No, [st2.fname]?  No, [st3.fname]?  Yes, exactly [st3.fname]!  Now when the girl lies in a knockout from the volleyball, you, finally, were able to identify her.  Well, volleyball - a harsh game, and it must be able to play!"
 
 # game/events/rEventsGym.rpy:70
 translate english event_loc_gym_0_no4_67d0f240:
@@ -220,7 +220,7 @@ translate english event_loc_gym_0_no5_1b1d145c:
 translate english event_loc_gym_0_no6_6015f5ac:
 
     # "[st1.fname] как раз закончила делать растяжку, и немного смущена тем, что заметила как вы за ней наблюдаете."
-    "[St1.fname] just finished doing the stretch, and a little embarrassed that I noticed how you are watching it."
+    "[st1.fname] just finished doing the stretch, and a little embarrassed that I noticed how you are watching it."
 
 # game/events/rEventsGym.rpy:143
 translate english event_loc_gym_0_no6_26575cac:
@@ -232,7 +232,7 @@ translate english event_loc_gym_0_no6_26575cac:
 translate english event_loc_gym_0_no7_fc0a0f56:
 
     # "[st1.fname] и [st2.fname] отдыхают после тренировки."
-    "[St1.fname] and [st2.fname] rest after training."
+    "[st1.fname] and [st2.fname] rest after training."
 
 # game/events/rEventsGym.rpy:161
 translate english event_loc_gym_0_no7_f6c51783:
@@ -244,7 +244,7 @@ translate english event_loc_gym_0_no7_f6c51783:
 translate english event_loc_gym_0_no8_54ca1ab5:
 
     # "Ого! [st1.name], похоже, решила всерьёз попасть на олимпийские игры! Заметившие прыжок одноклассницы шокированы великолепно исполненным прыжком."
-    "Wow!  [St1.name], seems to have decided to seriously get to the Olympic Games!  Noticed jump classmates are shocked by a perfectly executed jump."
+    "Wow!  [st1.name], seems to have decided to seriously get to the Olympic Games!  Noticed jump classmates are shocked by a perfectly executed jump."
 
 # game/events/rEventsGym.rpy:180
 translate english event_loc_gym_0_no8_00d9edb6:
@@ -256,7 +256,7 @@ translate english event_loc_gym_0_no8_00d9edb6:
 translate english event_loc_gym_0_no9_8a324be9:
 
     # "[st1.name] решила попробовать свои силы в лёгкой атлетике. Ну что же, у неё неплохо получается."
-    "[St1.name] decided to try their hand at athletics.  Well, she's doing pretty well."
+    "[st1.name] decided to try their hand at athletics.  Well, she's doing pretty well."
 
 # game/events/rEventsGym.rpy:196
 translate english event_loc_gym_0_no9_7234d36d:
@@ -268,7 +268,7 @@ translate english event_loc_gym_0_no9_7234d36d:
 translate english event_loc_gym_0_no10_66bc6682:
 
     # "[st1.fname] делает растяжку. [st1.fname] растяжку делает. Делает растяжку [st1.fname]. Я готова сколь угодно долго переставлять слова, но суть от этого не меняется - [st1.fname] делает растяжку."
-    "[St1.fname] does the stretching.  [St1.fname] does the stretching.  It does the stretching [St1.fname].  I am ready to rearrange words for as long as I like, but the essence of this does not change - [St1.fname] does stretching."
+    "[st1.fname] does the stretching.  [st1.fname] does the stretching.  It does the stretching [st1.fname].  I am ready to rearrange words for as long as I like, but the essence of this does not change - [st1.fname] does stretching."
 
 # game/events/rEventsGym.rpy:212
 translate english event_loc_gym_0_no10_864e71c1:
@@ -280,7 +280,7 @@ translate english event_loc_gym_0_no10_864e71c1:
 translate english event_loc_gym_0_no11_911adb2a:
 
     # "[st1.fname] помогает своей подруге сесть на шпагат."
-    "[St1.fname] helps her friend to sit on the twine."
+    "[st1.fname] helps her friend to sit on the twine."
 
 # game/events/rEventsGym.rpy:235
 translate english event_loc_gym_0_no11_4ad783f9:
@@ -298,7 +298,7 @@ translate english event_loc_gym_0_no11_898ebc5a:
 translate english event_loc_gym_20_low1_ba62d35e:
 
     # "[st1.fname] запуталась в сетке, отбивая подачу на волейболе. Всё бы ничего, но самостоятельные попытки выбраться привели к некоторому обнажению некоторых частей тела."
-    "[St1.fname] was entangled in the grid, beating off the pitch on volleyball.  All anything, but independent attempts to get out led to some exposure of some parts of the body."
+    "[st1.fname] was entangled in the grid, beating off the pitch on volleyball.  All anything, but independent attempts to get out led to some exposure of some parts of the body."
 
 # game/events/rEventsGym.rpy:267
 translate english event_loc_gym_50_mid1_71c5a464:
