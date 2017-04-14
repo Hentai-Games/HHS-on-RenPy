@@ -136,7 +136,7 @@ translate english event_loc_storage_30_low3_187d07b5:
 translate english event_loc_storage_30_low3_23d0cd88:
 
     # st1.say "[player.name]! Я! Ммммм! - девушка не выдержала вибрации между ног, и Вы отчётливо увидели, как её влагалище начало сокращаться в оргазме."
-    st1.say "[Player.name]!  I!  Mmmmm!  - The girl could not stand the vibration between her legs, and you saw clearly how her vagina began to contract in orgasm."
+    st1.say "[player.name]!  I!  Mmmmm!  - The girl could not stand the vibration between her legs, and you saw clearly how her vagina began to contract in orgasm."
 
 # game/events/rEventsStorage.rpy:135
 translate english event_loc_storage_30_low3_1a791e94:

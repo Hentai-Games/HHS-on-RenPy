@@ -250,7 +250,7 @@ translate english event_loc_beach_5_21_21038cab:
 translate english event_loc_beach_5_21_06bd5b50:
 
     # st1.say "[player.name]! Это вовсе не то, о чём вы подумали! - начинает причитать ученица, - мы просто переодевались!"
-    st1.say "[Player.name]!  This is not what you thought!  - begins to lament the student, - we just changed clothes!"
+    st1.say "[player.name]!  This is not what you thought!  - begins to lament the student, - we just changed clothes!"
 
 # game/events/rEventsBeach.rpy:251
 translate english event_loc_beach_5_21_1fd8f6b3:

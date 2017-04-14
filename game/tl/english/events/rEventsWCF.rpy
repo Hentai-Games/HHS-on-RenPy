@@ -190,7 +190,7 @@ translate english event_loc_wcf_25_low2_8eec73f4:
 translate english event_loc_wcf_25_low2_401c1529:
 
     # st1.say "[player.name]? Что ты тут делаешь?"
-    st1.say "[Player.name]?  What are you doing here?"
+    st1.say "[player.name]?  What are you doing here?"
 
 # game/events/rEventsWCF.rpy:125
 translate english event_loc_wcf_25_low2_019e2510:

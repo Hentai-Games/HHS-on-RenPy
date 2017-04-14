@@ -718,7 +718,7 @@ translate english event_loc_street_5_mid5_c504614f:
 translate english event_loc_street_55_hi1_aa37e4c6:
 
     # st1.say "[player.name]! - кричит ученица, видя что вы её заметили."
-    st1.say "[Player.name]!  Cried the student, seeing that you noticed her."
+    st1.say "[player.name]!  Cried the student, seeing that you noticed her."
 
 # game/events/rEventsStreet.rpy:510
 translate english event_loc_street_55_hi1_5063401e:

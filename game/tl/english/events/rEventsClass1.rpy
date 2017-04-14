@@ -976,7 +976,7 @@ translate english event_loc_class1_70_6kupruvna_6b53cabb:
 translate english event_loc_class1_80_7_45437932:
 
     # st1.say "[player.name], не хотите присоединиться? - спрашивает вас текущая от возбуждения ученица."
-    st1.say "[Player.name], do not want to join?  - asks the student, who is from excitement."
+    st1.say "[player.name], do not want to join?  - asks the student, who is from excitement."
 
 # game/events/rEventsClass1.rpy:709
 translate english event_loc_class1_80_7_335bbe55:

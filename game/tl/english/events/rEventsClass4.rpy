@@ -196,7 +196,7 @@ translate english event_loc_class4Learn_0_2_bfbc58df_2:
 translate english event_loc_class4Learn_0_2_0c1b8de0:
 
     # bissektrisovna.say "[player.name]! Прекратите ему подсказывать! Ладно, [st1.fname], садись, четыре."
-    bissektrisovna.say "[Player.name]!  Stop telling him!  Okay, [st1.fname], sit down, four."
+    bissektrisovna.say "[player.name]!  Stop telling him!  Okay, [st1.fname], sit down, four."
 
 # game/events/rEventsClass4.rpy:192
 translate english event_loc_class4Learn_0_2_7884cc3c:
