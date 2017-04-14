@@ -58,7 +58,7 @@ translate english myintro_bfca9093:
 translate english myintro_5379dc0b:
 
     # me "Хех, [player.fname]! [player.name]!!! Получше ничего не придумалось, да?"
-    me "Heh, [player.fname]!  [Player.name] !!!  Better did not come up with anything, right?"
+    me "Heh, [player.fname]!  [player.name] !!!  Better did not come up with anything, right?"
 
 # game/events/BasicEvents.rpy:57
 translate english myintro_135d3669:
@@ -118,7 +118,7 @@ translate english myintro_b5b739c8:
 translate english myintro_51c7f60b:
 
     # player.say "Да перехожу уже, перехожу.\nПонимаешь, дорогой Игрок, это игра, как бы, не про то, какой я директор, а о том, как бы нам, кхм."
-    player.say "Yes, I turn already, I turn. \ NI understand, dear Gambler, this is a game, as if, not about what I'm a director, but about how we would, ah."
+    player.say "Yes, I turn already, I turn. \ NI understand, dear Player, this is a game, as if, not about what I'm a director, but about how we would, ah."
 
 # game/events/BasicEvents.rpy:67
 translate english myintro_8ffc2d38:
@@ -706,7 +706,7 @@ translate english jail_854de284:
 translate english jail_a7779158:
 
     # "[player.fname], сегодня день твоего освобождения, ты готова уйти? - спросила вас в одну утро начальница."
-    "[Player.fname], today is your release day, are you ready to leave?  The headmistress asked you in one morning."
+    "[player.fname], today is your release day, are you ready to leave?  The headmistress asked you in one morning."
 
 # game/events/BasicEvents.rpy:594
 translate english jail_a0f1d394:

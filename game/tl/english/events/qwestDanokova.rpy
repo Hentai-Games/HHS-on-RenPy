@@ -2686,7 +2686,7 @@ translate english danokova_bdsm_offer_3771712d:
 translate english danokova_bdsm_offer_dadef36b:
 
     # d.say "[player.name]?"
-    d.say "[Player.name]?"
+    d.say "[player.name]?"
 
 # game/events/qwestDanokova.rpy:824
 translate english danokova_bdsm_offer_996cf4cf:
@@ -2698,7 +2698,7 @@ translate english danokova_bdsm_offer_996cf4cf:
 translate english danokova_bdsm_offer_c3b8ce13:
 
     # d.say "[player.name]???"
-    d.say "[Player.name] ???"
+    d.say "[player.name] ???"
 
 # game/events/qwestDanokova.rpy:826
 translate english danokova_bdsm_offer_0d056afa:
@@ -3736,7 +3736,7 @@ translate english dan_test_f6ed6adc:
 translate english dan_test_230304a3:
 
     # danokova.say "[player.name]!!! По моему мы договорились! Вот это моё, а всё остальное - ваше!"
-    danokova.say "[Player.name] !!!  In my opinion we agreed!  This is mine, and everything else is yours!"
+    danokova.say "[player.name] !!!  In my opinion we agreed!  This is mine, and everything else is yours!"
 
 # game/events/qwestDanokova.rpy:1126
 translate english dan_test_4d137f53:

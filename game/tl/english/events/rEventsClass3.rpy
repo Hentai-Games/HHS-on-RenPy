@@ -220,7 +220,7 @@ translate english event_loc_class3_0_no8_7600beed:
 translate english event_loc_class3_0_no8_dbc99b16:
 
     # st3.say "[player.name], простите, я больше не могу!"
-    st3.say "[Player.name], sorry, I can not anymore!"
+    st3.say "[player.name], sorry, I can not anymore!"
 
 # game/events/rEventsClass3.rpy:127
 translate english event_loc_class3_0_no8_d49644b4:
@@ -646,7 +646,7 @@ translate english event_loc_class3Learn_0_1_39d08e59:
 translate english event_loc_class3Learn_0_2_601a46c4:
 
     # st1.say "[player.name], можно мне выйти, а то [frigidovna.name] не разрешает..."
-    st1.say "[Player.name], you can leave me, or else [frigidovna.name] does not allow ..."
+    st1.say "[player.name], you can leave me, or else [frigidovna.name] does not allow ..."
 
 # game/events/rEventsClass3.rpy:358
 translate english event_loc_class3Learn_0_2_6547ed7c:

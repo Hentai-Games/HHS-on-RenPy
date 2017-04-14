@@ -916,7 +916,7 @@ translate english event_loc_ahmedSex_0_3_4d66d213:
 translate english event_loc_ahmedSex_0_3_f40458b7:
 
     # mustangovich.say "[player.fname], вы лучшая! - прошептал физрук, и начал двигать своими бёдрами, облегчая вам задачу. Вскоре он полностью захватил инициативу, и ваше тело лишь безвольно подпрыгивало на его бёдрах и пенисе."
-    mustangovich.say "[Player.fname], you're the best!  - whispered the fizruk, and began to move his hips, easing your task.  Soon he completely seized the initiative, and your body only leaped weakly on his hips and penis."
+    mustangovich.say "[player.fname], you're the best!  - whispered the fizruk, and began to move his hips, easing your task.  Soon he completely seized the initiative, and your body only leaped weakly on his hips and penis."
 
 # game/events/qwestMustangovich.rpy:362
 translate english event_loc_ahmedSex_0_3_93eab92e:

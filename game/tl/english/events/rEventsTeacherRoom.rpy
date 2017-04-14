@@ -58,7 +58,7 @@ translate english event_loc_teacherRoom_0_new1_5e0a3b7f:
 translate english event_loc_teacherRoom_0_new2_31994e91:
 
     # danokova.say "[player.fname]! Не могли бы вы перестать изучать меня только внимательно?"
-    danokova.say "[Player.fname]!  Could you stop studying me carefully?"
+    danokova.say "[player.fname]!  Could you stop studying me carefully?"
 
 # game/events/rEventsTeacherRoom.rpy:45
 translate english event_loc_teacherRoom_0_new2_caaf9a58:
@@ -106,7 +106,7 @@ translate english event_loc_teacherRoom_0_new2_3488c7ca:
 translate english event_loc_teacherRoom_0_new2_4676ab85:
 
     # danokova.say "[player.name], если вы решили полюбваться, то на здоровье, просто не делайте это столь прямо."
-    danokova.say "[Player.name], if you decide to like it, then to health, just do not do it that directly."
+    danokova.say "[player.name], if you decide to like it, then to health, just do not do it that directly."
 
 # game/events/rEventsTeacherRoom.rpy:54
 translate english event_loc_teacherRoom_0_new2_f978baa5:
