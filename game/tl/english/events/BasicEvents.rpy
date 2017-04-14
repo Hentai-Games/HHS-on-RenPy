@@ -58,7 +58,7 @@ translate english myintro_bfca9093:
 translate english myintro_5379dc0b:
 
     # me "Хех, [player.fname]! [player.name]!!! Получше ничего не придумалось, да?"
-    me "Heh, [player.fname]!  [Player.name] !!!  Better did not come up with anything, right?"
+    me "Heh, [player.fname]!  [player.name] !!!  Better did not come up with anything, right?"
 
 # game/events/BasicEvents.rpy:57
 translate english myintro_135d3669:
