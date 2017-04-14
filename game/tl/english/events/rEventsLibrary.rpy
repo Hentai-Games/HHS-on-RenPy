@@ -4,7 +4,7 @@
 translate english event_loc_library_0_no1_987c0f09:
 
     # "[st1.fname] судя по всему совсем увлеклась чтением фентези и прочих Леголасов. Даже кота своего притащила, чтобы кормить его не отвлекаясь от чтения."
-    "[St1.fname] seems to have been completely absorbed in reading fantasy and other Legolas.  Even a cat brought her to feed him without being distracted from reading."
+    "[st1.fname] seems to have been completely absorbed in reading fantasy and other Legolas.  Even a cat brought her to feed him without being distracted from reading."
 
 # game/events/rEventsLibrary.rpy:9
 translate english event_loc_library_0_no1_87fa2d5c:
@@ -94,7 +94,7 @@ translate english event_loc_library_0_no2_e8892046:
 translate english event_loc_library_0_no3_6df715d7:
 
     # "[st1.fname] и [st2.fname], сидя на полу, читают какую то брошюрку. Блин, они же так простудятся, будут болеть дома, и не посещать школу!"
-    "[St1.fname] and [st2.fname], sitting on the floor, read some booklet.  Damn, they are so cold, they will hurt at home, and do not attend school!"
+    "[st1.fname] and [st2.fname], sitting on the floor, read some booklet.  Damn, they are so cold, they will hurt at home, and do not attend school!"
 
 # game/events/rEventsLibrary.rpy:63
 translate english event_loc_library_0_no3_ac77ca6e:
@@ -214,7 +214,7 @@ translate english event_loc_library_0_no7_eb462edc:
 translate english event_loc_library_0_no8_f098fc4b:
 
     # "[st1.fname] случайно зацепилась юбкой за стопку книг, открыв вам вид на свои трусики."
-    "[St1.fname] accidentally caught on a skirt for a pile of books, revealing a look at your panties."
+    "[st1.fname] accidentally caught on a skirt for a pile of books, revealing a look at your panties."
 
 # game/events/rEventsLibrary.rpy:158
 translate english event_loc_library_0_no8_da508254:
@@ -250,7 +250,7 @@ translate english event_loc_library_0_no8_764d614e:
 translate english event_loc_library_0_no9_a30a4374:
 
     # "[st1.fname] прижимает к груди томик Жана Поля Пруссака, с романтическими стихами, и, смотря на вас даже не замечает ветра, приподнявшего ей юбочку. Уж слишком романтичное у неё настроение. А у всех посетителей библиотеки оно стало ещё и эротичным."
-    "[St1.fname] presses to the chest the volume of Jean Paul Prussac, with romantic poems, and, looking at you, does not even notice the wind that lifted her skirt.  She is too romantic.  And for all visitors to the library, it became also erotic."
+    "[st1.fname] presses to the chest the volume of Jean Paul Prussac, with romantic poems, and, looking at you, does not even notice the wind that lifted her skirt.  She is too romantic.  And for all visitors to the library, it became also erotic."
 
 # game/events/rEventsLibrary.rpy:183
 translate english event_loc_library_0_no9_e578a2c2:
@@ -340,7 +340,7 @@ translate english event_loc_library_0_no11_dc359491:
 translate english event_loc_library_0_no12_3336b087:
 
     # "[st1.fname] потянулась за книгой на верхней полке и, не успели вы поприветстовать ее, как внезапно от неудачного движения ученицы книги полетели вниз, взметнув юбку ученицы вверх. Уловив умоляющий взгляды испуганной девочки, вы упустили одну из книг, которая прилетела вам прямо в лоб!"
-    "[St1.fname] reached for the book on the top shelf and, before you could greet her, suddenly the books flew down from the unsuccessful movement of the student, throwing the student's skirt up.  Having caught the pleading glances of a frightened girl, you missed one of the books that flew right into your forehead!"
+    "[st1.fname] reached for the book on the top shelf and, before you could greet her, suddenly the books flew down from the unsuccessful movement of the student, throwing the student's skirt up.  Having caught the pleading glances of a frightened girl, you missed one of the books that flew right into your forehead!"
 
 # game/events/rEventsLibrary.rpy:237
 translate english event_loc_library_0_no12_f02f01af:

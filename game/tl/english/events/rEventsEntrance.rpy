@@ -106,7 +106,7 @@ translate english event_loc_entrance_20_StartClubPanties_64b702b2:
 translate english event_loc_entrance_20_StartClubPanties_3ba47f99:
 
     # "[st1.fname] понуро опускает голову."
-    "[St1.fname] slowly lowers his head."
+    "[st1.fname] slowly lowers his head."
 
 # game/events/rEventsEntrance.rpy:34
 translate english event_loc_entrance_20_StartClubPanties_fe2f4466:
@@ -130,7 +130,7 @@ translate english event_loc_entrance_20_StartClubPanties_771a02ff:
 translate english event_loc_entrance_20_StartClubPanties_cdff89ef:
 
     # "[st1.fname] снимает свои трусики под вашим пристальным взором и отдаёт их вам."
-    "[St1.fname] takes off her panties under your gaze and gives them to you."
+    "[st1.fname] takes off her panties under your gaze and gives them to you."
 
 # game/events/rEventsEntrance.rpy:56
 translate english event_loc_entrance_0_new1_40d7e557:
@@ -148,7 +148,7 @@ translate english event_loc_entrance_0_new1_4c7aab3f:
 translate english event_loc_entrance_0_new1_3e0475e8:
 
     # "[st1.name] и [st2.fname] помогли вам подняться, извиняясь за то, что намусорили."
-    "[St1.name] and [st2.fname] helped you get up, apologizing for being nameless."
+    "[st1.name] and [st2.fname] helped you get up, apologizing for being nameless."
 
 # game/events/rEventsEntrance.rpy:59
 translate english event_loc_entrance_0_new1_58a6d0c1:
@@ -160,7 +160,7 @@ translate english event_loc_entrance_0_new1_58a6d0c1:
 translate english event_loc_entrance_0_1_5289e477:
 
     # "[st2.name] подаёт подруге зонтик с отстранённым видом. Всем понятно, что делает он это не просто так, но вот 2 девчёнки, которые подглядывают за этим, явно завидуют."
-    "[St2.name] gives her friend an umbrella with a detached view.  Everyone understands that he does it for a reason, but here are 2 girls who spy on this, clearly envy."
+    "[st2.name] gives her friend an umbrella with a detached view.  Everyone understands that he does it for a reason, but here are 2 girls who spy on this, clearly envy."
 
 # game/events/rEventsEntrance.rpy:73
 translate english event_loc_entrance_0_1_17f5d11d:
@@ -190,7 +190,7 @@ translate english event_loc_entrance_0_2_df301140:
 translate english event_loc_entrance_0_3_d29ba3d0:
 
     # "[st1.fname] и [st2.fname] похоже опаздывают в школу! Заметив вас, [st2.fname] делает испуганное лицо."
-    "[St1.fname] and [st2.fname] seem to be late for school!  Noticing you, [st2.fname] makes a frightened face."
+    "[st1.fname] and [st2.fname] seem to be late for school!  Noticing you, [st2.fname] makes a frightened face."
 
 # game/events/rEventsEntrance.rpy:102
 translate english event_loc_entrance_0_3_32ea1294:
@@ -202,7 +202,7 @@ translate english event_loc_entrance_0_3_32ea1294:
 translate english event_loc_entrance_0_4_73294750:
 
     # "[st1.fname] и [st2.fname] радостно приветствуют вас! Хотя вот [st2.fname] приветствует как то менее радостно..."
-    "[St1.fname] and [st2.fname] happily greet you!  Although here [st2.fname] greets as something less joyful ..."
+    "[st1.fname] and [st2.fname] happily greet you!  Although here [st2.fname] greets as something less joyful ..."
 
 # game/events/rEventsEntrance.rpy:116
 translate english event_loc_entrance_0_4_1fbd1cf7:
@@ -214,7 +214,7 @@ translate english event_loc_entrance_0_4_1fbd1cf7:
 translate english event_loc_entrance_0_5_99da4d16:
 
     # "[st1.fname] ещё смотрит на Вас с улыбкой, [st3.fname] уже спешит Вам на помощь, [st2.fname] сейчас случайно зарядит вам портфелем по лиц... БУМ... "
-    "[St1.fname] still looks at you with a smile, [st3.fname] is already hurrying to your rescue, [st2.fname] now accidentally charges you with a portfolio of faces ... BOOM ..."
+    "[st1.fname] still looks at you with a smile, [st3.fname] is already hurrying to your rescue, [st2.fname] now accidentally charges you with a portfolio of faces ... BOOM ..."
 
 # game/events/rEventsEntrance.rpy:130
 translate english event_loc_entrance_0_5_ad13547b:
@@ -226,7 +226,7 @@ translate english event_loc_entrance_0_5_ad13547b:
 translate english event_loc_entrance_5_6_1ce7abdc:
 
     # "[st1.fname] и [st2.fname] похоже нашли друг друга. Какая милая картина, видеть их держащимися за руку!"
-    "[St1.fname] and [st2.fname] seem to have found each other.  What a lovely picture, to see them holding hands!"
+    "[st1.fname] and [st2.fname] seem to have found each other.  What a lovely picture, to see them holding hands!"
 
 # game/events/rEventsEntrance.rpy:144
 translate english event_loc_entrance_5_6_b77c0c3d:
@@ -310,19 +310,19 @@ translate english event_loc_entrance_30_1_48562505:
 translate english event_loc_entrance_30_1_9ddc3d41:
 
     # "[st1.fname] убыстряла свои движения, лаская головку языком когда она показывалась между сисек. [st2.fname] напрягся и мне показалось что он щас кончит."
-    "[St1.fname] accelerated its movements, caressing the head with the tongue when it was shown between the tits.  [St2.fname] strained and it seemed to me that he would end right now."
+    "[st1.fname] accelerated its movements, caressing the head with the tongue when it was shown between the tits.  [st2.fname] strained and it seemed to me that he would end right now."
 
 # game/events/rEventsEntrance.rpy:202
 translate english event_loc_entrance_30_1_61c571b8:
 
     # st2.say "[st1.fname]! Я сейчас кончу! Я хочу кончить тебе в сиськи!"
-    st2.say "[St1.fname]!  I'm coming now!  I want to cum in your tits!"
+    st2.say "[st1.fname]!  I'm coming now!  I want to cum in your tits!"
 
 # game/events/rEventsEntrance.rpy:203
 translate english event_loc_entrance_30_1_815b1299:
 
     # "[st1.fname] лишь сжала их сильней и, улыбаясь, смотрела на него."
-    "[St1.fname] only squeezed them harder and, smiling, looked at him."
+    "[st1.fname] only squeezed them harder and, smiling, looked at him."
 
 # game/events/rEventsEntrance.rpy:204
 translate english event_loc_entrance_30_1_387b0967:
@@ -358,7 +358,7 @@ translate english event_loc_entrance_15_2_80fe2c21:
 translate english event_loc_entrance_15_2_a99610a1:
 
     # "[st1.fname] рассказывал своим друзьям, как он вчера \"классно трахнул\" свою младшую сестрёнку."
-    "[St1.fname] told his friends how he \"famously fucked\" his youngest sister yesterday."
+    "[st1.fname] told his friends how he \"famously fucked\" his youngest sister yesterday."
 
 # game/events/rEventsEntrance.rpy:224
 translate english event_loc_entrance_15_2_0a5bf3c6:
@@ -418,7 +418,7 @@ translate english event_loc_entrance_30_3_81f4ec59:
 translate english event_loc_entrance_30_3_45de809f:
 
     # "Наконец парень подался вперёд, выдохнул, и в уголках рта девушки показались белые капли. [st1.fname] не отпускал её, пока не закончил кончать."
-    "Finally the guy leaned forward, exhaled, and white drops appeared in the corners of the girl's mouth.  [St1.fname] did not release her until he finished."
+    "Finally the guy leaned forward, exhaled, and white drops appeared in the corners of the girl's mouth.  [st1.fname] did not release her until he finished."
 
 # game/events/rEventsEntrance.rpy:247
 translate english event_loc_entrance_30_3_7a94c8ae:
@@ -484,7 +484,7 @@ translate english event_loc_entrance_30_4_d1677e96:
 translate english event_loc_entrance_30_4_9a517d54:
 
     # "[st2.fname] задрожала и обмякла в руках одноклассника."
-    "[St2.fname] shivered and limp in the hands of a classmate."
+    "[st2.fname] shivered and limp in the hands of a classmate."
 
 # game/events/rEventsEntrance.rpy:271
 translate english event_loc_entrance_30_4_510b51c0:
@@ -496,13 +496,13 @@ translate english event_loc_entrance_30_4_510b51c0:
 translate english event_loc_entrance_30_4_a1bcc2b0:
 
     # "[st1.fname] одёрнул однокласснице юбку, и потащил девочку в школу."
-    "[St1.fname] shook the classmate's skirt, and dragged the girl to school."
+    "[st1.fname] shook the classmate's skirt, and dragged the girl to school."
 
 # game/events/rEventsEntrance.rpy:282
 translate english event_loc_entrance_20_6_703c1ce8:
 
     # "Вы видите, что двух учеников вдруг обуяла страсть на глазах у всех. [st1.fname] жадно целуется со своей подругой, и проходящие мимо ученики любопытно посматривают на них."
-    "You see that the two disciples suddenly had a passion in front of everyone.  [St1.fname] eagerly kisses with his girlfriend, and passing students are curiously looking at them."
+    "You see that the two disciples suddenly had a passion in front of everyone.  [st1.fname] eagerly kisses with his girlfriend, and passing students are curiously looking at them."
 
 # game/events/rEventsEntrance.rpy:286
 translate english event_loc_entrance_20_6_ee64fe86:
@@ -604,7 +604,7 @@ translate english event_loc_entrance_15_11_3f9c5552:
 translate english event_loc_entrance_25_12_5a62f007:
 
     # player.say "[st1.fname]! - окликнули вы девушку и дождались, пока она подойдёт своей странной походкой, - Я даже не спрашиваю, [st1.fname], куда подевались твои трусики, но что, прости меня пожалуйста, стекает по твоей ляжке, можешь объяснить?"
-    player.say "[St1.fname]!  - you called the girl and waited until she came up with her strange gait. - I do not even ask [St1.fname], where your panties were, but what, please forgive me, flows down your thigh, can you explain?"
+    player.say "[st1.fname]!  - you called the girl and waited until she came up with her strange gait. - I do not even ask [st1.fname], where your panties were, but what, please forgive me, flows down your thigh, can you explain?"
 
 # game/events/rEventsEntrance.rpy:397
 translate english event_loc_entrance_25_12_cc1b67cf:
@@ -640,7 +640,7 @@ translate english event_loc_entrance_10_13_0bb3085e:
 translate english event_loc_entrance_10_14_02517093:
 
     # "[st1.fname], буквально у вас на глазах, заглядывает под юбку задремавшей учительнице!"
-    "[St1.fname], literally before your very eyes, looks under the skirt of a dozing teacher!"
+    "[st1.fname], literally before your very eyes, looks under the skirt of a dozing teacher!"
 
 # game/events/rEventsEntrance.rpy:421
 translate english event_loc_entrance_10_14_c675f1e2:
@@ -658,7 +658,7 @@ translate english event_loc_entrance_10_14_9bdbeb3c:
 translate english event_loc_entrance_40_1_878f9d40:
 
     # st1.say "[st2.fname], он не войдёт!"
-    st1.say "[St2.fname], it will not enter!"
+    st1.say "[st2.fname], it will not enter!"
 
 # game/events/rEventsEntrance.rpy:438
 translate english event_loc_entrance_40_1_7eabf889:
@@ -730,7 +730,7 @@ translate english event_loc_entrance_50_2_3f9c5552:
 translate english event_loc_entrance_65_3_980f45e2:
 
     # "[st1.fname] и [st2.fname] без всякого стеснения занимаются сексом прямо на школьном крыльце. Ученица громко стонет в то время, как её одноклассник вгоняет в её узенькое влагалище свой крепкий член."
-    "[St1.fname] and [st2.fname] do not hesitate to have sex right on the school porch.  The student groans loudly while her classmate drives her hard cock into her narrow vagina."
+    "[st1.fname] and [st2.fname] do not hesitate to have sex right on the school porch.  The student groans loudly while her classmate drives her hard cock into her narrow vagina."
 
 # game/events/rEventsEntrance.rpy:489
 translate english event_loc_entrance_65_3_86e9d239:
@@ -748,7 +748,7 @@ translate english event_loc_entrance_70_4_8756318c:
 translate english event_loc_entrance_70_4_46bb057c:
 
     # player.say "[st1.fname], с тобой всё в порядке? - участливо спрашиваете вы девушку."
-    player.say "[St1.fname], are you all right?  - sympathetically you ask the girl."
+    player.say "[st1.fname], are you all right?  - sympathetically you ask the girl."
 
 # game/events/rEventsEntrance.rpy:501
 translate english event_loc_entrance_70_4_fe4be621:
@@ -772,7 +772,7 @@ translate english event_loc_entrance_70_5_c9fdbadf:
 translate english event_loc_entrance_70_5_715c43b7:
 
     # "[st2.fname] активно скакала на члене своей одноклассницы - футы, неподалёку от школьного входа."
-    "[St2.fname] actively jumped on the member of her classmate - feet, not far from the school entrance."
+    "[st2.fname] actively jumped on the member of her classmate - feet, not far from the school entrance."
 
 # game/events/rEventsEntrance.rpy:521
 translate english event_loc_entrance_70_5_d934daa4:
@@ -784,7 +784,7 @@ translate english event_loc_entrance_70_5_d934daa4:
 translate english event_loc_entrance_70_5_be5f27f1:
 
     # "[st1.fname] напрягала бёдра, двигаясь в такт движениям своей любовницы."
-    "[St1.fname] strained her hips, moving in time with the movements of her mistress."
+    "[st1.fname] strained her hips, moving in time with the movements of her mistress."
 
 # game/events/rEventsEntrance.rpy:523
 translate english event_loc_entrance_70_5_89271fcc:
@@ -796,7 +796,7 @@ translate english event_loc_entrance_70_5_89271fcc:
 translate english event_loc_entrance_70_5_1fd0c95d:
 
     # "[st2.fname] опустилась, полностью поглотив член своей щёлкой и начала круговые движения попкой."
-    "[St2.fname] descended, completely absorbing the term with its click and starting circular motions in the ass."
+    "[st2.fname] descended, completely absorbing the term with its click and starting circular motions in the ass."
 
 # game/events/rEventsEntrance.rpy:525
 translate english event_loc_entrance_70_5_ee3951cd:
@@ -820,7 +820,7 @@ translate english event_loc_entrance_70_5_b0842dd2:
 translate english event_loc_entrance_70_5_cf366ebe:
 
     # "[st2.fname] вытащила член из себя, и успела заметить последний фонтанчик вырвавшийся из головки."
-    "[St2.fname] pulled a member out of itself, and managed to notice the last fountain escaping from the head."
+    "[st2.fname] pulled a member out of itself, and managed to notice the last fountain escaping from the head."
 
 # game/events/rEventsEntrance.rpy:534
 translate english event_loc_entrance_70_5_49150438:
@@ -844,7 +844,7 @@ translate english event_loc_entrance_60_6_d479fc0c:
 translate english event_loc_entrance_60_6_d90b845c:
 
     # "[st1.fname] визжит в крепких руках физрука, пока тот изливает свою сперму глубоко в её матку."
-    "[St1.fname] squeals in the strong hands of the fizruk, while he pours his sperm deep into her uterus."
+    "[st1.fname] squeals in the strong hands of the fizruk, while he pours his sperm deep into her uterus."
 
 # game/events/rEventsEntrance.rpy:549
 translate english event_loc_entrance_60_6_89a1296e:

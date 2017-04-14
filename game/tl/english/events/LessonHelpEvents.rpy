@@ -70,7 +70,7 @@ translate english event_loc_lessonFun_0_help1_35d5971d:
 translate english event_loc_lessonFun_0_help1_a381e3e8:
 
     # "[st2.fname], не обращая внимание на присутствующих, продолжил свое дело пока не кончил. Причем не вынимая член из киски [st1.fname]"
-    "[St2.fname], not paying attention to those present, continued his business until he had finished.  And without removing the member from the pussy [st1.fname]"
+    "[st2.fname], not paying attention to those present, continued his business until he had finished.  And without removing the member from the pussy [st1.fname]"
 
 # game/events/LessonHelpEvents.rpy:86
 translate english event_loc_lessonFun_0_help1_342dfd6e:

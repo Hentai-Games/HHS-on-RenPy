@@ -112,7 +112,7 @@ translate english strings:
 
     # renpy/common/00gltest.rpy:217
     old "{b}Note:{/b} Microsoft's DirectX web setup program will, by default, install the Bing toolbar. If you do not want this toolbar, uncheck the appropriate box."
-    new "{B} Note: {/b} Microsoft's DirectX web setup program will, by default, install the Bing toolbar.  If you do not want this toolbar, uncheck the appropriate box."
+    new "{b} Note: {/b} Microsoft's DirectX web setup program will, by default, install the Bing toolbar.  If you do not want this toolbar, uncheck the appropriate box."
 
     # renpy/common/00gltest.rpy:221
     old "When setup finishes, please click below to restart this program."
@@ -160,7 +160,7 @@ translate english strings:
 
     # renpy/common/00updater.rpy:1044
     old "While unpacking {}, unknown type {}."
-    new "While unpacking {}, unknown type {}."
+    new "While unpacking {},unknowntype{}."
 
     # renpy/common/00updater.rpy:1395
     old "Updater"
@@ -180,7 +180,7 @@ translate english strings:
 
     # renpy/common/00updater.rpy:1406
     old "[u.version] is available. Do you want to install it?"
-    new "[U.version] is available.  Do you want to install it?"
+    new "[u.version] is available.  Do you want to install it?"
 
     # renpy/common/00updater.rpy:1408
     old "Preparing to download the updates."
@@ -288,7 +288,7 @@ translate english strings:
 
     # renpy/common/00gamepad.rpy:58
     old "Press or move the [control!r] [kind]."
-    new "Press or move the [control! R] [kind]."
+    new "Press or move the [control!r] [kind]."
 
     # renpy/common/00gamepad.rpy:66
     old "Skip (A)"
@@ -392,7 +392,7 @@ translate english strings:
 
     # renpy/common/_developer/inspector.rpym:142
     old "Inspecting Styles of [displayable_name!q]"
-    new "Inspecting Styles of [displayable_name! Q]"
+    new "Inspecting Styles of [displayable_name!q]"
 
     # renpy/common/_developer/inspector.rpym:155
     old "displayable:"
