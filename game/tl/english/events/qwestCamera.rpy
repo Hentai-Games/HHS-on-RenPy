@@ -52,7 +52,7 @@ translate english qwest_loc_class4_cameraQwest_caba3ba3:
 translate english qwest_loc_class4_cameraQwest_7209f0ad:
 
     # "Хотя немного подумав, вы решили всё таки оставить девочку под трибуной. Вдруг чего интересного нароет? Да ещё и распросили её, не продаются ли где камеры скрытого наблюдения. [st1.fname] рассказала вам, что их можно купить в круглосуточном магазине, если спросить у продавца."
-    "Although a little thought, you decided to still leave the girl under the rostrum.  Suddenly something interesting narieet?  Yes, and asked her whether the cameras are sold for hidden surveillance.  [st1.fname] told you that they can be bought at the convenience store, if you ask the seller."
+    "Although a little thought, you decided to still leave the girl under the rostrum.  Suddenly something interesting narieet?  Yes, and asked her whether the cameras are sold for hidden surveillance.  [St1.fname] told you that they can be bought at the convenience store, if you ask the seller."
 
 # game/events/qwestCamera.rpy:56
 translate english getCam_19dc7f2e:

@@ -16,7 +16,7 @@ translate english intro_kupruvna_a6713901:
 translate english intro_kupruvna_f86373dc:
 
     # player.say "Здравствуйте, я, наверное, новый директор этой школы, [k.fname]. [k.lname]. Простите за любопытство, но почему такое странное отчество?"
-    player.say "Hello, I'm probably the new director of this school, [k.fname].  [k.lname].  Forgive me for curiosity, but why such a strange patronymic?"
+    player.say "Hello, I'm probably the new director of this school, [k.fname].  [K.lname].  Forgive me for curiosity, but why such a strange patronymic?"
 
 # game/events/charIntro.rpy:9
 translate english intro_kupruvna_d0708e58:

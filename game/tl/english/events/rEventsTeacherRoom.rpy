@@ -190,7 +190,7 @@ translate english event_loc_teacherRoom_0_new6_bb451f59:
 translate english event_loc_teacherRoom_0_new7_9550437d:
 
     # player.say "[mustangovich.name]????"
-    player.say "[mustangovich.name] ????"
+    player.say "[Mustangovich.name] ????"
 
 # game/events/rEventsTeacherRoom.rpy:113
 translate english event_loc_teacherRoom_0_new7_5c4e2e57:
@@ -652,7 +652,7 @@ translate english event_loc_teacherRoom_0_mid4_1ba53e53:
 translate english event_loc_teacherRoom_0_mid4_96517a5f:
 
     # "Вскоре [mustangovich.fname] задрожал и из его члена полился густой поток семени, стекающий вдоль члена прямо на лицо учительницы. [st1.fname] радостно продолжала посасывать ствол, ощущая горячую сперму физрука на своём лице."
-    "Soon [mustangovich.fname] trembled and a dense stream of semen flowed from his penis, flowing along the penis directly to the face of the teacher.  [st1.fname] happily continued to suck the trunk, feeling the hot semen of fizruka on her face."
+    "Soon [mustangovich.fname] trembled and a dense stream of semen flowed from his penis, flowing along the penis directly to the face of the teacher.  [St1.fname] happily continued to suck the trunk, feeling the hot semen of fizruka on her face."
 
 # game/events/rEventsTeacherRoom.rpy:335
 translate english event_loc_teacherRoom_0_mid4_272b4704:

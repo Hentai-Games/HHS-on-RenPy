@@ -4,7 +4,7 @@
 translate english event_loc_street_0_no1_0f8e2190:
 
     # "[st1.fname] поскользнулась на мокрой дорожке и упала. Бедная девочка. Вы помогаете ей подняться."
-    "[st1.fname] slipped on the wet track and fell.  Poor girl.  You help her to get up."
+    "[St1.fname] slipped on the wet track and fell.  Poor girl.  You help her to get up."
 
 # game/events/rEventsStreet.rpy:10
 translate english event_loc_street_0_no1_05ee087a:
@@ -58,7 +58,7 @@ translate english event_loc_street_0_no3_6d7cd6c9:
 translate english event_loc_street_0_no4_60ea5a95:
 
     # "[st1.fname] продаёт печеньки на улице возле ресторана. Вы не думаете, что это особо прибыльный бизнес..."
-    "[st1.fname] sells cookies on the street near the restaurant.  You do not think that this is a particularly lucrative business ..."
+    "[St1.fname] sells cookies on the street near the restaurant.  You do not think that this is a particularly lucrative business ..."
 
 # game/events/rEventsStreet.rpy:52
 translate english event_loc_street_0_no4_174b3227:
@@ -130,13 +130,13 @@ translate english event_loc_street_0_no5_cdcbc496:
 translate english event_loc_street_0_no6_ccfc2ef1:
 
     # "Ух ты! [st1.fname], [st2.fname], [st3.fname] и [st4.fname]! Девчёнки радостной гурьбой приветствуют вас."
-    "Wow!  [st1.fname], [st2.fname], [st3.fname], and [st4.fname]!  Devchenki joyful crowd welcome you."
+    "Wow!  [St1.fname], [st2.fname], [st3.fname], and [st4.fname]!  Devchenki joyful crowd welcome you."
 
 # game/events/rEventsStreet.rpy:109
 translate english event_loc_street_0_no7_8e845c4a:
 
     # "[st1.fname] гуляет со своей собачкой. Вы немного поболтали о домашних животных, и посетовали, что хозява квартиры вам не разрешают заводить своего любимца."
-    "[st1.fname] walks with her dog.  You talked a little about pets, and complained that the owner of the apartment you are not allowed to start his pet."
+    "[St1.fname] walks with her dog.  You talked a little about pets, and complained that the owner of the apartment you are not allowed to start his pet."
 
 # game/events/rEventsStreet.rpy:115
 translate english event_loc_street_0_no7_c1523b5d:
@@ -256,7 +256,7 @@ translate english event_loc_street_0_no7_81e2e500:
 translate english event_loc_street_5_no8_9c1ea004:
 
     # "[st1.fname] и [st2.fname] сидят рядом на одной лавочке и слушают один плеер. Но вы почему-то не совсем уверены, что они сидят именно вместе."
-    "[st1.fname] and [st2.fname] sit side by side on one bench and listen to one player.  But for some reason you are not quite sure that they are sitting together."
+    "[St1.fname] and [st2.fname] sit side by side on one bench and listen to one player.  But for some reason you are not quite sure that they are sitting together."
 
 # game/events/rEventsStreet.rpy:158
 translate english event_loc_street_5_no8_f5e786a9:
@@ -280,7 +280,7 @@ translate english event_loc_street_5_no8_3371cc02:
 translate english event_loc_street_0_no9_a9c2a755:
 
     # "[st1.fname] и [st2.fname] идут куда то вместе, обсуждая свои, девчачьи дела."
-    "[st1.fname] and [st2.fname] go somewhere together, discussing their own, girly affairs."
+    "[St1.fname] and [st2.fname] go somewhere together, discussing their own, girly affairs."
 
 # game/events/rEventsStreet.rpy:181
 translate english event_loc_street_0_no9_868d844a:
@@ -334,7 +334,7 @@ translate english event_loc_street_0_no9_f3953e8e:
 translate english event_loc_street_0_no10_efbb7c6f:
 
     # "[st1.fname]! - окликнули вы ученицу, и та с готовностью повернулась. Вы немного поболтали о различных пустяках."
-    "[st1.fname]!  - You called to the student, and she turned with a willingness.  You talked a little about various trifles."
+    "[St1.fname]!  - You called to the student, and she turned with a willingness.  You talked a little about various trifles."
 
 # game/events/rEventsStreet.rpy:214
 translate english event_loc_street_0_no10_939ed837:
@@ -376,7 +376,7 @@ translate english event_loc_street_0_no11_767e87ae:
 translate english event_loc_street_0_no11_603ea0c4:
 
     # "[st1.fname] c виноватым видом смотрит на вас."
-    "[st1.fname] c looks at you with a guilty look."
+    "[St1.fname] c looks at you with a guilty look."
 
 # game/events/rEventsStreet.rpy:232
 translate english event_loc_street_0_no11_39e3168a:
@@ -394,7 +394,7 @@ translate english event_loc_street_0_no11_6300071e:
 translate english event_loc_street_0_no12_9f452548:
 
     # "Вы увидели проходящую невдалеке свою подчиненную. [st1.name] не торопясь прогуливается по улице, слегка задумавшись."
-    "You saw your subordinate passing by in the distance.  [st1.name] does not hurry up and down the street, thinking a little."
+    "You saw your subordinate passing by in the distance.  [St1.name] does not hurry up and down the street, thinking a little."
 
 # game/events/rEventsStreet.rpy:246
 translate english event_loc_street_0_no12_a32de00f:
@@ -430,19 +430,19 @@ translate english event_loc_street_15_lo1_ac23d302:
 translate english event_loc_street_5_lo2_2a2bccc9:
 
     # "Лёгкий ветерок слегка поднял юбочку у девочки. [st1.fname] испуганно оглядывается, не заметил ли кто небольшого конфуза."
-    "A light breeze lifted the little girl's skirt slightly.  [st1.fname] looks around fearfully, did anyone notice a slight embarrassment."
+    "A light breeze lifted the little girl's skirt slightly.  [St1.fname] looks around fearfully, did anyone notice a slight embarrassment."
 
 # game/events/rEventsStreet.rpy:291
 translate english event_loc_street_5_lo2_7c8cddfd:
 
     # "Лёгкий ветерок слегка поднял юбочку у девочки. [st1.fname] ещё и повиляла попой случайным очевидцам и пошла дальше по своим делам."
-    "A light breeze lifted the little girl's skirt slightly.  [st1.fname] and still beat the booty to random eyewitnesses and went further on their business."
+    "A light breeze lifted the little girl's skirt slightly.  [St1.fname] and still beat the booty to random eyewitnesses and went further on their business."
 
 # game/events/rEventsStreet.rpy:307
 translate english event_loc_street_10_lo3_75a554cb:
 
     # "[st1.fname] радостно спешит куда то! А юбочка радостно развивается на ветру, открывая всем прохожим вид на тоненькие, полосатые трусики и попку! Как хорошо, когда люди ведут себя естественно!"
-    "[st1.fname] happily rushes to somewhere!  A skirt happily develops in the wind, revealing to all passers-by a view of the thin, striped panties and ass!  How good it is when people behave naturally!"
+    "[St1.fname] happily rushes to somewhere!  A skirt happily develops in the wind, revealing to all passers-by a view of the thin, striped panties and ass!  How good it is when people behave naturally!"
 
 # game/events/rEventsStreet.rpy:322
 translate english event_loc_street_10_lo4_97461636:
@@ -472,7 +472,7 @@ translate english event_loc_street_0_lo6_3567ad1e:
 translate english event_loc_street_0_lo7_9a3ad199:
 
     # "Прогуливаясь по улице, вы заметили неподалёку свою ученицу. Аккуратно пристроившись сзади, как бы невзначай вы приподняли её юбочку своей сумочкой. Хех, фиолетовые! [st1.fname] было развернулась к нахалу покусившемуся на святое, но увидев своего директора, скорее всего подумала, что всё произошло случайно."
-    "Walking along the street, you noticed nearby your student.  Gently nestling behind, as if accidentally you lifted her skirt with her purse.  Heh, purple!  [st1.fname] was turned to the impudent attempted to sacred, but seeing his director, most likely thought that all happened by accident."
+    "Walking along the street, you noticed nearby your student.  Gently nestling behind, as if accidentally you lifted her skirt with her purse.  Heh, purple!  [St1.fname] was turned to the impudent attempted to sacred, but seeing his director, most likely thought that all happened by accident."
 
 # game/events/rEventsStreet.rpy:362
 translate english event_loc_street_0_lo7_ab48d8b5:
@@ -496,13 +496,13 @@ translate english event_loc_street_0_lo9_0988725a:
 translate english event_loc_street_35_lo10_f229ccd3:
 
     # st2.say "[st1.fname], что ты делаешь, нет, не надо!"
-    st2.say "[st1.fname], what are you doing, no, do not!"
+    st2.say "[St1.fname], what are you doing, no, do not!"
 
 # game/events/rEventsStreet.rpy:392
 translate english event_loc_street_35_lo10_ecd3752d:
 
     # "Вы услышали интересный разговор за углом, и поспешили полюбопытстовать, что же там происходит. На ваших глазах [st1.fname] вылизвала своей подружке прямо под юбкой. [st2.fname] вдруг дернулась и застонала."
-    "You heard an interesting conversation around the corner, and rushed to see what was happening there.  On your eyes [st1.fname] licked her girlfriend right under the skirt.  [st2.fname] suddenly jerked and moaned."
+    "You heard an interesting conversation around the corner, and rushed to see what was happening there.  On your eyes [st1.fname] licked her girlfriend right under the skirt.  [St2.fname] suddenly jerked and moaned."
 
 # game/events/rEventsStreet.rpy:393
 translate english event_loc_street_35_lo10_b98d6739:
@@ -544,7 +544,7 @@ translate english event_loc_street_20_mid1_921b2b7d:
 translate english event_loc_street_20_mid1_904bc236:
 
     # "Судя по всему, вам посчастливилось проходить мимо дома своей ученицы. [st1.fname] занималась поливкой газона, и случайно обрызгала себя из шланга."
-    "Apparently, you were lucky enough to pass by the house of your student.  [st1.fname] was engaged in watering the lawn, and accidentally sprinkled herself with a hose."
+    "Apparently, you were lucky enough to pass by the house of your student.  [St1.fname] was engaged in watering the lawn, and accidentally sprinkled herself with a hose."
 
 # game/events/rEventsStreet.rpy:413
 translate english event_loc_street_20_mid1_47f981f0:
@@ -568,13 +568,13 @@ translate english event_loc_street_40_mid2_69de49ef:
 translate english event_loc_street_40_mid2_050395de:
 
     # "[st1.fname] заметила ваше внимание, но продолжает дразнить свою киску пальчиками."
-    "[st1.fname] noticed your attention, but continues to tease her pussy with fingers."
+    "[St1.fname] noticed your attention, but continues to tease her pussy with fingers."
 
 # game/events/rEventsStreet.rpy:427
 translate english event_loc_street_40_mid2_a365b8ad:
 
     # "Вы заказали себе кофейку, и, вливая в себя его обжигающую бодрость, с удовольствием наблюдали за маленькой развратницей. [st1.fname] уже почти потеряла контроль над собой, и интенсивно двигала бёдрами своей ручке. Но стоны пока сдерживала."
-    "You ordered yourself a cup of coffee, and, pouring in his scalding cheerfulness, watched with pleasure the little debauchery.  [st1.fname] already almost lost control of herself, and intensively moved her hips to her pen.  But she still held her moans."
+    "You ordered yourself a cup of coffee, and, pouring in his scalding cheerfulness, watched with pleasure the little debauchery.  [St1.fname] already almost lost control of herself, and intensively moved her hips to her pen.  But she still held her moans."
 
 # game/events/rEventsStreet.rpy:428
 translate english event_loc_street_40_mid2_850fdd2e:
@@ -670,7 +670,7 @@ translate english event_loc_street_35_mid4_5a37bf2a:
 translate english event_loc_street_35_mid4_2c323d12:
 
     # "Подойдя поближе, вы заметили там одну из своих учениц. [st1.fname] сидела возле дерева в разорванных колготках, и с остервенением теребила свой клитор, засовывая и вытаскивая пальчик из ануса."
-    "Approaching closer, you noticed one of your students there.  [st1.fname] sat near a tree in torn pantyhose, and furiously fiddled with her clit, thrusting and pulling her finger from the anus."
+    "Approaching closer, you noticed one of your students there.  [St1.fname] sat near a tree in torn pantyhose, and furiously fiddled with her clit, thrusting and pulling her finger from the anus."
 
 # game/events/rEventsStreet.rpy:482
 translate english event_loc_street_35_mid4_4934a26e:
@@ -700,7 +700,7 @@ translate english event_loc_street_5_mid5_f4636a2c:
 translate english event_loc_street_5_mid5_405d6d35:
 
     # "Вы смутно припомнили, что видели эту женщину возле школы. Она встречала одного из ваших учащихся. Да, точно! [st1.name]!"
-    "You vaguely remembered that you saw this woman near the school.  She met one of your students.  Yes exactly!  [st1.name]!"
+    "You vaguely remembered that you saw this woman near the school.  She met one of your students.  Yes exactly!  [St1.name]!"
 
 # game/events/rEventsStreet.rpy:496
 translate english event_loc_street_5_mid5_a2b68a06:
@@ -724,7 +724,7 @@ translate english event_loc_street_55_hi1_aa37e4c6:
 translate english event_loc_street_55_hi1_5063401e:
 
     # player.say "[st1.fname], с тобой всё в порядке? - спрашиваете вы, видя нетвёрдую походку девочки."
-    player.say "[st1.fname], are you all right?  - You ask, seeing the girl's unstoppable gait."
+    player.say "[St1.fname], are you all right?  - You ask, seeing the girl's unstoppable gait."
 
 # game/events/rEventsStreet.rpy:518
 translate english event_loc_street_55_hi1_897030f6:
@@ -1054,7 +1054,7 @@ translate english event_loc_street_60_new1_5209fca8:
 translate english event_loc_street_60_new1_8644913c:
 
     # "Мимо вас промчалась [st1.name], насколько вы смогли заметить. Вы не уверены, так как всё ваше внимание было приковано к попке в обтягивающих, но порванных лосинах, и огромному розовому дилдо, который с хлюпанием входил и выходил из киски девушки при каждом нажатии на педали."
-    "[st1.name], as far as you could see.  You are not sure, since all your attention was riveted to the buttocks in tight, but torn leggings, and a huge pink dildo that sloshed in and out of the girl's pussy every time you pressed the pedal."
+    "[You missed [st1.name], as far as you could see.  You are not sure, since all your attention was riveted to the buttocks in tight, but torn leggings, and a huge pink dildo that sloshed in and out of the girl's pussy every time you pressed the pedal."
 
 # game/events/rEventsStreet.rpy:640
 translate english event_loc_street_60_new1_c200e992:

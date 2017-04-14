@@ -4,7 +4,7 @@
 translate english event_loc_pool_0_no1_ec45bbff:
 
     # "[t.fname] [t.lname] отдыхает в бассейне лёжа на надувном матраце. Ну чтож, учителям тоже не чужд отдых."
-    "[t.fname] [t.lname] is resting in the pool on an inflatable mattress.  Well, teachers, too, is not alien to rest."
+    "[T.fname] [t.lname] is resting in the pool on an inflatable mattress.  Well, teachers, too, is not alien to rest."
 
 # game/events/rEventsPool.rpy:9
 translate english event_loc_pool_0_no1_a654ab2f:
@@ -22,13 +22,13 @@ translate english event_loc_pool_0_no1_49222ced:
 translate english event_loc_pool_0_no2_c408b6e1:
 
     # "[st1.fname] и [st2.fname] устроили водный бой! Путь повеселяться, девочки заслужили."
-    "[st1.fname] and [st2.fname] staged a water battle!  The way to have fun, the girls deserve."
+    "[St1.fname] and [st2.fname] staged a water battle!  The way to have fun, the girls deserve."
 
 # game/events/rEventsPool.rpy:33
 translate english event_loc_pool_0_no3_bd997675:
 
     # "[st1.fname] плавает на своей надувной акуле. Вы перекинулись с ней парой фраз."
-    "[st1.fname] floats on his inflatable shark.  You have exchanged a few phrases with her."
+    "[St1.fname] floats on his inflatable shark.  You have exchanged a few phrases with her."
 
 # game/events/rEventsPool.rpy:35
 translate english event_loc_pool_0_no3_3e5d9459:
@@ -40,7 +40,7 @@ translate english event_loc_pool_0_no3_3e5d9459:
 translate english event_loc_pool_0_no4_87037294:
 
     # "[st1.fname] сейчас расплачется, из за того, что проиграла водную гонку своей подруге. Вы замечаете, что [st1.fname] похоже не сильно обрадована своим выигрышем."
-    "[st1.fname] is now crying, due to the fact that she lost the water race to her friend.  You notice that [st1.fname] does not seem to be very pleased with your winnings."
+    "[St1.fname] is now crying, due to the fact that she lost the water race to her friend.  You notice that [St1.fname] does not seem to be very pleased with your winnings."
 
 # game/events/rEventsPool.rpy:54
 translate english event_loc_pool_0_no4_d6970a04:
@@ -52,7 +52,7 @@ translate english event_loc_pool_0_no4_d6970a04:
 translate english event_loc_pool_0_no5_99e796fd:
 
     # "[st1.fname] и [st2.fname] решили устроить \"мокрые игры\". Вы пресекаете подобные игры вне бассейна. Кто то может и подскользнуться!"
-    "[st1.fname] and [st2.fname] have decided to arrange \"wet games\".  You stop these games outside the pool.  Someone might slip!"
+    "[St1.fname] and [st2.fname] have decided to arrange \"wet games\".  You stop these games outside the pool.  Someone might slip!"
 
 # game/events/rEventsPool.rpy:73
 translate english event_loc_pool_0_no5_0704c255:
@@ -70,13 +70,13 @@ translate english event_loc_pool_0_no6_ce25bc9c:
 translate english event_loc_pool_0_no7_66a5d6cd:
 
     # "[st1.fname] и [st2.fname] играют в \"кто просидит дольше под водой\". И дураку понятно, что [st1.fname] не имеет никаких шансов на выигрышь. Чтобы дело не закончилось утоплением, вы выдурнули её из воды, и посоветовали не играть в подобные игры."
-    "[st1.fname] and [st2.fname] play \"who will sit longer under water\".  And it's clear to the fool that [st1.fname] has no chance of winning.  In order not to end the drowning, you fucked it out of the water, and advised not to play in such games."
+    "[St1.fname] and [st2.fname] play \"who will sit longer under water\".  And it's clear to the fool that [St1.fname] has no chance of winning.  In order not to end the drowning, you fucked it out of the water, and advised not to play in such games."
 
 # game/events/rEventsPool.rpy:119
 translate english event_loc_pool_30_low1_c80da402:
 
     # "[st1.fname] отстранённо запускала свои пальчики вдали от чужих, но не от ваших глаз. Вы с удовольствием наблюдали, как её пальчики медленно скользили по влажной после бассейна киске, аккуратно проскальзывая внутрь."
-    "[st1.fname] detachedly ran its fingers away from strangers, but not from your eyes.  You watched with pleasure as her fingers slowly slid on the wet pussy after the pool, neatly slipping inside."
+    "[St1.fname] detachedly ran its fingers away from strangers, but not from your eyes.  You watched with pleasure as her fingers slowly slid on the wet pussy after the pool, neatly slipping inside."
 
 # game/events/rEventsPool.rpy:122
 translate english event_loc_pool_30_low1_3d3aa055:
@@ -88,13 +88,13 @@ translate english event_loc_pool_30_low1_3d3aa055:
 translate english event_loc_pool_15_low2_9b0fbea7:
 
     # "[st1.fname] явно не выглядит довольной своим китайским купальником. Точнее не им, а влагоустойчивостью его покраски."
-    "[st1.fname] clearly does not look pleased with her Chinese swimsuit.  More precisely not them, but the moisture resistance of its painting."
+    "[St1.fname] clearly does not look pleased with her Chinese swimsuit.  More precisely not them, but the moisture resistance of its painting."
 
 # game/events/rEventsPool.rpy:139
 translate english event_loc_pool_15_low2_2dd3a5cd:
 
     # "[st1.fname] ещё долго стояла перед всем бассейном живописно описывая китайцев, красивших её купальник"
-    "[st1.fname] stood for a long time before the whole pool picturesquely describing the Chinese, who painted her swimsuit"
+    "[St1.fname] stood for a long time before the whole pool picturesquely describing the Chinese, who painted her swimsuit"
 
 # game/events/rEventsPool.rpy:153
 translate english event_loc_pool_30_low3_b4cc7d8d:
@@ -106,19 +106,19 @@ translate english event_loc_pool_30_low3_b4cc7d8d:
 translate english event_loc_pool_30_low3_1426931c:
 
     # "[st1.fname] буквально на ваших глазах задрожала и кончила, медленно оседая под тугими струями душа."
-    "[st1.fname] literally before your very eyes shuddered and finished, slowly settling under the tight streams of the shower."
+    "[St1.fname] literally before your very eyes shuddered and finished, slowly settling under the tight streams of the shower."
 
 # game/events/rEventsPool.rpy:172
 translate english event_loc_pool_20_low4_843b02cd:
 
     # "[st1.fname] озорно заигрывает со своим парнем, слегка оттягивая свой купальник, чтобы тот смог насладиться её вставшими от холода сосками."
-    "[st1.fname] mischievously flirts with his boyfriend, pulling back his swimsuit slightly so that he can enjoy her nipples that have risen from the cold."
+    "[St1.fname] mischievously flirts with his boyfriend, pulling back his swimsuit slightly so that he can enjoy her nipples that have risen from the cold."
 
 # game/events/rEventsPool.rpy:175
 translate english event_loc_pool_20_low4_53ed2a61:
 
     # "[st1.fname] доигралась до того, что смущённый [st1.fname], пряча ото всех свой вставший член поспешил скрыться в раздевалке."
-    "[st1.fname] played up to the fact that the confused [st1.fname], hiding from all his risen member hurried to hide in the locker room."
+    "[St1.fname] played up to the fact that the confused [St1.fname], hiding from all his risen member hurried to hide in the locker room."
 
 # game/events/rEventsPool.rpy:200
 translate english event_loc_pool_50_mid1_dcd7f981:
@@ -130,7 +130,7 @@ translate english event_loc_pool_50_mid1_dcd7f981:
 translate english event_loc_pool_50_mid1_34400474:
 
     # player.say "[st1.fname] [st1.lname], чем Вы занимаетесь? - не смогли вы удержаться и подошли к учительнице."
-    player.say "[st1.fname] [st1.lname], what do you do?  - you could not resist and went to the teacher."
+    player.say "[St1.fname] [st1.lname], what do you do?  - you could not resist and went to the teacher."
 
 # game/events/rEventsPool.rpy:202
 translate english event_loc_pool_50_mid1_84af0976:
@@ -154,7 +154,7 @@ translate english event_loc_pool_50_mid1_061a77bd:
 translate english event_loc_pool_50_mid2_72f6adbd:
 
     # "Вы зашли в бассейн, но по дороге решили заглянуть в душевую. Ох, какая красота! [st1.fname] восседала на своём парне, активно елозя по его слену своей киской, но не вводя его в себя."
-    "You went into the pool, but on the way you decided to look into the shower.  Oh, what a beauty!  [st1.fname] was seated on her boyfriend, actively crawling over his slag with his pussy, but not introducing it into himself."
+    "You went into the pool, but on the way you decided to look into the shower.  Oh, what a beauty!  [St1.fname] was seated on her boyfriend, actively crawling over his slag with his pussy, but not introducing it into himself."
 
 # game/events/rEventsPool.rpy:225
 translate english event_loc_pool_50_mid2_6a452b90:
@@ -184,7 +184,7 @@ translate english event_loc_pool_75_hi1_8d31703b:
 translate english event_loc_pool_75_hi1_daa64e60:
 
     # "[st2.fname] и [st3.fname] радостно заполняют ненасытную попу и рот учительницы своими членами. Вам безумно хочется присоединится к этой оргии, но авторитет - прежде всего!"
-    "[st2.fname] and [st3.fname] joyfully fill the insatiable priest and the teacher's mouth with their members.  You madly want to join this orgy, but authority - above all!"
+    "[St2.fname] and [st3.fname] joyfully fill the insatiable priest and the teacher's mouth with their members.  You madly want to join this orgy, but authority - above all!"
 
 # game/events/rEventsPool.rpy:283
 translate english event_loc_pool_75_hi2_c18d0174:
@@ -196,7 +196,7 @@ translate english event_loc_pool_75_hi2_c18d0174:
 translate english event_loc_pool_75_hi2_086abde9:
 
     # "[st2.fname] скачет на его [penis] сантиметровом члене, подвизгивая от удовольствия. А [st3.fname] помогает ей, массируя рукой маленький клитор."
-    "[st2.fname] jumps on his [penis] centimeter member, screaming with pleasure.  And [st3.fname] helps her by massaging a small clitoris."
+    "[St2.fname] jumps on his [penis] centimeter member, screaming with pleasure.  And [st3.fname] helps her by massaging a small clitoris."
 
 # game/events/rEventsPool.rpy:285
 translate english event_loc_pool_75_hi2_72220fd1:

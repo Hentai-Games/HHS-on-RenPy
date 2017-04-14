@@ -22,7 +22,7 @@ translate english event_loc_wcm_0_no1_9e1c633a:
 translate english event_loc_wcm_0_no1_791c2cbf:
 
     # "Вы делаете вид, как будто ничего не произошло, и вы ничего не заметили. [st1.fname] с благодарностью смотрит на вас."
-    "You pretend as if nothing happened, and you did not notice anything.  [st1.fname] gratefully looks at you."
+    "You pretend as if nothing happened, and you did not notice anything.  [St1.fname] gratefully looks at you."
 
 # game/events/rEventsWCM.rpy:26
 translate english event_loc_wcm_20_mid1_d93b0b12:
@@ -40,7 +40,7 @@ translate english event_loc_wcm_20_mid1_dc52e204:
 translate english event_loc_wcm_20_mid1_1a500f1b:
 
     # "Аккуратно заглянув в кабинку, вы увидели там любопытную картинку. [st1.fname] стоял и дрочил перед унитазом в то время, пока [st2.fname] массировала его яички и поглаживала по бёдрам. Спустя минуту парень снова застонал и начал кончать. [st1.fname] снова глупо захихикала."
-    "Gently looking into the booth, you saw there is a curious picture.  [st1.fname] stood and jerked off in front of the toilet while [st2.fname] massaged his testicles and stroked his thighs.  A minute later, the guy groaned again and began to cum.  [st1.fname] again silly giggled."
+    "Gently looking into the booth, you saw there is a curious picture.  [St1.fname] stood and jerked off in front of the toilet while [st2.fname] massaged his testicles and stroked his thighs.  A minute later, the guy groaned again and began to cum.  [St1.fname] again silly giggled."
 
 # game/events/rEventsWCM.rpy:32
 translate english event_loc_wcm_20_mid1_17c618f5:
@@ -124,7 +124,7 @@ translate english event_loc_wcm_0_mid2_0c35607a:
 translate english event_loc_wcm_0_mid2_323d1ed0:
 
     # "[st1.fname] [st1.lname] совсем не двигалась, позволяя вам пользоваться её телом как заблагорассудится. Чем вы и воспользовались. Наминая свои полные груди, вы скакали на этом великолепном члене, умело доводя себя до оргазма."
-    "[st1.fname] [st1.lname] did not move at all, allowing you to use her body as you please.  Than you also have taken advantage.  Wearing your full breasts, you jumped on this magnificent member, skillfully leading yourself to orgasm."
+    "[St1.fname] [st1.lname] did not move at all, allowing you to use her body as you please.  Than you also have taken advantage.  Wearing your full breasts, you jumped on this magnificent member, skillfully leading yourself to orgasm."
 
 # game/events/rEventsWCM.rpy:68
 translate english event_loc_wcm_0_mid2_bec6c9e6:
@@ -160,7 +160,7 @@ translate english event_loc_wcm_45_mid3_37335c13:
 translate english event_loc_wcm_45_mid3_666ab0fc:
 
     # "Ваши ноздри щекотал приятный мускусный запах пота трахающейся парочки. Ученица не скрываясь стонала и подпрыгивала на члене, плотно зажимая его между ног. [st2.fname] прижимал её своими руками к телу, и бёдрами пытался протолкнуть свой ствол поглубже."
-    "Your nostrils tickled the pleasant musky smell of the sweat of a fucking couple.  The student did not hide and groaned and jumped on the member, tightly clasping it between her legs.  [st2.fname] pressed it with his own hands to the body, and his hips tried to push his trunk deeper."
+    "Your nostrils tickled the pleasant musky smell of the sweat of a fucking couple.  The student did not hide and groaned and jumped on the member, tightly clasping it between her legs.  [St2.fname] pressed it with his own hands to the body, and his hips tried to push his trunk deeper."
 
 # game/events/rEventsWCM.rpy:90
 translate english event_loc_wcm_45_mid3_a5570660:

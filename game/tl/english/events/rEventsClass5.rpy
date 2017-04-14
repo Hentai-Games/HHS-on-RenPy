@@ -82,13 +82,13 @@ translate english event_loc_class5_5_no4_9e98072d:
 translate english event_loc_class5_0_no5_05646064:
 
     # "[st1.name] вцепилась в волосы своей одноклассницы и куда-то ведёт её."
-    "[st1.name] grasped the hair of her classmate and led her somewhere."
+    "[St1.name] grasped the hair of her classmate and led her somewhere."
 
 # game/events/rEventsClass5.rpy:60
 translate english event_loc_class5_0_no5_c2fc2886:
 
     # "Вы сделали замечание ученице, и [st1.fname] отпустила волосы. [st2.fname] смотрит на вас с благодарностью."
-    "You made a note to the apprentice, and [st1.fname] released her hair.  [st2.fname] looks at you with gratitude."
+    "You made a note to the apprentice, and [st1.fname] released her hair.  [St2.fname] looks at you with gratitude."
 
 # game/events/rEventsClass5.rpy:66
 translate english event_loc_class5_0_no5_18ae66d4:
@@ -112,7 +112,7 @@ translate english event_loc_class5_0_no5_f952a24b:
 translate english event_loc_class5_0_no5_4ba8df21:
 
     # "[st2.fname] кладёт свои ручки на подрагивающий пенис и начинает медленно ласкать уздечку."
-    "[st2.fname] puts his hands on the quivering penis and begins to fondle the bridle slowly."
+    "[St2.fname] puts his hands on the quivering penis and begins to fondle the bridle slowly."
 
 # game/events/rEventsClass5.rpy:82
 translate english event_loc_class5_0_no5_40b2e44d:
@@ -142,7 +142,7 @@ translate english event_loc_class5_0_no5_994faf46:
 translate english event_loc_class5_0_no5_6cab1c1d:
 
     # "[st2.fname] с беспокойством разглядывает перемазанные в семени руки."
-    "[st2.fname] looks uneasily at the hands smeared in the seed."
+    "[St2.fname] looks uneasily at the hands smeared in the seed."
 
 # game/events/rEventsClass5.rpy:92
 translate english event_loc_class5_0_no5_4d99d980:
@@ -166,7 +166,7 @@ translate english event_loc_class5_0_no6_84ac74b2:
 translate english event_loc_class5_0_no6_48e492f2:
 
     # "[st1.fname] рассказывает подружке, как он вчера до 2 часов ночи рубал с друзьями в Шмоту. Вы бы не сказали, что [st2.name] в восторге от этих разговоров, но что-то в этом мальчике ей определённо нравится."
-    "[st1.fname] tells a girlfriend how he was up to 2 o'clock in the morning rubal with friends in Shmotu.  You would not say that [st2.name] is thrilled with these conversations, but she definitely likes something about this boy."
+    "[St1.fname] tells a girlfriend how he was up to 2 o'clock in the morning rubal with friends in Shmotu.  You would not say that [st2.name] is thrilled with these conversations, but she definitely likes something about this boy."
 
 # game/events/rEventsClass5.rpy:109
 translate english event_loc_class5_0_no6_27a2b234:
@@ -196,7 +196,7 @@ translate english event_loc_class5_10_no7_298cbb9c:
 translate english event_loc_class5_10_no7_376e9e5c:
 
     # "Вы помогли донести учебники до парты. [st1.fname] благодарит вас."
-    "You helped bring the textbooks to the desk.  [st1.fname] thanks you."
+    "You helped bring the textbooks to the desk.  [St1.fname] thanks you."
 
 # game/events/rEventsClass5.rpy:129
 translate english event_loc_class5_10_no7_b56a591c:
@@ -244,7 +244,7 @@ translate english event_loc_class5_10_no7_001e890a:
 translate english event_loc_class5_10_no7_0d55d9ce:
 
     # "Когда парень, наконец-то, достал свой член из влажных трусиков, за ним протянулась густая белая капля спермы. [st1.fname] слегка застонала, видимо не совсем понимая, что сейчас произошло."
-    "When the guy finally got his dick out of the wet panties, behind him stretched a thick white drop of sperm.  [st1.fname] moaned slightly, apparently not quite realizing what was happening right now."
+    "When the guy finally got his dick out of the wet panties, behind him stretched a thick white drop of sperm.  [St1.fname] moaned slightly, apparently not quite realizing what was happening right now."
 
 # game/events/rEventsClass5.rpy:140
 translate english event_loc_class5_10_no7_2e123cae:
@@ -298,7 +298,7 @@ translate english event_loc_class5Learn_0_1_72545f11:
 translate english event_loc_class5Learn_0_2_b7486a6e:
 
     # "[st1.fname] сидит и слушает плеер на уроке. В то время, пока [dikovna.name] внедряет учебный материал в юные головы учеников, кто-то не вовлечён в процесс. Вас это немного возмущает."
-    "[st1.fname] sits and listens to the player in the lesson.  While [dikovna.name] introduces the educational material into the young heads of the students, someone is not involved in the process.  You are a little outraged."
+    "[St1.fname] sits and listens to the player in the lesson.  While [dikovna.name] introduces the educational material into the young heads of the students, someone is not involved in the process.  You are a little outraged."
 
 # game/events/rEventsClass5.rpy:195
 translate english event_loc_class5Learn_0_2_96b020cc:
@@ -316,7 +316,7 @@ translate english event_loc_class5Learn_0_2_860668cb:
 translate english event_loc_class5Learn_0_3_653e5c84:
 
     # "В классе довольно жарко. [st1.fname] сидит и потеет над уроком не только в метафизическом, но и вполне реальном смысле."
-    "The classroom is quite hot.  [st1.fname] sits and sweats over the lesson, not only in a metaphysical, but also quite real sense."
+    "The classroom is quite hot.  [St1.fname] sits and sweats over the lesson, not only in a metaphysical, but also quite real sense."
 
 # game/events/rEventsClass5.rpy:216
 translate english event_loc_class5Learn_0_3_85322e03:

@@ -4,7 +4,7 @@
 translate english event_loc_storage_0_no1_c165834e:
 
     # "[st1.fname] похоже потеряла брошку и не может её найти. Вы с радостью согласились ей помочь, попутно оценив оригинальность спортивного костюма."
-    "[st1.fname] seems to have lost the brooch and can not find it.  You gladly agreed to help her, simultaneously appreciating the originality of the sports suit."
+    "[St1.fname] seems to have lost the brooch and can not find it.  You gladly agreed to help her, simultaneously appreciating the originality of the sports suit."
 
 # game/events/rEventsStorage.rpy:10
 translate english event_loc_storage_0_no1_182be106:
@@ -22,7 +22,7 @@ translate english event_loc_storage_0_no2_395812f6:
 translate english event_loc_storage_0_no3_f2706571:
 
     # "[st1.fname] похоже кого то ждёт в кладовке. Вы немного поболтали с ней, но судя по её удивлённому виду, ждала она не вас."
-    "[st1.fname] looks like someone is waiting in the pantry.  You talked a little with her, but judging by her surprised look, she was not expecting you."
+    "[St1.fname] looks like someone is waiting in the pantry.  You talked a little with her, but judging by her surprised look, she was not expecting you."
 
 # game/events/rEventsStorage.rpy:34
 translate english event_loc_storage_0_no3_0bfd84ee:
@@ -34,7 +34,7 @@ translate english event_loc_storage_0_no3_0bfd84ee:
 translate english event_loc_storage_0_no4_dc4c1c49:
 
     # "[st1.fname] подвернула ногу, пытаясь дотянуться до верхней полки со спорт инвентарём. Хорошо, что Вы вовремя зашли!"
-    "[st1.fname] has twisted a leg, trying to reach the top shelf with a sports inventory.  It's good that you arrived on time!"
+    "[St1.fname] has twisted a leg, trying to reach the top shelf with a sports inventory.  It's good that you arrived on time!"
 
 # game/events/rEventsStorage.rpy:47
 translate english event_loc_storage_0_no4_8f1657df:
@@ -52,7 +52,7 @@ translate english event_loc_storage_0_no4_894d944d:
 translate english event_loc_storage_0_no5_bed9df8e:
 
     # "[st1.fname] судя по всему притомилась, и уснула на коленях у своей подруги. Какая же милота! Вы решили не тревожить их. Время всё равно не учебное."
-    "[st1.fname] seems to have grown tired, and fell asleep on her lap with her friend.  What a mercy!  You decided not to disturb them.  Time is still not academic."
+    "[St1.fname] seems to have grown tired, and fell asleep on her lap with her friend.  What a mercy!  You decided not to disturb them.  Time is still not academic."
 
 # game/events/rEventsStorage.rpy:87
 translate english event_loc_storage_30_low1_ebcbe8be:
@@ -76,7 +76,7 @@ translate english event_loc_storage_30_low2_d42533f2:
 translate english event_loc_storage_30_low2_8ddd5e5a:
 
     # st1.say "[st2.fname], я искренне надеюсь, что это в последний раз, когда ты не выучил урок"
-    st1.say "[st2.fname], I sincerely hope this is the last time you did not learn a lesson"
+    st1.say "[St2.fname], I sincerely hope this is the last time you did not learn a lesson"
 
 # game/events/rEventsStorage.rpy:101
 translate english event_loc_storage_30_low2_6309cd6f:
@@ -106,7 +106,7 @@ translate english event_loc_storage_30_low2_85020614:
 translate english event_loc_storage_30_low2_d281238e:
 
     # st2.say "[st1.fname], я сейчас кончу! - сильнее заворочался парень, пытаясь выскользнуть из под ноги ученицы."
-    st2.say "[st1.fname], I'm about to end!  - the guy turned harder, trying to slip out from under the legs of the student."
+    st2.say "[St1.fname], I'm about to end!  - the guy turned harder, trying to slip out from under the legs of the student."
 
 # game/events/rEventsStorage.rpy:111
 translate english event_loc_storage_30_low2_2e3ea6eb:
@@ -130,7 +130,7 @@ translate english event_loc_storage_30_low3_14afdc58:
 translate english event_loc_storage_30_low3_187d07b5:
 
     # player.say "[st1.fname]? - удивлённо спросили Вы её."
-    player.say "[st1.fname]?  - You asked her in astonishment."
+    player.say "[St1.fname]?  - You asked her in astonishment."
 
 # game/events/rEventsStorage.rpy:129
 translate english event_loc_storage_30_low3_23d0cd88:
@@ -160,7 +160,7 @@ translate english event_loc_storage_30_low3_978d4eaf:
 translate english event_loc_storage_30_low4_aef34e1c:
 
     # player.say "[st1.fname]? - строго спрашиваете Вы судорожно натягивающую трусики девушку."
-    player.say "[st1.fname]?  - Strictly ask you frantically pulling panties girl."
+    player.say "[St1.fname]?  - Strictly ask you frantically pulling panties girl."
 
 # game/events/rEventsStorage.rpy:164
 translate english event_loc_storage_30_low4_f06fc5ed:
@@ -172,7 +172,7 @@ translate english event_loc_storage_30_low4_f06fc5ed:
 translate english event_loc_storage_50_mid1_95702e1a:
 
     # "[st2.fname] сильными толчками вгнял свой член в одноклассницу, стонавшую под его неистовым напором. Явно, что ученики сильно спешили отдаться друг другу, так как даже не успели снять одежду. [st1.fname] громко стонала, ощущая как стенки её влагалища таранит молодой член парня. Парочка настолько завелась, что совершенно не обращает на Вас внимания!"
-    "[st2.fname] strongly pushed his cock into a classmate, groaning under his frantic pressure.  Obviously, the disciples were in a hurry to give themselves up to each other, since they did not even have time to take off their clothes.  [st1.fname] loudly groaned, sensing as the walls of her vagina ramming a young member of the guy.  A couple so wound up that does not pay attention to you at all!"
+    "[St2.fname] strongly pushed his cock into a classmate, groaning under his frantic pressure.  Obviously, the disciples were in a hurry to give themselves up to each other, since they did not even have time to take off their clothes.  [St1.fname] loudly groaned, sensing as the walls of her vagina ramming a young member of the guy.  A couple so wound up that does not pay attention to you at all!"
 
 # game/events/rEventsStorage.rpy:181
 translate english event_loc_storage_50_mid1_f1ed9885:
@@ -190,7 +190,7 @@ translate english event_loc_storage_50_mid1_e730a15c:
 translate english event_loc_storage_50_mid2_c23bf84a:
 
     # "[st3.fname] [st3.lname] проводит особые тренировки в кладовке. Очень особые. Непосредственно в данный момент его член активно погружается в хлюпающую вагину одной из учениц. [st1.fname], так кажется её зовут."
-    "[st3.fname] [st3.lname] conducts special training in the pantry.  Very special.  Immediately at the moment, his penis actively plunges into the squelching vagina of one of the pupils.  [st1.fname], so it seems her name is."
+    "[St3.fname] [st3.lname] conducts special training in the pantry.  Very special.  Immediately at the moment, his penis actively plunges into the squelching vagina of one of the pupils.  [St1.fname], so it seems her name is."
 
 # game/events/rEventsStorage.rpy:227
 translate english event_loc_storage_50_mid2_e566f98c:

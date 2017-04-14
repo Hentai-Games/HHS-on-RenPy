@@ -28,7 +28,7 @@ translate english strings:
 
     # game/notebook.rpy:89
     old "[showHover.name]"
-    new "[showHover.name]"
+    new "[ShowHover.name]"
 
     # game/notebook.rpy:93
     old "Партнёр [showHover.partner.name]"
@@ -88,7 +88,7 @@ translate english strings:
 
     # game/notebook.rpy:161
     old "[name]"
-    new "[name]"
+    new "[Name]"
 
     # game/notebook.rpy:162
     old "Размер груди [bsize]"
@@ -172,7 +172,7 @@ translate english strings:
 
     # game/notebook.rpy:229
     old "[kupruvna.name]:"
-    new "[kupruvna.name]:"
+    new "[Kupruvna.name]:"
 
     # game/notebook.rpy:231
     old "Мне необходимо подловить её в перемену или после уроков в первом классе."
@@ -192,7 +192,7 @@ translate english strings:
 
     # game/notebook.rpy:239
     old "[kupruvna.name] обиделась на меня за то, что я показала ей снимки."
-    new "[kupruvna.name] offended at me for showing her pictures."
+    new "[Kupruvna.name] offended at me for showing her pictures."
 
     # game/notebook.rpy:241
     old "Нужно подождать."
@@ -220,15 +220,15 @@ translate english strings:
 
     # game/notebook.rpy:254
     old "[kupruvna.name] всегда будет поддерживать меня на голосовании. К сожалению я так и не узнала, что сподвигло её заниматься сексом с учеником. Да и отношения уже не исправить."
-    new "[kupruvna.name] will always support me on voting.  Unfortunately, I still did not find out what motivated her to have sex with a student.  And relations can not be corrected."
+    new "[Kupruvna.name] will always support me on voting.  Unfortunately, I still did not find out what motivated her to have sex with a student.  And relations can not be corrected."
 
     # game/notebook.rpy:256
     old "[kupruvna.name] всегда будет поддерживать меня на голосовании. К сожалению, после вашего напора, её отношения с сыном закончились. Зато она стало абсолютно безвольной и теперь прибирается в моём кабинете по утрам!"
-    new "[kupruvna.name] will always support me on voting.  Unfortunately, after your pressure, her relationship with her son is over.  But she became absolutely weak-willed and now tidies up in my office in the morning!"
+    new "[Kupruvna.name] will always support me on voting.  Unfortunately, after your pressure, her relationship with her son is over.  But she became absolutely weak-willed and now tidies up in my office in the morning!"
 
     # game/notebook.rpy:258
     old "[kupruvna.name] стала гораздо развратней, чем была и больше не будет скрывать свои отношения с сыном. "
-    new "[kupruvna.name] became much more depraved than she was and will no longer hide her relationship with her son."
+    new "[Kupruvna.name] became much more depraved than she was and will no longer hide her relationship with her son."
 
     # game/notebook.rpy:260
     old "Что то пошло не так с журналом. Заскриншотьте это сообщение и напишите на форуме или в мой блог:\n mile_qwest_2_stage = [mile_qwest_2_stage], mile_qwest_2_stage_init = [mile_qwest_2_stage_init], mile_qwest_2_caught = [mile_qwest_2_caught], mile_qwest_2_Ahmed = [mile_qwest_2_Ahmed]"
@@ -236,7 +236,7 @@ translate english strings:
 
     # game/notebook.rpy:264
     old "[danokova.name]:"
-    new "[danokova.name]:"
+    new "[Danokova.name]:"
 
     # game/notebook.rpy:266
     old "Похоже, что [bioBoy.name] \"втёрся\" в её доверие."
@@ -268,11 +268,11 @@ translate english strings:
 
     # game/notebook.rpy:280
     old "[danokova.fname] очевидно втянулась в процесс. Интересно, что она приготовит ему на следующий раз? И да, мне больше не кажется, что подерживать высокую температуру в кабинете - хорошая идея."
-    new "[danokova.fname] is obviously involved in the process.  I wonder what she will cook for him next time?  And yes, I do not think that holding a high temperature in the office is a good idea."
+    new "[Danokova.fname] is obviously involved in the process.  I wonder what she will cook for him next time?  And yes, I do not think that holding a high temperature in the office is a good idea."
 
     # game/notebook.rpy:282
     old "[danokova.fname] очевидно втянулась в процесс написания своей статьи. Я думаю, что больше не стоит мешать ей высокой температурой. Достаточно продолжать подкидывать этого \"необычного\" ученика."
-    new "[danokova.fname] is obviously involved in the process of writing your article.  I think that it is no longer necessary to interfere with her high temperature.  It is enough to continue to throw this \"unusual\" student."
+    new "[Danokova.fname] is obviously involved in the process of writing your article.  I think that it is no longer necessary to interfere with her high temperature.  It is enough to continue to throw this \"unusual\" student."
 
     # game/notebook.rpy:284
     old "Боюсь, что эта ветка пока не дописана. Напиши в консоли mile_qwest_3_stage = 6, чтобы попасть в соседнюю ветку."
@@ -332,11 +332,11 @@ translate english strings:
 
     # game/notebook.rpy:308
     old "[danokova.name] стала невероятно доминантной. Или всегда была? Впрочем это неважно. С её уровнем разврата она не откажется, даже если я предложу всем после уроков запихивать себе швабры в одно место!"
-    new "[danokova.name] has become incredibly dominant.  Or was it always?  But it does not matter.  With her level of debauchery, she will not refuse, even if I suggest that everyone, after classes, shove a mop into one place!"
+    new "[Danokova.name] has become incredibly dominant.  Or was it always?  But it does not matter.  With her level of debauchery, she will not refuse, even if I suggest that everyone, after classes, shove a mop into one place!"
 
     # game/notebook.rpy:310
     old "[danokova.name] обещала поддерживать все мои предложения на голосованиии. К сожалению, вам больше не удастся повлиять на неё и её отношения с парнем."
-    new "[danokova.name] promised to support all my proposals on voting.  Unfortunately, you will no longer be able to influence her and her relationship with the guy."
+    new "[Danokova.name] promised to support all my proposals on voting.  Unfortunately, you will no longer be able to influence her and her relationship with the guy."
 
     # game/notebook.rpy:312
     old "Что то пошло не так с журналом. Заскриншотьте это сообщение и напишите на форуме или в мой блог:\n mile_qwest_3_stage = [mile_qwest_3_stage], mile_qwest_3_stage_init = [mile_qwest_3_stage_init]"
@@ -348,7 +348,7 @@ translate english strings:
 
     # game/notebook.rpy:318
     old "[mustangovich.name]:"
-    new "[mustangovich.name]:"
+    new "[Mustangovich.name]:"
 
     # game/notebook.rpy:320
     old "Говорят, что на первой перемене в холле происходят странные события с девочками."

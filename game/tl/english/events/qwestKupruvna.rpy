@@ -4,7 +4,7 @@
 translate english event_loc_class1_10_StartKupruvnaQuest_15a24e95:
 
     # kupruvna.say "[teacher_son.fname], это ты? - расположившись на столе в очень интересной позе спросила вас учительница."
-    kupruvna.say "[teacher_son.fname], is that you?  - on the table in a very interesting pose, the teacher asked you."
+    kupruvna.say "[Teacher_son.fname], is that you?  - on the table in a very interesting pose, the teacher asked you."
 
 # game/events/qwestKupruvna.rpy:16
 translate english event_loc_class1_10_StartKupruvnaQuest_095e134b:
@@ -340,7 +340,7 @@ translate english kupruvnaGotIt2_18773bde:
 translate english event_loc_cabbage_0_sexWithSon_4f9118e2:
 
     # t.say "[k.name], может быть сходим, прогуляемся?"
-    t.say "[k.name], maybe we can go, walk?"
+    t.say "[K.name], maybe we can go, walk?"
 
 # game/events/qwestKupruvna.rpy:149
 translate english event_loc_cabbage_0_sexWithSon_55b483a2:
@@ -442,7 +442,7 @@ translate english event_loc_cabbage_0_sexWithSon_034d0fb6:
 translate english event_loc_cabbage_0_sexWithSon_1ae91162:
 
     # "[k.name] сидела на полу и, со смущенияем глядя на мальчика, ласкала свою киску сквозь трусики."
-    "[k.name] sat on the floor and, looking at the boy with embarrassment, caressed her pussy through her panties."
+    "[K.name] sat on the floor and, looking at the boy with embarrassment, caressed her pussy through her panties."
 
 # game/events/qwestKupruvna.rpy:183
 translate english event_loc_cabbage_0_sexWithSon_8135c90f:
@@ -484,7 +484,7 @@ translate english event_loc_cabbage_0_sexWithSon_5987d95c:
 translate english event_loc_cabbage_0_sexWithSon_2050adfb:
 
     # "[t.fname] протянул женщине маленький вибратор."
-    "[t.fname] gave the woman a small vibrator."
+    "[T.fname] gave the woman a small vibrator."
 
 # game/events/qwestKupruvna.rpy:192
 translate english event_loc_cabbage_0_sexWithSon_001ddc10:
