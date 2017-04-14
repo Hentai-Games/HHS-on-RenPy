@@ -1224,108 +1224,108 @@ translate english strings:
 
     # game/events/BasicEvents.rpy:112
     old "Чем бы вытереть эту липкую жидкость?"
-    new ""
+    new "What would wipe this sticky liquid?"
 
     # game/events/BasicEvents.rpy:112
     old "Вытереть салфетками"
-    new ""
+    new "Wipe with napkins"
 
     # game/events/BasicEvents.rpy:112
     old "Попытаться вытереть руками"
-    new ""
+    new "Wipe with hands"
 
     # game/events/BasicEvents.rpy:112
     old "Да мне и так хорошо!"
-    new ""
+    new "Yes, I'm so good!"
 
     # game/events/BasicEvents.rpy:135
     old "Мне надо избавиться от неё"
-    new ""
+    new "I need to get rid of it"
 
     # game/events/BasicEvents.rpy:135
     old "Выплюнуть"
-    new ""
+    new "Spit it out"
 
     # game/events/BasicEvents.rpy:135
     old "Проглотить"
-    new ""
+    new "Swallow"
 
     # game/events/BasicEvents.rpy:135
     old "М-м-м Ф-ф-ф м-м-м у-у-у!"
-    new ""
+    new "M-m-m F-f-f m-m-m-y-oo-oo!"
 
     # game/events/BasicEvents.rpy:153
     old "Да вроде бы и так неплохо выглядит!"
-    new ""
+    new "Yes, like it looks so good!"
 
     # game/events/BasicEvents.rpy:175
     old "Облизать"
-    new ""
+    new "Lick"
 
     # game/events/BasicEvents.rpy:175
     old "Само высохнет и отвалится!"
-    new ""
+    new "It will dry up and fall off!"
 
     # game/events/BasicEvents.rpy:194
     old "Да вроде и так красиво!"
-    new ""
+    new "Yes, like and so beautiful!"
 
     # game/events/BasicEvents.rpy:216
     old "Ммм. Надо что-то сделать с этим."
-    new ""
+    new "Mmm.  It is necessary to do something with this."
 
     # game/events/BasicEvents.rpy:216
     old "Попытаться достать её руками"
-    new ""
+    new "Try to get it by hand"
 
     # game/events/BasicEvents.rpy:216
     old "Это может и подождать."
-    new ""
+    new "It can wait."
 
     # game/events/BasicEvents.rpy:238
     old "Не самое приятное чувство."
-    new ""
+    new "Not the most pleasant feeling."
 
     # game/events/BasicEvents.rpy:238
     old "Это может и подождать! Да! Наверное..."
-    new ""
+    new "It can wait!  Yes!  Probably..."
 
     # game/events/BasicEvents.rpy:377
     old "Сходить и переодеться?"
-    new ""
+    new "Go and change?"
 
     # game/events/BasicEvents.rpy:398
     old "Куда поедем? Городочек маленький, проезд в любую сторону всего по 50."
-    new ""
+    new "Where are we going?  Gorodochek small, travel to any direction for only 50."
 
     # game/events/BasicEvents.rpy:398
     old "Пляж"
-    new ""
+    new "Beach"
 
     # game/events/BasicEvents.rpy:398
     old "Домой"
-    new ""
+    new "Home"
 
     # game/events/BasicEvents.rpy:398
     old "На торговую"
-    new ""
+    new "On the trading"
 
     # game/events/BasicEvents.rpy:398
     old "К школе"
-    new ""
+    new "For school"
 
     # game/events/BasicEvents.rpy:398
     old "Я передумала"
-    new ""
+    new "I have changed my mind"
 
     # game/events/BasicEvents.rpy:398
     old "Простите, но у меня нет денег"
-    new ""
+    new "Excuse me, but I have no money"
 
     # game/events/BasicEvents.rpy:811
     old "Да!"
-    new ""
+    new "Yes!"
 
     # game/events/BasicEvents.rpy:811
     old "Нет, не сейчас"
-    new ""
+    new "Not now"

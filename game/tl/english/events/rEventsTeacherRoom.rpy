@@ -766,40 +766,40 @@ translate english strings:
 
     # game/events/rEventsTeacherRoom.rpy:8
     old "Уйти"
-    new ""
+    new "Leave"
 
     # game/events/rEventsTeacherRoom.rpy:8
     old "Остаться"
-    new ""
+    new "Stay"
 
     # game/events/rEventsTeacherRoom.rpy:146
     old "Закупить обычные учебники (1000 монет)"
-    new ""
+    new "To buy ordinary textbooks (1000 coins)"
 
     # game/events/rEventsTeacherRoom.rpy:146
     old "Закупить лучшие учебники (2000 монет)"
-    new ""
+    new "Buy the best books (2000 coins)"
 
     # game/events/rEventsTeacherRoom.rpy:146
     old "Закупить экспериментальную партию под соавторством Де Сада(5000 монет)"
-    new ""
+    new "To buy an experimental batch under the co-authorship of De Sade (5000 coins)"
 
     # game/events/rEventsTeacherRoom.rpy:146
     old "Не закупать ничего"
-    new ""
+    new "Do not buy anything"
 
     # game/events/rEventsTeacherRoom.rpy:254
     old "Купить хомячкa (200)"
-    new ""
+    new "Buy the Hamster (200)"
 
     # game/events/rEventsTeacherRoom.rpy:254
     old "Купить ящерицу(1000)"
-    new ""
+    new "Buy a Lizard (1000)"
 
     # game/events/rEventsTeacherRoom.rpy:254
     old "Купить змею(5000)"
-    new ""
+    new "Buy a snake (5000)"
 
     # game/events/rEventsTeacherRoom.rpy:357
     old "Предложить провести Мастер Класс"
-    new ""
+    new "Offer to host Master Class"

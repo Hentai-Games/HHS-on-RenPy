@@ -736,48 +736,48 @@ translate english strings:
 
     # game/events/qwestKupruvna.rpy:38
     old "Вызвать в свой кабинет"
-    new ""
+    new "Call in your office"
 
     # game/events/qwestKupruvna.rpy:38
     old "Дождаться большего количества компромата"
-    new ""
+    new "Wait for more compromising material"
 
     # game/events/qwestKupruvna.rpy:44
     old "Показать ей компромат"
-    new ""
+    new "Show her a dirt"
 
     # game/events/qwestKupruvna.rpy:44
     old "Всё таки дождаться большего количества компромата"
-    new ""
+    new "Still wait for more compromising information"
 
     # game/events/qwestKupruvna.rpy:102
     old "Надавить на неё"
-    new ""
+    new "Press on it"
 
     # game/events/qwestKupruvna.rpy:102
     old "Потребовать заочного согласия на всех голосованиях"
-    new ""
+    new "Request for absentee consent in all votes"
 
     # game/events/qwestKupruvna.rpy:102
     old "Пожурить и отпустить"
-    new ""
+    new "Shoot and release"
 
     # game/events/qwestKupruvna.rpy:158
     old "Это ваш шанс! Надо найти их!"
-    new ""
+    new "This is your chance!  We must find them!"
 
     # game/events/qwestKupruvna.rpy:158
     old "Поискать в лесу"
-    new ""
+    new "Search in the forest"
 
     # game/events/qwestKupruvna.rpy:158
     old "Ринуться в кусты"
-    new ""
+    new "Rush into the bushes"
 
     # game/events/qwestKupruvna.rpy:158
     old "К сарайчику"
-    new ""
+    new "To the shed"
 
     # game/events/qwestKupruvna.rpy:228
     old "Действовать мягче"
-    new ""
+    new "To act softer"

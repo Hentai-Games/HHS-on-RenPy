@@ -142,16 +142,16 @@ translate english strings:
 
     # game/events/LessonHelpEvents.rpy:54
     old "Прервать их"
-    new ""
+    new "Abort them"
 
     # game/events/LessonHelpEvents.rpy:54
     old "Наблюдать дальше"
-    new ""
+    new "Watch on"
 
     # game/events/LessonHelpEvents.rpy:69
     old "Уж такое явно неприемлемо"
-    new ""
+    new "This is clearly unacceptable"
 
     # game/events/LessonHelpEvents.rpy:69
     old "Смотреть чем все закончится"
-    new ""
+    new "See how it ends"

@@ -1294,64 +1294,64 @@ translate english strings:
 
     # game/events/rEventsClass1.rpy:121
     old "Выставить её посмешищем"
-    new ""
+    new "To expose her as a laughingstock"
 
     # game/events/rEventsClass1.rpy:142
     old "Продолжать смотреть"
-    new ""
+    new "Continue to look"
 
     # game/events/rEventsClass1.rpy:142
     old "Идти дальше"
-    new ""
+    new "Move on"
 
     # game/events/rEventsClass1.rpy:142
     old "Всех наказать"
-    new ""
+    new "All punish"
 
     # game/events/rEventsClass1.rpy:180
     old "Заглянуть"
-    new ""
+    new "Look in"
 
     # game/events/rEventsClass1.rpy:236
     old "Возмутиться"
-    new ""
+    new "Disgusted"
 
     # game/events/rEventsClass1.rpy:236
     old "Оставить её"
-    new ""
+    new "Leave her"
 
     # game/events/rEventsClass1.rpy:355
     old "Подсмотреть, что и откуда там выскальзывает"
-    new ""
+    new "Spotlight what and where it slips out"
 
     # game/events/rEventsClass1.rpy:370
     old "Путь гуляют"
-    new ""
+    new "The path is walking"
 
     # game/events/rEventsClass1.rpy:394
     old "Пусть себе. Авось хуже не будет"
-    new ""
+    new "Let yourself.  Maybe it will not be worse"
 
     # game/events/rEventsClass1.rpy:443
     old "Оставить их"
-    new ""
+    new "Leave them"
 
     # game/events/rEventsClass1.rpy:462
     old "\"Отпустить\" её."
-    new ""
+    new "\"Let her go."
 
     # game/events/rEventsClass1.rpy:707
     old "Трахаться с учениками? Уж увольте!"
-    new ""
+    new "Fuck with students?  Oh, thank you!"
 
     # game/events/rEventsClass1.rpy:707
     old "Почему бы и не разнообразить свою сексуальную жизнь?"
-    new ""
+    new "Why not diversify your sex life?"
 
     # game/events/rEventsClass1.rpy:725
     old "Спасибо"
-    new ""
+    new "Thank you"
 
     # game/events/rEventsClass1.rpy:850
     old "В любом случае стоит быть внимательнее на уроках!"
-    new ""
+    new "In any case, it's worthwhile to be attentive to the lessons!"

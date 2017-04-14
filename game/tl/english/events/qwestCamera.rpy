@@ -532,16 +532,16 @@ translate english strings:
 
     # game/events/qwestCamera.rpy:80
     old "Э-э-э"
-    new ""
+    new "Uh-uh ..."
 
     # game/events/qwestCamera.rpy:80
     old "Согласиться сняться на камеру"
-    new ""
+    new "Agree to take pictures"
 
     # game/events/qwestCamera.rpy:80
     old "Предложить отсосать ему"
-    new ""
+    new "Offer to suck him"
 
     # game/events/qwestCamera.rpy:80
     old "Указать ему его место"
-    new ""
+    new "Tell him his place"

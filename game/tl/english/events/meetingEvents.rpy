@@ -904,8 +904,8 @@ translate english strings:
 
     # game/events/meetingEvents.rpy:327
     old "Использовать ногу"
-    new ""
+    new "Use your leg"
 
     # game/events/meetingEvents.rpy:327
     old "Использовать руку"
-    new ""
+    new "Use your hand"

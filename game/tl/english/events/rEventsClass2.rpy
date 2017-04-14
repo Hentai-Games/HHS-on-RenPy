@@ -1306,64 +1306,64 @@ translate english strings:
 
     # game/events/rEventsClass2.rpy:44
     old "Потребовать деньги с родителей"
-    new ""
+    new "Require money from parents"
 
     # game/events/rEventsClass2.rpy:44
     old "Просто наказать её"
-    new ""
+    new "Just punishing her"
 
     # game/events/rEventsClass2.rpy:246
     old "Хмыкнуть и уйти"
-    new ""
+    new "Snort and go"
 
     # game/events/rEventsClass2.rpy:283
     old "Да пусть себе развлекаются"
-    new ""
+    new "Yes, let them have fun"
 
     # game/events/rEventsClass2.rpy:303
     old "Да пусть себе тестирует ёмкость яиц. От парня не убудет"
-    new ""
+    new "Yes, let it test the capacity of eggs.  From the guy will not lose"
 
     # game/events/rEventsClass2.rpy:321
     old "Что же с ними делать то? С развратниками этими?"
-    new ""
+    new "What to do with them then?  With the debaucheries these?"
 
     # game/events/rEventsClass2.rpy:321
     old "Признание в любви - дело тонкое. Мои взгляды могли и устареть..."
-    new ""
+    new "Recognition of love is a delicate matter.  My views could become outdated ..."
 
     # game/events/rEventsClass2.rpy:454
     old "Анатомия - полезная наука"
-    new ""
+    new "Anatomy is a useful science"
 
     # game/events/rEventsClass2.rpy:473
     old "Надо уважать женское право выбора"
-    new ""
+    new "It is necessary to respect the women's right to choose"
 
     # game/events/rEventsClass2.rpy:492
     old "Дать девушке закончить"
-    new ""
+    new "Let the girl finish"
 
     # game/events/rEventsClass2.rpy:511
     old "Дать им закончить"
-    new ""
+    new "Letting them finish"
 
     # game/events/rEventsClass2.rpy:553
     old "Посмотреть"
-    new ""
+    new "Look"
 
     # game/events/rEventsClass2.rpy:553
     old "Предложить замену"
-    new ""
+    new "Offer replacement"
 
     # game/events/rEventsClass2.rpy:579
     old "Нет, хватит с меня экспериментов!"
-    new ""
+    new "No, stop experimenting with me!"
 
     # game/events/rEventsClass2.rpy:579
     old "Ну попробуй..."
-    new ""
+    new "OK, try..."
 
     # game/events/rEventsClass2.rpy:658
     old "Вызвать её к доске"
-    new ""
+    new "Call her to the board"

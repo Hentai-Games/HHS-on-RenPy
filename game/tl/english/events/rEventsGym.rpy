@@ -316,8 +316,8 @@ translate english strings:
 
     # game/events/rEventsGym.rpy:93
     old "Вы решили не обращать внимания на выходки учеников. В конце концов, кто давал вам право вмешиваться в их личные дела? Хотя в случае чего их родители будут безусловно другого мнения."
-    new ""
+    new "You decided not to pay attention to the tricks of the students.  In the end, who gave you the right to interfere in their personal affairs?  Although in which case their parents will certainly have a different opinion."
 
     # game/events/rEventsGym.rpy:93
     old "Узнать в чём собственно дело"
-    new ""
+    new "To learn in what actually business"

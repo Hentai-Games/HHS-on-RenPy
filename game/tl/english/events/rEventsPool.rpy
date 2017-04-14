@@ -226,16 +226,16 @@ translate english strings:
 
     # game/events/rEventsPool.rpy:120
     old "Пусть себе наслаждается"
-    new ""
+    new "Let him enjoy himself"
 
     # game/events/rEventsPool.rpy:137
     old "Ну прозрачный, ну и что?"
-    new ""
+    new "Well transparent, so what?"
 
     # game/events/rEventsPool.rpy:154
     old "Не вмешиваться"
-    new ""
+    new "Keep out"
 
     # game/events/rEventsPool.rpy:173
     old "Оставить их в покое"
-    new ""
+    new "Leave them alone"

@@ -184,8 +184,8 @@ translate english strings:
 
     # game/events/rEventsShop.rpy:78
     old "Помочь ей"
-    new ""
+    new "Help her"
 
     # game/events/rEventsShop.rpy:192
     old "Мягко пожурить"
-    new ""
+    new "Gently chide"

@@ -568,28 +568,28 @@ translate english strings:
 
     # game/events/rEventsOffice.rpy:14
     old "Удалиться"
-    new ""
+    new "Retire"
 
     # game/events/rEventsOffice.rpy:63
     old "Предложить альтернативу"
-    new ""
+    new "Suggest an alternative"
 
     # game/events/rEventsOffice.rpy:97
     old "Заняться быстрым сексом"
-    new ""
+    new "To engage in fast sex"
 
     # game/events/rEventsOffice.rpy:306
     old "Подсматривать"
-    new ""
+    new "Spying on"
 
     # game/events/rEventsOffice.rpy:396
     old "Согласиться на это"
-    new ""
+    new "Agree to this"
 
     # game/events/rEventsOffice.rpy:396
     old "Отказать"
-    new ""
+    new "Refuse"
 
     # game/events/rEventsOffice.rpy:529
     old "Не смущать"
-    new ""
+    new "Do not be embarrassed"

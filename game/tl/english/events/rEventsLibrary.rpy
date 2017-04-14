@@ -508,16 +508,16 @@ translate english strings:
 
     # game/events/rEventsLibrary.rpy:7
     old "Попросить ученицу убрать животное"
-    new ""
+    new "Ask the student to remove the animal"
 
     # game/events/rEventsLibrary.rpy:33
     old "Узнать, что за книга"
-    new ""
+    new "Find out what the book is"
 
     # game/events/rEventsLibrary.rpy:95
     old "Выделить 500 монет на котов"
-    new ""
+    new "Select 500 coins for cats"
 
     # game/events/rEventsLibrary.rpy:156
     old "Отвернуться"
-    new ""
+    new "Turn away"

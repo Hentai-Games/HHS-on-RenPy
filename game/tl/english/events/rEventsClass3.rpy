@@ -784,36 +784,36 @@ translate english strings:
 
     # game/events/rEventsClass3.rpy:178
     old "Заставить убрать"
-    new ""
+    new "Force to remove"
 
     # game/events/rEventsClass3.rpy:178
     old "Выгнать и заняться чисткой одежды"
-    new ""
+    new "Expel and clean clothes"
 
     # game/events/rEventsClass3.rpy:229
     old "Наказать их"
-    new ""
+    new "Punish them"
 
     # game/events/rEventsClass3.rpy:229
     old "Пусть сами учатся"
-    new ""
+    new "Let them themselves learn"
 
     # game/events/rEventsClass3.rpy:229
     old "Вмешаться в процесс"
-    new ""
+    new "Interfere with the process"
 
     # game/events/rEventsClass3.rpy:263
     old "Подождать, пока они закончат"
-    new ""
+    new "Wait until they finish"
 
     # game/events/rEventsClass3.rpy:324
     old "Дело молодое, женщин на всех не хватает.."
-    new ""
+    new "It's young, women do not have enough for everyone .."
 
     # game/events/rEventsClass3.rpy:356
     old "Разрешить"
-    new ""
+    new "Allow"
 
     # game/events/rEventsClass3.rpy:356
     old "Запретить"
-    new ""
+    new "Deny"

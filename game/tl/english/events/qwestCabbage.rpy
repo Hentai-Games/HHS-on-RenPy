@@ -316,20 +316,20 @@ translate english strings:
 
     # game/events/qwestCabbage.rpy:37
     old "Погоды стоят жаркие, ученики работают, все при деле. Чем бы заняться самой?"
-    new ""
+    new "The weather is hot, the students are working, everything is on track.  What would you do yourself?"
 
     # game/events/qwestCabbage.rpy:37
     old "Погулять пару часиков"
-    new ""
+    new "Walk a couple of hours"
 
     # game/events/qwestCabbage.rpy:37
     old "Надзирать за работой"
-    new ""
+    new "Supervise at work"
 
     # game/events/qwestCabbage.rpy:37
     old "Отдохнуть пару часиков"
-    new ""
+    new "Relax a couple of hours"
 
     # game/events/qwestCabbage.rpy:88
     old "Убежать"
-    new ""
+    new "Run away"

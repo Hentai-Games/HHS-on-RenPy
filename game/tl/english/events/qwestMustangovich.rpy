@@ -1132,36 +1132,36 @@ translate english strings:
 
     # game/events/qwestMustangovich.rpy:29
     old "И где он прячется?"
-    new ""
+    new "And where does he hide?"
 
     # game/events/qwestMustangovich.rpy:29
     old "Посмотреть в раздевалке"
-    new ""
+    new "Look in the locker room"
 
     # game/events/qwestMustangovich.rpy:29
     old "Посмотреть в кладовке"
-    new ""
+    new "View in the pantry"
 
     # game/events/qwestMustangovich.rpy:70
     old "Что делать? Что делать? ЧТО ДЕЛАТЬ?"
-    new ""
+    new "What to do?  What to do?  WHAT TO DO?"
 
     # game/events/qwestMustangovich.rpy:70
     old "Войти"
-    new ""
+    new "To come in"
 
     # game/events/qwestMustangovich.rpy:213
     old "Вы видите, как трусы Ахмеда призывно оттопыриваются, когда вы подходите ближе."
-    new ""
+    new "You see how Ahmed's panties are invocingly puffed out when you come closer."
 
     # game/events/qwestMustangovich.rpy:213
     old "Удовлетворить"
-    new ""
+    new "To satisfy"
 
     # game/events/qwestMustangovich.rpy:213
     old "Заняться сексом"
-    new ""
+    new "Have sex"
 
     # game/events/qwestMustangovich.rpy:213
     old "Отсососать"
-    new ""
+    new "Suction"

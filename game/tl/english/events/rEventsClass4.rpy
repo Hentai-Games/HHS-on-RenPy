@@ -376,20 +376,20 @@ translate english strings:
 
     # game/events/rEventsClass4.rpy:35
     old "Разнять их"
-    new ""
+    new "Separate them"
 
     # game/events/rEventsClass4.rpy:178
     old "Подсказать числа 2,3,4,5,6,7"
-    new ""
+    new "Suggest numbers 2,3,4,5,6,7"
 
     # game/events/rEventsClass4.rpy:178
     old "Подсказать числа 2,2,4,6,10,14"
-    new ""
+    new "Suggest numbers 2,2,4,6,10,14"
 
     # game/events/rEventsClass4.rpy:178
     old "Подсказать числа 2,3,5,8,13,21[temp]"
-    new ""
+    new "Suggest numbers 2,3,5,8,13,21 [temp]"
 
     # game/events/rEventsClass4.rpy:178
     old "Не подсказывать ничего"
-    new ""
+    new "Do not suggest anything"
