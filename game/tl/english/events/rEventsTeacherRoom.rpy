@@ -190,7 +190,7 @@ translate english event_loc_teacherRoom_0_new6_bb451f59:
 translate english event_loc_teacherRoom_0_new7_9550437d:
 
     # player.say "[mustangovich.name]????"
-    player.say "[mustangovich.name] ????"
+    player.say "[mustangovich.name]????"
 
 # game/events/rEventsTeacherRoom.rpy:113
 translate english event_loc_teacherRoom_0_new7_5c4e2e57:
@@ -310,7 +310,7 @@ translate english event_loc_teacherRoom_0_ask1_6fe20a53:
 translate english event_loc_teacherRoom_0_ask2_35c55e9e:
 
     # dikovna.say "I am afraid, but.."
-    dikovna.say "I am afraid, but .."
+    dikovna.say "I am afraid, but.."
 
 # game/events/rEventsTeacherRoom.rpy:179
 translate english event_loc_teacherRoom_0_ask2_0222c565:
@@ -760,7 +760,7 @@ translate english event_loc_teacherRoom_25_mid5_4d95b94c:
 translate english event_loc_teacherRoom_25_mid5_607c6fdf:
 
     # player.say "Yeah, fuck, yeah! It was incredible!"
-    player.say "Yeah, fuck, yeah!  It was incredible!"
+    player.say "Yeah, fuck, yeah! It was incredible!"
 
 translate english strings:
 

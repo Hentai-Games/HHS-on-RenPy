@@ -2596,7 +2596,7 @@ translate english danokova_toilet_anal_080fe812:
 translate english danokova_toilet_anal_90233118:
 
     # d.say "[st1.fname]..."
-    d.say "[st1.fname] ..."
+    d.say "[st1.fname]..."
 
 # game/events/qwestDanokova.rpy:797
 translate english danokova_toilet_anal_db2d0873:
@@ -2680,7 +2680,7 @@ translate english danokova_toilet_anal_1f642f53:
 translate english danokova_bdsm_offer_3771712d:
 
     # player.say "[d.name]..."
-    player.say "[d.name] ..."
+    player.say "[d.name]..."
 
 # game/events/qwestDanokova.rpy:823
 translate english danokova_bdsm_offer_dadef36b:
@@ -2698,7 +2698,7 @@ translate english danokova_bdsm_offer_996cf4cf:
 translate english danokova_bdsm_offer_c3b8ce13:
 
     # d.say "[player.name]???"
-    d.say "[player.name] ???"
+    d.say "[player.name]???"
 
 # game/events/qwestDanokova.rpy:826
 translate english danokova_bdsm_offer_0d056afa:
@@ -3580,7 +3580,7 @@ translate english dan_test_bdda0669:
 translate english dan_test_6313bb7a:
 
     # player.say "???"
-    player.say "????"
+    player.say "???"
 
 # game/events/qwestDanokova.rpy:1083
 translate english dan_test_fd3ac765:
@@ -3976,7 +3976,7 @@ translate english dan_test_0520a2db:
 translate english dan_test_037c365d:
 
     # danokova.say "???"
-    danokova.say "????"
+    danokova.say "???"
 
 # game/events/qwestDanokova.rpy:1175
 translate english dan_test_0c07c54d:
@@ -4244,11 +4244,11 @@ translate english strings:
 
     # game/events/qwestDanokova.rpy:432
     old "[d.name]"
-    new ""
+    new "[d.name]"
 
     # game/events/qwestDanokova.rpy:432
     old "[st1.name]"
-    new ""
+    new "[st1.name]"
 
     # game/events/qwestDanokova.rpy:524
     old "Уйти, чтобы он вас не заметил"

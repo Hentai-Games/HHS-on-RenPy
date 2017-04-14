@@ -4,11 +4,11 @@ translate english strings:
 
     # renpy/common/00preferences.rpy:384
     old "Clipboard voicing enabled. Press 'shift+C' to disable."
-    new "Clipboard voicing enabled.  Press 'shift + C' to disable."
+    new "Clipboard voicing enabled. Press 'shift+C' to disable."
 
     # renpy/common/00preferences.rpy:386
     old "Self-voicing enabled. Press 'v' to disable."
-    new "Self-voicing enabled.  Press 'v' to disable."
+    new "Self-voicing enabled. Press 'v' to disable."
 
 # TODO: Translation updated at 2017-04-13 02:56
 
@@ -24,7 +24,7 @@ translate english strings:
 
     # renpy/common/00gltest.rpy:77
     old "Force Angle/DirectX Renderer"
-    new "Force Angle / DirectX Renderer"
+    new "Force Angle/DirectX Renderer"
 
     # renpy/common/00gltest.rpy:81
     old "Force OpenGL Renderer"
@@ -80,15 +80,15 @@ translate english strings:
 
     # renpy/common/00gltest.rpy:161
     old "This computer has a problem displaying graphics: [problem]."
-    new "This computer has a problem."
+    new "This computer has a problem displaying graphics: [problem]."
 
     # renpy/common/00gltest.rpy:166
     old "Its graphics drivers may be out of date or not operating correctly. This can lead to slow or incorrect graphics display. Updating DirectX could fix this problem."
-    new "Its graphics drivers may be out of date or not operating correctly.  This can lead to slow or incorrect graphics display.  Updating DirectX could fix this problem."
+    new "Its graphics drivers may be out of date or not operating correctly. This can lead to slow or incorrect graphics display. Updating DirectX could fix this problem."
 
     # renpy/common/00gltest.rpy:168
     old "Its graphics drivers may be out of date or not operating correctly. This can lead to slow or incorrect graphics display."
-    new "Its graphics drivers may be out of date or not operating correctly.  This can lead to slow or incorrect graphics display."
+    new "Its graphics drivers may be out of date or not operating correctly. This can lead to slow or incorrect graphics display."
 
     # renpy/common/00gltest.rpy:173
     old "Update DirectX"
@@ -100,7 +100,7 @@ translate english strings:
 
     # renpy/common/00gltest.rpy:183
     old "Continue, Don't show warning again"
-    new "Continue, Do not show warning again"
+    new "Continue, Don't show warning again"
 
     # renpy/common/00gltest.rpy:209
     old "Updating DirectX."
@@ -108,11 +108,11 @@ translate english strings:
 
     # renpy/common/00gltest.rpy:213
     old "DirectX web setup has been started. It may start minimized in the taskbar. Please follow the prompts to install DirectX."
-    new "DirectX web setup has been started.  It may start minimized in the taskbar.  Please follow the prompts to install DirectX."
+    new "DirectX web setup has been started. It may start minimized in the taskbar. Please follow the prompts to install DirectX."
 
     # renpy/common/00gltest.rpy:217
     old "{b}Note:{/b} Microsoft's DirectX web setup program will, by default, install the Bing toolbar. If you do not want this toolbar, uncheck the appropriate box."
-    new "{b} Note: {/b} Microsoft's DirectX web setup program will, by default, install the Bing toolbar.  If you do not want this toolbar, uncheck the appropriate box."
+    new "{b}Note:{/b} Microsoft's DirectX web setup program will, by default, install the Bing toolbar. If you do not want this toolbar, uncheck the appropriate box."
 
     # renpy/common/00gltest.rpy:221
     old "When setup finishes, please click below to restart this program."
@@ -156,11 +156,11 @@ translate english strings:
 
     # renpy/common/00updater.rpy:988
     old "The update file does not have the correct digest - it may have been corrupted."
-    new "The update file does not have the correct digest."
+    new "The update file does not have the correct digest - it may have been corrupted."
 
     # renpy/common/00updater.rpy:1044
     old "While unpacking {}, unknown type {}."
-    new "While unpacking {},unknowntype{}."
+    new "While unpacking {}, unknown type {}."
 
     # renpy/common/00updater.rpy:1395
     old "Updater"
@@ -180,7 +180,7 @@ translate english strings:
 
     # renpy/common/00updater.rpy:1406
     old "[u.version] is available. Do you want to install it?"
-    new "[u.version] is available.  Do you want to install it?"
+    new "[u.version] is available. Do you want to install it?"
 
     # renpy/common/00updater.rpy:1408
     old "Preparing to download the updates."
@@ -200,7 +200,7 @@ translate english strings:
 
     # renpy/common/00updater.rpy:1416
     old "The updates have been installed. The program will restart."
-    new "The updates have been installed.  The program will restart."
+    new "The updates have been installed. The program will restart."
 
     # renpy/common/00updater.rpy:1418
     old "The updates have been installed."
@@ -248,7 +248,7 @@ translate english strings:
 
     # renpy/common/00layout.rpy:447
     old "Loading will lose unsaved progress.\nAre you sure you want to do this?"
-    new "Loading will lose unsaved progress. \ NAre you sure you want to do this?"
+    new "Loading will lose unsaved progress.\nAre you sure you want to do this?"
 
     # renpy/common/00layout.rpy:448
     old "Are you sure you want to quit?"
@@ -256,7 +256,7 @@ translate english strings:
 
     # renpy/common/00layout.rpy:449
     old "Are you sure you want to return to the main menu?\nThis will lose unsaved progress."
-    new "Are you sure you want to return to the main menu? \ NThis will lose unsaved progress."
+    new "Are you sure you want to return to the main menu?\nThis will lose unsaved progress."
 
     # renpy/common/00layout.rpy:450
     old "Are you sure you want to begin skipping?"
@@ -268,7 +268,7 @@ translate english strings:
 
     # renpy/common/00layout.rpy:452
     old "Are you sure you want to skip to unseen dialogue or the next choice?"
-    new "Are you sure you want to skip to unseen?"
+    new "Are you sure you want to skip to unseen dialogue or the next choice?"
 
 # TODO: Translation updated at 2017-04-13 02:56
 
@@ -284,7 +284,7 @@ translate english strings:
 
     # renpy/common/00gamepad.rpy:54
     old "Calibrating [name] ([i]/[total])"
-    new "Calibrating [name] ([i] / [total])"
+    new "Calibrating [name] ([i]/[total])"
 
     # renpy/common/00gamepad.rpy:58
     old "Press or move the [control!r] [kind]."
@@ -312,7 +312,7 @@ translate english strings:
 
     # renpy/common/_errorhandling.rpym:528
     old "Attempts a roll back to a prior time, allowing you to save or choose a different choice."
-    new "Attempts a roll back to a prior time, allowing you to choose a different choice."
+    new "Attempts a roll back to a prior time, allowing you to save or choose a different choice."
 
     # renpy/common/_errorhandling.rpym:531
     old "Ignore"
@@ -320,7 +320,7 @@ translate english strings:
 
     # renpy/common/_errorhandling.rpym:533
     old "Ignores the exception, allowing you to continue. This often leads to additional errors."
-    new "Ignores the exception, allowing you to continue.  This often leads to additional errors."
+    new "Ignores the exception, allowing you to continue. This often leads to additional errors."
 
     # renpy/common/_errorhandling.rpym:536
     old "Reload"
@@ -396,19 +396,19 @@ translate english strings:
 
     # renpy/common/_developer/inspector.rpym:155
     old "displayable:"
-    new "Displayable:"
+    new "displayable:"
 
     # renpy/common/_developer/inspector.rpym:162
     old "        (no properties affect the displayable)"
-    new "(No properties affect the displayable)"
+    new "        (no properties affect the displayable)"
 
     # renpy/common/_developer/inspector.rpym:164
     old "        (default properties omitted)"
-    new "(Default properties omitted)"
+    new "        (default properties omitted)"
 
     # renpy/common/_developer/inspector.rpym:206
     old "<repr() failed>"
-    new "<Repr () failed>"
+    new "<repr() failed>"
 
 # TODO: Translation updated at 2017-04-13 02:56
 
@@ -420,11 +420,11 @@ translate english strings:
 
     # renpy/common/_developer/developer.rpym:67
     old "Reload Game (Shift+R)"
-    new "Reload Game (Shift + R)"
+    new "Reload Game (Shift+R)"
 
     # renpy/common/_developer/developer.rpym:69
     old "Console (Shift+O)"
-    new "Console (Shift + O)"
+    new "Console (Shift+O)"
 
     # renpy/common/_developer/developer.rpym:71
     old "Variable Viewer"
@@ -460,11 +460,11 @@ translate english strings:
 
     # renpy/common/_developer/developer.rpym:386
     old "Rectangle: %r"
-    new "Rectangle:% r"
+    new "Rectangle: %r"
 
     # renpy/common/_developer/developer.rpym:391
     old "Mouse position: %r"
-    new "Mouse position:% r"
+    new "Mouse position: %r"
 
     # renpy/common/_developer/developer.rpym:396
     old "Right-click or escape to quit."
@@ -508,7 +508,7 @@ translate english strings:
 
     # renpy/common/00action_file.rpy:155
     old "%b %d, %H:%M"
-    new "% B% d,% H:% M"
+    new "%b %d, %H:%M"
 
     # renpy/common/00action_file.rpy:643
     old "Quick save complete."
@@ -524,19 +524,19 @@ translate english strings:
 
     # renpy/common/00gallery.rpy:581
     old "prev"
-    new "Prev"
+    new "prev"
 
     # renpy/common/00gallery.rpy:582
     old "next"
-    new "Next"
+    new "next"
 
     # renpy/common/00gallery.rpy:583
     old "slideshow"
-    new "Slideshow"
+    new "slideshow"
 
     # renpy/common/00gallery.rpy:584
     old "return"
-    new "Return"
+    new "return"
 
 # TODO: Translation updated at 2017-04-13 02:56
 
@@ -544,11 +544,11 @@ translate english strings:
 
     # renpy/common/_layout/classic_load_save.rpym:170
     old "a"
-    new "A"
+    new "a"
 
     # renpy/common/_layout/classic_load_save.rpym:179
     old "q"
-    new "Q"
+    new "q"
 
 # TODO: Translation updated at 2017-04-13 02:56
 
@@ -556,11 +556,11 @@ translate english strings:
 
     # renpy/common/00console.rpy:180
     old "%(version)s console, originally by Shiz, C, and delta.\n"
-    new "% (Version) s console, originally by Shiz, C, and delta. \ N"
+    new "%(version)s console, originally by Shiz, C, and delta.\n"
 
     # renpy/common/00console.rpy:181
     old "Press <esc> to exit console. Type help for help.\n"
-    new "Press <esc> to exit console.  Type help for help. \ N"
+    new "Press <esc> to exit console. Type help for help.\n"
 
     # renpy/common/00console.rpy:185
     old "Ren'Py script enabled."
@@ -572,55 +572,55 @@ translate english strings:
 
     # renpy/common/00console.rpy:393
     old "help: show this help"
-    new "Help: show this help"
+    new "help: show this help"
 
     # renpy/common/00console.rpy:398
     old "commands:\n"
-    new "Commands: \n"
+    new "commands:\n"
 
     # renpy/common/00console.rpy:408
     old " <renpy script statement>: run the statement\n"
-    new "<Renpy script statement>: run the statement \n"
+    new " <renpy script statement>: run the statement\n"
 
     # renpy/common/00console.rpy:410
     old " <python expression or statement>: run the expression or statement"
-    new "<Python expression or statement>: run the expression and statement"
+    new " <python expression or statement>: run the expression or statement"
 
     # renpy/common/00console.rpy:418
     old "clear: clear the console history"
-    new "Clear: clear the console history"
+    new "clear: clear the console history"
 
     # renpy/common/00console.rpy:422
     old "exit: exit the console"
-    new "Exit: exit the console"
+    new "exit: exit the console"
 
     # renpy/common/00console.rpy:430
     old "load <slot>: loads the game from slot"
-    new "Load <slot>: loads the game from slot"
+    new "load <slot>: loads the game from slot"
 
     # renpy/common/00console.rpy:443
     old "save <slot>: saves the game in slot"
-    new "Save <slot>: saves the game in slot"
+    new "save <slot>: saves the game in slot"
 
     # renpy/common/00console.rpy:454
     old "reload: reloads the game, refreshing the scripts"
-    new "Reload: reloads the game, refreshing the scripts"
+    new "reload: reloads the game, refreshing the scripts"
 
     # renpy/common/00console.rpy:462
     old "watch <expression>: watch a python expression"
-    new "Watch <expression>: watch a python expression"
+    new "watch <expression>: watch a python expression"
 
     # renpy/common/00console.rpy:488
     old "unwatch <expression>: stop watching an expression"
-    new "Unwatch <expression>: stop watching an expression"
+    new "unwatch <expression>: stop watching an expression"
 
     # renpy/common/00console.rpy:514
     old "unwatchall: stop watching all expressions"
-    new "Unwatchall: stop watching all expressions"
+    new "unwatchall: stop watching all expressions"
 
     # renpy/common/00console.rpy:531
     old "jump <label>: jumps to label"
-    new "Jump <label>: jumps to label"
+    new "jump <label>: jumps to label"
 
 # TODO: Translation updated at 2017-04-13 02:56
 
@@ -628,7 +628,7 @@ translate english strings:
 
     # renpy/common/00keymap.rpy:241
     old "Saved screenshot as %s."
-    new "Saved screenshot as% s."
+    new "Saved screenshot as %s."
 
 # TODO: Translation updated at 2017-04-13 02:56
 
