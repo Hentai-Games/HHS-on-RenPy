@@ -39,10 +39,10 @@ class TranslationCache:
                 t2 = TranslationCache.cache[t]
             except:
                 if sys.platform.startswith('linux'):
-                    t2 = urllib.unquote(subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=True))
+                    t2 = urllib.unquote_plus(subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=True))
                     print "translate:", t, "=>", t2
                 else:
-                    t2 = urllib.unquote(subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=False))
+                    t2 = urllib.unquote_plus(subprocess.check_output("translator/RenpyTranslate/bin/Debug/RenpyTranslate.exe \"" +urllib.quote(t.replace("\n", " ").replace("\"", "'").encode('utf8')) + "\"", shell=False))
                 TranslationCache.cache[t] = t2
                 self.save_cache()
         return t2
