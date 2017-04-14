@@ -82,7 +82,7 @@ translate english event_loc_library_0_no2_b8204ed1:
 translate english event_loc_library_0_no2_4b6690ad:
 
     # "Не сдержавшись, вы решаете пролистать этот известный труд, и с удивлением видите, что он проиллюстрирован вполне известными вам людьми. Это [st2.name] и его мама. Подпись к картинке гласит: \"И как мать обнимает своего сына, так и вы прижмите своего любовника к своему телу и слейтесь с ним в экстазе. Nбург, [str(year)] год.\""
-    "If you do not hold back, you decide to flip through this famous work, and you are surprised to see that it is illustrated by people quite familiar to you.  It's [st2.name] and his mom.  The caption to the picture reads: \"And as the mother hugs her son, so you put your lover to your body and merge with it in ecstasy.\" Nburg, [str (year)] year. \""
+    "If you do not hold back, you decide to flip through this famous work, and you are surprised to see that it is illustrated by people quite familiar to you.  It's [st2.name] and his mom.  The caption to the picture reads: \"And as the mother hugs her son, so you put your lover to your body and merge with it in ecstasy.\" Nburg, [str(year)] year. \""
 
 # game/events/rEventsLibrary.rpy:49
 translate english event_loc_library_0_no2_e8892046:

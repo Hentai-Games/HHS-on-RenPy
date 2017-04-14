@@ -142,7 +142,7 @@ translate english event_loc_class1_0_10_72d24db3:
 translate english event_loc_class1_60_1_74ed082e:
 
     # "Проходя мимо класса, вы заметили что [st3.fname] беспокойно ерзает на стуле, присмотревшись, вы заметили что он крайне возбужден, вы было хотели подойти и отпустить его домой, чтобы он там снял напряжение, но вас опередили две девушки, [st1.fname] и [st2.fname]."
-    "Passing by the class, you noticed that [st3.fname] is restlessly fidgeting in the chair, having looked closely, you noticed that he is extremely nervous, you wanted to come up and let him go home, so that he would take the stress away, but you were beaten by two girls [st1.  Fname] and [st2.fname]."
+    "Passing by the class, you noticed that [st3.fname] is restlessly fidgeting in the chair, having looked closely, you noticed that he is extremely nervous, you wanted to come up and let him go home, so that he would take the stress away, but you were beaten by two girls [st1.fname] and [st2.fname]."
 
 # game/events/rEventsClass1.rpy:139
 translate english event_loc_class1_60_1_d562631a:
