@@ -16,7 +16,7 @@ translate english event_loc_shop_0_no1_abc28123:
 translate english event_loc_shop_0_no2_5faf0f2a:
 
     # "[st1.fname] и [st2.fname] в отделе игрушек, судя по всему, выбирают подарок для младшего братишки."
-    "[st1.fname] and [st2.fname] in the toy department, apparently, choose a gift for the younger brother."
+    "[St1.fname] and [st2.fname] in the toy department, apparently, choose a gift for the younger brother."
 
 # game/events/rEventsShop.rpy:31
 translate english event_loc_shop_0_no2_a4e06bac:
@@ -40,13 +40,13 @@ translate english event_loc_shop_0_no3_a5e2c707:
 translate english event_loc_shop_0_no4_c1a916c8:
 
     # "[st1.fname] пошёл за покупками с братом! Какой же он молодец!"
-    "[st1.fname] went shopping with my brother!  What a fine fellow he is!"
+    "[St1.fname] went shopping with my brother!  What a fine fellow he is!"
 
 # game/events/rEventsShop.rpy:63
 translate english event_loc_shop_0_no5_5601b190:
 
     # "[st1.fname] выбирает печенье. Вы не уверены в том, что видите рядом с ней. Нет, не в кошке, а в том, что рядом. По моему вы просто не выспались."
-    "[st1.fname] selects the cookie.  You are not sure what you see next to her.  No, not in a cat, but in that nearby.  In my you just did not get enough sleep."
+    "[St1.fname] selects the cookie.  You are not sure what you see next to her.  No, not in a cat, but in that nearby.  In my you just did not get enough sleep."
 
 # game/events/rEventsShop.rpy:73
 translate english event_loc_shop_0_no6_32243dac:
@@ -64,7 +64,7 @@ translate english event_loc_shop_0_no6_5beb3813:
 translate english event_loc_shop_0_no6_80533bc4:
 
     # player.say "[st1.fname], давай попробую я, - с этими словами Вы, легко достаете мангу и протягиваете ее ученице."
-    player.say "[st1.fname], let me try, - with these words you, easily get the manga and stretch it to the student."
+    player.say "[St1.fname], let me try, - with these words you, easily get the manga and stretch it to the student."
 
 # game/events/rEventsShop.rpy:81
 translate english event_loc_shop_0_no6_595f4362:
@@ -76,13 +76,13 @@ translate english event_loc_shop_0_no6_595f4362:
 translate english event_loc_shop_0_no6_bc3a3f94:
 
     # "Вы делаете вид, как будто ничего не заметили. [st1.fname], попрыгав у полки, так и не достав книжку, с недовольным видом ушла вглубь магазина."
-    "You pretend as if you did not notice anything.  [st1.fname], jumping off the shelf, and not getting a book, with a displeased look went deep into the store."
+    "You pretend as if you did not notice anything.  [St1.fname], jumping off the shelf, and not getting a book, with a displeased look went deep into the store."
 
 # game/events/rEventsShop.rpy:99
 translate english event_loc_shop_0_no7_ddd0f3b9:
 
     # "[st1.fname] и [st2.fname] вместе покупают продукты. У девочки почему то повязка на глазу, интересно, это не [st2.fname] ей вдарил? Надо как нибудь поговорить с ним о поведении."
-    "[st1.fname] and [st2.fname] buy products together.  At the girl why that a bandage on an eye, interestingly, it not [st2.fname] to her has vdaril?  We must somehow talk to him about the behavior."
+    "[St1.fname] and [st2.fname] buy products together.  At the girl why that a bandage on an eye, interestingly, it not [st2.fname] to her has vdaril?  We must somehow talk to him about the behavior."
 
 # game/events/rEventsShop.rpy:101
 translate english event_loc_shop_0_no7_cde7d003:
@@ -94,7 +94,7 @@ translate english event_loc_shop_0_no7_cde7d003:
 translate english event_loc_shop_0_no8_86241920:
 
     # "[st1.fname] закупается выпечкой. Какая милая девочка!"
-    "[st1.fname] is purchased by baking.  What a sweet girl!"
+    "[St1.fname] is purchased by baking.  What a sweet girl!"
 
 # game/events/rEventsShop.rpy:114
 translate english event_loc_shop_0_no8_428d9724:
@@ -106,19 +106,19 @@ translate english event_loc_shop_0_no8_428d9724:
 translate english event_loc_shop_0_no9_867ce794:
 
     # "Интересная картина. [st1.fname] занимается уничтожением продуктов, а [st2.fname] занимается их оплатой. Мини конвеер просто, на зависть Генри Форду!"
-    "An interesting picture.  [st1.fname] deals with the destruction of products, and [st2.fname] deals with their payment.  Mini conveyor simply, to the envy of Henry Ford!"
+    "An interesting picture.  [St1.fname] deals with the destruction of products, and [st2.fname] deals with their payment.  Mini conveyor simply, to the envy of Henry Ford!"
 
 # game/events/rEventsShop.rpy:137
 translate english event_loc_shop_0_no10_100663d3:
 
     # "[st1.fname] выбирает книги для покупки в книжном отделе. Вы подошли к ней, и поболтали немного о любимых рассказах."
-    "[st1.fname] selects books for purchase in the book department.  You approached her, and chatted a bit about your favorite stories."
+    "[St1.fname] selects books for purchase in the book department.  You approached her, and chatted a bit about your favorite stories."
 
 # game/events/rEventsShop.rpy:139
 translate english event_loc_shop_0_no10_70585954:
 
     # player.say "[st1.fname], обрати внимание - Камасутра, 10 дней Содома, 50 оттенков серого - это замечательные книги для прочтения!"
-    player.say "[st1.fname], pay attention - Kama Sutra, 10 days of Sodom, 50 shades of gray - these are wonderful books for reading!"
+    player.say "[St1.fname], pay attention - Kama Sutra, 10 days of Sodom, 50 shades of gray - these are wonderful books for reading!"
 
 # game/events/rEventsShop.rpy:155
 translate english event_loc_shop_0_no11_00bb2bdc:
@@ -166,7 +166,7 @@ translate english event_loc_shop_0_no13_9fd246f1:
 translate english event_loc_shop_0_no13_e48a5336:
 
     # "Вы незаметно подошли к ученице и тихим шепотом пояснили что так делать нельзя. [st1.fname] проглотила последний кусочек сосиски и кивнула Вам."
-    "You imperceptibly approached the student and in a low whisper explained that you can not do this.  [st1.fname] swallowed the last piece of sausage and nodded to you."
+    "You imperceptibly approached the student and in a low whisper explained that you can not do this.  [St1.fname] swallowed the last piece of sausage and nodded to you."
 
 # game/events/rEventsShop.rpy:195
 translate english event_loc_shop_0_no13_a4b654ef:

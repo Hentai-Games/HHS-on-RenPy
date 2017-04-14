@@ -82,7 +82,7 @@ translate english event_loc_wcf_10_no10_d8121b53:
 translate english event_loc_wcf_10_no10_791c2cbf:
 
     # "Вы делаете вид, как будто ничего не произошло, и вы ничего не заметили. [st1.fname] с благодарностью смотрит на вас."
-    "You pretend as if nothing happened, and you did not notice anything.  [st1.fname] gratefully looks at you."
+    "You pretend as if nothing happened, and you did not notice anything.  [St1.fname] gratefully looks at you."
 
 # game/events/rEventsWCF.rpy:62
 translate english event_loc_wcf_0_no2_a5d99abe:
@@ -106,7 +106,7 @@ translate english event_loc_wcf_0_no2_882e6856:
 translate english event_loc_wcf_0_no2_791c2cbf:
 
     # "Вы делаете вид, как будто ничего не произошло, и вы ничего не заметили. [st1.fname] с благодарностью смотрит на вас."
-    "You pretend as if nothing happened, and you did not notice anything.  [st1.fname] gratefully looks at you."
+    "You pretend as if nothing happened, and you did not notice anything.  [St1.fname] gratefully looks at you."
 
 # game/events/rEventsWCF.rpy:81
 translate english event_loc_wcf_15_low1_a2afa9db:
@@ -130,7 +130,7 @@ translate english event_loc_wcf_15_low1_0675a9d9:
 translate english event_loc_wcf_15_low1_e93412a9:
 
     # "[st1.fname] стоит рачком, оперевшись на унитаз, и быстро водит пальчиками вдоль своего клитора. Смазка стекает из её киски, и по глазам видно, что девушка скоро кончит."
-    "[st1.fname] stands crustacean, leaning on the toilet, and quickly drives his fingers along his clitoris.  Lubricant flows from her pussy, and the eyes can see that the girl will soon finish."
+    "[St1.fname] stands crustacean, leaning on the toilet, and quickly drives his fingers along his clitoris.  Lubricant flows from her pussy, and the eyes can see that the girl will soon finish."
 
 # game/events/rEventsWCF.rpy:93
 translate english event_loc_wcf_15_low1_019e2510:
@@ -214,7 +214,7 @@ translate english event_loc_wcf_10_low3_a2afa9db:
 translate english event_loc_wcf_10_low3_a53c3cad:
 
     # "Вы незаметно заглянули в неё через щёлку. [st1.fname] писала стоя, зажав галстучек в зубах. Вроде бы ничего особо странного, но постоянно прерывающаяся струя, тихие постанывания и характерные влажные подтёки на влагалище намекали вам на то, что девушка буквально на ваших глазах кончила."
-    "You have imperceptibly glanced into it through the latch.  [st1.fname] wrote standing, clutching a tie in her teeth.  It seems to be nothing particularly strange, but constantly interrupted stream, quiet moaning and characteristic moist pods on the vagina hinted to you that the girl literally before your very eyes finished."
+    "You have imperceptibly glanced into it through the latch.  [St1.fname] wrote standing, clutching a tie in her teeth.  It seems to be nothing particularly strange, but constantly interrupted stream, quiet moaning and characteristic moist pods on the vagina hinted to you that the girl literally before your very eyes finished."
 
 # game/events/rEventsWCF.rpy:140
 translate english event_loc_wcf_10_low3_e95f401f:
@@ -238,7 +238,7 @@ translate english event_loc_wcf_40_mid1_a2afa9db:
 translate english event_loc_wcf_40_mid1_6610ad97:
 
     # st2.say "[st1.fname], ну что ты делаешь, [st1.fname], хи-хи-хи."
-    st2.say "[st1.fname], what are you doing, [st1.fname], hee-hee-hee."
+    st2.say "[St1.fname], what are you doing, [St1.fname], hee-hee-hee."
 
 # game/events/rEventsWCF.rpy:156
 translate english event_loc_wcf_40_mid1_46f6d5fa:
@@ -250,7 +250,7 @@ translate english event_loc_wcf_40_mid1_46f6d5fa:
 translate english event_loc_wcf_40_mid1_3391a768:
 
     # st2.say "[st1.fname], аааах, какой у тебя большой! Скорее! Наполни мою киску своей спермой!"
-    st2.say "[st1.fname], aah, what a big one you have!  Quickly!  Fill my pussy with your sperm!"
+    st2.say "[St1.fname], aah, what a big one you have!  Quickly!  Fill my pussy with your sperm!"
 
 # game/events/rEventsWCF.rpy:158
 translate english event_loc_wcf_40_mid1_cf5276d8:

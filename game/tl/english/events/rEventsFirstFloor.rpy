@@ -148,7 +148,7 @@ translate english event_loc_firstFloor_0_no5_66abeeb8:
 translate english event_loc_firstFloor_0_no6_1d7b2f3a:
 
     # "[st1.fname] и [st2.fname] возвращаются с занятий смеясь о чём то. Вам радостно наблюдать эту молодую весёлость. Совсем недавно вы были такой же."
-    "[st1.fname] and [st2.fname] return from the classroom laughing about something.  You are happy to watch this young cheerfulness.  Most recently, you were the same."
+    "[St1.fname] and [st2.fname] return from the classroom laughing about something.  You are happy to watch this young cheerfulness.  Most recently, you were the same."
 
 # game/events/rEventsFirstFloor.rpy:114
 translate english event_loc_firstFloor_0_no6_ec048bbe:
@@ -226,7 +226,7 @@ translate english event_loc_firstFloor_0_no7_2f716130:
 translate english event_loc_firstFloor_0_no8_1c70e0fa:
 
     # "[st1.fname] и [st2.fname] несут принадлежности для черчения. Всё бы хорошо, но только такой предмет в вашей школе пока не преподают."
-    "[st1.fname] and [st2.fname] carry the drawing supplies.  All would be well, but only such a subject in your school is not yet taught."
+    "[St1.fname] and [st2.fname] carry the drawing supplies.  All would be well, but only such a subject in your school is not yet taught."
 
 # game/events/rEventsFirstFloor.rpy:145
 translate english event_loc_firstFloor_0_no8_b90e069e:
@@ -256,7 +256,7 @@ translate english event_loc_firstFloor_0_no10_605fa6f9:
 translate english event_loc_firstFloor_0_no11_8edd7a7f:
 
     # "[st1.fname] взбегает на второй этаж, явно куда-то опаздывая. Её развевающаяся юбочка и стройные ножки радуют ваши глаза."
-    "[st1.fname] runs up to the second floor, obviously somewhere late.  Her fluttering skirt and slender legs pleases your eyes."
+    "[St1.fname] runs up to the second floor, obviously somewhere late.  Her fluttering skirt and slender legs pleases your eyes."
 
 # game/events/rEventsFirstFloor.rpy:187
 translate english event_loc_firstFloor_0_no12_450a85eb:
@@ -268,7 +268,7 @@ translate english event_loc_firstFloor_0_no12_450a85eb:
 translate english event_loc_firstFloor_20_lo1_025ba400:
 
     # "Поднимаясь по лестнице, вы заметили, что ваш недавний указ о свободной форме одежды трактуется довольно вольно. [st1.fname] и пара других девушек решили попросту не надевать сегодня трусиков в школу и всё!"
-    "Climbing the stairs, you noticed that your recent decree on the free form of clothing is treated fairly freely.  [st1.fname] and a couple of other girls decided simply not to wear panties in school today and that's it!"
+    "Climbing the stairs, you noticed that your recent decree on the free form of clothing is treated fairly freely.  [St1.fname] and a couple of other girls decided simply not to wear panties in school today and that's it!"
 
 # game/events/rEventsFirstFloor.rpy:205
 translate english event_loc_firstFloor_20_lo1_033cd022:
@@ -334,7 +334,7 @@ translate english event_loc_firstFloor_25_lo5_203e57ae:
 translate english event_loc_firstFloor_25_lo5_1dcef567:
 
     # "[st1.fname] похоже немного зачиталась любовным романом, и, пользуясь тем, что все покинули класс, решила поиграть сама с собой. Её напряжённые соски, капельки пота, и призывно открытый вход в маленькую пещерку намекал на то, что мастурбирует она в классе не в первый раз."
-    "[st1.fname] seems to have read a little romance, and, taking advantage of the fact that everyone left the classroom, she decided to play with herself.  Her strained nipples, droplets of sweat, and invitingly open entrance to a small cave hinted that she masturbates in the classroom is not the first time."
+    "[St1.fname] seems to have read a little romance, and, taking advantage of the fact that everyone left the classroom, she decided to play with herself.  Her strained nipples, droplets of sweat, and invitingly open entrance to a small cave hinted that she masturbates in the classroom is not the first time."
 
 # game/events/rEventsFirstFloor.rpy:272
 translate english event_loc_firstFloor_25_lo5_b66eae5e:
@@ -352,7 +352,7 @@ translate english event_loc_firstFloor_25_lo5_55511124:
 translate english event_loc_firstFloor_30_lo6_fbc9d233:
 
     # "Войдя в коридор первого этажа, вы поражённо застыли. [st1.fname] и [st2.fname] хвастались парню тем, что вчера побрили свои киски! И этот показ похоже неплохо возбудил их! [st3.fname] задумчиво разглядывал открывшиеся перед ним прелести, как будто выбирая."
-    "Entering the corridor of the first floor, you are struck frozen.  [st1.fname] and [st2.fname] boasted about the fact that yesterday they shaved their pussies!  And this show seems to have excited them well!  [st3.fname] thoughtfully looked at the charms that opened before him, as if choosing."
+    "Entering the corridor of the first floor, you are struck frozen.  [St1.fname] and [st2.fname] boasted about the fact that yesterday they shaved their pussies!  And this show seems to have excited them well!  [St3.fname] thoughtfully looked at the charms that opened before him, as if choosing."
 
 # game/events/rEventsFirstFloor.rpy:290
 translate english event_loc_firstFloor_30_lo6_2e461c43:
@@ -412,7 +412,7 @@ translate english event_loc_firstFloor_20_lo7_460cc0b6:
 translate english event_loc_firstFloor_30_lo8_756ba708:
 
     # "[st1.fname] хвастается подружкам, что сегодня не одела трусики под юбочку. Подружки восхищённо ахают. Вы тоже ахаете, но не от восхищения, а от шока, что такую красивую киску не скрывают красивые трусики."
-    "[st1.fname] brags to her friends that today she did not wear panties under her skirt.  Girl-friends exclaim in delight.  You, too, gasp, but not from admiration, but from the shock that such a beautiful pussy does not hide beautiful panties."
+    "[St1.fname] brags to her friends that today she did not wear panties under her skirt.  Girl-friends exclaim in delight.  You, too, gasp, but not from admiration, but from the shock that such a beautiful pussy does not hide beautiful panties."
 
 # game/events/rEventsFirstFloor.rpy:339
 translate english event_loc_firstFloor_30_lo8_2fb8d03e:
@@ -424,7 +424,7 @@ translate english event_loc_firstFloor_30_lo8_2fb8d03e:
 translate english event_loc_firstFloor_30_lo9_1cd308ca:
 
     # "[st1.fname] похоже забыла натянуть нижнее бельё. Вы не видите другого объяснения тому, что она сидит с голой попой, и трусиками болтающимся на ноге. Не писать же она в коридоре собралась?"
-    "[st1.fname] seems to have forgotten to pull on the underwear.  You do not see another explanation to the fact that she is sitting with a bare booty, and panties dangling on her leg.  Did not she write in the corridor?"
+    "[St1.fname] seems to have forgotten to pull on the underwear.  You do not see another explanation to the fact that she is sitting with a bare booty, and panties dangling on her leg.  Did not she write in the corridor?"
 
 # game/events/rEventsFirstFloor.rpy:357
 translate english event_loc_firstFloor_30_lo9_ffb3d2ad:
@@ -466,7 +466,7 @@ translate english event_loc_firstFloor_0_lo11_2feff967:
 translate english event_loc_firstFloor_50_mid1_f6816820:
 
     # "[st1.fname] и [st2.fname] хвастаются перед подругами своими новыми гаджетами! Вам немного не по себе от того места, куда они их засунули..."
-    "[st1.fname] and [st2.fname] brag about their new gadgets!  You are a little uncomfortable from where they put them ..."
+    "[St1.fname] and [st2.fname] brag about their new gadgets!  You are a little uncomfortable from where they put them ..."
 
 # game/events/rEventsFirstFloor.rpy:408
 translate english event_loc_firstFloor_50_mid1_329be734:
@@ -496,7 +496,7 @@ translate english event_loc_firstFloor_40_mid3_4a71cd17:
 translate english event_loc_firstFloor_40_mid3_143486be:
 
     # "[st1.fname] возмущённо оборачивается, когда подошедший сзади парень, вдруг достал свой член и окропил её своим семенем."
-    "[st1.fname] indignantly turns around when a guy coming up from behind, suddenly took out his penis and sprinkled it with his seed."
+    "[St1.fname] indignantly turns around when a guy coming up from behind, suddenly took out his penis and sprinkled it with his seed."
 
 # game/events/rEventsFirstFloor.rpy:439
 translate english event_loc_firstFloor_40_mid3_fbd8fc90:
@@ -520,7 +520,7 @@ translate english event_loc_firstFloor_40_mid3_f66d8cfd:
 translate english event_loc_firstFloor_40_mid3_f60231b1:
 
     # player.say "Стоять! Не заниматься рукоприкладством. [st1.name], не удивляйся вниманию, если надеешься его привлечь! Спрячь задницу и никто к тебе не подойдёт!"
-    player.say "Stand!  Do not engage in assault.  [st1.name], do not be surprised if you hope to attract it!  Hide your ass and no one will come to you!"
+    player.say "Stand!  Do not engage in assault.  [St1.name], do not be surprised if you hope to attract it!  Hide your ass and no one will come to you!"
 
 # game/events/rEventsFirstFloor.rpy:448
 translate english event_loc_firstFloor_40_mid3_9b419686:
@@ -544,7 +544,7 @@ translate english event_loc_firstFloor_45_mid4_54b00db3:
 translate english event_loc_firstFloor_45_mid4_7f4cdb44:
 
     # player.say "[st1.fname], будь так добра, найди более укромное местечко, тут всё таки люди ходят."
-    player.say "[st1.fname], be so kind, find a more secluded place, then all the same people go."
+    player.say "[St1.fname], be so kind, find a more secluded place, then all the same people go."
 
 # game/events/rEventsFirstFloor.rpy:470
 translate english event_loc_firstFloor_45_mid4_aa6bf69f:
@@ -562,7 +562,7 @@ translate english event_loc_firstFloor_45_mid4_2f05f68d:
 translate english event_loc_firstFloor_80_hi1_3b37fa18:
 
     # "[st1.fname] радостно принимала в себя сразу 3 члена, прямо на полу в коридоре. Похоже делала она это уже некоторое время, потому что [st2.fname] яростными рывками в её влагалище выталкивал оттуда сперму своего предшественника."
-    "[st1.fname] joyfully took in immediately 3 members, right on the floor in the corridor.  It seems that she did this for a while, because [st2.fname] with furious jerks in her vagina pushed out the semen of her predecessor from there."
+    "[St1.fname] joyfully took in immediately 3 members, right on the floor in the corridor.  It seems that she did this for a while, because [st2.fname] with furious jerks in her vagina pushed out the semen of her predecessor from there."
 
 # game/events/rEventsFirstFloor.rpy:489
 translate english event_loc_firstFloor_80_hi1_bce70f4b:

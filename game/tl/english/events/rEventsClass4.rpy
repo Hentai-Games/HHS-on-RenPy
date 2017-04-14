@@ -16,7 +16,7 @@ translate english event_loc_class4_0_no10_08cd2065:
 translate english event_loc_class4_0_no2_73c3667c:
 
     # "Похоже, назревает конфликт. [st1.fname] поставила ноги на стол однокласснице и снисходительно смотрит на неё, сидя на соседней парте. Если так пойдёт дальше, [st2.fname] тоже в долгу не останется."
-    "It seems the conflict is brewing.  [st1.fname] put her feet on the table with a classmate and looks condescendingly at her, sitting on the next desk.  If this goes on, [st2.fname] will also not be in debt."
+    "It seems the conflict is brewing.  [St1.fname] put her feet on the table with a classmate and looks condescendingly at her, sitting on the next desk.  If this goes on, [st2.fname] will also not be in debt."
 
 # game/events/rEventsClass4.rpy:40
 translate english event_loc_class4_0_no2_01c14ef5:
@@ -28,7 +28,7 @@ translate english event_loc_class4_0_no2_01c14ef5:
 translate english event_loc_class4_0_no3_8aeaaf6e:
 
     # "[st1.name] проветривает ножки на перемене. Вы и сами не понимаете, почему обратили на это внимание."
-    "[st1.name] winds the legs on the change.  You yourself do not understand why they paid attention to this."
+    "[St1.name] winds the legs on the change.  You yourself do not understand why they paid attention to this."
 
 # game/events/rEventsClass4.rpy:62
 translate english event_loc_class4_0_no3_10222923:
@@ -40,7 +40,7 @@ translate english event_loc_class4_0_no3_10222923:
 translate english event_loc_class4_0_no5_d91197d7:
 
     # "[st1.fname], [st2.fname], [st3.fname] и [st4.fname] решили устроить соревнование по новой игре для дандендо - \"Шмота 2\". Ну чтоже, время не учебное, пусть отдыхают."
-    "[st1.fname], [st2.fname], [st3.fname] and [st4.fname] decided to arrange a competition for a new game for the dandendo - \"Shmota 2\".  Well, well, time is not academic, let them rest."
+    "[St1.fname], [st2.fname], [st3.fname] and [st4.fname] decided to arrange a competition for a new game for the dandendo - \"Shmota 2\".  Well, well, time is not academic, let them rest."
 
 # game/events/rEventsClass4.rpy:78
 translate english event_loc_class4_0_no5_843bbcc0:
@@ -58,7 +58,7 @@ translate english event_loc_class4_0_no5_1dd6eb3d:
 translate english event_loc_class4_0_no6_8de177b0:
 
     # "[st1.fname] и [st2.fname] решили обсудить достижения Перельмана в математике."
-    "[st1.fname] and [st2.fname] decided to discuss Perelman's achievements in mathematics."
+    "[St1.fname] and [st2.fname] decided to discuss Perelman's achievements in mathematics."
 
 # game/events/rEventsClass4.rpy:99
 translate english event_loc_class4_0_no6_df2063e0:
@@ -82,7 +82,7 @@ translate english event_loc_class4_0_no6_7e1dc2ce:
 translate english event_loc_class4_0_no7_18fd3310:
 
     # "[st1.fname] уселась на парты и с интересом наблюдает за вами."
-    "[st1.fname] sat on the desks and watched with interest."
+    "[St1.fname] sat on the desks and watched with interest."
 
 # game/events/rEventsClass4.rpy:114
 translate english event_loc_class4_0_no7_9c39b196:
@@ -106,13 +106,13 @@ translate english event_loc_class4_0_no7_0d8e6641:
 translate english event_loc_class4_0_no8_cbb62b7f:
 
     # "[st1.fname] уснула на коленях у своей подруги. Такое чувство, что у меня в школе ученики вообще не занимаются, а только дрыхнут! Стоило конечно разбудить девочку, но человек, способный разбудить спящего, способен вообще на любую подлость!"
-    "[st1.fname] fell asleep on her lap at her friend's.  It's a feeling that at school my students are not engaged at all, but just dry out!  It was necessary to wake the girl of course, but a person capable of waking the sleeper is capable of any meanness at all!"
+    "[St1.fname] fell asleep on her lap at her friend's.  It's a feeling that at school my students are not engaged at all, but just dry out!  It was necessary to wake the girl of course, but a person capable of waking the sleeper is capable of any meanness at all!"
 
 # game/events/rEventsClass4.rpy:146
 translate english event_loc_class4_0_no9_cc410415:
 
     # "[st1.fname] и [st2.fname] высунулись в окно и дышат свежим воздухом."
-    "[st1.fname] and [st2.fname] leaned out the window and breathed fresh air."
+    "[St1.fname] and [st2.fname] leaned out the window and breathed fresh air."
 
 # game/events/rEventsClass4.rpy:147
 translate english event_loc_class4_0_no9_3fa65dbc:
@@ -208,13 +208,13 @@ translate english event_loc_class4Learn_0_2_7884cc3c:
 translate english event_loc_class4Learn_0_2_da2c0649:
 
     # "Помешкав ещё минуту и дойдя до пятого числа, нерадивый ученик сел с тройкой за парту. [bissektrisovna.name] благодарна вам, что вы не вмешивались в учебный процесс."
-    "After a minute's hesitation and reaching the fifth day, the careless student sat down with a troika at the desk.  [bissektrisovna.name] is grateful to you that you did not interfere in the learning process."
+    "After a minute's hesitation and reaching the fifth day, the careless student sat down with a troika at the desk.  [Bissektrisovna.name] is grateful to you that you did not interfere in the learning process."
 
 # game/events/rEventsClass4.rpy:204
 translate english event_loc_class4Learn_5_3_c9d3a944:
 
     # "[st1.name] сидит на уроке и внимательно слушает, что там вещает сегодня преподаватель математики. Вроде бы придраться не к чему. Разве что вас терзают сомнения, не забыла ли она сегодня дома трусики..."
-    "[st1.name] sits at the lesson and listens attentively to what the mathematics teacher is broadcasting today.  It seems to have nothing to complain about.  Is it that you are tormented by doubts whether she did not forget the panties at home ..."
+    "[St1.name] sits at the lesson and listens attentively to what the mathematics teacher is broadcasting today.  It seems to have nothing to complain about.  Is it that you are tormented by doubts whether she did not forget the panties at home ..."
 
 # game/events/rEventsClass4.rpy:209
 translate english event_loc_class4Learn_5_3_68fb3416:
@@ -250,7 +250,7 @@ translate english event_loc_class4Learn_45_4_a798cd7a:
 translate english event_loc_class4Learn_40_5_da5f6a10:
 
     # "[bissektrisovna.name] нашла интересный способ наказания учеников и одновременно выяснения реального уровня их знаний. Прикрепив небольшой вибратор прямо к члену одного из парней, она проводит блиц-опрос. Провалившийся оказывается с мокрыми штанами. Вы думаете, что выиграть вообще невозможно."
-    "[bissektrisovna.name] found an interesting way to punish the students and at the same time ascertain the real level of their knowledge.  Attaching a small vibrator directly to the member of one of the guys, she holds a blitz poll.  The failed person is with wet pants.  You think that it is impossible to win at all."
+    "[Bissektrisovna.name] found an interesting way to punish the students and at the same time ascertain the real level of their knowledge.  Attaching a small vibrator directly to the member of one of the guys, she holds a blitz poll.  The failed person is with wet pants.  You think that it is impossible to win at all."
 
 # game/events/rEventsClass4.rpy:231
 translate english event_loc_class4Learn_40_5_7478f91e:
@@ -334,7 +334,7 @@ translate english event_loc_class4Learn_40_5_6a8bb66c:
 translate english event_loc_class4Learn_40_5_81258faf:
 
     # bissektrisovna.name "[st1.fname], ты дурак?"
-    bissektrisovna.name "[st1.fname], are you a fool?"
+    bissektrisovna.name "[St1.fname], are you a fool?"
 
 # game/events/rEventsClass4.rpy:250
 translate english event_loc_class4Learn_40_5_87588492:

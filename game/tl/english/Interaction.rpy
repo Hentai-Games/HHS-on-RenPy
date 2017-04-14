@@ -76,7 +76,7 @@ translate english leave_bf16998d:
 translate english leave_a58302c6:
 
     # "[interactionObj.name] прощается с вами и уходит."
-    "[interactionObj.name] says goodbye to you and leaves."
+    "[InteractionObj.name] says goodbye to you and leaves."
 
 # game/Interaction.rpy:582
 translate english reputation_473524f1:
@@ -202,7 +202,7 @@ translate english reputation_dbc3e92e:
 translate english reputation_76aa2514:
 
     # callup.say "[bribe] монет."
-    callup.say "[bribe] of coins."
+    callup.say "[Bribe] of coins."
 
 # game/Interaction.rpy:630
 translate english reputation_bd0b52ba:
@@ -244,7 +244,7 @@ translate english reputation_c40ba781:
 translate english reputation_3cd321b2:
 
     # "[callup.fname] разворачивается и уходит."
-    "[callup.fname] unfolds and leaves."
+    "[Callup.fname] unfolds and leaves."
 
 # game/Interaction.rpy:641
 translate english reputation_6853aa94:
@@ -310,7 +310,7 @@ translate english reputation_49e1601a:
 translate english reputation_6f50e0cd:
 
     # "[callup.fname], скорчив презрительную гримасу, удаляется из кабинета, не спрашивая вашего разрешения."
-    "[callup.fname], making a contemptuous grimace, is removed from the office without asking for your permission."
+    "[Callup.fname], making a contemptuous grimace, is removed from the office without asking for your permission."
 
 # game/Interaction.rpy:666
 translate english reputation_943bdd09:
@@ -322,7 +322,7 @@ translate english reputation_943bdd09:
 translate english reputation_ffd3fa3f:
 
     # player.say "[callup.name]! Немедленно покинь мой кабинет!"
-    player.say "[callup.name]!  Leave my office immediately!"
+    player.say "[Callup.name]!  Leave my office immediately!"
 
 # game/Interaction.rpy:672
 translate english reputation_53a1d2c2:
@@ -340,7 +340,7 @@ translate english LessonHelp_187f5977:
 translate english LessonHelp_7b70c9f8:
 
     # player.say "[name] я тут подумала..."
-    player.say "[name] I was just thinking ..."
+    player.say "[Name] I was just thinking ..."
 
 # game/Interaction.rpy:685
 translate english LessonHelp_9f433d33:
@@ -388,7 +388,7 @@ translate english LessonHelpSport_bc0cbec1:
 translate english LessonHelpSport_e87942e2:
 
     # player.say "[name] а с вами можно?"
-    player.say "[name] but with you it is possible?"
+    player.say "[Name] but with you it is possible?"
 
 # game/Interaction.rpy:717
 translate english LessonHelpSport_083a8081:
@@ -536,7 +536,7 @@ translate english strings:
 
     # game/Interaction.rpy:243
     old "[showHover.locationStatus.name]"
-    new "[showHover.locationStatus.name]"
+    new "[ShowHover.locationStatus.name]"
 
     # game/Interaction.rpy:406
     old "Количество [temp]"

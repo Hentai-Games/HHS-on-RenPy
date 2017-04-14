@@ -148,7 +148,7 @@ translate english mileQwest1_d70e60b6:
 translate english mileQwest1_814ffa95:
 
     # st3.say "[t.name]? Он в кладовке, с моей подругой [st2.fname]."
-    st3.say "[t.name]?  He's in the pantry, with my girlfriend [st2.fname]."
+    st3.say "[T.name]?  He's in the pantry, with my girlfriend [st2.fname]."
 
 # game/events/qwestMustangovich.rpy:50
 translate english mileQwest1_471c7bc3:
@@ -172,7 +172,7 @@ translate english mileQwest1_storage_c90561ef:
 translate english mileQwest1_storage_c1b91a2b:
 
     # "Посмотрев в дверную щель, Вы отшатнулись. Да, Вы в чём то оказались правы. [t.fname] действительно объяснял студентке упражнение. Только оно было не совсем спортивным. Спортивным конечно, но не совсем. За те секунды, что вы провели у двери, вы успели заметить не только тщательность выполнения трюка, но и размеры учителя."
-    "Looking at the doorway, you recoiled.  Yes, you were in some way right.  [t.fname] did explain the student to the exercise.  Only it was not exactly athletic.  Sportsy course, but not really.  For those seconds that you spent at the door, you managed to notice not only the thoroughness of the performance of the trick, but also the dimensions of the teacher."
+    "Looking at the doorway, you recoiled.  Yes, you were in some way right.  [T.fname] did explain the student to the exercise.  Only it was not exactly athletic.  Sportsy course, but not really.  For those seconds that you spent at the door, you managed to notice not only the thoroughness of the performance of the trick, but also the dimensions of the teacher."
 
 # game/events/qwestMustangovich.rpy:63
 translate english mileQwest1_storage_86fe6450:
@@ -196,7 +196,7 @@ translate english mileQwest1_storage_a2265ca1:
 translate english mileQwest1_storage_9c0bef34:
 
     # "[t.name] постанывал и совершал импульсивные движения бёдрами. Несмотря на то, что только недавно он надругался над другой ученицей, его эрекция была всё ещё тверда, и член подрагивал от каждого прикосновения юной ступни, готовясь вот-вот извергнуть семя."
-    "[t.name] moaned and made impulsive movements with hips.  Despite the fact that only recently he abused another student, his erection was still firm, and the member trembled from every touch of the young foot, preparing to just about ejaculate the seed."
+    "[T.name] moaned and made impulsive movements with hips.  Despite the fact that only recently he abused another student, his erection was still firm, and the member trembled from every touch of the young foot, preparing to just about ejaculate the seed."
 
 # game/events/qwestMustangovich.rpy:82
 translate english mileQwest1_storage_0dd7e1bb:
@@ -256,7 +256,7 @@ translate english mileQwest1_storageIn_865d7128:
 translate english mileQwest1_storageIn_24a6b2b4:
 
     # "[st2.fname] в панике собирает вещи, и пытается улизнуть."
-    "[st2.fname] in a panic collects things, and tries to slip away."
+    "[St2.fname] in a panic collects things, and tries to slip away."
 
 # game/events/qwestMustangovich.rpy:105
 translate english mileQwest1_storageIn_fa0fa172:
@@ -268,7 +268,7 @@ translate english mileQwest1_storageIn_fa0fa172:
 translate english mileQwest1_storageIn_3bd9ceec:
 
     # "[t.name] мямлит что то невразумительное, ученица шмыгает за дверь."
-    "[t.name] mumbles something unintelligible, the student slides out the door."
+    "[T.name] mumbles something unintelligible, the student slides out the door."
 
 # game/events/qwestMustangovich.rpy:110
 translate english mileQwest1_storageIn_b54fe783:
@@ -280,7 +280,7 @@ translate english mileQwest1_storageIn_b54fe783:
 translate english mileQwest1_storageIn_7ecba962:
 
     # "[t.name] в панике объясняет вам, что он ничего не может с собой поделать. Его стояк не прекращается с самого утра, с того самого момента, как он перепутал свои стероиды с бабушкиным лекарством от сердца. Домой в таком состоянии он возвращаться не может, так как там только одна комната и одна бабушка."
-    "[t.name] in a panic explains to you that he can not help himself.  His riser has not stopped since the morning, from the very moment when he confused his steroids with grandmother's medicine from the heart.  Home in this state, he can not return, because there is only one room and one grandmother."
+    "[T.name] in a panic explains to you that he can not help himself.  His riser has not stopped since the morning, from the very moment when he confused his steroids with grandmother's medicine from the heart.  Home in this state, he can not return, because there is only one room and one grandmother."
 
 # game/events/qwestMustangovich.rpy:114
 translate english mileQwest1_storageIn_b67e8fc4:
@@ -370,7 +370,7 @@ translate english mileQwest1_storageIn_9e2a7cc5:
 translate english mileQwest1_storageIn_72c4cc9c:
 
     # "[st2.fname] игриво склонила голову набок и ждёт вашего ответа."
-    "[st2.fname] playfully inclined her head to one side and waited for your answer."
+    "[St2.fname] playfully inclined her head to one side and waited for your answer."
 
 # game/events/qwestMustangovich.rpy:134
 translate english mileQwest1_storageIn_17cda9fe:
@@ -412,7 +412,7 @@ translate english mileQwest1_storageIn_3ea7cc08:
 translate english mileQwest1_storageIn_81a614a5:
 
     # "[t.name] в панике объясняет вам, что он ничего не может с собой поделать. Его стояк не прекращается с самого утра, с того самого момента, как он перепутал свои стероиды с бабушкиным лекарством от сердца. Домой в таком состоянии он возвращаться не может, так как там только одна комната и одна бабушка. "
-    "[t.name] in a panic explains to you that he can not help himself.  His riser has not stopped since the morning, from the very moment when he confused his steroids with grandmother's medicine from the heart.  Home in this state, he can not return, because there is only one room and one grandmother."
+    "[T.name] in a panic explains to you that he can not help himself.  His riser has not stopped since the morning, from the very moment when he confused his steroids with grandmother's medicine from the heart.  Home in this state, he can not return, because there is only one room and one grandmother."
 
 # game/events/qwestMustangovich.rpy:146
 translate english mileQwest1_storageIn_de7b4874:
@@ -478,7 +478,7 @@ translate english mileQwest1_storageIn_b3d3a0f3:
 translate english mileQwest1_storageIn_34b7184e:
 
     # "Спустя пару часов и пару оргазмов Вы всё ещё прыгали на его члене. [st2.fname] тоже подустала, но не слазила со своего насеста, постоянно ощущая, как неутомимый язык физрука ласкал её лоно."
-    "After a couple of hours and a couple of orgasms you still jumped on his penis.  [st2.fname] also got tired, but did not slazila from her perch, constantly feeling how the indefatigable language fizruka caressed her bosom."
+    "After a couple of hours and a couple of orgasms you still jumped on his penis.  [St2.fname] also got tired, but did not slazila from her perch, constantly feeling how the indefatigable language fizruka caressed her bosom."
 
 # game/events/qwestMustangovich.rpy:168
 translate english mileQwest1_storageIn_4e007604:
@@ -496,13 +496,13 @@ translate english mileQwest1_storageIn_e0c7a1ef:
 translate english mileQwest1_storageIn_0207a35e:
 
     # "[st2.fname] продолжает сосать член, вы нехотя полизываете его. Боже, у вас уже всё болит от этих скачек. Губы опухли, язык не слушается, между ног тоже не всё в порядке. Пора с этим заканчивать."
-    "[st2.fname] continues to suck the penis, you reluctantly polish it.  God, you are already hurting from these races.  The lips are swollen, the tongue does not obey, between the legs is also not all right.  It's time to end this."
+    "[St2.fname] continues to suck the penis, you reluctantly polish it.  God, you are already hurting from these races.  The lips are swollen, the tongue does not obey, between the legs is also not all right.  It's time to end this."
 
 # game/events/qwestMustangovich.rpy:177
 translate english mileQwest1_storageIn_c793b14e:
 
     # "[st2.fname] в полубессознательном состоянии висит на руках физрука, в то время как вы, вытащив его член из вагины, вгрызаетесь в него зубами."
-    "[st2.fname] in a semi-conscious state hangs on the hands of the fizruk, while you, having pulled his penis out of the vagina, bite into it with your teeth."
+    "[St2.fname] in a semi-conscious state hangs on the hands of the fizruk, while you, having pulled his penis out of the vagina, bite into it with your teeth."
 
 # game/events/qwestMustangovich.rpy:178
 translate english mileQwest1_storageIn_4746a924:
@@ -556,7 +556,7 @@ translate english mileQwest1_storageIn_74787367:
 translate english mileQwest1_storageIn_8ac7daa0:
 
     # player.say "[st2.fname], ты ведёшь себя нормально, сегодня был обычный день, устала ты потому, что сегодня был кросс на 5 км последним уроком. Уяснила?"
-    player.say "[st2.fname], you behave normally, today was a normal day, you're tired because today there was a cross-over for 5 km last lesson.  Do you understand?"
+    player.say "[St2.fname], you behave normally, today was a normal day, you're tired because today there was a cross-over for 5 km last lesson.  Do you understand?"
 
 # game/events/qwestMustangovich.rpy:188
 translate english mileQwest1_storageIn_eda6f55b:
@@ -652,7 +652,7 @@ translate english event_loc_ahmedFootjob_0_1_2bc71c72:
 translate english event_loc_ahmedFootjob_0_1_14b5d8f5:
 
     # "Однако делу время, а потехе час, и ваши ножки пришли в движение, уверенно массируя здоровенную палку учителя. [mustangovich.fname] всеми силами старался Вам помочь, двигаясь навстречу бёдрами и трахая ваши ступни. Учитывая его возбуждение, скоро он брызнул фонтаном спермы, забрызгивая себя и ваши ножки."
-    "However, the business time, and the fun hour, and your legs came in motion, confidently massaging the hefty stick of the teacher.  [mustangovich.fname] did his best to help you, moving towards your hips and fucking your feet.  Given his excitement, he soon sprinkled a fountain of sperm, splashing himself and your legs."
+    "However, the business time, and the fun hour, and your legs came in motion, confidently massaging the hefty stick of the teacher.  [Mustangovich.fname] did his best to help you, moving towards your hips and fucking your feet.  Given his excitement, he soon sprinkled a fountain of sperm, splashing himself and your legs."
 
 # game/events/qwestMustangovich.rpy:235
 translate english event_loc_ahmedFootjob_0_1_0a4f7570:
@@ -706,7 +706,7 @@ translate english event_loc_ahmedFootjob_0_2_0ff2ad98:
 translate english event_loc_ahmedFootjob_0_2_b5391f11:
 
     # player.say "И даже не надейся, что я дотронусь до этого руками! - предупредили вы было напрягшегося физрука, и начали двигать своими лапками, ощущая между ними горячую твёрдость. Член приятно скользил между ваших ступней, вызывая приливы желания внизу живота. [mustangovich.fname] был черезвычайно перевозбуждён и вскоре Вы ощутили предоргазменное трепетание."
-    player.say "And do not even hope that I will touch it with my hands!  - you warned you were strained fizruka, and began to move their paws, feeling between them hot hardness.  The member pleasantly slid between your feet, causing tides of desire in the lower abdomen.  [mustangovich.fname] was extremely overexcited and you soon felt pre-orgasmic flutter."
+    player.say "And do not even hope that I will touch it with my hands!  - you warned you were strained fizruka, and began to move their paws, feeling between them hot hardness.  The member pleasantly slid between your feet, causing tides of desire in the lower abdomen.  [Mustangovich.fname] was extremely overexcited and you soon felt pre-orgasmic flutter."
 
 # game/events/qwestMustangovich.rpy:257
 translate english event_loc_ahmedFootjob_0_2_12d6befa:
@@ -946,7 +946,7 @@ translate english event_loc_ahmedSex_0_3_dca5d0d3:
 translate english event_loc_ahmedSex_0_4_e33946cc:
 
     # player.say "[mustangovich.name], не желаете ли избавиться от некоторого стеснения в трусах? - потянули вы резинку его трусов вниз, обнажая устрашающий член."
-    player.say "[mustangovich.name], would you like to get rid of some embarrassment in your underpants?  - you pulled the elastic of his panties down, exposing a frightening member."
+    player.say "[Mustangovich.name], would you like to get rid of some embarrassment in your underpants?  - you pulled the elastic of his panties down, exposing a frightening member."
 
 # game/events/qwestMustangovich.rpy:381
 translate english event_loc_ahmedSex_0_4_ce3ac7a7:
@@ -1006,7 +1006,7 @@ translate english event_loc_ahmedSex_0_4_42df6ff8:
 translate english event_loc_ahmedSex_0_5_48f9f6ae:
 
     # player.say "[mustangovich.fname], мне кажется я знаю, куда ты можешь пристроить эту штуку! - показали вы на оттопыренные трусы и отвернулись к стене, призывно выпятив попу."
-    player.say "[mustangovich.fname], I think I know where you can attach this thing!  - You showed on protruding cowards and turned to the wall, invitingly protrude the ass."
+    player.say "[Mustangovich.fname], I think I know where you can attach this thing!  - You showed on protruding cowards and turned to the wall, invitingly protrude the ass."
 
 # game/events/qwestMustangovich.rpy:406
 translate english event_loc_ahmedSex_0_5_0ac7174b:

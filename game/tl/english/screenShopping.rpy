@@ -20,11 +20,11 @@ translate english strings:
 
     # game/screenShopping.rpy:61
     old "[myItem.name]"
-    new "[myItem.name]"
+    new "[MyItem.name]"
 
     # game/screenShopping.rpy:64
     old "[myItem.description]"
-    new "[myItem.description]"
+    new "[MyItem.description]"
 
     # game/screenShopping.rpy:66
     old "Использований [myItem.durability]"

@@ -40,7 +40,7 @@ translate english olympiad_edu_5ccb2f52:
 translate english olympiad_edu_4b9bc4a1:
 
     # "[teacher.name], под вашим чутким руководством смогла научить учеников гораздо большему, чем вы смогли бы сделать одна."
-    "[teacher.name], under your sensitive guidance, I was able to teach students much more than you could have done alone."
+    "[Teacher.name], under your sensitive guidance, I was able to teach students much more than you could have done alone."
 
 # game/events/qwestOlympiad.rpy:29
 translate english olympiad_edu_f5d5c3bc:

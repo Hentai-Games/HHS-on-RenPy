@@ -136,7 +136,7 @@ translate english corrMeeting_5_7c3f7501:
 translate english corrMeeting_5_41299353:
 
     # player.say "[kupruvna.name], помните случай когда у вас на уроке растегнулась блузка?"
-    player.say "[kupruvna.name], remember the case when you have a blouse rastegnulas?"
+    player.say "[Kupruvna.name], remember the case when you have a blouse rastegnulas?"
 
 # game/events/meetingEvents.rpy:84
 translate english corrMeeting_5_749c132a:
@@ -238,7 +238,7 @@ translate english corrMeeting_9_aa636611:
 translate english corrMeeting_9_efc548c5:
 
     # player.say "[dikovna.name], находясь на вашем уроке своим женским взглядом я заметила, что вы одели бюстгалтер на один размер меньше."
-    player.say "[dikovna.name], being at your lesson with my feminine gaze, I noticed that you put on a bra one size smaller."
+    player.say "[Dikovna.name], being at your lesson with my feminine gaze, I noticed that you put on a bra one size smaller."
 
 # game/events/meetingEvents.rpy:125
 translate english corrMeeting_9_1df51318:
@@ -568,7 +568,7 @@ translate english corrMeeting_31_1bba877e:
 translate english corrMeeting_31_f04721b0:
 
     # player.say "[dikovna.name]. Для многих уже не секрет то, что вы скрываете под юбкой. Будте добры, продемонстрируйте."
-    player.say "[dikovna.name].  For many, it's no secret that you hide under the skirt.  Be kind, show."
+    player.say "[Dikovna.name].  For many, it's no secret that you hide under the skirt.  Be kind, show."
 
 # game/events/meetingEvents.rpy:264
 translate english corrMeeting_31_61e4878c:
@@ -760,7 +760,7 @@ translate english corrMeeting_40_2f64d422:
 translate english corrMeeting_40_599e1abb:
 
     # player.say "Сегодня я Вам расскажу, как надо учителю снимать излишнее напряжение учеников, не теряя своего авторитета. [mustangovich.name], вы, как единственный представитель чисто мужского пола, не окажете ли даме честь, и не снимите ли свою единственную деталь гардероба?"
-    player.say "Today I will tell you how the teacher should remove the unnecessary tension of the students, without losing their authority.  [mustangovich.name], you, as the sole representative of a purely masculine gender, will not you give the lady the honor, and will not you take off your only detail of the wardrobe?"
+    player.say "Today I will tell you how the teacher should remove the unnecessary tension of the students, without losing their authority.  [Mustangovich.name], you, as the sole representative of a purely masculine gender, will not you give the lady the honor, and will not you take off your only detail of the wardrobe?"
 
 # game/events/meetingEvents.rpy:326
 translate english corrMeeting_40_da105d01:
@@ -856,7 +856,7 @@ translate english corrMeeting_40_e1ece947:
 translate english corrMeeting_40_cf00fd10:
 
     # player.say "Итак, после того как ученик дошёл до состояния готовности номер один, т.е. его член твёрд, и хорошо смазан, оголите его головку. - Вы аккуратно стягиваете крайнюю плоть с члена физрука, и перед всеми предстаёт его бордовая, напряжённая головка. [frigidovna.name] неотрывно следит за вашими движениями."
-    player.say "So, after the student has reached the state of readiness number one, i.e.  Its member is solid, and well lubricated, bare its head.  - You carefully draw the foreskin from a member of the fizruk, and before all of them appears his maroon, tense head.  [frigidovna.name] keeps an eye on your movements."
+    player.say "So, after the student has reached the state of readiness number one, i.e.  Its member is solid, and well lubricated, bare its head.  - You carefully draw the foreskin from a member of the fizruk, and before all of them appears his maroon, tense head.  [Frigidovna.name] keeps an eye on your movements."
 
 # game/events/meetingEvents.rpy:350
 translate english corrMeeting_40_fbdad345:
@@ -868,7 +868,7 @@ translate english corrMeeting_40_fbdad345:
 translate english corrMeeting_40_9d8a4be8:
 
     # player.say "Видя, что ученик начинает выделять смазку, обхватите головку всей ладонью, и начинайте несильно, но быстро двигать ей, - за вашими движениями пристально следят, некоторые уже запустили руки под юбки. [mustangovich.fname] начинает стонать сильнее, бугры мышц переливаются по его телу, показывая насколько он напряжён."
-    player.say "Seeing that the student starts to give off the lubricant, grasp the head with the entire palm, and start slightly, but quickly move it - for your movements are closely monitored, some have already run their hands under the skirts.  [mustangovich.fname] begins to moan more strongly, the muscles are poured over his body, showing how much he is tense."
+    player.say "Seeing that the student starts to give off the lubricant, grasp the head with the entire palm, and start slightly, but quickly move it - for your movements are closely monitored, some have already run their hands under the skirts.  [Mustangovich.fname] begins to moan more strongly, the muscles are poured over his body, showing how much he is tense."
 
 # game/events/meetingEvents.rpy:352
 translate english corrMeeting_40_d048ab6d:
@@ -880,7 +880,7 @@ translate english corrMeeting_40_d048ab6d:
 translate english corrMeeting_40_ef804495:
 
     # "[mustangovich.name] выгибается, почти сбрасывая вас, и струя спермы пролетает совсем рядом с его головой, оставляя белые капли на его животе и торсе. Вы, довольная поднимаетесь на ноги, вытирая руки салфеткой."
-    "[mustangovich.name] arches, almost dropping you, and a stream of sperm flies just next to his head, leaving white drops on his stomach and torso.  You, happy to rise to your feet, wiping your hands with a napkin."
+    "[Mustangovich.name] arches, almost dropping you, and a stream of sperm flies just next to his head, leaving white drops on his stomach and torso.  You, happy to rise to your feet, wiping your hands with a napkin."
 
 # game/events/meetingEvents.rpy:355
 translate english corrMeeting_40_b1fc7f39_1:
