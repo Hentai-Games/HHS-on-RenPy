@@ -82,7 +82,7 @@ translate english olympiad_go_453320ed:
 translate english olympiad_go_e2a2436d:
 
     # "Когда принесли счет вы поняли, что денег в кошельке недостаточно на оплату пирушки...\nВам пришлось попросить своих учеников оплатить пиршество. Очевидно, это не прибавило вам репутации."
-    "When you brought the account, you realized that the money in your wallet was not enough to pay for the banquet ... \ n You had to ask your students to pay for the feast.  Obviously, this did not add to your reputation."
+    "When you brought the account, you realized that the money in your wallet was not enough to pay for the banquet ... \n You had to ask your students to pay for the feast.  Obviously, this did not add to your reputation."
 
 # game/events/qwestOlympiad.rpy:83
 translate english olympiad_go_f30e8ddc:
@@ -112,7 +112,7 @@ translate english olympiad_go_869d85eb:
 translate english olympiad_go_e2a2436d_1:
 
     # "Когда принесли счет вы поняли, что денег в кошельке недостаточно на оплату пирушки...\nВам пришлось попросить своих учеников оплатить пиршество. Очевидно, это не прибавило вам репутации."
-    "When you brought the account, you realized that the money in your wallet was not enough to pay for the banquet ... \ n You had to ask your students to pay for the feast.  Obviously, this did not add to your reputation."
+    "When you brought the account, you realized that the money in your wallet was not enough to pay for the banquet ... \n You had to ask your students to pay for the feast.  Obviously, this did not add to your reputation."
 
 # game/events/qwestOlympiad.rpy:100
 translate english olympiad_go_26f71774:
@@ -136,7 +136,7 @@ translate english olympiad_go_345a5c64:
 translate english olympiad_go_e2a2436d_2:
 
     # "Когда принесли счет вы поняли, что денег в кошельке недостаточно на оплату пирушки...\nВам пришлось попросить своих учеников оплатить пиршество. Очевидно, это не прибавило вам репутации."
-    "When you brought the account, you realized that the money in your wallet was not enough to pay for the banquet ... \ n You had to ask your students to pay for the feast.  Obviously, this did not add to your reputation."
+    "When you brought the account, you realized that the money in your wallet was not enough to pay for the banquet ... \n You had to ask your students to pay for the feast.  Obviously, this did not add to your reputation."
 
 # game/events/qwestOlympiad.rpy:124
 translate english olympiad_bribe_start_9845cce0:

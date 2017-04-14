@@ -72,7 +72,7 @@ translate english strings:
 
     # game/customScreens.rpy:269
     old "{u}[name]{/u}"
-    new "{U} [name] {/ u}"
+    new "{U} [name] {/u}"
 
     # game/customScreens.rpy:270
     old "Развратность: [corr]"

@@ -268,7 +268,7 @@ translate english event_loc_class3_10_no9_6d2ef23e:
 translate english event_loc_class3_10_no9_f3a2c83c:
 
     # player.say "\"Ок. Расставим все палки над Й:\n1. Это не крем для рук.\n2. И не тряпочка.\""
-    player.say "\"Okay, we'll put all the sticks over J: \ n1 This is not a hand cream. \ N2 And not a rag.\""
+    player.say "\"Okay, we'll put all the sticks over J: \n1 This is not a hand cream. \ N2 And not a rag.\""
 
 # game/events/rEventsClass3.rpy:153
 translate english event_loc_class3_10_no9_1beb2d25:

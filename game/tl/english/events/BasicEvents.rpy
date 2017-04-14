@@ -28,7 +28,7 @@ translate english myintro_33589526:
 translate english myintro_fc8783c1:
 
     # me "irvin-zamora за помощь с кодом. \nanon12321 за вычитку текстов, \nNikAndrei за помощь с переносом и поиск багов. \nntcntl за багфикс и улучшения. \nCпасибо вам! Без вас эта версия вышла бы ещё через год!"
-    me "Irvin-zamora for help with the code.  \ Nanon12321 for reading the texts, \ nNikAndrei for help with the migration and searching for bugs.  \ Nntcntl for bugfix and improvements.  \ NThank you!  Without you, this version would be released in a year!"
+    me "Irvin-zamora for help with the code.  \ Nanon12321 for reading the texts, \nNikAndrei for help with the migration and searching for bugs.  \ Nntcntl for bugfix and improvements.  \ NThank you!  Without you, this version would be released in a year!"
 
 # game/events/BasicEvents.rpy:52
 translate english myintro_379f17e7:
@@ -58,7 +58,7 @@ translate english myintro_bfca9093:
 translate english myintro_5379dc0b:
 
     # me "Хех, [player.fname]! [player.name]!!! Получше ничего не придумалось, да?"
-    me "Heh, [player.fname]!  [player.name] !!!  Better did not come up with anything, right?"
+    me "Heh, [player.fname]!  [Player.name] !!!  Better did not come up with anything, right?"
 
 # game/events/BasicEvents.rpy:57
 translate english myintro_135d3669:
@@ -628,7 +628,7 @@ translate english income_73571305:
 translate english income_6ff98b95:
 
     # "Вас так же уведомили, что вами недовольны родители следующих учеников:\n{cps=20}{color=#f00}[complains]{/color}{/cps}"
-    "You were also notified that you are dissatisfied with the parents of the following students: \ n {cps = 20} {color = # f00} [complains] {/ color} {/ cps}"
+    "You were also notified that you are dissatisfied with the parents of the following students: \n {cps=20} {color=#f00} [complains] {/color} {/cps}"
 
 # game/events/BasicEvents.rpy:553
 translate english income_864349ab:

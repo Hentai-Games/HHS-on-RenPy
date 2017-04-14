@@ -112,7 +112,7 @@ translate english strings:
 
     # renpy/common/00gltest.rpy:217
     old "{b}Note:{/b} Microsoft's DirectX web setup program will, by default, install the Bing toolbar. If you do not want this toolbar, uncheck the appropriate box."
-    new "{B} Note: {/ b} Microsoft's DirectX web setup program will, by default, install the Bing toolbar.  If you do not want this toolbar, uncheck the appropriate box."
+    new "{B} Note: {/b} Microsoft's DirectX web setup program will, by default, install the Bing toolbar.  If you do not want this toolbar, uncheck the appropriate box."
 
     # renpy/common/00gltest.rpy:221
     old "When setup finishes, please click below to restart this program."
@@ -576,11 +576,11 @@ translate english strings:
 
     # renpy/common/00console.rpy:398
     old "commands:\n"
-    new "Commands: \ n"
+    new "Commands: \n"
 
     # renpy/common/00console.rpy:408
     old " <renpy script statement>: run the statement\n"
-    new "<Renpy script statement>: run the statement \ n"
+    new "<Renpy script statement>: run the statement \n"
 
     # renpy/common/00console.rpy:410
     old " <python expression or statement>: run the expression or statement"

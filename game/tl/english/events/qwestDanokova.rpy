@@ -2914,7 +2914,7 @@ translate english danokova_bdsm_offer_ecbb0245:
 translate english danokova_bdsm_offer_3ce59c14:
 
     # d.say "И вам, [player.name]. Постарайтесь побыстрее. А то я уже вся дрожу в ожидании...\n...того, когда наконец допишу своё исследование."
-    d.say "And you, [player.name].  Try quickly.  And then I'm already trembling in anticipation ... \ n ... of when I finally finish my research."
+    d.say "And you, [player.name].  Try quickly.  And then I'm already trembling in anticipation ... \n ... of when I finally finish my research."
 
 # game/events/qwestDanokova.rpy:869
 translate english danokova_bdsm_offer_be7897d6:
