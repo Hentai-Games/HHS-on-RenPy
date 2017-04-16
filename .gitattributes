@@ -1,6 +1,6 @@
 # Auto detect text files and perform LF normalization
 *.py  text eol=lf whitespace=blank-at-eol,-blank-at-eof,-space-before-tab,tabwidth=4
-* text eol=lf
+*.rpy  text eol=lf whitespace=blank-at-eol,-blank-at-eof,-space-before-tab,tabwidth=4
 
 # Custom for Visual Studio
 *.cs     diff=csharp
